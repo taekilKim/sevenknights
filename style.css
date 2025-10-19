@@ -1,0 +1,147 @@
+body {
+  font-family: "Apple SD Gothic Neo", sans-serif;
+  background: #fafafa;
+  margin: 0;
+}
+h1 {
+  text-align: center;
+  padding: 1.5rem 1rem 1rem;
+  font-weight: 700;
+  font-size: 2rem;
+  color: #222;
+}
+#heroes {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+.hero-card {
+  background: #1b1b1b;
+  color: #fff;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  width: 200px;
+  text-align: center;
+  margin: 10px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.hero-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.5);
+}
+.hero-card img {
+  width: 100%;
+  border-radius: 10px;
+  object-fit: cover;
+  margin-bottom: 8px;
+}
+.hero-name {
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+.hero-nickname {
+  font-size: 0.9rem;
+  color: #bbb;
+  margin-bottom: 6px;
+}
+.hero-group {
+  background: #294b6b;
+  color: #aee6ff;
+  padding: 2px 8px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  display: inline-block;
+  margin-bottom: 4px;
+}
+.hero-rarity {
+  color: #f6c96f;
+  font-weight: bold;
+  margin-top: 4px;
+}
+.hero-type {
+  color: #8be68a;
+  font-size: 0.85rem;
+}
+
+/* 모달 스타일 */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease forwards;
+}
+.modal-content {
+  background: #fff;
+  padding: 24px 32px 32px;
+  max-width: 500px;
+  width: 90%;
+  border-radius: 16px;
+  position: relative;
+  animation: slideDown 0.3s ease forwards;
+  max-height: 80vh;
+  overflow-y: auto;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+.modal-close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 28px;
+  font-weight: bold;
+  color: #333;
+  cursor: pointer;
+  border: none;
+  background: transparent;
+}
+.modal-hero-image {
+  width: 100%;
+  border-radius: 12px;
+  margin-bottom: 15px;
+}
+.modal-hero-name {
+  font-size: 26px;
+  font-weight: 900;
+  margin-bottom: 6px;
+}
+.modal-hero-role {
+  font-size: 18px;
+  color: #666;
+  margin-bottom: 16px;
+}
+.modal-hero-description {
+  margin-bottom: 16px;
+  line-height: 1.5;
+  white-space: pre-wrap;
+}
+.modal-hero-skills {
+  list-style: disc inside;
+  padding-left: 0;
+  margin: 0;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes slideDown {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
