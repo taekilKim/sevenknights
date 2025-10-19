@@ -2,6 +2,7 @@
   "name": "sevenknights-guide",
   "version": "1.0.0",
   "description": "세븐나이츠 리버스 도감 (Vercel 배포용)",
+  "type": "module",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
