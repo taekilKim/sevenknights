@@ -20,12 +20,10 @@ h1 {
 .hero-card {
   background: #fff;
   color: #1b1b1b;
-  border-radius: 8px;
-  padding: 12px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  border-radius: 8px 8px 8px 24px;
+  padding: 0px;
   width: 120px;
   text-align: center;
-  margin: 10px;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 .hero-card:hover {
