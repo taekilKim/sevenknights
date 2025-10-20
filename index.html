@@ -51,6 +51,7 @@
                 const img = document.createElement("img");
                 img.src = hero.portrait;
                 img.alt = hero.name || "이미지 없음";
+                img.className = "hero-portrait";
                 imgWrapper.appendChild(img);
 
                 if (hero.typeImage) {
