@@ -35,8 +35,8 @@ app.get("/heroes", async (req, res) => {
     const typeImageMap = {};
     if (Array.isArray(typesData.records)) {
       for (const typeRecord of typesData.records) {
-        const name = typeRecord.fields && typeRecord.fields.name;
-        const attachments = typeRecord.fields && typeRecord.fields.attachment;
+        const name = typeRecord.fields && typeRecord.fields.Name;
+        const attachments = typeRecord.fields && typeRecord.fields.Attachments;
         // attachment is an array of objects with url
         const url = Array.isArray(attachments) && attachments[0] && attachments[0].url;
         if (name && url) {
