@@ -14,21 +14,49 @@ const BASE_ID = "app6CjXEVBGVvatUd"; // Airtable Base ID
 const TABLE = "Heroes"; // Airtable 테이블 이름
 
 // ✅ 영웅 데이터 API
+// ✅ 영웅 데이터 + 타입 이미지 API
 app.get("/heroes", async (req, res) => {
   try {
-    const response = await fetch(`https://api.airtable.com/v0/${BASE_ID}/${TABLE}`, {
+    // Fetch Heroes
+    const heroesRes = await fetch(`https://api.airtable.com/v0/${BASE_ID}/Heroes`, {
       headers: { Authorization: `Bearer ${AIRTABLE_TOKEN}` },
     });
+    if (!heroesRes.ok) throw new Error(`Airtable Heroes API error: ${heroesRes.status}`);
+    const heroesData = await heroesRes.json();
 
-    if (!response.ok) {
-      throw new Error(`Airtable API error: ${response.status}`);
+    // Fetch Types
+    const typesRes = await fetch(`https://api.airtable.com/v0/${BASE_ID}/Type`, {
+      headers: { Authorization: `Bearer ${AIRTABLE_TOKEN}` },
+    });
+    if (!typesRes.ok) throw new Error(`Airtable Type API error: ${typesRes.status}`);
+    const typesData = await typesRes.json();
+
+    // Create a map of type name -> attachment URL
+    const typeImageMap = {};
+    if (Array.isArray(typesData.records)) {
+      for (const typeRecord of typesData.records) {
+        const name = typeRecord.fields && typeRecord.fields.name;
+        const attachments = typeRecord.fields && typeRecord.fields.attachment;
+        // attachment is an array of objects with url
+        const url = Array.isArray(attachments) && attachments[0] && attachments[0].url;
+        if (name && url) {
+          typeImageMap[name] = url;
+        }
+      }
     }
 
-    const data = await response.json();
-    res.json(data);
+    // Add typeImage to each hero
+    if (Array.isArray(heroesData.records)) {
+      for (const hero of heroesData.records) {
+        const typeName = hero.fields && hero.fields.type;
+        hero.fields.typeImage = typeImageMap[typeName] || null;
+      }
+    }
+
+    res.json(heroesData);
   } catch (error) {
     console.error("Airtable fetch error:", error);
-    res.status(500).json({ error: "Failed to fetch heroes from Airtable" });
+    res.status(500).json({ error: "Failed to fetch heroes and types from Airtable" });
   }
 });
 
