@@ -19,17 +19,16 @@ h1 {
 }
 #heroes {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(10%, 1fr));
   justify-items: center;
-  gap: 12px;
+  gap: 0px;
   padding: 20px;
 }
 .hero-card {
   background: #fff;
   color: #191f28;
   border-radius: 20px 4px 4px 4px;
-  padding: 0px;
-  width: 120px;
+  padding: 8px;
   text-align: center;
   transition: transform 0.1s ease, box-shadow 0.1s ease;
   overflow:hidden;
@@ -45,7 +44,7 @@ h1 {
 }
 .hero-name {
   font-size: 18px;
-  font-weight: 'semi-bold';
+  font-weight: 600;
 }
 .hero-nickname {
   font-size: 0.9rem;
