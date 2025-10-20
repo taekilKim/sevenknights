@@ -85,6 +85,7 @@
             if (hero.type) {
                 const type = document.createElement("div");
                 type.className = "hero-type";
+                type.setAttribute("data-type", hero.type);
                 type.textContent = hero.type;
                 card.appendChild(type);
             }

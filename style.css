@@ -67,9 +67,40 @@ h1 {
   font-weight: bold;
   margin-top: 4px;
 }
+/* 타입별 배지 아이콘 (마법형, 만능형, 공격형, 방어형, 지원형) */
 .hero-type {
-  color: #8be68a;
-  font-size: 0.85rem;
+  font-size: 0; /* 텍스트 숨기기 */
+}
+
+.hero-type[data-type="마법형"]::before,
+.hero-type[data-type="만능형"]::before,
+.hero-type[data-type="공격형"]::before,
+.hero-type[data-type="방어형"]::before,
+.hero-type[data-type="지원형"]::before {
+  content: "";
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  margin-right: 0;
+  background-size: contain;
+  background-repeat: no-repeat;
+  vertical-align: middle;
+}
+
+.hero-type[data-type="마법형"]::before {
+  background-image: url("images/type-magic.webp");
+}
+.hero-type[data-type="만능형"]::before {
+  background-image: url("images/type-balance.webp");
+}
+.hero-type[data-type="공격형"]::before {
+  background-image: url("images/type-attack.webp");
+}
+.hero-type[data-type="방어형"]::before {
+  background-image: url("images/type-defence.webp");
+}
+.hero-type[data-type="지원형"]::before {
+  background-image: url("images/type-support.webp");
 }
 
 /* 모달 스타일 */
