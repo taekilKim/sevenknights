@@ -21,7 +21,7 @@ h1 {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
   justify-items: center;
-  gap: 8px;
+  gap: 12px;
   padding: 20px;
 }
 .hero-card {
@@ -31,11 +31,12 @@ h1 {
   padding: 0px;
   width: 120px;
   text-align: center;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+  overflow:hidden;
 }
 .hero-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 8px 16px rgba(0,0,0,0.5);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
 }
 .hero-card img {
   width: 100%;
