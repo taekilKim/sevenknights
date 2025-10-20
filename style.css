@@ -18,12 +18,12 @@ h1 {
   padding: 20px;
 }
 .hero-card {
-  background: #1b1b1b;
-  color: #fff;
-  border-radius: 12px;
-  padding: 16px;
+  background: #fff;
+  color: #1b1b1b;
+  border-radius: 8px;
+  padding: 12px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-  width: 200px;
+  width: 120px;
   text-align: center;
   margin: 10px;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
