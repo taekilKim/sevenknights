@@ -19,7 +19,7 @@ h1 {
 }
 .hero-card {
   background: #fff;
-  color: #1b1b1b;
+  color: #191f28;
   border-radius: 8px 8px 8px 24px;
   padding: 0px;
   width: 120px;
@@ -37,8 +37,8 @@ h1 {
   margin-bottom: 8px;
 }
 .hero-name {
-  font-size: 1.1rem;
-  font-weight: bold;
+  font-size: 18px;
+  font-weight: semi-bold;
 }
 .hero-nickname {
   font-size: 0.9rem;
