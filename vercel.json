@@ -6,7 +6,7 @@
     { "src": "style.css", "use": "@vercel/static" }
   ],
   "routes": [
-    { "src": "/images/(.*)", "dest": "/public/images/$1" },
+    { "src": "/images/(.*)", "dest": "/public/$1" },
     { "src": "/heroes", "dest": "/server.js" },
     { "src": "/", "dest": "/index.html" }
   ]
