@@ -45,14 +45,21 @@ app.get("/heroes", async (req, res) => {
       }
     }
 
-    // Process heroes to include typeImage and simplify structure
+    // Process heroes to include typeImage and normalized structure
     const processedHeroes = [];
     if (Array.isArray(heroesData.records)) {
       for (const hero of heroesData.records) {
         const fields = hero.fields || {};
         const typeName = fields.type || fields.Type || null;
         processedHeroes.push({
-          ...fields,
+          name: fields.name || fields.Name || null,
+          type: fields.type || fields.Type || null,
+          rarity: fields.rarity || fields.Rarity || null,
+          portrait: Array.isArray(fields.portrait)
+            ? fields.portrait[0]?.url
+            : Array.isArray(fields.Portrait)
+            ? fields.Portrait[0]?.url
+            : null,
           typeImage: typeImageMap[typeName] || null,
         });
       }
