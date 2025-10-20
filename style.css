@@ -45,7 +45,7 @@ h1 {
 }
 .hero-name {
   font-size: 18px;
-  font-weight: semi-bold;
+  font-weight: 'semi-bold';
 }
 .hero-nickname {
   font-size: 0.9rem;
