@@ -45,15 +45,20 @@ app.get("/heroes", async (req, res) => {
       }
     }
 
-    // Add typeImage to each hero
+    // Process heroes to include typeImage and simplify structure
+    const processedHeroes = [];
     if (Array.isArray(heroesData.records)) {
       for (const hero of heroesData.records) {
-        const typeName = hero.fields && hero.fields.type;
-        hero.fields.typeImage = typeImageMap[typeName] || null;
+        const fields = hero.fields || {};
+        const typeName = fields.type || fields.Type || null;
+        processedHeroes.push({
+          ...fields,
+          typeImage: typeImageMap[typeName] || null,
+        });
       }
     }
 
-    res.json(heroesData);
+    res.json({ records: processedHeroes });
   } catch (error) {
     console.error("Airtable fetch error:", error);
     res.status(500).json({ error: "Failed to fetch heroes and types from Airtable" });
