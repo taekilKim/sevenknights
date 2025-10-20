@@ -88,19 +88,19 @@ h1 {
 }
 
 .hero-type[data-type="마법형"]::before {
-  background-image: url("images/type-magic.webp");
+  background-image: url("./images/type-magic.webp");
 }
 .hero-type[data-type="만능형"]::before {
-  background-image: url("images/type-balance.webp");
+  background-image: url("./images/type-balance.webp");
 }
 .hero-type[data-type="공격형"]::before {
-  background-image: url("images/type-attack.webp");
+  background-image: url("./images/type-attack.webp");
 }
 .hero-type[data-type="방어형"]::before {
-  background-image: url("images/type-defence.webp");
+  background-image: url("./images/type-defence.webp");
 }
 .hero-type[data-type="지원형"]::before {
-  background-image: url("images/type-support.webp");
+  background-image: url("./images/type-support.webp");
 }
 
 /* 모달 스타일 */
