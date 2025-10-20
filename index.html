@@ -60,6 +60,7 @@
                   typeBadge.style.position = "absolute";
                   typeBadge.style.left = "0";
                   typeBadge.style.bottom = "0";
+                  typeBadge.className = "hero-type-badge";
                   imgWrapper.appendChild(typeBadge);
                 }
 
@@ -88,13 +89,13 @@
                 card.appendChild(group);
             }
 
-            // 등급
-            if (hero.rarity) {
-                const rarity = document.createElement("div");
-                rarity.className = "hero-rarity";
-                rarity.textContent = hero.rarity;
-                card.appendChild(rarity);
-            }
+            // 등급 (숨김 처리)
+            // if (hero.rarity) {
+            //     const rarity = document.createElement("div");
+            //     rarity.className = "hero-rarity";
+            //     rarity.textContent = hero.rarity;
+            //     card.appendChild(rarity);
+            // }
 
             // 타입 텍스트 표시 부분 제거
 
