@@ -45,13 +45,13 @@ h1 {
   margin-bottom: 8px;
 }
 .hero-name {
-  font-size: 18px;
+  font-size: 1rem;
   font-weight: 600;
 }
 .hero-nickname {
-  font-size: 0.9rem;
+  font-size: 1rem;
   color: #bbb;
-  margin-bottom: 6px;
+  margin-bottom: 8px;
 }
 .hero-group {
   background: #294b6b;
