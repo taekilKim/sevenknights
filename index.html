@@ -39,23 +39,23 @@
           }
 
           data.records.forEach((record) => {
-            const hero = record.fields;
+            const hero = record;
             const card = document.createElement("div");
             card.className = "hero-card";
 
             // 초상 이미지와 타입 배지 감싸는 div
-            if (hero.portrait && hero.portrait[0] && hero.portrait[0].url) {
+            if (hero.portrait) {
                 const imgWrapper = document.createElement("div");
                 imgWrapper.style.position = "relative";
 
                 const img = document.createElement("img");
-                img.src = hero.portrait[0].url;
-                img.alt = hero.Name || "이미지 없음";
+                img.src = hero.portrait;
+                img.alt = hero.name || "이미지 없음";
                 imgWrapper.appendChild(img);
 
-                if (hero.typeImage && hero.typeImage[0] && hero.typeImage[0].url) {
+                if (hero.typeImage) {
                   const typeBadge = document.createElement("img");
-                  typeBadge.src = hero.typeImage[0].url;
+                  typeBadge.src = hero.typeImage;
                   typeBadge.alt = hero.type || "타입 배지";
                   typeBadge.style.position = "absolute";
                   typeBadge.style.left = "0";
@@ -69,7 +69,7 @@
             // 이름
             const name = document.createElement("div");
             name.className = "hero-name";
-            name.textContent = hero.Name || "이름 없음";
+            name.textContent = hero.name || "이름 없음";
             card.appendChild(name);
 
             // 별명
