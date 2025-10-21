@@ -32,12 +32,8 @@ h1 {
   align-items: center;
   justify-content: flex-start;
   gap: 8px;
-  width: 130px;
-  height: auto;
-  padding: 8px;
   background: transparent;
   color: #191f28;
-  border-radius: 16px;
   position: relative;
   transition: transform 0.1s ease, box-shadow 0.1s ease;
   overflow: visible;
@@ -48,6 +44,8 @@ h1 {
   aspect-ratio: 1 / 1;
   border-radius: 50%;
   object-fit: cover;
+  width: 130px;
+  height: auto;
   flex-shrink: 0;
   border: 3px solid #c1b494;
   box-shadow: 0 2px 4px rgba(0,0,0,0.4);
