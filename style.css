@@ -250,9 +250,18 @@ h1 {
   justify-content: center;
   align-items: flex-start;
   padding: 48px;
-  overflow-y: auto;
+  overflow-y: scroll;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE 10+ */
   height: calc(100vh - 80px);
-  margin: 0 320px 0 240px; /* leave space for fixed sidebars */
+  margin-left: 240px; /* left sidebar width */
+  margin-right: 320px; /* right sidebar width */
+  width: calc(100% - 560px);
+  background: #0e0e0e;
+}
+
+.content::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
 }
 
 /* Loading Spinner */
