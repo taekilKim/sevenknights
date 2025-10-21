@@ -7,8 +7,55 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <h1>세븐나이츠 리버스 도감</h1>
-    <div id="heroes">불러오는 중...</div>
+    <div class="layout">
+      <header class="header">
+        <h1>세븐나이츠 리버스 도감</h1>
+      </header>
+
+      <aside class="sidebar-left">
+        <nav>
+          <ul>
+            <li>영웅 도감</li>
+            <li>장비 도감</li>
+            <li>레이드 공략</li>
+          </ul>
+        </nav>
+      </aside>
+
+      <main class="content">
+        <div id="heroes" class="loading-container">
+          <div class="spinner"></div>
+          <div class="loading-text">LOADING</div>
+        </div>
+      </main>
+
+      <aside class="sidebar-right">
+        <div>
+          <h3>정렬 / 필터</h3>
+          <div class="filter-section">
+            <label for="filter-type">유형</label>
+            <select id="filter-type">
+              <option value="">전체</option>
+              <option value="공격형">공격형</option>
+              <option value="방어형">방어형</option>
+              <option value="마법형">마법형</option>
+              <option value="지원형">지원형</option>
+              <option value="만능형">만능형</option>
+            </select>
+          </div>
+          <div class="filter-section">
+            <label for="filter-rarity">희귀도</label>
+            <select id="filter-rarity">
+              <option value="">전체</option>
+              <option value="전설+">전설+</option>
+              <option value="전설">전설</option>
+              <option value="희귀">희귀</option>
+              <option value="고급">고급</option>
+            </select>
+          </div>
+        </div>
+      </aside>
+    </div>
 
     <!-- 모달 -->
     <div class="modal-overlay" id="hero-modal">
