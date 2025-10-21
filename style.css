@@ -23,6 +23,7 @@ h1 {
   max-width: none;
   margin: 0;
   box-sizing: border-box;
+  padding:48px;
 }
 
 /* --- Hero Card Styles --- */
@@ -221,7 +222,7 @@ h1 {
   top: 80px;
   left: 0;
   bottom: 0;
-  width: 240px;
+  width: 280px;
   overflow-y: auto;
   box-sizing: border-box;
 }
@@ -235,7 +236,7 @@ h1 {
   top: 80px;
   right: 0;
   bottom: 0;
-  width: 320px;
+  width: 280px;
   overflow-y: auto;
   box-sizing: border-box;
 }
@@ -246,7 +247,6 @@ h1 {
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  padding: 48px;
   overflow-y: scroll;
   scrollbar-width: none; /* Firefox */
   -ms-overflow-style: none; /* IE 10+ */
