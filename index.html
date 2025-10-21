@@ -51,7 +51,16 @@
                 const img = document.createElement("img");
                 img.src = hero.portrait;
                 img.alt = hero.name || "이미지 없음";
-                img.className = `hero-portrait rarity-${(hero.rarity || "normal").toLowerCase()}`;
+                const rarityClass = (() => {
+                  switch (hero.rarity) {
+                    case "전설+": return "legendary-plus";
+                    case "전설": return "legendary";
+                    case "희귀": return "rare";
+                    case "고급": return "uncommon";
+                    default: return "normal";
+                  }
+                })();
+                img.className = `hero-portrait rarity-${rarityClass}`;
                 imgWrapper.appendChild(img);
 
                 if (hero.typeImage) {
