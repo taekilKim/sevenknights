@@ -19,8 +19,8 @@ h1 {
   gap: 48px;
   justify-content: center;
   align-content: start;
-  width: 1200px;
-  max-width: 100%;
+  width: 100%;
+  max-width: 1200px;
   margin: 0 auto;
   box-sizing: border-box;
 }
