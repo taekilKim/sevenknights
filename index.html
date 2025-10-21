@@ -23,10 +23,7 @@
       </aside>
 
       <main class="content">
-        <div id="heroes" class="loading-container">
-          <div class="spinner"></div>
-          <div class="loading-text">LOADING</div>
-        </div>
+        <div id="heroes"></div>
       </main>
 
       <aside class="sidebar-right">
@@ -57,6 +54,12 @@
       </aside>
     </div>
 
+    <!-- Global Loading Overlay -->
+    <div id="global-loading" class="loading-container" aria-hidden="true" style="display:flex;">
+      <div class="spinner"></div>
+      <div class="loading-text">LOADING</div>
+    </div>
+
     <!-- 모달 -->
     <div class="modal-overlay" id="hero-modal">
       <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="modal-hero-name">
@@ -70,8 +73,15 @@
     </div>
 
     <script>
+      function showLoading(on) {
+        const el = document.getElementById("global-loading");
+        if (!el) return;
+        el.style.display = on ? "flex" : "none";
+      }
+
       // Airtable 데이터 불러오기
       async function fetchHeroes() {
+        showLoading(true);
         try {
           const response = await fetch("/heroes");
           const data = await response.json();
@@ -161,6 +171,8 @@
         } catch (error) {
           console.error("에러:", error);
           document.getElementById("heroes").textContent = "데이터 불러오기 오류";
+        } finally {
+          showLoading(false);
         }
       }
 
