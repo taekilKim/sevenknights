@@ -55,7 +55,7 @@ h1 {
 
 .hero-name {
   font-size: 0.95rem;
-  font-weight: 600;
+  font-weight: 500;
   color: #fff;
   text-align: center;
   margin-top: 4px;
@@ -197,7 +197,7 @@ h1 {
     "header header header"
     "sidebar-left content sidebar-right";
   width: 1920px;
-  height: 100vh;
+  height: 100%;
   background: #0e0e0e;
   color: #fff;
 }
