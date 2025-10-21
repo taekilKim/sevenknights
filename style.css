@@ -15,13 +15,13 @@ h1 {
 /* Hero Grid inside Content */
 #heroes {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  grid-template-columns: repeat(6, 1fr);
   gap: 48px;
-  justify-content: center;
+  justify-content: stretch;
   align-content: start;
   width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
+  max-width: none;
+  margin: 0;
   box-sizing: border-box;
 }
 
@@ -290,4 +290,8 @@ h1 {
 @keyframes spin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
+}
+
+.hero-portrait-wrap {
+  line-height: 0;
 }
