@@ -51,7 +51,7 @@
                 const img = document.createElement("img");
                 img.src = hero.portrait;
                 img.alt = hero.name || "이미지 없음";
-                img.className = "hero-portrait";
+                img.className = `hero-portrait rarity-${(hero.rarity || "normal").toLowerCase()}`;
                 imgWrapper.appendChild(img);
 
                 if (hero.typeImage) {
