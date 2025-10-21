@@ -188,7 +188,7 @@ h1 {
 /* --- Layout structure --- */
 .layout {
   display: grid;
-  grid-template-columns: 240px 1fr 240px;
+  grid-template-columns: 320px 1fr 320px;
   grid-template-rows: 80px auto;
   grid-template-areas:
     "header header header"
