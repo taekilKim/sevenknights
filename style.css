@@ -16,18 +16,18 @@ h1 {
   display: grid;
   grid-template-columns: repeat(10, 1fr);
   justify-items: center;
-  gap: 12px;
-  padding: 40px;
+  gap: 48px;
+  padding: 48px;
 }
 .hero-card {
   background: #fff;
   color: #191f28;
-  border-radius: 32px 8px 32px 8px;
+  border-radius: 64Px;
   padding: 4px;
   text-align: center;
   transition: transform 0.1s ease, box-shadow 0.1s ease;
   overflow:hidden;
-  border:1px solid #efefef;
+  border:3px solid #efefef;
 }
 .hero-card:hover {
   transform: translateY(-2px);
