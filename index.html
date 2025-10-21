@@ -1,178 +1,196 @@
-<!DOCTYPE html>
-<html lang="ko">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>세븐나이츠 리버스 도감</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <h1>세븐나이츠 리버스 도감</h1>
-    <div id="heroes">불러오는 중...</div>
+<body>
+  <div class="layout">
+    <header class="header">
+      <h1>세븐나이츠 리버스 도감</h1>
+    </header>
 
-    <!-- 모달 -->
-    <div class="modal-overlay" id="hero-modal">
-      <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="modal-hero-name">
-        <button class="modal-close" id="modal-close" aria-label="닫기">&times;</button>
-        <img src="" alt="" class="modal-hero-image" id="modal-hero-image" />
-        <div class="modal-hero-name" id="modal-hero-name"></div>
-        <div class="modal-hero-rarity" id="modal-hero-rarity"></div>
-        <div class="modal-hero-description" id="modal-hero-description"></div>
-        <ul class="modal-hero-skills" id="modal-hero-skills"></ul>
+    <aside class="sidebar-left">
+      <nav>
+        <ul>
+          <li>영웅 도감</li>
+          <li>장비 도감</li>
+          <li>레이드 공략</li>
+        </ul>
+      </nav>
+    </aside>
+
+    <main class="content">
+      <div id="heroes">불러오는 중...</div>
+    </main>
+
+    <aside class="sidebar-right">
+      <div>
+        <h3>정렬 옵션</h3>
+        <ul>
+          <li>유형별 정렬</li>
+          <li>희귀도별 정렬</li>
+        </ul>
       </div>
+    </aside>
+  </div>
+
+  <!-- 모달 -->
+  <div class="modal-overlay" id="hero-modal">
+    <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="modal-hero-name">
+      <button class="modal-close" id="modal-close" aria-label="닫기">&times;</button>
+      <img src="" alt="" class="modal-hero-image" id="modal-hero-image" />
+      <div class="modal-hero-name" id="modal-hero-name"></div>
+      <div class="modal-hero-rarity" id="modal-hero-rarity"></div>
+      <div class="modal-hero-description" id="modal-hero-description"></div>
+      <ul class="modal-hero-skills" id="modal-hero-skills"></ul>
     </div>
+  </div>
 
-    <script>
-      // Airtable 데이터 불러오기
-      async function fetchHeroes() {
-        try {
-          const response = await fetch("/heroes");
-          const data = await response.json();
-          const heroesContainer = document.getElementById("heroes");
-          heroesContainer.innerHTML = "";
+  <script>
+    // Airtable 데이터 불러오기
+    async function fetchHeroes() {
+      try {
+        const response = await fetch("/heroes");
+        const data = await response.json();
+        const heroesContainer = document.getElementById("heroes");
+        heroesContainer.innerHTML = "";
 
-          // 방어 코드: records 확인
-          if (!data.records || !Array.isArray(data.records)) {
-            heroesContainer.textContent = "데이터를 불러오지 못했습니다. (records 없음)";
-            console.error("서버 응답:", data);
-            return;
-          }
+        // 방어 코드: records 확인
+        if (!data.records || !Array.isArray(data.records)) {
+          heroesContainer.textContent = "데이터를 불러오지 못했습니다. (records 없음)";
+          console.error("서버 응답:", data);
+          return;
+        }
 
-          data.records.forEach((record) => {
-            const hero = record;
-            const card = document.createElement("div");
-            card.className = "hero-card";
+        data.records.forEach((record) => {
+          const hero = record;
+          const card = document.createElement("div");
+          card.className = "hero-card";
 
-            // 초상 이미지와 타입 배지 감싸는 div
-            if (hero.portrait) {
-                const imgWrapper = document.createElement("div");
-                imgWrapper.style.position = "relative";
+          // 초상 이미지와 타입 배지 감싸는 div
+          if (hero.portrait) {
+              const imgWrapper = document.createElement("div");
+              imgWrapper.style.position = "relative";
 
-                const img = document.createElement("img");
-                img.src = hero.portrait;
-                img.alt = hero.name || "이미지 없음";
-                const rarityClass = (() => {
-                  switch (hero.rarity) {
-                    case "전설+": return "legendary-plus";
-                    case "전설": return "legendary";
-                    case "희귀": return "rare";
-                    case "고급": return "uncommon";
-                    default: return "normal";
-                  }
-                })();
-                img.className = `hero-portrait rarity-${rarityClass}`;
-                imgWrapper.appendChild(img);
-
-                if (hero.typeImage) {
-                  const typeBadge = document.createElement("img");
-                  typeBadge.src = hero.typeImage;
-                  typeBadge.alt = hero.type || "타입 배지";
-                  typeBadge.className = "hero-type-badge";
-                  imgWrapper.appendChild(typeBadge);
+              const img = document.createElement("img");
+              img.src = hero.portrait;
+              img.alt = hero.name || "이미지 없음";
+              const rarityClass = (() => {
+                switch (hero.rarity) {
+                  case "전설+": return "legendary-plus";
+                  case "전설": return "legendary";
+                  case "희귀": return "rare";
+                  case "고급": return "uncommon";
+                  default: return "normal";
                 }
+              })();
+              img.className = `hero-portrait rarity-${rarityClass}`;
+              imgWrapper.appendChild(img);
 
-                card.appendChild(imgWrapper);
-            }
+              if (hero.typeImage) {
+                const typeBadge = document.createElement("img");
+                typeBadge.src = hero.typeImage;
+                typeBadge.alt = hero.type || "타입 배지";
+                typeBadge.className = "hero-type-badge";
+                imgWrapper.appendChild(typeBadge);
+              }
 
-            // 이름
-            const name = document.createElement("div");
-            name.className = "hero-name";
-            name.textContent = hero.name || "이름 없음";
-            card.appendChild(name);
-
-            // 별명
-            if (hero.nickname) {
-                const nickname = document.createElement("div");
-                nickname.className = "hero-nickname";
-                nickname.textContent = `${hero.nickname}`;
-                card.appendChild(nickname);
-            }
-
-            // 소속 그룹
-            if (hero.group) {
-                const group = document.createElement("div");
-                group.className = "hero-group";
-                group.textContent = hero.group;
-                card.appendChild(group);
-            }
-
-            // 등급 (숨김 처리)
-            // if (hero.rarity) {
-            //     const rarity = document.createElement("div");
-            //     rarity.className = "hero-rarity";
-            //     rarity.textContent = hero.rarity;
-            //     card.appendChild(rarity);
-            // }
-
-            // 타입 텍스트 표시 부분 제거
-
-            // 카드 클릭 시 모달 열기
-            card.addEventListener("click", () => openModal(hero));
-            heroesContainer.appendChild(card);
-            });
-        } catch (error) {
-          console.error("에러:", error);
-          document.getElementById("heroes").textContent = "데이터 불러오기 오류";
-        }
-      }
-
-      const modal = document.getElementById("hero-modal");
-      const modalCloseBtn = document.getElementById("modal-close");
-      const modalImage = document.getElementById("modal-hero-image");
-      const modalName = document.getElementById("modal-hero-name");
-      const modalRole = document.getElementById("modal-hero-rarity");
-      const modalDescription = document.getElementById("modal-hero-description");
-      const modalSkills = document.getElementById("modal-hero-skills");
-
-      // 모달 열기
-      async function openModal(hero) {
-        modalImage.src = hero.image?.[0]?.url || "";
-        modalName.textContent = hero.name || "이름 없음";
-        modalRole.textContent = hero.role || "직업 미상";
-        modalDescription.textContent = hero.description || "설명이 없습니다.";
-        modalSkills.innerHTML = "";
-
-        // 연결된 스킬 데이터 불러오기
-        if (hero.linked_skills && hero.linked_skills.length > 0) {
-          const ids = hero.linked_skills.join(",");
-          const response = await fetch(`/skills?ids=${ids}`);
-          const data = await response.json();
-
-          if (data.records?.length > 0) {
-            data.records.forEach((record) => {
-              const li = document.createElement("li");
-              li.textContent =
-                (record.fields.name || "이름 없음") +
-                " — " +
-                (record.fields.description || "설명 없음");
-              modalSkills.appendChild(li);
-            });
-          } else {
-            const li = document.createElement("li");
-            li.textContent = "연결된 스킬 정보가 없습니다.";
-            modalSkills.appendChild(li);
+              card.appendChild(imgWrapper);
           }
+
+          // 이름
+          const name = document.createElement("div");
+          name.className = "hero-name";
+          name.textContent = hero.name || "이름 없음";
+          card.appendChild(name);
+
+          // 별명
+          if (hero.nickname) {
+              const nickname = document.createElement("div");
+              nickname.className = "hero-nickname";
+              nickname.textContent = `${hero.nickname}`;
+              card.appendChild(nickname);
+          }
+
+          // 소속 그룹
+          if (hero.group) {
+              const group = document.createElement("div");
+              group.className = "hero-group";
+              group.textContent = hero.group;
+              card.appendChild(group);
+          }
+
+          // 등급 (숨김 처리)
+          // if (hero.rarity) {
+          //     const rarity = document.createElement("div");
+          //     rarity.className = "hero-rarity";
+          //     rarity.textContent = hero.rarity;
+          //     card.appendChild(rarity);
+          // }
+
+          // 타입 텍스트 표시 부분 제거
+
+          // 카드 클릭 시 모달 열기
+          card.addEventListener("click", () => openModal(hero));
+          heroesContainer.appendChild(card);
+          });
+      } catch (error) {
+        console.error("에러:", error);
+        document.getElementById("heroes").textContent = "데이터 불러오기 오류";
+      }
+    }
+
+    const modal = document.getElementById("hero-modal");
+    const modalCloseBtn = document.getElementById("modal-close");
+    const modalImage = document.getElementById("modal-hero-image");
+    const modalName = document.getElementById("modal-hero-name");
+    const modalRole = document.getElementById("modal-hero-rarity");
+    const modalDescription = document.getElementById("modal-hero-description");
+    const modalSkills = document.getElementById("modal-hero-skills");
+
+    // 모달 열기
+    async function openModal(hero) {
+      modalImage.src = hero.image?.[0]?.url || "";
+      modalName.textContent = hero.name || "이름 없음";
+      modalRole.textContent = hero.role || "직업 미상";
+      modalDescription.textContent = hero.description || "설명이 없습니다.";
+      modalSkills.innerHTML = "";
+
+      // 연결된 스킬 데이터 불러오기
+      if (hero.linked_skills && hero.linked_skills.length > 0) {
+        const ids = hero.linked_skills.join(",");
+        const response = await fetch(`/skills?ids=${ids}`);
+        const data = await response.json();
+
+        if (data.records?.length > 0) {
+          data.records.forEach((record) => {
+            const li = document.createElement("li");
+            li.textContent =
+              (record.fields.name || "이름 없음") +
+              " — " +
+              (record.fields.description || "설명 없음");
+            modalSkills.appendChild(li);
+          });
+        } else {
+          const li = document.createElement("li");
+          li.textContent = "연결된 스킬 정보가 없습니다.";
+          modalSkills.appendChild(li);
         }
-
-        modal.style.display = "flex";
-        document.body.style.overflow = "hidden";
       }
 
-      // 모달 닫기
-      function closeModal() {
-        modal.style.display = "none";
-        document.body.style.overflow = "";
-      }
+      modal.style.display = "flex";
+      document.body.style.overflow = "hidden";
+    }
 
-      modalCloseBtn.addEventListener("click", closeModal);
-      modal.addEventListener("click", (e) => {
-        if (e.target === modal) closeModal();
-      });
-      document.addEventListener("keydown", (e) => {
-        if (e.key === "Escape" && modal.style.display === "flex") closeModal();
-      });
+    // 모달 닫기
+    function closeModal() {
+      modal.style.display = "none";
+      document.body.style.overflow = "";
+    }
 
-      fetchHeroes();
-    </script>
-  </body>
-</html>
+    modalCloseBtn.addEventListener("click", closeModal);
+    modal.addEventListener("click", (e) => {
+      if (e.target === modal) closeModal();
+    });
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && modal.style.display === "flex") closeModal();
+    });
+
+    fetchHeroes();
+  </script>
+</body>
