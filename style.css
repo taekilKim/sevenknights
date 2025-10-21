@@ -189,7 +189,7 @@ h1 {
 /* --- Layout structure --- */
 .layout {
   display: grid;
-  grid-template-columns: 240px 1fr 320px;
+  grid-template-columns: 240px 1fr 240px;
   grid-template-rows: 80px auto;
   grid-template-areas:
     "header header header"
@@ -217,7 +217,6 @@ h1 {
 .sidebar-left {
   grid-area: sidebar-left;
   background: #101010;
-  padding: 32px 16px;
   border-right: 2px solid #222;
   position: fixed;
   top: 80px;
@@ -231,7 +230,6 @@ h1 {
 .sidebar-right {
   grid-area: sidebar-right;
   background: #101010;
-  padding: 32px 16px;
   border-left: 2px solid #222;
   position: fixed;
   top: 80px;
