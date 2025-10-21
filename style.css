@@ -216,7 +216,6 @@ h1 {
 /* Left Sidebar */
 .sidebar-left {
   grid-area: sidebar-left;
-  background: #101010;
   border-right: 2px solid #222;
   position: fixed;
   top: 80px;
@@ -230,7 +229,6 @@ h1 {
 /* Right Sidebar */
 .sidebar-right {
   grid-area: sidebar-right;
-  background: #101010;
   border-left: 2px solid #222;
   position: fixed;
   top: 80px;
@@ -284,7 +282,7 @@ h1 {
 
 .loading-text {
   font-family: "Pretendard", sans-serif;
-  font-weight: 600;
+  font-weight: 500;
   font-size: 18px;
   color: #fff;
   letter-spacing: 1px;
