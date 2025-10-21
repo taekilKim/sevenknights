@@ -12,12 +12,17 @@ h1 {
   font-size: 2rem;
   color: #222;
 }
+/* Hero Grid inside Content */
 #heroes {
   display: grid;
-  grid-template-columns: repeat(10, 1fr);
-  justify-items: center;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
   gap: 48px;
-  padding: 48px;
+  justify-content: center;
+  align-content: start;
+  width: 1200px;
+  max-width: 100%;
+  margin: 0 auto;
+  box-sizing: border-box;
 }
 
 /* --- Hero Card Styles --- */
@@ -228,14 +233,11 @@ h1 {
 /* Content Area */
 .content {
   grid-area: content;
-  width: 1200px;
-  margin: 0 auto;
-  padding: 48px;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
-  gap: 48px;
+  display: flex;
   justify-content: center;
-  align-content: start;
+  align-items: flex-start;
+  padding: 48px;
+  overflow: visible;
 }
 
 /* Loading Spinner */
