@@ -188,7 +188,7 @@ h1 {
 /* --- Layout structure --- */
 .layout {
   display: grid;
-  grid-template-columns: 320px 1fr 320px;
+  grid-template-columns: 280px 1fr 280px;
   grid-template-rows: 80px auto;
   grid-template-areas:
     "header header header"
@@ -223,6 +223,7 @@ h1 {
   bottom: 0;
   width: 240px;
   overflow-y: auto;
+  box-sizing: border-box;
 }
 
 /* Right Sidebar */
@@ -236,6 +237,7 @@ h1 {
   bottom: 0;
   width: 320px;
   overflow-y: auto;
+  box-sizing: border-box;
 }
 
 /* Content Area */
@@ -250,7 +252,6 @@ h1 {
   -ms-overflow-style: none; /* IE 10+ */
   height: 100%;
   width: 100%;
-  background: #0e0e0e;
 }
 
 .content::-webkit-scrollbar {
