@@ -213,6 +213,19 @@ h1 {
   border-bottom: 2px solid #222;
 }
 
+/* Header Logo */
+.header-logo {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.header-logo img {
+  height: 40px;
+  width: auto;
+  object-fit: contain;
+}
+
 /* Left Sidebar */
 .sidebar-left {
   grid-area: sidebar-left;
