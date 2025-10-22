@@ -5,9 +5,7 @@ import fetch from "node-fetch";
 import cors from "cors";
 
 const app = express();
-// ✅ Express 정적 파일 설정 (public 폴더 내 모든 이미지, CSS, JS 접근 가능)
 app.use(cors());
-app.use(express.static("public", { extensions: ["html", "htm"] }));
 
 // ✅ Airtable 연결 설정
 const AIRTABLE_TOKEN = process.env.AIRTABLE_TOKEN; // 환경 변수에서 가져옴
@@ -110,6 +108,11 @@ app.get("/hero/:id", async (req, res) => {
     res.status(500).json({ error: "Failed to fetch hero details" });
   }
 });
+
+
+// ✅ 정적 파일 서빙은 가장 마지막에 적용해야 라우팅 충돌 방지됨
+// (Serve static files last to prevent route conflicts)
+app.use(express.static("public", { extensions: ["html", "htm"] }));
 
 // ✅ Vercel 환경에서는 자동으로 포트를 할당하므로 3000 대신 process.env.PORT 사용
 const PORT = process.env.PORT || 3000;
