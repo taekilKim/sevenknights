@@ -28,7 +28,7 @@
     const baseId = "app6CjXEVBGVvatUd";
     const tableName = "Heroes";
 
-    fetch(`https://api.airtable.com/v0/${baseId}/${tableName}?filterByFormula=({id}='${heroId}')`, {
+fetch(`https://api.airtable.com/v0/${baseId}/${tableName}/${heroId}`, {
       headers: { Authorization: `Bearer ${airtableToken}` }
     })
       .then(res => res.json())

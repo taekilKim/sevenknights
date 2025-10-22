@@ -164,9 +164,10 @@
             // 타입 텍스트 표시 부분 제거
 
             // 카드 클릭 시 상세 페이지로 이동 및 스크롤 위치 저장
+            const heroId = record.id;
             card.addEventListener("click", () => {
               sessionStorage.setItem('scrollPosition', window.scrollY);
-              window.location.href = `/hero.html?id=${record.id}`;
+              window.location.href = `/hero.html?id=${heroId}`;
             });
             heroesContainer.appendChild(card);
             });
