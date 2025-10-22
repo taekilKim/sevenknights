@@ -77,6 +77,39 @@ app.get("/heroes", async (req, res) => {
   }
 });
 
+// ✅ 단일 영웅 조회 API
+app.get("/hero/:id", async (req, res) => {
+  const { id } = req.params;
+  try {
+    const heroRes = await fetch(
+      `https://api.airtable.com/v0/${BASE_ID}/Heroes/${id}`,
+      {
+        headers: { Authorization: `Bearer ${AIRTABLE_TOKEN}` },
+      }
+    );
+
+    if (!heroRes.ok) throw new Error(`Airtable hero fetch error: ${heroRes.status}`);
+
+    const heroData = await heroRes.json();
+    const fields = heroData.fields || {};
+
+    const heroDetail = {
+      id: heroData.id,
+      name: fields.Name || null,
+      type: fields.Type || null,
+      rarity: fields.Rarity || null,
+      portrait: Array.isArray(fields.Portrait)
+        ? fields.Portrait[0]?.url
+        : null,
+      description: fields.Description || null, // 설명 필드가 있다면
+    };
+
+    res.json(heroDetail);
+  } catch (error) {
+    console.error("Failed to fetch hero:", error);
+    res.status(500).json({ error: "Failed to fetch hero details" });
+  }
+});
 
 // ✅ Vercel 환경에서는 자동으로 포트를 할당하므로 3000 대신 process.env.PORT 사용
 const PORT = process.env.PORT || 3000;
