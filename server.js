@@ -18,8 +18,8 @@ const TABLE = "Heroes"; // Airtable 테이블 이름
 // ✅ 영웅 데이터 + 타입 이미지 API
 app.get("/heroes", async (req, res) => {
   try {
-    // Fetch Heroes
-    const heroesRes = await fetch(`https://api.airtable.com/v0/${BASE_ID}/Heroes`, {
+    // Fetch Heroes (sorted by name ascending)
+    const heroesRes = await fetch(`https://api.airtable.com/v0/${BASE_ID}/Heroes?sort[0][field]=name&sort[0][direction]=asc`, {
       headers: { Authorization: `Bearer ${AIRTABLE_TOKEN}` },
     });
     if (!heroesRes.ok) throw new Error(`Airtable Heroes API error: ${heroesRes.status}`);
