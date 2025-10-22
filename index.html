@@ -164,13 +164,13 @@
             // 타입 텍스트 표시 부분 제거
 
             // 카드 클릭 시 상세 페이지로 이동 및 스크롤 위치 저장
-            const heroId = record.id || record.recordId || (record.fields && record.fields.id);
+            const heroId = hero.id;
             card.addEventListener("click", () => {
               if (heroId) {
                 sessionStorage.setItem('scrollPosition', window.scrollY);
                 window.location.href = `/hero.html?id=${heroId}`;
               } else {
-                console.error("영웅 ID가 정의되지 않았습니다:", record);
+                console.error("영웅 ID가 정의되지 않았습니다:", hero);
               }
             });
             heroesContainer.appendChild(card);

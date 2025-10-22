@@ -53,6 +53,7 @@ app.get("/heroes", async (req, res) => {
         const fields = hero.fields || {};
         const typeName = fields.type || fields.Type || null;
         processedHeroes.push({
+          id: hero.id, // ✅ 추가: Airtable 레코드 ID
           name: fields.name || fields.Name || null,
           type: fields.type || fields.Type || null,
           rarity: fields.rarity || fields.Rarity || null,
