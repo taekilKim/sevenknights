@@ -27,7 +27,7 @@
     if (!heroId) {
       document.querySelector("main").innerHTML = "<p>유효하지 않은 영웅 ID입니다.</p>";
     } else {
-      fetch(`/hero/${heroId}`)
+      fetch(`/api/hero/${heroId}`)
         .then(res => res.json())
         .then(data => {
           if (!data || !data.name) {

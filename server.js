@@ -75,8 +75,8 @@ app.get("/heroes", async (req, res) => {
   }
 });
 
-// ✅ 단일 영웅 조회 API
-app.get("/hero/:id", async (req, res) => {
+// ✅ 단일 영웅 조회 API (prefix 변경: /api/hero/:id)
+app.get("/api/hero/:id", async (req, res) => {
   const { id } = req.params;
   try {
     const heroRes = await fetch(
@@ -99,7 +99,7 @@ app.get("/hero/:id", async (req, res) => {
       portrait: Array.isArray(fields.Portrait)
         ? fields.Portrait[0]?.url
         : null,
-      description: fields.Description || null, // 설명 필드가 있다면
+      description: fields.Description || null, // 설명 필드
     };
 
     res.json(heroDetail);
