@@ -9,6 +9,8 @@
   "routes": [
     { "src": "/images/(.*)", "dest": "/public/images/$1" },
     { "src": "/heroes", "dest": "/server.js" },
+    { "src": "/hero", "dest": "/hero.html" },
+    { "src": "/hero/(.*)", "dest": "/hero.html" },
     { "src": "/", "dest": "/index.html" }
   ]
 }
