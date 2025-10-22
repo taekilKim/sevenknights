@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>영웅 상세 - 세븐나이츠 리버스 도감</title>
+  <meta name="description" content="세븐나이츠 리버스 영웅 상세 페이지" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="hero-detail-page">
+  <header class="hero-header">
+    <button class="back-button" onclick="window.history.back()">← 돌아가기</button>
+  </header>
+
+  <main class="hero-detail-container">
+    <img id="hero-image" class="hero-detail-portrait" alt="영웅 초상화" />
+    <h1 id="hero-name"></h1>
+    <p id="hero-type"></p>
+    <p id="hero-description"></p>
+    <ul id="hero-skills"></ul>
+  </main>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const heroId = params.get("id");
+
+    const airtableToken = "patvJ6Be04l4gfx9S.0bb6db9ad0bbd989734eebafae4f5809e644955c000da45ab022cfa48210f26a";
+    const baseId = "app6CjXEVBGVvatUd";
+    const tableName = "Heroes";
+
+    fetch(`https://api.airtable.com/v0/${baseId}/${tableName}?filterByFormula=({id}='${heroId}')`, {
+      headers: { Authorization: `Bearer ${airtableToken}` }
+    })
+      .then(res => res.json())
+      .then(data => {
+        if (!data.records || data.records.length === 0) {
+          document.querySelector("main").innerHTML = "<p>영웅 정보를 불러올 수 없습니다.</p>";
+          return;
+        }
+        const hero = data.records[0].fields;
+        document.title = `${hero.name} - 세븐나이츠 리버스 도감`;
+        document.querySelector('meta[name="description"]').setAttribute("content", `${hero.name}의 영웅 정보와 스킬 상세를 확인하세요.`);
+        document.querySelector("#hero-image").src = hero.portrait ? hero.portrait[0].url : "";
+        document.querySelector("#hero-name").textContent = hero.name || "이름 없음";
+        document.querySelector("#hero-type").textContent = hero.type || "";
+        document.querySelector("#hero-description").textContent = hero.description || "";
+        document.querySelector("#hero-skills").innerHTML = hero.skills
+          ? hero.skills.map(skill => `<li>${skill}</li>`).join("")
+          : "<li>등록된 스킬 정보가 없습니다.</li>";
+      })
+      .catch(err => {
+        console.error("Airtable fetch error:", err);
+        document.querySelector("main").innerHTML = "<p>데이터를 불러오는 중 오류가 발생했습니다.</p>";
+      });
+  </script>
+</body>
+</html>

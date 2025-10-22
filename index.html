@@ -71,18 +71,6 @@
       <div class="loading-text">L O A D I N G</div>
     </div>
 
-    <!-- 모달 -->
-    <div class="modal-overlay" id="hero-modal">
-      <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="modal-hero-name">
-        <button class="modal-close" id="modal-close" aria-label="닫기">&times;</button>
-        <img src="" alt="" class="modal-hero-image" id="modal-hero-image" />
-        <div class="modal-hero-name" id="modal-hero-name"></div>
-        <div class="modal-hero-rarity" id="modal-hero-rarity"></div>
-        <div class="modal-hero-description" id="modal-hero-description"></div>
-        <ul class="modal-hero-skills" id="modal-hero-skills"></ul>
-      </div>
-    </div>
-
     <script>
       function showLoading(on) {
         const el = document.getElementById("global-loading");
@@ -175,8 +163,11 @@
 
             // 타입 텍스트 표시 부분 제거
 
-            // 카드 클릭 시 모달 열기
-            card.addEventListener("click", () => openModal(hero));
+            // 카드 클릭 시 상세 페이지로 이동 및 스크롤 위치 저장
+            card.addEventListener("click", () => {
+              sessionStorage.setItem('scrollPosition', window.scrollY);
+              window.location.href = `/hero.html?id=${hero.id}`;
+            });
             heroesContainer.appendChild(card);
             });
         } catch (error) {
@@ -187,60 +178,12 @@
         }
       }
 
-      const modal = document.getElementById("hero-modal");
-      const modalCloseBtn = document.getElementById("modal-close");
-      const modalImage = document.getElementById("modal-hero-image");
-      const modalName = document.getElementById("modal-hero-name");
-      const modalRole = document.getElementById("modal-hero-rarity");
-      const modalDescription = document.getElementById("modal-hero-description");
-      const modalSkills = document.getElementById("modal-hero-skills");
-
-      // 모달 열기
-      async function openModal(hero) {
-        modalImage.src = hero.image?.[0]?.url || "";
-        modalName.textContent = hero.name || "이름 없음";
-        modalRole.textContent = hero.role || "직업 미상";
-        modalDescription.textContent = hero.description || "설명이 없습니다.";
-        modalSkills.innerHTML = "";
-
-        // 연결된 스킬 데이터 불러오기
-        if (hero.linked_skills && hero.linked_skills.length > 0) {
-          const ids = hero.linked_skills.join(",");
-          const response = await fetch(`/skills?ids=${ids}`);
-          const data = await response.json();
-
-          if (data.records?.length > 0) {
-            data.records.forEach((record) => {
-              const li = document.createElement("li");
-              li.textContent =
-                (record.fields.name || "이름 없음") +
-                " — " +
-                (record.fields.description || "설명 없음");
-              modalSkills.appendChild(li);
-            });
-          } else {
-            const li = document.createElement("li");
-            li.textContent = "연결된 스킬 정보가 없습니다.";
-            modalSkills.appendChild(li);
-          }
+      document.addEventListener("DOMContentLoaded", () => {
+        const savedScroll = sessionStorage.getItem('scrollPosition');
+        if (savedScroll) {
+          window.scrollTo(0, parseInt(savedScroll));
+          sessionStorage.removeItem('scrollPosition');
         }
-
-        modal.style.display = "flex";
-        document.body.style.overflow = "hidden";
-      }
-
-      // 모달 닫기
-      function closeModal() {
-        modal.style.display = "none";
-        document.body.style.overflow = "";
-      }
-
-      modalCloseBtn.addEventListener("click", closeModal);
-      modal.addEventListener("click", (e) => {
-        if (e.target === modal) closeModal();
-      });
-      document.addEventListener("keydown", (e) => {
-        if (e.key === "Escape" && modal.style.display === "flex") closeModal();
       });
 
       fetchHeroes();

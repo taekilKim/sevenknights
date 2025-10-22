@@ -1,192 +1,29 @@
 @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css");
 
+/* ------------------------------------ */
+/*  공통 스타일                         */
+/* ------------------------------------ */
 body {
   font-family: "Pretendard", sans-serif;
-  background: #000; /* changed from #fff to black */
-  margin: 0;
-}
-h1 {
-  text-align: center;
-  padding: 1.5rem 1rem 1rem;
-  font-weight: 700;
-  font-size: 2rem;
-  color: #222;
-}
-/* Hero Grid inside Content */
-#heroes {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  gap: 48px;
-  justify-content: stretch;
-  align-content: start;
-  width: 100%;
-  max-width: none;
-  margin: 0;
-  box-sizing: border-box;
-  padding:48px;
-}
-
-/* --- Hero Card Styles --- */
-.hero-card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  gap: 8px;
-  background: transparent;
-  color: #191f28;
-  position: relative;
-  transition: transform 0.1s ease, box-shadow 0.1s ease;
-  overflow: visible;
-}
-
-.hero-portrait {
-  width: 100%;
-  aspect-ratio: 1 / 1;
-  border-radius: 50%;
-  object-fit: cover;
-  height: auto;
-  flex-shrink: 0;
-  border: 3px solid #c1b494;
-  box-sizing: border-box;
-}
-
-.hero-name {
-  font-size: 0.95rem;
-  font-weight: 500;
+  background: #000;
   color: #fff;
-  text-align: center;
-  margin-top: 4px;
-}
-
-/* Hero Type Badge */
-.hero-type-badge {
-  position: absolute;
-  bottom: 8px;
-  left: 4px;
-  width: 32px;
-  height: 32px;
-  object-fit: contain;
-  z-index: 2;
-}
-
-/* Hero Text Elements */
-.hero-nickname {
-  font-size: 1rem;
-  color: #bbb;
-  margin-bottom: 8px;
-}
-.hero-group {
-  background: #294b6b;
-  color: #aee6ff;
-  padding: 2px 8px;
-  border-radius: 6px;
-  font-size: 0.8rem;
-  display: inline-block;
-  margin-bottom: 4px;
-}
-.hero-rarity {
-  color: #f6c96f;
-  font-weight: bold;
-  margin-top: 4px;
-}
-
-/* Hero rarity background effects */
-.hero-portrait.rarity-legendary-plus {
-  background: radial-gradient(circle at center, #ffe48a, #c67b00);
-}
-.hero-portrait.rarity-legendary {
-  background: radial-gradient(circle at center, #f3e0a8, #b68700);
-}
-.hero-portrait.rarity-rare {
-  background: radial-gradient(circle at center, #a693ff, #5a3ebd);
-}
-.hero-portrait.rarity-uncommon {
-  background: radial-gradient(circle at center, #b5ffb0, #2e7b2e);
-}
-
-/* 모달 스타일 */
-.modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.6);
-  display: none;
-  align-items: center;
-  justify-content: center;
-  z-index: 1000;
-  animation: fadeIn 0.3s ease forwards;
-}
-.modal-content {
-  background: #fff;
-  padding: 24px 32px 32px;
-  max-width: 500px;
-  width: 90%;
-  border-radius: 16px;
-  position: relative;
-  animation: slideDown 0.3s ease forwards;
-  max-height: 80vh;
-  overflow-y: auto;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-}
-.modal-close {
-  position: absolute;
-  top: 10px;
-  right: 15px;
-  font-size: 28px;
-  font-weight: bold;
-  color: #333;
-  cursor: pointer;
-  border: none;
-  background: transparent;
-}
-.modal-hero-image {
-  width: 100%;
-  border-radius: 12px;
-  margin-bottom: 15px;
-}
-.modal-hero-name {
-  font-size: 26px;
-  font-weight: 900;
-  margin-bottom: 6px;
-}
-.modal-hero-role {
-  font-size: 18px;
-  color: #666;
-  margin-bottom: 16px;
-}
-.modal-hero-description {
-  margin-bottom: 16px;
-  line-height: 1.5;
-  white-space: pre-wrap;
-}
-.modal-hero-skills {
-  list-style: disc inside;
-  padding-left: 0;
   margin: 0;
 }
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-@keyframes slideDown {
-  from {
-    transform: translateY(-20px);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
+
+a {
+  color: inherit;
+  text-decoration: none;
 }
 
-/* --- Layout structure --- */
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* ------------------------------------ */
+/*  헤더 및 레이아웃 구조               */
+/* ------------------------------------ */
 .layout {
   display: grid;
   grid-template-columns: 280px 1fr 280px;
@@ -197,8 +34,7 @@ h1 {
   width: 100%;
   height: 100vh;
   background: #0e0e0e;
-  color: #fff;
-  overflow: hidden; /* prevent global scroll */
+  overflow: hidden;
 }
 
 /* Header */
@@ -212,64 +48,47 @@ h1 {
   padding: 0 32px;
   border-bottom: 2px solid #222;
 }
-
-/* Header Logo */
-.header-logo {
-  display: flex;
-  align-items: center;
-  height: 100%;
-}
-
 .header-logo img {
   height: 40px;
   width: auto;
   object-fit: contain;
 }
 
-/* Left Sidebar */
-.sidebar-left {
-  grid-area: sidebar-left;
-  border-right: 2px solid #222;
-  position: fixed;
-  top: 80px;
-  left: 0;
-  bottom: 0;
-  width: 280px;
-  overflow-y: auto;
-  box-sizing: border-box;
-}
-
-/* Right Sidebar */
+/* Sidebar */
+.sidebar-left,
 .sidebar-right {
-  grid-area: sidebar-right;
-  border-left: 2px solid #222;
   position: fixed;
   top: 80px;
-  right: 0;
   bottom: 0;
   width: 280px;
   overflow-y: auto;
   box-sizing: border-box;
 }
+.sidebar-left {
+  left: 0;
+  border-right: 2px solid #222;
+}
+.sidebar-right {
+  right: 0;
+  border-left: 2px solid #222;
+}
 
-/* Content Area */
+/* Content */
 .content {
   grid-area: content;
   display: flex;
   justify-content: center;
   align-items: flex-start;
   overflow-y: scroll;
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none; /* IE 10+ */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
   height: 100%;
-  width: 100%;
 }
+.content::-webkit-scrollbar { display: none; }
 
-.content::-webkit-scrollbar {
-  display: none; /* Chrome, Safari */
-}
-
-/* Loading Spinner */
+/* ------------------------------------ */
+/*  로딩 상태                           */
+/* ------------------------------------ */
 .loading-container {
   position: fixed;
   top: 50%;
@@ -277,12 +96,9 @@ h1 {
   transform: translate(-50%, -50%);
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  text-align: center;
   z-index: 2000;
 }
-
 .spinner {
   width: 48px;
   height: 48px;
@@ -292,21 +108,149 @@ h1 {
   animation: spin 1s linear infinite;
   margin-bottom: 16px;
 }
-
-.loading-text {
-  font-family: "Pretendard", sans-serif;
-  font-weight: 400;
-  font-size: 18px;
-  color: #fff;
-  letter-spacing: 1px;
-  text-align: center;
-}
-
 @keyframes spin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
+.loading-text {
+  font-weight: 600;
+  font-size: 18px;
+  color: #fff;
+  text-align: center;
+}
+
+/* ------------------------------------ */
+/*  인덱스 (영웅 리스트)                */
+/* ------------------------------------ */
+#heroes {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 48px;
+  justify-content: stretch;
+  align-content: start;
+  width: 100%;
+  padding: 48px;
+}
+
+.hero-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  background: transparent;
+  transition: transform 0.15s ease;
+}
+.hero-card:hover {
+  transform: scale(1.05);
+}
 
 .hero-portrait-wrap {
+  position: relative;
   line-height: 0;
+  width: 100%;
+}
+.hero-portrait {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #c1b494;
+}
+.hero-type-badge {
+  position: absolute;
+  bottom: 8px;
+  left: 4px;
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  z-index: 2;
+}
+.hero-name {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #fff;
+  text-align: center;
+  margin-top: 8px;
+}
+
+/* 희귀도 색상 */
+.hero-portrait.rarity-legendary-plus { background: radial-gradient(circle at center, #ffe48a, #c67b00); }
+.hero-portrait.rarity-legendary { background: radial-gradient(circle at center, #f3e0a8, #b68700); }
+.hero-portrait.rarity-rare { background: radial-gradient(circle at center, #a693ff, #5a3ebd); }
+.hero-portrait.rarity-uncommon { background: radial-gradient(circle at center, #b5ffb0, #2e7b2e); }
+
+/* ------------------------------------ */
+/*  hero.html (영웅 상세 페이지)        */
+/* ------------------------------------ */
+.hero-detail-page {
+  background: #000;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.hero-header {
+  width: 100%;
+  background: #111;
+  border-bottom: 1px solid #222;
+  padding: 16px 24px;
+  text-align: left;
+}
+.back-button {
+  background: transparent;
+  color: #fff;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+.back-button:hover {
+  color: #f0c674;
+}
+
+.hero-detail-container {
+  max-width: 720px;
+  width: 90%;
+  margin: 48px auto;
+  text-align: center;
+}
+.hero-detail-portrait {
+  width: 240px;
+  height: 240px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #c1b494;
+  margin: 0 auto 24px;
+}
+#hero-name {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 8px;
+}
+#hero-type {
+  font-size: 1rem;
+  color: #aee6ff;
+  margin-bottom: 24px;
+}
+#hero-description {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #ccc;
+  margin-bottom: 32px;
+  white-space: pre-line;
+}
+#hero-skills {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+#hero-skills li {
+  background: #1a1a1a;
+  border: 1px solid #333;
+  border-radius: 8px;
+  padding: 12px 16px;
+  margin-bottom: 12px;
+  color: #eee;
+  text-align: left;
 }
