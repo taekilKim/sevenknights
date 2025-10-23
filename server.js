@@ -108,9 +108,46 @@ app.get("/api/hero/:id", async (req, res) => {
     const heroData = await heroRes.json();
     const fields = heroData.fields || {};
 
-    // ✅ Skills에서 링크드 Heroes 필드 참조로 필터링
+    /*
+      기존 스킬 조회 로직 (주석 처리 및 제거됨):
+      - filterByFormula를 사용하여 Skills 테이블에서 해당 영웅 ID가 포함된 레코드를 검색.
+      - 이 방식은 Airtable의 formula 검색에 의존하여, 배열 필드 내 ID 검색이 정확하지 않을 수 있음.
+      - 또한, formula 내 문자열 삽입 시 인젝션 위험 및 쿼리 복잡성 문제가 존재.
+      - 따라서 아래와 같이 링크드 레코드 필드를 직접 조회하는 방식으로 변경함.
+
+      // const skillsRes = await fetch(
+      //   `https://api.airtable.com/v0/${BASE_ID}/Skills?filterByFormula=SEARCH('${id}', ARRAYJOIN({Heroes}))`,
+      //   { headers: { Authorization: `Bearer ${AIRTABLE_TOKEN}` } }
+      // );
+      // if (!skillsRes.ok) {
+      //   const errText = await skillsRes.text();
+      //   console.error("Airtable skills fetch error:", skillsRes.status, errText);
+      //   throw new Error(`Airtable skills fetch error: ${skillsRes.status}`);
+      // }
+      // const skillsData = await skillsRes.json();
+    */
+
+    // ----------------------------------------------
+    // 새로운 스킬 조회 로직:
+    // - Skills 테이블에서 모든 레코드를 가져와서,
+    //   각 스킬의 'Heroes' 링크드 레코드 필드에 현재 영웅 ID가 포함되어 있는지 확인.
+    // - 이렇게 하면 Airtable API의 공식 링크드 레코드 관계를 직접 활용하며,
+    //   filterByFormula보다 안전하고 정확함.
+    // - 또한, 스킬 타입별(passive, active 1, active 2)로 분류하여 필요한 필드를 추출.
+    // - Airtable에서 가져오는 필드는 다음과 같음:
+    //   skill_type (스킬 유형), passive, active_1, active_2, description 등.
+    //
+    //  새로운 방식은:
+    //  1) Skills 테이블 전체를 가져와서,
+    //  2) 각 스킬의 링크드 레코드 필드 'Heroes'를 검사,
+    //  3) 매칭되는 스킬만 필터링하여 사용.
+    //
+    //  이렇게 하면 Airtable 공식 API의 링크드 레코드 기능을 활용하며
+    //  쿼리 오류나 인젝션 위험 없이 안정적임.
+    // ----------------------------------------------
+
     const skillsRes = await fetch(
-      `https://api.airtable.com/v0/${BASE_ID}/Skills?filterByFormula=SEARCH('${id}', ARRAYJOIN({Heroes}))`,
+      `https://api.airtable.com/v0/${BASE_ID}/Skills`,
       { headers: { Authorization: `Bearer ${AIRTABLE_TOKEN}` } }
     );
     if (!skillsRes.ok) {
@@ -121,12 +158,18 @@ app.get("/api/hero/:id", async (req, res) => {
 
     const skillsData = await skillsRes.json();
 
+    // 영웅 ID가 포함된 스킬만 필터링
+    const linkedSkills = (skillsData.records || []).filter(skillRecord => {
+      const linkedHeroes = skillRecord.fields?.Heroes || [];
+      return linkedHeroes.includes(id);
+    });
+
     // Extract skills by skill type
     let passiveSkill = null;
     let active1Skill = null;
     let active2Skill = null;
-    if (Array.isArray(skillsData.records)) {
-      for (const skillRecord of skillsData.records) {
+    if (Array.isArray(linkedSkills)) {
+      for (const skillRecord of linkedSkills) {
         const skillFields = skillRecord.fields || {};
         const skillType = skillFields.skill_type || skillFields["skill_type"] || "";
         if (skillType.toLowerCase() === "passive") {

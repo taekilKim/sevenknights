@@ -50,20 +50,26 @@
       <div class="skill attack-skill">
         <h3>기본 공격</h3>
         <img id="attack-image" alt="공격 이미지" />
-        <p id="attack-name" class="skill-name"></p>
+        <p><strong id="attack-name" class="skill-name"></strong> <span id="attack-cooltime" class="skill-cooltime"></span></p>
         <p id="attack-desc" class="skill-desc"></p>
       </div>
       <div class="skill active-skill-1">
         <h3>액티브 스킬 1</h3>
-        <p id="active-1" class="skill-desc"></p>
+        <img id="active-1-image" alt="액티브 스킬 1 이미지" />
+        <p><strong id="active-1-name" class="skill-name"></strong> <span id="active-1-cooltime" class="skill-cooltime"></span></p>
+        <p id="active-1-desc" class="skill-desc"></p>
       </div>
       <div class="skill active-skill-2">
         <h3>액티브 스킬 2</h3>
-        <p id="active-2" class="skill-desc"></p>
+        <img id="active-2-image" alt="액티브 스킬 2 이미지" />
+        <p><strong id="active-2-name" class="skill-name"></strong> <span id="active-2-cooltime" class="skill-cooltime"></span></p>
+        <p id="active-2-desc" class="skill-desc"></p>
       </div>
       <div class="skill passive-skill">
         <h3>패시브</h3>
-        <p id="passive" class="skill-desc"></p>
+        <img id="passive-image" alt="패시브 이미지" />
+        <p><strong id="passive-name" class="skill-name"></strong> <span id="passive-cooltime" class="skill-cooltime"></span></p>
+        <p id="passive-desc" class="skill-desc"></p>
       </div>
     </section>
 
@@ -113,12 +119,30 @@
           document.getElementById("eff_hit").textContent = hero.eff_hit || "-";
           document.getElementById("eff_res").textContent = hero.eff_res || "-";
 
-          document.getElementById("attack-image").src = hero.attack_image || "";
-          document.getElementById("attack-name").textContent = hero.attack_name || "";
-          document.getElementById("attack-desc").textContent = hero.attack_desc || "";
-          document.getElementById("active-1").textContent = hero.active_1 || "";
-          document.getElementById("active-2").textContent = hero.active_2 || "";
-          document.getElementById("passive").textContent = hero.passive || "";
+          // Attack skill
+          document.getElementById("attack-image").src = hero.attack?.image || "";
+          document.getElementById("attack-name").textContent = hero.attack?.name || "";
+          document.getElementById("attack-cooltime").textContent = hero.attack?.cooltime ? `쿨타임: ${hero.attack.cooltime}` : "";
+          document.getElementById("attack-desc").textContent = hero.attack?.desc || "";
+
+          // Active skill 1
+          document.getElementById("active-1-image").src = hero.active_1?.image || "";
+          document.getElementById("active-1-name").textContent = hero.active_1?.name || "";
+          document.getElementById("active-1-cooltime").textContent = hero.active_1?.cooltime ? `쿨타임: ${hero.active_1.cooltime}` : "";
+          document.getElementById("active-1-desc").textContent = hero.active_1?.desc || "";
+
+          // Active skill 2
+          document.getElementById("active-2-image").src = hero.active_2?.image || "";
+          document.getElementById("active-2-name").textContent = hero.active_2?.name || "";
+          document.getElementById("active-2-cooltime").textContent = hero.active_2?.cooltime ? `쿨타임: ${hero.active_2.cooltime}` : "";
+          document.getElementById("active-2-desc").textContent = hero.active_2?.desc || "";
+
+          // Passive skill
+          document.getElementById("passive-image").src = hero.passive?.image || "";
+          document.getElementById("passive-name").textContent = hero.passive?.name || "";
+          document.getElementById("passive-cooltime").textContent = hero.passive?.cooltime ? `쿨타임: ${hero.passive.cooltime}` : "";
+          document.getElementById("passive-desc").textContent = hero.passive?.desc || "";
+
           document.getElementById("hero-description").textContent = hero.description || "";
         })
         .catch(err => {
