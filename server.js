@@ -11,6 +11,26 @@ app.use(cors());
 const AIRTABLE_TOKEN = process.env.AIRTABLE_TOKEN;
 const BASE_ID = "app6CjXEVBGVvatUd";
 
+// -------- helpers --------
+const pick = (obj, keys) => {
+  for (const k of keys) {
+    const v = obj && Object.prototype.hasOwnProperty.call(obj, k) ? obj[k] : undefined;
+    if (v !== undefined && v !== null && v !== "") return v;
+  }
+  return null;
+};
+
+const pickAttachmentUrl = (obj, keys) => {
+  for (const k of keys) {
+    const arr = obj && obj[k];
+    if (Array.isArray(arr) && arr[0]) {
+      return arr[0]?.thumbnails?.large?.url || arr[0]?.url || null;
+    }
+  }
+  return null;
+};
+// -------------------------
+
 // ✅ 영웅 목록 API
 app.get("/api/heroes", async (req, res) => {
   try {
@@ -91,20 +111,37 @@ app.get("/api/hero/:id", async (req, res) => {
 
     res.json({
       id: heroData.id,
-      name: fields.Name || null,
-      type: fields.Type || null,
-      rarity: fields.Rarity || null,
-      portrait:
-        Array.isArray(fields.portrait)
-          ? fields.portrait[0]?.thumbnails?.large?.url || fields.portrait[0]?.url
-          : Array.isArray(fields.Portrait)
-          ? fields.Portrait[0]?.thumbnails?.large?.url || fields.Portrait[0]?.url
-          : Array.isArray(fields["초상"])
-          ? fields["초상"][0]?.thumbnails?.large?.url || fields["초상"][0]?.url
-          : Array.isArray(fields["이미지"])
-          ? fields["이미지"][0]?.thumbnails?.large?.url || fields["이미지"][0]?.url
-          : null,
-      description: fields.Description || null,
+      // 기본
+      name: pick(fields, ["Name"]),
+      nickname: pick(fields, ["nickname"]),
+      group: pick(fields, ["group"]),
+      rarity: pick(fields, ["rarity", "Rarity"]),
+      type: pick(fields, ["type", "Type"]),
+      portrait: pickAttachmentUrl(fields, ["portrait", "Portrait", "초상", "이미지"]),
+
+      // 스탯 (영문 키 우선, 없으면 한글 키)
+      atk: pick(fields, ["atk", "공격력"]),
+      def: pick(fields, ["def", "방어력"]),
+      hp: pick(fields, ["hp", "생명력"]),
+      spd: pick(fields, ["spd", "속공"]),
+      crit_rate: pick(fields, ["crit_rate", "치명타 확률(%)"]),
+      crit_dmg: pick(fields, ["crit_dmg", "치명타 피해(%)"]),
+      weak_rate: pick(fields, ["weak_rate", "약점 공격 확률(%)"]),
+      block_rate: pick(fields, ["block_rate", "막기 확률(%)"]),
+      dmg_reduce: pick(fields, ["dmg_reduce", "받는 피해 감소(%)"]),
+      eff_hit: pick(fields, ["eff_hit", "효과 적중(%)"]),
+      eff_res: pick(fields, ["eff_res", "효과 저항(%)"]),
+
+      // 스킬
+      attack_image: pickAttachmentUrl(fields, ["attack image", "attack_image"]),
+      attack_name: pick(fields, ["attack name", "attack_name"]),
+      attack_desc: pick(fields, ["attack description", "attack_desc"]),
+      passive: pick(fields, ["passive"]),
+      active_1: pick(fields, ["active 1", "active_1"]),
+      active_2: pick(fields, ["active 2", "active_2"]),
+
+      // 설명
+      description: pick(fields, ["Description"])
     });
   } catch (error) {
     console.error("Failed to fetch hero:", error);
