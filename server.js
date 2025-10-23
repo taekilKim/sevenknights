@@ -108,13 +108,16 @@ app.get("/api/hero/:id", async (req, res) => {
     const heroData = await heroRes.json();
     const fields = heroData.fields || {};
 
-    // Fetch skills for the hero
+    // ✅ Skills에서 링크드 Heroes 필드 참조로 필터링
     const skillsRes = await fetch(
-      `https://api.airtable.com/v0/${BASE_ID}/Skills?filterByFormula={hero_id}='${id}'`,
+      `https://api.airtable.com/v0/${BASE_ID}/Skills?filterByFormula=SEARCH('${id}', ARRAYJOIN({Heroes}))`,
       { headers: { Authorization: `Bearer ${AIRTABLE_TOKEN}` } }
     );
-    if (!skillsRes.ok)
+    if (!skillsRes.ok) {
+      const errText = await skillsRes.text();
+      console.error("Airtable skills fetch error:", skillsRes.status, errText);
       throw new Error(`Airtable skills fetch error: ${skillsRes.status}`);
+    }
 
     const skillsData = await skillsRes.json();
 
