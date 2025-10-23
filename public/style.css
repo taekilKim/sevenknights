@@ -174,10 +174,10 @@ img {
 }
 
 /* 희귀도 색상 */
-.hero-portrait.rarity-legendary-plus { background: radial-gradient(circle at center, #ffe48a, #c67b00); }
-.hero-portrait.rarity-legendary { background: radial-gradient(circle at center, #f3e0a8, #b68700); }
-.hero-portrait.rarity-rare { background: radial-gradient(circle at center, #a693ff, #5a3ebd); }
-.hero-portrait.rarity-uncommon { background: radial-gradient(circle at center, #b5ffb0, #2e7b2e); }
+.rarity-legendary-plus { background: radial-gradient(circle at center, #ffe48a, #c67b00); }
+.rarity-legendary { background: radial-gradient(circle at center, #f3e0a8, #b68700); }
+.rarity-rare { background: radial-gradient(circle at center, #a693ff, #5a3ebd); }
+.rarity-uncommon { background: radial-gradient(circle at center, #b5ffb0, #2e7b2e); }
 
 /* ------------------------------------ */
 /*  hero.html (영웅 상세 페이지)        */
