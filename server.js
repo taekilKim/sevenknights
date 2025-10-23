@@ -29,6 +29,13 @@ const pickAttachmentUrl = (obj, keys) => {
   }
   return null;
 };
+
+const rarityColorMap = {
+  "전설+": "#f9b233",
+  "전설": "#ffdf80",
+  "희귀": "#63a4ff",
+  "일반": "#aaaaaa",
+};
 // -------------------------
 
 // ✅ 영웅 목록 API
@@ -68,11 +75,12 @@ app.get("/api/heroes", async (req, res) => {
       for (const hero of heroesData.records) {
         const fields = hero.fields || {};
         const typeName = fields.type || fields.Type || null;
+        const rarityVal = fields.Rarity || fields.rarity || null;
         processedHeroes.push({
           id: hero.id,
           name: fields.Name || fields.name || null,
           type: fields.Type || fields.type || null,
-          rarity: fields.Rarity || fields.rarity || null,
+          rarityColor: rarityColorMap[rarityVal] || null,
           portrait:
             Array.isArray(fields.portrait)
               ? fields.portrait[0]?.thumbnails?.large?.url || fields.portrait[0]?.url
@@ -109,6 +117,34 @@ app.get("/api/hero/:id", async (req, res) => {
     const heroData = await heroRes.json();
     const fields = heroData.fields || {};
 
+    // Fetch skills for the hero
+    const skillsRes = await fetch(
+      `https://api.airtable.com/v0/${BASE_ID}/Skills?filterByFormula={hero_id}='${id}'`,
+      { headers: { Authorization: `Bearer ${AIRTABLE_TOKEN}` } }
+    );
+    if (!skillsRes.ok)
+      throw new Error(`Airtable skills fetch error: ${skillsRes.status}`);
+
+    const skillsData = await skillsRes.json();
+
+    // Extract skills by skill type
+    let passiveSkill = null;
+    let active1Skill = null;
+    let active2Skill = null;
+    if (Array.isArray(skillsData.records)) {
+      for (const skillRecord of skillsData.records) {
+        const skillFields = skillRecord.fields || {};
+        const skillType = skillFields.skill_type || skillFields["skill_type"] || "";
+        if (skillType.toLowerCase() === "passive") {
+          passiveSkill = skillFields.passive || skillFields.Passive || skillFields.description || null;
+        } else if (skillType.toLowerCase() === "active 1" || skillType.toLowerCase() === "active1") {
+          active1Skill = skillFields.active_1 || skillFields["active_1"] || skillFields.description || null;
+        } else if (skillType.toLowerCase() === "active 2" || skillType.toLowerCase() === "active2") {
+          active2Skill = skillFields.active_2 || skillFields["active_2"] || skillFields.description || null;
+        }
+      }
+    }
+
     res.json({
       id: heroData.id,
       // 기본
@@ -132,13 +168,13 @@ app.get("/api/hero/:id", async (req, res) => {
       eff_hit: pick(fields, ["eff_hit", "효과 적중(%)"]),
       eff_res: pick(fields, ["eff_res", "효과 저항(%)"]),
 
-      // 스킬
+      // 스킬 (attack data from hero, others from skills)
       attack_image: pickAttachmentUrl(fields, ["attack image", "attack_image"]),
       attack_name: pick(fields, ["attack name", "attack_name"]),
       attack_desc: pick(fields, ["attack description", "attack_desc"]),
-      passive: pick(fields, ["passive"]),
-      active_1: pick(fields, ["active 1", "active_1"]),
-      active_2: pick(fields, ["active 2", "active_2"]),
+      passive: passiveSkill,
+      active_1: active1Skill,
+      active_2: active2Skill,
 
       // 설명
       description: pick(fields, ["Description"])
