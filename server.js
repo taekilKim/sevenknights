@@ -53,9 +53,14 @@ app.get("/api/heroes", async (req, res) => {
           name: fields.Name || fields.name || null,
           type: fields.Type || fields.type || null,
           rarity: fields.Rarity || fields.rarity || null,
-          portrait: Array.isArray(fields.Portrait)
-            ? fields.Portrait[0]?.thumbnails?.large?.url || fields.Portrait[0]?.url
-            : null,
+          portrait:
+            Array.isArray(fields.Portrait)
+              ? fields.Portrait[0]?.thumbnails?.large?.url || fields.Portrait[0]?.url
+              : Array.isArray(fields["초상"])
+              ? fields["초상"][0]?.thumbnails?.large?.url || fields["초상"][0]?.url
+              : Array.isArray(fields["이미지"])
+              ? fields["이미지"][0]?.thumbnails?.large?.url || fields["이미지"][0]?.url
+              : null,
           typeImage: typeImageMap[typeName] || null,
         });
       }
@@ -87,9 +92,14 @@ app.get("/api/hero/:id", async (req, res) => {
       name: fields.Name || null,
       type: fields.Type || null,
       rarity: fields.Rarity || null,
-      portrait: Array.isArray(fields.Portrait)
-        ? fields.Portrait[0]?.thumbnails?.large?.url || fields.Portrait[0]?.url
-        : null,
+      portrait:
+        Array.isArray(fields.Portrait)
+          ? fields.Portrait[0]?.thumbnails?.large?.url || fields.Portrait[0]?.url
+          : Array.isArray(fields["초상"])
+          ? fields["초상"][0]?.thumbnails?.large?.url || fields["초상"][0]?.url
+          : Array.isArray(fields["이미지"])
+          ? fields["이미지"][0]?.thumbnails?.large?.url || fields["이미지"][0]?.url
+          : null,
       description: fields.Description || null,
     });
   } catch (error) {
