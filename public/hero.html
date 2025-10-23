@@ -102,6 +102,20 @@
 
           // 기본 정보
           document.getElementById("hero-portrait").src = hero.portrait || "";
+          // 희귀도별 배경색 클래스 적용
+          const portraitEl = document.getElementById("hero-portrait");
+          if (portraitEl) {
+            const rarityClass = (() => {
+              switch (hero.rarity) {
+                case "전설+": return "legendary-plus";
+                case "전설": return "legendary";
+                case "희귀": return "rare";
+                case "고급": return "uncommon";
+                default: return "normal";
+              }
+            })();
+            portraitEl.classList.add(`rarity-${rarityClass}`);
+          }
           document.getElementById("hero-name").textContent = hero.name || "";
           document.getElementById("hero-nickname").textContent = hero.nickname || "";
           document.getElementById("hero-group").textContent = hero.group || "";
