@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>세븐나이츠 리버스 도감</title>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="/style.css" />
     <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-DMD8LXSEQ5"></script>
 <script>
@@ -82,7 +82,7 @@
       async function fetchHeroes() {
         showLoading(true);
         try {
-          const response = await fetch("/heroes");
+          const response = await fetch("/api/heroes");
           const data = await response.json();
           const heroesContainer = document.getElementById("heroes");
           heroesContainer.innerHTML = "";
@@ -183,15 +183,14 @@
         }
       }
 
-      document.addEventListener("DOMContentLoaded", () => {
+      document.addEventListener("DOMContentLoaded", async () => {
+        await fetchHeroes();
         const savedScroll = sessionStorage.getItem('scrollPosition');
         if (savedScroll) {
           window.scrollTo(0, parseInt(savedScroll));
           sessionStorage.removeItem('scrollPosition');
         }
       });
-
-      fetchHeroes();
     </script>
   </body>
 </html>
