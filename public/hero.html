@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>영웅 상세 - 세븐나이츠 리버스 도감</title>
   <meta name="description" content="세븐나이츠 리버스 영웅 상세 페이지" />
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="./style.css" />
 </head>
 <body class="hero-detail-page">
   <header class="hero-header">
@@ -100,6 +100,7 @@
           document.title = `${hero.name} - 세븐나이츠 리버스 도감`;
           document.querySelector('meta[name="description"]').setAttribute("content", `${hero.name}의 상세 정보를 확인하세요.`);
 
+          // 기본 정보
           document.getElementById("hero-portrait").src = hero.portrait || "";
           document.getElementById("hero-name").textContent = hero.name || "";
           document.getElementById("hero-nickname").textContent = hero.nickname || "";
@@ -107,41 +108,24 @@
           document.getElementById("hero-type").textContent = hero.type || "";
           document.getElementById("hero-rarity").textContent = hero.rarity || "";
 
-          document.getElementById("atk").textContent = hero.atk || "-";
-          document.getElementById("def").textContent = hero.def || "-";
-          document.getElementById("hp").textContent = hero.hp || "-";
-          document.getElementById("spd").textContent = hero.spd || "-";
-          document.getElementById("crit_rate").textContent = hero.crit_rate || "-";
-          document.getElementById("crit_dmg").textContent = hero.crit_dmg || "-";
-          document.getElementById("weak_rate").textContent = hero.weak_rate || "-";
-          document.getElementById("block_rate").textContent = hero.block_rate || "-";
-          document.getElementById("dmg_reduce").textContent = hero.dmg_reduce || "-";
-          document.getElementById("eff_hit").textContent = hero.eff_hit || "-";
-          document.getElementById("eff_res").textContent = hero.eff_res || "-";
+          // 스탯
+          const statFields = ["atk","def","hp","spd","crit_rate","crit_dmg","weak_rate","block_rate","dmg_reduce","eff_hit","eff_res"];
+          statFields.forEach(field => {
+            document.getElementById(field).textContent = hero[field] || "-";
+          });
 
-          // Attack skill
-          document.getElementById("attack-image").src = hero.attack?.image || "";
-          document.getElementById("attack-name").textContent = hero.attack?.name || "";
-          document.getElementById("attack-cooltime").textContent = hero.attack?.cooltime ? `쿨타임: ${hero.attack.cooltime}` : "";
-          document.getElementById("attack-desc").textContent = hero.attack?.desc || "";
+          // 스킬 출력 함수
+          const renderSkill = (prefix, skill) => {
+            document.getElementById(`${prefix}-image`).src = skill?.image || "";
+            document.getElementById(`${prefix}-name`).textContent = skill?.name || "";
+            document.getElementById(`${prefix}-cooltime`).textContent = skill?.cooltime ? `쿨타임: ${skill.cooltime}` : "";
+            document.getElementById(`${prefix}-desc`).textContent = skill?.desc || "";
+          };
 
-          // Active skill 1
-          document.getElementById("active-1-image").src = hero.active_1?.image || "";
-          document.getElementById("active-1-name").textContent = hero.active_1?.name || "";
-          document.getElementById("active-1-cooltime").textContent = hero.active_1?.cooltime ? `쿨타임: ${hero.active_1.cooltime}` : "";
-          document.getElementById("active-1-desc").textContent = hero.active_1?.desc || "";
-
-          // Active skill 2
-          document.getElementById("active-2-image").src = hero.active_2?.image || "";
-          document.getElementById("active-2-name").textContent = hero.active_2?.name || "";
-          document.getElementById("active-2-cooltime").textContent = hero.active_2?.cooltime ? `쿨타임: ${hero.active_2.cooltime}` : "";
-          document.getElementById("active-2-desc").textContent = hero.active_2?.desc || "";
-
-          // Passive skill
-          document.getElementById("passive-image").src = hero.passive?.image || "";
-          document.getElementById("passive-name").textContent = hero.passive?.name || "";
-          document.getElementById("passive-cooltime").textContent = hero.passive?.cooltime ? `쿨타임: ${hero.passive.cooltime}` : "";
-          document.getElementById("passive-desc").textContent = hero.passive?.desc || "";
+          renderSkill("attack", hero.attack);
+          renderSkill("active-1", hero.active_1);
+          renderSkill("active-2", hero.active_2);
+          renderSkill("passive", hero.passive);
 
           document.getElementById("hero-description").textContent = hero.description || "";
         })

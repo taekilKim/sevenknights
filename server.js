@@ -158,50 +158,36 @@ app.get("/api/hero/:id", async (req, res) => {
 
     const skillsData = await skillsRes.json();
 
-    // 영웅 ID가 포함된 스킬 찾기 (Heroes, Heroes 2, Heroes 2 copy 모두 검사)
-    const linkedSkills = (skillsData.records || []).filter(skillRecord => {
-      const f = skillRecord.fields || {};
-      const linkedAll = [
-        ...(f.Heroes || []),
-        ...(f["Heroes 2"] || []),
-        ...(f["Heroes 2 copy"] || []),
-      ];
-      return linkedAll.includes(id);
-    });
-
-    // Extract skills by skill type (이름, 설명, 이미지 구조화)
+    // ✅ 영웅과 연결된 스킬 찾기
+    let attackSkill = null;
     let passiveSkill = null;
     let active1Skill = null;
     let active2Skill = null;
 
-    if (Array.isArray(linkedSkills)) {
-      for (const skillRecord of linkedSkills) {
-        const f = skillRecord.fields || {};
-        const skillType = (f.skill_type || "").toLowerCase();
+    for (const skillRecord of skillsData.records || []) {
+      const f = skillRecord.fields || {};
 
-        const skillData = {
-          name: f.Name || "",
-          desc: f.desc || "",
-          image: Array.isArray(f.image) && f.image[0] ? f.image[0].url : null,
-        };
+      const skillData = {
+        name: f.Name || "",
+        desc: f.desc || "",
+        image: Array.isArray(f.image) && f.image[0] ? f.image[0].url : null,
+      };
 
-        if (skillType === "passive") passiveSkill = skillData;
-        else if (skillType === "active 1" || skillType === "active1") active1Skill = skillData;
-        else if (skillType === "active 2" || skillType === "active2") active2Skill = skillData;
-      }
+      if ((f.attack_hero || []).includes(id)) attackSkill = skillData;
+      if ((f.passive_hero || []).includes(id)) passiveSkill = skillData;
+      if ((f.active_1_hero || []).includes(id)) active1Skill = skillData;
+      if ((f.active_2_hero || []).includes(id)) active2Skill = skillData;
     }
 
+    // ✅ 응답 구성
     res.json({
       id: heroData.id,
-      // 기본
       name: pick(fields, ["Name"]),
       nickname: pick(fields, ["nickname"]),
       group: pick(fields, ["group"]),
       rarity: pick(fields, ["rarity", "Rarity"]),
       type: pick(fields, ["type", "Type"]),
       portrait: pickAttachmentUrl(fields, ["portrait", "Portrait", "초상", "이미지"]),
-
-      // 스탯 (영문 키 우선, 없으면 한글 키)
       atk: pick(fields, ["atk", "공격력"]),
       def: pick(fields, ["def", "방어력"]),
       hp: pick(fields, ["hp", "생명력"]),
@@ -214,15 +200,12 @@ app.get("/api/hero/:id", async (req, res) => {
       eff_hit: pick(fields, ["eff_hit", "효과 적중(%)"]),
       eff_res: pick(fields, ["eff_res", "효과 저항(%)"]),
 
-      // 스킬 (attack data from hero, others from skills)
-      attack_image: pickAttachmentUrl(fields, ["attack image", "attack_image"]),
-      attack_name: pick(fields, ["attack name", "attack_name"]),
-      attack_desc: pick(fields, ["attack description", "attack_desc"]),
+      // ✅ 통합된 스킬 정보
+      attack: attackSkill,
       passive: passiveSkill,
       active_1: active1Skill,
       active_2: active2Skill,
 
-      // 설명
       description: pick(fields, ["Description"])
     });
   } catch (error) {
