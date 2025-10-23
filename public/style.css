@@ -47,6 +47,7 @@ img {
   justify-content: space-between;
   padding: 0 32px;
   border-bottom: 2px solid #222;
+  box-sizing: border-box;
 }
 .header-logo img {
   height: 40px;
