@@ -158,27 +158,36 @@ app.get("/api/hero/:id", async (req, res) => {
 
     const skillsData = await skillsRes.json();
 
-    // 영웅 ID가 포함된 스킬만 필터링
+    // 영웅 ID가 포함된 스킬 찾기 (Heroes, Heroes 2, Heroes 2 copy 모두 검사)
     const linkedSkills = (skillsData.records || []).filter(skillRecord => {
-      const linkedHeroes = skillRecord.fields?.Heroes || [];
-      return linkedHeroes.includes(id);
+      const f = skillRecord.fields || {};
+      const linkedAll = [
+        ...(f.Heroes || []),
+        ...(f["Heroes 2"] || []),
+        ...(f["Heroes 2 copy"] || []),
+      ];
+      return linkedAll.includes(id);
     });
 
-    // Extract skills by skill type
+    // Extract skills by skill type (이름, 설명, 이미지 구조화)
     let passiveSkill = null;
     let active1Skill = null;
     let active2Skill = null;
+
     if (Array.isArray(linkedSkills)) {
       for (const skillRecord of linkedSkills) {
-        const skillFields = skillRecord.fields || {};
-        const skillType = skillFields.skill_type || skillFields["skill_type"] || "";
-        if (skillType.toLowerCase() === "passive") {
-          passiveSkill = skillFields.passive || skillFields.Passive || skillFields.description || null;
-        } else if (skillType.toLowerCase() === "active 1" || skillType.toLowerCase() === "active1") {
-          active1Skill = skillFields.active_1 || skillFields["active_1"] || skillFields.description || null;
-        } else if (skillType.toLowerCase() === "active 2" || skillType.toLowerCase() === "active2") {
-          active2Skill = skillFields.active_2 || skillFields["active_2"] || skillFields.description || null;
-        }
+        const f = skillRecord.fields || {};
+        const skillType = (f.skill_type || "").toLowerCase();
+
+        const skillData = {
+          name: f.Name || "",
+          desc: f.desc || "",
+          image: Array.isArray(f.image) && f.image[0] ? f.image[0].url : null,
+        };
+
+        if (skillType === "passive") passiveSkill = skillData;
+        else if (skillType === "active 1" || skillType === "active1") active1Skill = skillData;
+        else if (skillType === "active 2" || skillType === "active2") active2Skill = skillData;
       }
     }
 
