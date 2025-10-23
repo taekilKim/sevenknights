@@ -87,7 +87,6 @@
           const heroesContainer = document.getElementById("heroes");
           heroesContainer.innerHTML = "";
 
-          // 방어 코드: records 확인
           if (!data.records || !Array.isArray(data.records)) {
             heroesContainer.textContent = "데이터를 불러오지 못했습니다. (records 없음)";
             console.error("서버 응답:", data);
@@ -95,34 +94,33 @@
           }
 
           data.records.forEach((record) => {
+            // ✅ hero.id를 안전하게 병합 (undefined 방지)
             const hero = record.fields ? { id: record.id, ...record.fields } : record;
             const card = document.createElement("div");
             card.className = "hero-card";
 
-            // Airtable attachment 안전 추출 (thumbnails.large 우선, 없으면 url, 문자열이면 그대로)
+            // ✅ 초상화 이미지 URL 확인
             const attachment = Array.isArray(hero.portrait) ? hero.portrait[0] : null;
             const portraitUrl =
               typeof hero.portrait === "string"
                 ? hero.portrait
                 : (attachment?.thumbnails?.large?.url || attachment?.url || "");
 
-            // rarity 한글 → 클래스명 매핑 (배경색은 CSS에서 처리)
+            // ✅ 희귀도별 클래스 매핑
             const rarityMap = {
               "전설+": "legendary-plus",
               "전설": "legendary",
               "희귀": "rare",
               "고급": "uncommon",
-              "일반": "uncommon",
+              "일반": "common",
             };
-            const rarityClass = rarityMap[hero.rarity] || "uncommon";
-            // ⬇️ 배경 그라데이션은 카드에 적용 (기존 CSS와 동일한 훅)
-            card.classList.add(`rarity-${rarityClass}`);
+            const rarityClass = rarityMap[hero.rarity] || "common";
 
+            // ✅ 이미지 및 배경색 적용
             if (portraitUrl) {
-              // 이미지는 순수 wrapper에만
               const wrapper = document.createElement("div");
-              wrapper.className = "hero-portrait"; // ← rarity 클래스 제거
-              wrapper.style.position = "relative"; // 뱃지 포지셔닝용
+              wrapper.className = `hero-portrait rarity-${rarityClass}`;
+              wrapper.style.position = "relative";
 
               const img = document.createElement("img");
               img.src = portraitUrl;
@@ -130,7 +128,7 @@
               img.className = "hero-portrait-img";
               wrapper.appendChild(img);
 
-              // 유형 뱃지
+              // ✅ 유형 뱃지 표시 (옵션)
               if (hero.typeImage) {
                 const typeBadge = document.createElement("img");
                 typeBadge.src = hero.typeImage;
@@ -142,33 +140,17 @@
               card.appendChild(wrapper);
             }
 
+            // ✅ 이름 표시
             const name = document.createElement("div");
             name.className = "hero-name";
             name.textContent = hero.Name || hero.name || "이름 없음";
             card.appendChild(name);
 
-            if (hero.nickname) {
-              const nickname = document.createElement("div");
-              nickname.className = "hero-nickname";
-              nickname.textContent = `${hero.nickname}`;
-              card.appendChild(nickname);
-            }
-
-            if (hero.group) {
-              const group = document.createElement("div");
-              group.className = "hero-group";
-              group.textContent = hero.group;
-              card.appendChild(group);
-            }
-
-            const heroId = hero.id;
+            // ✅ 클릭 이벤트 — hero.id가 확실히 있을 때만 작동
             card.addEventListener("click", () => {
-              if (heroId) {
-                sessionStorage.setItem("scrollPosition", window.scrollY);
-                window.location.href = `/hero.html?id=${heroId}`;
-              } else {
-                console.error("영웅 ID가 정의되지 않았습니다:", hero);
-              }
+              if (!hero.id) return;
+              sessionStorage.setItem("scrollPosition", window.scrollY);
+              window.location.href = `/hero.html?id=${hero.id}`;
             });
 
             heroesContainer.appendChild(card);
