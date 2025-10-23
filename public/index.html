@@ -119,6 +119,10 @@
                   }
                 })();
                 img.className = `hero-portrait rarity-${rarityClass}`;
+                // hasEffect가 true면 초상화에 빛나는 테두리 클래스 부여
+                if (hero.hasEffect === true || hero.hasEffect === "true" || hero.hasEffect === 1) {
+                  img.classList.add("has-effect");
+                }
                 imgWrapper.appendChild(img);
 
                 // 다이아몬드 반짝 효과 (체크박스 필드 기반)
