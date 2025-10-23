@@ -101,35 +101,38 @@
 
             const portraitUrl = Array.isArray(hero.portrait) ? hero.portrait[0]?.url : hero.portrait;
 
+            // rarity 한글 → 클래스명 매핑 (배경색은 CSS에서 처리)
+            const rarityMap = {
+              "전설+": "legendary-plus",
+              "전설": "legendary",
+              "희귀": "rare",
+              "고급": "uncommon",
+              "일반": "uncommon",
+            };
+            const rarityClass = rarityMap[hero.rarity] || "uncommon";
+
             if (portraitUrl) {
-              const imgWrapper = document.createElement("div");
-              imgWrapper.className = "hero-portrait-wrap";
-              imgWrapper.style.position = "relative";
+              // 배경 그라데이션은 wrapper에 적용
+              const wrapper = document.createElement("div");
+              wrapper.className = `hero-portrait rarity-${rarityClass}`;
+              wrapper.style.position = "relative"; // 뱃지 포지셔닝용
 
               const img = document.createElement("img");
               img.src = portraitUrl;
               img.alt = hero.Name || hero.name || "이미지 없음";
-              const rarityClass = (() => {
-                switch (hero.rarity) {
-                  case "전설+": return "legendary-plus";
-                  case "전설": return "legendary";
-                  case "희귀": return "rare";
-                  case "고급": return "uncommon";
-                  default: return "normal";
-                }
-              })();
-              img.className = `hero-portrait rarity-${rarityClass}`;
-              imgWrapper.appendChild(img);
+              img.className = "hero-portrait-img"; // 순수 이미지 (배경은 wrapper가 담당)
+              wrapper.appendChild(img);
 
+              // 유형 뱃지
               if (hero.typeImage) {
                 const typeBadge = document.createElement("img");
                 typeBadge.src = hero.typeImage;
                 typeBadge.alt = hero.type || "타입 배지";
                 typeBadge.className = "hero-type-badge";
-                imgWrapper.appendChild(typeBadge);
+                wrapper.appendChild(typeBadge);
               }
 
-              card.appendChild(imgWrapper);
+              card.appendChild(wrapper);
             }
 
             const name = document.createElement("div");
