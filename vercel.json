@@ -1,12 +1,15 @@
 {
   "version": 2,
   "builds": [
-    { "src": "server.js", "use": "@vercel/node" },
-    { "src": "public/(.*)", "use": "@vercel/static" }
+    { "src": "server.js", "use": "@vercel/node" }
   ],
   "routes": [
     { "src": "/api/(.*)", "dest": "/server.js" },
-    { "src": "/hero.html", "dest": "/public/hero.html" },
-    { "src": "/(.*)", "dest": "/public/$1" }
+
+    { "src": "/index.html", "dest": "/index.html" },
+    { "src": "/hero.html", "dest": "/hero.html" },
+
+    { "src": "/", "dest": "/index.html" },
+    { "src": "/(.*)", "dest": "/$1" }
   ]
 }
