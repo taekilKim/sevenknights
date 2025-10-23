@@ -191,10 +191,14 @@ img {
 }
 .hero-header {
   width: 100%;
-  background: #111;
-  border-bottom: 1px solid #222;
-  padding: 16px 24px;
-  text-align: left;
+  height: 80px;
+  background: #1a1a1a;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 32px;
+  border-bottom: 2px solid #222;
+  box-sizing: border-box;
 }
 .back-button {
   background: transparent;
