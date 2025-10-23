@@ -71,7 +71,84 @@
       <div class="loading-text">L O A D I N G</div>
     </div>
 
-                    group.className = "hero-group";
+    <script>
+      function showLoading(on) {
+        const el = document.getElementById("global-loading");
+        if (!el) return;
+        el.style.display = on ? "flex" : "none";
+      }
+
+      // Airtable 데이터 불러오기
+      async function fetchHeroes() {
+        showLoading(true);
+        try {
+          const response = await fetch("/heroes");
+          const data = await response.json();
+          const heroesContainer = document.getElementById("heroes");
+          heroesContainer.innerHTML = "";
+
+          // 방어 코드: records 확인
+          if (!data.records || !Array.isArray(data.records)) {
+            heroesContainer.textContent = "데이터를 불러오지 못했습니다. (records 없음)";
+            console.error("서버 응답:", data);
+            return;
+          }
+
+          data.records.forEach((record) => {
+            const hero = record;
+            const card = document.createElement("div");
+            card.className = "hero-card";
+
+            // 초상 이미지와 타입 배지 감싸는 div
+            if (hero.portrait) {
+                const imgWrapper = document.createElement("div");
+                imgWrapper.className = "hero-portrait-wrap";
+                imgWrapper.style.position = "relative";
+
+                const img = document.createElement("img");
+                img.src = hero.portrait;
+                img.alt = hero.name || "이미지 없음";
+                const rarityClass = (() => {
+                  switch (hero.rarity) {
+                    case "전설+": return "legendary-plus";
+                    case "전설": return "legendary";
+                    case "희귀": return "rare";
+                    case "고급": return "uncommon";
+                    default: return "normal";
+                  }
+                })();
+                img.className = `hero-portrait rarity-${rarityClass}`;
+                imgWrapper.appendChild(img);
+
+                if (hero.typeImage) {
+                  const typeBadge = document.createElement("img");
+                  typeBadge.src = hero.typeImage;
+                  typeBadge.alt = hero.type || "타입 배지";
+                  typeBadge.className = "hero-type-badge";
+                  imgWrapper.appendChild(typeBadge);
+                }
+
+                card.appendChild(imgWrapper);
+            }
+
+            // 이름
+            const name = document.createElement("div");
+            name.className = "hero-name";
+            name.textContent = hero.name || "이름 없음";
+            card.appendChild(name);
+
+            // 별명
+            if (hero.nickname) {
+                const nickname = document.createElement("div");
+                nickname.className = "hero-nickname";
+                nickname.textContent = `${hero.nickname}`;
+                card.appendChild(nickname);
+            }
+
+            // 소속 그룹
+            if (hero.group) {
+                const group = document.createElement("div");
+                group.className = "hero-group";
                 group.textContent = hero.group;
                 card.appendChild(group);
             }
@@ -87,9 +164,10 @@
             // 타입 텍스트 표시 부분 제거
 
             // 카드 클릭 시 상세 페이지로 이동 및 스크롤 위치 저장
+            const heroId = record.id;
             card.addEventListener("click", () => {
               sessionStorage.setItem('scrollPosition', window.scrollY);
-              window.location.href = `/hero.html?id=${record.id}`;
+              window.location.href = `/hero.html?id=${heroId}`;
             });
             heroesContainer.appendChild(card);
             });
@@ -111,5 +189,6 @@
 
       fetchHeroes();
     </script>
+
   </body>
 </html>
