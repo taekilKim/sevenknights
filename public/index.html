@@ -106,15 +106,17 @@
                 ? hero.portrait
                 : (attachment?.thumbnails?.large?.url || attachment?.url || "");
 
-            // ✅ 희귀도별 클래스 매핑
-            const rarityMap = {
-              "전설+": "legendary-plus",
-              "전설": "legendary",
-              "희귀": "rare",
-              "고급": "uncommon",
-              "일반": "common",
-            };
-            const rarityClass = rarityMap[hero.rarity] || "common";
+            // ✅ 희귀도별 클래스 매핑 (여러 필드명 및 공백 처리)
+            const rarityClass = (() => {
+              const rarityValue = hero.rarity || hero.Rarity || hero["희귀도"] || "일반";
+              switch (rarityValue.trim()) {
+                case "전설+": return "legendary-plus";
+                case "전설": return "legendary";
+                case "희귀": return "rare";
+                case "고급": return "uncommon";
+                default: return "normal";
+              }
+            })();
 
             // ✅ 이미지 및 배경색 적용
             if (portraitUrl) {
