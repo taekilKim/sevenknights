@@ -38,7 +38,7 @@ const rarityColorMap = {
 };
 // -------------------------
 
-// ✅ 영웅 목록 API
+// ✅ 영웅 목록 API (요약 정보만)
 app.get("/api/heroes", async (req, res) => {
   try {
     const heroesRes = await fetch(
@@ -57,7 +57,7 @@ app.get("/api/heroes", async (req, res) => {
       throw new Error(`Airtable Type API error: ${typesRes.status}`);
     const typesData = await typesRes.json();
 
-    // 타입 이름 → 이미지 URL 매핑
+    // 타입 이미지 매핑
     const typeImageMap = {};
     if (Array.isArray(typesData.records)) {
       for (const typeRecord of typesData.records) {
@@ -69,32 +69,23 @@ app.get("/api/heroes", async (req, res) => {
       }
     }
 
-    // 영웅 데이터 구성
-    const processedHeroes = [];
-    if (Array.isArray(heroesData.records)) {
-      for (const hero of heroesData.records) {
-        const fields = hero.fields || {};
-        const typeName = fields.type || fields.Type || null;
-        const rarityVal = fields.Rarity || fields.rarity || null;
-        processedHeroes.push({
-          id: hero.id,
-          name: fields.Name || fields.name || null,
-          type: fields.Type || fields.type || null,
-          rarityColor: rarityColorMap[rarityVal] || null,
-          portrait:
-            Array.isArray(fields.portrait)
-              ? fields.portrait[0]?.thumbnails?.large?.url || fields.portrait[0]?.url
-              : Array.isArray(fields.Portrait)
-              ? fields.Portrait[0]?.thumbnails?.large?.url || fields.Portrait[0]?.url
-              : Array.isArray(fields["초상"])
-              ? fields["초상"][0]?.thumbnails?.large?.url || fields["초상"][0]?.url
-              : Array.isArray(fields["이미지"])
-              ? fields["이미지"][0]?.thumbnails?.large?.url || fields["이미지"][0]?.url
-              : null,
-          typeImage: typeImageMap[typeName] || null,
-        });
-      }
-    }
+    // 영웅 데이터 구성 (요약)
+    const processedHeroes = heroesData.records.map((hero) => {
+      const f = hero.fields || {};
+      const rarityVal = f.rarity || f.Rarity || "";
+      const typeName = f.type || f.Type || "";
+      return {
+        id: hero.id,
+        name: f.Name || "",
+        rarity: rarityVal,
+        type: typeName,
+        portrait:
+          Array.isArray(f.portrait) && f.portrait[0]
+            ? f.portrait[0].thumbnails?.large?.url || f.portrait[0].url
+            : "",
+        typeImage: typeImageMap[typeName] || null,
+      };
+    });
 
     res.json({ records: processedHeroes });
   } catch (error) {
