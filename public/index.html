@@ -121,6 +121,13 @@
                 img.className = `hero-portrait rarity-${rarityClass}`;
                 imgWrapper.appendChild(img);
 
+                // 다이아몬드 반짝 효과 (체크박스 필드 기반)
+                if (hero.hasEffect) {
+                  const diamond = document.createElement("div");
+                  diamond.className = "rarity-diamond-effect";
+                  imgWrapper.appendChild(diamond);
+                }
+
                 if (hero.typeImage) {
                   const typeBadge = document.createElement("img");
                   typeBadge.src = hero.typeImage;

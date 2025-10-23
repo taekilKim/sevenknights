@@ -10,7 +10,7 @@
 </head>
 <body class="hero-detail-page">
   <header class="hero-header">
-    <button class="back-button" onclick="window.history.back()"><i class="ph-bold ph-caret-left"></i>목록으로</button>
+    <button class="back-button" onclick="window.history.back()"><i class="ph-bold ph-caret-left"></i> 목록으로</button>
   </header>
 
   <main class="hero-detail-container">
@@ -103,6 +103,15 @@
 
           // 기본 정보
           document.getElementById("hero-portrait").src = hero.portrait || "";
+          // 다이아몬드 반짝 효과 (체크박스 필드 기반)
+          if (hero.hasEffect) {
+            const portraitWrap = document.querySelector(".hero-portrait-wrap");
+            if (portraitWrap) {
+              const diamond = document.createElement("div");
+              diamond.className = "rarity-diamond-effect";
+              portraitWrap.appendChild(diamond);
+            }
+          }
           // 희귀도별 배경색 클래스 적용
           const portraitEl = document.getElementById("hero-portrait");
           if (portraitEl) {

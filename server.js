@@ -74,11 +74,14 @@ app.get("/api/heroes", async (req, res) => {
       const f = hero.fields || {};
       const rarityVal = f.rarity || f.Rarity || "";
       const typeName = f.type || f.Type || "";
+      const hasEffect = !!f.hasEffect; // ✅ 에어테이블 체크박스 필드 불러오기
+
       return {
         id: hero.id,
         name: f.Name || "",
         rarity: rarityVal,
         type: typeName,
+        hasEffect, // ✅ 추가됨
         portrait:
           Array.isArray(f.portrait) && f.portrait[0]
             ? f.portrait[0].thumbnails?.large?.url || f.portrait[0].url
@@ -206,7 +209,8 @@ app.get("/api/hero/:id", async (req, res) => {
       active_1: active1Skill,
       active_2: active2Skill,
 
-      description: pick(fields, ["Description"])
+      description: pick(fields, ["Description"]),
+      hasEffect: !!fields.hasEffect // ✅ 추가됨
     });
   } catch (error) {
     console.error("Failed to fetch hero:", error);
