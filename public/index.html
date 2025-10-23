@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>세븐나이츠 리버스 도감</title>
-    <link rel="stylesheet" href="/style.css" />
+    <link rel="stylesheet" href="./style.css" />
     <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-DMD8LXSEQ5"></script>
 <script>
@@ -19,7 +19,7 @@
     <div class="layout">
       <header class="header">
         <div class="header-logo">
-          <img src="/images/logo.png" alt="세븐나이츠 리버스 도감 로고" />
+          <img src="./images/logo.png" alt="세븐나이츠 리버스 도감 로고" />
         </div>
       </header>
 
@@ -82,11 +82,12 @@
       async function fetchHeroes() {
         showLoading(true);
         try {
-          const response = await fetch("/api/heroes");
+          const response = await fetch("/heroes");
           const data = await response.json();
           const heroesContainer = document.getElementById("heroes");
           heroesContainer.innerHTML = "";
 
+          // 방어 코드: records 확인
           if (!data.records || !Array.isArray(data.records)) {
             heroesContainer.textContent = "데이터를 불러오지 못했습니다. (records 없음)";
             console.error("서버 응답:", data);
@@ -94,69 +95,86 @@
           }
 
           data.records.forEach((record) => {
-            // ✅ hero.id를 안전하게 병합 (undefined 방지)
-            const hero = record.fields ? { id: record.id, ...record.fields } : record;
+            const hero = record;
             const card = document.createElement("div");
             card.className = "hero-card";
 
-            // ✅ 초상화 이미지 URL 확인
-            const attachment = Array.isArray(hero.portrait) ? hero.portrait[0] : null;
-            const portraitUrl =
-              typeof hero.portrait === "string"
-                ? hero.portrait
-                : (attachment?.thumbnails?.large?.url || attachment?.url || "");
+            // 초상 이미지와 타입 배지 감싸는 div
+            if (hero.portrait) {
+                const imgWrapper = document.createElement("div");
+                imgWrapper.className = "hero-portrait-wrap";
+                imgWrapper.style.position = "relative";
 
-            // ✅ 희귀도별 클래스 매핑 (여러 필드명 및 공백 처리)
-            const rarityClass = (() => {
-              const rarityValue = hero.rarity || hero.Rarity || hero["희귀도"] || "일반";
-              switch (rarityValue.trim()) {
-                case "전설+": return "legendary-plus";
-                case "전설": return "legendary";
-                case "희귀": return "rare";
-                case "고급": return "uncommon";
-                default: return "normal";
-              }
-            })();
+                const img = document.createElement("img");
+                img.src = hero.portrait;
+                img.alt = hero.name || "이미지 없음";
+                const rarityClass = (() => {
+                  switch (hero.rarity) {
+                    case "전설+": return "legendary-plus";
+                    case "전설": return "legendary";
+                    case "희귀": return "rare";
+                    case "고급": return "uncommon";
+                    default: return "normal";
+                  }
+                })();
+                img.className = `hero-portrait rarity-${rarityClass}`;
+                imgWrapper.appendChild(img);
 
-            // ✅ 이미지 및 배경색 적용
-            if (portraitUrl) {
-              const wrapper = document.createElement("div");
-              wrapper.className = `hero-portrait rarity-${rarityClass}`;
-              wrapper.style.position = "relative";
+                if (hero.typeImage) {
+                  const typeBadge = document.createElement("img");
+                  typeBadge.src = hero.typeImage;
+                  typeBadge.alt = hero.type || "타입 배지";
+                  typeBadge.className = "hero-type-badge";
+                  imgWrapper.appendChild(typeBadge);
+                }
 
-              const img = document.createElement("img");
-              img.src = portraitUrl;
-              img.alt = hero.Name || hero.name || "이미지 없음";
-              img.className = "hero-portrait-img";
-              wrapper.appendChild(img);
-
-              // ✅ 유형 뱃지 표시 (옵션)
-              if (hero.typeImage) {
-                const typeBadge = document.createElement("img");
-                typeBadge.src = hero.typeImage;
-                typeBadge.alt = hero.type || "타입 배지";
-                typeBadge.className = "hero-type-badge";
-                wrapper.appendChild(typeBadge);
-              }
-
-              card.appendChild(wrapper);
+                card.appendChild(imgWrapper);
             }
 
-            // ✅ 이름 표시
+            // 이름
             const name = document.createElement("div");
             name.className = "hero-name";
-            name.textContent = hero.Name || hero.name || "이름 없음";
+            name.textContent = hero.name || "이름 없음";
             card.appendChild(name);
 
-            // ✅ 클릭 이벤트 — hero.id가 확실히 있을 때만 작동
-            card.addEventListener("click", () => {
-              if (!hero.id) return;
-              sessionStorage.setItem("scrollPosition", window.scrollY);
-              window.location.href = `/hero.html?id=${hero.id}`;
-            });
+            // 별명
+            if (hero.nickname) {
+                const nickname = document.createElement("div");
+                nickname.className = "hero-nickname";
+                nickname.textContent = `${hero.nickname}`;
+                card.appendChild(nickname);
+            }
 
+            // 소속 그룹
+            if (hero.group) {
+                const group = document.createElement("div");
+                group.className = "hero-group";
+                group.textContent = hero.group;
+                card.appendChild(group);
+            }
+
+            // 등급 (숨김 처리)
+            // if (hero.rarity) {
+            //     const rarity = document.createElement("div");
+            //     rarity.className = "hero-rarity";
+            //     rarity.textContent = hero.rarity;
+            //     card.appendChild(rarity);
+            // }
+
+            // 타입 텍스트 표시 부분 제거
+
+            // 카드 클릭 시 상세 페이지로 이동 및 스크롤 위치 저장
+            const heroId = hero.id;
+            card.addEventListener("click", () => {
+              if (heroId) {
+                sessionStorage.setItem('scrollPosition', window.scrollY);
+                window.location.href = `/hero.html?id=${heroId}`;
+              } else {
+                console.error("영웅 ID가 정의되지 않았습니다:", hero);
+              }
+            });
             heroesContainer.appendChild(card);
-          });
+            });
         } catch (error) {
           console.error("에러:", error);
           document.getElementById("heroes").textContent = "데이터 불러오기 오류";
@@ -165,14 +183,15 @@
         }
       }
 
-      document.addEventListener("DOMContentLoaded", async () => {
-        await fetchHeroes();
+      document.addEventListener("DOMContentLoaded", () => {
         const savedScroll = sessionStorage.getItem('scrollPosition');
         if (savedScroll) {
           window.scrollTo(0, parseInt(savedScroll));
           sessionStorage.removeItem('scrollPosition');
         }
       });
+
+      fetchHeroes();
     </script>
   </body>
 </html>
