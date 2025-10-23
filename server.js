@@ -7,15 +7,13 @@ import cors from "cors";
 const app = express();
 app.use(cors());
 
-// ✅ Airtable 연결 설정
-const AIRTABLE_TOKEN = process.env.AIRTABLE_TOKEN; // 환경 변수에서 가져옴
-const BASE_ID = "app6CjXEVBGVvatUd"; // Airtable Base ID
-const TABLE = "Heroes"; // Airtable 테이블 이름
+const AIRTABLE_TOKEN = process.env.AIRTABLE_TOKEN;
+const BASE_ID = "app6CjXEVBGVvatUd";
+const TABLE = "Heroes";
 
-// ✅ 영웅 목록 + 타입 이미지 API
-app.get("/heroes", async (req, res) => {
+// ✅ 영웅 목록 API
+app.get("/api/heroes", async (req, res) => {
   try {
-    // 영웅 목록 (Name 기준 오름차순)
     const heroesRes = await fetch(
       `https://api.airtable.com/v0/${BASE_ID}/Heroes?sort[0][field]=Name&sort[0][direction]=asc`,
       {
@@ -26,7 +24,6 @@ app.get("/heroes", async (req, res) => {
       throw new Error(`Airtable Heroes API error: ${heroesRes.status}`);
     const heroesData = await heroesRes.json();
 
-    // 타입 테이블 불러오기
     const typesRes = await fetch(
       `https://api.airtable.com/v0/${BASE_ID}/Type`,
       {
@@ -37,7 +34,6 @@ app.get("/heroes", async (req, res) => {
       throw new Error(`Airtable Type API error: ${typesRes.status}`);
     const typesData = await typesRes.json();
 
-    // 타입 이름 → 이미지 URL 매핑
     const typeImageMap = {};
     if (Array.isArray(typesData.records)) {
       for (const typeRecord of typesData.records) {
@@ -51,14 +47,13 @@ app.get("/heroes", async (req, res) => {
       }
     }
 
-    // 영웅 목록에 typeImage 포함
     const processedHeroes = [];
     if (Array.isArray(heroesData.records)) {
       for (const hero of heroesData.records) {
         const fields = hero.fields || {};
         const typeName = fields.type || fields.Type || null;
         processedHeroes.push({
-          id: hero.id, // ✅ Airtable 레코드 ID
+          id: hero.id,
           name: fields.name || fields.Name || null,
           type: fields.type || fields.Type || null,
           rarity: fields.rarity || fields.Rarity || null,
@@ -75,13 +70,11 @@ app.get("/heroes", async (req, res) => {
     res.json({ records: processedHeroes });
   } catch (error) {
     console.error("Airtable fetch error:", error);
-    res
-      .status(500)
-      .json({ error: "Failed to fetch heroes and types from Airtable" });
+    res.status(500).json({ error: "Failed to fetch heroes and types from Airtable" });
   }
 });
 
-// ✅ 단일 영웅 조회 API (API prefix 적용)
+// ✅ 단일 영웅 조회 API
 app.get("/api/hero/:id", async (req, res) => {
   const { id } = req.params;
   try {
@@ -103,10 +96,8 @@ app.get("/api/hero/:id", async (req, res) => {
       name: fields.Name || null,
       type: fields.Type || null,
       rarity: fields.Rarity || null,
-      portrait: Array.isArray(fields.Portrait)
-        ? fields.Portrait[0]?.url
-        : null,
-      description: fields.Description || null, // 설명 필드
+      portrait: Array.isArray(fields.Portrait) ? fields.Portrait[0]?.url : null,
+      description: fields.Description || null,
     };
 
     res.json(heroDetail);
@@ -116,9 +107,9 @@ app.get("/api/hero/:id", async (req, res) => {
   }
 });
 
-// ✅ 정적 파일 서빙 (가장 마지막에 적용)
 app.use(express.static("public", { extensions: ["html", "htm"] }));
 
-// ✅ 포트 설정 (Vercel 환경에 맞춤)
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`✅ Server running on port ${PORT}`));
+
+export default app;
