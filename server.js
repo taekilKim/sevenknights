@@ -12,49 +12,53 @@ const AIRTABLE_TOKEN = process.env.AIRTABLE_TOKEN; // 환경 변수에서 가져
 const BASE_ID = "app6CjXEVBGVvatUd"; // Airtable Base ID
 const TABLE = "Heroes"; // Airtable 테이블 이름
 
-// ✅ 영웅 데이터 API
-// ✅ 영웅 데이터 + 타입 이미지 API
+// ✅ 영웅 목록 + 타입 이미지 API
 app.get("/heroes", async (req, res) => {
   try {
-    // Fetch Heroes (sorted by Name ascending)
+    // 영웅 목록 (Name 기준 오름차순)
     const heroesRes = await fetch(
       `https://api.airtable.com/v0/${BASE_ID}/Heroes?sort[0][field]=Name&sort[0][direction]=asc`,
       {
         headers: { Authorization: `Bearer ${AIRTABLE_TOKEN}` },
       }
     );
-    if (!heroesRes.ok) throw new Error(`Airtable Heroes API error: ${heroesRes.status}`);
+    if (!heroesRes.ok)
+      throw new Error(`Airtable Heroes API error: ${heroesRes.status}`);
     const heroesData = await heroesRes.json();
 
-    // Fetch Types
-    const typesRes = await fetch(`https://api.airtable.com/v0/${BASE_ID}/Type`, {
-      headers: { Authorization: `Bearer ${AIRTABLE_TOKEN}` },
-    });
-    if (!typesRes.ok) throw new Error(`Airtable Type API error: ${typesRes.status}`);
+    // 타입 테이블 불러오기
+    const typesRes = await fetch(
+      `https://api.airtable.com/v0/${BASE_ID}/Type`,
+      {
+        headers: { Authorization: `Bearer ${AIRTABLE_TOKEN}` },
+      }
+    );
+    if (!typesRes.ok)
+      throw new Error(`Airtable Type API error: ${typesRes.status}`);
     const typesData = await typesRes.json();
 
-    // Create a map of type name -> attachment URL
+    // 타입 이름 → 이미지 URL 매핑
     const typeImageMap = {};
     if (Array.isArray(typesData.records)) {
       for (const typeRecord of typesData.records) {
-        const name = typeRecord.fields && typeRecord.fields.Name;
-        const attachments = typeRecord.fields && typeRecord.fields.Attachments;
-        // attachment is an array of objects with url
-        const url = Array.isArray(attachments) && attachments[0] && attachments[0].url;
+        const name = typeRecord.fields?.Name;
+        const attachments = typeRecord.fields?.Attachments;
+        const url =
+          Array.isArray(attachments) && attachments[0] && attachments[0].url;
         if (name && url) {
           typeImageMap[name] = url;
         }
       }
     }
 
-    // Process heroes to include typeImage and normalized structure
+    // 영웅 목록에 typeImage 포함
     const processedHeroes = [];
     if (Array.isArray(heroesData.records)) {
       for (const hero of heroesData.records) {
         const fields = hero.fields || {};
         const typeName = fields.type || fields.Type || null;
         processedHeroes.push({
-          id: hero.id, // ✅ 추가: Airtable 레코드 ID
+          id: hero.id, // ✅ Airtable 레코드 ID
           name: fields.name || fields.Name || null,
           type: fields.type || fields.Type || null,
           rarity: fields.rarity || fields.Rarity || null,
@@ -71,11 +75,13 @@ app.get("/heroes", async (req, res) => {
     res.json({ records: processedHeroes });
   } catch (error) {
     console.error("Airtable fetch error:", error);
-    res.status(500).json({ error: "Failed to fetch heroes and types from Airtable" });
+    res
+      .status(500)
+      .json({ error: "Failed to fetch heroes and types from Airtable" });
   }
 });
 
-// ✅ 단일 영웅 조회 API (prefix 변경: /api/hero/:id)
+// ✅ 단일 영웅 조회 API (API prefix 적용)
 app.get("/api/hero/:id", async (req, res) => {
   const { id } = req.params;
   try {
@@ -86,7 +92,8 @@ app.get("/api/hero/:id", async (req, res) => {
       }
     );
 
-    if (!heroRes.ok) throw new Error(`Airtable hero fetch error: ${heroRes.status}`);
+    if (!heroRes.ok)
+      throw new Error(`Airtable hero fetch error: ${heroRes.status}`);
 
     const heroData = await heroRes.json();
     const fields = heroData.fields || {};
@@ -109,11 +116,9 @@ app.get("/api/hero/:id", async (req, res) => {
   }
 });
 
-
-// ✅ 정적 파일 서빙은 가장 마지막에 적용해야 라우팅 충돌 방지됨
-// (Serve static files last to prevent route conflicts)
+// ✅ 정적 파일 서빙 (가장 마지막에 적용)
 app.use(express.static("public", { extensions: ["html", "htm"] }));
 
-// ✅ Vercel 환경에서는 자동으로 포트를 할당하므로 3000 대신 process.env.PORT 사용
+// ✅ 포트 설정 (Vercel 환경에 맞춤)
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`✅ Server running on port ${PORT}`));
