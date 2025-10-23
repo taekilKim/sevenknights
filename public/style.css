@@ -206,11 +206,15 @@ img {
   color: #fff;
   border: none;
   font-size: 1rem;
+  font-weight:600;
   cursor: pointer;
   transition: color 0.2s ease;
 }
 .back-button:hover {
   color: #f0c674;
+}
+.back-button i {
+  font-size:20px;
 }
 
 .hero-detail-container {
