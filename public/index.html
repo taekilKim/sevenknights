@@ -99,7 +99,12 @@
             const card = document.createElement("div");
             card.className = "hero-card";
 
-            const portraitUrl = Array.isArray(hero.portrait) ? hero.portrait[0]?.url : hero.portrait;
+            // Airtable attachment 안전 추출 (thumbnails.large 우선, 없으면 url, 문자열이면 그대로)
+            const attachment = Array.isArray(hero.portrait) ? hero.portrait[0] : null;
+            const portraitUrl =
+              typeof hero.portrait === "string"
+                ? hero.portrait
+                : (attachment?.thumbnails?.large?.url || attachment?.url || "");
 
             // rarity 한글 → 클래스명 매핑 (배경색은 CSS에서 처리)
             const rarityMap = {
@@ -110,17 +115,19 @@
               "일반": "uncommon",
             };
             const rarityClass = rarityMap[hero.rarity] || "uncommon";
+            // ⬇️ 배경 그라데이션은 카드에 적용 (기존 CSS와 동일한 훅)
+            card.classList.add(`rarity-${rarityClass}`);
 
             if (portraitUrl) {
-              // 배경 그라데이션은 wrapper에 적용
+              // 이미지는 순수 wrapper에만
               const wrapper = document.createElement("div");
-              wrapper.className = `hero-portrait rarity-${rarityClass}`;
+              wrapper.className = "hero-portrait"; // ← rarity 클래스 제거
               wrapper.style.position = "relative"; // 뱃지 포지셔닝용
 
               const img = document.createElement("img");
               img.src = portraitUrl;
               img.alt = hero.Name || hero.name || "이미지 없음";
-              img.className = "hero-portrait-img"; // 순수 이미지 (배경은 wrapper가 담당)
+              img.className = "hero-portrait-img";
               wrapper.appendChild(img);
 
               // 유형 뱃지
