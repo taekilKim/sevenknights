@@ -13,11 +13,64 @@
   </header>
 
   <main class="hero-detail-container">
-    <img id="hero-image" class="hero-detail-portrait" alt="영웅 초상화" />
-    <h1 id="hero-name"></h1>
-    <p id="hero-type"></p>
-    <p id="hero-description"></p>
-    <ul id="hero-skills"></ul>
+    <section class="hero-top">
+      <div class="hero-portrait-wrap">
+        <img id="hero-portrait" class="hero-detail-portrait" alt="영웅 초상화" />
+      </div>
+      <div class="hero-basic-info">
+        <h1 id="hero-name" class="hero-name"></h1>
+        <p id="hero-nickname" class="hero-nickname"></p>
+        <p id="hero-group" class="hero-group"></p>
+        <div class="hero-meta">
+          <span id="hero-type" class="hero-type"></span>
+          <span id="hero-rarity" class="hero-rarity"></span>
+        </div>
+      </div>
+    </section>
+
+    <section class="hero-stats">
+      <h2>스탯</h2>
+      <table class="stats-table">
+        <tr><td>공격력</td><td id="atk"></td></tr>
+        <tr><td>방어력</td><td id="def"></td></tr>
+        <tr><td>생명력</td><td id="hp"></td></tr>
+        <tr><td>속공</td><td id="spd"></td></tr>
+        <tr><td>치명타 확률(%)</td><td id="crit_rate"></td></tr>
+        <tr><td>치명타 피해(%)</td><td id="crit_dmg"></td></tr>
+        <tr><td>약점 공격 확률(%)</td><td id="weak_rate"></td></tr>
+        <tr><td>막기 확률(%)</td><td id="block_rate"></td></tr>
+        <tr><td>받는 피해 감소(%)</td><td id="dmg_reduce"></td></tr>
+        <tr><td>효과 적중(%)</td><td id="eff_hit"></td></tr>
+        <tr><td>효과 저항(%)</td><td id="eff_res"></td></tr>
+      </table>
+    </section>
+
+    <section class="hero-skills">
+      <h2>스킬</h2>
+      <div class="skill attack-skill">
+        <h3>기본 공격</h3>
+        <img id="attack-image" alt="공격 이미지" />
+        <p id="attack-name" class="skill-name"></p>
+        <p id="attack-desc" class="skill-desc"></p>
+      </div>
+      <div class="skill active-skill-1">
+        <h3>액티브 스킬 1</h3>
+        <p id="active-1" class="skill-desc"></p>
+      </div>
+      <div class="skill active-skill-2">
+        <h3>액티브 스킬 2</h3>
+        <p id="active-2" class="skill-desc"></p>
+      </div>
+      <div class="skill passive-skill">
+        <h3>패시브</h3>
+        <p id="passive" class="skill-desc"></p>
+      </div>
+    </section>
+
+    <section class="hero-description">
+      <h2>설명</h2>
+      <p id="hero-description"></p>
+    </section>
   </main>
 
   <script>
@@ -27,29 +80,46 @@
     if (!heroId) {
       document.querySelector("main").innerHTML = "<p>유효하지 않은 영웅 ID입니다.</p>";
     } else {
-      fetch(`https://sk-dogam.app/api/hero/${heroId}`)
+      fetch(`/api/hero/${heroId}`)
         .then(res => {
           if (!res.ok) throw new Error(`HTTP ${res.status}`);
           return res.json();
         })
-        .then(data => {
-          if (!data || !data.name) {
+        .then(hero => {
+          if (!hero || !hero.name) {
             document.querySelector("main").innerHTML = "<p>영웅 정보를 불러올 수 없습니다.</p>";
             return;
           }
 
-          document.title = `${data.name} - 세븐나이츠 리버스 도감`;
-          document.querySelector('meta[name="description"]').setAttribute("content", `${data.name}의 영웅 정보와 스킬 상세를 확인하세요.`);
-          document.querySelector("#hero-image").src = data.portrait || "";
-          document.querySelector("#hero-name").textContent = data.name || "이름 없음";
-          document.querySelector("#hero-type").textContent = data.type || "";
-          document.querySelector("#hero-description").textContent = data.description || "";
+          document.title = `${hero.name} - 세븐나이츠 리버스 도감`;
+          document.querySelector('meta[name="description"]').setAttribute("content", `${hero.name}의 상세 정보를 확인하세요.`);
 
-          if (data.skills && Array.isArray(data.skills)) {
-            document.querySelector("#hero-skills").innerHTML = data.skills.map(skill => `<li>${skill}</li>`).join("");
-          } else {
-            document.querySelector("#hero-skills").innerHTML = "<li>등록된 스킬 정보가 없습니다.</li>";
-          }
+          document.getElementById("hero-portrait").src = hero.portrait || "";
+          document.getElementById("hero-name").textContent = hero.name || "";
+          document.getElementById("hero-nickname").textContent = hero.nickname || "";
+          document.getElementById("hero-group").textContent = hero.group || "";
+          document.getElementById("hero-type").textContent = hero.type || "";
+          document.getElementById("hero-rarity").textContent = hero.rarity || "";
+
+          document.getElementById("atk").textContent = hero.atk || "-";
+          document.getElementById("def").textContent = hero.def || "-";
+          document.getElementById("hp").textContent = hero.hp || "-";
+          document.getElementById("spd").textContent = hero.spd || "-";
+          document.getElementById("crit_rate").textContent = hero.crit_rate || "-";
+          document.getElementById("crit_dmg").textContent = hero.crit_dmg || "-";
+          document.getElementById("weak_rate").textContent = hero.weak_rate || "-";
+          document.getElementById("block_rate").textContent = hero.block_rate || "-";
+          document.getElementById("dmg_reduce").textContent = hero.dmg_reduce || "-";
+          document.getElementById("eff_hit").textContent = hero.eff_hit || "-";
+          document.getElementById("eff_res").textContent = hero.eff_res || "-";
+
+          document.getElementById("attack-image").src = hero.attack_image || "";
+          document.getElementById("attack-name").textContent = hero.attack_name || "";
+          document.getElementById("attack-desc").textContent = hero.attack_desc || "";
+          document.getElementById("active-1").textContent = hero.active_1 || "";
+          document.getElementById("active-2").textContent = hero.active_2 || "";
+          document.getElementById("passive").textContent = hero.passive || "";
+          document.getElementById("hero-description").textContent = hero.description || "";
         })
         .catch(err => {
           console.error("Hero fetch error:", err);
