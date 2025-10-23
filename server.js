@@ -54,7 +54,7 @@ app.get("/api/heroes", async (req, res) => {
           type: fields.Type || fields.type || null,
           rarity: fields.Rarity || fields.rarity || null,
           portrait: Array.isArray(fields.Portrait)
-            ? fields.Portrait[0]?.url
+            ? fields.Portrait[0]?.thumbnails?.large?.url || fields.Portrait[0]?.url
             : null,
           typeImage: typeImageMap[typeName] || null,
         });
@@ -88,7 +88,7 @@ app.get("/api/hero/:id", async (req, res) => {
       type: fields.Type || null,
       rarity: fields.Rarity || null,
       portrait: Array.isArray(fields.Portrait)
-        ? fields.Portrait[0]?.url
+        ? fields.Portrait[0]?.thumbnails?.large?.url || fields.Portrait[0]?.url
         : null,
       description: fields.Description || null,
     });
