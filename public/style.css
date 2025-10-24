@@ -368,7 +368,7 @@ svg defs {
 /* (구)세븐나이츠를 제외한 영웅에만 적용되는 핑크-레드 glow */
 .hero-card:not([data-group="(구)세븐나이츠"]) .hero-portrait.has-effect {
   border-color: rgba(255, 140, 180, 0.9);
-  box-shadow: 0 0 12px rgba(255, 120, 160, 0.6), 0 0 24px rgba(255, 60, 80, 0.4);
+  box-shadow: 0 0 12px rgba(255, 200, 100, 0.6), 0 0 24px rgba(255, 120, 40, 0.4);
 }
 
 
