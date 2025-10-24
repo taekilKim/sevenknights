@@ -230,12 +230,12 @@ app.listen(PORT, () => console.log(`✅ Server running on port ${PORT}`));
 // import bodyParser from "body-parser";
 // app.use(bodyParser.json());
 
-// ✅ 댓글 목록 조회 (안정화 버전)
+// ✅ 댓글 목록 조회 (간소화된 안정화 버전)
 app.get("/api/comments/:heroId", async (req, res) => {
   const heroId = req.params.heroId;
   try {
     const commentsRes = await fetch(
-      `https://api.airtable.com/v0/${BASE_ID}/Comments?filterByFormula={heroId}='${heroId}'&sort[0][field]=timestamp&sort[0][direction]=desc`,
+      `https://api.airtable.com/v0/${BASE_ID}/Comments?filterByFormula={heroId}='${heroId}'`,
       { headers: { Authorization: `Bearer ${AIRTABLE_TOKEN}` } }
     );
 
@@ -250,7 +250,8 @@ app.get("/api/comments/:heroId", async (req, res) => {
       id: rec.id,
       nickname: rec.fields.nickname || "익명",
       content: rec.fields.content || "",
-      timestamp: rec.fields.timestamp || "",
+      // createdTime는 Airtable 시스템 필드라 항상 존재
+      timestamp: rec.createdTime || rec.fields.timestamp || "",
     }));
 
     res.json({ comments });
@@ -260,8 +261,10 @@ app.get("/api/comments/:heroId", async (req, res) => {
   }
 });
 
-/* 
-// ✅ 댓글 등록 (에러 자동 복구 버전)
+
+/* ===== 이전 댓글 등록 구현(테스트 간소화로 교체) =====
+   - timestamp를 함께 전송하고, 실패 시 재시도 로직 포함
+   - 해당 블록은 테스트 간소화 때문에 임시로 비활성화
 app.post("/api/comments/:heroId", async (req, res) => {
   const heroId = req.params.heroId;
   const { nickname, content } = req.body;
@@ -351,44 +354,44 @@ app.post("/api/comments/:heroId", async (req, res) => {
     res.status(500).json({ error: "댓글 등록 실패", details: String(error) });
   }
 });
-*/
+======================================================== */
 
-/* ✅ heroId 없이 댓글만 등록하는 테스트 버전 */
 app.post("/api/comments/:heroId", async (req, res) => {
-  const { nickname, content } = req.body;
-  console.log("🪶 테스트: 서버가 받은 데이터:", { nickname, content });
+  const heroId = req.params.heroId;
+  const { nickname, content } = req.body || {};
 
+  console.log("🪶 서버가 받은 데이터(테스트 버전):", { heroId, nickname, content });
   if (!nickname || !content) {
     return res.status(400).json({ error: "닉네임과 내용을 모두 입력하세요." });
   }
 
   try {
-    const response = await fetch(`https://api.airtable.com/v0/${BASE_ID}/Comments`, {
+    const resp = await fetch(`https://api.airtable.com/v0/${BASE_ID}/Comments`, {
       method: "POST",
       headers: {
         Authorization: `Bearer ${AIRTABLE_TOKEN}`,
         "Content-Type": "application/json",
       },
+      // ⚠️ timestamp는 Airtable 'Created time' 필드로 대체되므로 보내지 않습니다.
       body: JSON.stringify({
-        fields: {
-          nickname,
-          content,
-          timestamp: new Date().toISOString(),
-        },
+        fields: { heroId, nickname, content }
       }),
     });
 
-    const data = await response.json();
-    if (!response.ok) {
-      console.error("❌ Airtable 오류:", data);
-      throw new Error(data.error?.message || "Airtable 요청 실패");
+    const text = await resp.text();
+    let json = null;
+    try { json = JSON.parse(text); } catch {}
+
+    if (!resp.ok) {
+      console.error("❌ Airtable 댓글 등록 실패:", resp.status, text);
+      return res.status(500).json({ error: "댓글 등록 실패", details: text });
     }
 
-    console.log("✅ Airtable 성공:", data);
-    res.json({ success: true, data });
-  } catch (err) {
-    console.error("🚨 서버 처리 중 오류:", err);
-    res.status(500).json({ error: err.message });
+    console.log("✅ Airtable 댓글 등록 성공:", json);
+    res.json({ success: true, record: json });
+  } catch (error) {
+    console.error("❌ 서버 처리 오류:", error);
+    res.status(500).json({ error: "댓글 등록 실패", details: String(error) });
   }
 });
 
