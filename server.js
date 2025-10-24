@@ -11,6 +11,7 @@ app.use(express.json()); // ✅ 추가
 // Airtable 설정
 const AIRTABLE_TOKEN = process.env.AIRTABLE_TOKEN;
 const BASE_ID = "app6CjXEVBGVvatUd";
+const COMMENTS_TABLE = process.env.AIRTABLE_COMMENTS_TABLE || "Comments";
 
 
 console.log("🔑 Airtable Token:", AIRTABLE_TOKEN ? "✅ Loaded" : "❌ Missing");
@@ -239,7 +240,7 @@ app.get("/api/comments/:heroId", async (req, res) => {
   const heroId = req.params.heroId;
   try {
     const commentsRes = await fetch(
-      `https://api.airtable.com/v0/${BASE_ID}/Comments?filterByFormula={heroId}='${heroId}'`,
+      `https://api.airtable.com/v0/${BASE_ID}/${COMMENTS_TABLE}?filterByFormula={heroId}='${heroId}'`,
       { headers: { Authorization: `Bearer ${AIRTABLE_TOKEN}` } }
     );
 
@@ -370,7 +371,7 @@ app.post("/api/comments/:heroId", async (req, res) => {
   }
 
   try {
-    const resp = await fetch(`https://api.airtable.com/v0/${BASE_ID}/Comments`, {
+    const resp = await fetch(`https://api.airtable.com/v0/${BASE_ID}/${COMMENTS_TABLE}`, {
       method: "POST",
       headers: {
         Authorization: `Bearer ${AIRTABLE_TOKEN}`,
