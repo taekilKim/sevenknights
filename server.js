@@ -12,6 +12,10 @@ app.use(express.json()); // ✅ 추가
 const AIRTABLE_TOKEN = process.env.AIRTABLE_TOKEN;
 const BASE_ID = "app6CjXEVBGVvatUd";
 
+
+console.log("🔑 Airtable Token:", AIRTABLE_TOKEN ? "✅ Loaded" : "❌ Missing");
+console.log("📁 Base ID:", BASE_ID);
+
 // -------- helpers --------
 const pick = (obj, keys) => {
   for (const k of keys) {
