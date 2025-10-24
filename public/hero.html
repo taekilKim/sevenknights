@@ -254,26 +254,33 @@
     }
 
     // 댓글 등록
-    commentForm.addEventListener("submit", async (e) => {
-      e.preventDefault();
-      const nickname = document.getElementById("nickname").value.trim();
-      const content = document.getElementById("comment-content").value.trim();
-      if (!nickname || !content) return alert("닉네임과 내용을 입력해주세요.");
+commentForm.addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const nickname = document.getElementById("nickname").value.trim();
+  const content = document.getElementById("comment-content").value.trim();
+  if (!nickname || !content) return alert("닉네임과 내용을 입력해주세요.");
 
-      try {
-        const res = await fetch(`/api/comments/${heroId}`, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ nickname, content }),
-        });
-        if (!res.ok) throw new Error(`HTTP ${res.status}`);
-        document.getElementById("comment-content").value = "";
-        await loadComments();
-      } catch (err) {
-        console.error("댓글 등록 오류:", err);
-        alert("댓글 등록 중 오류가 발생했습니다.");
-      }
+  try {
+    // ✅ [추가된 부분] 실제로 전송되는 데이터를 콘솔에 출력
+    console.log("📩 전송 데이터:", { heroId, nickname, content });
+
+    const res = await fetch(`/api/comments/${heroId}`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ nickname, content }),
     });
+
+    // ✅ [추가된 부분] 서버 응답 상태 코드 확인
+    console.log("📩 서버 응답 상태:", res.status);
+
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    document.getElementById("comment-content").value = "";
+    await loadComments();
+  } catch (err) {
+    console.error("❌ 댓글 등록 오류:", err);
+    alert("댓글 등록 중 오류가 발생했습니다.");
+  }
+});
 
     // 초기 로드
     loadComments();
