@@ -3,8 +3,24 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>영웅 상세 - 세븐나이츠 리버스 도감</title>
-  <meta name="description" content="세븐나이츠 리버스 영웅 상세 페이지" />
+  <title id="dynamic-title">영웅 상세 - 세븐나이츠 리버스 도감</title>
+  <!-- SEO Meta Tags for Hero Detail Page -->
+  <meta id="meta-description" name="description" content="세븐나이츠 리버스 영웅 상세 페이지" />
+  <meta id="meta-keywords" name="keywords" content="세븐나이츠 리버스, 영웅, 상세, 도감, Seven Knights, Hero, Detail" />
+  <meta name="author" content="세븐나이츠 리버스 도감" />
+  <!-- Open Graph Meta Tags -->
+  <meta id="og-title" property="og:title" content="영웅 상세 - 세븐나이츠 리버스 도감" />
+  <meta id="og-description" property="og:description" content="세븐나이츠 리버스 영웅의 상세 정보를 확인하세요." />
+  <meta id="og-image" property="og:image" content="/default-hero-og-image.png" />
+  <meta id="og-url" property="og:url" content="https://sevenknights.example.com/hero.html" />
+  <meta property="og:type" content="article" />
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta id="twitter-title" name="twitter:title" content="영웅 상세 - 세븐나이츠 리버스 도감" />
+  <meta id="twitter-description" name="twitter:description" content="세븐나이츠 리버스 영웅의 상세 정보를 확인하세요." />
+  <meta id="twitter-image" name="twitter:image" content="/default-hero-og-image.png" />
+  <!-- Canonical Link -->
+  <link id="canonical-link" rel="canonical" href="https://sevenknights.example.com/hero.html" />
   <link rel="stylesheet" href="./style.css" />
   <script src="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2"></script>
 </head>
@@ -98,8 +114,45 @@
             return;
           }
 
-          document.title = `${hero.name} - 세븐나이츠 리버스 도감`;
-          document.querySelector('meta[name="description"]').setAttribute("content", `${hero.name}의 상세 정보를 확인하세요.`);
+          // Update SEO meta tags dynamically
+          const heroTitle = `${hero.name} - 세븐나이츠 리버스 도감`;
+          document.title = heroTitle;
+          const titleEl = document.getElementById("dynamic-title");
+          if (titleEl) titleEl.textContent = heroTitle;
+          const desc = `${hero.name}의 상세 정보를 확인하세요.`;
+          const ogDesc = hero.description || desc;
+          const url = `${location.origin}${location.pathname}?id=${encodeURIComponent(heroId)}`;
+          // Description
+          const descMeta = document.getElementById("meta-description");
+          if (descMeta) descMeta.setAttribute("content", desc);
+          // Keywords (add hero name, group, type)
+          const keywordsMeta = document.getElementById("meta-keywords");
+          if (keywordsMeta) {
+            const keywords = [
+              "세븐나이츠 리버스", "영웅", "상세", "도감", "Seven Knights", "Hero", "Detail",
+              hero.name, hero.group, hero.type, hero.rarity
+            ].filter(Boolean).join(", ");
+            keywordsMeta.setAttribute("content", keywords);
+          }
+          // Open Graph
+          const ogTitle = document.getElementById("og-title");
+          if (ogTitle) ogTitle.setAttribute("content", heroTitle);
+          const ogDescEl = document.getElementById("og-description");
+          if (ogDescEl) ogDescEl.setAttribute("content", ogDesc);
+          const ogImage = document.getElementById("og-image");
+          if (ogImage) ogImage.setAttribute("content", hero.portrait || "/default-hero-og-image.png");
+          const ogUrl = document.getElementById("og-url");
+          if (ogUrl) ogUrl.setAttribute("content", url);
+          // Twitter Card
+          const twTitle = document.getElementById("twitter-title");
+          if (twTitle) twTitle.setAttribute("content", heroTitle);
+          const twDesc = document.getElementById("twitter-description");
+          if (twDesc) twDesc.setAttribute("content", ogDesc);
+          const twImage = document.getElementById("twitter-image");
+          if (twImage) twImage.setAttribute("content", hero.portrait || "/default-hero-og-image.png");
+          // Canonical
+          const canonical = document.getElementById("canonical-link");
+          if (canonical) canonical.setAttribute("href", url);
 
           // 기본 정보
           document.getElementById("hero-portrait").src = hero.portrait || "";
