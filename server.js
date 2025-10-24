@@ -225,5 +225,75 @@ app.use(express.static("public", { extensions: ["html", "htm"] }));
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`✅ Server running on port ${PORT}`));
 
+
+import bodyParser from "body-parser";
+app.use(bodyParser.json());
+
+// ✅ 댓글 목록 조회
+app.get("/api/comments/:heroId", async (req, res) => {
+  const heroId = req.params.heroId;
+  try {
+    const commentsRes = await fetch(
+      `https://api.airtable.com/v0/${BASE_ID}/Comments?filterByFormula={heroId}='${heroId}'&sort[0][field]=timestamp&sort[0][direction]=desc`,
+      { headers: { Authorization: `Bearer ${AIRTABLE_TOKEN}` } }
+    );
+    if (!commentsRes.ok)
+      throw new Error(`Airtable Comments API error: ${commentsRes.status}`);
+    const data = await commentsRes.json();
+
+    const comments = (data.records || []).map((rec) => ({
+      id: rec.id,
+      nickname: rec.fields.nickname || "익명",
+      content: rec.fields.content || "",
+      timestamp: rec.fields.timestamp || "",
+    }));
+
+    res.json({ comments });
+  } catch (error) {
+    console.error("댓글 불러오기 오류:", error);
+    res.status(500).json({ error: "댓글 불러오기 실패" });
+  }
+});
+
+// ✅ 댓글 등록
+app.post("/api/comments/:heroId", async (req, res) => {
+  const heroId = req.params.heroId;
+  const { nickname, content } = req.body;
+
+  if (!nickname || !content) {
+    return res.status(400).json({ error: "닉네임과 내용을 모두 입력하세요." });
+  }
+
+  try {
+    const createRes = await fetch(`https://api.airtable.com/v0/${BASE_ID}/Comments`, {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${AIRTABLE_TOKEN}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        records: [
+          {
+            fields: {
+              heroId,
+              nickname,
+              content,
+            },
+          },
+        ],
+      }),
+    });
+
+    if (!createRes.ok)
+      throw new Error(`Airtable 댓글 등록 오류: ${createRes.status}`);
+
+    const created = await createRes.json();
+    res.json({ success: true, record: created.records[0] });
+  } catch (error) {
+    console.error("댓글 등록 오류:", error);
+    res.status(500).json({ error: "댓글 등록 실패" });
+  }
+});
+
 // ✅ Vercel용 export
 export default app;

@@ -219,6 +219,64 @@
           document.querySelector("main").innerHTML = "<p>데이터를 불러오는 중 오류가 발생했습니다.</p>";
         });
     }
+</script>
+
+  <section class="hero-comments">
+    <h2>의견 남기기</h2>
+    <form id="comment-form">
+      <input type="text" id="nickname" name="nickname" placeholder="닉네임" required />
+      <textarea id="comment-content" name="content" placeholder="의견을 입력하세요..." required></textarea>
+      <button type="submit">등록</button>
+    </form>
+    <ul id="comment-list" class="comment-list"></ul>
+  </section>
+
+  <script>
+    const commentForm = document.getElementById("comment-form");
+    const commentList = document.getElementById("comment-list");
+
+    // 댓글 불러오기
+    async function loadComments() {
+      try {
+        const res = await fetch(`/api/comments/${heroId}`);
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        const data = await res.json();
+
+        commentList.innerHTML = "";
+        (data.comments || []).forEach(comment => {
+          const li = document.createElement("li");
+          li.innerHTML = `<strong>${comment.nickname}</strong><p>${comment.content}</p><span>${comment.timestamp || ""}</span>`;
+          commentList.appendChild(li);
+        });
+      } catch (err) {
+        console.error("댓글 불러오기 오류:", err);
+      }
+    }
+
+    // 댓글 등록
+    commentForm.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const nickname = document.getElementById("nickname").value.trim();
+      const content = document.getElementById("comment-content").value.trim();
+      if (!nickname || !content) return alert("닉네임과 내용을 입력해주세요.");
+
+      try {
+        const res = await fetch(`/api/comments/${heroId}`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ nickname, content }),
+        });
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        document.getElementById("comment-content").value = "";
+        await loadComments();
+      } catch (err) {
+        console.error("댓글 등록 오류:", err);
+        alert("댓글 등록 중 오류가 발생했습니다.");
+      }
+    });
+
+    // 초기 로드
+    loadComments();
   </script>
 </body>
 </html>
