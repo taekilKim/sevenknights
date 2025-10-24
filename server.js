@@ -266,6 +266,39 @@ app.post("/api/comments/:heroId", async (req, res) => {
   const heroId = req.params.heroId;
   const { nickname, content } = req.body;
 
+  console.log("🪶 서버가 받은 데이터:", { heroId, nickname, content }); // ✅ 추가
+  console.log("🧩 원본 req.body:", req.body); // ✅ 추가
+
+   try {
+    const response = await fetch(`https://api.airtable.com/v0/${BASE_ID}/Comments`, {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${AIRTABLE_TOKEN}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        fields: {
+          heroId,
+          nickname,
+          content,
+          timestamp: new Date().toISOString(),
+        },
+      }),
+    });
+
+    const data = await response.json();
+    if (!response.ok) {
+      console.error("❌ Airtable 오류:", data);
+      throw new Error(data.error?.message || "Airtable 요청 실패");
+    }
+
+    console.log("✅ Airtable 성공:", data);
+    res.json({ success: true, data });
+  } catch (err) {
+    console.error("🚨 서버 처리 중 오류:", err);
+    res.status(500).json({ error: err.message });
+  }
+
   if (!nickname || !content) {
     return res.status(400).json({ error: "닉네임과 내용을 모두 입력하세요." });
   }
