@@ -281,7 +281,7 @@ app.post("/api/comments/:heroId", async (req, res) => {
       },
       body: JSON.stringify({
         fields: {
-          heroId,
+          heroId: heroId,
           nickname,
           content,
           timestamp: new Date().toISOString(),
