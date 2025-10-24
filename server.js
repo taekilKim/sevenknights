@@ -240,7 +240,7 @@ app.get("/api/comments/:heroId", async (req, res) => {
   const heroId = req.params.heroId;
   try {
     const commentsRes = await fetch(
-      `https://api.airtable.com/v0/${BASE_ID}/${COMMENTS_TABLE}?filterByFormula=FIND('${heroId}', ARRAYJOIN({heroId}))`,
+      `https://api.airtable.com/v0/${BASE_ID}/${COMMENTS_TABLE}?filterByFormula={heroId}='${heroId}'`,
       { headers: { Authorization: `Bearer ${AIRTABLE_TOKEN}` } }
     );
 
