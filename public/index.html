@@ -127,9 +127,11 @@
 
                 // 다이아몬드 반짝 효과 (체크박스 필드 기반)
                 if (hero.hasEffect) {
-                  const diamond = document.createElement("div");
-                  diamond.className = "rarity-diamond-effect";
-                  imgWrapper.appendChild(diamond);
+                  const star = document.createElement("img");
+                  star.src = "/images/star.svg";
+                  star.alt = "star effect";
+                  star.className = "rarity-diamond-effect";
+                  imgWrapper.appendChild(star);
                 }
 
                 if (hero.typeImage) {
