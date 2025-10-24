@@ -382,7 +382,7 @@ app.post("/api/comments/:heroId", async (req, res) => {
         fields: { heroId: [heroId], nickname, content }
       }), */
       body: JSON.stringify({
-        fields: { heroId: [heroId], nickname, content }
+        fields: { heroId, nickname, content }
       }),
     });
 
