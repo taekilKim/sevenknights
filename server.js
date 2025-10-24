@@ -265,6 +265,7 @@ app.post("/api/comments/:heroId", async (req, res) => {
   }
 
   try {
+    const timestamp = new Date().toLocaleString("ko-KR", { timeZone: "Asia/Seoul" });
     const createRes = await fetch(`https://api.airtable.com/v0/${BASE_ID}/Comments`, {
       method: "POST",
       headers: {
@@ -272,23 +273,23 @@ app.post("/api/comments/:heroId", async (req, res) => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        records: [
-          {
-            fields: {
-              heroId,
-              nickname,
-              content,
-            },
-          },
-        ],
+        fields: {
+          heroId,
+          nickname,
+          content,
+          timestamp
+        },
       }),
     });
 
-    if (!createRes.ok)
+    if (!createRes.ok) {
+      const errorText = await createRes.text();
+      console.error("Airtable 댓글 등록 오류:", createRes.status, errorText);
       throw new Error(`Airtable 댓글 등록 오류: ${createRes.status}`);
+    }
 
     const created = await createRes.json();
-    res.json({ success: true, record: created.records[0] });
+    res.json({ success: true, record: created });
   } catch (error) {
     console.error("댓글 등록 오류:", error);
     res.status(500).json({ error: "댓글 등록 실패" });
