@@ -229,7 +229,7 @@ app.listen(PORT, () => console.log(`✅ Server running on port ${PORT}`));
 import bodyParser from "body-parser";
 app.use(bodyParser.json());
 
-// ✅ 댓글 목록 조회
+// ✅ 댓글 목록 조회 (안정화 버전)
 app.get("/api/comments/:heroId", async (req, res) => {
   const heroId = req.params.heroId;
   try {
@@ -237,10 +237,14 @@ app.get("/api/comments/:heroId", async (req, res) => {
       `https://api.airtable.com/v0/${BASE_ID}/Comments?filterByFormula={heroId}='${heroId}'&sort[0][field]=timestamp&sort[0][direction]=desc`,
       { headers: { Authorization: `Bearer ${AIRTABLE_TOKEN}` } }
     );
-    if (!commentsRes.ok)
-      throw new Error(`Airtable Comments API error: ${commentsRes.status}`);
-    const data = await commentsRes.json();
 
+    if (!commentsRes.ok) {
+      const errText = await commentsRes.text();
+      console.error("❌ Airtable 댓글 조회 오류:", commentsRes.status, errText);
+      return res.status(500).json({ error: "댓글 불러오기 실패", details: errText });
+    }
+
+    const data = await commentsRes.json();
     const comments = (data.records || []).map((rec) => ({
       id: rec.id,
       nickname: rec.fields.nickname || "익명",
@@ -250,12 +254,13 @@ app.get("/api/comments/:heroId", async (req, res) => {
 
     res.json({ comments });
   } catch (error) {
-    console.error("댓글 불러오기 오류:", error);
-    res.status(500).json({ error: "댓글 불러오기 실패" });
+    console.error("❌ 댓글 불러오기 예외:", error);
+    res.status(500).json({ error: "댓글 불러오기 실패", details: String(error) });
   }
 });
 
-// ✅ 댓글 등록
+
+// ✅ 댓글 등록 (에러 자동 복구 버전)
 app.post("/api/comments/:heroId", async (req, res) => {
   const heroId = req.params.heroId;
   const { nickname, content } = req.body;
@@ -264,35 +269,52 @@ app.post("/api/comments/:heroId", async (req, res) => {
     return res.status(400).json({ error: "닉네임과 내용을 모두 입력하세요." });
   }
 
-  try {
-    const timestamp = new Date().toLocaleString("ko-KR", { timeZone: "Asia/Seoul" });
-    const createRes = await fetch(`https://api.airtable.com/v0/${BASE_ID}/Comments`, {
+  const createRecord = async (fields) => {
+    const resp = await fetch(`https://api.airtable.com/v0/${BASE_ID}/Comments`, {
       method: "POST",
       headers: {
         Authorization: `Bearer ${AIRTABLE_TOKEN}`,
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({
-        fields: {
-          heroId,
-          nickname,
-          content,
-          timestamp
-        },
-      }),
+      body: JSON.stringify({ fields }),
     });
 
-    if (!createRes.ok) {
-      const errorText = await createRes.text();
-      console.error("Airtable 댓글 등록 오류:", createRes.status, errorText);
-      throw new Error(`Airtable 댓글 등록 오류: ${createRes.status}`);
+    const text = await resp.text();
+    let json = null;
+    try {
+      json = JSON.parse(text);
+    } catch (e) {}
+
+    return { ok: resp.ok, status: resp.status, text, json };
+  };
+
+  try {
+    const timestamp = new Date().toLocaleString("ko-KR", { timeZone: "Asia/Seoul" });
+    let attempt = await createRecord({ heroId, nickname, content, timestamp });
+
+    // timestamp 필드 오류 시 자동 재시도
+    if (!attempt.ok) {
+      const msg = (attempt.text || "").toLowerCase();
+      const isTimestampError =
+        msg.includes("timestamp") ||
+        (msg.includes("invalid") && msg.includes("field")) ||
+        (msg.includes("cannot") && msg.includes("field"));
+
+      if (isTimestampError) {
+        console.warn("⚠️ timestamp 문제 감지 → timestamp 제외 후 재시도");
+        attempt = await createRecord({ heroId, nickname, content });
+      }
     }
 
-    const created = await createRes.json();
-    res.json({ success: true, record: created });
+    if (!attempt.ok) {
+      console.error("❌ Airtable 댓글 등록 실패:", attempt.status, attempt.text);
+      return res.status(500).json({ error: "댓글 등록 실패", details: attempt.text });
+    }
+
+    res.json({ success: true, record: attempt.json });
   } catch (error) {
-    console.error("댓글 등록 오류:", error);
-    res.status(500).json({ error: "댓글 등록 실패" });
+    console.error("❌ 서버 처리 오류:", error);
+    res.status(500).json({ error: "댓글 등록 실패", details: String(error) });
   }
 });
 
