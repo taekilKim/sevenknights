@@ -59,12 +59,14 @@ img {
   height: 40px;
   width: auto;
   object-fit: contain;
+  
 }
 .header-title {
   font-family: 'SchoolSafeLocker', sans-serif;
   font-size: 1.5rem;
   color: #fff;
   margin-left: 12px;
+  display: inline-block;
 }
 
 /* Sidebar */
