@@ -261,32 +261,7 @@ app.get("/api/comments/:heroId", async (req, res) => {
   }
 });
 
-// ✅ Airtable Comments 테이블의 heroId 필드 타입 검증용 (디버그)
-app.get("/api/debug/comments-schema", async (req, res) => {
-  try {
-    const resp = await fetch(`https://api.airtable.com/v0/meta/bases/${BASE_ID}/tables`, {
-      headers: { Authorization: `Bearer ${AIRTABLE_TOKEN}` }
-    });
-    const meta = await resp.json();
 
-    // Comments 테이블 메타데이터 찾기
-    const commentsTable = meta.tables.find(t => t.name === "Comments");
-    if (!commentsTable) {
-      return res.status(404).json({ error: "Comments 테이블을 찾을 수 없습니다." });
-    }
-
-    const heroIdField = commentsTable.fields.find(f => f.name === "heroId");
-    if (!heroIdField) {
-      return res.status(404).json({ error: "heroId 필드를 찾을 수 없습니다." });
-    }
-
-    console.log("🧩 heroId 필드 타입:", heroIdField.type);
-    res.json({ field: heroIdField });
-  } catch (error) {
-    console.error("❌ 필드 스키마 확인 오류:", error);
-    res.status(500).json({ error: String(error) });
-  }
-});
 /* ===== 이전 댓글 등록 구현(테스트 간소화로 교체) =====
    - timestamp를 함께 전송하고, 실패 시 재시도 로직 포함
    - 해당 블록은 테스트 간소화 때문에 임시로 비활성화

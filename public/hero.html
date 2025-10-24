@@ -99,7 +99,8 @@
 
   <script>
     const params = new URLSearchParams(window.location.search);
-    const heroId = params.get("id");
+    window.heroId = params.get("id");
+    const heroId = window.heroId;
 
     if (!heroId) {
       document.querySelector("main").innerHTML = "<p>유효하지 않은 영웅 ID입니다.</p>";
@@ -267,7 +268,7 @@ commentForm.addEventListener("submit", async (e) => {
     const res = await fetch(`/api/comments/${heroId}`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ nickname, content }),
+      body: JSON.stringify({ heroId, nickname, content }),
     });
 
     // ✅ [추가된 부분] 서버 응답 상태 코드 확인
