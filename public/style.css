@@ -379,22 +379,5 @@ img {
 .hero-portrait.has-effect {
   position: relative;
   border: 3px solid transparent;
-  background: none; /* 초상화 배경 유지 */
   background-clip: padding-box;
-  animation: borderShineGold 4s linear infinite;
-}
-
-@keyframes borderShineGold {
-  0% {
-    box-shadow: 0 0 6px rgba(255, 180, 60, 0.4);
-    border-image: linear-gradient(120deg, #fff5d4, #ffcc66, #ff9444, #ffd966) 1;
-  }
-  50% {
-    box-shadow: 0 0 16px rgba(255, 200, 100, 0.9);
-    border-image: linear-gradient(120deg, #fff4d1, #ffb347, #ff7043, #ffe082) 1;
-  }
-  100% {
-    box-shadow: 0 0 6px rgba(255, 180, 60, 0.4);
-    border-image: linear-gradient(120deg, #fff5d4, #ffcc66, #ff9444, #ffd966) 1;
-  }
 }
