@@ -6,6 +6,7 @@ import cors from "cors";
 
 const app = express();
 app.use(cors());
+app.use(express.json()); // ✅ 추가
 
 // Airtable 설정
 const AIRTABLE_TOKEN = process.env.AIRTABLE_TOKEN;
@@ -226,8 +227,8 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`✅ Server running on port ${PORT}`));
 
 
-import bodyParser from "body-parser";
-app.use(bodyParser.json());
+// import bodyParser from "body-parser";
+// app.use(bodyParser.json());
 
 // ✅ 댓글 목록 조회 (안정화 버전)
 app.get("/api/comments/:heroId", async (req, res) => {
