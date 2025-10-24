@@ -189,7 +189,7 @@ img {
 }
 
 /* 희귀도 색상 */
-.rarity-legendary-plus { background: radial-gradient(circle at center, #ffe48a, #c67b00); }
+.rarity-legendary-plus { background: radial-gradient(circle at center, #ffefb8, #eba22a); }
 .rarity-legendary { background: radial-gradient(circle at center, #f3e0a8, #b68700); }
 .rarity-rare { background: radial-gradient(circle at center, #a693ff, #5a3ebd); }
 .rarity-uncommon { background: radial-gradient(circle at center, #b5ffb0, #2e7b2e); }
