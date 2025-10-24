@@ -310,10 +310,10 @@ svg defs {
 
 .rarity-diamond-effect{
   position: absolute;
-  top: -6px;
-  right: -6px;
-  width: 28px;
-  height: 28px;
+  top: 0px;
+  right: 0px;
+  width: 40px;
+  height: 40px;
   z-index: 5;
   pointer-events: none;
 }
