@@ -373,8 +373,11 @@ app.post("/api/comments/:heroId", async (req, res) => {
         "Content-Type": "application/json",
       },
       // ⚠️ timestamp는 Airtable 'Created time' 필드로 대체되므로 보내지 않습니다.
-      body: JSON.stringify({
+      /* body: JSON.stringify({
         fields: { heroId: [heroId], nickname, content }
+      }), */
+      body: JSON.stringify({
+        fields: { heroId, nickname, content }
       }),
     });
 
