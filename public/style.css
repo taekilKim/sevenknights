@@ -331,24 +331,29 @@ svg defs {
   animation: starTwinkle 1.8s ease-in-out infinite;
 }
 
-/* Non-(구)세븐나이츠는 살짝 핑크 톤 섞인 스파크 */
-.hero-card:not([data-group="(구)세븐나이츠"]) .rarity-diamond-effect .spark-star{
-  filter: drop-shadow(0 0 6px rgba(255, 160, 190, 0.75));
+/* Default non-(구)세븐나이츠: warm gold with a subtle reddish tint */
+.hero-card:not([data-group="(구)세븐나이츠"]) .rarity-diamond-effect .spark-star {
+  filter: drop-shadow(0 0 8px rgba(255, 210, 150, 0.85));
 }
 
-/* Twinkle animation using drop-shadow + scale */
+/* (구)세븐나이츠: purple-gold tone with stronger violet hint */
+.hero-card[data-group="(구)세븐나이츠"] .rarity-diamond-effect .spark-star {
+  filter: drop-shadow(0 0 8px rgba(225, 190, 255, 0.9));
+}
+
+/* Twinkle animation refined with golden tones */
 @keyframes starTwinkle {
   0%, 100% {
     opacity: 0.9;
-    filter: drop-shadow(0 0 6px rgba(255, 208, 120, 0.75));
+    filter: drop-shadow(0 0 8px rgba(255, 215, 140, 0.85));
   }
   45% {
     opacity: 1;
-    filter: drop-shadow(0 0 14px rgba(255, 238, 205, 1));
+    filter: drop-shadow(0 0 14px rgba(255, 240, 200, 1));
   }
   60% {
     opacity: 1;
-    filter: drop-shadow(0 0 18px rgba(255, 230, 140, 0.95));
+    filter: drop-shadow(0 0 20px rgba(255, 235, 170, 0.95));
   }
 }
 
