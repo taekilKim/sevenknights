@@ -358,7 +358,11 @@ svg defs {
 }
 
 /* Ensure UA rule doesn't clip the SVG effects */
-.rarity-diamond-effect svg{ overflow: visible; }
+.rarity-diamond-effect svg{
+  overflow: visible;
+  filter: drop-shadow(0 0 6px #ffcc80)
+        drop-shadow(0 0 12px #f37225)
+        drop-shadow(0 0 20px rgba(255, 180, 60, 0.6));}
 
 
 /* Removed outdated box-shadow keyframe animations: diamondPulse, starPulse, starSparkEnhanced */
