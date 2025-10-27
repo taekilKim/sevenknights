@@ -59,7 +59,8 @@ img {
   height: 40px;
   width: auto;
   object-fit: contain;
-  display:inline-block
+  display:inline-block;
+  vertical-align: middle;
   
 }
 .header-title {
@@ -68,6 +69,7 @@ img {
   color: #fff;
   margin-left: 12px;
   display: inline-block;
+  vertical-align: middle;
 }
 
 /* Sidebar */
