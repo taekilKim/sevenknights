@@ -118,13 +118,17 @@
             const card = document.createElement("div");
             card.className = "hero-card";
 
-            // === (구)세븐나이츠 전용 클래스 추가 ===
-            // (이 블록은 (구)세븐나이츠 영웅 카드에 보라색 효과를 주기 위한 임시 코드입니다.)
-            if (hero.group && hero.group.includes("(구)세븐나이츠")) {
-              card.classList.add("old-sevenknights");
-              console.log(`💜 (구)세븐나이츠 클래스 추가됨 → ${hero.name}`);
+            // === (구)세븐나이츠 전용 data-group 속성 추가 ===
+            if (hero.group) {
+              card.setAttribute("data-group", hero.group);
+              if (hero.group.includes("(구)세븐나이츠")) {
+                card.classList.add("old-sevenknights");
+                console.log(`💜 (구)세븐나이츠 그룹 감지됨 → ${hero.name}`);
+              } else {
+                console.log(`💛 일반 그룹 → ${hero.name}`);
+              }
             }
-            // === (구)세븐나이츠 전용 클래스 추가 끝 ===
+            // === (구)세븐나이츠 전용 data-group 속성 추가 끝 ===
 
             // 초상 이미지와 타입 배지 감싸는 div
             if (hero.portrait) {
