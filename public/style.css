@@ -156,11 +156,11 @@ img {
 #heroes {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
-  gap: 48px;
+  gap: clamp(16px, 3vw, 48px);
   justify-content: stretch;
   align-content: start;
   width: 100%;
-  padding: 48px;
+  padding: clamp(24px, 4vw, 56px);
 }
 
 .hero-card {
@@ -328,8 +328,8 @@ svg defs {
   position: absolute;
   top: 0px;
   right: 0px;
-  width: 40px;
-  height: 40px;
+  width: clamp(24px, 2vw, 48px);
+  height: clamp(24px, 2vw, 48px);
   z-index: 5;
   pointer-events: none;
 }
