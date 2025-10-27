@@ -170,6 +170,8 @@ img {
   cursor: pointer;
   background: transparent;
   transition: transform 0.15s ease;
+  width: clamp(110px, 8vw, 130px);
+  height: clamp(110px, 8vw, 130px);
 }
 .hero-card:hover {
   transform: scale(1.05);
@@ -197,11 +199,17 @@ img {
   z-index: 2;
 }
 .hero-name {
-  font-size: 0.95rem;
+  font-size: clamp(0.75rem, 1vw, 1rem);
   font-weight: 500;
   color: #fff;
   text-align: center;
   margin-top: 8px;
+}
+.hero-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  object-fit: cover;
 }
 
 /* 희귀도 색상 */
