@@ -82,7 +82,7 @@ app.get("/api/heroes", async (req, res) => {
       const typeName = f.type || f.Type || "";
       const hasEffect = !!f.hasEffect; // ✅ 에어테이블 체크박스 필드 불러오기
 
-      return {
+      const heroData = {
         id: hero.id,
         name: f.Name || "",
         rarity: rarityVal,
@@ -95,6 +95,15 @@ app.get("/api/heroes", async (req, res) => {
             : "",
         typeImage: typeImageMap[typeName] || null,
       };
+
+      // ✅ group 필드 디버깅용 출력
+      if (!heroData.group) {
+        console.warn(`⚠️ 그룹 누락: ${heroData.name}`);
+      } else {
+        console.log(`🧩 ${heroData.name} → 그룹: ${heroData.group}`);
+      }
+
+      return heroData;
     });
 
     res.json({ records: processedHeroes });
