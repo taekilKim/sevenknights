@@ -135,223 +135,179 @@
     </div>
 
     <script>
-      function showLoading(on) {
-        const el = document.getElementById("global-loading");
-        if (!el) return;
-        el.style.display = on ? "flex" : "none";
+  function showLoading(on) {
+    const el = document.getElementById("global-loading");
+    if (!el) return;
+    el.style.display = on ? "flex" : "none";
+  }
+
+  let allHeroes = [];
+
+  async function fetchHeroes() {
+    showLoading(true);
+    try {
+      const response = await fetch("/api/heroes");
+      const data = await response.json();
+      if (!data.records || !Array.isArray(data.records)) {
+        console.error("서버 응답:", data);
+        return;
+      }
+      allHeroes = data.records;
+      const filtered = applyFiltersAndSort(allHeroes);
+      renderHeroes(filtered);
+    } catch (error) {
+      console.error("에러:", error);
+      document.getElementById("heroes").textContent = "데이터 불러오기 오류";
+    } finally {
+      showLoading(false);
+    }
+  }
+
+  function renderHeroes(heroes) {
+    const heroesContainer = document.getElementById("heroes");
+    heroesContainer.innerHTML = "";
+    heroes.forEach((record) => {
+      const hero = record;
+      const card = document.createElement("div");
+      card.className = "hero-card";
+
+      // === (구)세븐나이츠 전용 data-group 속성 추가 ===
+      if (hero.group) {
+        card.setAttribute("data-group", hero.group);
+        if (hero.group.includes("(구)세븐나이츠")) {
+          card.classList.add("old-sevenknights");
+          console.log(`💜 (구)세븐나이츠 그룹 감지됨 → ${hero.name}`);
+        } else {
+          console.log(`💛 일반 그룹 → ${hero.name}`);
+        }
       }
 
-      // Airtable 데이터 불러오기
-      async function fetchHeroes() {
-        showLoading(true);
-        try {
-          const response = await fetch("/api/heroes");
-          const data = await response.json();
-          const heroesContainer = document.getElementById("heroes");
-          heroesContainer.innerHTML = "";
+      // 초상 이미지와 타입 배지 감싸는 div
+      if (hero.portrait) {
+        const imgWrapper = document.createElement("div");
+        imgWrapper.className = "hero-portrait-wrap";
+        imgWrapper.style.position = "relative";
 
-          // 방어 코드: records 확인
-          if (!data.records || !Array.isArray(data.records)) {
-            heroesContainer.textContent = "데이터를 불러오지 못했습니다. (records 없음)";
-            console.error("서버 응답:", data);
-            return;
+        const img = document.createElement("img");
+        img.src = hero.portrait;
+        img.alt = hero.name || "이미지 없음";
+        const rarityClass = (() => {
+          switch (hero.rarity) {
+            case "전설+": return "legendary-plus";
+            case "전설": return "legendary";
+            case "희귀": return "rare";
+            case "고급": return "uncommon";
+            default: return "normal";
           }
-
-          data.records.forEach((record) => {
-            const hero = record;
-            const card = document.createElement("div");
-            card.className = "hero-card";
-
-            // === (구)세븐나이츠 전용 data-group 속성 추가 ===
-            if (hero.group) {
-              card.setAttribute("data-group", hero.group);
-              if (hero.group.includes("(구)세븐나이츠")) {
-                card.classList.add("old-sevenknights");
-                console.log(`💜 (구)세븐나이츠 그룹 감지됨 → ${hero.name}`);
-              } else {
-                console.log(`💛 일반 그룹 → ${hero.name}`);
-              }
-            }
-            // === (구)세븐나이츠 전용 data-group 속성 추가 끝 ===
-
-            // 초상 이미지와 타입 배지 감싸는 div
-            if (hero.portrait) {
-                const imgWrapper = document.createElement("div");
-                imgWrapper.className = "hero-portrait-wrap";
-                imgWrapper.style.position = "relative";
-
-                const img = document.createElement("img");
-                img.src = hero.portrait;
-                img.alt = hero.name || "이미지 없음";
-                const rarityClass = (() => {
-                  switch (hero.rarity) {
-                    case "전설+": return "legendary-plus";
-                    case "전설": return "legendary";
-                    case "희귀": return "rare";
-                    case "고급": return "uncommon";
-                    default: return "normal";
-                  }
-                })();
-                img.className = `hero-portrait rarity-${rarityClass}`;
-                // hasEffect가 true면 초상화에 빛나는 테두리 클래스 부여
-                if (hero.hasEffect === true || hero.hasEffect === "true" || hero.hasEffect === 1) {
-                  img.classList.add("has-effect");
-                }
-                imgWrapper.appendChild(img);
-
-                // === [DEBUG TEST BLOCK: START] ===
-                // 다이아몬드 반짝 효과 (체크박스 필드 기반)
-                if (hero.hasEffect) {
-                  console.log(`🟣 ${hero.name} | group:`, hero.group);
-                  const gradientId = `paint0_diamond_${hero.name.replace(/\s/g, '')}_${record.id}`;
-                  const starWrapper = document.createElement("div");
-                  starWrapper.className = "rarity-diamond-effect";
-                  starWrapper.innerHTML = `
-                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 100 100" fill="none">
-                      <defs>
-                        <linearGradient id="${gradientId}" x1="0" y1="0" x2="500" y2="500" gradientUnits="userSpaceOnUse">
-                          <stop stop-color="#FFF8E1"/>
-                          <stop offset="0.533654" stop-color="#FFE082"/>
-                          <stop offset="1" stop-color="#FFB300"/>
-                        </linearGradient>
-                      </defs>
-                      <path d="M99.0854 0.124826C99.6876 -0.259713 100.26 0.312411 99.8752 0.914611C74.5556 40.6083 73.1362 54.5342 90.8173 89.847C91.0858 90.3826 90.384 91.0844 89.8483 90.816L89.847 90.8174C54.5329 73.1375 40.6072 74.5546 0.914577 99.8752C0.312412 100.26 -0.259673 99.6876 0.124792 99.0854C25.4444 59.3918 26.8625 45.4671 9.18167 10.1521C8.9215 9.63314 9.57223 8.95807 10.1001 9.16059L10.1507 9.18308C45.4657 26.8639 59.3905 25.4457 99.0854 0.124826ZM65.703 34.2974C61.9959 35.3198 58.2999 36.037 54.5685 36.4171C48.0147 37.0846 41.7138 36.6839 35.4457 35.4467C36.6829 41.7148 37.0837 48.0156 36.4162 54.5693C36.0363 58.3003 35.3191 61.996 34.2969 65.7027C38.0036 64.6805 41.6993 63.9633 45.4303 63.5834C51.9843 62.9159 58.2853 63.3166 64.5537 64.5539C63.3165 58.2856 62.9157 51.9848 63.5833 45.4307C63.9634 41.6997 64.6808 38.0041 65.703 34.2974Z" fill="url(#${gradientId})"/>
-                    </svg>
-                  `;
-
-                  try {
-                    const stops = starWrapper.querySelectorAll(`#${gradientId} stop`);
-                    if (stops && stops.length >= 3) {
-                      const isOldSeven = hero.group && hero.group.trim().includes("(구)세븐나이츠");
-                      if (isOldSeven) {
-                        stops[0].setAttribute("stop-color", "#EEDBFF");
-                        stops[1].setAttribute("stop-color", "#C49CFF");
-                        stops[2].setAttribute("stop-color", "#9C6BFF");
-                        console.log(`💜 보라색 적용됨 → ${hero.name}`);
-                      } else {
-                        stops[0].setAttribute("stop-color", "#FFF8E1");
-                        stops[1].setAttribute("stop-color", "#FFE082");
-                        stops[2].setAttribute("stop-color", "#FFB300");
-                        console.log(`💛 일반 황금색 유지 → ${hero.name}`);
-                      }
-                    }
-                  } catch (e) {
-                    console.warn("그라디언트 적용 실패:", e);
-                  }
-
-                  imgWrapper.appendChild(starWrapper);
-                }
-                // === [DEBUG TEST BLOCK: END] ===
-
-                if (hero.typeImage) {
-                  const typeBadge = document.createElement("img");
-                  typeBadge.src = hero.typeImage;
-                  typeBadge.alt = hero.type || "타입 배지";
-                  typeBadge.className = "hero-type-badge";
-                  imgWrapper.appendChild(typeBadge);
-                }
-
-                card.appendChild(imgWrapper);
-            }
-
-            // 이름
-            const name = document.createElement("div");
-            name.className = "hero-name";
-            name.textContent = hero.name || "이름 없음";
-            card.appendChild(name);
-
-            // 별명
-            if (hero.nickname) {
-                const nickname = document.createElement("div");
-                nickname.className = "hero-nickname";
-                nickname.textContent = `${hero.nickname}`;
-                card.appendChild(nickname);
-            }
-
-            // 소속 그룹 (숨김 처리)
-            // if (hero.group) {
-            //    const group = document.createElement("div");
-            //    group.className = "hero-group";
-            //    group.textContent = hero.group;
-            //    card.appendChild(group);
-            //}
-
-            // 등급 (숨김 처리)
-            // if (hero.rarity) {
-            //     const rarity = document.createElement("div");
-            //     rarity.className = "hero-rarity";
-            //     rarity.textContent = hero.rarity;
-            //     card.appendChild(rarity);
-            // }
-
-            // 타입 텍스트 표시 부분 제거
-
-            // 카드 클릭 시 상세 페이지로 이동 및 스크롤 위치 저장
-            const heroId = record.id;
-            card.addEventListener("click", () => {
-              sessionStorage.setItem('scrollPosition', window.scrollY);
-              window.location.href = `/hero.html?id=${heroId}`;
-            });
-            heroesContainer.appendChild(card);
-            });
-        } catch (error) {
-          console.error("에러:", error);
-          document.getElementById("heroes").textContent = "데이터 불러오기 오류";
-        } finally {
-          showLoading(false);
+        })();
+        img.className = `hero-portrait rarity-${rarityClass}`;
+        if (hero.hasEffect === true || hero.hasEffect === "true" || hero.hasEffect === 1) {
+          img.classList.add("has-effect");
         }
+        imgWrapper.appendChild(img);
+
+        // 다이아몬드 효과
+        if (hero.hasEffect) {
+          const gradientId = `paint0_diamond_${hero.name.replace(/\s/g, '')}_${record.id}`;
+          const starWrapper = document.createElement("div");
+          starWrapper.className = "rarity-diamond-effect";
+          starWrapper.innerHTML = `
+            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 100 100" fill="none">
+              <defs>
+                <linearGradient id="${gradientId}" x1="0" y1="0" x2="500" y2="500" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#FFF8E1"/>
+                  <stop offset="0.533654" stop-color="#FFE082"/>
+                  <stop offset="1" stop-color="#FFB300"/>
+                </linearGradient>
+              </defs>
+              <path d="M99.0854 0.124826C99.6876 -0.259713 100.26 0.312411 99.8752 0.914611C74.5556 40.6083 73.1362 54.5342 90.8173 89.847C91.0858 90.3826 90.384 91.0844 89.8483 90.816L89.847 90.8174C54.5329 73.1375 40.6072 74.5546 0.914577 99.8752C0.312412 100.26 -0.259673 99.6876 0.124792 99.0854C25.4444 59.3918 26.8625 45.4671 9.18167 10.1521C8.9215 9.63314 9.57223 8.95807 10.1001 9.16059L10.1507 9.18308C45.4657 26.8639 59.3905 25.4457 99.0854 0.124826ZM65.703 34.2974C61.9959 35.3198 58.2999 36.037 54.5685 36.4171C48.0147 37.0846 41.7138 36.6839 35.4457 35.4467C36.6829 41.7148 37.0837 48.0156 36.4162 54.5693C36.0363 58.3003 35.3191 61.996 34.2969 65.7027C38.0036 64.6805 41.6993 63.9633 45.4303 63.5834C51.9843 62.9159 58.2853 63.3166 64.5537 64.5539C63.3165 58.2856 62.9157 51.9848 63.5833 45.4307C63.9634 41.6997 64.6808 38.0041 65.703 34.2974Z" fill="url(#${gradientId})"/>
+            </svg>
+          `;
+          imgWrapper.appendChild(starWrapper);
+        }
+
+        if (hero.typeImage) {
+          const typeBadge = document.createElement("img");
+          typeBadge.src = hero.typeImage;
+          typeBadge.alt = hero.type || "타입 배지";
+          typeBadge.className = "hero-type-badge";
+          imgWrapper.appendChild(typeBadge);
+        }
+
+        card.appendChild(imgWrapper);
       }
 
-      document.addEventListener("DOMContentLoaded", () => {
-        const savedScroll = sessionStorage.getItem('scrollPosition');
-        if (savedScroll) {
-          window.scrollTo(0, parseInt(savedScroll));
-          sessionStorage.removeItem('scrollPosition');
-        }
+      const name = document.createElement("div");
+      name.className = "hero-name";
+      name.textContent = hero.name || "이름 없음";
+      card.appendChild(name);
+
+      if (hero.nickname) {
+        const nickname = document.createElement("div");
+        nickname.className = "hero-nickname";
+        nickname.textContent = `${hero.nickname}`;
+        card.appendChild(nickname);
+      }
+
+      const heroId = record.id;
+      card.addEventListener("click", () => {
+        sessionStorage.setItem("scrollPosition", window.scrollY);
+        window.location.href = `/hero.html?id=${heroId}`;
       });
-
-      fetchHeroes();
-
-      function applyFiltersAndSort(heroes) {
-  // 필터 수집
-  const selectedRarity = [...document.querySelectorAll('#filter-rarity input:checked')].map(el => el.value);
-  const selectedType = [...document.querySelectorAll('#filter-type input:checked')].map(el => el.value);
-  const selectedGroup = [...document.querySelectorAll('#filter-group input:checked')].map(el => el.value);
-  const sortOption = document.querySelector('input[name="sort"]:checked').value;
-
-  // 필터링
-  let filtered = heroes.filter(hero => {
-    const rarityMatch = selectedRarity.includes("전체") || selectedRarity.includes(hero.rarity);
-    const typeMatch = selectedType.includes("전체") || selectedType.includes(hero.type);
-    const groupMatch = selectedGroup.includes("전체") || selectedGroup.includes(hero.group);
-    return rarityMatch && typeMatch && groupMatch;
-  });
-
-  // 정렬
-  if (sortOption === "name") {
-    filtered.sort((a, b) => a.name.localeCompare(b.name, 'ko'));
-  } else if (sortOption === "attack") {
-    filtered.sort((a, b) => (b["공격력"] || 0) - (a["공격력"] || 0));
-  } else if (sortOption === "hp") {
-    filtered.sort((a, b) => (b["생명력"] || 0) - (a["생명력"] || 0));
-  } else if (sortOption === "rarity") {
-    const rarityOrder = ["(구)세븐나이츠", "전설+", "전설", "희귀"];
-    filtered.sort((a, b) => {
-      const rarityA = rarityOrder.indexOf(a.group) >= 0 ? rarityOrder.indexOf(a.group) : rarityOrder.indexOf(a.rarity);
-      const rarityB = rarityOrder.indexOf(b.group) >= 0 ? rarityOrder.indexOf(b.group) : rarityOrder.indexOf(b.rarity);
-      if (rarityA === rarityB) return a.name.localeCompare(b.name, 'ko');
-      return rarityA - rarityB;
+      heroesContainer.appendChild(card);
     });
   }
 
-  return filtered;
-}
+  function applyFiltersAndSort(heroes) {
+    const selectedRarity = [...document.querySelectorAll('#filter-rarity input:checked')].map(el => el.value);
+    const selectedType = [...document.querySelectorAll('#filter-type input:checked')].map(el => el.value);
+    const selectedGroup = [...document.querySelectorAll('#filter-group input:checked')].map(el => el.value);
+    const sortOption = document.querySelector('input[name="sort"]:checked').value;
 
-// 필터나 정렬 변경 시 즉시 갱신
-document.querySelectorAll('#filter-rarity input, #filter-type input, #filter-group input, input[name="sort"]').forEach(el => {
-  el.addEventListener('change', () => fetchHeroes());
-});
-    </script>
+    let filtered = heroes.filter(hero => {
+      const rarityMatch = selectedRarity.includes("전체") || selectedRarity.includes(hero.rarity);
+      const typeMatch = selectedType.includes("전체") || selectedType.includes(hero.type);
+      const groupMatch = selectedGroup.includes("전체") || selectedGroup.includes(hero.group);
+      return rarityMatch && typeMatch && groupMatch;
+    });
+
+    if (sortOption === "name") {
+      filtered.sort((a, b) => a.name.localeCompare(b.name, "ko"));
+    } else if (sortOption === "attack") {
+      filtered.sort((a, b) => (b["공격력"] || 0) - (a["공격력"] || 0));
+    } else if (sortOption === "hp") {
+      filtered.sort((a, b) => (b["생명력"] || 0) - (a["생명력"] || 0));
+    } else if (sortOption === "rarity") {
+      const rarityOrder = ["(구)세븐나이츠", "전설+", "전설", "희귀"];
+      filtered.sort((a, b) => {
+        const rarityA = rarityOrder.indexOf(a.group) >= 0 ? rarityOrder.indexOf(a.group) : rarityOrder.indexOf(a.rarity);
+        const rarityB = rarityOrder.indexOf(b.group) >= 0 ? rarityOrder.indexOf(b.group) : rarityOrder.indexOf(b.rarity);
+        if (rarityA === rarityB) return a.name.localeCompare(b.name, "ko");
+        return rarityA - rarityB;
+      });
+    }
+    return filtered;
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    fetchHeroes();
+
+    const savedScroll = sessionStorage.getItem("scrollPosition");
+    if (savedScroll) {
+      window.scrollTo(0, parseInt(savedScroll));
+      sessionStorage.removeItem("scrollPosition");
+    }
+
+    document.querySelectorAll(
+      '#filter-rarity input, #filter-type input, #filter-group input, input[name="sort"]'
+    ).forEach(el => {
+      el.addEventListener("change", () => {
+        const filtered = applyFiltersAndSort(allHeroes);
+        renderHeroes(filtered);
+      });
+    });
+  });
+</script>
 
   </body>
 </html>
