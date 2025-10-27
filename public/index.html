@@ -204,13 +204,13 @@
                 card.appendChild(nickname);
             }
 
-            // 소속 그룹
-            if (hero.group) {
-                const group = document.createElement("div");
-                group.className = "hero-group";
-                group.textContent = hero.group;
-                card.appendChild(group);
-            }
+            // 소속 그룹 (숨김 처리)
+            // if (hero.group) {
+            //    const group = document.createElement("div");
+            //    group.className = "hero-group";
+            //    group.textContent = hero.group;
+            //    card.appendChild(group);
+            //}
 
             // 등급 (숨김 처리)
             // if (hero.rarity) {
