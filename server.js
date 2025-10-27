@@ -87,6 +87,7 @@ app.get("/api/heroes", async (req, res) => {
         name: f.Name || "",
         rarity: rarityVal,
         type: typeName,
+        group: f.group || "", // ✅ 영웅 소속군 (UI 미노출, 정렬/필터용)
         hasEffect, // ✅ 추가됨
         portrait:
           Array.isArray(f.portrait) && f.portrait[0]
