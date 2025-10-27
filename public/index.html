@@ -306,6 +306,34 @@
         renderHeroes(filtered);
       });
     });
+
+    // === 전체 선택 로직 추가 ===
+    ["filter-rarity", "filter-type", "filter-group"].forEach(groupId => {
+      const container = document.getElementById(groupId);
+      const checkboxes = container.querySelectorAll("input[type='checkbox']");
+
+      checkboxes.forEach(checkbox => {
+        checkbox.addEventListener("change", () => {
+          const allOption = container.querySelector("input[value='전체']");
+          if (checkbox.value === "전체" && checkbox.checked) {
+            // 전체 선택 시 다른 체크 해제
+            checkboxes.forEach(cb => {
+              if (cb !== allOption) cb.checked = false;
+            });
+          } else if (checkbox.value !== "전체" && checkbox.checked) {
+            // 다른 옵션 선택 시 전체 해제
+            allOption.checked = false;
+          } else {
+            // 모두 해제된 경우 전체 다시 체크
+            const anyChecked = Array.from(checkboxes).some(cb => cb.checked && cb.value !== "전체");
+            if (!anyChecked) allOption.checked = true;
+          }
+
+          const filtered = applyFiltersAndSort(allHeroes);
+          renderHeroes(filtered);
+        });
+      });
+    });
   });
 </script>
 
