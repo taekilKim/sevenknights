@@ -359,7 +359,8 @@ svg defs {
 
 /* Ensure UA rule doesn't clip the SVG effects */
 
-.rarity-diamond-effect svg{
+/* (구)세븐나이츠 제외 일반 영웅 스파크 */
+.hero-card:not([data-group="(구)세븐나이츠"]) .rarity-diamond-effect svg {
   overflow: visible;
   filter: drop-shadow(0 0 6px #ffcc80)
         drop-shadow(0 0 12px #f37225)
