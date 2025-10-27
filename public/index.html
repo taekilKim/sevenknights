@@ -309,5 +309,82 @@
       fetchHeroes();
     </script>
 
+    <script>
+      let allHeroes = [];
+      let currentFilters = {
+        rarity: ["전체"],
+        type: ["전체"],
+        group: ["전체"],
+        sort: "name",
+      };
+
+      function applyFiltersAndSort() {
+        if (!allHeroes.length) return;
+        const heroesContainer = document.getElementById("heroes");
+        heroesContainer.innerHTML = "";
+
+        let filtered = [...allHeroes];
+        if (!currentFilters.rarity.includes("전체"))
+          filtered = filtered.filter(h => currentFilters.rarity.includes(h.rarity));
+        if (!currentFilters.type.includes("전체"))
+          filtered = filtered.filter(h => currentFilters.type.includes(h.type));
+        if (!currentFilters.group.includes("전체"))
+          filtered = filtered.filter(h => currentFilters.group.includes(h.group));
+
+        filtered.sort((a,b)=>{
+          switch(currentFilters.sort){
+            case "attack": return (b["공격력"]||0)-(a["공격력"]||0);
+            case "hp": return (b["생명력"]||0)-(a["생명력"]||0);
+            case "rarity": {
+              const order=["전설+","전설","희귀","고급"];
+              const r=x=>order.indexOf(x)===-1?99:order.indexOf(x);
+              const c=r(a.rarity)-r(b.rarity);
+              return c!==0?c:a.name.localeCompare(b.name,"ko");
+            }
+            default: return a.name.localeCompare(b.name,"ko");
+          }
+        });
+
+        filtered.forEach(hero=>{
+          const card=document.createElement("div");
+          card.className="hero-card";
+          card.textContent=hero.name;
+          heroesContainer.appendChild(card);
+        });
+      }
+
+      function initFilterEvents(){
+        ["rarity","type","group"].forEach(key=>{
+          document.querySelectorAll(`input[name="${key}"]`).forEach(cb=>{
+            cb.addEventListener("change",()=>{
+              const vals=[...document.querySelectorAll(`input[name="${key}"]:checked`)]
+                .map(el=>el.value);
+              currentFilters[key]=vals.length?vals:["전체"];
+              applyFiltersAndSort();
+            });
+          });
+        });
+        document.querySelectorAll('input[name="sort"]').forEach(r=>{
+          r.addEventListener("change",e=>{
+            currentFilters.sort=e.target.value;
+            applyFiltersAndSort();
+          });
+        });
+      }
+
+      const _originalFetchHeroes=fetchHeroes;
+      fetchHeroes=async function(){
+        showLoading(true);
+        try{
+          const response=await fetch("/api/heroes");
+          const data=await response.json();
+          if(!data.records)return;
+          allHeroes=data.records.map(r=>r);
+          initFilterEvents();
+          applyFiltersAndSort();
+        }catch(e){console.error(e);}finally{showLoading(false);}
+      };
+    </script>
+
   </body>
 </html>
