@@ -413,5 +413,46 @@ app.post("/api/comments/:heroId", async (req, res) => {
   }
 });
 
+
+// =============================
+// 📄 Dynamic Sitemap Generator
+// =============================
+app.get('/sitemap.xml', async (req, res) => {
+  try {
+    const airtableResponse = await fetch(`https://api.airtable.com/v0/${BASE_ID}/Heroes`, {
+      headers: { Authorization: `Bearer ${AIRTABLE_TOKEN}` }
+    });
+    const data = await airtableResponse.json();
+    const heroes = data.records || [];
+
+    const urls = heroes.map(record => {
+      const id = record.id;
+      return `
+        <url>
+          <loc>https://sk-dogam.app/hero.html?id=${id}</loc>
+          <lastmod>${new Date().toISOString().split('T')[0]}</lastmod>
+          <priority>0.8</priority>
+        </url>
+      `;
+    }).join('');
+
+    const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
+    <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+      <url>
+        <loc>https://sk-dogam.app/</loc>
+        <lastmod>${new Date().toISOString().split('T')[0]}</lastmod>
+        <priority>1.0</priority>
+      </url>
+      ${urls}
+    </urlset>`;
+
+    res.header('Content-Type', 'application/xml');
+    res.send(sitemap);
+  } catch (err) {
+    console.error('Sitemap generation failed:', err);
+    res.status(500).send('Error generating sitemap');
+  }
+});
+
 // ✅ Vercel용 export
 export default app;
