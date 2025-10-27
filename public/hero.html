@@ -57,12 +57,13 @@
   });
 </script>
 </head>
-<body class="hero-detail-page">
+<body>
   <header class="hero-header">
     <button class="back-button" onclick="window.history.back()"><i class="ph-bold ph-caret-left"></i> 목록으로</button>
   </header>
 
-  <main class="hero-detail-container">
+  <div class="hero-detail-page">
+    <main class="hero-detail-container">
     <h1>세븐나이츠 리버스 영웅 상세 정보</h1>
     <p class="subtitle">영웅의 스탯, 스킬, 희귀도 및 소속을 자세히 확인하세요.</p>
     <section class="hero-top">
@@ -145,7 +146,18 @@
       <h2>설명</h2>
       <p id="hero-description"></p>
     </section>
-  </main>
+    </main>
+
+    <section class="hero-comments">
+      <h2>의견 남기기</h2>
+      <form id="comment-form">
+        <input type="text" id="nickname" name="nickname" placeholder="닉네임" required />
+        <textarea id="comment-content" name="content" placeholder="의견을 입력하세요..." required></textarea>
+        <button type="submit">등록</button>
+      </form>
+      <ul id="comment-list" class="comment-list"></ul>
+    </section>
+  </div>
 
   <script>
     const params = new URLSearchParams(window.location.search);
@@ -312,16 +324,6 @@
         });
     }
 </script>
-
-  <section class="hero-comments">
-    <h2>의견 남기기</h2>
-    <form id="comment-form">
-      <input type="text" id="nickname" name="nickname" placeholder="닉네임" required />
-      <textarea id="comment-content" name="content" placeholder="의견을 입력하세요..." required></textarea>
-      <button type="submit">등록</button>
-    </form>
-    <ul id="comment-list" class="comment-list"></ul>
-  </section>
 
   <script>
     const commentForm = document.getElementById("comment-form");
