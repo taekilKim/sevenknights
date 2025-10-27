@@ -384,8 +384,9 @@ svg defs {
   box-shadow: 0 0 12px rgba(255, 200, 100, 0.6), 0 0 24px rgba(255, 120, 40, 0.4);
 }
 
+
 /* (구)세븐나이츠를 제외한 영웅 glow */
-.hero-card:not([data-group="(구)세븐나이츠"]) .hero-portrait.has-effect {
+/* .hero-card:not([data-group="(구)세븐나이츠"]) .hero-portrait.has-effect {
   border-color: rgb(255 187 61);
   box-shadow: 0 0 12px rgb(255 239 228 / 80%), 0 0 24px rgb(243 114 37 / 40%);
 }
