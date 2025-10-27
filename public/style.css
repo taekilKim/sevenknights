@@ -472,3 +472,57 @@ svg defs {
   color: #777;
   font-size: 0.8rem;
 }
+
+.filter-container {
+  padding: 24px;
+  color: #fff;
+  font-size: 0.9rem;
+}
+.filter-container h3 {
+  font-size: 1.1rem;
+  margin-top: 24px;
+  margin-bottom: 12px;
+  color: #ffd56a;
+}
+.filter-group {
+  margin-bottom: 20px;
+}
+.filter-title {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+.filter-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.filter-buttons label {
+  background: #1a1a1a;
+  border: 1px solid #333;
+  border-radius: 6px;
+  padding: 6px 10px;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s;
+  user-select: none;
+}
+.filter-buttons label:hover {
+  background: #2c2c2c;
+}
+.filter-buttons input {
+  display: none;
+}
+.filter-buttons input:checked + label,
+.filter-buttons label:has(input:checked) {
+  background: #ffd56a;
+  color: #000;
+  border-color: #ffd56a;
+}
+.sort-buttons label {
+  display: block;
+  margin-bottom: 6px;
+  cursor: pointer;
+}
+.sort-buttons input {
+  margin-right: 6px;
+}
