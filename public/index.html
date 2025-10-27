@@ -59,27 +59,67 @@
       <aside class="sidebar-right">
         <div>
           <h3>정렬 / 필터</h3>
-          <div class="filter-section">
-            <label for="filter-type">유형</label>
-            <select id="filter-type">
-              <option value="">전체</option>
-              <option value="공격형">공격형</option>
-              <option value="방어형">방어형</option>
-              <option value="마법형">마법형</option>
-              <option value="지원형">지원형</option>
-              <option value="만능형">만능형</option>
-            </select>
-          </div>
-          <div class="filter-section">
-            <label for="filter-rarity">희귀도</label>
-            <select id="filter-rarity">
-              <option value="">전체</option>
-              <option value="전설+">전설+</option>
-              <option value="전설">전설</option>
-              <option value="희귀">희귀</option>
-              <option value="고급">고급</option>
-            </select>
-          </div>
+
+          <!-- 필터 섹션 -->
+          <section class="filter-section-group">
+            <h4>등급</h4>
+            <div class="filter-buttons" id="filter-rarity-group">
+              <label><input type="checkbox" name="rarity" value="전체" checked> 전체</label>
+              <label><input type="checkbox" name="rarity" value="전설+"> 전설+</label>
+              <label><input type="checkbox" name="rarity" value="전설"> 전설</label>
+              <label><input type="checkbox" name="rarity" value="희귀"> 희귀</label>
+            </div>
+
+            <h4>타입</h4>
+            <div class="filter-buttons" id="filter-type-group">
+              <label><input type="checkbox" name="type" value="전체" checked> 전체</label>
+              <label><input type="checkbox" name="type" value="공격형"> 공격형</label>
+              <label><input type="checkbox" name="type" value="마법형"> 마법형</label>
+              <label><input type="checkbox" name="type" value="만능형"> 만능형</label>
+              <label><input type="checkbox" name="type" value="방어형"> 방어형</label>
+              <label><input type="checkbox" name="type" value="지원형"> 지원형</label>
+            </div>
+
+            <h4>소속</h4>
+            <div class="filter-buttons scrollable" id="filter-group-group">
+              <label><input type="checkbox" name="group" value="전체" checked> 전체</label>
+              <label><input type="checkbox" name="group" value="세븐나이츠"> 세븐나이츠</label>
+              <label><input type="checkbox" name="group" value="(구)세븐나이츠"> (구)세븐나이츠</label>
+              <label><input type="checkbox" name="group" value="다크나이츠"> 다크나이츠</label>
+              <label><input type="checkbox" name="group" value="사황"> 사황</label>
+              <label><input type="checkbox" name="group" value="(구)사황"> (구)사황</label>
+              <label><input type="checkbox" name="group" value="나이트크로우"> 나이트크로우</label>
+              <label><input type="checkbox" name="group" value="숨은강자들"> 숨은강자들</label>
+              <label><input type="checkbox" name="group" value="???"> ???</label>
+              <label><input type="checkbox" name="group" value="에반원정대"> 에반원정대</label>
+              <label><input type="checkbox" name="group" value="모험가"> 모험가</label>
+              <label><input type="checkbox" name="group" value="테라영지"> 테라영지</label>
+              <label><input type="checkbox" name="group" value="성십자단"> 성십자단</label>
+              <label><input type="checkbox" name="group" value="그림자단"> 그림자단</label>
+              <label><input type="checkbox" name="group" value="신비의 숲"> 신비의 숲</label>
+              <label><input type="checkbox" name="group" value="침묵의 광산"> 침묵의 광산</label>
+              <label><input type="checkbox" name="group" value="화염의 사막"> 화염의 사막</label>
+              <label><input type="checkbox" name="group" value="암흑의 무덤"> 암흑의 무덤</label>
+              <label><input type="checkbox" name="group" value="용의 유적지"> 용의 유적지</label>
+              <label><input type="checkbox" name="group" value="눈보라의 대지"> 눈보라의 대지</label>
+              <label><input type="checkbox" name="group" value="복수자의 지옥"> 복수자의 지옥</label>
+              <label><input type="checkbox" name="group" value="달빛의 섬"> 달빛의 섬</label>
+              <label><input type="checkbox" name="group" value="천자의 땅 서쪽"> 천자의 땅 서쪽</label>
+              <label><input type="checkbox" name="group" value="천자의 땅 동쪽"> 천자의 땅 동쪽</label>
+              <label><input type="checkbox" name="group" value="어둠의 안식처"> 어둠의 안식처</label>
+            </div>
+          </section>
+
+          <!-- 정렬 섹션 -->
+          <section class="sort-section">
+            <h4>정렬 기준</h4>
+            <div class="sort-buttons">
+              <label><input type="radio" name="sort" value="name" checked> 가나다 순</label>
+              <label><input type="radio" name="sort" value="attack"> 공격력 높은 순</label>
+              <label><input type="radio" name="sort" value="hp"> 체력 높은 순</label>
+              <label><input type="radio" name="sort" value="rarity"> 등급 높은 순</label>
+            </div>
+          </section>
         </div>
       </aside>
     </div>
