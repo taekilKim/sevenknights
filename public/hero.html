@@ -151,17 +151,21 @@
           }
 
           // Update SEO meta tags dynamically
-          const heroTitle = `${hero.name} - 세븐나이츠 리버스 도감`;
+          const heroTitle = `${hero.name} (${hero.rarity} / ${hero.type}) - 세븐나이츠 리버스 도감`;
           document.title = heroTitle;
           const titleEl = document.getElementById("dynamic-title");
           if (titleEl) titleEl.textContent = heroTitle;
-          const desc = `${hero.name}의 상세 정보를 확인하세요.`;
+
+          // 더 풍부한 설명 문장
+          const desc = `${hero.name} (${hero.rarity} / ${hero.type}) — ${hero.group || "세븐나이츠 리버스"} 소속 영웅의 스탯, 스킬, 능력치를 한눈에 확인하세요.`;
           const ogDesc = hero.description || desc;
           const url = `${location.origin}${location.pathname}?id=${encodeURIComponent(heroId)}`;
+
           // Description
           const descMeta = document.getElementById("meta-description");
           if (descMeta) descMeta.setAttribute("content", desc);
-          // Keywords (add hero name, group, type)
+
+          // Keywords (영웅 이름, 소속, 타입, 희귀도 추가)
           const keywordsMeta = document.getElementById("meta-keywords");
           if (keywordsMeta) {
             const keywords = [
@@ -170,6 +174,7 @@
             ].filter(Boolean).join(", ");
             keywordsMeta.setAttribute("content", keywords);
           }
+
           // Open Graph
           const ogTitle = document.getElementById("og-title");
           if (ogTitle) ogTitle.setAttribute("content", heroTitle);
@@ -179,6 +184,7 @@
           if (ogImage) ogImage.setAttribute("content", hero.portrait || "/default-hero-og-image.png");
           const ogUrl = document.getElementById("og-url");
           if (ogUrl) ogUrl.setAttribute("content", url);
+
           // Twitter Card
           const twTitle = document.getElementById("twitter-title");
           if (twTitle) twTitle.setAttribute("content", heroTitle);
@@ -186,9 +192,33 @@
           if (twDesc) twDesc.setAttribute("content", ogDesc);
           const twImage = document.getElementById("twitter-image");
           if (twImage) twImage.setAttribute("content", hero.portrait || "/default-hero-og-image.png");
+
           // Canonical
           const canonical = document.getElementById("canonical-link");
           if (canonical) canonical.setAttribute("href", url);
+
+          // ✅ 구조화 데이터(JSON-LD) 동적 생성
+          const heroSchema = {
+            "@context": "https://schema.org",
+            "@type": "VideoGameCharacter",
+            "name": hero.name,
+            "alternateName": hero.nickname || undefined,
+            "description": desc,
+            "image": hero.portrait || "/default-hero-og-image.png",
+            "url": url,
+            "inLanguage": "ko",
+            "rarity": hero.rarity,
+            "characterAttribute": hero.type,
+            "memberOf": hero.group || "세븐나이츠 리버스",
+            "isPartOf": {
+              "@type": "VideoGame",
+              "name": "세븐나이츠 리버스 (Seven Knights Re:birth)"
+            }
+          };
+          const jsonLdEl = document.querySelector('script[type="application/ld+json"]');
+          if (jsonLdEl) {
+            jsonLdEl.textContent = JSON.stringify(heroSchema, null, 2);
+          }
 
           // 기본 정보
           document.getElementById("hero-portrait").src = hero.portrait || "";
