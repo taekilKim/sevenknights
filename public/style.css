@@ -539,3 +539,67 @@ svg defs {
 .sort-buttons input {
   margin-right: 6px;
 }
+/* ------------------------------------ */
+/*  반응형 레이아웃 (1023 이하: 모바일, 1024 이상: 데스크탑 4단계) */
+/* ------------------------------------ */
+
+/* 모바일 (1023px 이하) */
+@media (max-width: 1023px) {
+  .layout {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "header"
+      "content";
+  }
+
+  .sidebar-left,
+  .sidebar-right {
+    display: none;
+  }
+
+  #heroes {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    padding: 24px;
+  }
+
+  .hero-name {
+    font-size: 0.85rem;
+  }
+}
+
+/* 데스크탑 S (1024~1279px) */
+@media (min-width: 1024px) and (max-width: 1279px) {
+  #heroes {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+    padding: 32px;
+  }
+}
+
+/* 데스크탑 M (1280~1599px) */
+@media (min-width: 1280px) and (max-width: 1599px) {
+  #heroes {
+    grid-template-columns: repeat(5, 1fr);
+    gap: 40px;
+    padding: 40px;
+  }
+}
+
+/* 데스크탑 L (1600~1919px) */
+@media (min-width: 1600px) and (max-width: 1919px) {
+  #heroes {
+    grid-template-columns: repeat(6, 1fr);
+    gap: 48px;
+    padding: 48px;
+  }
+}
+
+/* 데스크탑 XL (1920px 이상) */
+@media (min-width: 1920px) {
+  #heroes {
+    grid-template-columns: repeat(7, 1fr);
+    gap: 56px;
+    padding: 56px;
+  }
+}
