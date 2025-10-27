@@ -214,11 +214,34 @@ img {
 /*  hero.html (영웅 상세 페이지)        */
 /* ------------------------------------ */
 .hero-detail-page {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 2rem;
   background: #000;
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+}
+
+/* Adjust container widths for desktop */
+.hero-detail-container {
+  flex: 3;
+  max-width: 75%;
+}
+
+.hero-comments {
+  flex: 1;
+  max-width: 25%;
+}
+
+/* Responsive fallback for mobile (under 1024px) */
+@media (max-width: 1023px) {
+  .hero-detail-page {
+    flex-direction: column;
+  }
+  .hero-detail-container,
+  .hero-comments {
+    max-width: 100%;
+  }
 }
 .hero-header {
   width: 100%;
