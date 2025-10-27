@@ -9,6 +9,19 @@
 /* ------------------------------------ */
 /*  공통 스타일                         */
 /* ------------------------------------ */
+
+h1,
+.subtitle {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
 body {
   font-family: "Pretendard", sans-serif;
   background: #000;
