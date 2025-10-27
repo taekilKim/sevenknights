@@ -159,6 +159,23 @@
                       </defs>
                     </svg>
                   `;
+                  // === (구)세븐나이츠 전용 보라색 fill 적용 ===
+                  try {
+                    const svgEl = starWrapper.querySelector("svg");
+                    const stops = svgEl ? svgEl.querySelectorAll('#paint0_diamond_12_74 stop') : [];
+                    if (stops && stops.length >= 3) {
+                      const isOldSeven = hero.group && hero.group.includes("(구)세븐나이츠");
+                      if (isOldSeven) {
+                        stops[0].setAttribute("stop-color", "#EEDBFF"); // bright lilac
+                        stops[1].setAttribute("stop-color", "#C49CFF"); // mid purple-gold
+                        stops[2].setAttribute("stop-color", "#9C6BFF"); // deep purple
+                      }
+                    }
+                  } catch (e) {
+                    console.warn("보라색 fill 적용 실패:", e);
+                  }
+                  // === END (구)세븐나이츠 전용 보라색 fill 적용 ===
+
                   imgWrapper.appendChild(starWrapper);
                 }
 
