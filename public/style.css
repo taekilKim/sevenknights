@@ -379,7 +379,7 @@ svg defs {
 
 .hero-portrait.has-effect {
   position: relative;
-  border: 3px solid transparent;
+  border: 3px solid rgb(255 187 61);
   background-clip: padding-box;
   box-shadow: 0 0 12px rgba(255, 200, 100, 0.6), 0 0 24px rgba(255, 120, 40, 0.4);
 }
