@@ -233,24 +233,49 @@
             jsonLdEl.textContent = JSON.stringify(heroSchema, null, 2);
           }
 
-          // 기본 정보
-          document.getElementById("hero-portrait").src = hero.portrait || "";
-          // Remove old diamond/star SVG code. Insert index.html's hero card diamond logic here.
-          // Add diamond/star effect to hero portrait area if hero.hasEffect
-          if (hero.hasEffect === true || hero.hasEffect === "true" || hero.hasEffect === 1) {
-            const portraitWrap = document.querySelector(".hero-portrait-wrap");
-            if (portraitWrap && !portraitWrap.querySelector('.rarity-diamond-effect')) {
-              // Unique gradient id to avoid collision
+          // === Hero portrait area rendering (index.html card logic adapted) ===
+          (function renderHeroPortrait() {
+            // Remove existing children
+            const wrap = document.querySelector(".hero-portrait-wrap");
+            if (!wrap) return;
+            wrap.innerHTML = "";
+            wrap.style.position = "relative";
+
+            // Determine rarityClass (for border/background)
+            const rarityClass = (() => {
+              switch (hero.rarity) {
+                case "전설+": return "legendary-plus";
+                case "전설": return "legendary";
+                case "희귀": return "rare";
+                case "고급": return "uncommon";
+                default: return "normal";
+              }
+            })();
+
+            // Portrait img
+            const img = document.createElement("img");
+            img.className = `hero-portrait rarity-${rarityClass}`;
+            img.alt = "영웅 초상화";
+            img.src = hero.portrait || "";
+            // Add shine border if hasEffect
+            if (hero.hasEffect === true || hero.hasEffect === "true" || hero.hasEffect === 1) {
+              img.classList.add("has-effect");
+            }
+            wrap.appendChild(img);
+
+            // Diamond/star SVG if hasEffect
+            if (hero.hasEffect === true || hero.hasEffect === "true" || hero.hasEffect === 1) {
+              // Unique gradient id (avoid collision)
               const gradId = `diamond-gradient-${hero.id}`;
-              // Determine if old (구)세븐나이츠
+              // (구)세븐나이츠 그룹: purple gradient
               const isOldSevenKnights = hero.group && hero.group.includes("(구)세븐나이츠");
-              const diamond = document.createElement("div");
-              diamond.className = "rarity-diamond-effect";
-              diamond.style.position = "absolute";
-              diamond.style.top = "8px";
-              diamond.style.right = "8px";
-              diamond.style.zIndex = "3";
-              diamond.innerHTML = `
+              const diamondDiv = document.createElement("div");
+              diamondDiv.className = "rarity-diamond-effect";
+              diamondDiv.style.position = "absolute";
+              diamondDiv.style.top = "8px";
+              diamondDiv.style.right = "8px";
+              diamondDiv.style.zIndex = "3";
+              diamondDiv.innerHTML = `
                 <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <defs>
                     <linearGradient id="${gradId}" x1="0" y1="0" x2="40" y2="40" gradientUnits="userSpaceOnUse">
@@ -272,41 +297,24 @@
                   <polygon points="20,8 32,20 20,32 8,20" fill="white" fill-opacity="0.22"/>
                 </svg>
               `;
-              portraitWrap.appendChild(diamond);
+              wrap.appendChild(diamondDiv);
             }
-          }
-          // 희귀도 스파크 효과 SVG의 그라디언트 동적 전환
-          (function handleSparkGradient() {
-            const svg = document.getElementById("rarity-spark-star-svg");
-            const path = document.getElementById("rarity-spark-star-path");
-            if (!svg || !path) return;
-            if (hero.group && hero.group.includes("(구)세븐나이츠")) {
-              path.setAttribute("fill", "url(#sparkGradientOld)");
-            } else {
-              path.setAttribute("fill", "url(#sparkGradient)");
+
+            // Type badge (if hero.typeImage)
+            if (hero.typeImage) {
+              const badge = document.createElement("img");
+              badge.className = "hero-type-badge";
+              badge.src = hero.typeImage;
+              badge.alt = hero.type || "타입";
+              badge.style.position = "absolute";
+              badge.style.left = "8px";
+              badge.style.bottom = "8px";
+              badge.style.width = "28px";
+              badge.style.height = "28px";
+              badge.style.zIndex = "2";
+              wrap.appendChild(badge);
             }
           })();
-          // 희귀도별 배경색 클래스 적용
-          const portraitEl = document.getElementById("hero-portrait");
-          if (portraitEl) {
-            const rarityClass = (() => {
-              switch (hero.rarity) {
-                case "전설+": return "legendary-plus";
-                case "전설": return "legendary";
-                case "희귀": return "rare";
-                case "고급": return "uncommon";
-                default: return "normal";
-              }
-            })();
-            portraitEl.classList.add(`rarity-${rarityClass}`);
-          }
-          // hasEffect가 true면 초상화에 빛나는 테두리 클래스 부여
-          if (hero.hasEffect === true || hero.hasEffect === "true" || hero.hasEffect === 1) {
-            const portraitEl = document.getElementById("hero-portrait");
-            if (portraitEl) {
-              portraitEl.classList.add("has-effect");
-            }
-          }
           document.getElementById("hero-name").textContent = hero.name || "";
           document.getElementById("hero-nickname").textContent = hero.nickname || "";
           document.getElementById("hero-group").textContent = hero.group || "";
