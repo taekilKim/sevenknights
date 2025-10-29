@@ -52,8 +52,8 @@
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     // Dynamically extract hero name for analytics
-    const params = new URLSearchParams(window.location.search);
-    const heroNameForAnalytics = params.get("name") || "unknown";
+    const analyticsParams = new URLSearchParams(window.location.search);
+    const heroNameForAnalytics = analyticsParams.get("name") || "unknown";
     gtag('config', 'G-DMD8LXSEQ5', {
       'page_title': `Hero Detail - ${heroNameForAnalytics}`,
       'page_path': `/hero/${encodeURIComponent(heroNameForAnalytics)}`
@@ -61,6 +61,11 @@
   </script>
 </head>
 <body>
+  <script>
+    // 전역에서 접근 가능한 heroId
+    const params = new URLSearchParams(window.location.search);
+    window.heroId = params.get("name") ? decodeURIComponent(params.get("name")) : null;
+  </script>
   <header class="hero-header">
     <button class="back-button" onclick="window.history.back()"><i class="ph-bold ph-caret-left"></i> 목록으로</button>
   </header>
@@ -397,7 +402,7 @@
     // 댓글 불러오기
     async function loadComments() {
       try {
-        const res = await fetch(`/api/comments/${heroId}`);
+        const res = await fetch(`/api/comments/${window.heroId}`);
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
         const data = await res.json();
 
@@ -421,12 +426,12 @@ commentForm.addEventListener("submit", async (e) => {
 
   try {
     // ✅ [추가된 부분] 실제로 전송되는 데이터를 콘솔에 출력
-    console.log("📩 전송 데이터:", { heroId, nickname, content });
+    console.log("📩 전송 데이터:", { heroId: window.heroId, nickname, content });
 
-    const res = await fetch(`/api/comments/${heroId}`, {
+    const res = await fetch(`/api/comments/${window.heroId}`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ heroId, nickname, content }),
+      body: JSON.stringify({ heroId: window.heroId, nickname, content }),
     });
 
     // ✅ [추가된 부분] 서버 응답 상태 코드 확인
