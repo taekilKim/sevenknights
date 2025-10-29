@@ -397,93 +397,64 @@
           =========================
           */
           /* === DEBUG START: Related heroes fetch === */
-          // 같은 소속 및 같은 유형 영웅 불러오기 fetch 구간 디버깅
-          console.log("[DEBUG] 관련 영웅 fetch 직전", {
-            heroName: hero.name,
-            group: hero.group,
-            type: hero.type
-          });
-          Promise.all([
-            (function() {
-              const url = `/api/heroes?group=${encodeURIComponent(hero.group || "")}`;
-              console.log("[DEBUG] Fetch group heroes URL:", url);
-              return fetch(url)
-                .then(res => {
-                  console.log("[DEBUG] Group fetch 응답 상태:", res.status);
-                  return res.json().then(data => {
-                    console.log("[DEBUG] Group fetch 응답 데이터:", data);
-                    return data;
-                  });
-                });
-            })(),
-            (function() {
-              const url = `/api/heroes?type=${encodeURIComponent(hero.type || "")}`;
-              console.log("[DEBUG] Fetch type heroes URL:", url);
-              return fetch(url)
-                .then(res => {
-                  console.log("[DEBUG] Type fetch 응답 상태:", res.status);
-                  return res.json().then(data => {
-                    console.log("[DEBUG] Type fetch 응답 데이터:", data);
-                    return data;
-                  });
-                });
-            })()
-          ])
-            .then(([groupHeroes, typeHeroes]) => {
-              // fetch 결과 도착
-              console.log("[DEBUG] 관련 영웅 fetch 완료", {
-                groupHeroes, typeHeroes
-              });
-              const groupContainer = document.getElementById("related-group-heroes");
-              const typeContainer = document.getElementById("related-type-heroes");
+Promise.all([
+  fetch(`/api/heroes?group=${encodeURIComponent(hero.group || "")}`).then(r => r.json()),
+  fetch(`/api/heroes?type=${encodeURIComponent(hero.type || "")}`).then(r => r.json())
+])
+.then(([groupData, typeData]) => {
+  // records 배열로 추출
+  const groupHeroes = groupData.records || [];
+  const typeHeroes = typeData.records || [];
+  console.log("[DEBUG] 실제 렌더링 대상 groupHeroes:", groupHeroes);
+  console.log("[DEBUG] 실제 렌더링 대상 typeHeroes:", typeHeroes);
 
-              // --- 같은 소속 영웅 ---
-              if (groupHeroes && groupHeroes.length > 0) {
-                groupContainer.innerHTML = "";
-                groupHeroes
-                  .filter(h => h.name !== hero.name)
-                  .forEach(h => {
-                    const card = document.createElement("div");
-                    card.className = "related-hero-card";
-                    card.innerHTML = `
-                      <img src="${h.portrait}" alt="${h.name}" loading="lazy" />
-                      <p>${h.name}</p>
-                    `;
-                    card.addEventListener("click", () => {
-                      window.location.href = `/hero.html?name=${encodeURIComponent(h.name)}`;
-                    });
-                    groupContainer.appendChild(card);
-                  });
-              } else {
-                groupContainer.innerHTML = "<p class='no-related'>같은 소속의 다른 영웅이 없습니다.</p>";
-              }
+  const groupContainer = document.getElementById("related-group-heroes");
+  const typeContainer = document.getElementById("related-type-heroes");
 
-              // --- 같은 유형 영웅 ---
-              if (typeHeroes && typeHeroes.length > 0) {
-                typeContainer.innerHTML = "";
-                typeHeroes
-                  .filter(h => h.name !== hero.name)
-                  .forEach(h => {
-                    const card = document.createElement("div");
-                    card.className = "related-hero-card";
-                    card.innerHTML = `
-                      <img src="${h.portrait}" alt="${h.name}" loading="lazy" />
-                      <p>${h.name}</p>
-                    `;
-                    card.addEventListener("click", () => {
-                      window.location.href = `/hero.html?name=${encodeURIComponent(h.name)}`;
-                    });
-                    typeContainer.appendChild(card);
-                  });
-              } else {
-                typeContainer.innerHTML = "<p class='no-related'>같은 유형의 다른 영웅이 없습니다.</p>";
-              }
-            })
-            .catch(err => {
-              console.error("관련 영웅 로드 오류:", err);
-              console.log("[DEBUG] 관련 영웅 fetch 에러:", err);
-            });
-          /* === DEBUG END: Related heroes fetch === */
+  // --- 같은 소속 영웅 ---
+  if (groupHeroes.length > 0) {
+    groupContainer.innerHTML = "";
+    groupHeroes
+      .filter(h => h.name !== hero.name)
+      .forEach(h => {
+        const card = document.createElement("div");
+        card.className = "related-hero-card";
+        card.innerHTML = `
+          <img src="${h.portrait}" alt="${h.name}" loading="lazy" />
+          <p>${h.name}</p>
+        `;
+        card.addEventListener("click", () => {
+          window.location.href = `/hero.html?name=${encodeURIComponent(h.name)}`;
+        });
+        groupContainer.appendChild(card);
+      });
+  } else {
+    groupContainer.innerHTML = "<p class='no-related'>같은 소속의 다른 영웅이 없습니다.</p>";
+  }
+
+  // --- 같은 유형 영웅 ---
+  if (typeHeroes.length > 0) {
+    typeContainer.innerHTML = "";
+    typeHeroes
+      .filter(h => h.name !== hero.name)
+      .forEach(h => {
+        const card = document.createElement("div");
+        card.className = "related-hero-card";
+        card.innerHTML = `
+          <img src="${h.portrait}" alt="${h.name}" loading="lazy" />
+          <p>${h.name}</p>
+        `;
+        card.addEventListener("click", () => {
+          window.location.href = `/hero.html?name=${encodeURIComponent(h.name)}`;
+        });
+        typeContainer.appendChild(card);
+      });
+  } else {
+    typeContainer.innerHTML = "<p class='no-related'>같은 유형의 다른 영웅이 없습니다.</p>";
+  }
+})
+.catch(err => console.error("관련 영웅 로드 오류:", err));
+/* === DEBUG END: Related heroes fetch === */
         })
         .catch(err => {
           if (skeleton) skeleton.style.display = "none";
