@@ -329,8 +329,10 @@
 
             // Diamond/star SVG if hasEffect
             if (hero.hasEffect === true || hero.hasEffect === "true" || hero.hasEffect === 1) {
-              const gradientId = `paint0_diamond_${hero.name.replace(/\s/g, '')}_${hero.id}`;
               const isOldSevenKnights = hero.group && hero.group.includes("(구)세븐나이츠");
+              const gradientId = isOldSevenKnights
+                ? `paint0_diamond_purple_${hero.name.replace(/\s/g, '')}_${hero.id}`
+                : `paint0_diamond_gold_${hero.name.replace(/\s/g, '')}_${hero.id}`;
 
               const starWrapper = document.createElement("div");
               starWrapper.className = "rarity-diamond-effect";
@@ -459,8 +461,10 @@ Promise.all([
 
         // Star SVG (hasEffect)
         if (h.hasEffect === true || h.hasEffect === "true" || h.hasEffect === 1) {
-          const gradientId = `paint0_diamond_${h.name.replace(/\s/g, '')}_${h.id}`;
           const isOldSevenKnights = h.group && h.group.includes("(구)세븐나이츠");
+          const gradientId = isOldSevenKnights
+            ? `paint0_diamond_purple_${h.name.replace(/\s/g, '')}_${h.id}`
+            : `paint0_diamond_gold_${h.name.replace(/\s/g, '')}_${h.id}`;
 
           const starWrapper = document.createElement("div");
           starWrapper.className = "rarity-diamond-effect";
@@ -539,8 +543,10 @@ Promise.all([
 
         // Star SVG (hasEffect)
         if (h.hasEffect === true || h.hasEffect === "true" || h.hasEffect === 1) {
-          const gradientId = `paint0_diamond_${h.name.replace(/\s/g, '')}_${h.id}`;
           const isOldSevenKnights = h.group && h.group.includes("(구)세븐나이츠");
+          const gradientId = isOldSevenKnights
+            ? `paint0_diamond_purple_${h.name.replace(/\s/g, '')}_${h.id}`
+            : `paint0_diamond_gold_${h.name.replace(/\s/g, '')}_${h.id}`;
 
           const starWrapper = document.createElement("div");
           starWrapper.className = "rarity-diamond-effect";
