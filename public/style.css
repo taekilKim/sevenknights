@@ -362,7 +362,8 @@ svg defs {
 /* Ensure UA rule doesn't clip the SVG effects */
 
 /* (구)세븐나이츠 제외 일반 영웅 스파크 */
-.hero-card:not([data-group="(구)세븐나이츠"]) .rarity-diamond-effect svg {
+.hero-card:not([data-group="(구)세븐나이츠"]) .rarity-diamond-effect svg,
+.related-hero-card:not([data-group="(구)세븐나이츠"]) .rarity-diamond-effect svg {
   overflow: visible;
   filter: drop-shadow(0 0 6px #ffcc80)
         drop-shadow(0 0 12px #f37225)
@@ -370,7 +371,8 @@ svg defs {
 }
 
 /* (구)세븐나이츠 전용 보랏빛 황금 스파크 */
-.hero-card[data-group="(구)세븐나이츠"] .rarity-diamond-effect svg {
+.hero-card[data-group="(구)세븐나이츠"] .rarity-diamond-effect svg,
+.related-hero-card[data-group="(구)세븐나이츠"] .rarity-diamond-effect svg {
   filter: drop-shadow(0 0 6px #d5a6ff)
           drop-shadow(0 0 12px #b57aff)
           drop-shadow(0 0 20px rgba(170, 90, 255, 0.6));
