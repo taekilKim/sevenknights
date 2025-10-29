@@ -435,6 +435,7 @@ Promise.all([
       .forEach(h => {
         const card = document.createElement("div");
         card.className = "related-hero-card hero-card";
+        card.setAttribute("data-group", h.group);
 
         const rarityClass = (() => {
           switch (h.rarity) {
@@ -514,6 +515,7 @@ Promise.all([
       .forEach(h => {
         const card = document.createElement("div");
         card.className = "related-hero-card hero-card";
+        card.setAttribute("data-group", h.group);
 
         const rarityClass = (() => {
           switch (h.rarity) {
