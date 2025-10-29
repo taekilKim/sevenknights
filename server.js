@@ -334,9 +334,10 @@ app.get('/sitemap.xml', async (req, res) => {
 
     const urls = heroes.map(record => {
       const id = record.id;
+      const name = record.fields && record.fields.Name ? record.fields.Name : '';
       return `
         <url>
-          <loc>https://sena-rebirth-guidebook.app/hero.html?id=${id}</loc>
+          <loc>https://sena-rebirth-guidebook.app/hero.html?name=${encodeURIComponent(name)}</loc>
           <lastmod>${new Date().toISOString().split('T')[0]}</lastmod>
           <priority>0.8</priority>
         </url>
