@@ -127,43 +127,7 @@ app.get("/api/hero/:id", async (req, res) => {
     const heroData = await heroRes.json();
     const fields = heroData.fields || {};
 
-    /*
-      기존 스킬 조회 로직 (주석 처리 및 제거됨):
-      - filterByFormula를 사용하여 Skills 테이블에서 해당 영웅 ID가 포함된 레코드를 검색.
-      - 이 방식은 Airtable의 formula 검색에 의존하여, 배열 필드 내 ID 검색이 정확하지 않을 수 있음.
-      - 또한, formula 내 문자열 삽입 시 인젝션 위험 및 쿼리 복잡성 문제가 존재.
-      - 따라서 아래와 같이 링크드 레코드 필드를 직접 조회하는 방식으로 변경함.
-
-      // const skillsRes = await fetch(
-      //   `https://api.airtable.com/v0/${BASE_ID}/Skills?filterByFormula=SEARCH('${id}', ARRAYJOIN({Heroes}))`,
-      //   { headers: { Authorization: `Bearer ${AIRTABLE_TOKEN}` } }
-      // );
-      // if (!skillsRes.ok) {
-      //   const errText = await skillsRes.text();
-      //   console.error("Airtable skills fetch error:", skillsRes.status, errText);
-      //   throw new Error(`Airtable skills fetch error: ${skillsRes.status}`);
-      // }
-      // const skillsData = await skillsRes.json();
-    */
-
-    // ----------------------------------------------
-    // 새로운 스킬 조회 로직:
-    // - Skills 테이블에서 모든 레코드를 가져와서,
-    //   각 스킬의 'Heroes' 링크드 레코드 필드에 현재 영웅 ID가 포함되어 있는지 확인.
-    // - 이렇게 하면 Airtable API의 공식 링크드 레코드 관계를 직접 활용하며,
-    //   filterByFormula보다 안전하고 정확함.
-    // - 또한, 스킬 타입별(passive, active 1, active 2)로 분류하여 필요한 필드를 추출.
-    // - Airtable에서 가져오는 필드는 다음과 같음:
-    //   skill_type (스킬 유형), passive, active_1, active_2, description 등.
-    //
-    //  새로운 방식은:
-    //  1) Skills 테이블 전체를 가져와서,
-    //  2) 각 스킬의 링크드 레코드 필드 'Heroes'를 검사,
-    //  3) 매칭되는 스킬만 필터링하여 사용.
-    //
-    //  이렇게 하면 Airtable 공식 API의 링크드 레코드 기능을 활용하며
-    //  쿼리 오류나 인젝션 위험 없이 안정적임.
-    // ----------------------------------------------
+  
 
     const skillsRes = await fetch(
       `https://api.airtable.com/v0/${BASE_ID}/Skills`,
@@ -234,6 +198,31 @@ app.get("/api/hero/:id", async (req, res) => {
   }
 });
 
+// ✅ 단일 영웅 이름 기반 조회 API
+app.get("/api/hero/name/:name", async (req, res) => {
+  const { name } = req.params;
+  try {
+    const heroesRes = await fetch(
+      `https://api.airtable.com/v0/${BASE_ID}/Heroes?filterByFormula=({Name}='${decodeURIComponent(name)}')`,
+      { headers: { Authorization: `Bearer ${AIRTABLE_TOKEN}` } }
+    );
+    if (!heroesRes.ok)
+      throw new Error(`Airtable hero fetch error: ${heroesRes.status}`);
+    const heroesData = await heroesRes.json();
+    if (!heroesData.records || heroesData.records.length === 0)
+      return res.status(404).json({ error: "영웅을 찾을 수 없습니다." });
+    const heroRecord = heroesData.records[0];
+    const heroId = heroRecord.id;
+    // 기존 /api/hero/:id 로직 재사용
+    const heroDetailRes = await fetch(`https://sk-dogam.app/api/hero/${heroId}`);
+    const heroDetail = await heroDetailRes.json();
+    res.json(heroDetail);
+  } catch (error) {
+    console.error("Failed to fetch hero by name:", error);
+    res.status(500).json({ error: "Failed to fetch hero by name" });
+  }
+});
+
 // ✅ public 폴더 정적 파일 서빙
 app.use(express.static("public", { extensions: ["html", "htm"] }));
 
@@ -276,100 +265,7 @@ app.get("/api/comments/:heroId", async (req, res) => {
   }
 });
 
-
-/* ===== 이전 댓글 등록 구현(테스트 간소화로 교체) =====
-   - timestamp를 함께 전송하고, 실패 시 재시도 로직 포함
-   - 해당 블록은 테스트 간소화 때문에 임시로 비활성화
-app.post("/api/comments/:heroId", async (req, res) => {
-  const heroId = req.params.heroId;
-  const { nickname, content } = req.body;
-
-  console.log("🪶 서버가 받은 데이터:", { heroId, nickname, content }); // ✅ 추가
-  console.log("🧩 원본 req.body:", req.body); // ✅ 추가
-
-   try {
-    const response = await fetch(`https://api.airtable.com/v0/${BASE_ID}/Comments`, {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${AIRTABLE_TOKEN}`,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        fields: {
-          heroId: heroId,
-          nickname,
-          content,
-          timestamp: new Date().toISOString(),
-        },
-      }),
-    });
-
-    const data = await response.json();
-    if (!response.ok) {
-      console.error("❌ Airtable 오류:", data);
-      throw new Error(data.error?.message || "Airtable 요청 실패");
-    }
-
-    console.log("✅ Airtable 성공:", data);
-    res.json({ success: true, data });
-  } catch (err) {
-    console.error("🚨 서버 처리 중 오류:", err);
-    res.status(500).json({ error: err.message });
-  }
-
-  if (!nickname || !content) {
-    return res.status(400).json({ error: "닉네임과 내용을 모두 입력하세요." });
-  }
-
-  const createRecord = async (fields) => {
-    const resp = await fetch(`https://api.airtable.com/v0/${BASE_ID}/Comments`, {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${AIRTABLE_TOKEN}`,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ fields }),
-    });
-
-    const text = await resp.text();
-    let json = null;
-    try {
-      json = JSON.parse(text);
-    } catch (e) {}
-
-    return { ok: resp.ok, status: resp.status, text, json };
-  };
-
-  try {
-    const timestamp = new Date().toLocaleString("ko-KR", { timeZone: "Asia/Seoul" });
-    let attempt = await createRecord({ heroId, nickname, content, timestamp });
-
-    // timestamp 필드 오류 시 자동 재시도
-    if (!attempt.ok) {
-      const msg = (attempt.text || "").toLowerCase();
-      const isTimestampError =
-        msg.includes("timestamp") ||
-        (msg.includes("invalid") && msg.includes("field")) ||
-        (msg.includes("cannot") && msg.includes("field"));
-
-      if (isTimestampError) {
-        console.warn("⚠️ timestamp 문제 감지 → timestamp 제외 후 재시도");
-        attempt = await createRecord({ heroId, nickname, content });
-      }
-    }
-
-    if (!attempt.ok) {
-      console.error("❌ Airtable 댓글 등록 실패:", attempt.status, attempt.text);
-      return res.status(500).json({ error: "댓글 등록 실패", details: attempt.text });
-    }
-
-    res.json({ success: true, record: attempt.json });
-  } catch (error) {
-    console.error("❌ 서버 처리 오류:", error);
-    res.status(500).json({ error: "댓글 등록 실패", details: String(error) });
-  }
-});
-======================================================== */
+// ✅ 댓글 등록 API (간소화된 안정화 버전)
 
 app.post("/api/comments/:heroId", async (req, res) => {
   const heroId = req.params.heroId;

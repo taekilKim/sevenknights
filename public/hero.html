@@ -146,13 +146,13 @@
 
   <script>
     const params = new URLSearchParams(window.location.search);
-    window.heroId = params.get("id");
-    const heroId = window.heroId;
+    const heroName = params.get("name");
+    const heroId = heroName ? decodeURIComponent(heroName) : null;
 
     if (!heroId) {
       document.querySelector("main").innerHTML = "<p>유효하지 않은 영웅 ID입니다.</p>";
     } else {
-      fetch(`/api/hero/${heroId}`)
+      fetch(`/api/hero/name/${encodeURIComponent(heroId)}`)
         .then(res => {
           if (!res.ok) throw new Error(`HTTP ${res.status}`);
           return res.json();

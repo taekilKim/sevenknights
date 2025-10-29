@@ -278,7 +278,8 @@
       const heroId = record.id;
       card.addEventListener("click", () => {
         sessionStorage.setItem("scrollPosition", window.scrollY);
-        window.location.href = `/hero.html?id=${heroId}`;
+        const heroName = encodeURIComponent(hero.name);
+        window.location.href = `/hero.html?name=${heroName}`;
       });
       heroesContainer.appendChild(card);
     });
