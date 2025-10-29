@@ -64,7 +64,7 @@
 
   <div class="hero-detail-page">
     <main class="hero-detail-container">
-    <h1>세븐나이츠 리버스 영웅 상세 정보</h1>
+    <h1 id="hero-guide-heading">세븐나이츠 리버스 영웅 상세 정보</h1>
     <p class="subtitle">영웅의 스탯, 스킬, 희귀도 및 소속을 자세히 확인하세요.</p>
     <section class="hero-top">
       <div class="hero-portrait-wrap">
@@ -183,22 +183,29 @@
           const titleEl = document.getElementById("dynamic-title");
           if (titleEl) titleEl.textContent = heroTitle;
 
-          // 더 풍부한 설명 문장
-          const desc = `${hero.name} (${hero.rarity} / ${hero.type}) — ${hero.group || "세븐나이츠 리버스"} 소속 영웅의 스탯, 스킬, 능력치를 한눈에 확인하세요.`;
-          const ogDesc = hero.description || desc;
+          // 풍부하고 가이드 스타일의 설명 및 키워드
+          const groupText = hero.group || "세븐나이츠 리버스";
+          const guideDesc = `세븐나이츠 리버스 ${hero.name} 완벽 공략: 스킬, 성능, 장비, 추천 세팅, 활용법까지 총정리! ${groupText} 소속 ${hero.rarity} 등급 ${hero.type} 영웅의 스탯, 스킬 정보, 장점과 단점, 파티 조합, 추천 장비, 성장 팁, PvE/PvP 활용법 등 모든 정보를 한눈에 확인하세요.`;
+          const desc = guideDesc;
           const url = `${location.origin}${location.pathname}?id=${encodeURIComponent(heroId)}`;
+
+          // <h1> 업데이트
+          const heading = document.getElementById("hero-guide-heading");
+          if (heading) heading.textContent = `세븐나이츠 리버스 ${hero.name} 완벽 공략: 스킬, 성능, 장비 총정리`;
 
           // Description
           const descMeta = document.getElementById("meta-description");
           if (descMeta) descMeta.setAttribute("content", desc);
 
-          // Keywords (영웅 이름, 소속, 타입, 희귀도 추가)
+          // Keywords: 영웅명, 소속, 타입, 희귀도, 가이드/공략 관련 검색어 포함
           const keywordsMeta = document.getElementById("meta-keywords");
           if (keywordsMeta) {
-            const keywords = [
-              "세븐나이츠 리버스", "영웅", "상세", "도감", "Seven Knights", "Hero", "Detail",
-              hero.name, hero.group, hero.type, hero.rarity
-            ].filter(Boolean).join(", ");
+            const keywordsArr = [
+              "세븐나이츠 리버스", "Seven Knights Re:birth", "영웅", "상세", "도감", "공략", "가이드", "스킬", "성능", "장비", "추천", "세팅", "조합", "성장", "팁", "PVP", "PVE", "파티", "활용법",
+              hero.name, hero.nickname, groupText, hero.type, hero.rarity
+            ];
+            // Remove duplicates and falsy
+            const keywords = Array.from(new Set(keywordsArr.filter(Boolean))).join(", ");
             keywordsMeta.setAttribute("content", keywords);
           }
 
@@ -206,7 +213,7 @@
           const ogTitle = document.getElementById("og-title");
           if (ogTitle) ogTitle.setAttribute("content", heroTitle);
           const ogDescEl = document.getElementById("og-description");
-          if (ogDescEl) ogDescEl.setAttribute("content", ogDesc);
+          if (ogDescEl) ogDescEl.setAttribute("content", desc);
           const ogImage = document.getElementById("og-image");
           if (ogImage) ogImage.setAttribute("content", hero.portrait || "/default-hero-og-image.png");
           const ogUrl = document.getElementById("og-url");
@@ -216,7 +223,7 @@
           const twTitle = document.getElementById("twitter-title");
           if (twTitle) twTitle.setAttribute("content", heroTitle);
           const twDesc = document.getElementById("twitter-description");
-          if (twDesc) twDesc.setAttribute("content", ogDesc);
+          if (twDesc) twDesc.setAttribute("content", desc);
           const twImage = document.getElementById("twitter-image");
           if (twImage) twImage.setAttribute("content", hero.portrait || "/default-hero-og-image.png");
 
@@ -224,27 +231,49 @@
           const canonical = document.getElementById("canonical-link");
           if (canonical) canonical.setAttribute("href", url);
 
-          // ✅ 구조화 데이터(JSON-LD) 동적 생성
-          const heroSchema = {
-            "@context": "https://schema.org",
-            "@type": "VideoGameCharacter",
-            "name": hero.name,
-            "alternateName": hero.nickname || undefined,
-            "description": desc,
-            "image": hero.portrait || "/default-hero-og-image.png",
-            "url": url,
-            "inLanguage": "ko",
-            "rarity": hero.rarity,
-            "characterAttribute": hero.type,
-            "memberOf": hero.group || "세븐나이츠 리버스",
-            "isPartOf": {
-              "@type": "VideoGame",
-              "name": "세븐나이츠 리버스 (Seven Knights Re:birth)"
+          // ✅ 구조화 데이터(JSON-LD) 동적 생성 (VideoGameCharacter + Article)
+          const keywordsArr = [
+            "세븐나이츠 리버스", "Seven Knights Re:birth", "영웅", "상세", "도감", "공략", "가이드", "스킬", "성능", "장비", "추천", "세팅", "조합", "성장", "팁", "PVP", "PVE", "파티", "활용법",
+            hero.name, hero.nickname, groupText, hero.type, hero.rarity
+          ];
+          const jsonLdObj = [
+            {
+              "@context": "https://schema.org",
+              "@type": "VideoGameCharacter",
+              "name": hero.name,
+              "alternateName": hero.nickname || undefined,
+              "description": desc,
+              "image": hero.portrait || "/default-hero-og-image.png",
+              "url": url,
+              "inLanguage": "ko",
+              "rarity": hero.rarity,
+              "characterAttribute": hero.type,
+              "memberOf": groupText,
+              "isPartOf": {
+                "@type": "VideoGame",
+                "name": "세븐나이츠 리버스 (Seven Knights Re:birth)"
+              }
+            },
+            {
+              "@context": "https://schema.org",
+              "@type": "Article",
+              "headline": `세븐나이츠 리버스 ${hero.name} 완벽 공략: 스킬, 성능, 장비 총정리`,
+              "articleSection": "영웅 가이드, 상세 정보, 스킬/성능/장비 분석",
+              "about": hero.name,
+              "author": { "@type": "Organization", "name": "세븐나이츠 리버스 도감" },
+              "inLanguage": "ko",
+              "image": hero.portrait || "/default-hero-og-image.png",
+              "datePublished": hero.datePublished || undefined,
+              "dateModified": hero.dateModified || undefined,
+              "mainEntityOfPage": url,
+              "keywords": Array.from(new Set(keywordsArr.filter(Boolean))).join(", "),
+              "description": desc,
+              "url": url
             }
-          };
+          ];
           const jsonLdEl = document.querySelector('script[type="application/ld+json"]');
           if (jsonLdEl) {
-            jsonLdEl.textContent = JSON.stringify(heroSchema, null, 2);
+            jsonLdEl.textContent = JSON.stringify(jsonLdObj, null, 2);
           }
 
           // === Hero portrait area rendering (index.html card logic adapted) ===
