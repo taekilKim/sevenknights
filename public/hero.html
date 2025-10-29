@@ -387,7 +387,8 @@
           renderSkill("active-2", hero.active_2);
           renderSkill("passive", hero.passive);
 
-          document.getElementById("hero-description").textContent = hero.description || "";
+          const descEl = document.getElementById("hero-description");
+          if (descEl) descEl.textContent = hero.description || "";
 
           // === 같은 소속 및 같은 유형 영웅 불러오기 ===
           Promise.all([
