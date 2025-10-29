@@ -143,9 +143,12 @@
       </div>
     </section>
 
-    <section class="hero-description">
-      <h2>설명</h2>
-      <p id="hero-description"></p>
+    <section class="related-heroes">
+      <h2>같은 소속 영웅</h2>
+      <div id="related-group-heroes" class="related-hero-list"></div>
+
+      <h2>같은 유형 영웅</h2>
+      <div id="related-type-heroes" class="related-hero-list"></div>
     </section>
     </main>
 
@@ -385,6 +388,59 @@
           renderSkill("passive", hero.passive);
 
           document.getElementById("hero-description").textContent = hero.description || "";
+
+          // === 같은 소속 및 같은 유형 영웅 불러오기 ===
+          Promise.all([
+            fetch(`/api/heroes?group=${encodeURIComponent(hero.group || "")}`).then(res => res.json()),
+            fetch(`/api/heroes?type=${encodeURIComponent(hero.type || "")}`).then(res => res.json())
+          ])
+            .then(([groupHeroes, typeHeroes]) => {
+              const groupContainer = document.getElementById("related-group-heroes");
+              const typeContainer = document.getElementById("related-type-heroes");
+
+              // --- 같은 소속 영웅 ---
+              if (groupHeroes && groupHeroes.length > 0) {
+                groupContainer.innerHTML = "";
+                groupHeroes
+                  .filter(h => h.name !== hero.name)
+                  .forEach(h => {
+                    const card = document.createElement("div");
+                    card.className = "related-hero-card";
+                    card.innerHTML = `
+                      <img src="${h.portrait}" alt="${h.name}" loading="lazy" />
+                      <p>${h.name}</p>
+                    `;
+                    card.addEventListener("click", () => {
+                      window.location.href = `/hero.html?name=${encodeURIComponent(h.name)}`;
+                    });
+                    groupContainer.appendChild(card);
+                  });
+              } else {
+                groupContainer.innerHTML = "<p class='no-related'>같은 소속의 다른 영웅이 없습니다.</p>";
+              }
+
+              // --- 같은 유형 영웅 ---
+              if (typeHeroes && typeHeroes.length > 0) {
+                typeContainer.innerHTML = "";
+                typeHeroes
+                  .filter(h => h.name !== hero.name)
+                  .forEach(h => {
+                    const card = document.createElement("div");
+                    card.className = "related-hero-card";
+                    card.innerHTML = `
+                      <img src="${h.portrait}" alt="${h.name}" loading="lazy" />
+                      <p>${h.name}</p>
+                    `;
+                    card.addEventListener("click", () => {
+                      window.location.href = `/hero.html?name=${encodeURIComponent(h.name)}`;
+                    });
+                    typeContainer.appendChild(card);
+                  });
+              } else {
+                typeContainer.innerHTML = "<p class='no-related'>같은 유형의 다른 영웅이 없습니다.</p>";
+              }
+            })
+            .catch(err => console.error("관련 영웅 로드 오류:", err));
         })
         .catch(err => {
           if (skeleton) skeleton.style.display = "none";
