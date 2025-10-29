@@ -378,6 +378,20 @@ svg defs {
           drop-shadow(0 0 20px rgba(170, 90, 255, 0.6));
 }
 
+/* (구)세븐나이츠 제외 일반 영웅 스파크 (상단 초상화) */
+.hero-top:not([data-group="(구)세븐나이츠"]) .rarity-diamond-effect svg {
+  overflow: visible;
+  filter: drop-shadow(0 0 6px #ffcc80)
+          drop-shadow(0 0 12px #f37225)
+          drop-shadow(0 0 20px rgba(255, 180, 60, 0.6));
+}
+
+/* (구)세븐나이츠 전용 보랏빛 황금 스파크 (상단 초상화) */
+.hero-top[data-group="(구)세븐나이츠"] .rarity-diamond-effect svg {
+  filter: drop-shadow(0 0 6px #d5a6ff)
+          drop-shadow(0 0 12px #b57aff)
+          drop-shadow(0 0 20px rgba(170, 90, 255, 0.6));
+}
 
 /* Removed outdated box-shadow keyframe animations: diamondPulse, starPulse, starSparkEnhanced */
 
