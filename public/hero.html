@@ -390,12 +390,50 @@
           const descEl = document.getElementById("hero-description");
           if (descEl) descEl.textContent = hero.description || "";
 
-          // === 같은 소속 및 같은 유형 영웅 불러오기 ===
+          /*
+          =========================
+          === DEBUG 영역 전체 ===
+          이 영역 전체가 디버깅용 코드로 추가되었습니다. 롤백 시 이 블록만 삭제하면 됩니다.
+          =========================
+          */
+          /* === DEBUG START: Related heroes fetch === */
+          // 같은 소속 및 같은 유형 영웅 불러오기 fetch 구간 디버깅
+          console.log("[DEBUG] 관련 영웅 fetch 직전", {
+            heroName: hero.name,
+            group: hero.group,
+            type: hero.type
+          });
           Promise.all([
-            fetch(`/api/heroes?group=${encodeURIComponent(hero.group || "")}`).then(res => res.json()),
-            fetch(`/api/heroes?type=${encodeURIComponent(hero.type || "")}`).then(res => res.json())
+            (function() {
+              const url = `/api/heroes?group=${encodeURIComponent(hero.group || "")}`;
+              console.log("[DEBUG] Fetch group heroes URL:", url);
+              return fetch(url)
+                .then(res => {
+                  console.log("[DEBUG] Group fetch 응답 상태:", res.status);
+                  return res.json().then(data => {
+                    console.log("[DEBUG] Group fetch 응답 데이터:", data);
+                    return data;
+                  });
+                });
+            })(),
+            (function() {
+              const url = `/api/heroes?type=${encodeURIComponent(hero.type || "")}`;
+              console.log("[DEBUG] Fetch type heroes URL:", url);
+              return fetch(url)
+                .then(res => {
+                  console.log("[DEBUG] Type fetch 응답 상태:", res.status);
+                  return res.json().then(data => {
+                    console.log("[DEBUG] Type fetch 응답 데이터:", data);
+                    return data;
+                  });
+                });
+            })()
           ])
             .then(([groupHeroes, typeHeroes]) => {
+              // fetch 결과 도착
+              console.log("[DEBUG] 관련 영웅 fetch 완료", {
+                groupHeroes, typeHeroes
+              });
               const groupContainer = document.getElementById("related-group-heroes");
               const typeContainer = document.getElementById("related-type-heroes");
 
@@ -441,7 +479,11 @@
                 typeContainer.innerHTML = "<p class='no-related'>같은 유형의 다른 영웅이 없습니다.</p>";
               }
             })
-            .catch(err => console.error("관련 영웅 로드 오류:", err));
+            .catch(err => {
+              console.error("관련 영웅 로드 오류:", err);
+              console.log("[DEBUG] 관련 영웅 fetch 에러:", err);
+            });
+          /* === DEBUG END: Related heroes fetch === */
         })
         .catch(err => {
           if (skeleton) skeleton.style.display = "none";
