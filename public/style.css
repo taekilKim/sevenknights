@@ -659,3 +659,9 @@ svg defs {
     background-position: -200% 0;
   }
 }
+
+
+.hero-top .hero-portrait-wrap {
+  width: clamp(160px, 20vw, 240px);
+  height: clamp(160px, 20vw, 240px);
+}
