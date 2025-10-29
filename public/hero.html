@@ -63,8 +63,8 @@
 <body>
   <script>
     // 전역에서 접근 가능한 heroId
-    const params = new URLSearchParams(window.location.search);
-    window.heroId = params.get("name") ? decodeURIComponent(params.get("name")) : null;
+    const globalParams = new URLSearchParams(window.location.search);
+    window.heroId = globalParams.get("name") ? decodeURIComponent(globalParams.get("name")) : null;
   </script>
   <header class="hero-header">
     <button class="back-button" onclick="window.history.back()"><i class="ph-bold ph-caret-left"></i> 목록으로</button>
@@ -161,9 +161,8 @@
   </div>
 
   <script>
-    const params = new URLSearchParams(window.location.search);
-    const heroName = params.get("name");
-    const heroId = heroName ? decodeURIComponent(heroName) : null;
+    const heroName = window.heroId;
+    const heroId = heroName ? heroName : null;
 
     if (!heroId) {
       document.querySelector("main").innerHTML = "<p>유효하지 않은 영웅 ID입니다.</p>";
