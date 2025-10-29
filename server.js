@@ -106,7 +106,18 @@ app.get("/api/heroes", async (req, res) => {
       return heroData;
     });
 
-    res.json({ records: processedHeroes });
+    let filteredHeroes = processedHeroes;
+
+    // ✅ group/type 필터링 지원 추가
+    const { group, type } = req.query;
+    if (group) {
+      filteredHeroes = filteredHeroes.filter(h => h.group && h.group === group);
+    }
+    if (type) {
+      filteredHeroes = filteredHeroes.filter(h => h.type && h.type === type);
+    }
+
+    res.json({ records: filteredHeroes });
   } catch (error) {
     console.error("Airtable fetch error:", error);
     res.status(500).json({ error: "Failed to fetch heroes" });
