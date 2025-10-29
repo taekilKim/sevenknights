@@ -225,7 +225,7 @@ app.get("/api/hero/name/:name", async (req, res) => {
     const heroRecord = heroesData.records[0];
     const heroId = heroRecord.id;
     // 기존 /api/hero/:id 로직 재사용
-    const heroDetailRes = await fetch(`https://sk-dogam.app/api/hero/${heroId}`);
+    const heroDetailRes = await fetch(`https://sena-rebirth-guidebook.app/api/hero/${heroId}`);
     const heroDetail = await heroDetailRes.json();
     res.json(heroDetail);
   } catch (error) {
@@ -336,7 +336,7 @@ app.get('/sitemap.xml', async (req, res) => {
       const id = record.id;
       return `
         <url>
-          <loc>https://sk-dogam.app/hero.html?id=${id}</loc>
+          <loc>https://sena-rebirth-guidebook.app/hero.html?id=${id}</loc>
           <lastmod>${new Date().toISOString().split('T')[0]}</lastmod>
           <priority>0.8</priority>
         </url>
@@ -346,7 +346,7 @@ app.get('/sitemap.xml', async (req, res) => {
     const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
     <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
       <url>
-        <loc>https://sk-dogam.app/</loc>
+        <loc>https://sena-rebirth-guidebook.app/</loc>
         <lastmod>${new Date().toISOString().split('T')[0]}</lastmod>
         <priority>1.0</priority>
       </url>
