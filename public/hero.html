@@ -67,6 +67,14 @@
 
   <div class="hero-detail-page">
     <main class="hero-detail-container">
+      <div id="hero-skeleton" class="skeleton-container">
+        <div class="skeleton hero-portrait-skeleton"></div>
+        <div class="skeleton hero-name-skeleton"></div>
+        <div class="skeleton hero-meta-skeleton"></div>
+        <div class="skeleton skill-skeleton"></div>
+        <div class="skeleton skill-skeleton"></div>
+        <div class="skeleton skill-skeleton"></div>
+      </div>
     <h1 id="hero-guide-heading">세븐나이츠 리버스 영웅 상세 정보</h1>
     <p class="subtitle">영웅의 스탯, 스킬, 희귀도 및 소속을 자세히 확인하세요.</p>
     <section class="hero-top">
@@ -155,12 +163,15 @@
     if (!heroId) {
       document.querySelector("main").innerHTML = "<p>유효하지 않은 영웅 ID입니다.</p>";
     } else {
+      const skeleton = document.getElementById("hero-skeleton");
+      if (skeleton) skeleton.style.display = "block";
       fetch(`/api/hero/name/${encodeURIComponent(heroId)}`)
         .then(res => {
           if (!res.ok) throw new Error(`HTTP ${res.status}`);
           return res.json();
         })
         .then(hero => {
+          if (skeleton) skeleton.style.display = "none";
           if (!hero || !hero.name) {
             document.querySelector("main").innerHTML = "<p>영웅 정보를 불러올 수 없습니다.</p>";
             return;
@@ -372,6 +383,7 @@
           document.getElementById("hero-description").textContent = hero.description || "";
         })
         .catch(err => {
+          if (skeleton) skeleton.style.display = "none";
           console.error("Hero fetch error:", err);
           document.querySelector("main").innerHTML = "<p>데이터를 불러오는 중 오류가 발생했습니다.</p>";
         });
