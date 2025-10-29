@@ -144,10 +144,10 @@
     </section>
 
     <section class="related-heroes">
-      <h2>같은 소속 영웅</h2>
+      <h2 id="related-group-title"></h2>
       <div id="related-group-heroes" class="related-hero-list"></div>
 
-      <h2>같은 유형 영웅</h2>
+      <h2 id="related-type-title"></h2>
       <div id="related-type-heroes" class="related-hero-list"></div>
     </section>
     </main>
@@ -179,6 +179,11 @@
         })
         .then(hero => {
           if (skeleton) skeleton.style.display = "none";
+          // === Related Section Titles Update ===
+          const relatedGroupTitle = document.getElementById("related-group-title");
+          const relatedTypeTitle = document.getElementById("related-type-title");
+          if (relatedGroupTitle) relatedGroupTitle.textContent = `${hero.group || "소속"} 영웅`;
+          if (relatedTypeTitle) relatedTypeTitle.textContent = `${hero.type || "유형"} 영웅`;
           if (!hero || !hero.name) {
             document.querySelector("main").innerHTML = "<p>영웅 정보를 불러올 수 없습니다.</p>";
             return;
