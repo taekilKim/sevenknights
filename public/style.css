@@ -717,10 +717,49 @@ svg defs {
   }
 
   /* 사이드바 및 필터 숨김 */
-  .sidebar-left,
   .sidebar-right,
   .filter-container {
     display: none !important;
+  }
+
+  /* 모바일 전용 사이드바 탭 */
+  .sidebar-left {
+    display: flex !important;
+    position: static;
+    width: 100%;
+    height: auto;
+    border: none;
+    background: #1a1a1a;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    margin-bottom: 8px;
+  }
+  .sidebar-left::-webkit-scrollbar {
+    display: none;
+  }
+  .sidebar-left nav ul {
+    display: flex;
+    gap: 16px;
+    padding: 8px 0;
+    margin: 0;
+    list-style: none;
+    justify-content: space-around;
+    width: 100%;
+  }
+  .sidebar-left nav ul li {
+    color: #fff;
+    font-weight: 500;
+    padding: 8px 12px;
+    border-radius: 8px;
+    background: #2a2a2a;
+    flex-shrink: 0;
+    white-space: nowrap;
+    transition: background 0.2s ease;
+  }
+  .sidebar-left nav ul li:hover {
+    background: #ffd56a;
+    color: #000;
   }
 
   /* 영웅 목록 화면 */
