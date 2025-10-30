@@ -204,7 +204,7 @@
           }
 
           // Update SEO meta tags dynamically
-          const heroTitle = `${hero.name} (${hero.rarity} / ${hero.type}) - 세븐나이츠 리버스 도감`;
+          const heroTitle = `${hero.name} (${hero.rarity} / ${hero.type}) - 세븐나이츠 리버스 가이드북`;
           document.title = heroTitle;
           const titleEl = document.getElementById("dynamic-title");
           if (titleEl) titleEl.textContent = heroTitle;
@@ -286,7 +286,7 @@
               "headline": `세븐나이츠 리버스 ${hero.name} 완벽 공략: 스킬, 성능, 장비 총정리`,
               "articleSection": "영웅 가이드, 상세 정보, 스킬/성능/장비 분석",
               "about": hero.name,
-              "author": { "@type": "Organization", "name": "세븐나이츠 리버스 도감" },
+              "author": { "@type": "Organization", "name": "세븐나이츠 리버스 가이드북" },
               "inLanguage": "ko",
               "image": hero.portrait || "/default-hero-og-image.png",
               "datePublished": hero.datePublished || undefined,
