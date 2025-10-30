@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://sk-dogam.app/sitemap.xml
+Sitemap: https://sena-rebirth-guidebook.app/sitemap.xml
