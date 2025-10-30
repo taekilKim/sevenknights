@@ -173,14 +173,21 @@
       document.querySelector("main").innerHTML = "<p>유효하지 않은 영웅 ID입니다.</p>";
     } else {
       const skeleton = document.getElementById("hero-skeleton");
-      if (skeleton) skeleton.style.display = "block";
+      const container = document.querySelector(".hero-detail-container");
+      if (container && skeleton) {
+        container.classList.add("loading");
+        skeleton.style.display = "block";
+      }
       fetch(`/api/hero/name/${encodeURIComponent(heroId)}`)
         .then(res => {
           if (!res.ok) throw new Error(`HTTP ${res.status}`);
           return res.json();
         })
         .then(hero => {
-          if (skeleton) skeleton.style.display = "none";
+          if (container && skeleton) {
+            container.classList.remove("loading");
+            skeleton.style.display = "none";
+          }
           // === Related Section Titles Update ===
           const relatedGroupTitle = document.getElementById("related-group-title");
           const relatedTypeTitle = document.getElementById("related-type-title");
@@ -598,7 +605,10 @@ Promise.all([
 /* === DEBUG END: Related heroes fetch === */
         })
         .catch(err => {
-          if (skeleton) skeleton.style.display = "none";
+          if (container && skeleton) {
+            container.classList.remove("loading");
+            skeleton.style.display = "none";
+          }
           console.error("Hero fetch error:", err);
           document.querySelector("main").innerHTML = "<p>데이터를 불러오는 중 오류가 발생했습니다.</p>";
         });

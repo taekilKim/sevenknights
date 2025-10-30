@@ -688,3 +688,16 @@ svg defs {
   flex: 0 0 auto;
   width: 120px;
 }
+
+/* ------------------------------------ */
+/*  Skeleton Overlay Behavior            */
+/* ------------------------------------ */
+.hero-detail-container.loading {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-detail-container.loading > *:not(#hero-skeleton) {
+  opacity: 0;
+  pointer-events: none;
+}
