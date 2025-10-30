@@ -669,3 +669,22 @@ svg defs {
   width: clamp(80px, 10vw, 120px);
   height: clamp(80px, 10vw, 120px);
 }
+
+/* ------------------------------------ */
+/*  Related Heroes (가로 스크롤 레이아웃) */
+/* ------------------------------------ */
+.related-hero-list {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  gap: 12px;
+  padding-bottom: 10px;
+  scrollbar-width: none;
+}
+.related-hero-list::-webkit-scrollbar {
+  display: none;
+}
+.related-hero-card {
+  flex: 0 0 auto;
+  width: 120px;
+}
