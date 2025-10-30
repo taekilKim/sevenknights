@@ -701,3 +701,82 @@ svg defs {
   opacity: 0;
   pointer-events: none;
 }
+/* ------------------------------------ */
+/*  모바일 레이아웃 (1023px 이하) — 애드센스 대응형 */
+/* ------------------------------------ */
+@media (max-width: 1023px) {
+  body {
+    margin: 0 24px;
+  }
+
+  .layout {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "header"
+      "content";
+  }
+
+  /* 사이드바 및 필터 숨김 */
+  .sidebar-left,
+  .sidebar-right,
+  .filter-container {
+    display: none !important;
+  }
+
+  /* 영웅 목록 화면 */
+  #heroes {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    padding: 24px 0;
+  }
+
+  .hero-card {
+    width: 100%;
+  }
+
+  .hero-name {
+    font-size: 0.85rem;
+  }
+
+  /* 영웅 상세 페이지 */
+  .hero-detail-page {
+    flex-direction: column;
+    padding: 0 0 24px 0;
+  }
+
+  .hero-detail-container {
+    max-width: 100%;
+    padding: 24px 0;
+  }
+
+  .hero-comments {
+    order: 3;
+    max-width: 100%;
+    margin-top: 24px;
+  }
+
+  .hero-header {
+    padding: 0 16px;
+  }
+
+  .hero-top {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 24px;
+  }
+
+  .hero-basic-info {
+    text-align: center;
+    margin-top: 12px;
+  }
+
+  .related-hero-list {
+    padding: 0;
+    gap: 8px;
+  }
+
+  .related-hero-card {
+    width: 80px;
+  }
+}
