@@ -10,7 +10,7 @@
 /*  공통 스타일                         */
 /* ------------------------------------ */
 
-h1,
+.index-page h1,
 .subtitle {
   position: absolute !important;
   width: 1px;
