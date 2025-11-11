@@ -679,6 +679,79 @@ svg defs {
     top: 2px;
     right: 2px;
   }
+
+  /* 영웅 상세 페이지 */
+  .hero-detail-page {
+    flex-direction: column;
+    padding: 0;
+  }
+
+  .hero-detail-container {
+    padding: 16px;
+  }
+
+  .hero-detail-portrait {
+    width: 160px;
+    height: 160px;
+  }
+
+  .hero-top .hero-portrait-wrap {
+    width: 160px;
+    height: 160px;
+  }
+
+  .hero-top .hero-type-badge {
+    width: 32px;
+    height: 32px;
+    bottom: 6px;
+    left: 6px;
+  }
+
+  .hero-top .rarity-diamond-effect {
+    width: 24px;
+    height: 24px;
+    top: 4px;
+    right: 4px;
+  }
+
+  #hero-name {
+    font-size: 1.5rem;
+  }
+
+  #hero-type {
+    font-size: 0.9rem;
+  }
+
+  #hero-description {
+    font-size: 0.9rem;
+  }
+
+  .related-hero-card {
+    width: 70px;
+  }
+
+  .related-hero-card .hero-portrait-wrap {
+    width: 70px;
+    height: 70px;
+  }
+
+  .related-hero-card .hero-type-badge {
+    width: 20px;
+    height: 20px;
+    bottom: 3px;
+    left: 3px;
+  }
+
+  .related-hero-card .rarity-diamond-effect {
+    width: 16px;
+    height: 16px;
+    top: 2px;
+    right: 2px;
+  }
+
+  .related-hero-card .hero-name {
+    font-size: 0.75rem;
+  }
 }
 
 /* 모바일 (769px ~ 1023px) */
@@ -717,6 +790,54 @@ svg defs {
     height: 28px;
     top: 4px;
     right: 4px;
+  }
+
+  /* 영웅 상세 페이지 */
+  .hero-detail-portrait {
+    width: 200px;
+    height: 200px;
+  }
+
+  .hero-top .hero-portrait-wrap {
+    width: 200px;
+    height: 200px;
+  }
+
+  .hero-top .hero-type-badge {
+    width: 36px;
+    height: 36px;
+    bottom: 8px;
+    left: 8px;
+  }
+
+  .hero-top .rarity-diamond-effect {
+    width: 32px;
+    height: 32px;
+    top: 6px;
+    right: 6px;
+  }
+
+  .related-hero-card {
+    width: 90px;
+  }
+
+  .related-hero-card .hero-portrait-wrap {
+    width: 90px;
+    height: 90px;
+  }
+
+  .related-hero-card .hero-type-badge {
+    width: 24px;
+    height: 24px;
+    bottom: 4px;
+    left: 4px;
+  }
+
+  .related-hero-card .rarity-diamond-effect {
+    width: 20px;
+    height: 20px;
+    top: 3px;
+    right: 3px;
   }
 }
 
@@ -899,6 +1020,50 @@ svg defs {
 
   .related-hero-card {
     width: 80px;
+  }
+
+  /* 영웅 상세 페이지 아이콘 */
+  .hero-detail-portrait {
+    width: 180px;
+    height: 180px;
+  }
+
+  .hero-top .hero-portrait-wrap {
+    width: 180px;
+    height: 180px;
+  }
+
+  .hero-top .hero-type-badge {
+    width: 34px;
+    height: 34px;
+    bottom: 7px;
+    left: 7px;
+  }
+
+  .hero-top .rarity-diamond-effect {
+    width: 28px;
+    height: 28px;
+    top: 5px;
+    right: 5px;
+  }
+
+  .related-hero-card .hero-portrait-wrap {
+    width: 80px;
+    height: 80px;
+  }
+
+  .related-hero-card .hero-type-badge {
+    width: 22px;
+    height: 22px;
+    bottom: 4px;
+    left: 4px;
+  }
+
+  .related-hero-card .rarity-diamond-effect {
+    width: 18px;
+    height: 18px;
+    top: 2px;
+    right: 2px;
   }
 }
 
