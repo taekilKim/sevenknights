@@ -861,8 +861,9 @@ svg defs {
   display: block;
   padding: 48px;
   width: 100%;
-  max-width: 1400px;
+  max-width: 100%;
   margin: 0 auto;
+  box-sizing: border-box;
 }
 
 .deck-content h1 {
@@ -897,6 +898,8 @@ svg defs {
   border-radius: 12px;
   padding: 32px;
   margin-bottom: 48px;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .deck-display h2 {
@@ -916,8 +919,8 @@ svg defs {
 
 .deck-slot {
   position: relative;
-  width: 160px;
-  height: 200px;
+  width: 140px;
+  height: 180px;
   background: #0e0e0e;
   border: 2px dashed #444;
   border-radius: 12px;
@@ -926,6 +929,7 @@ svg defs {
   align-items: center;
   justify-content: center;
   transition: all 0.3s ease;
+  flex-shrink: 0;
 }
 
 .deck-slot:hover {
@@ -967,8 +971,8 @@ svg defs {
 }
 
 .slot-hero-portrait {
-  width: 100px;
-  height: 100px;
+  width: 90px;
+  height: 90px;
   border-radius: 50%;
   object-fit: cover;
   border: 3px solid #c1b494;
@@ -1098,10 +1102,15 @@ svg defs {
   color: #666;
 }
 
-.heroes-grid {
+/* 덱 페이지 영웅 그리드 - 메인 페이지 #heroes 스타일 적용 */
+#heroes-list {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-  gap: 24px;
+  grid-template-columns: repeat(6, 1fr);
+  gap: clamp(16px, 3vw, 48px);
+  justify-content: stretch;
+  align-content: start;
+  width: 100%;
+  padding: 0;
 }
 
 /* 선택 가능한 영웅 카드 */
@@ -1253,18 +1262,24 @@ svg defs {
   }
 
   .deck-slot {
-    width: 120px;
-    height: 160px;
+    width: 100px;
+    height: 140px;
   }
 
   .slot-hero-portrait {
-    width: 80px;
-    height: 80px;
+    width: 70px;
+    height: 70px;
   }
 
-  .heroes-grid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 12px;
+  .slot-hero-name {
+    font-size: 0.75rem;
+  }
+
+  /* 덱 페이지 영웅 그리드 - 메인과 동일 */
+  #heroes-list {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    padding: 0;
   }
 
   .deck-actions {
@@ -1275,5 +1290,71 @@ svg defs {
   .btn-secondary {
     width: 100%;
     justify-content: center;
+  }
+}
+
+/* 데스크톱 S (1024~1279px) - 덱 페이지 */
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .deck-content {
+    padding: 32px;
+  }
+
+  /* 덱 페이지 영웅 그리드 - 메인과 동일 */
+  #heroes-list {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+    padding: 0;
+  }
+
+  .deck-slot {
+    width: 120px;
+    height: 160px;
+  }
+
+  .slot-hero-portrait {
+    width: 80px;
+    height: 80px;
+  }
+}
+
+/* 데스크톱 M (1280~1599px) - 덱 페이지 */
+@media (min-width: 1280px) and (max-width: 1599px) {
+  .deck-content {
+    padding: 40px;
+  }
+
+  /* 덱 페이지 영웅 그리드 - 메인과 동일 */
+  #heroes-list {
+    grid-template-columns: repeat(5, 1fr);
+    gap: 40px;
+    padding: 0;
+  }
+}
+
+/* 데스크톱 L (1600~1919px) - 덱 페이지 */
+@media (min-width: 1600px) and (max-width: 1919px) {
+  .deck-content {
+    padding: 48px;
+  }
+
+  /* 덱 페이지 영웅 그리드 - 메인과 동일 */
+  #heroes-list {
+    grid-template-columns: repeat(6, 1fr);
+    gap: 48px;
+    padding: 0;
+  }
+}
+
+/* 데스크톱 XL (1920px 이상) - 덱 페이지 */
+@media (min-width: 1920px) {
+  .deck-content {
+    padding: 48px;
+  }
+
+  /* 덱 페이지 영웅 그리드 - 메인과 동일 */
+  #heroes-list {
+    grid-template-columns: repeat(7, 1fr);
+    gap: 56px;
+    padding: 0;
   }
 }
