@@ -819,3 +819,461 @@ svg defs {
     width: 80px;
   }
 }
+
+/* ------------------------------------ */
+/*  네비게이션 메뉴 스타일               */
+/* ------------------------------------ */
+.sidebar-left nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar-left nav ul li {
+  padding: 16px 24px;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+  font-weight: 500;
+  border-bottom: 1px solid #222;
+}
+
+.sidebar-left nav ul li:hover {
+  background: #2a2a2a;
+  color: #ffd56a;
+}
+
+.sidebar-left nav ul li.active {
+  background: #ffd56a;
+  color: #000;
+  font-weight: 600;
+}
+
+.sidebar-left nav ul li a {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* ------------------------------------ */
+/*  결투장 덱 페이지 스타일              */
+/* ------------------------------------ */
+.deck-content {
+  display: block;
+  padding: 48px;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.deck-content h1 {
+  position: static !important;
+  width: auto;
+  height: auto;
+  padding: 0;
+  margin: 0 0 8px 0;
+  overflow: visible;
+  clip: auto;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.deck-content .subtitle {
+  position: static !important;
+  width: auto;
+  height: auto;
+  padding: 0;
+  margin: 0 0 32px 0;
+  overflow: visible;
+  clip: auto;
+  color: #999;
+  font-size: 1rem;
+}
+
+/* 덱 디스플레이 영역 */
+.deck-display {
+  background: #1a1a1a;
+  border: 2px solid #333;
+  border-radius: 12px;
+  padding: 32px;
+  margin-bottom: 48px;
+}
+
+.deck-display h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #ffd56a;
+  margin: 0 0 24px 0;
+}
+
+.deck-slots {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.deck-slot {
+  position: relative;
+  width: 160px;
+  height: 200px;
+  background: #0e0e0e;
+  border: 2px dashed #444;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.deck-slot:hover {
+  border-color: #666;
+  background: #1a1a1a;
+}
+
+.slot-number {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  width: 24px;
+  height: 24px;
+  background: #ffd56a;
+  color: #000;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.9rem;
+  z-index: 10;
+}
+
+.slot-placeholder {
+  font-size: 3rem;
+  color: #444;
+  font-weight: 300;
+}
+
+.slot-hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  padding: 8px;
+}
+
+.slot-hero-portrait {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #c1b494;
+  margin-bottom: 8px;
+}
+
+.slot-hero-name {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #fff;
+  text-align: center;
+  line-height: 1.2;
+}
+
+.slot-remove {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 24px;
+  height: 24px;
+  background: #ff4444;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1.2rem;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease;
+  z-index: 10;
+}
+
+.slot-remove:hover {
+  background: #ff6666;
+}
+
+/* 덱 액션 버튼 */
+.deck-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+
+.btn-primary,
+.btn-secondary {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: "Pretendard", sans-serif;
+}
+
+.btn-primary {
+  background: #ffd56a;
+  color: #000;
+}
+
+.btn-primary:hover {
+  background: #ffdd7f;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 213, 106, 0.3);
+}
+
+.btn-secondary {
+  background: #333;
+  color: #fff;
+}
+
+.btn-secondary:hover {
+  background: #444;
+}
+
+/* 영웅 선택 영역 */
+.hero-selection {
+  margin-top: 48px;
+}
+
+.hero-selection h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #ffd56a;
+  margin: 0 0 16px 0;
+}
+
+.selection-info {
+  font-size: 1.1rem;
+  color: #fff;
+  margin-bottom: 16px;
+  font-weight: 500;
+}
+
+.selection-info span {
+  color: #ffd56a;
+}
+
+.hero-search {
+  margin-bottom: 24px;
+}
+
+.hero-search input {
+  width: 100%;
+  max-width: 400px;
+  padding: 12px 16px;
+  background: #1a1a1a;
+  border: 2px solid #333;
+  border-radius: 8px;
+  color: #fff;
+  font-size: 1rem;
+  font-family: "Pretendard", sans-serif;
+  transition: border-color 0.2s ease;
+}
+
+.hero-search input:focus {
+  outline: none;
+  border-color: #ffd56a;
+}
+
+.hero-search input::placeholder {
+  color: #666;
+}
+
+.heroes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 24px;
+}
+
+/* 선택 가능한 영웅 카드 */
+.hero-card.selectable {
+  position: relative;
+  opacity: 1;
+  transition: all 0.2s ease;
+}
+
+.hero-card.selectable.selected {
+  opacity: 0.6;
+  transform: scale(0.95);
+}
+
+.hero-card.selectable.selected::after {
+  content: "✓";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60px;
+  height: 60px;
+  background: rgba(255, 213, 106, 0.95);
+  color: #000;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: 700;
+  z-index: 10;
+}
+
+.hero-nickname {
+  font-size: 0.8rem;
+  color: #999;
+  text-align: center;
+  margin-top: 4px;
+}
+
+/* 공유 모달 */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: #1a1a1a;
+  border: 2px solid #333;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 600px;
+  padding: 0;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px;
+  border-bottom: 1px solid #333;
+}
+
+.modal-header h3 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: #ffd56a;
+}
+
+.modal-close {
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-size: 2rem;
+  cursor: pointer;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s ease;
+  line-height: 1;
+}
+
+.modal-close:hover {
+  color: #ffd56a;
+}
+
+.modal-body {
+  padding: 24px;
+}
+
+.modal-body p {
+  color: #ccc;
+  margin: 0 0 16px 0;
+}
+
+.share-url-container {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.share-url-container input {
+  flex: 1;
+  padding: 12px 16px;
+  background: #0e0e0e;
+  border: 1px solid #333;
+  border-radius: 6px;
+  color: #fff;
+  font-size: 0.95rem;
+  font-family: "Pretendard", sans-serif;
+}
+
+.share-url-container button {
+  padding: 12px 24px;
+}
+
+.success-message {
+  color: #4caf50;
+  font-weight: 600;
+  text-align: center;
+  padding: 8px;
+  background: rgba(76, 175, 80, 0.1);
+  border-radius: 6px;
+}
+
+/* 덱 페이지 반응형 */
+@media (max-width: 1023px) {
+  .deck-content {
+    padding: 24px 16px;
+  }
+
+  .deck-display {
+    padding: 24px 16px;
+  }
+
+  .deck-slots {
+    gap: 12px;
+  }
+
+  .deck-slot {
+    width: 120px;
+    height: 160px;
+  }
+
+  .slot-hero-portrait {
+    width: 80px;
+    height: 80px;
+  }
+
+  .heroes-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+  }
+
+  .deck-actions {
+    flex-direction: column;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    width: 100%;
+    justify-content: center;
+  }
+}
