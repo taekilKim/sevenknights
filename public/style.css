@@ -866,7 +866,8 @@ svg defs {
   margin: 0 auto;
   box-sizing: border-box;
   height: calc(100vh - 80px);
-  overflow: hidden;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .deck-content h1 {
@@ -894,17 +895,19 @@ svg defs {
   font-size: 1rem;
 }
 
-/* 좌우 레이아웃 */
+/* 중앙 레이아웃 */
 .deck-layout {
   display: flex;
+  justify-content: center;
   gap: 32px;
   flex: 1;
   min-height: 0;
 }
 
-/* 좌측: 진형 + 덱 배치 (고정 너비) */
+/* 덱 배치 영역 (중앙) */
 .deck-left {
-  flex: 0 0 450px;
+  max-width: 800px;
+  width: 100%;
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -970,13 +973,9 @@ svg defs {
   color: #999;
 }
 
-/* 우측: 영웅 선택 (유연) */
+/* 우측: 영웅 선택 (숨김) */
 .deck-right {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  min-width: 0;
-  overflow: hidden;
+  display: none;
 }
 
 /* 덱 디스플레이 영역 */
@@ -1025,6 +1024,7 @@ svg defs {
   display: flex;
   flex-direction: column;
   gap: 8px;
+  justify-content: center;
 }
 
 /* 앞줄 (파란색) */
@@ -1076,11 +1076,13 @@ svg defs {
   gap: 10px;
   transition: all 0.3s ease;
   box-sizing: border-box;
+  cursor: pointer;
 }
 
 .deck-slot:hover {
   border-color: #666;
   background: #1a1a1a;
+  transform: translateY(-2px);
 }
 
 /* F/B 인디케이터 */
@@ -1420,7 +1422,7 @@ svg defs {
   margin-top: 4px;
 }
 
-/* 공유 모달 */
+/* 모달 공통 */
 .modal {
   position: fixed;
   top: 0;
@@ -1432,6 +1434,48 @@ svg defs {
   align-items: center;
   justify-content: center;
   z-index: 1000;
+}
+
+/* 영웅 선택 모달 */
+#hero-select-modal .modal-content {
+  max-width: 90%;
+  width: 1200px;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+}
+
+#hero-select-modal .modal-body {
+  overflow-y: auto;
+  max-height: calc(90vh - 120px);
+}
+
+#hero-select-modal .hero-select-filters {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+#hero-select-modal .hero-select-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 16px;
+  max-height: 500px;
+  overflow-y: auto;
+  padding: 8px;
+  background: #0e0e0e;
+  border-radius: 8px;
+}
+
+#hero-select-modal .hero-card {
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+#hero-select-modal .hero-card:hover {
+  transform: scale(1.05);
+  filter: brightness(1.2);
 }
 
 .modal-content {
