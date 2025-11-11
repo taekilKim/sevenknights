@@ -1102,9 +1102,11 @@ svg defs {
   color: #666;
 }
 
-.heroes-grid {
+/* 덱 페이지 영웅 그리드 */
+#heroes-list.heroes-grid,
+.deck-content .heroes-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, 1fr) !important;
   gap: 24px;
   max-width: 100%;
 }
@@ -1271,8 +1273,9 @@ svg defs {
     font-size: 0.75rem;
   }
 
-  .heroes-grid {
-    grid-template-columns: repeat(3, 1fr);
+  #heroes-list.heroes-grid,
+  .deck-content .heroes-grid {
+    grid-template-columns: repeat(3, 1fr) !important;
     gap: 12px;
   }
 
@@ -1293,8 +1296,9 @@ svg defs {
     padding: 32px;
   }
 
-  .heroes-grid {
-    grid-template-columns: repeat(3, 1fr);
+  #heroes-list.heroes-grid,
+  .deck-content .heroes-grid {
+    grid-template-columns: repeat(3, 1fr) !important;
     gap: 20px;
   }
 
@@ -1315,8 +1319,9 @@ svg defs {
     padding: 40px;
   }
 
-  .heroes-grid {
-    grid-template-columns: repeat(4, 1fr);
+  #heroes-list.heroes-grid,
+  .deck-content .heroes-grid {
+    grid-template-columns: repeat(4, 1fr) !important;
     gap: 24px;
   }
 }
@@ -1327,8 +1332,9 @@ svg defs {
     padding: 48px;
   }
 
-  .heroes-grid {
-    grid-template-columns: repeat(5, 1fr);
+  #heroes-list.heroes-grid,
+  .deck-content .heroes-grid {
+    grid-template-columns: repeat(5, 1fr) !important;
     gap: 24px;
   }
 }
@@ -1339,8 +1345,9 @@ svg defs {
     padding: 48px;
   }
 
-  .heroes-grid {
-    grid-template-columns: repeat(6, 1fr);
+  #heroes-list.heroes-grid,
+  .deck-content .heroes-grid {
+    grid-template-columns: repeat(5, 1fr) !important;
     gap: 24px;
   }
 }
