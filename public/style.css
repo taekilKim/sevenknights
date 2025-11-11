@@ -161,6 +161,7 @@ img {
   align-content: start;
   width: 100%;
   padding: clamp(24px, 4vw, 56px);
+  overflow: visible;
 }
 
 .hero-card {
@@ -170,9 +171,14 @@ img {
   cursor: pointer;
   background: transparent;
   transition: transform 0.15s ease;
+  overflow: visible;
+  position: relative;
+  z-index: 1;
 }
+
 .hero-card:hover {
   transform: scale(1.05);
+  z-index: 10;
 }
 
 .hero-portrait-wrap {
@@ -542,10 +548,131 @@ svg defs {
   margin-right: 6px;
 }
 /* ------------------------------------ */
-/*  반응형 레이아웃 (1023 이하: 모바일, 1024 이상: 데스크탑 4단계) */
+/*  반응형 레이아웃 */
 /* ------------------------------------ */
 
-/* 모바일 (1023px 이하) */
+/* 태블릿 및 모바일 (768px 이하) */
+@media (max-width: 768px) {
+  .layout {
+    grid-template-columns: 1fr;
+    grid-template-rows: 80px auto;
+    grid-template-areas:
+      "header"
+      "content";
+  }
+
+  /* 좌측 사이드바 - 상단 탭으로 변경 */
+  .sidebar-left {
+    position: static;
+    width: 100%;
+    height: auto;
+    border: none;
+    border-bottom: 2px solid #222;
+    background: #1a1a1a;
+    order: -1;
+  }
+
+  .sidebar-left nav ul {
+    display: flex;
+    flex-direction: row;
+    gap: 0;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .sidebar-left nav ul::-webkit-scrollbar {
+    display: none;
+  }
+
+  .sidebar-left nav ul li {
+    flex: 1;
+    text-align: center;
+    padding: 16px 12px;
+    border-bottom: 3px solid transparent;
+    white-space: nowrap;
+    min-width: fit-content;
+  }
+
+  .sidebar-left nav ul li.active {
+    background: transparent;
+    color: #ffd56a;
+    border-bottom-color: #ffd56a;
+  }
+
+  .sidebar-left nav ul li a {
+    display: block;
+  }
+
+  /* 우측 사이드바 - 영웅 목록 상단 필터로 변경 */
+  .sidebar-right {
+    position: static;
+    width: 100%;
+    height: auto;
+    border: none;
+    background: transparent;
+    order: -1;
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+  }
+
+  /* 필터를 영웅 목록 상단에 배치 */
+  .filter-container {
+    position: static;
+    width: 100%;
+    background: #1a1a1a;
+    border-bottom: 1px solid #222;
+    padding: 16px;
+    order: 0;
+  }
+
+  .filter-container h3 {
+    display: none;
+  }
+
+  .filter-group {
+    margin-bottom: 12px;
+  }
+
+  .filter-title {
+    font-size: 0.85rem;
+    margin-bottom: 6px;
+  }
+
+  .filter-buttons {
+    gap: 4px;
+  }
+
+  .filter-buttons label {
+    font-size: 0.8rem;
+    padding: 5px 8px;
+  }
+
+  #heroes {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    padding: 16px;
+    order: 1;
+  }
+
+  .hero-name {
+    font-size: 0.8rem;
+  }
+
+  .hero-type-badge {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+/* 모바일 (1023px 이하) - 기존 스타일 유지 */
 @media (max-width: 1023px) {
   .layout {
     grid-template-columns: 1fr;
@@ -556,7 +683,7 @@ svg defs {
 
   .sidebar-left,
   .sidebar-right {
-    display: none;
+    display: block;
   }
 
   #heroes {
@@ -702,79 +829,11 @@ svg defs {
   pointer-events: none;
 }
 /* ------------------------------------ */
-/*  모바일 레이아웃 (1023px 이하) — 애드센스 대응형 */
+/*  기존 모바일 레이아웃 (1023px 이하) — 영웅 상세 페이지용 */
 /* ------------------------------------ */
 @media (max-width: 1023px) {
   body {
     margin: 0 24px;
-  }
-
-  .layout {
-    grid-template-columns: 1fr;
-    grid-template-areas:
-      "header"
-      "content";
-  }
-
-  /* 사이드바 및 필터 숨김 */
-  .sidebar-right,
-  .filter-container {
-    display: none !important;
-  }
-
-  /* 모바일 전용 사이드바 탭 */
-  .sidebar-left {
-    display: flex !important;
-    position: static;
-    width: 100%;
-    height: auto;
-    border: none;
-    background: #1a1a1a;
-    overflow-x: auto;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-    margin-bottom: 8px;
-  }
-  .sidebar-left::-webkit-scrollbar {
-    display: none;
-  }
-  .sidebar-left nav ul {
-    display: flex;
-    gap: 16px;
-    padding: 8px 0;
-    margin: 0;
-    list-style: none;
-    justify-content: space-around;
-    width: 100%;
-  }
-  .sidebar-left nav ul li {
-    color: #fff;
-    font-weight: 500;
-    padding: 8px 12px;
-    border-radius: 8px;
-    background: #2a2a2a;
-    flex-shrink: 0;
-    white-space: nowrap;
-    transition: background 0.2s ease;
-  }
-  .sidebar-left nav ul li:hover {
-    background: #ffd56a;
-    color: #000;
-  }
-
-  /* 영웅 목록 화면 */
-  #heroes {
-    grid-template-columns: repeat(4, 1fr);
-    gap: 12px;
-    padding: 24px 0;
-  }
-
-  .hero-card {
-    width: 100%;
-  }
-
-  .hero-name {
-    font-size: 0.85rem;
   }
 
   /* 영웅 상세 페이지 */
@@ -1571,7 +1630,181 @@ svg defs {
   border-radius: 6px;
 }
 
-/* 덱 페이지 반응형 */
+/* 덱 페이지 모바일 (768px 이하) */
+@media (max-width: 768px) {
+  .deck-content {
+    padding: 16px;
+    height: auto;
+    overflow: visible;
+  }
+
+  .deck-content h1 {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+
+  .deck-content .subtitle {
+    font-size: 0.9rem;
+    text-align: center;
+  }
+
+  .deck-layout {
+    flex-direction: column;
+    gap: 16px;
+    max-width: 100%;
+  }
+
+  .deck-left {
+    width: 100%;
+  }
+
+  /* 진형 선택기 */
+  .formation-selector {
+    padding: 16px;
+  }
+
+  .formation-selector h3 {
+    font-size: 1rem;
+    margin-bottom: 12px;
+  }
+
+  .formation-options {
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+
+  .formation-option {
+    padding: 10px 8px;
+  }
+
+  .formation-name {
+    font-size: 0.85rem;
+  }
+
+  /* 덱 디스플레이 */
+  .deck-display {
+    padding: 16px;
+  }
+
+  .deck-display h2 {
+    font-size: 1.1rem;
+  }
+
+  .deck-formation {
+    flex-direction: column;
+    gap: 12px;
+    align-items: stretch;
+  }
+
+  .formation-line {
+    width: 100%;
+  }
+
+  .line-label {
+    font-size: 0.8rem;
+  }
+
+  .deck-slot {
+    min-height: 100px;
+    padding: 10px;
+  }
+
+  .slot-indicator {
+    width: 30px;
+    height: 30px;
+    font-size: 1rem;
+  }
+
+  .slot-hero-portrait {
+    width: 60px;
+    height: 60px;
+  }
+
+  .slot-hero-name {
+    font-size: 0.85rem;
+  }
+
+  .slot-remove {
+    width: 22px;
+    height: 22px;
+    font-size: 0.9rem;
+  }
+
+  /* 덱 액션 버튼 */
+  .deck-actions {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    width: 100%;
+    justify-content: center;
+    font-size: 0.9rem;
+    padding: 12px 16px;
+  }
+
+  /* 영웅 선택 모달 */
+  #hero-select-modal .modal-content {
+    max-width: 95%;
+    width: 100%;
+  }
+
+  #hero-select-modal .hero-select-filters {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .search-input,
+  .filter-select {
+    width: 100%;
+    min-width: 0;
+  }
+
+  #hero-select-modal .hero-select-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    max-height: 400px;
+  }
+
+  /* 공유 모달 */
+  .modal-content {
+    max-width: 95%;
+    width: 100%;
+    padding: 0;
+  }
+
+  .modal-header {
+    padding: 16px;
+  }
+
+  .modal-header h3 {
+    font-size: 1.2rem;
+  }
+
+  .modal-body {
+    padding: 16px;
+  }
+
+  .modal-body p {
+    font-size: 0.9rem;
+  }
+
+  .share-url-container {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .share-url-container input {
+    font-size: 0.85rem;
+  }
+
+  .share-url-container button {
+    width: 100%;
+  }
+}
+
+/* 덱 페이지 반응형 (1023px 이하) */
 @media (max-width: 1023px) {
   .deck-content {
     padding: 16px;
@@ -1592,31 +1825,8 @@ svg defs {
     padding: 16px;
   }
 
-  .deck-slots {
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 8px;
-  }
-
   .deck-slot {
-    width: calc(50% - 4px);
-    height: 80px;
-    padding: 8px;
-  }
-
-  .slot-number {
-    width: 24px;
-    height: 24px;
-    font-size: 0.85rem;
-  }
-
-  .slot-hero-portrait {
-    width: 50px;
-    height: 50px;
-  }
-
-  .slot-hero-name {
-    font-size: 0.85rem;
+    min-height: 110px;
   }
 
   .deck-actions {
@@ -1630,32 +1840,6 @@ svg defs {
     justify-content: center;
     font-size: 0.9rem;
     padding: 10px 16px;
-  }
-
-  .deck-right {
-    overflow: visible;
-  }
-
-  .filters-horizontal {
-    padding: 12px;
-  }
-
-  .filter-row {
-    flex-wrap: wrap;
-  }
-
-  .filter-label {
-    min-width: 50px;
-    font-size: 0.85rem;
-  }
-
-  .filter-chips {
-    width: 100%;
-  }
-
-  .chip {
-    font-size: 0.8rem;
-    padding: 5px 10px;
   }
 
   /* 컴팩트 필터 모바일 */
@@ -1673,13 +1857,6 @@ svg defs {
     min-width: 120px;
     font-size: 0.85rem;
     padding: 8px 12px;
-  }
-
-  #heroes-list {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 12px;
-    padding: 12px;
-    max-height: 500px;
   }
 }
 
