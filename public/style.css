@@ -1102,13 +1102,15 @@ svg defs {
   color: #666;
 }
 
-/* 덱 페이지 영웅 그리드 */
-#heroes-list.heroes-grid,
-.deck-content .heroes-grid {
+/* 덱 페이지 영웅 그리드 - 메인 페이지 #heroes 스타일 적용 */
+#heroes-list {
   display: grid;
-  grid-template-columns: repeat(4, 1fr) !important;
-  gap: 24px;
-  max-width: 100%;
+  grid-template-columns: repeat(6, 1fr);
+  gap: clamp(16px, 3vw, 48px);
+  justify-content: stretch;
+  align-content: start;
+  width: 100%;
+  padding: 0;
 }
 
 /* 선택 가능한 영웅 카드 */
@@ -1273,10 +1275,11 @@ svg defs {
     font-size: 0.75rem;
   }
 
-  #heroes-list.heroes-grid,
-  .deck-content .heroes-grid {
-    grid-template-columns: repeat(3, 1fr) !important;
-    gap: 12px;
+  /* 덱 페이지 영웅 그리드 - 메인과 동일 */
+  #heroes-list {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    padding: 0;
   }
 
   .deck-actions {
@@ -1296,10 +1299,11 @@ svg defs {
     padding: 32px;
   }
 
-  #heroes-list.heroes-grid,
-  .deck-content .heroes-grid {
-    grid-template-columns: repeat(3, 1fr) !important;
-    gap: 20px;
+  /* 덱 페이지 영웅 그리드 - 메인과 동일 */
+  #heroes-list {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+    padding: 0;
   }
 
   .deck-slot {
@@ -1319,10 +1323,11 @@ svg defs {
     padding: 40px;
   }
 
-  #heroes-list.heroes-grid,
-  .deck-content .heroes-grid {
-    grid-template-columns: repeat(4, 1fr) !important;
-    gap: 24px;
+  /* 덱 페이지 영웅 그리드 - 메인과 동일 */
+  #heroes-list {
+    grid-template-columns: repeat(5, 1fr);
+    gap: 40px;
+    padding: 0;
   }
 }
 
@@ -1332,10 +1337,11 @@ svg defs {
     padding: 48px;
   }
 
-  #heroes-list.heroes-grid,
-  .deck-content .heroes-grid {
-    grid-template-columns: repeat(5, 1fr) !important;
-    gap: 24px;
+  /* 덱 페이지 영웅 그리드 - 메인과 동일 */
+  #heroes-list {
+    grid-template-columns: repeat(6, 1fr);
+    gap: 48px;
+    padding: 0;
   }
 }
 
@@ -1345,9 +1351,10 @@ svg defs {
     padding: 48px;
   }
 
-  #heroes-list.heroes-grid,
-  .deck-content .heroes-grid {
-    grid-template-columns: repeat(5, 1fr) !important;
-    gap: 24px;
+  /* 덱 페이지 영웅 그리드 - 메인과 동일 */
+  #heroes-list {
+    grid-template-columns: repeat(7, 1fr);
+    gap: 56px;
+    padding: 0;
   }
 }
