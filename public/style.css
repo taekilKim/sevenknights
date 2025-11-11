@@ -667,13 +667,22 @@ svg defs {
   }
 
   .hero-type-badge {
-    width: 30px;
-    height: 30px;
+    width: 24px;
+    height: 24px;
+    bottom: 4px;
+    left: 4px;
+  }
+
+  .rarity-diamond-effect {
+    width: 20px;
+    height: 20px;
+    top: 2px;
+    right: 2px;
   }
 }
 
-/* 모바일 (1023px 이하) - 기존 스타일 유지 */
-@media (max-width: 1023px) {
+/* 모바일 (769px ~ 1023px) */
+@media (min-width: 769px) and (max-width: 1023px) {
   .layout {
     grid-template-columns: 1fr;
     grid-template-areas:
@@ -694,6 +703,20 @@ svg defs {
 
   .hero-name {
     font-size: 0.85rem;
+  }
+
+  .hero-type-badge {
+    width: 32px;
+    height: 32px;
+    bottom: 6px;
+    left: 6px;
+  }
+
+  .rarity-diamond-effect {
+    width: 28px;
+    height: 28px;
+    top: 4px;
+    right: 4px;
   }
 }
 
@@ -1765,6 +1788,29 @@ svg defs {
     grid-template-columns: repeat(3, 1fr);
     gap: 12px;
     max-height: 400px;
+  }
+
+  /* 모달 내 영웅 카드 아이콘 조정 */
+  #hero-select-modal .hero-type-badge {
+    width: 24px;
+    height: 24px;
+    bottom: 4px;
+    left: 4px;
+  }
+
+  #hero-select-modal .rarity-diamond-effect {
+    width: 20px;
+    height: 20px;
+    top: 2px;
+    right: 2px;
+  }
+
+  #hero-select-modal .hero-name {
+    font-size: 0.8rem;
+  }
+
+  #hero-select-modal .hero-nickname {
+    font-size: 0.7rem;
   }
 
   /* 공유 모달 */
