@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>결투장 덱 공유 - 세븐나이츠 리버스 가이드북</title>
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="세븐나이츠 리버스 결투장 덱을 만들고 공유하세요. 5명의 영웅을 선택하여 나만의 덱을 구성할 수 있습니다.">
+    <meta name="keywords" content="세븐나이츠 리버스, 결투장, 덱, 영웅 조합, 덱 공유, arena deck">
+    <meta name="author" content="세븐나이츠 리버스 가이드북">
+    <meta property="og:title" content="결투장 덱 공유 - 세븐나이츠 리버스 가이드북">
+    <meta property="og:description" content="나만의 결투장 덱을 만들고 공유하세요!">
+    <link rel="stylesheet" href="/style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2"></script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-DMD8LXSEQ5"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-DMD8LXSEQ5');
+    </script>
+  </head>
+  <body>
+    <div class="layout">
+      <header class="header">
+        <div class="header-logo">
+          <img src="/images/logo.png" alt="세븐나이츠 리버스 가이드북 로고" />
+          <div class="header-title">세븐나이츠 리버스 가이드북</div>
+        </div>
+      </header>
+
+      <aside class="sidebar-left">
+        <nav>
+          <ul>
+            <li><a href="/index.html">영웅 도감</a></li>
+            <li class="active">결투장 덱</li>
+            <li>장비 도감</li>
+            <li>레이드 공략</li>
+          </ul>
+        </nav>
+      </aside>
+
+      <main class="content deck-content">
+        <h1>결투장 덱 공유</h1>
+        <p class="subtitle">나만의 결투장 덱을 구성하고 공유하세요 (최대 5명)</p>
+
+        <!-- 선택된 덱 표시 영역 -->
+        <div class="deck-display">
+          <h2>나의 덱</h2>
+          <div class="deck-slots">
+            <div class="deck-slot" data-position="1">
+              <div class="slot-number">1</div>
+              <div class="slot-placeholder">+</div>
+            </div>
+            <div class="deck-slot" data-position="2">
+              <div class="slot-number">2</div>
+              <div class="slot-placeholder">+</div>
+            </div>
+            <div class="deck-slot" data-position="3">
+              <div class="slot-number">3</div>
+              <div class="slot-placeholder">+</div>
+            </div>
+            <div class="deck-slot" data-position="4">
+              <div class="slot-number">4</div>
+              <div class="slot-placeholder">+</div>
+            </div>
+            <div class="deck-slot" data-position="5">
+              <div class="slot-number">5</div>
+              <div class="slot-placeholder">+</div>
+            </div>
+          </div>
+
+          <!-- 덱 액션 버튼 -->
+          <div class="deck-actions">
+            <button id="clear-deck" class="btn-secondary">
+              <i class="ph ph-trash"></i> 덱 초기화
+            </button>
+            <button id="share-deck" class="btn-primary">
+              <i class="ph ph-share-network"></i> 덱 공유하기
+            </button>
+          </div>
+        </div>
+
+        <!-- 영웅 선택 영역 -->
+        <div class="hero-selection">
+          <h2>영웅 선택</h2>
+          <div class="selection-info">
+            <span id="selected-count">0/5</span> 명 선택됨
+          </div>
+
+          <!-- 검색 및 필터 -->
+          <div class="hero-search">
+            <input type="text" id="search-hero" placeholder="영웅 이름 검색..." />
+          </div>
+
+          <div id="heroes-list" class="heroes-grid"></div>
+        </div>
+      </main>
+
+      <aside class="sidebar-right">
+        <div class="filter-container">
+          <h3>필터</h3>
+
+          <!-- 등급 필터 -->
+          <div class="filter-group">
+            <span class="filter-title">등급</span>
+            <div class="filter-buttons" id="filter-rarity">
+              <label><input type="checkbox" value="전체" checked>전체</label>
+              <label><input type="checkbox" value="전설+">전설+</label>
+              <label><input type="checkbox" value="전설">전설</label>
+              <label><input type="checkbox" value="희귀">희귀</label>
+            </div>
+          </div>
+
+          <!-- 타입 필터 -->
+          <div class="filter-group">
+            <span class="filter-title">타입</span>
+            <div class="filter-buttons" id="filter-type">
+              <label><input type="checkbox" value="전체" checked>전체</label>
+              <label><input type="checkbox" value="공격형">공격형</label>
+              <label><input type="checkbox" value="마법형">마법형</label>
+              <label><input type="checkbox" value="만능형">만능형</label>
+              <label><input type="checkbox" value="방어형">방어형</label>
+              <label><input type="checkbox" value="지원형">지원형</label>
+            </div>
+          </div>
+
+          <!-- 소속 필터 -->
+          <div class="filter-group">
+            <span class="filter-title">소속</span>
+            <div class="filter-buttons" id="filter-group"></div>
+          </div>
+        </div>
+      </aside>
+    </div>
+
+    <!-- 공유 모달 -->
+    <div id="share-modal" class="modal" style="display: none;">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3>덱 공유하기</h3>
+          <button class="modal-close" id="close-modal">×</button>
+        </div>
+        <div class="modal-body">
+          <p>이 URL을 복사하여 다른 사람과 공유하세요:</p>
+          <div class="share-url-container">
+            <input type="text" id="share-url" readonly />
+            <button id="copy-url" class="btn-primary">
+              <i class="ph ph-copy"></i> 복사
+            </button>
+          </div>
+          <div id="copy-success" class="success-message" style="display: none;">
+            ✓ 복사되었습니다!
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Global Loading Overlay -->
+    <div id="global-loading" class="loading-container" aria-hidden="true" style="display:flex;">
+      <div class="spinner"></div>
+      <div class="loading-text">L O A D I N G</div>
+    </div>
+
+    <script>
+      let allHeroes = [];
+      let selectedHeroes = [];
+      const MAX_DECK_SIZE = 5;
+
+      function showLoading(on) {
+        const el = document.getElementById("global-loading");
+        if (!el) return;
+        el.style.display = on ? "flex" : "none";
+      }
+
+      // URL에서 덱 정보 로드
+      function loadDeckFromURL() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const deckParam = urlParams.get('deck');
+        if (deckParam) {
+          try {
+            const heroIds = deckParam.split(',');
+            return heroIds;
+          } catch (e) {
+            console.error('덱 로드 실패:', e);
+          }
+        }
+        return [];
+      }
+
+      // 영웅 데이터 가져오기
+      async function fetchHeroes() {
+        showLoading(true);
+        try {
+          const response = await fetch("/api/heroes");
+          const data = await response.json();
+          if (!data.records || !Array.isArray(data.records)) {
+            console.error("서버 응답:", data);
+            return;
+          }
+          allHeroes = data.records;
+
+          // 소속 필터 동적 생성
+          const groupFilterContainer = document.getElementById("filter-group");
+          const uniqueGroups = [...new Set(allHeroes.map(hero => hero.group).filter(Boolean))].sort((a, b) => a.localeCompare(b, "ko"));
+          groupFilterContainer.innerHTML = `
+            <label><input type="checkbox" value="전체" checked>전체</label>
+            ${uniqueGroups.map(group => `<label><input type="checkbox" value="${group}">${group}</label>`).join('')}
+          `;
+
+          // URL에서 덱 로드
+          const deckIds = loadDeckFromURL();
+          if (deckIds.length > 0) {
+            deckIds.forEach(heroName => {
+              const hero = allHeroes.find(h => h.name === decodeURIComponent(heroName));
+              if (hero && selectedHeroes.length < MAX_DECK_SIZE) {
+                selectedHeroes.push(hero);
+              }
+            });
+            updateDeckDisplay();
+            updateSelectedCount();
+          }
+
+          renderHeroes(allHeroes);
+          setupFilters();
+        } catch (error) {
+          console.error("에러:", error);
+          document.getElementById("heroes-list").textContent = "데이터 불러오기 오류";
+        } finally {
+          showLoading(false);
+        }
+      }
+
+      // 영웅 목록 렌더링
+      function renderHeroes(heroes) {
+        const heroesContainer = document.getElementById("heroes-list");
+        heroesContainer.innerHTML = "";
+
+        heroes.forEach((hero) => {
+          const card = document.createElement("div");
+          card.className = "hero-card selectable";
+
+          // 이미 선택된 영웅인지 확인
+          const isSelected = selectedHeroes.some(h => h.id === hero.id);
+          if (isSelected) {
+            card.classList.add("selected");
+          }
+
+          if (hero.group && hero.group.includes("(구)세븐나이츠")) {
+            card.classList.add("old-sevenknights");
+          }
+
+          // 초상 이미지와 타입 배지
+          if (hero.portrait) {
+            const imgWrapper = document.createElement("div");
+            imgWrapper.className = "hero-portrait-wrap";
+            imgWrapper.style.position = "relative";
+
+            const img = document.createElement("img");
+            img.src = hero.portrait;
+            img.alt = hero.name || "이미지 없음";
+            const rarityClass = (() => {
+              switch (hero.rarity) {
+                case "전설+": return "legendary-plus";
+                case "전설": return "legendary";
+                case "희귀": return "rare";
+                case "고급": return "uncommon";
+                default: return "normal";
+              }
+            })();
+            img.className = `hero-portrait rarity-${rarityClass}`;
+            if (hero.hasEffect === true || hero.hasEffect === "true" || hero.hasEffect === 1) {
+              img.classList.add("has-effect");
+            }
+            imgWrapper.appendChild(img);
+
+            // 다이아몬드 효과
+            if (hero.hasEffect) {
+              const gradientId = `paint0_diamond_${hero.name.replace(/\s/g, '')}_${hero.id}`;
+              const starWrapper = document.createElement("div");
+              starWrapper.className = "rarity-diamond-effect";
+              starWrapper.innerHTML = `
+                <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 100 100" fill="none">
+                  <defs>
+                    <linearGradient id="${gradientId}" x1="0" y1="0" x2="500" y2="500" gradientUnits="userSpaceOnUse">
+                      <stop stop-color="#FFF8E1"/>
+                      <stop offset="0.533654" stop-color="#FFE082"/>
+                      <stop offset="1" stop-color="#FFB300"/>
+                    </linearGradient>
+                  </defs>
+                  <path d="M99.0854 0.124826C99.6876 -0.259713 100.26 0.312411 99.8752 0.914611C74.5556 40.6083 73.1362 54.5342 90.8173 89.847C91.0858 90.3826 90.384 91.0844 89.8483 90.816L89.847 90.8174C54.5329 73.1375 40.6072 74.5546 0.914577 99.8752C0.312412 100.26 -0.259673 99.6876 0.124792 99.0854C25.4444 59.3918 26.8625 45.4671 9.18167 10.1521C8.9215 9.63314 9.57223 8.95807 10.1001 9.16059L10.1507 9.18308C45.4657 26.8639 59.3905 25.4457 99.0854 0.124826ZM65.703 34.2974C61.9959 35.3198 58.2999 36.037 54.5685 36.4171C48.0147 37.0846 41.7138 36.6839 35.4457 35.4467C36.6829 41.7148 37.0837 48.0156 36.4162 54.5693C36.0363 58.3003 35.3191 61.996 34.2969 65.7027C38.0036 64.6805 41.6993 63.9633 45.4303 63.5834C51.9843 62.9159 58.2853 63.3166 64.5537 64.5539C63.3165 58.2856 62.9157 51.9848 63.5833 45.4307C63.9634 41.6997 64.6808 38.0041 65.703 34.2974Z" fill="url(#${gradientId})"/>
+                </svg>
+              `;
+
+              try {
+                const stops = starWrapper.querySelectorAll(`#${gradientId} stop`);
+                if (stops && stops.length >= 3) {
+                  const isOldSeven = hero.group && hero.group.trim().includes("(구)세븐나이츠");
+                  if (isOldSeven) {
+                    stops[0].setAttribute("stop-color", "#EEDBFF");
+                    stops[1].setAttribute("stop-color", "#C49CFF");
+                    stops[2].setAttribute("stop-color", "#9C6BFF");
+                  } else {
+                    stops[0].setAttribute("stop-color", "#FFF8E1");
+                    stops[1].setAttribute("stop-color", "#FFE082");
+                    stops[2].setAttribute("stop-color", "#FFB300");
+                  }
+                }
+              } catch (e) {
+                console.warn("그라디언트 적용 실패:", e);
+              }
+
+              imgWrapper.appendChild(starWrapper);
+            }
+
+            if (hero.typeImage) {
+              const typeBadge = document.createElement("img");
+              typeBadge.src = hero.typeImage;
+              typeBadge.alt = hero.type || "타입 배지";
+              typeBadge.className = "hero-type-badge";
+              imgWrapper.appendChild(typeBadge);
+            }
+
+            card.appendChild(imgWrapper);
+          }
+
+          const name = document.createElement("div");
+          name.className = "hero-name";
+          name.textContent = hero.name || "이름 없음";
+          card.appendChild(name);
+
+          if (hero.nickname) {
+            const nickname = document.createElement("div");
+            nickname.className = "hero-nickname";
+            nickname.textContent = `${hero.nickname}`;
+            card.appendChild(nickname);
+          }
+
+          // 선택 이벤트
+          card.addEventListener("click", () => {
+            toggleHeroSelection(hero, card);
+          });
+
+          heroesContainer.appendChild(card);
+        });
+      }
+
+      // 영웅 선택/해제
+      function toggleHeroSelection(hero, cardElement) {
+        const index = selectedHeroes.findIndex(h => h.id === hero.id);
+
+        if (index > -1) {
+          // 이미 선택된 영웅 - 제거
+          selectedHeroes.splice(index, 1);
+          cardElement.classList.remove("selected");
+        } else {
+          // 새로운 영웅 선택
+          if (selectedHeroes.length >= MAX_DECK_SIZE) {
+            alert(`최대 ${MAX_DECK_SIZE}명까지만 선택할 수 있습니다.`);
+            return;
+          }
+          selectedHeroes.push(hero);
+          cardElement.classList.add("selected");
+        }
+
+        updateDeckDisplay();
+        updateSelectedCount();
+      }
+
+      // 덱 디스플레이 업데이트
+      function updateDeckDisplay() {
+        const slots = document.querySelectorAll('.deck-slot');
+
+        slots.forEach((slot, index) => {
+          const hero = selectedHeroes[index];
+
+          if (hero) {
+            // 영웅이 선택된 경우
+            slot.innerHTML = `
+              <div class="slot-number">${index + 1}</div>
+              <div class="slot-hero">
+                <img src="${hero.portrait}" alt="${hero.name}" class="slot-hero-portrait rarity-${getRarityClass(hero.rarity)}" />
+                <div class="slot-hero-name">${hero.name}</div>
+                <button class="slot-remove" data-index="${index}">×</button>
+              </div>
+            `;
+
+            // 제거 버튼 이벤트
+            const removeBtn = slot.querySelector('.slot-remove');
+            removeBtn.addEventListener('click', (e) => {
+              e.stopPropagation();
+              removeHeroFromDeck(index);
+            });
+          } else {
+            // 빈 슬롯
+            slot.innerHTML = `
+              <div class="slot-number">${index + 1}</div>
+              <div class="slot-placeholder">+</div>
+            `;
+          }
+        });
+      }
+
+      // 덱에서 영웅 제거
+      function removeHeroFromDeck(index) {
+        if (index >= 0 && index < selectedHeroes.length) {
+          selectedHeroes.splice(index, 1);
+          updateDeckDisplay();
+          updateSelectedCount();
+          renderHeroes(applyFiltersAndSort(allHeroes));
+        }
+      }
+
+      // 선택 카운트 업데이트
+      function updateSelectedCount() {
+        document.getElementById('selected-count').textContent = `${selectedHeroes.length}/${MAX_DECK_SIZE}`;
+      }
+
+      // 등급 클래스 반환
+      function getRarityClass(rarity) {
+        switch (rarity) {
+          case "전설+": return "legendary-plus";
+          case "전설": return "legendary";
+          case "희귀": return "rare";
+          case "고급": return "uncommon";
+          default: return "normal";
+        }
+      }
+
+      // 필터 및 검색 설정
+      function setupFilters() {
+        // 검색 필터
+        document.getElementById('search-hero').addEventListener('input', (e) => {
+          const filtered = applyFiltersAndSort(allHeroes);
+          renderHeroes(filtered);
+        });
+
+        // 체크박스 필터
+        document.querySelectorAll('#filter-rarity input, #filter-type input, #filter-group input').forEach(el => {
+          el.addEventListener('change', () => {
+            const filtered = applyFiltersAndSort(allHeroes);
+            renderHeroes(filtered);
+          });
+        });
+
+        // 전체 선택 로직
+        ["filter-rarity", "filter-type", "filter-group"].forEach(groupId => {
+          const container = document.getElementById(groupId);
+          const checkboxes = container.querySelectorAll("input[type='checkbox']");
+
+          checkboxes.forEach(checkbox => {
+            checkbox.addEventListener("change", () => {
+              const allOption = container.querySelector("input[value='전체']");
+              if (checkbox.value === "전체" && checkbox.checked) {
+                checkboxes.forEach(cb => {
+                  if (cb !== allOption) cb.checked = false;
+                });
+              } else if (checkbox.value !== "전체" && checkbox.checked) {
+                allOption.checked = false;
+              } else {
+                const anyChecked = Array.from(checkboxes).some(cb => cb.checked && cb.value !== "전체");
+                if (!anyChecked) allOption.checked = true;
+              }
+
+              const filtered = applyFiltersAndSort(allHeroes);
+              renderHeroes(filtered);
+            });
+          });
+        });
+      }
+
+      // 필터 적용
+      function applyFiltersAndSort(heroes) {
+        const searchTerm = document.getElementById('search-hero').value.toLowerCase();
+        const selectedRarity = [...document.querySelectorAll('#filter-rarity input:checked')].map(el => el.value);
+        const selectedType = [...document.querySelectorAll('#filter-type input:checked')].map(el => el.value);
+        const selectedGroup = [...document.querySelectorAll('#filter-group input:checked')].map(el => el.value);
+
+        let filtered = heroes.filter(hero => {
+          const nameMatch = !searchTerm || hero.name.toLowerCase().includes(searchTerm);
+          const rarityMatch = selectedRarity.includes("전체") || selectedRarity.includes(hero.rarity);
+          const typeMatch = selectedType.includes("전체") || selectedType.includes(hero.type);
+          const groupMatch = selectedGroup.includes("전체") || selectedGroup.includes(hero.group);
+          return nameMatch && rarityMatch && typeMatch && groupMatch;
+        });
+
+        return filtered.sort((a, b) => a.name.localeCompare(b, "ko"));
+      }
+
+      // 덱 초기화
+      document.getElementById('clear-deck').addEventListener('click', () => {
+        if (selectedHeroes.length === 0) return;
+
+        if (confirm('덱을 초기화하시겠습니까?')) {
+          selectedHeroes = [];
+          updateDeckDisplay();
+          updateSelectedCount();
+          renderHeroes(applyFiltersAndSort(allHeroes));
+        }
+      });
+
+      // 덱 공유
+      document.getElementById('share-deck').addEventListener('click', () => {
+        if (selectedHeroes.length === 0) {
+          alert('공유할 영웅을 선택해주세요.');
+          return;
+        }
+
+        const heroNames = selectedHeroes.map(h => encodeURIComponent(h.name)).join(',');
+        const shareUrl = `${window.location.origin}/deck.html?deck=${heroNames}`;
+
+        document.getElementById('share-url').value = shareUrl;
+        document.getElementById('share-modal').style.display = 'flex';
+      });
+
+      // 모달 닫기
+      document.getElementById('close-modal').addEventListener('click', () => {
+        document.getElementById('share-modal').style.display = 'none';
+        document.getElementById('copy-success').style.display = 'none';
+      });
+
+      // URL 복사
+      document.getElementById('copy-url').addEventListener('click', () => {
+        const urlInput = document.getElementById('share-url');
+        urlInput.select();
+        document.execCommand('copy');
+
+        const successMsg = document.getElementById('copy-success');
+        successMsg.style.display = 'block';
+        setTimeout(() => {
+          successMsg.style.display = 'none';
+        }, 3000);
+      });
+
+      // 모달 배경 클릭시 닫기
+      document.getElementById('share-modal').addEventListener('click', (e) => {
+        if (e.target.id === 'share-modal') {
+          document.getElementById('share-modal').style.display = 'none';
+          document.getElementById('copy-success').style.display = 'none';
+        }
+      });
+
+      // 페이지 로드 시 초기화
+      document.addEventListener("DOMContentLoaded", () => {
+        fetchHeroes();
+      });
+    </script>
+  </body>
+</html>
