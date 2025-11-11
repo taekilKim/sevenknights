@@ -45,94 +45,95 @@
         <h1>결투장 덱 공유</h1>
         <p class="subtitle">나만의 결투장 덱을 구성하고 공유하세요 (최대 5명)</p>
 
-        <!-- 선택된 덱 표시 영역 -->
-        <div class="deck-display">
-          <h2>나의 덱</h2>
-          <div class="deck-slots">
-            <div class="deck-slot" data-position="1">
-              <div class="slot-number">1</div>
-              <div class="slot-placeholder">+</div>
-            </div>
-            <div class="deck-slot" data-position="2">
-              <div class="slot-number">2</div>
-              <div class="slot-placeholder">+</div>
-            </div>
-            <div class="deck-slot" data-position="3">
-              <div class="slot-number">3</div>
-              <div class="slot-placeholder">+</div>
-            </div>
-            <div class="deck-slot" data-position="4">
-              <div class="slot-number">4</div>
-              <div class="slot-placeholder">+</div>
-            </div>
-            <div class="deck-slot" data-position="5">
-              <div class="slot-number">5</div>
-              <div class="slot-placeholder">+</div>
+        <div class="deck-layout">
+          <!-- 좌측: 덱 배치 영역 -->
+          <div class="deck-left">
+            <div class="deck-display">
+              <h2>나의 덱</h2>
+              <div class="deck-slots">
+                <div class="deck-slot" data-position="1">
+                  <div class="slot-number">1</div>
+                  <div class="slot-placeholder">+</div>
+                </div>
+                <div class="deck-slot" data-position="2">
+                  <div class="slot-number">2</div>
+                  <div class="slot-placeholder">+</div>
+                </div>
+                <div class="deck-slot" data-position="3">
+                  <div class="slot-number">3</div>
+                  <div class="slot-placeholder">+</div>
+                </div>
+                <div class="deck-slot" data-position="4">
+                  <div class="slot-number">4</div>
+                  <div class="slot-placeholder">+</div>
+                </div>
+                <div class="deck-slot" data-position="5">
+                  <div class="slot-number">5</div>
+                  <div class="slot-placeholder">+</div>
+                </div>
+              </div>
+
+              <!-- 덱 액션 버튼 -->
+              <div class="deck-actions">
+                <button id="clear-deck" class="btn-secondary">
+                  <i class="ph ph-trash"></i> 덱 초기화
+                </button>
+                <button id="share-deck" class="btn-primary">
+                  <i class="ph ph-share-network"></i> 덱 공유하기
+                </button>
+              </div>
             </div>
           </div>
 
-          <!-- 덱 액션 버튼 -->
-          <div class="deck-actions">
-            <button id="clear-deck" class="btn-secondary">
-              <i class="ph ph-trash"></i> 덱 초기화
-            </button>
-            <button id="share-deck" class="btn-primary">
-              <i class="ph ph-share-network"></i> 덱 공유하기
-            </button>
-          </div>
-        </div>
+          <!-- 우측: 영웅 선택 영역 -->
+          <div class="deck-right">
+            <div class="hero-selection-header">
+              <h2>영웅 선택</h2>
+              <div class="selection-info">
+                <span id="selected-count">0/5</span> 명 선택됨
+              </div>
+            </div>
 
-        <!-- 영웅 선택 영역 -->
-        <div class="hero-selection">
-          <h2>영웅 선택</h2>
-          <div class="selection-info">
-            <span id="selected-count">0/5</span> 명 선택됨
-          </div>
+            <!-- 필터 (가로) -->
+            <div class="filters-horizontal">
+              <div class="filter-row">
+                <label class="filter-label">검색</label>
+                <input type="text" id="search-hero" class="search-input" placeholder="영웅 이름 검색..." />
+              </div>
 
-          <!-- 검색 및 필터 -->
-          <div class="hero-search">
-            <input type="text" id="search-hero" placeholder="영웅 이름 검색..." />
-          </div>
+              <div class="filter-row">
+                <label class="filter-label">등급</label>
+                <div class="filter-chips" id="filter-rarity">
+                  <label class="chip"><input type="checkbox" value="전체" checked><span>전체</span></label>
+                  <label class="chip"><input type="checkbox" value="전설+"><span>전설+</span></label>
+                  <label class="chip"><input type="checkbox" value="전설"><span>전설</span></label>
+                  <label class="chip"><input type="checkbox" value="희귀"><span>희귀</span></label>
+                </div>
+              </div>
 
-          <div id="heroes-list"></div>
+              <div class="filter-row">
+                <label class="filter-label">타입</label>
+                <div class="filter-chips" id="filter-type">
+                  <label class="chip"><input type="checkbox" value="전체" checked><span>전체</span></label>
+                  <label class="chip"><input type="checkbox" value="공격형"><span>공격형</span></label>
+                  <label class="chip"><input type="checkbox" value="마법형"><span>마법형</span></label>
+                  <label class="chip"><input type="checkbox" value="만능형"><span>만능형</span></label>
+                  <label class="chip"><input type="checkbox" value="방어형"><span>방어형</span></label>
+                  <label class="chip"><input type="checkbox" value="지원형"><span>지원형</span></label>
+                </div>
+              </div>
+
+              <div class="filter-row">
+                <label class="filter-label">소속</label>
+                <div class="filter-chips" id="filter-group"></div>
+              </div>
+            </div>
+
+            <!-- 영웅 목록 -->
+            <div id="heroes-list"></div>
+          </div>
         </div>
       </main>
-
-      <aside class="sidebar-right">
-        <div class="filter-container">
-          <h3>필터</h3>
-
-          <!-- 등급 필터 -->
-          <div class="filter-group">
-            <span class="filter-title">등급</span>
-            <div class="filter-buttons" id="filter-rarity">
-              <label><input type="checkbox" value="전체" checked>전체</label>
-              <label><input type="checkbox" value="전설+">전설+</label>
-              <label><input type="checkbox" value="전설">전설</label>
-              <label><input type="checkbox" value="희귀">희귀</label>
-            </div>
-          </div>
-
-          <!-- 타입 필터 -->
-          <div class="filter-group">
-            <span class="filter-title">타입</span>
-            <div class="filter-buttons" id="filter-type">
-              <label><input type="checkbox" value="전체" checked>전체</label>
-              <label><input type="checkbox" value="공격형">공격형</label>
-              <label><input type="checkbox" value="마법형">마법형</label>
-              <label><input type="checkbox" value="만능형">만능형</label>
-              <label><input type="checkbox" value="방어형">방어형</label>
-              <label><input type="checkbox" value="지원형">지원형</label>
-            </div>
-          </div>
-
-          <!-- 소속 필터 -->
-          <div class="filter-group">
-            <span class="filter-title">소속</span>
-            <div class="filter-buttons" id="filter-group"></div>
-          </div>
-        </div>
-      </aside>
     </div>
 
     <!-- 공유 모달 -->
@@ -201,12 +202,12 @@
           }
           allHeroes = data.records;
 
-          // 소속 필터 동적 생성
+          // 소속 필터 동적 생성 (chip 형태)
           const groupFilterContainer = document.getElementById("filter-group");
           const uniqueGroups = [...new Set(allHeroes.map(hero => hero.group).filter(Boolean))].sort((a, b) => a.localeCompare(b, "ko"));
           groupFilterContainer.innerHTML = `
-            <label><input type="checkbox" value="전체" checked>전체</label>
-            ${uniqueGroups.map(group => `<label><input type="checkbox" value="${group}">${group}</label>`).join('')}
+            <label class="chip"><input type="checkbox" value="전체" checked><span>전체</span></label>
+            ${uniqueGroups.map(group => `<label class="chip"><input type="checkbox" value="${group}"><span>${group}</span></label>`).join('')}
           `;
 
           // URL에서 덱 로드
