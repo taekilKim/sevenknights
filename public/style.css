@@ -221,22 +221,25 @@ img {
 /* ------------------------------------ */
 .hero-detail-page {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: flex-start;
-  gap: 2rem;
-  background: #000;
+  gap: 3rem;
+  background: linear-gradient(180deg, #0a0a0a 0%, #000 100%);
   min-height: 100vh;
+  padding: 0 24px;
+  box-sizing: border-box;
 }
 
 /* Adjust container widths for desktop */
 .hero-detail-container {
-  flex: 3;
-  max-width: 75%;
+  flex: 1;
+  max-width: 900px;
+  width: 100%;
 }
 
 .hero-comments {
-  flex: 1;
-  max-width: 25%;
+  flex: 0 0 360px;
+  max-width: 360px;
 }
 
 /* Responsive fallback for mobile (under 1024px) */
@@ -277,13 +280,38 @@ img {
 }
 
 .hero-detail-container {
-  flex: 3;
-  max-width: 75%;
   margin: 0;
   text-align: left;
-  padding: 48px;
+  padding: 32px 0;
   box-sizing: border-box;
 }
+
+/* Hero Top Section - Portrait and Basic Info */
+.hero-top {
+  background: linear-gradient(135deg, #1a1a1a 0%, #151515 100%);
+  border: 1px solid #2a2a2a;
+  border-radius: 20px;
+  padding: 40px;
+  margin-bottom: 32px;
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-top::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 200px;
+  background: radial-gradient(ellipse at top, rgba(255, 213, 106, 0.05) 0%, transparent 70%);
+  pointer-events: none;
+}
+
 .hero-detail-portrait {
   width: 240px;
   height: 240px;
@@ -292,17 +320,53 @@ img {
   border: 4px solid #c1b494;
   margin: 0 auto 24px;
 }
+
+.hero-basic-info {
+  flex: 1;
+  position: relative;
+  z-index: 1;
+}
+
 #hero-name {
-  font-size: 2rem;
+  font-size: 2.5rem;
   font-weight: 700;
   color: #fff;
   margin-bottom: 8px;
+  line-height: 1.2;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
 }
-#hero-type {
+
+.hero-nickname {
+  font-size: 1.1rem;
+  color: #b8b8b8;
+  margin-bottom: 12px;
+  font-style: italic;
+}
+
+.hero-group {
   font-size: 1rem;
-  color: #aee6ff;
-  margin-bottom: 24px;
+  color: #ffd56a;
+  margin-bottom: 16px;
+  font-weight: 500;
 }
+
+.hero-meta {
+  display: flex;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+#hero-type,
+#hero-rarity {
+  background: rgba(255, 213, 106, 0.1);
+  border: 1px solid rgba(255, 213, 106, 0.3);
+  border-radius: 8px;
+  padding: 8px 16px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #ffd56a;
+}
+
 #hero-description {
   font-size: 1rem;
   line-height: 1.6;
@@ -310,6 +374,166 @@ img {
   margin-bottom: 32px;
   white-space: pre-line;
 }
+
+/* Hero Stats Section */
+.hero-stats {
+  background: linear-gradient(135deg, #1a1a1a 0%, #151515 100%);
+  border: 1px solid #2a2a2a;
+  border-radius: 20px;
+  padding: 32px;
+  margin-bottom: 32px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+.hero-stats h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #ffd56a;
+  margin: 0 0 24px 0;
+  padding-bottom: 16px;
+  border-bottom: 2px solid rgba(255, 213, 106, 0.2);
+}
+
+.stats-table {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  border-collapse: separate;
+  border: none;
+  width: 100%;
+}
+
+.stats-table tr {
+  display: flex;
+  flex-direction: column;
+  background: rgba(255, 213, 106, 0.05);
+  border: 1px solid rgba(255, 213, 106, 0.15);
+  border-radius: 12px;
+  padding: 16px;
+  transition: all 0.2s ease;
+}
+
+.stats-table tr:hover {
+  background: rgba(255, 213, 106, 0.08);
+  border-color: rgba(255, 213, 106, 0.25);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 213, 106, 0.1);
+}
+
+.stats-table td:first-child {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #999;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 8px;
+}
+
+.stats-table td:last-child {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #fff;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Hero Skills Section */
+.hero-skills {
+  margin-bottom: 32px;
+}
+
+.hero-skills h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #ffd56a;
+  margin: 0 0 24px 0;
+  padding-bottom: 16px;
+  border-bottom: 2px solid rgba(255, 213, 106, 0.2);
+}
+
+.hero-skills .skill {
+  background: linear-gradient(135deg, #1a1a1a 0%, #151515 100%);
+  border: 1px solid #2a2a2a;
+  border-radius: 16px;
+  padding: 24px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-skills .skill::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #ffd56a 0%, #ffb84d 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.hero-skills .skill:hover {
+  border-color: rgba(255, 213, 106, 0.3);
+  transform: translateX(4px);
+  box-shadow: 0 6px 24px rgba(255, 213, 106, 0.15);
+}
+
+.hero-skills .skill:hover::before {
+  opacity: 1;
+}
+
+.hero-skills .skill h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #ffd56a;
+  margin: 0 0 16px 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  opacity: 0.8;
+}
+
+.hero-skills .skill img {
+  width: 80px;
+  height: 80px;
+  border-radius: 12px;
+  border: 2px solid rgba(255, 213, 106, 0.2);
+  margin-bottom: 16px;
+  float: left;
+  margin-right: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.hero-skills .skill .skill-name {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.hero-skills .skill .skill-cooltime {
+  display: inline-block;
+  background: rgba(255, 213, 106, 0.15);
+  border: 1px solid rgba(255, 213, 106, 0.3);
+  border-radius: 6px;
+  padding: 4px 12px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #ffd56a;
+  margin-bottom: 12px;
+  margin-left: 8px;
+}
+
+.hero-skills .skill .skill-desc {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #ccc;
+  clear: both;
+  padding-top: 12px;
+}
+
 #hero-skills {
   list-style: none;
   padding: 0;
@@ -416,53 +640,105 @@ svg defs {
 /* ------------------------------------ */
 .hero-comments {
   width: 100%;
-  max-width: 720px;
-  margin: 48px auto;
-  background: #111;
-  border: 1px solid #222;
-  border-radius: 12px;
-  padding: 24px;
+  background: linear-gradient(135deg, #1a1a1a 0%, #151515 100%);
+  border: 1px solid #2a2a2a;
+  border-radius: 20px;
+  padding: 32px;
   box-sizing: border-box;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  position: sticky;
+  top: 100px;
+  max-height: calc(100vh - 120px);
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 213, 106, 0.3) rgba(255, 255, 255, 0.05);
 }
+
+.hero-comments::-webkit-scrollbar {
+  width: 8px;
+}
+
+.hero-comments::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 4px;
+}
+
+.hero-comments::-webkit-scrollbar-thumb {
+  background: rgba(255, 213, 106, 0.3);
+  border-radius: 4px;
+}
+
+.hero-comments::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 213, 106, 0.5);
+}
+
 .hero-comments h2 {
-  font-size: 1.25rem;
-  font-weight: 600;
+  font-size: 1.5rem;
+  font-weight: 700;
   color: #ffd56a;
-  margin-bottom: 16px;
+  margin: 0 0 24px 0;
+  padding-bottom: 16px;
+  border-bottom: 2px solid rgba(255, 213, 106, 0.2);
 }
+
 #comment-form {
   display: flex;
   flex-direction: column;
   gap: 12px;
   margin-bottom: 24px;
 }
+
 #comment-form input,
 #comment-form textarea {
-  background: #1a1a1a;
+  background: rgba(255, 255, 255, 0.03);
   color: #fff;
-  border: 1px solid #333;
-  border-radius: 6px;
-  padding: 10px 12px;
+  border: 1px solid rgba(255, 213, 106, 0.2);
+  border-radius: 10px;
+  padding: 12px 16px;
   font-family: "Pretendard", sans-serif;
   font-size: 0.95rem;
+  transition: all 0.3s ease;
 }
+
+#comment-form input:focus,
+#comment-form textarea:focus {
+  outline: none;
+  border-color: rgba(255, 213, 106, 0.5);
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 0 0 3px rgba(255, 213, 106, 0.1);
+}
+
 #comment-form input::placeholder,
 #comment-form textarea::placeholder {
   color: #666;
 }
+
+#comment-form textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
 #comment-form button {
   align-self: flex-end;
-  background: #f0c674;
+  background: linear-gradient(135deg, #ffd56a 0%, #ffb84d 100%);
   color: #000;
   border: none;
-  padding: 8px 16px;
-  border-radius: 6px;
+  padding: 12px 24px;
+  border-radius: 10px;
   font-weight: 600;
+  font-size: 1rem;
   cursor: pointer;
-  transition: background 0.2s ease;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(255, 213, 106, 0.3);
 }
+
 #comment-form button:hover {
-  background: #ffd56a;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 213, 106, 0.4);
+}
+
+#comment-form button:active {
+  transform: translateY(0);
 }
 
 .comment-list {
@@ -471,24 +747,38 @@ svg defs {
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 16px;
 }
+
 .comment-list li {
-  background: #1a1a1a;
-  border: 1px solid #333;
-  border-radius: 8px;
-  padding: 12px 16px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 213, 106, 0.15);
+  border-radius: 12px;
+  padding: 16px;
+  transition: all 0.2s ease;
 }
+
+.comment-list li:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 213, 106, 0.25);
+  transform: translateX(4px);
+}
+
 .comment-list li strong {
   color: #ffd56a;
   display: block;
-  margin-bottom: 4px;
+  margin-bottom: 8px;
+  font-size: 1rem;
+  font-weight: 600;
 }
+
 .comment-list li p {
-  color: #ddd;
-  margin: 0 0 4px 0;
+  color: #ccc;
+  margin: 0 0 8px 0;
   font-size: 0.95rem;
+  line-height: 1.5;
 }
+
 .comment-list li span {
   color: #777;
   font-size: 0.8rem;
@@ -683,11 +973,24 @@ svg defs {
   /* 영웅 상세 페이지 */
   .hero-detail-page {
     flex-direction: column;
-    padding: 0;
+    padding: 0 16px;
   }
 
   .hero-detail-container {
-    padding: 16px;
+    padding: 16px 0;
+    max-width: 100%;
+  }
+
+  /* Hero Top Section - Mobile */
+  .hero-top {
+    flex-direction: column;
+    padding: 24px 20px;
+    text-align: center;
+    gap: 20px;
+  }
+
+  .hero-top::before {
+    height: 150px;
   }
 
   .hero-detail-portrait {
@@ -698,6 +1001,7 @@ svg defs {
   .hero-top .hero-portrait-wrap {
     width: 160px;
     height: 160px;
+    margin: 0 auto;
   }
 
   .hero-top .hero-type-badge {
@@ -714,20 +1018,104 @@ svg defs {
     right: 4px;
   }
 
+  .hero-basic-info {
+    width: 100%;
+  }
+
   #hero-name {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
   }
 
-  #hero-type {
+  .hero-nickname {
+    font-size: 0.95rem;
+  }
+
+  .hero-group {
     font-size: 0.9rem;
   }
 
-  #hero-description {
+  .hero-meta {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  #hero-type,
+  #hero-rarity {
+    font-size: 0.85rem;
+    padding: 6px 12px;
+  }
+
+  /* Stats Section - Mobile */
+  .hero-stats {
+    padding: 20px;
+    margin-bottom: 24px;
+  }
+
+  .hero-stats h2 {
+    font-size: 1.4rem;
+    margin-bottom: 20px;
+  }
+
+  .stats-table {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .stats-table tr {
+    padding: 12px;
+  }
+
+  .stats-table td:first-child {
+    font-size: 0.75rem;
+  }
+
+  .stats-table td:last-child {
+    font-size: 1.2rem;
+  }
+
+  /* Skills Section - Mobile */
+  .hero-skills h2 {
+    font-size: 1.4rem;
+  }
+
+  .hero-skills .skill {
+    padding: 16px;
+    margin-bottom: 16px;
+  }
+
+  .hero-skills .skill h3 {
     font-size: 0.9rem;
+    margin-bottom: 12px;
+  }
+
+  .hero-skills .skill img {
+    width: 60px;
+    height: 60px;
+    margin-right: 12px;
+  }
+
+  .hero-skills .skill .skill-name {
+    font-size: 1.1rem;
+  }
+
+  .hero-skills .skill .skill-cooltime {
+    font-size: 0.75rem;
+    padding: 3px 10px;
+  }
+
+  .hero-skills .skill .skill-desc {
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+
+  /* Related Heroes - Mobile */
+  .related-heroes h2 {
+    font-size: 1.3rem;
   }
 
   .related-hero-card {
-    width: 70px;
+    width: 90px;
+    padding: 10px;
   }
 
   .related-hero-card .hero-portrait-wrap {
@@ -751,6 +1139,46 @@ svg defs {
 
   .related-hero-card .hero-name {
     font-size: 0.75rem;
+  }
+
+  /* Comments Section - Mobile */
+  .hero-comments {
+    position: static;
+    max-height: none;
+    margin-top: 24px;
+    padding: 20px;
+    max-width: 100%;
+  }
+
+  .hero-comments h2 {
+    font-size: 1.3rem;
+  }
+
+  #comment-form input,
+  #comment-form textarea {
+    font-size: 0.9rem;
+    padding: 10px 14px;
+  }
+
+  #comment-form button {
+    padding: 10px 20px;
+    font-size: 0.95rem;
+  }
+
+  .comment-list li {
+    padding: 12px;
+  }
+
+  .comment-list li strong {
+    font-size: 0.95rem;
+  }
+
+  .comment-list li p {
+    font-size: 0.85rem;
+  }
+
+  #hero-description {
+    font-size: 0.9rem;
   }
 }
 
@@ -792,7 +1220,27 @@ svg defs {
     right: 4px;
   }
 
-  /* 영웅 상세 페이지 */
+  /* 영웅 상세 페이지 - Tablet */
+  .hero-detail-page {
+    flex-direction: column;
+    padding: 0 20px;
+  }
+
+  .hero-detail-container {
+    max-width: 100%;
+  }
+
+  .hero-comments {
+    position: static;
+    max-height: none;
+    margin-top: 32px;
+    max-width: 100%;
+  }
+
+  .hero-top {
+    padding: 32px 28px;
+  }
+
   .hero-detail-portrait {
     width: 200px;
     height: 200px;
@@ -817,8 +1265,28 @@ svg defs {
     right: 6px;
   }
 
+  #hero-name {
+    font-size: 2.2rem;
+  }
+
+  /* Stats Section - Tablet */
+  .stats-table {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  /* Skills Section - Tablet */
+  .hero-skills .skill img {
+    width: 70px;
+    height: 70px;
+  }
+
+  .hero-skills .skill .skill-name {
+    font-size: 1.2rem;
+  }
+
+  /* Related Heroes - Tablet */
   .related-hero-card {
-    width: 90px;
+    width: 100px;
   }
 
   .related-hero-card .hero-portrait-wrap {
@@ -944,20 +1412,75 @@ svg defs {
 /* ------------------------------------ */
 /*  Related Heroes (가로 스크롤 레이아웃) */
 /* ------------------------------------ */
+.related-heroes {
+  margin-bottom: 32px;
+}
+
+.related-heroes h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #ffd56a;
+  margin: 0 0 20px 0;
+  padding-bottom: 12px;
+  border-bottom: 2px solid rgba(255, 213, 106, 0.2);
+}
+
 .related-hero-list {
   display: flex;
   flex-wrap: nowrap;
   overflow-x: auto;
-  gap: 12px;
-  padding-bottom: 10px;
-  scrollbar-width: none;
+  gap: 16px;
+  padding: 16px 8px;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 213, 106, 0.3) rgba(255, 255, 255, 0.05);
 }
+
 .related-hero-list::-webkit-scrollbar {
-  display: none;
+  height: 8px;
 }
+
+.related-hero-list::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 4px;
+}
+
+.related-hero-list::-webkit-scrollbar-thumb {
+  background: rgba(255, 213, 106, 0.3);
+  border-radius: 4px;
+}
+
+.related-hero-list::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 213, 106, 0.5);
+}
+
 .related-hero-card {
   flex: 0 0 auto;
   width: 120px;
+  background: linear-gradient(135deg, #1a1a1a 0%, #151515 100%);
+  border: 1px solid #2a2a2a;
+  border-radius: 12px;
+  padding: 12px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.related-hero-card:hover {
+  border-color: rgba(255, 213, 106, 0.4);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(255, 213, 106, 0.15);
+}
+
+.related-hero-card .hero-name {
+  margin-top: 8px;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.no-related {
+  color: #666;
+  font-style: italic;
+  text-align: center;
+  padding: 20px;
 }
 
 /* ------------------------------------ */
@@ -977,28 +1500,29 @@ svg defs {
 /* ------------------------------------ */
 @media (max-width: 1023px) {
   body {
-    margin: 0 24px;
+    margin: 0;
   }
 
   /* 영웅 상세 페이지 */
   .hero-detail-page {
     flex-direction: column;
-    padding: 0 0 24px 0;
+    padding: 0 20px 24px;
   }
 
   .hero-detail-container {
     max-width: 100%;
-    padding: 24px 0;
+    padding: 20px 0;
   }
 
   .hero-comments {
     order: 3;
     max-width: 100%;
     margin-top: 24px;
+    position: static;
   }
 
   .hero-header {
-    padding: 0 16px;
+    padding: 0 20px;
   }
 
   .hero-top {
@@ -1006,6 +1530,7 @@ svg defs {
     flex-direction: column;
     align-items: center;
     margin-bottom: 24px;
+    padding: 28px 24px;
   }
 
   .hero-basic-info {
@@ -1013,13 +1538,39 @@ svg defs {
     margin-top: 12px;
   }
 
+  .hero-meta {
+    justify-content: center;
+  }
+
+  /* Stats Section - General Mobile */
+  .hero-stats {
+    padding: 24px;
+  }
+
+  .stats-table {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  /* Skills Section - General Mobile */
+  .hero-skills .skill {
+    padding: 20px;
+  }
+
+  .hero-skills .skill img {
+    width: 65px;
+    height: 65px;
+  }
+
+  /* Related Heroes - General Mobile */
   .related-hero-list {
-    padding: 0;
-    gap: 8px;
+    padding: 12px 8px;
+    gap: 12px;
   }
 
   .related-hero-card {
-    width: 80px;
+    width: 85px;
+    padding: 10px;
   }
 
   /* 영웅 상세 페이지 아이콘 */
