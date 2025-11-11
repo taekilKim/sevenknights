@@ -906,7 +906,7 @@ svg defs {
 
 /* 덱 배치 영역 (중앙) */
 .deck-left {
-  max-width: 800px;
+  max-width: 1200px;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -1003,6 +1003,7 @@ svg defs {
   display: flex;
   gap: 16px;
   margin-bottom: auto;
+  align-items: center;
 }
 
 .formation-line {
@@ -1065,14 +1066,14 @@ svg defs {
 .deck-slot {
   position: relative;
   width: 100%;
-  height: 90px;
+  min-height: 130px;
   background: #0e0e0e;
   border: 2px dashed #444;
   border-radius: 10px;
   display: flex;
   flex-direction: row;
   align-items: center;
-  padding: 10px;
+  padding: 12px;
   gap: 10px;
   transition: all 0.3s ease;
   box-sizing: border-box;
@@ -1110,11 +1111,13 @@ svg defs {
 
 .slot-hero {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
+  justify-content: center;
   width: 100%;
-  gap: 12px;
+  gap: 8px;
   position: relative;
+  flex: 1;
 }
 
 .slot-hero-portrait {
@@ -1127,28 +1130,34 @@ svg defs {
 }
 
 .slot-hero-name {
-  font-size: 1rem;
+  font-size: 0.9rem;
   font-weight: 500;
   color: #fff;
-  flex: 1;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
 }
 
 .slot-remove {
-  width: 28px;
-  height: 28px;
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  width: 24px;
+  height: 24px;
   background: #ff4444;
   color: #fff;
   border: none;
   border-radius: 50%;
   cursor: pointer;
-  font-size: 1.2rem;
+  font-size: 1rem;
   line-height: 1;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: background 0.2s ease;
   flex-shrink: 0;
-  margin-left: auto;
 }
 
 .slot-remove:hover {
