@@ -417,8 +417,34 @@
           document.getElementById("hero-name").textContent = hero.name || "";
           document.getElementById("hero-nickname").textContent = hero.nickname || "";
           document.getElementById("hero-group").textContent = hero.group || "";
-          document.getElementById("hero-type").textContent = hero.type || "";
-          document.getElementById("hero-rarity").textContent = hero.rarity || "";
+
+          // Set hero type with color class
+          const heroTypeEl = document.getElementById("hero-type");
+          heroTypeEl.textContent = hero.type || "";
+          const typeClassMap = {
+            "공격형": "type-attack",
+            "마법형": "type-magic",
+            "지원형": "type-support",
+            "만능형": "type-versatile",
+            "방어형": "type-defense"
+          };
+          const typeClass = typeClassMap[hero.type];
+          if (typeClass) {
+            heroTypeEl.className = "hero-type " + typeClass;
+          }
+
+          // Set hero rarity with color class
+          const heroRarityEl = document.getElementById("hero-rarity");
+          heroRarityEl.textContent = hero.rarity || "";
+          const rarityClassMap = {
+            "전설+": "rarity-legendary-plus",
+            "전설": "rarity-legendary",
+            "희귀": "rarity-rare"
+          };
+          const rarityClass = rarityClassMap[hero.rarity];
+          if (rarityClass) {
+            heroRarityEl.className = "hero-rarity " + rarityClass;
+          }
 
           // 스탯
           const statFields = ["atk","def","hp","spd","crit_rate","crit_dmg","weak_rate","block_rate","dmg_reduce","eff_hit","eff_res"];

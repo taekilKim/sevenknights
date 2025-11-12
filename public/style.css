@@ -1206,12 +1206,102 @@ button {
 #hero-type,
 #hero-rarity {
   background: var(--overlay-light);
-  border: 1px solid var(--border-tertiary);
+  border: 1px solid;
   border-radius: 8px;
   padding: 8px 16px;
   font-size: 0.95rem;
   font-weight: 600;
-  color: var(--accent-primary);
+}
+
+/* Type-specific colors */
+#hero-type.type-attack {
+  color: #ff5252;
+  border-color: rgba(255, 82, 82, 0.3);
+  background: rgba(255, 82, 82, 0.1);
+}
+
+#hero-type.type-magic {
+  color: #448aff;
+  border-color: rgba(68, 138, 255, 0.3);
+  background: rgba(68, 138, 255, 0.1);
+}
+
+#hero-type.type-support {
+  color: #d4a044;
+  border-color: rgba(212, 160, 68, 0.3);
+  background: rgba(212, 160, 68, 0.1);
+}
+
+#hero-type.type-versatile {
+  color: #ab47bc;
+  border-color: rgba(171, 71, 188, 0.3);
+  background: rgba(171, 71, 188, 0.1);
+}
+
+#hero-type.type-defense {
+  color: #8d6e63;
+  border-color: rgba(141, 110, 99, 0.3);
+  background: rgba(141, 110, 99, 0.1);
+}
+
+/* Rarity-specific colors */
+#hero-rarity.rarity-legendary-plus {
+  color: #eba22a;
+  border-color: rgba(235, 162, 42, 0.3);
+  background: rgba(235, 162, 42, 0.1);
+}
+
+#hero-rarity.rarity-legendary {
+  color: #b68700;
+  border-color: rgba(182, 135, 0, 0.3);
+  background: rgba(182, 135, 0, 0.1);
+}
+
+#hero-rarity.rarity-rare {
+  color: #a693ff;
+  border-color: rgba(166, 147, 255, 0.3);
+  background: rgba(166, 147, 255, 0.1);
+}
+
+/* Light theme adjustments */
+[data-theme="light"] #hero-type.type-attack {
+  color: #d32f2f;
+  background: rgba(211, 47, 47, 0.08);
+}
+
+[data-theme="light"] #hero-type.type-magic {
+  color: #1976d2;
+  background: rgba(25, 118, 210, 0.08);
+}
+
+[data-theme="light"] #hero-type.type-support {
+  color: #c08830;
+  background: rgba(192, 136, 48, 0.08);
+}
+
+[data-theme="light"] #hero-type.type-versatile {
+  color: #8e24aa;
+  background: rgba(142, 36, 170, 0.08);
+}
+
+[data-theme="light"] #hero-type.type-defense {
+  color: #6d4c41;
+  background: rgba(109, 76, 65, 0.08);
+}
+
+[data-theme="light"] #hero-rarity.rarity-legendary-plus {
+  color: #d88c1f;
+  background: rgba(216, 140, 31, 0.08);
+}
+
+[data-theme="light"] #hero-rarity.rarity-legendary {
+  color: #996a00;
+  background: rgba(153, 106, 0, 0.08);
+}
+
+[data-theme="light"] #hero-rarity.rarity-rare {
+  color: #7b68ee;
+  background: rgba(123, 104, 238, 0.08);
 }
 
 #hero-description {
