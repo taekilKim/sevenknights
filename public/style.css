@@ -1162,29 +1162,51 @@ button {
 /* Hero Navigation Side Buttons */
 .hero-nav-side {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
-  width: 56px;
-  height: 56px;
-  min-width: 56px;
+  gap: 12px;
+  padding: 12px 16px;
   background: var(--overlay-light);
   backdrop-filter: blur(var(--blur-sm));
   -webkit-backdrop-filter: blur(var(--blur-sm));
   border: 1px solid var(--border-tertiary);
-  border-radius: 50%;
+  border-radius: 16px;
   color: var(--text-secondary);
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   z-index: 2;
 }
 
-.hero-nav-side i {
+.hero-nav-side .nav-arrow {
   font-size: 24px;
+  flex-shrink: 0;
+}
+
+.hero-nav-side .nav-hero-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.hero-nav-side .nav-hero-portrait {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  object-fit: cover;
+  border: 2px solid var(--border-primary);
 }
 
 .hero-nav-side .nav-hero-name {
-  display: none;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-align: center;
+  color: var(--text-primary);
+  max-width: 80px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .hero-nav-side:hover:not(:disabled) {
@@ -1587,6 +1609,62 @@ svg defs {
   filter: drop-shadow(0 0 6px #d5a6ff)
           drop-shadow(0 0 12px #b57aff)
           drop-shadow(0 0 20px rgba(170, 90, 255, 0.6));
+}
+
+/* ================================ */
+/* Related Heroes Section */
+/* ================================ */
+.related-heroes {
+  margin-top: 48px;
+  margin-bottom: 48px;
+}
+
+.related-heroes h2 {
+  font-size: 1.5rem;
+  margin-bottom: 16px;
+  color: var(--text-primary);
+}
+
+.related-hero-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.related-hero-card {
+  max-width: 140px;
+}
+
+.related-hero-card .hero-portrait-wrap {
+  width: 100%;
+  padding-bottom: 100%;
+  position: relative;
+}
+
+.related-hero-card .hero-portrait {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.related-hero-card .hero-name {
+  font-size: 0.85rem;
+  margin-top: 8px;
+}
+
+@media (max-width: 768px) {
+  .related-hero-list {
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 12px;
+  }
+
+  .related-hero-card {
+    max-width: 120px;
+  }
 }
 
 /* (구)세븐나이츠 제외 일반 영웅 스파크 (상단 초상화) */
@@ -2088,17 +2166,17 @@ svg defs {
 .deck-slot {
   position: relative;
   width: 100%;
-  min-height: 130px;
+  min-height: 100px;
   background: var(--bg-tertiary);
   backdrop-filter: blur(var(--blur-sm));
   -webkit-backdrop-filter: blur(var(--blur-sm));
   border: 2px dashed var(--border-secondary);
-  border-radius: 16px;
+  border-radius: 12px;
   display: flex;
   flex-direction: row;
   align-items: center;
-  padding: 12px;
-  gap: 10px;
+  padding: 10px;
+  gap: 8px;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   box-sizing: border-box;
   cursor: pointer;
@@ -2148,7 +2226,7 @@ svg defs {
 .slot-hero-portrait {
   width: 70px;
   height: 70px;
-  border-radius: 50%;
+  border-radius: 12px;
   object-fit: cover;
   border: 3px solid #c1b494;
   flex-shrink: 0;
@@ -2665,43 +2743,47 @@ svg defs {
   }
 
   .deck-formation {
-    flex-direction: column;
-    gap: 12px;
-    align-items: stretch;
+    flex-direction: row;
+    gap: 8px;
+    align-items: flex-start;
   }
 
   .formation-line {
-    width: 100%;
+    flex: 1;
   }
 
   .line-label {
-    font-size: 0.8rem;
+    font-size: 0.7rem;
+    margin-bottom: 2px;
   }
 
   .deck-slot {
-    min-height: 100px;
-    padding: 10px;
+    min-height: 70px;
+    padding: 6px;
+    gap: 6px;
+    border-radius: 8px;
   }
 
   .slot-indicator {
-    width: 30px;
-    height: 30px;
-    font-size: 1rem;
+    width: 24px;
+    height: 24px;
+    font-size: 0.8rem;
   }
 
   .slot-hero-portrait {
-    width: 60px;
-    height: 60px;
+    width: 48px;
+    height: 48px;
+    border-radius: 8px;
   }
 
   .slot-hero-name {
-    font-size: 0.85rem;
+    font-size: 0.7rem;
   }
 
   .slot-remove {
-    width: 22px;
-    height: 22px;
-    font-size: 0.9rem;
+    width: 20px;
+    height: 20px;
+    font-size: 0.85rem;
   }
 
   /* 덱 액션 버튼 */
@@ -2986,56 +3068,28 @@ svg defs {
 }
 
 /* ------------------------------------ */
-/*  영웅 상세 - 좌우 네비게이션          */
+/*  영웅 상세 - 좌우 네비게이션 위치     */
 /* ------------------------------------ */
-.hero-nav-side {
+.hero-top {
+  position: relative;
+}
+
+.hero-top .hero-nav-side {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: var(--overlay-light);
-  backdrop-filter: blur(var(--blur-sm));
-  -webkit-backdrop-filter: blur(var(--blur-sm));
-  border: 1px solid var(--border-tertiary);
-  border-radius: 16px;
-  padding: 16px 12px;
-  cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  color: var(--text-primary);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;
-  z-index: 10;
-  max-width: 120px;
-  box-shadow: 0 4px 16px var(--shadow-sm);
 }
 
-.hero-nav-side:hover {
-  background: var(--overlay-medium);
-  border-color: var(--accent-primary);
-  color: var(--accent-primary);
+.hero-top .hero-nav-side:hover {
   transform: translateY(-50%) scale(1.05);
-  box-shadow: 0 8px 24px var(--shadow-md);
-}
-
-.hero-nav-side i {
-  font-size: 32px;
-}
-
-.nav-hero-name {
-  font-size: 0.85rem;
-  font-weight: 600;
-  text-align: center;
-  line-height: 1.2;
-  word-break: keep-all;
 }
 
 .prev-hero-side {
-  left: -140px;
+  left: -160px;
 }
 
 .next-hero-side {
-  right: -140px;
+  right: -160px;
 }
 
 @media (max-width: 1440px) {

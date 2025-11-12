@@ -99,13 +99,19 @@
         <div class="skeleton skill-skeleton"></div>
         <div class="skeleton skill-skeleton"></div>
       </div>
-    <h1 id="hero-guide-heading">세븐나이츠 리버스 영웅 상세 정보</h1>
-    <p class="subtitle">영웅의 스탯, 스킬, 희귀도 및 소속을 자세히 확인하세요.</p>
+    <!-- Page Header (Hidden for visual, visible for SEO & Screen Readers) -->
+    <div class="page-header sr-only">
+      <h1 id="hero-guide-heading">세븐나이츠 리버스 영웅 상세 정보</h1>
+      <p class="subtitle">영웅의 스탯, 스킬, 희귀도 및 소속을 자세히 확인하세요.</p>
+    </div>
     <section class="hero-top">
       <!-- 이전 영웅 네비게이션 -->
       <button class="hero-nav-side prev-hero-side" id="prev-hero-side" aria-label="이전 영웅" title="이전 영웅">
-        <i class="ph-bold ph-caret-left"></i>
-        <span class="nav-hero-name" id="prev-hero-name"></span>
+        <i class="ph-bold ph-caret-left nav-arrow"></i>
+        <div class="nav-hero-info">
+          <img class="nav-hero-portrait" id="prev-hero-portrait" alt="" />
+          <span class="nav-hero-name" id="prev-hero-name"></span>
+        </div>
       </button>
 
       <div class="hero-portrait-wrap">
@@ -125,8 +131,11 @@
 
       <!-- 다음 영웅 네비게이션 -->
       <button class="hero-nav-side next-hero-side" id="next-hero-side" aria-label="다음 영웅" title="다음 영웅">
-        <i class="ph-bold ph-caret-right"></i>
-        <span class="nav-hero-name" id="next-hero-name"></span>
+        <div class="nav-hero-info">
+          <img class="nav-hero-portrait" id="next-hero-portrait" alt="" />
+          <span class="nav-hero-name" id="next-hero-name"></span>
+        </div>
+        <i class="ph-bold ph-caret-right nav-arrow"></i>
       </button>
     </section>
 
@@ -743,12 +752,16 @@ commentForm.addEventListener("submit", async (e) => {
         const nextButton = document.getElementById('next-hero-side');
         const prevNameEl = document.getElementById('prev-hero-name');
         const nextNameEl = document.getElementById('next-hero-name');
+        const prevPortraitEl = document.getElementById('prev-hero-portrait');
+        const nextPortraitEl = document.getElementById('next-hero-portrait');
 
         if (currentHeroIndex > 0) {
           const prevHero = allHeroes[currentHeroIndex - 1];
           prevButton.disabled = false;
           prevButton.style.display = 'flex';
           prevNameEl.textContent = prevHero.name;
+          prevPortraitEl.src = prevHero.portrait;
+          prevPortraitEl.alt = prevHero.name;
           prevButton.onclick = () => {
             window.location.href = `/hero.html?name=${encodeURIComponent(prevHero.name)}`;
           };
@@ -761,6 +774,8 @@ commentForm.addEventListener("submit", async (e) => {
           nextButton.disabled = false;
           nextButton.style.display = 'flex';
           nextNameEl.textContent = nextHero.name;
+          nextPortraitEl.src = nextHero.portrait;
+          nextPortraitEl.alt = nextHero.name;
           nextButton.onclick = () => {
             window.location.href = `/hero.html?name=${encodeURIComponent(nextHero.name)}`;
           };
