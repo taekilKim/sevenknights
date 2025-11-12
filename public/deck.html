@@ -28,7 +28,11 @@
   <body>
     <div class="layout">
       <header class="header">
-        <div class="header-logo">
+        <div class="header-left">
+          <button class="hamburger-menu" id="hamburger-menu" aria-label="메뉴">
+            <i class="ph-bold ph-list"></i>
+          </button>
+          <img src="/favicon.ico" alt="세븐나이츠 리버스 로고" class="header-logo" />
           <div class="header-title">세븐나이츠 리버스 가이드북</div>
         </div>
         <div class="header-actions">
@@ -38,6 +42,29 @@
           </button>
         </div>
       </header>
+
+      <!-- Mobile Menu Overlay -->
+      <div class="mobile-menu-overlay" id="mobile-menu-overlay">
+        <div class="mobile-menu">
+          <div class="mobile-menu-header">
+            <img src="/favicon.ico" alt="세븐나이츠 리버스 로고" class="mobile-menu-logo" />
+            <span>메뉴</span>
+            <button class="mobile-menu-close" id="mobile-menu-close" aria-label="닫기">
+              <i class="ph-bold ph-x"></i>
+            </button>
+          </div>
+          <nav class="mobile-menu-nav">
+            <a href="/index.html" class="mobile-nav-link">
+              <i class="ph-bold ph-users-three"></i>
+              <span>영웅 도감</span>
+            </a>
+            <a href="/deck.html" class="mobile-nav-link active">
+              <i class="ph-bold ph-sword"></i>
+              <span>결투장 덱</span>
+            </a>
+          </nav>
+        </div>
+      </div>
 
       <aside class="sidebar-left">
         <nav>
@@ -903,16 +930,7 @@
       });
     </script>
 
-    <!-- 모바일 바텀 네비게이션 -->
-    <nav class="bottom-nav">
-      <a href="/index.html" class="bottom-nav-item">
-        <i class="ph-bold ph-users-three"></i>
-        <span>영웅 도감</span>
-      </a>
-      <a href="/deck.html" class="bottom-nav-item active">
-        <i class="ph-bold ph-sword"></i>
-        <span>결투장 덱</span>
-      </a>
-    </nav>
+    <!-- Mobile Menu Script -->
+    <script src="/js/mobile-menu.js"></script>
   </body>
 </html>
