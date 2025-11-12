@@ -118,7 +118,6 @@ img {
   width: 100%;
   height: 100vh;
   background: var(--bg-tertiary);
-  overflow: hidden;
 }
 
 /* Header */
@@ -191,14 +190,34 @@ img {
   width: 280px;
   overflow-y: auto;
   box-sizing: border-box;
+  background: var(--bg-elevated);
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent-primary) var(--overlay-light);
 }
+
+.sidebar-left::-webkit-scrollbar,
+.sidebar-right::-webkit-scrollbar {
+  width: 8px;
+}
+
+.sidebar-left::-webkit-scrollbar-track,
+.sidebar-right::-webkit-scrollbar-track {
+  background: var(--overlay-light);
+}
+
+.sidebar-left::-webkit-scrollbar-thumb,
+.sidebar-right::-webkit-scrollbar-thumb {
+  background: var(--accent-primary);
+  border-radius: 4px;
+}
+
 .sidebar-left {
   left: 0;
-  border-right: 2px solid #222;
+  border-right: 2px solid var(--border-primary);
 }
 .sidebar-right {
   right: 0;
-  border-left: 2px solid #222;
+  border-left: 2px solid var(--border-primary);
 }
 
 /* Content */
@@ -207,12 +226,30 @@ img {
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  overflow-y: scroll;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
+  overflow-y: auto;
+  overflow-x: hidden;
   height: 100%;
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent-primary) var(--overlay-light);
 }
-.content::-webkit-scrollbar { display: none; }
+
+.content::-webkit-scrollbar {
+  width: 12px;
+}
+
+.content::-webkit-scrollbar-track {
+  background: var(--bg-tertiary);
+}
+
+.content::-webkit-scrollbar-thumb {
+  background: var(--accent-primary);
+  border-radius: 6px;
+  border: 3px solid var(--bg-tertiary);
+}
+
+.content::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-secondary);
+}
 
 /* ------------------------------------ */
 /*  로딩 상태                           */
@@ -639,12 +676,12 @@ img {
   margin: 0;
 }
 #hero-skills li {
-  background: #1a1a1a;
-  border: 1px solid #333;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-tertiary);
   border-radius: 8px;
   padding: 12px 16px;
   margin-bottom: 12px;
-  color: #eee;
+  color: var(--text-secondary);
   text-align: left;
 }
 
@@ -885,14 +922,14 @@ svg defs {
 
 .filter-container {
   padding: 24px;
-  color: #fff;
+  color: var(--text-primary);
   font-size: 0.9rem;
 }
 .filter-container h3 {
   font-size: 1.1rem;
   margin-top: 24px;
   margin-bottom: 12px;
-  color: #ffd56a;
+  color: var(--accent-primary);
 }
 .filter-group {
   margin-bottom: 20px;
@@ -901,6 +938,7 @@ svg defs {
   display: block;
   font-weight: 600;
   margin-bottom: 8px;
+  color: var(--text-secondary);
 }
 .filter-buttons {
   display: flex;
@@ -908,33 +946,38 @@ svg defs {
   gap: 6px;
 }
 .filter-buttons label {
-  background: #1a1a1a;
-  border: 1px solid #333;
+  background: var(--overlay-light);
+  border: 1px solid var(--border-tertiary);
   border-radius: 6px;
   padding: 6px 10px;
   cursor: pointer;
-  transition: background 0.2s, border-color 0.2s;
+  transition: all 0.2s ease;
   user-select: none;
+  color: var(--text-primary);
 }
 .filter-buttons label:hover {
-  background: #2c2c2c;
+  background: var(--overlay-medium);
+  border-color: var(--accent-primary);
 }
 .filter-buttons input {
   display: none;
 }
 .filter-buttons input:checked + label,
 .filter-buttons label:has(input:checked) {
-  background: #ffd56a;
-  color: #000;
-  border-color: #ffd56a;
+  background: var(--accent-primary);
+  color: var(--bg-primary);
+  border-color: var(--accent-primary);
+  font-weight: 600;
 }
 .sort-buttons label {
   display: block;
   margin-bottom: 6px;
   cursor: pointer;
+  color: var(--text-primary);
 }
 .sort-buttons input {
   margin-right: 6px;
+  accent-color: var(--accent-primary);
 }
 /* ------------------------------------ */
 /*  반응형 레이아웃 */
@@ -956,8 +999,8 @@ svg defs {
     width: 100%;
     height: auto;
     border: none;
-    border-bottom: 2px solid #222;
-    background: #1a1a1a;
+    border-bottom: 2px solid var(--border-primary);
+    background: var(--bg-elevated);
     order: -1;
   }
 
@@ -988,8 +1031,8 @@ svg defs {
 
   .sidebar-left nav ul li.active {
     background: transparent;
-    color: #ffd56a;
-    border-bottom-color: #ffd56a;
+    color: var(--accent-primary);
+    border-bottom-color: var(--accent-primary);
   }
 
   .sidebar-left nav ul li a {
@@ -1016,8 +1059,8 @@ svg defs {
   .filter-container {
     position: static;
     width: 100%;
-    background: #1a1a1a;
-    border-bottom: 1px solid #222;
+    background: var(--bg-elevated);
+    border-bottom: 1px solid var(--border-primary);
     padding: 16px;
     order: 0;
   }
@@ -1729,19 +1772,20 @@ svg defs {
 .sidebar-left nav ul li {
   padding: 16px 24px;
   cursor: pointer;
-  transition: background 0.2s ease, color 0.2s ease;
+  transition: all 0.2s ease;
   font-weight: 500;
-  border-bottom: 1px solid #222;
+  border-bottom: 1px solid var(--border-primary);
+  color: var(--text-primary);
 }
 
 .sidebar-left nav ul li:hover {
-  background: #2a2a2a;
-  color: #ffd56a;
+  background: var(--overlay-medium);
+  color: var(--accent-primary);
 }
 
 .sidebar-left nav ul li.active {
-  background: #ffd56a;
-  color: #000;
+  background: var(--accent-primary);
+  color: var(--bg-primary);
   font-weight: 600;
 }
 
@@ -1749,6 +1793,7 @@ svg defs {
   display: block;
   width: 100%;
   height: 100%;
+  color: inherit;
 }
 
 /* ------------------------------------ */
@@ -1766,6 +1811,26 @@ svg defs {
   overflow-y: auto;
   overflow-x: hidden;
   align-items: center;
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent-primary) var(--overlay-light);
+}
+
+.deck-content::-webkit-scrollbar {
+  width: 12px;
+}
+
+.deck-content::-webkit-scrollbar-track {
+  background: var(--bg-tertiary);
+}
+
+.deck-content::-webkit-scrollbar-thumb {
+  background: var(--accent-primary);
+  border-radius: 6px;
+  border: 3px solid var(--bg-tertiary);
+}
+
+.deck-content::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-secondary);
 }
 
 .deck-content h1 {
@@ -1779,7 +1844,7 @@ svg defs {
   clip: auto;
   font-size: 2rem;
   font-weight: 700;
-  color: #fff;
+  color: var(--text-primary);
 }
 
 .deck-content .subtitle {
@@ -1791,7 +1856,7 @@ svg defs {
   margin: 0 0 24px 0;
   overflow: visible;
   clip: auto;
-  color: #999;
+  color: var(--text-tertiary);
   font-size: 1rem;
 }
 
@@ -1814,8 +1879,8 @@ svg defs {
 
 /* 진형 선택기 */
 .formation-selector {
-  background: #1a1a1a;
-  border: 2px solid #333;
+  background: var(--bg-elevated);
+  border: 2px solid var(--border-tertiary);
   border-radius: 12px;
   padding: 20px;
 }
@@ -1823,7 +1888,7 @@ svg defs {
 .formation-selector h3 {
   font-size: 1.1rem;
   font-weight: 600;
-  color: #ffd56a;
+  color: var(--accent-primary);
   margin: 0 0 16px 0;
 }
 
@@ -1834,8 +1899,8 @@ svg defs {
 }
 
 .formation-option {
-  background: #0e0e0e;
-  border: 2px solid #444;
+  background: var(--bg-tertiary);
+  border: 2px solid var(--border-secondary);
   border-radius: 8px;
   padding: 12px;
   cursor: pointer;
@@ -1852,24 +1917,24 @@ svg defs {
 }
 
 .formation-option:hover {
-  border-color: #666;
-  background: #1a1a1a;
+  border-color: var(--border-tertiary);
+  background: var(--bg-elevated-hover);
 }
 
 .formation-option.active {
-  border-color: #ffd56a;
-  background: rgba(255, 213, 106, 0.1);
+  border-color: var(--accent-primary);
+  background: var(--overlay-medium);
 }
 
 .formation-name {
   font-weight: 600;
-  color: #fff;
+  color: var(--text-primary);
   font-size: 0.95rem;
 }
 
 .formation-detail {
   font-size: 0.8rem;
-  color: #999;
+  color: var(--text-tertiary);
 }
 
 /* 우측: 영웅 선택 (숨김) */
@@ -1879,8 +1944,8 @@ svg defs {
 
 /* 덱 디스플레이 영역 */
 .deck-display {
-  background: #1a1a1a;
-  border: 2px solid #333;
+  background: var(--bg-elevated);
+  border: 2px solid var(--border-tertiary);
   border-radius: 12px;
   padding: 24px;
   flex: 1;
@@ -1893,7 +1958,7 @@ svg defs {
 .deck-display h2 {
   font-size: 1.3rem;
   font-weight: 600;
-  color: #ffd56a;
+  color: var(--accent-primary);
   margin: 0 0 20px 0;
 }
 
@@ -1915,7 +1980,7 @@ svg defs {
 .line-label {
   font-size: 0.85rem;
   font-weight: 600;
-  color: #999;
+  color: var(--text-tertiary);
   text-align: center;
   margin-bottom: 4px;
 }
@@ -1966,8 +2031,8 @@ svg defs {
   position: relative;
   width: 100%;
   min-height: 130px;
-  background: #0e0e0e;
-  border: 2px dashed #444;
+  background: var(--bg-tertiary);
+  border: 2px dashed var(--border-secondary);
   border-radius: 10px;
   display: flex;
   flex-direction: row;
@@ -1980,8 +2045,8 @@ svg defs {
 }
 
 .deck-slot:hover {
-  border-color: #666;
-  background: #1a1a1a;
+  border-color: var(--border-tertiary);
+  background: var(--bg-elevated-hover);
   transform: translateY(-2px);
 }
 
@@ -1989,8 +2054,8 @@ svg defs {
 .slot-indicator {
   width: 36px;
   height: 36px;
-  background: #444;
-  color: #fff;
+  background: var(--border-secondary);
+  color: var(--text-primary);
   border-radius: 8px;
   display: flex;
   align-items: center;
@@ -2002,7 +2067,7 @@ svg defs {
 
 .slot-placeholder {
   font-size: 1.5rem;
-  color: #444;
+  color: var(--text-muted);
   font-weight: 300;
   flex: 1;
   text-align: center;
@@ -2031,7 +2096,7 @@ svg defs {
 .slot-hero-name {
   font-size: 0.9rem;
   font-weight: 500;
-  color: #fff;
+  color: var(--text-primary);
   text-align: center;
   white-space: nowrap;
   overflow: hidden;
@@ -2087,23 +2152,23 @@ svg defs {
 }
 
 .btn-primary {
-  background: #ffd56a;
-  color: #000;
+  background: var(--accent-primary);
+  color: var(--bg-primary);
 }
 
 .btn-primary:hover {
-  background: #ffdd7f;
+  background: var(--accent-tertiary);
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(255, 213, 106, 0.3);
+  box-shadow: 0 4px 12px var(--shadow-md);
 }
 
 .btn-secondary {
-  background: #333;
-  color: #fff;
+  background: var(--bg-elevated);
+  color: var(--text-primary);
 }
 
 .btn-secondary:hover {
-  background: #444;
+  background: var(--bg-elevated-hover);
 }
 
 /* 영웅 선택 영역 헤더 */
@@ -2117,18 +2182,18 @@ svg defs {
 .hero-selection-header h2 {
   font-size: 1.3rem;
   font-weight: 600;
-  color: #ffd56a;
+  color: var(--accent-primary);
   margin: 0;
 }
 
 .selection-info {
   font-size: 1rem;
-  color: #fff;
+  color: var(--text-primary);
   font-weight: 500;
 }
 
 .selection-info span {
-  color: #ffd56a;
+  color: var(--accent-primary);
   font-size: 1.2rem;
 }
 
@@ -2143,10 +2208,10 @@ svg defs {
 
 .filter-select {
   padding: 10px 16px;
-  background: #1a1a1a;
-  border: 1px solid #444;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-secondary);
   border-radius: 8px;
-  color: #fff;
+  color: var(--text-primary);
   font-size: 0.9rem;
   font-family: "Pretendard", sans-serif;
   cursor: pointer;
@@ -2155,26 +2220,26 @@ svg defs {
 }
 
 .filter-select:hover {
-  border-color: #666;
-  background: #2a2a2a;
+  border-color: var(--border-tertiary);
+  background: var(--bg-elevated-hover);
 }
 
 .filter-select:focus {
   outline: none;
-  border-color: #ffd56a;
-  background: #2a2a2a;
+  border-color: var(--accent-primary);
+  background: var(--bg-elevated-hover);
 }
 
 .filter-select option {
-  background: #1a1a1a;
-  color: #fff;
+  background: var(--bg-elevated);
+  color: var(--text-primary);
   padding: 8px;
 }
 
 /* 가로 필터 (구버전 - 제거 예정) */
 .filters-horizontal {
-  background: #1a1a1a;
-  border: 1px solid #333;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-tertiary);
   border-radius: 8px;
   padding: 16px;
   margin-bottom: 16px;
@@ -2191,7 +2256,7 @@ svg defs {
 
 .filter-label {
   font-weight: 600;
-  color: #ffd56a;
+  color: var(--accent-primary);
   min-width: 60px;
   font-size: 0.9rem;
 }
@@ -2199,10 +2264,10 @@ svg defs {
 .search-input {
   flex: 1;
   padding: 8px 12px;
-  background: #0e0e0e;
-  border: 1px solid #333;
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-tertiary);
   border-radius: 6px;
-  color: #fff;
+  color: var(--text-primary);
   font-size: 0.9rem;
   font-family: "Pretendard", sans-serif;
   transition: border-color 0.2s ease;
@@ -2210,11 +2275,11 @@ svg defs {
 
 .search-input:focus {
   outline: none;
-  border-color: #ffd56a;
+  border-color: var(--accent-primary);
 }
 
 .search-input::placeholder {
-  color: #666;
+  color: var(--text-muted);
 }
 
 .filter-chips {
@@ -2227,8 +2292,8 @@ svg defs {
 .chip {
   display: inline-flex;
   align-items: center;
-  background: #0e0e0e;
-  border: 1px solid #444;
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-secondary);
   border-radius: 16px;
   padding: 6px 12px;
   cursor: pointer;
@@ -2242,21 +2307,21 @@ svg defs {
 }
 
 .chip span {
-  color: #ccc;
+  color: var(--text-secondary);
 }
 
 .chip:hover {
-  background: #2a2a2a;
-  border-color: #666;
+  background: var(--bg-elevated-hover);
+  border-color: var(--border-tertiary);
 }
 
 .chip:has(input:checked) {
-  background: #ffd56a;
-  border-color: #ffd56a;
+  background: var(--accent-primary);
+  border-color: var(--accent-primary);
 }
 
 .chip:has(input:checked) span {
-  color: #000;
+  color: var(--bg-primary);
   font-weight: 600;
 }
 
@@ -2266,12 +2331,14 @@ svg defs {
   grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
   gap: 16px;
   padding: 16px;
-  background: #1a1a1a;
-  border: 1px solid #333;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-tertiary);
   border-radius: 8px;
   overflow-y: auto;
   flex: 1;
   align-content: start;
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent-primary) var(--bg-tertiary);
 }
 
 #heroes-list::-webkit-scrollbar {
@@ -2279,17 +2346,17 @@ svg defs {
 }
 
 #heroes-list::-webkit-scrollbar-track {
-  background: #0e0e0e;
+  background: var(--bg-tertiary);
   border-radius: 4px;
 }
 
 #heroes-list::-webkit-scrollbar-thumb {
-  background: #444;
+  background: var(--accent-primary);
   border-radius: 4px;
 }
 
 #heroes-list::-webkit-scrollbar-thumb:hover {
-  background: #666;
+  background: var(--accent-secondary);
 }
 
 /* 선택 가능한 영웅 카드 */
@@ -2325,7 +2392,7 @@ svg defs {
 
 .hero-nickname {
   font-size: 0.8rem;
-  color: #999;
+  color: var(--text-tertiary);
   text-align: center;
   margin-top: 4px;
 }
@@ -2372,7 +2439,7 @@ svg defs {
   max-height: 500px;
   overflow-y: auto;
   padding: 8px;
-  background: #0e0e0e;
+  background: var(--bg-tertiary);
   border-radius: 8px;
 }
 
@@ -2387,13 +2454,13 @@ svg defs {
 }
 
 .modal-content {
-  background: #1a1a1a;
-  border: 2px solid #333;
+  background: var(--bg-elevated);
+  border: 2px solid var(--border-tertiary);
   border-radius: 12px;
   width: 90%;
   max-width: 600px;
   padding: 0;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 8px 32px var(--shadow-lg);
 }
 
 .modal-header {
@@ -2401,19 +2468,19 @@ svg defs {
   justify-content: space-between;
   align-items: center;
   padding: 24px;
-  border-bottom: 1px solid #333;
+  border-bottom: 1px solid var(--border-tertiary);
 }
 
 .modal-header h3 {
   margin: 0;
   font-size: 1.5rem;
-  color: #ffd56a;
+  color: var(--accent-primary);
 }
 
 .modal-close {
   background: transparent;
   border: none;
-  color: #fff;
+  color: var(--text-primary);
   font-size: 2rem;
   cursor: pointer;
   width: 32px;
@@ -2426,7 +2493,7 @@ svg defs {
 }
 
 .modal-close:hover {
-  color: #ffd56a;
+  color: var(--accent-primary);
 }
 
 .modal-body {
@@ -2434,7 +2501,7 @@ svg defs {
 }
 
 .modal-body p {
-  color: #ccc;
+  color: var(--text-secondary);
   margin: 0 0 16px 0;
 }
 
@@ -2447,10 +2514,10 @@ svg defs {
 .share-url-container input {
   flex: 1;
   padding: 12px 16px;
-  background: #0e0e0e;
-  border: 1px solid #333;
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-tertiary);
   border-radius: 6px;
-  color: #fff;
+  color: var(--text-primary);
   font-size: 0.95rem;
   font-family: "Pretendard", sans-serif;
 }
