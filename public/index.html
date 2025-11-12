@@ -30,33 +30,114 @@
     <meta name="twitter:image" content="https://sena-rebirth-guidebook.app/images/og-image.png">
     <!-- Canonical Link -->
     <link rel="canonical" href="https://sena-rebirth-guidebook.app/" />
+    <!-- Enhanced Structured Data for GEO/AEO -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "WebSite",
       "name": "세븐나이츠 리버스 가이드북",
+      "alternateName": ["세나 리버스 가이드북", "7나이츠 리버스 가이드북"],
       "url": "https://sena-rebirth-guidebook.app/",
-      "description": "세븐나이츠 리버스 완벽 가이드북 - 전 영웅 스탯, 스킬, 소속, 타입 정보와 결투장 덱 공유",
-      "inLanguage": "ko",
+      "description": "세븐나이츠 리버스 완벽 가이드북 - 전 영웅 스탯, 스킬, 소속, 타입 정보와 결투장 덱 공유. 결투장 공략, 총력전 덱 추천, 길드전 전략까지 제공하는 종합 게임 가이드",
+      "inLanguage": "ko-KR",
       "about": {
         "@type": "VideoGame",
-        "name": "세븐나이츠 리버스 (Seven Knights Rebirth)",
-        "alternateName": ["세나 리버스", "7나이츠 리버스"],
+        "name": "세븐나이츠 리버스",
+        "alternateName": ["Seven Knights Rebirth", "세나 리버스", "7나이츠 리버스", "세븐나이츠2"],
         "publisher": {
           "@type": "Organization",
-          "name": "넷마블(Netmarble)"
+          "name": "넷마블",
+          "alternateName": "Netmarble"
         },
-        "genre": ["RPG", "수집형 RPG", "모바일 게임"],
-        "gamePlatform": ["Android", "iOS"]
+        "genre": ["Role-playing game", "수집형 RPG", "전략 RPG", "모바일 게임"],
+        "gamePlatform": ["Android", "iOS", "Mobile"],
+        "description": "넷마블의 인기 모바일 RPG 게임으로, 다양한 영웅을 수집하고 육성하여 결투장, 총력전, 길드전 등의 콘텐츠를 즐기는 게임"
+      },
+      "audience": {
+        "@type": "Audience",
+        "audienceType": "세븐나이츠 리버스 플레이어, 모바일 게임 유저"
       },
       "potentialAction": {
         "@type": "SearchAction",
-        "target": "https://sena-rebirth-guidebook.app/?search={search_term_string}",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://sena-rebirth-guidebook.app/?search={search_term_string}"
+        },
         "query-input": "required name=search_term_string"
       }
     }
     </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      "name": "세븐나이츠 리버스 영웅 도감",
+      "description": "세븐나이츠 리버스의 모든 영웅 정보를 한눈에 확인할 수 있는 완벽한 영웅 도감. 각 영웅의 능력치, 스탯, 소속, 타입, 스킬 정보를 필터링하고 정렬하여 찾아보세요.",
+      "url": "https://sena-rebirth-guidebook.app/index.html",
+      "inLanguage": "ko-KR",
+      "isPartOf": {
+        "@type": "WebSite",
+        "name": "세븐나이츠 리버스 가이드북",
+        "url": "https://sena-rebirth-guidebook.app/"
+      },
+      "about": {
+        "@type": "Thing",
+        "name": "세븐나이츠 리버스 영웅",
+        "description": "세븐나이츠 리버스 게임의 모든 플레이어블 캐릭터 및 영웅"
+      },
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "홈",
+            "item": "https://sena-rebirth-guidebook.app/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "영웅 도감",
+            "item": "https://sena-rebirth-guidebook.app/index.html"
+          }
+        ]
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "세븐나이츠 리버스에서 어떤 영웅이 가장 강한가요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "세븐나이츠 리버스에서 최강 영웅은 콘텐츠와 메타에 따라 달라집니다. 결투장에서는 전설+ 등급의 영웅들과 (구)세븐나이츠 영웅들이 강력하며, 각 영웅의 스킬 조합과 덱 구성이 중요합니다. 영웅 도감에서 등급별, 타입별로 필터링하여 자세한 정보를 확인할 수 있습니다."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "세븐나이츠 리버스 영웅 도감은 어떻게 사용하나요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "영웅 도감에서는 등급(전설+, 전설, 희귀), 타입(공격형, 마법형, 만능형, 방어형, 지원형), 소속별로 영웅을 필터링할 수 있습니다. 또한 공격력, 생명력, 가나다 순으로 정렬이 가능하며, 각 영웅 카드를 클릭하면 상세 정보를 확인할 수 있습니다."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "세븐나이츠 리버스 결투장 덱 추천은 어디서 보나요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "결투장 덱 추천은 메인 메뉴의 '결투장 덱' 페이지에서 확인할 수 있습니다. 다양한 유저들이 공유한 메타 덱과 덱 조합 전략을 확인하고, 자신만의 덱을 구성하는 데 참고할 수 있습니다."
+          }
+        }
+      ]
+    }
+    </script>
     <link rel="stylesheet" href="/style.css" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
     <script src="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2"></script>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-DMD8LXSEQ5"></script>
@@ -73,12 +154,41 @@
     <div class="app-container">
       <!-- Header -->
       <header class="app-header">
-        <div class="header-brand">세븐나이츠 리버스 가이드북</div>
+        <div class="header-left">
+          <button class="hamburger-menu" id="hamburger-menu" aria-label="메뉴">
+            <i class="ph-bold ph-list"></i>
+          </button>
+          <img src="/favicon.png" alt="logo" class="header-logo" />
+          <div class="header-brand">세븐나이츠 리버스 가이드북</div>
+        </div>
         <button class="theme-toggle" id="theme-toggle" aria-label="테마 전환">
           <i class="ph-bold ph-sun" id="theme-icon"></i>
           <span id="theme-text">라이트 모드</span>
         </button>
       </header>
+
+      <!-- Mobile Menu Overlay -->
+      <div class="mobile-menu-overlay" id="mobile-menu-overlay">
+        <div class="mobile-menu">
+          <div class="mobile-menu-header">
+            <img src="/favicon.png" alt="logo" class="mobile-menu-logo" />
+            <span>메뉴</span>
+            <button class="mobile-menu-close" id="mobile-menu-close" aria-label="닫기">
+              <i class="ph-bold ph-x"></i>
+            </button>
+          </div>
+          <nav class="mobile-menu-nav">
+            <a href="/index.html" class="mobile-nav-link active">
+              <i class="ph-bold ph-users-three"></i>
+              <span>영웅 도감</span>
+            </a>
+            <a href="/deck.html" class="mobile-nav-link">
+              <i class="ph-bold ph-sword"></i>
+              <span>결투장 덱</span>
+            </a>
+          </nav>
+        </div>
+      </div>
 
       <!-- Desktop Navigation Sidebar -->
       <aside class="desktop-nav">
@@ -238,5 +348,6 @@
 
     <script src="/js/hero-list.js"></script>
     <script src="/js/theme.js"></script>
+    <script src="/js/mobile-menu.js"></script>
   </body>
 </html>
