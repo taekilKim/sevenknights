@@ -281,9 +281,48 @@ function restoreScrollPosition() {
   }
 }
 
+// View Toggle Functionality
+function setupViewToggle() {
+  const viewButtons = document.querySelectorAll('.view-btn');
+  const heroGrid = document.getElementById('hero-grid');
+
+  if (!viewButtons.length || !heroGrid) return;
+
+  // Restore saved view preference
+  const savedView = localStorage.getItem('heroListView') || 'grid';
+  if (savedView === 'list') {
+    heroGrid.classList.add('list-view');
+    viewButtons.forEach(btn => {
+      btn.classList.toggle('active', btn.dataset.view === 'list');
+    });
+  }
+
+  // Add click handlers
+  viewButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const view = btn.dataset.view;
+
+      // Update active state
+      viewButtons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      // Update grid class
+      if (view === 'list') {
+        heroGrid.classList.add('list-view');
+      } else {
+        heroGrid.classList.remove('list-view');
+      }
+
+      // Save preference
+      localStorage.setItem('heroListView', view);
+    });
+  });
+}
+
 // Initialize on DOM Ready
 document.addEventListener('DOMContentLoaded', () => {
   fetchHeroes();
   setupFilterListeners();
+  setupViewToggle();
   restoreScrollPosition();
 });
