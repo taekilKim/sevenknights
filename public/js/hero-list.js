@@ -16,12 +16,19 @@ async function fetchHeroes() {
     const response = await fetch('/api/heroes');
     const data = await response.json();
 
-    if (!data.records || !Array.isArray(data.records)) {
+    // Handle both {records: [...]} and direct array response
+    const heroData = data.records || data;
+
+    if (!Array.isArray(heroData)) {
       console.error('Invalid server response:', data);
+      const grid = document.getElementById('hero-grid');
+      if (grid) {
+        grid.innerHTML = '<div class="error-message">잘못된 서버 응답입니다.</div>';
+      }
       return;
     }
 
-    allHeroes = data.records;
+    allHeroes = heroData;
     initializeFilters();
     renderHeroes(applyFiltersAndSort(allHeroes));
   } catch (error) {

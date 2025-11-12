@@ -510,7 +510,7 @@ button {
 }
 
 /* ================================ */
-/* Loading Overlay */
+/* Loading Overlay & Error Message */
 /* ================================ */
 .loading-overlay {
   position: fixed;
@@ -526,6 +526,19 @@ button {
   align-items: center;
   justify-content: center;
   z-index: 9999;
+}
+
+.error-message {
+  padding: 32px;
+  background: var(--bg-elevated);
+  backdrop-filter: blur(var(--blur-md)) saturate(180%);
+  -webkit-backdrop-filter: blur(var(--blur-md)) saturate(180%);
+  border: 1px solid var(--border-primary);
+  border-radius: 20px;
+  color: var(--text-primary);
+  text-align: center;
+  font-size: 1.1rem;
+  box-shadow: 0 8px 32px var(--shadow-md);
 }
 
 .spinner {
