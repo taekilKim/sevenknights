@@ -26,21 +26,20 @@
     </script>
   </head>
   <body>
-    <div class="layout">
-      <header class="header">
+    <div class="app-container">
+      <!-- Header -->
+      <header class="app-header">
         <div class="header-left">
           <button class="hamburger-menu" id="hamburger-menu" aria-label="메뉴">
             <i class="ph-bold ph-list"></i>
           </button>
           <img src="/favicon.ico" alt="세븐나이츠 리버스 로고" class="header-logo" />
-          <div class="header-title">세븐나이츠 리버스 가이드북</div>
+          <div class="header-brand">세븐나이츠 리버스 가이드북</div>
         </div>
-        <div class="header-actions">
-          <button class="theme-toggle" id="theme-toggle" aria-label="테마 전환">
-            <i class="ph-bold ph-sun" id="theme-icon"></i>
-            <span id="theme-text">라이트 모드</span>
-          </button>
-        </div>
+        <button class="theme-toggle" id="theme-toggle" aria-label="테마 전환">
+          <i class="ph-bold ph-sun" id="theme-icon"></i>
+          <span id="theme-text">라이트 모드</span>
+        </button>
       </header>
 
       <!-- Mobile Menu Overlay -->
@@ -66,16 +65,22 @@
         </div>
       </div>
 
-      <aside class="sidebar-left">
+      <!-- Desktop Navigation Sidebar -->
+      <aside class="desktop-nav">
         <nav>
-          <ul>
-            <li><a href="/index.html">영웅 도감</a></li>
-            <li class="active">결투장 덱</li>
-          </ul>
+          <a href="/index.html" class="nav-link">
+            <i class="ph-bold ph-users-three"></i>
+            <span>영웅 도감</span>
+          </a>
+          <a href="/deck.html" class="nav-link active">
+            <i class="ph-bold ph-sword"></i>
+            <span>결투장 덱</span>
+          </a>
         </nav>
       </aside>
 
-      <main class="content deck-content">
+      <!-- Main Content Area -->
+      <main class="main-container deck-content">
         <h1>결투장 덱 공유</h1>
         <p class="subtitle">나만의 결투장 덱을 구성하고 공유하세요</p>
 
