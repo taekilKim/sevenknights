@@ -57,9 +57,9 @@
   --border-secondary: #e9ecef;
   --border-tertiary: #ced4da;
 
-  --accent-primary: #ff9800;
-  --accent-secondary: #f57c00;
-  --accent-tertiary: #ffa726;
+  --accent-primary: #607d8b;
+  --accent-secondary: #546e7a;
+  --accent-tertiary: #78909c;
 
   --shadow-sm: rgba(0, 0, 0, 0.08);
   --shadow-md: rgba(0, 0, 0, 0.12);
@@ -267,8 +267,8 @@ img {
 .spinner {
   width: 48px;
   height: 48px;
-  border: 5px solid rgba(255, 255, 255, 0.2);
-  border-top-color: #fff;
+  border: 5px solid var(--overlay-medium);
+  border-top-color: var(--accent-primary);
   border-radius: 50%;
   animation: spin 1s linear infinite;
   margin-bottom: 16px;
@@ -280,7 +280,7 @@ img {
 .loading-text {
   font-weight: 600;
   font-size: 18px;
-  color: #fff;
+  color: var(--text-primary);
   text-align: center;
 }
 
@@ -339,7 +339,7 @@ img {
 .hero-name {
   font-size: 0.95rem;
   font-weight: 500;
-  color: #fff;
+  color: var(--text-primary);
   text-align: center;
   margin-top: 8px;
 }
