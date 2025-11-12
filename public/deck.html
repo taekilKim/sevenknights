@@ -26,29 +26,61 @@
     </script>
   </head>
   <body>
-    <div class="layout">
-      <header class="header">
-        <div class="header-logo">
-          <div class="header-title">세븐나이츠 리버스 가이드북</div>
-        </div>
-        <div class="header-actions">
-          <button class="theme-toggle" id="theme-toggle" aria-label="테마 전환">
-            <i class="ph-bold ph-sun" id="theme-icon"></i>
-            <span id="theme-text">라이트 모드</span>
+    <div class="app-container">
+      <!-- Header -->
+      <header class="app-header">
+        <div class="header-left">
+          <button class="hamburger-menu" id="hamburger-menu" aria-label="메뉴">
+            <i class="ph-bold ph-list"></i>
           </button>
+          <img src="/favicon.ico" alt="세븐나이츠 리버스 로고" class="header-logo" />
+          <div class="header-brand">세븐나이츠 리버스 가이드북</div>
         </div>
+        <button class="theme-toggle" id="theme-toggle" aria-label="테마 전환">
+          <i class="ph-bold ph-sun" id="theme-icon"></i>
+          <span id="theme-text">라이트 모드</span>
+        </button>
       </header>
 
-      <aside class="sidebar-left">
+      <!-- Mobile Menu Overlay -->
+      <div class="mobile-menu-overlay" id="mobile-menu-overlay">
+        <div class="mobile-menu">
+          <div class="mobile-menu-header">
+            <img src="/favicon.ico" alt="세븐나이츠 리버스 로고" class="mobile-menu-logo" />
+            <span>메뉴</span>
+            <button class="mobile-menu-close" id="mobile-menu-close" aria-label="닫기">
+              <i class="ph-bold ph-x"></i>
+            </button>
+          </div>
+          <nav class="mobile-menu-nav">
+            <a href="/index.html" class="mobile-nav-link">
+              <i class="ph-bold ph-users-three"></i>
+              <span>영웅 도감</span>
+            </a>
+            <a href="/deck.html" class="mobile-nav-link active">
+              <i class="ph-bold ph-sword"></i>
+              <span>결투장 덱</span>
+            </a>
+          </nav>
+        </div>
+      </div>
+
+      <!-- Desktop Navigation Sidebar -->
+      <aside class="desktop-nav">
         <nav>
-          <ul>
-            <li><a href="/index.html">영웅 도감</a></li>
-            <li class="active">결투장 덱</li>
-          </ul>
+          <a href="/index.html" class="nav-link">
+            <i class="ph-bold ph-users-three"></i>
+            <span>영웅 도감</span>
+          </a>
+          <a href="/deck.html" class="nav-link active">
+            <i class="ph-bold ph-sword"></i>
+            <span>결투장 덱</span>
+          </a>
         </nav>
       </aside>
 
-      <main class="content deck-content">
+      <!-- Main Content Area -->
+      <main class="main-container deck-content">
         <h1>결투장 덱 공유</h1>
         <p class="subtitle">나만의 결투장 덱을 구성하고 공유하세요</p>
 
@@ -903,16 +935,7 @@
       });
     </script>
 
-    <!-- 모바일 바텀 네비게이션 -->
-    <nav class="bottom-nav">
-      <a href="/index.html" class="bottom-nav-item">
-        <i class="ph-bold ph-users-three"></i>
-        <span>영웅 도감</span>
-      </a>
-      <a href="/deck.html" class="bottom-nav-item active">
-        <i class="ph-bold ph-sword"></i>
-        <span>결투장 덱</span>
-      </a>
-    </nav>
+    <!-- Mobile Menu Script -->
+    <script src="/js/mobile-menu.js"></script>
   </body>
 </html>
