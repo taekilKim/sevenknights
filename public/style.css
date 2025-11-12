@@ -891,3 +891,695 @@ button {
     font-size: 0.7rem;
   }
 }
+.hero-detail-page {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 3rem;
+  background: var(--bg-secondary);
+  min-height: 100vh;
+  padding: 0 24px;
+  box-sizing: border-box;
+  transition: background-color 0.3s ease;
+}
+
+/* Adjust container widths for desktop */
+.hero-detail-container {
+  flex: 1;
+  max-width: 900px;
+  width: 100%;
+}
+
+.hero-comments {
+  flex: 0 0 360px;
+  max-width: 360px;
+}
+
+/* Responsive fallback for mobile (under 1024px) */
+@media (max-width: 1023px) {
+  .hero-detail-page {
+    flex-direction: column;
+  }
+  .hero-detail-container,
+  .hero-comments {
+    max-width: 100%;
+  }
+}
+.hero-header {
+  width: 100%;
+  height: 80px;
+  background: var(--bg-elevated);
+  backdrop-filter: blur(var(--blur-md)) saturate(180%);
+  -webkit-backdrop-filter: blur(var(--blur-md)) saturate(180%);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 32px;
+  border-bottom: 1px solid var(--border-primary);
+  box-sizing: border-box;
+  box-shadow: 0 4px 24px var(--shadow-sm);
+}
+.hero-nav-buttons {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.back-button {
+  background: transparent;
+  color: var(--text-primary);
+  border: none;
+  font-size: 1rem;
+  font-weight:500;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+.back-button:hover {
+  color: var(--accent-tertiary);
+}
+.back-button i {
+  font-size:16px;
+}
+
+.hero-navigation {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.nav-arrow {
+  background: var(--overlay-light);
+  border: 1px solid var(--border-tertiary);
+  border-radius: 8px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: var(--text-primary);
+}
+
+.nav-arrow:hover:not(:disabled) {
+  background: var(--overlay-medium);
+  border-color: var(--accent-primary);
+  color: var(--accent-primary);
+}
+
+.nav-arrow:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.nav-arrow i {
+  font-size: 20px;
+}
+
+.hero-detail-container {
+  margin: 0;
+  text-align: left;
+  padding: 32px 0;
+  box-sizing: border-box;
+}
+
+/* Hero Top Section - Portrait and Basic Info */
+.hero-top {
+  background: var(--bg-elevated);
+  backdrop-filter: blur(var(--blur-md)) saturate(180%);
+  -webkit-backdrop-filter: blur(var(--blur-md)) saturate(180%);
+  border: 1px solid var(--border-secondary);
+  border-radius: 24px;
+  padding: 40px;
+  margin-bottom: 32px;
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  box-shadow: 0 8px 48px var(--shadow-md);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-top::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 200px;
+  background: radial-gradient(ellipse at top, rgba(255, 153, 0, 0.03) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.hero-detail-portrait {
+  width: 240px;
+  height: 240px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #c1b494;
+  margin: 0 auto 24px;
+}
+
+.hero-basic-info {
+  flex: 1;
+  position: relative;
+  z-index: 1;
+}
+
+#hero-name {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+  line-height: 1.2;
+  text-shadow: 2px 2px 8px var(--shadow-sm);
+}
+
+.hero-nickname {
+  font-size: 1.1rem;
+  color: var(--text-tertiary);
+  margin-bottom: 12px;
+  font-style: italic;
+}
+
+.hero-group {
+  font-size: 1rem;
+  color: var(--accent-primary);
+  margin-bottom: 16px;
+  font-weight: 500;
+}
+
+.hero-meta {
+  display: flex;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+#hero-type,
+#hero-rarity {
+  background: var(--overlay-light);
+  border: 1px solid var(--border-tertiary);
+  border-radius: 8px;
+  padding: 8px 16px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--accent-primary);
+}
+
+#hero-description {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #ccc;
+  margin-bottom: 32px;
+  white-space: pre-line;
+}
+
+/* Hero Stats Section */
+.hero-stats {
+  background: var(--bg-elevated);
+  backdrop-filter: blur(var(--blur-md)) saturate(180%);
+  -webkit-backdrop-filter: blur(var(--blur-md)) saturate(180%);
+  border: 1px solid var(--border-secondary);
+  border-radius: 24px;
+  padding: 32px;
+  margin-bottom: 32px;
+  box-shadow: 0 8px 48px var(--shadow-md);
+}
+
+.hero-stats h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--accent-primary);
+  margin: 0 0 12px 0;
+  padding-bottom: 16px;
+  border-bottom: 2px solid var(--border-secondary);
+}
+
+.stats-info {
+  font-size: 0.85rem;
+  color: var(--text-tertiary);
+  margin: 0 0 20px 0;
+  font-style: italic;
+}
+
+.stats-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.stats-table tr {
+  border-bottom: 1px solid var(--border-secondary);
+}
+
+.stats-table tr:last-child {
+  border-bottom: none;
+}
+
+.stats-table td {
+  padding: 12px 0;
+}
+
+.stats-table td:first-child {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  width: 40%;
+}
+
+.stats-table td:last-child {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  text-align: right;
+}
+
+/* Hero Skills Section */
+.hero-skills {
+  margin-bottom: 32px;
+}
+
+.hero-skills h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--accent-primary);
+  margin: 0 0 24px 0;
+  padding-bottom: 16px;
+  border-bottom: 2px solid var(--border-secondary);
+}
+
+.hero-skills .skill {
+  background: var(--bg-elevated);
+  backdrop-filter: blur(var(--blur-md)) saturate(180%);
+  -webkit-backdrop-filter: blur(var(--blur-md)) saturate(180%);
+  border: 1px solid var(--border-secondary);
+  border-radius: 20px;
+  padding: 24px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 24px var(--shadow-sm);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-skills .skill::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--accent-primary) 0%, var(--accent-secondary) 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.hero-skills .skill:hover {
+  border-color: var(--accent-primary);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 40px var(--shadow-md);
+}
+
+.hero-skills .skill:hover::before {
+  opacity: 1;
+}
+
+.hero-skills .skill h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--accent-primary);
+  margin: 0 0 16px 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  opacity: 0.9;
+}
+
+.hero-skills .skill img {
+  width: 80px;
+  height: 80px;
+  border-radius: 12px;
+  border: 2px solid var(--border-tertiary);
+  margin-bottom: 16px;
+  float: left;
+  margin-right: 20px;
+  box-shadow: 0 4px 12px var(--shadow-sm);
+}
+
+.hero-skills .skill .skill-name {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+  display: block;
+}
+
+.hero-skills .skill .skill-cooltime {
+  display: inline-block;
+  background: var(--overlay-light);
+  border: 1px solid var(--border-tertiary);
+  border-radius: 6px;
+  padding: 4px 12px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--accent-primary);
+  margin-bottom: 12px;
+  margin-left: 8px;
+}
+
+.hero-skills .skill .skill-desc {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  clear: both;
+  padding-top: 12px;
+}
+
+#hero-skills {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+#hero-skills li {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-tertiary);
+  border-radius: 8px;
+  padding: 12px 16px;
+  margin-bottom: 12px;
+  color: var(--text-secondary);
+  text-align: left;
+}
+
+/* ------------------------------------ */
+/*  전설+ 및 체크박스 효과 다이아몬드 (업데이트 버전) */
+/* ------------------------------------ */
+/* .rarity-diamond-effect styles referencing old diamondPulse animation removed */
+
+/* Red-Gold Gradient for SVG fill */
+svg defs {
+  /* Define the gradient once */
+}
+@supports (--css: variables) {
+  /* For browsers supporting CSS variables, define the gradient */
+  :root {
+    --red-gold-gradient-start: #ffefb8;
+    --red-gold-gradient-mid: #ffb07a;
+    --red-gold-gradient-end: #ff6a5a;
+    --red-gold-gradient-pink: #ff7f90;
+  }
+}
+
+/* Inline SVG gradient definition */
+.rarity-diamond-effect svg defs {
+  /* This is just a placeholder; the actual gradient should be defined in the SVG element */
+}
+
+/* ------------------------------------ */
+/*  전설+ 황금 스파크 효과 (Red-Gold Spark) */
+/* ------------------------------------ */
+/* ==== Spark star positioning & animation (SVG) ==== */
+.hero-portrait-wrap { position: relative; }
+
+.rarity-diamond-effect{
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  width: clamp(24px, 2vw, 48px);
+  height: clamp(24px, 2vw, 48px);
+  z-index: 5;
+  pointer-events: none;
+}
+
+/* Ensure UA rule doesn't clip the SVG effects */
+
+/* (구)세븐나이츠 제외 일반 영웅 스파크 */
+.hero-card:not([data-group="(구)세븐나이츠"]) .rarity-diamond-effect svg,
+.related-hero-card:not([data-group="(구)세븐나이츠"]) .rarity-diamond-effect svg {
+  overflow: visible;
+  filter: drop-shadow(0 0 6px #ffcc80)
+        drop-shadow(0 0 12px #f37225)
+        drop-shadow(0 0 20px rgba(255, 180, 60, 0.6));
+}
+
+/* (구)세븐나이츠 전용 보랏빛 황금 스파크 */
+.hero-card[data-group="(구)세븐나이츠"] .rarity-diamond-effect svg,
+.related-hero-card[data-group="(구)세븐나이츠"] .rarity-diamond-effect svg {
+  filter: drop-shadow(0 0 6px #d5a6ff)
+          drop-shadow(0 0 12px #b57aff)
+          drop-shadow(0 0 20px rgba(170, 90, 255, 0.6));
+}
+
+/* (구)세븐나이츠 제외 일반 영웅 스파크 (상단 초상화) */
+.hero-detail-page:not([data-group="(구)세븐나이츠"]) .hero-top .rarity-diamond-effect svg {
+  overflow: visible;
+  filter: drop-shadow(0 0 6px #ffcc80)
+          drop-shadow(0 0 12px #f37225)
+          drop-shadow(0 0 20px rgba(255, 180, 60, 0.6));
+}
+
+/* (구)세븐나이츠 전용 보랏빛 황금 스파크 (상단 초상화) */
+.hero-detail-page[data-group="(구)세븐나이츠"] .hero-top .rarity-diamond-effect svg {
+  filter: drop-shadow(0 0 6px #d5a6ff)
+          drop-shadow(0 0 12px #b57aff)
+          drop-shadow(0 0 20px rgba(170, 90, 255, 0.6));
+}
+
+/* Removed outdated box-shadow keyframe animations: diamondPulse, starPulse, starSparkEnhanced */
+
+.hero-portrait.has-effect {
+  position: relative;
+  border: 3px solid rgb(255 187 61);
+  background-clip: padding-box;
+  box-shadow:
+    0 0 10px rgba(255, 210, 130, 0.7),
+    0 0 20px rgba(255, 170, 70, 0.5),
+    0 0 30px rgba(255, 140, 40, 0.3);
+}
+
+/* ------------------------------------ */
+/*  hero.html 댓글 섹션                 */
+/* ------------------------------------ */
+.hero-comments {
+  width: 100%;
+  background: var(--bg-elevated);
+  backdrop-filter: blur(var(--blur-md)) saturate(180%);
+  -webkit-backdrop-filter: blur(var(--blur-md)) saturate(180%);
+  border: 1px solid var(--border-secondary);
+  border-radius: 24px;
+  padding: 32px;
+  box-sizing: border-box;
+  box-shadow: 0 8px 48px var(--shadow-md);
+  position: sticky;
+  top: 100px;
+  max-height: calc(100vh - 120px);
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent-primary) var(--overlay-light);
+}
+
+.hero-comments::-webkit-scrollbar {
+  width: 8px;
+}
+
+.hero-comments::-webkit-scrollbar-track {
+  background: var(--overlay-light);
+  border-radius: 4px;
+}
+
+.hero-comments::-webkit-scrollbar-thumb {
+  background: var(--accent-primary);
+  border-radius: 4px;
+}
+
+.hero-comments::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-secondary);
+}
+
+.hero-comments h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--accent-primary);
+  margin: 0 0 24px 0;
+  padding-bottom: 16px;
+  border-bottom: 2px solid var(--border-secondary);
+}
+
+#comment-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+#comment-form input,
+#comment-form textarea {
+  background: var(--overlay-light);
+  backdrop-filter: blur(var(--blur-sm));
+  -webkit-backdrop-filter: blur(var(--blur-sm));
+  color: var(--text-primary);
+  border: 1px solid var(--border-tertiary);
+  border-radius: 12px;
+  padding: 12px 16px;
+  font-family: "Pretendard", sans-serif;
+  font-size: 0.95rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#comment-form input:focus,
+#comment-form textarea:focus {
+  outline: none;
+  border-color: var(--accent-primary);
+  background: var(--overlay-medium);
+  box-shadow: 0 0 0 4px rgba(100, 181, 246, 0.15);
+}
+
+#comment-form input::placeholder,
+#comment-form textarea::placeholder {
+  color: var(--text-muted);
+}
+
+#comment-form textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+#comment-form button {
+  align-self: flex-end;
+  background: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-secondary) 100%);
+  color: #ffffff;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 16px rgba(100, 181, 246, 0.4);
+}
+
+#comment-form button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(100, 181, 246, 0.5);
+}
+
+#comment-form button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(100, 181, 246, 0.3);
+}
+
+.comment-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.comment-list li {
+  background: var(--overlay-light);
+  backdrop-filter: blur(var(--blur-sm));
+  -webkit-backdrop-filter: blur(var(--blur-sm));
+  border: 1px solid var(--border-tertiary);
+  border-radius: 16px;
+  padding: 16px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.comment-list li:hover {
+  background: var(--overlay-medium);
+  border-color: var(--accent-primary);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px var(--shadow-sm);
+}
+
+.comment-list li strong {
+  color: var(--accent-primary);
+  display: block;
+  margin-bottom: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.comment-list li p {
+  color: var(--text-secondary);
+  margin: 0 0 8px 0;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.comment-list li span {
+  color: var(--text-tertiary);
+  font-size: 0.8rem;
+}
+
+.filter-container {
+  padding: 24px;
+  color: var(--text-primary);
+  font-size: 0.9rem;
+}
+.filter-container h3 {
+  font-size: 1.1rem;
+  margin-top: 24px;
+  margin-bottom: 12px;
+  color: var(--accent-primary);
+}
+.filter-group {
+  margin-bottom: 20px;
+}
+.filter-title {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: var(--text-secondary);
+}
+.filter-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.filter-buttons label {
+  background: var(--overlay-light);
+  backdrop-filter: blur(var(--blur-sm));
+  -webkit-backdrop-filter: blur(var(--blur-sm));
+  border: 1px solid var(--border-tertiary);
+  border-radius: 12px;
+  padding: 8px 14px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  user-select: none;
+  color: var(--text-primary);
+  box-shadow: 0 2px 6px var(--shadow-sm);
+}
+.filter-buttons label:hover {
+  background: var(--overlay-medium);
+  border-color: var(--accent-primary);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px var(--shadow-md);
+}
+.filter-buttons input {
+  display: none;
+}
+.filter-buttons input:checked + label,
+.filter-buttons label:has(input:checked) {
+  background: var(--accent-primary);
+  color: #ffffff;
+  border-color: var(--accent-primary);
+  font-weight: 600;
+  box-shadow: 0 4px 16px rgba(100, 181, 246, 0.4);
+}
+.sort-buttons label {
+  display: block;
+  margin-bottom: 6px;
+  cursor: pointer;
+  color: var(--text-primary);
+}
+.sort-buttons input {
+  margin-right: 6px;
+  accent-color: var(--accent-primary);
+}
+/* ------------------------------------ */
+/*  반응형 레이아웃 */
+/* ------------------------------------ */
+
+/* 태블릿 및 모바일 (768px 이하) */
+@media (max-width: 768px) {
+  .layout {
