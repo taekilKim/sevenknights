@@ -7,6 +7,70 @@
 }
 
 /* ------------------------------------ */
+/*  테마 시스템 - CSS 변수              */
+/* ------------------------------------ */
+
+:root {
+  /* 다크 테마 (기본) */
+  --bg-primary: #000;
+  --bg-secondary: #0a0a0a;
+  --bg-tertiary: #0e0e0e;
+  --bg-elevated: #1a1a1a;
+  --bg-elevated-hover: #2a2a2a;
+
+  --text-primary: #fff;
+  --text-secondary: #ccc;
+  --text-tertiary: #999;
+  --text-muted: #666;
+
+  --border-primary: #222;
+  --border-secondary: #2a2a2a;
+  --border-tertiary: #333;
+
+  --accent-primary: #ffd56a;
+  --accent-secondary: #ffb84d;
+  --accent-tertiary: #f0c674;
+
+  --shadow-sm: rgba(0, 0, 0, 0.3);
+  --shadow-md: rgba(0, 0, 0, 0.4);
+  --shadow-lg: rgba(0, 0, 0, 0.5);
+
+  --overlay-light: rgba(255, 255, 255, 0.03);
+  --overlay-medium: rgba(255, 255, 255, 0.05);
+  --overlay-heavy: rgba(255, 255, 255, 0.08);
+}
+
+[data-theme="light"] {
+  /* 라이트 테마 */
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8f9fa;
+  --bg-tertiary: #f1f3f5;
+  --bg-elevated: #ffffff;
+  --bg-elevated-hover: #f8f9fa;
+
+  --text-primary: #212529;
+  --text-secondary: #495057;
+  --text-tertiary: #6c757d;
+  --text-muted: #adb5bd;
+
+  --border-primary: #dee2e6;
+  --border-secondary: #e9ecef;
+  --border-tertiary: #ced4da;
+
+  --accent-primary: #ff9800;
+  --accent-secondary: #f57c00;
+  --accent-tertiary: #ffa726;
+
+  --shadow-sm: rgba(0, 0, 0, 0.08);
+  --shadow-md: rgba(0, 0, 0, 0.12);
+  --shadow-lg: rgba(0, 0, 0, 0.16);
+
+  --overlay-light: rgba(0, 0, 0, 0.02);
+  --overlay-medium: rgba(0, 0, 0, 0.04);
+  --overlay-heavy: rgba(0, 0, 0, 0.06);
+}
+
+/* ------------------------------------ */
 /*  공통 스타일                         */
 /* ------------------------------------ */
 
@@ -24,9 +88,10 @@ h1,
 
 body {
   font-family: "Pretendard", sans-serif;
-  background: #000;
-  color: #fff;
+  background: var(--bg-primary);
+  color: var(--text-primary);
   margin: 0;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 a {
@@ -52,7 +117,7 @@ img {
     "sidebar-left content sidebar-right";
   width: 100%;
   height: 100vh;
-  background: #0e0e0e;
+  background: var(--bg-tertiary);
   overflow: hidden;
 }
 
@@ -60,13 +125,45 @@ img {
 .header {
   grid-area: header;
   height: 80px;
-  background: #1a1a1a;
+  background: var(--bg-elevated);
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0 32px;
-  border-bottom: 2px solid #222;
+  border-bottom: 2px solid var(--border-primary);
   box-sizing: border-box;
+  box-shadow: 0 2px 8px var(--shadow-sm);
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* 테마 토글 버튼 */
+.theme-toggle {
+  background: var(--overlay-light);
+  border: 1px solid var(--border-tertiary);
+  border-radius: 8px;
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-primary);
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.theme-toggle:hover {
+  background: var(--overlay-medium);
+  border-color: var(--accent-primary);
+}
+
+.theme-toggle i {
+  font-size: 1.2rem;
 }
 .header-logo img {
   height: 40px;
@@ -224,10 +321,11 @@ img {
   justify-content: center;
   align-items: flex-start;
   gap: 3rem;
-  background: linear-gradient(180deg, #0a0a0a 0%, #000 100%);
+  background: var(--bg-secondary);
   min-height: 100vh;
   padding: 0 24px;
   box-sizing: border-box;
+  transition: background-color 0.3s ease;
 }
 
 /* Adjust container widths for desktop */
@@ -255,17 +353,18 @@ img {
 .hero-header {
   width: 100%;
   height: 80px;
-  background: #1a1a1a;
+  background: var(--bg-elevated);
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0 32px;
-  border-bottom: 2px solid #222;
+  border-bottom: 2px solid var(--border-primary);
   box-sizing: border-box;
+  box-shadow: 0 2px 8px var(--shadow-sm);
 }
 .back-button {
   background: transparent;
-  color: #fff;
+  color: var(--text-primary);
   border: none;
   font-size: 1rem;
   font-weight:500;
@@ -273,7 +372,7 @@ img {
   transition: color 0.2s ease;
 }
 .back-button:hover {
-  color: #f0c674;
+  color: var(--accent-tertiary);
 }
 .back-button i {
   font-size:16px;
@@ -288,15 +387,15 @@ img {
 
 /* Hero Top Section - Portrait and Basic Info */
 .hero-top {
-  background: linear-gradient(135deg, #1a1a1a 0%, #151515 100%);
-  border: 1px solid #2a2a2a;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-secondary);
   border-radius: 20px;
   padding: 40px;
   margin-bottom: 32px;
   display: flex;
   align-items: center;
   gap: 40px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 8px 32px var(--shadow-md);
   position: relative;
   overflow: hidden;
 }
@@ -308,7 +407,7 @@ img {
   left: 0;
   right: 0;
   height: 200px;
-  background: radial-gradient(ellipse at top, rgba(255, 213, 106, 0.05) 0%, transparent 70%);
+  background: radial-gradient(ellipse at top, rgba(255, 153, 0, 0.03) 0%, transparent 70%);
   pointer-events: none;
 }
 
@@ -330,22 +429,22 @@ img {
 #hero-name {
   font-size: 2.5rem;
   font-weight: 700;
-  color: #fff;
+  color: var(--text-primary);
   margin-bottom: 8px;
   line-height: 1.2;
-  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+  text-shadow: 2px 2px 8px var(--shadow-sm);
 }
 
 .hero-nickname {
   font-size: 1.1rem;
-  color: #b8b8b8;
+  color: var(--text-tertiary);
   margin-bottom: 12px;
   font-style: italic;
 }
 
 .hero-group {
   font-size: 1rem;
-  color: #ffd56a;
+  color: var(--accent-primary);
   margin-bottom: 16px;
   font-weight: 500;
 }
@@ -358,13 +457,13 @@ img {
 
 #hero-type,
 #hero-rarity {
-  background: rgba(255, 213, 106, 0.1);
-  border: 1px solid rgba(255, 213, 106, 0.3);
+  background: var(--overlay-light);
+  border: 1px solid var(--border-tertiary);
   border-radius: 8px;
   padding: 8px 16px;
   font-size: 0.95rem;
   font-weight: 600;
-  color: #ffd56a;
+  color: var(--accent-primary);
 }
 
 #hero-description {
@@ -377,21 +476,21 @@ img {
 
 /* Hero Stats Section */
 .hero-stats {
-  background: linear-gradient(135deg, #1a1a1a 0%, #151515 100%);
-  border: 1px solid #2a2a2a;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-secondary);
   border-radius: 20px;
   padding: 32px;
   margin-bottom: 32px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 8px 32px var(--shadow-md);
 }
 
 .hero-stats h2 {
   font-size: 1.8rem;
   font-weight: 700;
-  color: #ffd56a;
+  color: var(--accent-primary);
   margin: 0 0 24px 0;
   padding-bottom: 16px;
-  border-bottom: 2px solid rgba(255, 213, 106, 0.2);
+  border-bottom: 2px solid var(--border-secondary);
 }
 
 .stats-table {
@@ -406,24 +505,24 @@ img {
 .stats-table tr {
   display: flex;
   flex-direction: column;
-  background: rgba(255, 213, 106, 0.05);
-  border: 1px solid rgba(255, 213, 106, 0.15);
+  background: var(--overlay-light);
+  border: 1px solid var(--border-tertiary);
   border-radius: 12px;
   padding: 16px;
   transition: all 0.2s ease;
 }
 
 .stats-table tr:hover {
-  background: rgba(255, 213, 106, 0.08);
-  border-color: rgba(255, 213, 106, 0.25);
+  background: var(--overlay-medium);
+  border-color: var(--accent-primary);
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(255, 213, 106, 0.1);
+  box-shadow: 0 4px 12px var(--shadow-sm);
 }
 
 .stats-table td:first-child {
   font-size: 0.85rem;
   font-weight: 600;
-  color: #999;
+  color: var(--text-tertiary);
   text-transform: uppercase;
   letter-spacing: 0.5px;
   margin-bottom: 8px;
@@ -432,8 +531,8 @@ img {
 .stats-table td:last-child {
   font-size: 1.5rem;
   font-weight: 700;
-  color: #fff;
-  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+  color: var(--text-primary);
+  text-shadow: 1px 1px 4px var(--shadow-sm);
 }
 
 /* Hero Skills Section */
@@ -444,19 +543,19 @@ img {
 .hero-skills h2 {
   font-size: 1.8rem;
   font-weight: 700;
-  color: #ffd56a;
+  color: var(--accent-primary);
   margin: 0 0 24px 0;
   padding-bottom: 16px;
-  border-bottom: 2px solid rgba(255, 213, 106, 0.2);
+  border-bottom: 2px solid var(--border-secondary);
 }
 
 .hero-skills .skill {
-  background: linear-gradient(135deg, #1a1a1a 0%, #151515 100%);
-  border: 1px solid #2a2a2a;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-secondary);
   border-radius: 16px;
   padding: 24px;
   margin-bottom: 20px;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 16px var(--shadow-sm);
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
@@ -469,15 +568,15 @@ img {
   left: 0;
   right: 0;
   height: 4px;
-  background: linear-gradient(90deg, #ffd56a 0%, #ffb84d 100%);
+  background: linear-gradient(90deg, var(--accent-primary) 0%, var(--accent-secondary) 100%);
   opacity: 0;
   transition: opacity 0.3s ease;
 }
 
 .hero-skills .skill:hover {
-  border-color: rgba(255, 213, 106, 0.3);
+  border-color: var(--accent-primary);
   transform: translateX(4px);
-  box-shadow: 0 6px 24px rgba(255, 213, 106, 0.15);
+  box-shadow: 0 6px 24px var(--shadow-md);
 }
 
 .hero-skills .skill:hover::before {
@@ -487,41 +586,41 @@ img {
 .hero-skills .skill h3 {
   font-size: 1rem;
   font-weight: 600;
-  color: #ffd56a;
+  color: var(--accent-primary);
   margin: 0 0 16px 0;
   text-transform: uppercase;
   letter-spacing: 1px;
-  opacity: 0.8;
+  opacity: 0.9;
 }
 
 .hero-skills .skill img {
   width: 80px;
   height: 80px;
   border-radius: 12px;
-  border: 2px solid rgba(255, 213, 106, 0.2);
+  border: 2px solid var(--border-tertiary);
   margin-bottom: 16px;
   float: left;
   margin-right: 20px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 12px var(--shadow-sm);
 }
 
 .hero-skills .skill .skill-name {
   font-size: 1.3rem;
   font-weight: 700;
-  color: #fff;
+  color: var(--text-primary);
   margin-bottom: 8px;
   display: block;
 }
 
 .hero-skills .skill .skill-cooltime {
   display: inline-block;
-  background: rgba(255, 213, 106, 0.15);
-  border: 1px solid rgba(255, 213, 106, 0.3);
+  background: var(--overlay-light);
+  border: 1px solid var(--border-tertiary);
   border-radius: 6px;
   padding: 4px 12px;
   font-size: 0.85rem;
   font-weight: 600;
-  color: #ffd56a;
+  color: var(--accent-primary);
   margin-bottom: 12px;
   margin-left: 8px;
 }
@@ -529,7 +628,7 @@ img {
 .hero-skills .skill .skill-desc {
   font-size: 1rem;
   line-height: 1.7;
-  color: #ccc;
+  color: var(--text-secondary);
   clear: both;
   padding-top: 12px;
 }
@@ -640,18 +739,18 @@ svg defs {
 /* ------------------------------------ */
 .hero-comments {
   width: 100%;
-  background: linear-gradient(135deg, #1a1a1a 0%, #151515 100%);
-  border: 1px solid #2a2a2a;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-secondary);
   border-radius: 20px;
   padding: 32px;
   box-sizing: border-box;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 8px 32px var(--shadow-md);
   position: sticky;
   top: 100px;
   max-height: calc(100vh - 120px);
   overflow-y: auto;
   scrollbar-width: thin;
-  scrollbar-color: rgba(255, 213, 106, 0.3) rgba(255, 255, 255, 0.05);
+  scrollbar-color: var(--accent-primary) var(--overlay-light);
 }
 
 .hero-comments::-webkit-scrollbar {
@@ -659,26 +758,26 @@ svg defs {
 }
 
 .hero-comments::-webkit-scrollbar-track {
-  background: rgba(255, 255, 255, 0.05);
+  background: var(--overlay-light);
   border-radius: 4px;
 }
 
 .hero-comments::-webkit-scrollbar-thumb {
-  background: rgba(255, 213, 106, 0.3);
+  background: var(--accent-primary);
   border-radius: 4px;
 }
 
 .hero-comments::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 213, 106, 0.5);
+  background: var(--accent-secondary);
 }
 
 .hero-comments h2 {
   font-size: 1.5rem;
   font-weight: 700;
-  color: #ffd56a;
+  color: var(--accent-primary);
   margin: 0 0 24px 0;
   padding-bottom: 16px;
-  border-bottom: 2px solid rgba(255, 213, 106, 0.2);
+  border-bottom: 2px solid var(--border-secondary);
 }
 
 #comment-form {
@@ -690,9 +789,9 @@ svg defs {
 
 #comment-form input,
 #comment-form textarea {
-  background: rgba(255, 255, 255, 0.03);
-  color: #fff;
-  border: 1px solid rgba(255, 213, 106, 0.2);
+  background: var(--overlay-light);
+  color: var(--text-primary);
+  border: 1px solid var(--border-tertiary);
   border-radius: 10px;
   padding: 12px 16px;
   font-family: "Pretendard", sans-serif;
@@ -703,14 +802,14 @@ svg defs {
 #comment-form input:focus,
 #comment-form textarea:focus {
   outline: none;
-  border-color: rgba(255, 213, 106, 0.5);
-  background: rgba(255, 255, 255, 0.05);
-  box-shadow: 0 0 0 3px rgba(255, 213, 106, 0.1);
+  border-color: var(--accent-primary);
+  background: var(--overlay-medium);
+  box-shadow: 0 0 0 3px var(--overlay-light);
 }
 
 #comment-form input::placeholder,
 #comment-form textarea::placeholder {
-  color: #666;
+  color: var(--text-muted);
 }
 
 #comment-form textarea {
@@ -720,8 +819,8 @@ svg defs {
 
 #comment-form button {
   align-self: flex-end;
-  background: linear-gradient(135deg, #ffd56a 0%, #ffb84d 100%);
-  color: #000;
+  background: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-secondary) 100%);
+  color: var(--bg-primary);
   border: none;
   padding: 12px 24px;
   border-radius: 10px;
@@ -729,12 +828,12 @@ svg defs {
   font-size: 1rem;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 12px rgba(255, 213, 106, 0.3);
+  box-shadow: 0 4px 12px var(--shadow-sm);
 }
 
 #comment-form button:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(255, 213, 106, 0.4);
+  box-shadow: 0 6px 20px var(--shadow-md);
 }
 
 #comment-form button:active {
@@ -751,21 +850,21 @@ svg defs {
 }
 
 .comment-list li {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 213, 106, 0.15);
+  background: var(--overlay-light);
+  border: 1px solid var(--border-tertiary);
   border-radius: 12px;
   padding: 16px;
   transition: all 0.2s ease;
 }
 
 .comment-list li:hover {
-  background: rgba(255, 255, 255, 0.05);
-  border-color: rgba(255, 213, 106, 0.25);
+  background: var(--overlay-medium);
+  border-color: var(--accent-primary);
   transform: translateX(4px);
 }
 
 .comment-list li strong {
-  color: #ffd56a;
+  color: var(--accent-primary);
   display: block;
   margin-bottom: 8px;
   font-size: 1rem;
@@ -773,14 +872,14 @@ svg defs {
 }
 
 .comment-list li p {
-  color: #ccc;
+  color: var(--text-secondary);
   margin: 0 0 8px 0;
   font-size: 0.95rem;
   line-height: 1.5;
 }
 
 .comment-list li span {
-  color: #777;
+  color: var(--text-tertiary);
   font-size: 0.8rem;
 }
 
@@ -1419,10 +1518,10 @@ svg defs {
 .related-heroes h2 {
   font-size: 1.5rem;
   font-weight: 700;
-  color: #ffd56a;
+  color: var(--accent-primary);
   margin: 0 0 20px 0;
   padding-bottom: 12px;
-  border-bottom: 2px solid rgba(255, 213, 106, 0.2);
+  border-bottom: 2px solid var(--border-secondary);
 }
 
 .related-hero-list {
@@ -1432,7 +1531,7 @@ svg defs {
   gap: 16px;
   padding: 16px 8px;
   scrollbar-width: thin;
-  scrollbar-color: rgba(255, 213, 106, 0.3) rgba(255, 255, 255, 0.05);
+  scrollbar-color: var(--accent-primary) var(--overlay-light);
 }
 
 .related-hero-list::-webkit-scrollbar {
@@ -1440,24 +1539,24 @@ svg defs {
 }
 
 .related-hero-list::-webkit-scrollbar-track {
-  background: rgba(255, 255, 255, 0.05);
+  background: var(--overlay-light);
   border-radius: 4px;
 }
 
 .related-hero-list::-webkit-scrollbar-thumb {
-  background: rgba(255, 213, 106, 0.3);
+  background: var(--accent-primary);
   border-radius: 4px;
 }
 
 .related-hero-list::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 213, 106, 0.5);
+  background: var(--accent-secondary);
 }
 
 .related-hero-card {
   flex: 0 0 auto;
   width: 120px;
-  background: linear-gradient(135deg, #1a1a1a 0%, #151515 100%);
-  border: 1px solid #2a2a2a;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-secondary);
   border-radius: 12px;
   padding: 12px;
   transition: all 0.3s ease;
@@ -1465,9 +1564,9 @@ svg defs {
 }
 
 .related-hero-card:hover {
-  border-color: rgba(255, 213, 106, 0.4);
+  border-color: var(--accent-primary);
   transform: translateY(-4px);
-  box-shadow: 0 8px 20px rgba(255, 213, 106, 0.15);
+  box-shadow: 0 8px 20px var(--shadow-md);
 }
 
 .related-hero-card .hero-name {
@@ -1477,7 +1576,7 @@ svg defs {
 }
 
 .no-related {
-  color: #666;
+  color: var(--text-muted);
   font-style: italic;
   text-align: center;
   padding: 20px;
