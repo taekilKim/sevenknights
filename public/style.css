@@ -1537,6 +1537,45 @@ button {
   padding-top: 8px;
 }
 
+/* Markdown styling in skill descriptions */
+.skill-desc strong {
+  color: var(--accent-primary);
+  font-weight: 700;
+  text-shadow: 0 0 8px rgba(100, 181, 246, 0.3);
+}
+
+.skill-desc em {
+  color: var(--text-primary);
+  font-style: italic;
+}
+
+.skill-desc code {
+  background: var(--overlay-light);
+  border: 1px solid var(--border-tertiary);
+  border-radius: 4px;
+  padding: 2px 6px;
+  font-family: 'Consolas', 'Monaco', monospace;
+  font-size: 0.85em;
+  color: var(--accent-secondary);
+}
+
+.skill-desc a {
+  color: var(--accent-primary);
+  text-decoration: underline;
+  transition: color 0.2s ease;
+}
+
+.skill-desc a:hover {
+  color: var(--accent-secondary);
+  text-decoration: none;
+}
+
+.skill-desc br + br {
+  display: block;
+  content: "";
+  margin-top: 0.5em;
+}
+
 #hero-skills {
   list-style: none;
   padding: 0;

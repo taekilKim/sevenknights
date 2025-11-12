@@ -480,11 +480,39 @@
           });
 
           // 스킬 출력 함수
+          // Simple markdown parser for skill descriptions
+          const parseMarkdown = (text) => {
+            if (!text) return "";
+
+            // Escape HTML first to prevent XSS
+            let html = text
+              .replace(/&/g, '&amp;')
+              .replace(/</g, '&lt;')
+              .replace(/>/g, '&gt;');
+
+            // Parse markdown (in order of precedence)
+            html = html
+              // Bold: **text** or __text__
+              .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+              .replace(/__(.+?)__/g, '<strong>$1</strong>')
+              // Italic: *text* or _text_ (but not inside words)
+              .replace(/(?<!\w)\*(.+?)\*(?!\w)/g, '<em>$1</em>')
+              .replace(/(?<!\w)_(.+?)_(?!\w)/g, '<em>$1</em>')
+              // Code: `text`
+              .replace(/`(.+?)`/g, '<code>$1</code>')
+              // Links: [text](url)
+              .replace(/\[(.+?)\]\((.+?)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>')
+              // Line breaks: \n -> <br>
+              .replace(/\n/g, '<br>');
+
+            return html;
+          };
+
           const renderSkill = (prefix, skill) => {
             document.getElementById(`${prefix}-image`).src = skill?.image || "";
             document.getElementById(`${prefix}-name`).textContent = skill?.name || "";
             document.getElementById(`${prefix}-cooltime`).textContent = skill?.cooltime ? `쿨타임: ${skill.cooltime}` : "";
-            document.getElementById(`${prefix}-desc`).textContent = skill?.desc || "";
+            document.getElementById(`${prefix}-desc`).innerHTML = parseMarkdown(skill?.desc || "");
           };
 
           renderSkill("attack", hero.attack);
