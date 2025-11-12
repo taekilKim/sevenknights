@@ -73,9 +73,7 @@
   <body>
     <div class="layout">
       <header class="header">
-        <div class="header-logo">
-          <div class="header-title">세븐나이츠 리버스 가이드북</div>
-        </div>
+        <h1 class="header-title">세븐나이츠 리버스 가이드북</h1>
         <div class="header-actions">
           <button class="theme-toggle" id="theme-toggle" aria-label="테마 전환">
             <i class="ph-bold ph-sun" id="theme-icon"></i>
@@ -93,39 +91,39 @@
         </nav>
       </aside>
 
+      <!-- 모바일 전용 컴팩트 필터 -->
+      <div class="mobile-filters">
+        <select id="mobile-filter-rarity" class="mobile-filter-select">
+          <option value="전체">등급: 전체</option>
+          <option value="전설+">전설+</option>
+          <option value="전설">전설</option>
+          <option value="희귀">희귀</option>
+        </select>
+
+        <select id="mobile-filter-type" class="mobile-filter-select">
+          <option value="전체">타입: 전체</option>
+          <option value="공격형">공격형</option>
+          <option value="마법형">마법형</option>
+          <option value="만능형">만능형</option>
+          <option value="방어형">방어형</option>
+          <option value="지원형">지원형</option>
+        </select>
+
+        <select id="mobile-filter-group" class="mobile-filter-select">
+          <option value="전체">소속: 전체</option>
+        </select>
+
+        <select id="mobile-sort" class="mobile-filter-select">
+          <option value="name">가나다 순</option>
+          <option value="attack">공격력 높은 순</option>
+          <option value="hp">생명력 높은 순</option>
+          <option value="rarity">등급 높은 순</option>
+        </select>
+      </div>
+
       <main class="content">
         <h1>세븐나이츠 리버스 영웅 도감</h1>
         <p class="subtitle">모든 영웅의 능력치, 소속, 스킬, 장비 정보를 한눈에 볼 수 있는 도감</p>
-
-        <!-- 모바일 전용 컴팩트 필터 -->
-        <div class="mobile-filters">
-          <select id="mobile-filter-rarity" class="mobile-filter-select">
-            <option value="전체">등급: 전체</option>
-            <option value="전설+">전설+</option>
-            <option value="전설">전설</option>
-            <option value="희귀">희귀</option>
-          </select>
-
-          <select id="mobile-filter-type" class="mobile-filter-select">
-            <option value="전체">타입: 전체</option>
-            <option value="공격형">공격형</option>
-            <option value="마법형">마법형</option>
-            <option value="만능형">만능형</option>
-            <option value="방어형">방어형</option>
-            <option value="지원형">지원형</option>
-          </select>
-
-          <select id="mobile-filter-group" class="mobile-filter-select">
-            <option value="전체">소속: 전체</option>
-          </select>
-
-          <select id="mobile-sort" class="mobile-filter-select">
-            <option value="name">가나다 순</option>
-            <option value="attack">공격력 높은 순</option>
-            <option value="hp">생명력 높은 순</option>
-            <option value="rarity">등급 높은 순</option>
-          </select>
-        </div>
 
         <div id="heroes"></div>
       </main>
