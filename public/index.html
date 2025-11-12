@@ -59,478 +59,184 @@
     <link rel="stylesheet" href="/style.css" />
     <script src="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2"></script>
     <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-DMD8LXSEQ5"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-DMD8LXSEQ5');
-</script>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7293515082092840"
-     crossorigin="anonymous"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-DMD8LXSEQ5"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-DMD8LXSEQ5');
+    </script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7293515082092840"
+         crossorigin="anonymous"></script>
   </head>
   <body>
-    <div class="layout">
-      <header class="header">
-        <h1 class="header-title">세븐나이츠 리버스 가이드북</h1>
-        <div class="header-actions">
-          <button class="theme-toggle" id="theme-toggle" aria-label="테마 전환">
-            <i class="ph-bold ph-sun" id="theme-icon"></i>
-            <span id="theme-text">라이트 모드</span>
-          </button>
-        </div>
+    <div class="app-container">
+      <!-- Header -->
+      <header class="app-header">
+        <div class="header-brand">세븐나이츠 리버스 가이드북</div>
+        <button class="theme-toggle" id="theme-toggle" aria-label="테마 전환">
+          <i class="ph-bold ph-sun" id="theme-icon"></i>
+          <span id="theme-text">라이트 모드</span>
+        </button>
       </header>
 
-      <aside class="sidebar-left">
+      <!-- Desktop Navigation Sidebar -->
+      <aside class="desktop-nav">
         <nav>
-          <ul>
-            <li class="active">영웅 도감</li>
-            <li><a href="/deck.html">결투장 덱</a></li>
-          </ul>
+          <a href="/index.html" class="nav-link active">
+            <i class="ph-bold ph-users-three"></i>
+            <span>영웅 도감</span>
+          </a>
+          <a href="/deck.html" class="nav-link">
+            <i class="ph-bold ph-sword"></i>
+            <span>결투장 덱</span>
+          </a>
         </nav>
       </aside>
 
-      <!-- 모바일 전용 컴팩트 필터 -->
-      <div class="mobile-filters">
-        <select id="mobile-filter-rarity" class="mobile-filter-select">
-          <option value="전체">등급: 전체</option>
-          <option value="전설+">전설+</option>
-          <option value="전설">전설</option>
-          <option value="희귀">희귀</option>
-        </select>
+      <!-- Main Content Area -->
+      <main class="main-container">
+        <!-- Page Header -->
+        <div class="page-header">
+          <h1 class="page-title">세븐나이츠 리버스 영웅 도감</h1>
+          <p class="page-subtitle">모든 영웅의 능력치, 소속, 스킬, 장비 정보를 한눈에 확인</p>
+        </div>
 
-        <select id="mobile-filter-type" class="mobile-filter-select">
-          <option value="전체">타입: 전체</option>
-          <option value="공격형">공격형</option>
-          <option value="마법형">마법형</option>
-          <option value="만능형">만능형</option>
-          <option value="방어형">방어형</option>
-          <option value="지원형">지원형</option>
-        </select>
+        <!-- Mobile Filters -->
+        <div class="mobile-filter-bar">
+          <select id="mobile-filter-rarity" class="filter-select">
+            <option value="전체">등급: 전체</option>
+            <option value="전설+">전설+</option>
+            <option value="전설">전설</option>
+            <option value="희귀">희귀</option>
+          </select>
+          <select id="mobile-filter-type" class="filter-select">
+            <option value="전체">타입: 전체</option>
+            <option value="공격형">공격형</option>
+            <option value="마법형">마법형</option>
+            <option value="만능형">만능형</option>
+            <option value="방어형">방어형</option>
+            <option value="지원형">지원형</option>
+          </select>
+          <select id="mobile-filter-group" class="filter-select">
+            <option value="전체">소속: 전체</option>
+          </select>
+          <select id="mobile-sort" class="filter-select">
+            <option value="name">가나다 순</option>
+            <option value="attack">공격력</option>
+            <option value="hp">생명력</option>
+            <option value="rarity">등급</option>
+          </select>
+        </div>
 
-        <select id="mobile-filter-group" class="mobile-filter-select">
-          <option value="전체">소속: 전체</option>
-        </select>
-
-        <select id="mobile-sort" class="mobile-filter-select">
-          <option value="name">가나다 순</option>
-          <option value="attack">공격력 높은 순</option>
-          <option value="hp">생명력 높은 순</option>
-          <option value="rarity">등급 높은 순</option>
-        </select>
-      </div>
-
-      <main class="content">
-        <h1>세븐나이츠 리버스 영웅 도감</h1>
-        <p class="subtitle">모든 영웅의 능력치, 소속, 스킬, 장비 정보를 한눈에 볼 수 있는 도감</p>
-
-        <div id="heroes"></div>
+        <!-- Hero Grid -->
+        <div id="hero-grid" class="hero-grid"></div>
       </main>
 
-      <aside class="sidebar-right">
-        <div class="filter-container">
-          <h3>필터</h3>
+      <!-- Desktop Filters Sidebar -->
+      <aside class="desktop-filters">
+        <div class="filter-section">
+          <h3 class="filter-heading">필터</h3>
 
-          <!-- 등급 필터 -->
           <div class="filter-group">
-            <span class="filter-title">등급</span>
-            <div class="filter-buttons" id="filter-rarity">
-              <label><input type="checkbox" value="전체" checked>전체</label>
-              <label><input type="checkbox" value="전설+">전설+</label>
-              <label><input type="checkbox" value="전설">전설</label>
-              <label><input type="checkbox" value="희귀">희귀</label>
+            <label class="filter-label">등급</label>
+            <div class="filter-options" id="filter-rarity">
+              <label class="filter-chip">
+                <input type="checkbox" value="전체" checked>
+                <span>전체</span>
+              </label>
+              <label class="filter-chip">
+                <input type="checkbox" value="전설+">
+                <span>전설+</span>
+              </label>
+              <label class="filter-chip">
+                <input type="checkbox" value="전설">
+                <span>전설</span>
+              </label>
+              <label class="filter-chip">
+                <input type="checkbox" value="희귀">
+                <span>희귀</span>
+              </label>
             </div>
           </div>
 
-          <!-- 타입 필터 -->
           <div class="filter-group">
-            <span class="filter-title">타입</span>
-            <div class="filter-buttons" id="filter-type">
-              <label><input type="checkbox" value="전체" checked>전체</label>
-              <label><input type="checkbox" value="공격형">공격형</label>
-              <label><input type="checkbox" value="마법형">마법형</label>
-              <label><input type="checkbox" value="만능형">만능형</label>
-              <label><input type="checkbox" value="방어형">방어형</label>
-              <label><input type="checkbox" value="지원형">지원형</label>
+            <label class="filter-label">타입</label>
+            <div class="filter-options" id="filter-type">
+              <label class="filter-chip">
+                <input type="checkbox" value="전체" checked>
+                <span>전체</span>
+              </label>
+              <label class="filter-chip">
+                <input type="checkbox" value="공격형">
+                <span>공격형</span>
+              </label>
+              <label class="filter-chip">
+                <input type="checkbox" value="마법형">
+                <span>마법형</span>
+              </label>
+              <label class="filter-chip">
+                <input type="checkbox" value="만능형">
+                <span>만능형</span>
+              </label>
+              <label class="filter-chip">
+                <input type="checkbox" value="방어형">
+                <span>방어형</span>
+              </label>
+              <label class="filter-chip">
+                <input type="checkbox" value="지원형">
+                <span>지원형</span>
+              </label>
             </div>
           </div>
 
-          <!-- 소속 필터 -->
           <div class="filter-group">
-            <span class="filter-title">소속</span>
-            <div class="filter-buttons" id="filter-group"></div>
+            <label class="filter-label">소속</label>
+            <div class="filter-options" id="filter-group"></div>
           </div>
 
-          <!-- 정렬 -->
-          <h3>정렬</h3>
-          <div class="sort-buttons" id="sort-options">
-            <label><input type="radio" name="sort" value="name" checked> 가나다 순</label>
-            <label><input type="radio" name="sort" value="attack"> 공격력 높은 순</label>
-            <label><input type="radio" name="sort" value="hp"> 생명력 높은 순</label>
-            <label><input type="radio" name="sort" value="rarity"> 등급 높은 순</label>
+          <h3 class="filter-heading">정렬</h3>
+          <div class="sort-options" id="sort-options">
+            <label class="sort-option">
+              <input type="radio" name="sort" value="name" checked>
+              <span>가나다 순</span>
+            </label>
+            <label class="sort-option">
+              <input type="radio" name="sort" value="attack">
+              <span>공격력 높은 순</span>
+            </label>
+            <label class="sort-option">
+              <input type="radio" name="sort" value="hp">
+              <span>생명력 높은 순</span>
+            </label>
+            <label class="sort-option">
+              <input type="radio" name="sort" value="rarity">
+              <span>등급 높은 순</span>
+            </label>
           </div>
         </div>
       </aside>
+
+      <!-- Mobile Bottom Navigation -->
+      <nav class="mobile-bottom-nav">
+        <a href="/index.html" class="nav-item active">
+          <i class="ph-bold ph-users-three"></i>
+          <span>영웅 도감</span>
+        </a>
+        <a href="/deck.html" class="nav-item">
+          <i class="ph-bold ph-sword"></i>
+          <span>결투장 덱</span>
+        </a>
+      </nav>
+
+      <!-- Loading Overlay -->
+      <div id="loading" class="loading-overlay" style="display:flex;">
+        <div class="spinner"></div>
+        <div class="loading-text">L O A D I N G</div>
+      </div>
     </div>
 
-    <!-- 모바일 바텀 네비게이션 -->
-    <nav class="bottom-nav">
-      <a href="/index.html" class="bottom-nav-item active">
-        <i class="ph-bold ph-users-three"></i>
-        <span>영웅 도감</span>
-      </a>
-      <a href="/deck.html" class="bottom-nav-item">
-        <i class="ph-bold ph-sword"></i>
-        <span>결투장 덱</span>
-      </a>
-    </nav>
-
-    <!-- Global Loading Overlay -->
-    <div id="global-loading" class="loading-container" aria-hidden="true" style="display:flex;">
-      <div class="spinner"></div>
-      <div class="loading-text">L O A D I N G</div>
-    </div>
-
-    <script>
-  function showLoading(on) {
-    const el = document.getElementById("global-loading");
-    if (!el) return;
-    el.style.display = on ? "flex" : "none";
-  }
-
-  let allHeroes = [];
-
-  async function fetchHeroes() {
-    showLoading(true);
-    try {
-      const response = await fetch("/api/heroes");
-      const data = await response.json();
-      if (!data.records || !Array.isArray(data.records)) {
-        console.error("서버 응답:", data);
-        return;
-      }
-      allHeroes = data.records;
-      // === 소속 필터 동적 생성 ===
-      const groupFilterContainer = document.getElementById("filter-group");
-      const uniqueGroups = [...new Set(allHeroes.map(hero => hero.group).filter(Boolean))].sort((a, b) => a.localeCompare(b, "ko"));
-      groupFilterContainer.innerHTML = `
-        <label><input type="checkbox" value="전체" checked>전체</label>
-        ${uniqueGroups.map(group => `<label><input type="checkbox" value="${group}">${group}</label>`).join('')}
-      `;
-      updateMobileGroupFilter();
-      const filtered = applyFiltersAndSort(allHeroes);
-      renderHeroes(filtered);
-    } catch (error) {
-      console.error("에러:", error);
-      document.getElementById("heroes").textContent = "데이터 불러오기 오류";
-    } finally {
-      showLoading(false);
-    }
-  }
-
-  function renderHeroes(heroes) {
-    const heroesContainer = document.getElementById("heroes");
-    heroesContainer.innerHTML = "";
-    heroes.forEach((record) => {
-      const hero = record;
-      const card = document.createElement("div");
-      card.className = "hero-card";
-
-      // === (구)세븐나이츠 전용 data-group 속성 추가 ===
-      if (hero.group) {
-        card.setAttribute("data-group", hero.group);
-        if (hero.group.includes("(구)세븐나이츠")) {
-          card.classList.add("old-sevenknights");
-          console.log(`💜 (구)세븐나이츠 그룹 감지됨 → ${hero.name}`);
-        } else {
-          console.log(`💛 일반 그룹 → ${hero.name}`);
-        }
-      }
-
-      // 초상 이미지와 타입 배지 감싸는 div
-      if (hero.portrait) {
-        const imgWrapper = document.createElement("div");
-        imgWrapper.className = "hero-portrait-wrap";
-        imgWrapper.style.position = "relative";
-
-        const img = document.createElement("img");
-        img.src = hero.portrait;
-        img.alt = hero.name || "이미지 없음";
-        const rarityClass = (() => {
-          switch (hero.rarity) {
-            case "전설+": return "legendary-plus";
-            case "전설": return "legendary";
-            case "희귀": return "rare";
-            case "고급": return "uncommon";
-            default: return "normal";
-          }
-        })();
-        img.className = `hero-portrait rarity-${rarityClass}`;
-        if (hero.hasEffect === true || hero.hasEffect === "true" || hero.hasEffect === 1) {
-          img.classList.add("has-effect");
-        }
-        imgWrapper.appendChild(img);
-
-        // 다이아몬드 효과
-        if (hero.hasEffect) {
-          console.log(`🟣 ${hero.name} | group:`, hero.group);
-          const gradientId = `paint0_diamond_${hero.name.replace(/\s/g, '')}_${record.id}`;
-          const starWrapper = document.createElement("div");
-          starWrapper.className = "rarity-diamond-effect";
-          starWrapper.innerHTML = `
-            <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 100 100" fill="none">
-              <defs>
-                <linearGradient id="${gradientId}" x1="0" y1="0" x2="500" y2="500" gradientUnits="userSpaceOnUse">
-                  <stop stop-color="#FFF8E1"/>
-                  <stop offset="0.533654" stop-color="#FFE082"/>
-                  <stop offset="1" stop-color="#FFB300"/>
-                </linearGradient>
-              </defs>
-              <path d="M99.0854 0.124826C99.6876 -0.259713 100.26 0.312411 99.8752 0.914611C74.5556 40.6083 73.1362 54.5342 90.8173 89.847C91.0858 90.3826 90.384 91.0844 89.8483 90.816L89.847 90.8174C54.5329 73.1375 40.6072 74.5546 0.914577 99.8752C0.312412 100.26 -0.259673 99.6876 0.124792 99.0854C25.4444 59.3918 26.8625 45.4671 9.18167 10.1521C8.9215 9.63314 9.57223 8.95807 10.1001 9.16059L10.1507 9.18308C45.4657 26.8639 59.3905 25.4457 99.0854 0.124826ZM65.703 34.2974C61.9959 35.3198 58.2999 36.037 54.5685 36.4171C48.0147 37.0846 41.7138 36.6839 35.4457 35.4467C36.6829 41.7148 37.0837 48.0156 36.4162 54.5693C36.0363 58.3003 35.3191 61.996 34.2969 65.7027C38.0036 64.6805 41.6993 63.9633 45.4303 63.5834C51.9843 62.9159 58.2853 63.3166 64.5537 64.5539C63.3165 58.2856 62.9157 51.9848 63.5833 45.4307C63.9634 41.6997 64.6808 38.0041 65.703 34.2974Z" fill="url(#${gradientId})"/>
-            </svg>
-          `;
-
-          try {
-            const stops = starWrapper.querySelectorAll(`#${gradientId} stop`);
-            if (stops && stops.length >= 3) {
-              const isOldSeven = hero.group && hero.group.trim().includes("(구)세븐나이츠");
-              if (isOldSeven) {
-                stops[0].setAttribute("stop-color", "#EEDBFF");
-                stops[1].setAttribute("stop-color", "#C49CFF");
-                stops[2].setAttribute("stop-color", "#9C6BFF");
-                console.log(`💜 보라색 적용됨 → ${hero.name}`);
-              } else {
-                stops[0].setAttribute("stop-color", "#FFF8E1");
-                stops[1].setAttribute("stop-color", "#FFE082");
-                stops[2].setAttribute("stop-color", "#FFB300");
-                console.log(`💛 일반 황금색 유지 → ${hero.name}`);
-              }
-            }
-          } catch (e) {
-            console.warn("그라디언트 적용 실패:", e);
-          }
-
-          imgWrapper.appendChild(starWrapper);
-        }
-
-        if (hero.typeImage) {
-          const typeBadge = document.createElement("img");
-          typeBadge.src = hero.typeImage;
-          typeBadge.alt = hero.type || "타입 배지";
-          typeBadge.className = "hero-type-badge";
-          imgWrapper.appendChild(typeBadge);
-        }
-
-        card.appendChild(imgWrapper);
-      }
-
-      const name = document.createElement("div");
-      name.className = "hero-name";
-      name.textContent = hero.name || "이름 없음";
-      card.appendChild(name);
-
-      if (hero.nickname) {
-        const nickname = document.createElement("div");
-        nickname.className = "hero-nickname";
-        nickname.textContent = `${hero.nickname}`;
-        card.appendChild(nickname);
-      }
-
-      const heroId = record.id;
-      card.addEventListener("click", () => {
-        sessionStorage.setItem("scrollPosition", window.scrollY);
-        const heroName = encodeURIComponent(hero.name);
-        window.location.href = `/hero.html?name=${heroName}`;
-      });
-      heroesContainer.appendChild(card);
-    });
-  }
-
-  function applyFiltersAndSort(heroes) {
-    const selectedRarity = [...document.querySelectorAll('#filter-rarity input:checked')].map(el => el.value);
-    const selectedType = [...document.querySelectorAll('#filter-type input:checked')].map(el => el.value);
-    const selectedGroup = [...document.querySelectorAll('#filter-group input:checked')].map(el => el.value);
-    const sortOption = document.querySelector('input[name="sort"]:checked').value;
-
-    let filtered = heroes.filter(hero => {
-      const rarityMatch = selectedRarity.includes("전체") || selectedRarity.includes(hero.rarity);
-      const typeMatch = selectedType.includes("전체") || selectedType.includes(hero.type);
-      const groupMatch = selectedGroup.includes("전체") || selectedGroup.includes(hero.group);
-      return rarityMatch && typeMatch && groupMatch;
-    });
-
-    if (sortOption === "name") {
-      filtered.sort((a, b) => a.name.localeCompare(b.name, "ko"));
-    } else if (sortOption === "attack") {
-      filtered.sort((a, b) => (b["공격력"] || 0) - (a["공격력"] || 0));
-    } else if (sortOption === "hp") {
-      filtered.sort((a, b) => (b["생명력"] || 0) - (a["생명력"] || 0));
-    } else if (sortOption === "rarity") {
-      const rarityOrder = ["(구)세븐나이츠", "전설+", "전설", "희귀"];
-      filtered.sort((a, b) => {
-        const rarityA = rarityOrder.indexOf(a.group) >= 0 ? rarityOrder.indexOf(a.group) : rarityOrder.indexOf(a.rarity);
-        const rarityB = rarityOrder.indexOf(b.group) >= 0 ? rarityOrder.indexOf(b.group) : rarityOrder.indexOf(b.rarity);
-        if (rarityA === rarityB) return a.name.localeCompare(b.name, "ko");
-        return rarityA - rarityB;
-      });
-    }
-    return filtered;
-  }
-
-  document.addEventListener("DOMContentLoaded", () => {
-    fetchHeroes();
-
-    const savedScroll = sessionStorage.getItem("scrollPosition");
-    if (savedScroll) {
-      window.scrollTo(0, parseInt(savedScroll));
-      sessionStorage.removeItem("scrollPosition");
-    }
-
-    document.querySelectorAll(
-      '#filter-rarity input, #filter-type input, #filter-group input, input[name="sort"]'
-    ).forEach(el => {
-      el.addEventListener("change", () => {
-        const filtered = applyFiltersAndSort(allHeroes);
-        renderHeroes(filtered);
-      });
-    });
-
-    // === 전체 선택 로직 추가 ===
-    ["filter-rarity", "filter-type", "filter-group"].forEach(groupId => {
-      const container = document.getElementById(groupId);
-      const checkboxes = container.querySelectorAll("input[type='checkbox']");
-
-      checkboxes.forEach(checkbox => {
-        checkbox.addEventListener("change", () => {
-          const allOption = container.querySelector("input[value='전체']");
-          if (checkbox.value === "전체" && checkbox.checked) {
-            // 전체 선택 시 다른 체크 해제
-            checkboxes.forEach(cb => {
-              if (cb !== allOption) cb.checked = false;
-            });
-          } else if (checkbox.value !== "전체" && checkbox.checked) {
-            // 다른 옵션 선택 시 전체 해제
-            allOption.checked = false;
-          } else {
-            // 모두 해제된 경우 전체 다시 체크
-            const anyChecked = Array.from(checkboxes).some(cb => cb.checked && cb.value !== "전체");
-            if (!anyChecked) allOption.checked = true;
-          }
-
-          const filtered = applyFiltersAndSort(allHeroes);
-          renderHeroes(filtered);
-        });
-      });
-    });
-
-    // 모바일 필터 동기화
-    const mobileFilterRarity = document.getElementById('mobile-filter-rarity');
-    const mobileFilterType = document.getElementById('mobile-filter-type');
-    const mobileFilterGroup = document.getElementById('mobile-filter-group');
-    const mobileSort = document.getElementById('mobile-sort');
-
-    if (mobileFilterRarity) {
-      mobileFilterRarity.addEventListener('change', (e) => {
-        document.querySelectorAll('#filter-rarity input').forEach(inp => inp.checked = false);
-        const target = document.querySelector(`#filter-rarity input[value="${e.target.value}"]`);
-        if (target) target.checked = true;
-        renderHeroes(applyFiltersAndSort(allHeroes));
-      });
-    }
-
-    if (mobileFilterType) {
-      mobileFilterType.addEventListener('change', (e) => {
-        document.querySelectorAll('#filter-type input').forEach(inp => inp.checked = false);
-        const target = document.querySelector(`#filter-type input[value="${e.target.value}"]`);
-        if (target) target.checked = true;
-        renderHeroes(applyFiltersAndSort(allHeroes));
-      });
-    }
-
-    if (mobileFilterGroup) {
-      mobileFilterGroup.addEventListener('change', (e) => {
-        document.querySelectorAll('#filter-group input').forEach(inp => inp.checked = false);
-        const target = document.querySelector(`#filter-group input[value="${e.target.value}"]`);
-        if (target) target.checked = true;
-        renderHeroes(applyFiltersAndSort(allHeroes));
-      });
-    }
-
-    if (mobileSort) {
-      mobileSort.addEventListener('change', (e) => {
-        const target = document.querySelector(`input[name="sort"][value="${e.target.value}"]`);
-        if (target) target.checked = true;
-        renderHeroes(applyFiltersAndSort(allHeroes));
-      });
-    }
-  });
-
-  // 소속 필터가 동적으로 생성된 후 모바일 select에도 추가
-  function updateMobileGroupFilter() {
-    const mobileFilterGroup = document.getElementById('mobile-filter-group');
-    const groupOptions = [...document.querySelectorAll('#filter-group input')].map(inp => inp.value);
-    if (mobileFilterGroup && groupOptions.length > 0) {
-      mobileFilterGroup.innerHTML = `
-        <option value="전체">소속: 전체</option>
-        ${groupOptions.filter(g => g !== '전체').map(group => `<option value="${group}">${group}</option>`).join('')}
-      `;
-    }
-  }
-</script>
-
-<script>
-  // 테마 토글 기능
-  const themeToggle = document.getElementById('theme-toggle');
-  const themeIcon = document.getElementById('theme-icon');
-  const themeText = document.getElementById('theme-text');
-  const htmlElement = document.documentElement;
-
-  // 저장된 테마 또는 시스템 기본값 가져오기
-  function getInitialTheme() {
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme) {
-      return savedTheme;
-    }
-    // 시스템 다크 모드 설정 확인
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    return prefersDark ? 'dark' : 'light';
-  }
-
-  // 테마 적용
-  function applyTheme(theme) {
-    if (theme === 'light') {
-      htmlElement.setAttribute('data-theme', 'light');
-      themeIcon.className = 'ph-bold ph-moon';
-      themeText.textContent = '다크 모드';
-    } else {
-      htmlElement.removeAttribute('data-theme');
-      themeIcon.className = 'ph-bold ph-sun';
-      themeText.textContent = '라이트 모드';
-    }
-    localStorage.setItem('theme', theme);
-  }
-
-  // 테마 전환
-  function toggleTheme() {
-    const currentTheme = htmlElement.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
-    const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-    applyTheme(newTheme);
-  }
-
-  // 초기 테마 적용
-  applyTheme(getInitialTheme());
-
-  // 이벤트 리스너
-  themeToggle.addEventListener('click', toggleTheme);
-
-  // 시스템 테마 변경 감지 (선택사항)
-  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
-    if (!localStorage.getItem('theme')) {
-      applyTheme(e.matches ? 'dark' : 'light');
-    }
-  });
-</script>
-
+    <script src="/js/hero-list.js"></script>
+    <script src="/js/theme.js"></script>
   </body>
 </html>

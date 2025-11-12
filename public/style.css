@@ -1,19 +1,18 @@
 @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css");
 @font-face {
-    font-family: 'SchoolSafeLocker';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2402_keris@1.0/TTHakgyoansimSamulhamR.woff2') format('woff2');
-    font-weight: normal;
-    font-display: swap;
+  font-family: 'SchoolSafeLocker';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2402_keris@1.0/TTHakgyoansimSamulhamR.woff2') format('woff2');
+  font-weight: normal;
+  font-display: swap;
 }
 
-/* ------------------------------------ */
-/*  테마 시스템 - CSS 변수 (iOS Glassmorphism) */
-/* ------------------------------------ */
-
+/* ================================ */
+/* CSS Variables - iOS Glassmorphism */
+/* ================================ */
 :root {
-  /* 다크 테마 (기본) - iOS Glassmorphism */
+  /* Dark Theme (Default) */
   --bg-primary: #000000;
-  --bg-secondary: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+  --bg-secondary: #0a0a0a;
   --bg-tertiary: rgba(20, 20, 20, 0.6);
   --bg-elevated: rgba(30, 30, 30, 0.7);
   --bg-elevated-hover: rgba(45, 45, 45, 0.8);
@@ -30,6 +29,7 @@
   --accent-primary: #64b5f6;
   --accent-secondary: #42a5f5;
   --accent-tertiary: #90caf9;
+  --accent-glow: rgba(100, 181, 246, 0.4);
 
   --shadow-sm: rgba(0, 0, 0, 0.2);
   --shadow-md: rgba(0, 0, 0, 0.3);
@@ -42,12 +42,17 @@
   --blur-sm: 10px;
   --blur-md: 20px;
   --blur-lg: 40px;
+
+  /* Layout */
+  --header-height: 64px;
+  --sidebar-width: 240px;
+  --mobile-nav-height: 64px;
 }
 
 [data-theme="light"] {
-  /* 라이트 테마 - iOS Glassmorphism */
+  /* Light Theme */
   --bg-primary: #f5f5f7;
-  --bg-secondary: linear-gradient(135deg, #ffffff 0%, #f0f0f5 100%);
+  --bg-secondary: #ffffff;
   --bg-tertiary: rgba(255, 255, 255, 0.7);
   --bg-elevated: rgba(255, 255, 255, 0.8);
   --bg-elevated-hover: rgba(255, 255, 255, 0.9);
@@ -64,6 +69,7 @@
   --accent-primary: #007aff;
   --accent-secondary: #0051d5;
   --accent-tertiary: #3395ff;
+  --accent-glow: rgba(0, 122, 255, 0.3);
 
   --shadow-sm: rgba(0, 0, 0, 0.1);
   --shadow-md: rgba(0, 0, 0, 0.15);
@@ -72,33 +78,24 @@
   --overlay-light: rgba(0, 0, 0, 0.03);
   --overlay-medium: rgba(0, 0, 0, 0.06);
   --overlay-heavy: rgba(0, 0, 0, 0.1);
-
-  --blur-sm: 10px;
-  --blur-md: 20px;
-  --blur-lg: 40px;
 }
 
-/* ------------------------------------ */
-/*  공통 스타일                         */
-/* ------------------------------------ */
-
-.content h1,
-.content .subtitle {
-  position: absolute !important;
-  width: 1px;
-  height: 1px;
+/* ================================ */
+/* Reset & Base Styles */
+/* ================================ */
+* {
+  box-sizing: border-box;
+  margin: 0;
   padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  border: 0;
 }
 
 body {
-  font-family: "Pretendard", sans-serif;
+  font-family: "Pretendard", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   background: var(--bg-primary);
   color: var(--text-primary);
-  margin: 0;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
@@ -113,60 +110,66 @@ img {
   height: auto;
 }
 
-/* ------------------------------------ */
-/*  헤더 및 레이아웃 구조               */
-/* ------------------------------------ */
-.layout {
-  display: grid;
-  grid-template-columns: 280px 1fr 280px;
-  grid-template-rows: 80px auto;
-  grid-template-areas:
-    "header header header"
-    "sidebar-left content sidebar-right";
-  width: 100%;
-  height: 100vh;
-  background: var(--bg-tertiary);
-  position: relative;
+button {
+  font-family: inherit;
+  cursor: pointer;
 }
 
+/* ================================ */
+/* App Container - Grid Layout */
+/* ================================ */
+.app-container {
+  display: grid;
+  grid-template-columns: var(--sidebar-width) 1fr var(--sidebar-width);
+  grid-template-rows: var(--header-height) 1fr;
+  grid-template-areas:
+    "header header header"
+    "nav main filters";
+  min-height: 100vh;
+  background: var(--bg-secondary);
+}
+
+/* ================================ */
 /* Header */
-.header {
+/* ================================ */
+.app-header {
   grid-area: header;
-  height: 80px;
-  background: var(--bg-elevated);
-  backdrop-filter: blur(var(--blur-md)) saturate(180%);
-  -webkit-backdrop-filter: blur(var(--blur-md)) saturate(180%);
+  position: sticky;
+  top: 0;
+  z-index: 100;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 32px;
+  padding: 0 24px;
+  background: var(--bg-elevated);
+  backdrop-filter: blur(var(--blur-md)) saturate(180%);
+  -webkit-backdrop-filter: blur(var(--blur-md)) saturate(180%);
   border-bottom: 1px solid var(--border-primary);
-  box-sizing: border-box;
   box-shadow: 0 4px 24px var(--shadow-sm);
 }
 
-.header-actions {
-  display: flex;
-  align-items: center;
-  gap: 16px;
+.header-brand {
+  font-family: 'SchoolSafeLocker', sans-serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  color: var(--text-primary);
 }
 
-/* 테마 토글 버튼 */
 .theme-toggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
   background: var(--overlay-light);
   backdrop-filter: blur(var(--blur-sm));
   -webkit-backdrop-filter: blur(var(--blur-sm));
   border: 1px solid var(--border-tertiary);
   border-radius: 12px;
-  padding: 10px 18px;
-  cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  display: flex;
-  align-items: center;
-  gap: 8px;
   color: var(--text-primary);
   font-size: 0.9rem;
   font-weight: 500;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   box-shadow: 0 2px 8px var(--shadow-sm);
 }
 
@@ -181,100 +184,350 @@ img {
   font-size: 1.2rem;
 }
 
-.header-title {
-  font-family: 'SchoolSafeLocker', sans-serif;
-  font-size: 1.5rem;
-  color: var(--text-primary);
-  margin: 0;
-  font-weight: 700;
-  letter-spacing: -0.5px;
-}
-
-/* Sidebar */
-.sidebar-left,
-.sidebar-right {
-  position: fixed;
-  top: 80px;
-  bottom: 0;
-  width: 280px;
-  overflow-y: auto;
-  box-sizing: border-box;
+/* ================================ */
+/* Desktop Navigation Sidebar */
+/* ================================ */
+.desktop-nav {
+  grid-area: nav;
+  position: sticky;
+  top: var(--header-height);
+  height: calc(100vh - var(--header-height));
+  padding: 24px 16px;
   background: var(--bg-elevated);
   backdrop-filter: blur(var(--blur-md)) saturate(180%);
   -webkit-backdrop-filter: blur(var(--blur-md)) saturate(180%);
-  scrollbar-width: thin;
-  scrollbar-color: var(--accent-primary) var(--overlay-light);
-}
-
-.sidebar-left::-webkit-scrollbar,
-.sidebar-right::-webkit-scrollbar {
-  width: 8px;
-}
-
-.sidebar-left::-webkit-scrollbar-track,
-.sidebar-right::-webkit-scrollbar-track {
-  background: var(--overlay-light);
-}
-
-.sidebar-left::-webkit-scrollbar-thumb,
-.sidebar-right::-webkit-scrollbar-thumb {
-  background: var(--accent-primary);
-  border-radius: 4px;
-}
-
-.sidebar-left {
-  left: 0;
   border-right: 1px solid var(--border-primary);
-}
-.sidebar-right {
-  right: 0;
-  border-left: 1px solid var(--border-primary);
-}
-
-/* Content */
-.content {
-  grid-area: content;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
   overflow-y: auto;
-  overflow-x: hidden;
-  height: 100%;
-  scrollbar-width: thin;
-  scrollbar-color: var(--accent-primary) var(--overlay-light);
 }
 
-.content::-webkit-scrollbar {
-  width: 12px;
+.desktop-nav nav {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
-.content::-webkit-scrollbar-track {
-  background: var(--bg-tertiary);
+.desktop-nav .nav-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  background: var(--overlay-light);
+  backdrop-filter: blur(var(--blur-sm));
+  -webkit-backdrop-filter: blur(var(--blur-sm));
+  border: 1px solid var(--border-tertiary);
+  border-radius: 12px;
+  color: var(--text-secondary);
+  font-weight: 500;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.content::-webkit-scrollbar-thumb {
+.desktop-nav .nav-link i {
+  font-size: 20px;
+}
+
+.desktop-nav .nav-link:hover {
+  background: var(--overlay-medium);
+  border-color: var(--accent-primary);
+  color: var(--accent-primary);
+  transform: translateX(4px);
+}
+
+.desktop-nav .nav-link.active {
   background: var(--accent-primary);
-  border-radius: 6px;
-  border: 3px solid var(--bg-tertiary);
+  border-color: var(--accent-primary);
+  color: #ffffff;
+  box-shadow: 0 4px 16px var(--accent-glow);
 }
 
-.content::-webkit-scrollbar-thumb:hover {
-  background: var(--accent-secondary);
+/* ================================ */
+/* Main Content Area */
+/* ================================ */
+.main-container {
+  grid-area: main;
+  padding: 32px;
+  overflow-y: auto;
 }
 
-/* ------------------------------------ */
-/*  로딩 상태                           */
-/* ------------------------------------ */
-.loading-container {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+.page-header {
+  margin-bottom: 32px;
+  text-align: center;
+}
+
+.page-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+  letter-spacing: -0.02em;
+}
+
+.page-subtitle {
+  font-size: 1.1rem;
+  color: var(--text-tertiary);
+}
+
+/* Mobile Filter Bar - Hidden on Desktop */
+.mobile-filter-bar {
+  display: none;
+}
+
+/* ================================ */
+/* Hero Grid */
+/* ================================ */
+.hero-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 24px;
+  padding: 16px 0;
+}
+
+.hero-card {
   display: flex;
   flex-direction: column;
   align-items: center;
-  z-index: 2000;
+  padding: 16px;
+  background: transparent;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
+
+.hero-card:hover {
+  background: var(--overlay-light);
+  backdrop-filter: blur(var(--blur-sm));
+  -webkit-backdrop-filter: blur(var(--blur-sm));
+  transform: scale(1.05) translateY(-4px);
+  box-shadow: 0 8px 32px var(--shadow-md);
+}
+
+.hero-portrait-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1;
+  margin-bottom: 12px;
+}
+
+.hero-portrait {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #c1b494;
+}
+
+.hero-portrait.rarity-legendary-plus {
+  background: radial-gradient(circle at center, #ffefb8, #eba22a);
+}
+
+.hero-portrait.rarity-legendary {
+  background: radial-gradient(circle at center, #f3e0a8, #b68700);
+}
+
+.hero-portrait.rarity-rare {
+  background: radial-gradient(circle at center, #a693ff, #5a3ebd);
+}
+
+.hero-portrait.has-effect {
+  border-color: rgb(255 187 61);
+  box-shadow:
+    0 0 10px rgba(255, 210, 130, 0.7),
+    0 0 20px rgba(255, 170, 70, 0.5),
+    0 0 30px rgba(255, 140, 40, 0.3);
+}
+
+.hero-type-badge {
+  position: absolute;
+  bottom: 8px;
+  left: 8px;
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+  z-index: 2;
+}
+
+.rarity-diamond-effect {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: clamp(28px, 3vw, 48px);
+  height: clamp(28px, 3vw, 48px);
+  z-index: 5;
+  pointer-events: none;
+}
+
+.rarity-diamond-effect svg {
+  overflow: visible;
+  filter: drop-shadow(0 0 6px #ffcc80)
+          drop-shadow(0 0 12px #f37225)
+          drop-shadow(0 0 20px rgba(255, 180, 60, 0.6));
+}
+
+/* Purple variant for (구)세븐나이츠 */
+.hero-card[data-group*="(구)세븐나이츠"] .rarity-diamond-effect svg {
+  filter: drop-shadow(0 0 6px #d5a6ff)
+          drop-shadow(0 0 12px #b57aff)
+          drop-shadow(0 0 20px rgba(170, 90, 255, 0.6));
+}
+
+.hero-name {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  text-align: center;
+  margin-top: 4px;
+}
+
+.hero-nickname {
+  font-size: 0.75rem;
+  color: var(--text-tertiary);
+  text-align: center;
+  margin-top: 2px;
+}
+
+/* ================================ */
+/* Desktop Filters Sidebar */
+/* ================================ */
+.desktop-filters {
+  grid-area: filters;
+  position: sticky;
+  top: var(--header-height);
+  height: calc(100vh - var(--header-height));
+  padding: 24px 16px;
+  background: var(--bg-elevated);
+  backdrop-filter: blur(var(--blur-md)) saturate(180%);
+  -webkit-backdrop-filter: blur(var(--blur-md)) saturate(180%);
+  border-left: 1px solid var(--border-primary);
+  overflow-y: auto;
+}
+
+.filter-section {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.filter-heading {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--accent-primary);
+  margin-bottom: 8px;
+}
+
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.filter-label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.filter-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.filter-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 14px;
+  background: var(--overlay-light);
+  backdrop-filter: blur(var(--blur-sm));
+  -webkit-backdrop-filter: blur(var(--blur-sm));
+  border: 1px solid var(--border-tertiary);
+  border-radius: 12px;
+  color: var(--text-primary);
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  user-select: none;
+  box-shadow: 0 2px 6px var(--shadow-sm);
+}
+
+.filter-chip input {
+  display: none;
+}
+
+.filter-chip:hover {
+  background: var(--overlay-medium);
+  border-color: var(--accent-primary);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px var(--shadow-md);
+}
+
+.filter-chip:has(input:checked) {
+  background: var(--accent-primary);
+  border-color: var(--accent-primary);
+  color: #ffffff;
+  font-weight: 600;
+  box-shadow: 0 4px 16px var(--accent-glow);
+}
+
+.sort-options {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.sort-option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  background: var(--overlay-light);
+  backdrop-filter: blur(var(--blur-sm));
+  -webkit-backdrop-filter: blur(var(--blur-sm));
+  border: 1px solid var(--border-tertiary);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.sort-option:hover {
+  background: var(--overlay-medium);
+  border-color: var(--accent-tertiary);
+}
+
+.sort-option input {
+  accent-color: var(--accent-primary);
+}
+
+.sort-option:has(input:checked) {
+  background: var(--overlay-medium);
+  border-color: var(--accent-primary);
+  color: var(--accent-primary);
+}
+
+/* ================================ */
+/* Mobile Bottom Navigation */
+/* ================================ */
+.mobile-bottom-nav {
+  display: none;
+}
+
+/* ================================ */
+/* Loading Overlay */
+/* ================================ */
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(var(--blur-md));
+  -webkit-backdrop-filter: blur(var(--blur-md));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
 .spinner {
   width: 48px;
   height: 48px;
@@ -284,2863 +537,208 @@ img {
   animation: spin 1s linear infinite;
   margin-bottom: 16px;
 }
+
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  to { transform: rotate(360deg); }
 }
+
 .loading-text {
   font-weight: 600;
   font-size: 18px;
   color: var(--text-primary);
-  text-align: center;
+  letter-spacing: 0.3em;
 }
 
-/* ------------------------------------ */
-/*  인덱스 (영웅 리스트)                */
-/* ------------------------------------ */
-#heroes {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  gap: clamp(16px, 3vw, 48px);
-  justify-content: stretch;
-  align-content: start;
-  width: 100%;
-  padding: clamp(24px, 4vw, 56px);
-  padding-bottom: clamp(100px, 15vw, 150px);
-  overflow: visible;
+/* ================================ */
+/* Scrollbar Styling */
+/* ================================ */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
 }
 
-.hero-card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  cursor: pointer;
-  background: transparent;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  overflow: visible;
-  position: relative;
-  z-index: 1;
-  border-radius: 20px;
-  padding: 12px;
-}
-
-.hero-card:hover {
-  transform: scale(1.08) translateY(-4px);
-  z-index: 10;
+::-webkit-scrollbar-track {
   background: var(--overlay-light);
-  backdrop-filter: blur(var(--blur-sm));
-  -webkit-backdrop-filter: blur(var(--blur-sm));
-  box-shadow: 0 8px 32px var(--shadow-md);
 }
 
-.hero-portrait-wrap {
-  position: relative;
-  line-height: 0;
-  width: 100%;
-}
-.hero-portrait {
-  width: 100%;
-  aspect-ratio: 1 / 1;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 3px solid #c1b494;
-}
-.hero-type-badge {
-  position: absolute;
-  bottom: 8px;
-  left: 8px;
-  width: 40px;
-  height: 40px;
-  object-fit: contain;
-  z-index: 2;
-}
-.hero-name {
-  font-size: 0.95rem;
-  font-weight: 500;
-  color: var(--text-primary);
-  text-align: center;
-  margin-top: 8px;
+::-webkit-scrollbar-thumb {
+  background: var(--accent-primary);
+  border-radius: 5px;
 }
 
-/* 희귀도 색상 */
-.rarity-legendary-plus { background: radial-gradient(circle at center, #ffefb8, #eba22a); }
-.rarity-legendary { background: radial-gradient(circle at center, #f3e0a8, #b68700); }
-.rarity-rare { background: radial-gradient(circle at center, #a693ff, #5a3ebd); }
-.rarity-uncommon { background: radial-gradient(circle at center, #b5ffb0, #2e7b2e); }
-
-/* ------------------------------------ */
-/*  hero.html (영웅 상세 페이지)        */
-/* ------------------------------------ */
-.hero-detail-page {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 3rem;
-  background: var(--bg-secondary);
-  min-height: 100vh;
-  padding: 0 24px;
-  box-sizing: border-box;
-  transition: background-color 0.3s ease;
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-secondary);
 }
 
-/* Adjust container widths for desktop */
-.hero-detail-container {
-  flex: 1;
-  max-width: 900px;
-  width: 100%;
-}
-
-.hero-comments {
-  flex: 0 0 360px;
-  max-width: 360px;
-}
-
-/* Responsive fallback for mobile (under 1024px) */
-@media (max-width: 1023px) {
-  .hero-detail-page {
-    flex-direction: column;
-  }
-  .hero-detail-container,
-  .hero-comments {
-    max-width: 100%;
-  }
-}
-.hero-header {
-  width: 100%;
-  height: 80px;
-  background: var(--bg-elevated);
-  backdrop-filter: blur(var(--blur-md)) saturate(180%);
-  -webkit-backdrop-filter: blur(var(--blur-md)) saturate(180%);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 32px;
-  border-bottom: 1px solid var(--border-primary);
-  box-sizing: border-box;
-  box-shadow: 0 4px 24px var(--shadow-sm);
-}
-.hero-nav-buttons {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-}
-
-.back-button {
-  background: transparent;
-  color: var(--text-primary);
-  border: none;
-  font-size: 1rem;
-  font-weight:500;
-  cursor: pointer;
-  transition: color 0.2s ease;
-}
-.back-button:hover {
-  color: var(--accent-tertiary);
-}
-.back-button i {
-  font-size:16px;
-}
-
-.hero-navigation {
-  display: flex;
-  gap: 8px;
-  align-items: center;
-}
-
-.nav-arrow {
-  background: var(--overlay-light);
-  border: 1px solid var(--border-tertiary);
-  border-radius: 8px;
-  width: 40px;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  color: var(--text-primary);
-}
-
-.nav-arrow:hover:not(:disabled) {
-  background: var(--overlay-medium);
-  border-color: var(--accent-primary);
-  color: var(--accent-primary);
-}
-
-.nav-arrow:disabled {
-  opacity: 0.3;
-  cursor: not-allowed;
-}
-
-.nav-arrow i {
-  font-size: 20px;
-}
-
-.hero-detail-container {
-  margin: 0;
-  text-align: left;
-  padding: 32px 0;
-  box-sizing: border-box;
-}
-
-/* Hero Top Section - Portrait and Basic Info */
-.hero-top {
-  background: var(--bg-elevated);
-  backdrop-filter: blur(var(--blur-md)) saturate(180%);
-  -webkit-backdrop-filter: blur(var(--blur-md)) saturate(180%);
-  border: 1px solid var(--border-secondary);
-  border-radius: 24px;
-  padding: 40px;
-  margin-bottom: 32px;
-  display: flex;
-  align-items: center;
-  gap: 40px;
-  box-shadow: 0 8px 48px var(--shadow-md);
-  position: relative;
-  overflow: hidden;
-}
-
-.hero-top::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 200px;
-  background: radial-gradient(ellipse at top, rgba(255, 153, 0, 0.03) 0%, transparent 70%);
-  pointer-events: none;
-}
-
-.hero-detail-portrait {
-  width: 240px;
-  height: 240px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 4px solid #c1b494;
-  margin: 0 auto 24px;
-}
-
-.hero-basic-info {
-  flex: 1;
-  position: relative;
-  z-index: 1;
-}
-
-#hero-name {
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: var(--text-primary);
-  margin-bottom: 8px;
-  line-height: 1.2;
-  text-shadow: 2px 2px 8px var(--shadow-sm);
-}
-
-.hero-nickname {
-  font-size: 1.1rem;
-  color: var(--text-tertiary);
-  margin-bottom: 12px;
-  font-style: italic;
-}
-
-.hero-group {
-  font-size: 1rem;
-  color: var(--accent-primary);
-  margin-bottom: 16px;
-  font-weight: 500;
-}
-
-.hero-meta {
-  display: flex;
-  gap: 12px;
-  margin-top: 20px;
-}
-
-#hero-type,
-#hero-rarity {
-  background: var(--overlay-light);
-  border: 1px solid var(--border-tertiary);
-  border-radius: 8px;
-  padding: 8px 16px;
-  font-size: 0.95rem;
-  font-weight: 600;
-  color: var(--accent-primary);
-}
-
-#hero-description {
-  font-size: 1rem;
-  line-height: 1.6;
-  color: #ccc;
-  margin-bottom: 32px;
-  white-space: pre-line;
-}
-
-/* Hero Stats Section */
-.hero-stats {
-  background: var(--bg-elevated);
-  backdrop-filter: blur(var(--blur-md)) saturate(180%);
-  -webkit-backdrop-filter: blur(var(--blur-md)) saturate(180%);
-  border: 1px solid var(--border-secondary);
-  border-radius: 24px;
-  padding: 32px;
-  margin-bottom: 32px;
-  box-shadow: 0 8px 48px var(--shadow-md);
-}
-
-.hero-stats h2 {
-  font-size: 1.8rem;
-  font-weight: 700;
-  color: var(--accent-primary);
-  margin: 0 0 12px 0;
-  padding-bottom: 16px;
-  border-bottom: 2px solid var(--border-secondary);
-}
-
-.stats-info {
-  font-size: 0.85rem;
-  color: var(--text-tertiary);
-  margin: 0 0 20px 0;
-  font-style: italic;
-}
-
-.stats-table {
-  width: 100%;
-  border-collapse: collapse;
-}
-
-.stats-table tr {
-  border-bottom: 1px solid var(--border-secondary);
-}
-
-.stats-table tr:last-child {
-  border-bottom: none;
-}
-
-.stats-table td {
-  padding: 12px 0;
-}
-
-.stats-table td:first-child {
-  font-size: 0.95rem;
-  font-weight: 500;
-  color: var(--text-secondary);
-  width: 40%;
-}
-
-.stats-table td:last-child {
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: var(--text-primary);
-  text-align: right;
-}
-
-/* Hero Skills Section */
-.hero-skills {
-  margin-bottom: 32px;
-}
-
-.hero-skills h2 {
-  font-size: 1.8rem;
-  font-weight: 700;
-  color: var(--accent-primary);
-  margin: 0 0 24px 0;
-  padding-bottom: 16px;
-  border-bottom: 2px solid var(--border-secondary);
-}
-
-.hero-skills .skill {
-  background: var(--bg-elevated);
-  backdrop-filter: blur(var(--blur-md)) saturate(180%);
-  -webkit-backdrop-filter: blur(var(--blur-md)) saturate(180%);
-  border: 1px solid var(--border-secondary);
-  border-radius: 20px;
-  padding: 24px;
-  margin-bottom: 20px;
-  box-shadow: 0 4px 24px var(--shadow-sm);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  position: relative;
-  overflow: hidden;
-}
-
-.hero-skills .skill::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 4px;
-  background: linear-gradient(90deg, var(--accent-primary) 0%, var(--accent-secondary) 100%);
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.hero-skills .skill:hover {
-  border-color: var(--accent-primary);
-  transform: translateY(-4px);
-  box-shadow: 0 8px 40px var(--shadow-md);
-}
-
-.hero-skills .skill:hover::before {
-  opacity: 1;
-}
-
-.hero-skills .skill h3 {
-  font-size: 1rem;
-  font-weight: 600;
-  color: var(--accent-primary);
-  margin: 0 0 16px 0;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  opacity: 0.9;
-}
-
-.hero-skills .skill img {
-  width: 80px;
-  height: 80px;
-  border-radius: 12px;
-  border: 2px solid var(--border-tertiary);
-  margin-bottom: 16px;
-  float: left;
-  margin-right: 20px;
-  box-shadow: 0 4px 12px var(--shadow-sm);
-}
-
-.hero-skills .skill .skill-name {
-  font-size: 1.3rem;
-  font-weight: 700;
-  color: var(--text-primary);
-  margin-bottom: 8px;
-  display: block;
-}
-
-.hero-skills .skill .skill-cooltime {
-  display: inline-block;
-  background: var(--overlay-light);
-  border: 1px solid var(--border-tertiary);
-  border-radius: 6px;
-  padding: 4px 12px;
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: var(--accent-primary);
-  margin-bottom: 12px;
-  margin-left: 8px;
-}
-
-.hero-skills .skill .skill-desc {
-  font-size: 1rem;
-  line-height: 1.7;
-  color: var(--text-secondary);
-  clear: both;
-  padding-top: 12px;
-}
-
-#hero-skills {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-#hero-skills li {
-  background: var(--bg-elevated);
-  border: 1px solid var(--border-tertiary);
-  border-radius: 8px;
-  padding: 12px 16px;
-  margin-bottom: 12px;
-  color: var(--text-secondary);
-  text-align: left;
-}
-
-/* ------------------------------------ */
-/*  전설+ 및 체크박스 효과 다이아몬드 (업데이트 버전) */
-/* ------------------------------------ */
-/* .rarity-diamond-effect styles referencing old diamondPulse animation removed */
-
-/* Red-Gold Gradient for SVG fill */
-svg defs {
-  /* Define the gradient once */
-}
-@supports (--css: variables) {
-  /* For browsers supporting CSS variables, define the gradient */
-  :root {
-    --red-gold-gradient-start: #ffefb8;
-    --red-gold-gradient-mid: #ffb07a;
-    --red-gold-gradient-end: #ff6a5a;
-    --red-gold-gradient-pink: #ff7f90;
-  }
-}
-
-/* Inline SVG gradient definition */
-.rarity-diamond-effect svg defs {
-  /* This is just a placeholder; the actual gradient should be defined in the SVG element */
-}
-
-/* ------------------------------------ */
-/*  전설+ 황금 스파크 효과 (Red-Gold Spark) */
-/* ------------------------------------ */
-/* ==== Spark star positioning & animation (SVG) ==== */
-.hero-portrait-wrap { position: relative; }
-
-.rarity-diamond-effect{
-  position: absolute;
-  top: 0px;
-  right: 0px;
-  width: clamp(24px, 2vw, 48px);
-  height: clamp(24px, 2vw, 48px);
-  z-index: 5;
-  pointer-events: none;
-}
-
-/* Ensure UA rule doesn't clip the SVG effects */
-
-/* (구)세븐나이츠 제외 일반 영웅 스파크 */
-.hero-card:not([data-group="(구)세븐나이츠"]) .rarity-diamond-effect svg,
-.related-hero-card:not([data-group="(구)세븐나이츠"]) .rarity-diamond-effect svg {
-  overflow: visible;
-  filter: drop-shadow(0 0 6px #ffcc80)
-        drop-shadow(0 0 12px #f37225)
-        drop-shadow(0 0 20px rgba(255, 180, 60, 0.6));
-}
-
-/* (구)세븐나이츠 전용 보랏빛 황금 스파크 */
-.hero-card[data-group="(구)세븐나이츠"] .rarity-diamond-effect svg,
-.related-hero-card[data-group="(구)세븐나이츠"] .rarity-diamond-effect svg {
-  filter: drop-shadow(0 0 6px #d5a6ff)
-          drop-shadow(0 0 12px #b57aff)
-          drop-shadow(0 0 20px rgba(170, 90, 255, 0.6));
-}
-
-/* (구)세븐나이츠 제외 일반 영웅 스파크 (상단 초상화) */
-.hero-detail-page:not([data-group="(구)세븐나이츠"]) .hero-top .rarity-diamond-effect svg {
-  overflow: visible;
-  filter: drop-shadow(0 0 6px #ffcc80)
-          drop-shadow(0 0 12px #f37225)
-          drop-shadow(0 0 20px rgba(255, 180, 60, 0.6));
-}
-
-/* (구)세븐나이츠 전용 보랏빛 황금 스파크 (상단 초상화) */
-.hero-detail-page[data-group="(구)세븐나이츠"] .hero-top .rarity-diamond-effect svg {
-  filter: drop-shadow(0 0 6px #d5a6ff)
-          drop-shadow(0 0 12px #b57aff)
-          drop-shadow(0 0 20px rgba(170, 90, 255, 0.6));
-}
-
-/* Removed outdated box-shadow keyframe animations: diamondPulse, starPulse, starSparkEnhanced */
-
-.hero-portrait.has-effect {
-  position: relative;
-  border: 3px solid rgb(255 187 61);
-  background-clip: padding-box;
-  box-shadow:
-    0 0 10px rgba(255, 210, 130, 0.7),
-    0 0 20px rgba(255, 170, 70, 0.5),
-    0 0 30px rgba(255, 140, 40, 0.3);
-}
-
-/* ------------------------------------ */
-/*  hero.html 댓글 섹션                 */
-/* ------------------------------------ */
-.hero-comments {
-  width: 100%;
-  background: var(--bg-elevated);
-  backdrop-filter: blur(var(--blur-md)) saturate(180%);
-  -webkit-backdrop-filter: blur(var(--blur-md)) saturate(180%);
-  border: 1px solid var(--border-secondary);
-  border-radius: 24px;
-  padding: 32px;
-  box-sizing: border-box;
-  box-shadow: 0 8px 48px var(--shadow-md);
-  position: sticky;
-  top: 100px;
-  max-height: calc(100vh - 120px);
-  overflow-y: auto;
+* {
   scrollbar-width: thin;
   scrollbar-color: var(--accent-primary) var(--overlay-light);
 }
 
-.hero-comments::-webkit-scrollbar {
-  width: 8px;
-}
-
-.hero-comments::-webkit-scrollbar-track {
-  background: var(--overlay-light);
-  border-radius: 4px;
-}
-
-.hero-comments::-webkit-scrollbar-thumb {
-  background: var(--accent-primary);
-  border-radius: 4px;
-}
-
-.hero-comments::-webkit-scrollbar-thumb:hover {
-  background: var(--accent-secondary);
-}
-
-.hero-comments h2 {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: var(--accent-primary);
-  margin: 0 0 24px 0;
-  padding-bottom: 16px;
-  border-bottom: 2px solid var(--border-secondary);
-}
-
-#comment-form {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  margin-bottom: 24px;
-}
-
-#comment-form input,
-#comment-form textarea {
-  background: var(--overlay-light);
-  backdrop-filter: blur(var(--blur-sm));
-  -webkit-backdrop-filter: blur(var(--blur-sm));
-  color: var(--text-primary);
-  border: 1px solid var(--border-tertiary);
-  border-radius: 12px;
-  padding: 12px 16px;
-  font-family: "Pretendard", sans-serif;
-  font-size: 0.95rem;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-#comment-form input:focus,
-#comment-form textarea:focus {
-  outline: none;
-  border-color: var(--accent-primary);
-  background: var(--overlay-medium);
-  box-shadow: 0 0 0 4px rgba(100, 181, 246, 0.15);
-}
-
-#comment-form input::placeholder,
-#comment-form textarea::placeholder {
-  color: var(--text-muted);
-}
-
-#comment-form textarea {
-  min-height: 100px;
-  resize: vertical;
-}
-
-#comment-form button {
-  align-self: flex-end;
-  background: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-secondary) 100%);
-  color: #ffffff;
-  border: none;
-  padding: 12px 24px;
-  border-radius: 12px;
-  font-weight: 600;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 4px 16px rgba(100, 181, 246, 0.4);
-}
-
-#comment-form button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(100, 181, 246, 0.5);
-}
-
-#comment-form button:active {
-  transform: translateY(0);
-  box-shadow: 0 2px 8px rgba(100, 181, 246, 0.3);
-}
-
-.comment-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-.comment-list li {
-  background: var(--overlay-light);
-  backdrop-filter: blur(var(--blur-sm));
-  -webkit-backdrop-filter: blur(var(--blur-sm));
-  border: 1px solid var(--border-tertiary);
-  border-radius: 16px;
-  padding: 16px;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.comment-list li:hover {
-  background: var(--overlay-medium);
-  border-color: var(--accent-primary);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 16px var(--shadow-sm);
-}
-
-.comment-list li strong {
-  color: var(--accent-primary);
-  display: block;
-  margin-bottom: 8px;
-  font-size: 1rem;
-  font-weight: 600;
-}
-
-.comment-list li p {
-  color: var(--text-secondary);
-  margin: 0 0 8px 0;
-  font-size: 0.95rem;
-  line-height: 1.5;
-}
-
-.comment-list li span {
-  color: var(--text-tertiary);
-  font-size: 0.8rem;
-}
-
-.filter-container {
-  padding: 24px;
-  color: var(--text-primary);
-  font-size: 0.9rem;
-}
-.filter-container h3 {
-  font-size: 1.1rem;
-  margin-top: 24px;
-  margin-bottom: 12px;
-  color: var(--accent-primary);
-}
-.filter-group {
-  margin-bottom: 20px;
-}
-.filter-title {
-  display: block;
-  font-weight: 600;
-  margin-bottom: 8px;
-  color: var(--text-secondary);
-}
-.filter-buttons {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-}
-.filter-buttons label {
-  background: var(--overlay-light);
-  backdrop-filter: blur(var(--blur-sm));
-  -webkit-backdrop-filter: blur(var(--blur-sm));
-  border: 1px solid var(--border-tertiary);
-  border-radius: 12px;
-  padding: 8px 14px;
-  cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  user-select: none;
-  color: var(--text-primary);
-  box-shadow: 0 2px 6px var(--shadow-sm);
-}
-.filter-buttons label:hover {
-  background: var(--overlay-medium);
-  border-color: var(--accent-primary);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px var(--shadow-md);
-}
-.filter-buttons input {
-  display: none;
-}
-.filter-buttons input:checked + label,
-.filter-buttons label:has(input:checked) {
-  background: var(--accent-primary);
-  color: #ffffff;
-  border-color: var(--accent-primary);
-  font-weight: 600;
-  box-shadow: 0 4px 16px rgba(100, 181, 246, 0.4);
-}
-.sort-buttons label {
-  display: block;
-  margin-bottom: 6px;
-  cursor: pointer;
-  color: var(--text-primary);
-}
-.sort-buttons input {
-  margin-right: 6px;
-  accent-color: var(--accent-primary);
-}
-/* ------------------------------------ */
-/*  반응형 레이아웃 */
-/* ------------------------------------ */
-
-/* 태블릿 및 모바일 (768px 이하) */
-@media (max-width: 768px) {
-  .layout {
+/* ================================ */
+/* Responsive - Tablet */
+/* ================================ */
+@media (max-width: 1024px) {
+  .app-container {
     grid-template-columns: 1fr;
-    grid-template-rows: 80px auto;
+    grid-template-rows: var(--header-height) 1fr;
     grid-template-areas:
       "header"
-      "content";
+      "main";
   }
 
-  /* 좌측 사이드바 - 상단 탭으로 변경 */
-  .sidebar-left {
-    position: static;
-    width: 100%;
-    height: auto;
-    border: none;
-    border-bottom: 2px solid var(--border-primary);
-    background: var(--bg-elevated);
-    order: -1;
-  }
-
-  .sidebar-left nav ul {
-    display: flex;
-    flex-direction: row;
-    gap: 0;
-    padding: 0;
-    margin: 0;
-    list-style: none;
-    overflow-x: auto;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-  }
-
-  .sidebar-left nav ul::-webkit-scrollbar {
+  .desktop-nav,
+  .desktop-filters {
     display: none;
   }
 
-  .sidebar-left nav ul li {
-    flex: 1;
-    text-align: center;
-    padding: 16px 12px;
-    border-bottom: 3px solid transparent;
-    white-space: nowrap;
-    min-width: fit-content;
+  .hero-grid {
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 16px;
   }
+}
 
-  .sidebar-left nav ul li.active {
-    background: transparent;
-    color: var(--accent-primary);
-    border-bottom-color: var(--accent-primary);
-  }
-
-  .sidebar-left nav ul li a {
-    display: block;
-  }
-
-  /* 우측 사이드바 - 영웅 목록 상단 필터로 변경 */
-  .sidebar-right {
-    position: static;
-    width: 100%;
-    height: auto;
-    border: none;
-    background: transparent;
-    order: -1;
-  }
-
-  .content {
-    display: flex;
-    flex-direction: column;
-    padding: 0;
-  }
-
-  /* 필터를 영웅 목록 상단에 배치 */
-  .filter-container {
-    position: static;
-    width: 100%;
-    background: var(--bg-elevated);
-    border-bottom: 1px solid var(--border-primary);
-    padding: 16px;
-    order: 0;
-  }
-
-  .filter-container h3 {
-    display: none;
-  }
-
-  .filter-group {
-    margin-bottom: 12px;
-  }
-
-  .filter-title {
-    font-size: 0.85rem;
-    margin-bottom: 6px;
-  }
-
-  .filter-buttons {
-    gap: 4px;
-  }
-
-  .filter-buttons label {
-    font-size: 0.8rem;
-    padding: 5px 8px;
-  }
-
-  #heroes {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 12px;
-    padding: 16px;
-    padding-top: 80px;
-    padding-bottom: 90px;
-    order: 1;
-  }
-
-  .hero-name {
-    font-size: 0.8rem;
-  }
-
-  .hero-type-badge {
-    width: 24px;
-    height: 24px;
-    bottom: 4px;
-    left: 4px;
-  }
-
-  .rarity-diamond-effect {
-    width: 20px;
-    height: 20px;
-    top: 2px;
-    right: 2px;
-  }
-
-  /* 영웅 상세 페이지 */
-  .hero-detail-page {
-    flex-direction: column;
+/* ================================ */
+/* Responsive - Mobile */
+/* ================================ */
+@media (max-width: 768px) {
+  .app-header {
     padding: 0 16px;
   }
 
-  .hero-detail-container {
-    padding: 16px 0;
-    max-width: 100%;
+  .header-brand {
+    font-size: 1.1rem;
   }
 
-  /* Hero Top Section - Mobile */
-  .hero-top {
-    flex-direction: column;
-    padding: 24px 20px;
-    text-align: center;
-    gap: 20px;
+  .theme-toggle span {
+    display: none;
   }
 
-  .hero-top::before {
-    height: 150px;
+  .theme-toggle {
+    padding: 10px;
   }
 
-  .hero-detail-portrait {
-    width: 160px;
-    height: 160px;
+  .main-container {
+    padding: 16px;
+    padding-bottom: calc(var(--mobile-nav-height) + 16px);
   }
 
-  .hero-top .hero-portrait-wrap {
-    width: 160px;
-    height: 160px;
-    margin: 0 auto;
-  }
-
-  .hero-top .hero-type-badge {
-    width: 32px;
-    height: 32px;
-    bottom: 6px;
-    left: 6px;
-  }
-
-  .hero-top .rarity-diamond-effect {
-    width: 24px;
-    height: 24px;
-    top: 4px;
-    right: 4px;
-  }
-
-  .hero-basic-info {
-    width: 100%;
-  }
-
-  #hero-name {
-    font-size: 1.8rem;
-  }
-
-  .hero-nickname {
-    font-size: 0.95rem;
-  }
-
-  .hero-group {
-    font-size: 0.9rem;
-  }
-
-  .hero-meta {
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-
-  #hero-type,
-  #hero-rarity {
-    font-size: 0.85rem;
-    padding: 6px 12px;
-  }
-
-  /* Stats Section - Mobile */
-  .hero-stats {
-    padding: 20px;
-    margin-bottom: 24px;
-  }
-
-  .hero-stats h2 {
-    font-size: 1.4rem;
+  .page-header {
     margin-bottom: 20px;
   }
 
-  .stats-table {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
+  .page-title {
+    font-size: 1.8rem;
   }
 
-  .stats-table tr {
-    padding: 12px;
-  }
-
-  .stats-table td:first-child {
-    font-size: 0.75rem;
-  }
-
-  .stats-table td:last-child {
-    font-size: 1.2rem;
-  }
-
-  /* Skills Section - Mobile */
-  .hero-skills h2 {
-    font-size: 1.4rem;
-  }
-
-  .hero-skills .skill {
-    padding: 16px;
-    margin-bottom: 16px;
-  }
-
-  .hero-skills .skill h3 {
-    font-size: 0.9rem;
-    margin-bottom: 12px;
-  }
-
-  .hero-skills .skill img {
-    width: 60px;
-    height: 60px;
-    margin-right: 12px;
-  }
-
-  .hero-skills .skill .skill-name {
-    font-size: 1.1rem;
-  }
-
-  .hero-skills .skill .skill-cooltime {
-    font-size: 0.75rem;
-    padding: 3px 10px;
-  }
-
-  .hero-skills .skill .skill-desc {
-    font-size: 0.9rem;
-    line-height: 1.6;
-  }
-
-  /* Related Heroes - Mobile */
-  .related-heroes h2 {
-    font-size: 1.3rem;
-  }
-
-  .related-hero-card {
-    width: 90px;
-    padding: 10px;
-  }
-
-  .related-hero-card .hero-portrait-wrap {
-    width: 70px;
-    height: 70px;
-  }
-
-  .related-hero-card .hero-type-badge {
-    width: 20px;
-    height: 20px;
-    bottom: 3px;
-    left: 3px;
-  }
-
-  .related-hero-card .rarity-diamond-effect {
-    width: 16px;
-    height: 16px;
-    top: 2px;
-    right: 2px;
-  }
-
-  .related-hero-card .hero-name {
-    font-size: 0.75rem;
-  }
-
-  /* Comments Section - Mobile */
-  .hero-comments {
-    position: static;
-    max-height: none;
-    margin-top: 24px;
-    padding: 20px;
-    max-width: 100%;
-  }
-
-  .hero-comments h2 {
-    font-size: 1.3rem;
-  }
-
-  #comment-form input,
-  #comment-form textarea {
-    font-size: 0.9rem;
-    padding: 10px 14px;
-  }
-
-  #comment-form button {
-    padding: 10px 20px;
-    font-size: 0.95rem;
-  }
-
-  .comment-list li {
-    padding: 12px;
-  }
-
-  .comment-list li strong {
-    font-size: 0.95rem;
-  }
-
-  .comment-list li p {
-    font-size: 0.85rem;
-  }
-
-  #hero-description {
-    font-size: 0.9rem;
-  }
-}
-
-/* 모바일 (769px ~ 1023px) */
-@media (min-width: 769px) and (max-width: 1023px) {
-  .layout {
-    grid-template-columns: 1fr;
-    grid-template-areas:
-      "header"
-      "content";
-  }
-
-  .sidebar-left,
-  .sidebar-right {
-    display: block;
-  }
-
-  #heroes {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 24px;
-    padding: 24px;
-  }
-
-  .hero-name {
-    font-size: 0.85rem;
-  }
-
-  .hero-type-badge {
-    width: 32px;
-    height: 32px;
-    bottom: 6px;
-    left: 6px;
-  }
-
-  .rarity-diamond-effect {
-    width: 28px;
-    height: 28px;
-    top: 4px;
-    right: 4px;
-  }
-
-  /* 영웅 상세 페이지 - Tablet */
-  .hero-detail-page {
-    flex-direction: column;
-    padding: 0 20px;
-  }
-
-  .hero-detail-container {
-    max-width: 100%;
-  }
-
-  .hero-comments {
-    position: static;
-    max-height: none;
-    margin-top: 32px;
-    max-width: 100%;
-  }
-
-  .hero-top {
-    padding: 32px 28px;
-  }
-
-  .hero-detail-portrait {
-    width: 200px;
-    height: 200px;
-  }
-
-  .hero-top .hero-portrait-wrap {
-    width: 200px;
-    height: 200px;
-  }
-
-  .hero-top .hero-type-badge {
-    width: 36px;
-    height: 36px;
-    bottom: 8px;
-    left: 8px;
-  }
-
-  .hero-top .rarity-diamond-effect {
-    width: 32px;
-    height: 32px;
-    top: 6px;
-    right: 6px;
-  }
-
-  #hero-name {
-    font-size: 2.2rem;
-  }
-
-  /* Stats Section - Tablet */
-  .stats-table {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  /* Skills Section - Tablet */
-  .hero-skills .skill img {
-    width: 70px;
-    height: 70px;
-  }
-
-  .hero-skills .skill .skill-name {
-    font-size: 1.2rem;
-  }
-
-  /* Related Heroes - Tablet */
-  .related-hero-card {
-    width: 100px;
-  }
-
-  .related-hero-card .hero-portrait-wrap {
-    width: 90px;
-    height: 90px;
-  }
-
-  .related-hero-card .hero-type-badge {
-    width: 24px;
-    height: 24px;
-    bottom: 4px;
-    left: 4px;
-  }
-
-  .related-hero-card .rarity-diamond-effect {
-    width: 20px;
-    height: 20px;
-    top: 3px;
-    right: 3px;
-  }
-}
-
-/* 데스크탑 S (1024~1279px) */
-@media (min-width: 1024px) and (max-width: 1279px) {
-  #heroes {
-    grid-template-columns: repeat(4, 1fr);
-    gap: 32px;
-    padding: 32px;
-  }
-}
-
-/* 데스크탑 M (1280~1599px) */
-@media (min-width: 1280px) and (max-width: 1599px) {
-  #heroes {
-    grid-template-columns: repeat(5, 1fr);
-    gap: 40px;
-    padding: 40px;
-  }
-}
-
-/* 데스크탑 L (1600~1919px) */
-@media (min-width: 1600px) and (max-width: 1919px) {
-  #heroes {
-    grid-template-columns: repeat(6, 1fr);
-    gap: 48px;
-    padding: 48px;
-  }
-}
-
-/* 데스크탑 XL (1920px 이상) */
-@media (min-width: 1920px) {
-  #heroes {
-    grid-template-columns: repeat(7, 1fr);
-    gap: 56px;
-    padding: 56px;
-  }
-}
-
-/* ------------------------------------ */
-/*  hero.html Skeleton UI                */
-/* ------------------------------------ */
-.skeleton-container {
-  display: none;
-  width: 100%;
-  max-width: 720px;
-  margin: 48px auto;
-  padding: 24px;
-  box-sizing: border-box;
-}
-
-.skeleton {
-  background: linear-gradient(90deg, #1a1a1a 25%, #2a2a2a 50%, #1a1a1a 75%);
-  background-size: 200% 100%;
-  animation: skeleton-loading 1.5s infinite linear;
-  border-radius: 8px;
-  margin-bottom: 16px;
-}
-
-.hero-portrait-skeleton {
-  width: 240px;
-  height: 240px;
-  border-radius: 50%;
-  margin: 0 auto 24px;
-}
-
-.hero-name-skeleton {
-  width: 60%;
-  height: 24px;
-  margin: 0 auto 12px;
-}
-
-.hero-meta-skeleton {
-  width: 40%;
-  height: 20px;
-  margin: 0 auto 24px;
-}
-
-.skill-skeleton {
-  width: 100%;
-  height: 60px;
-}
-
-@keyframes skeleton-loading {
-  0% {
-    background-position: 200% 0;
-  }
-  100% {
-    background-position: -200% 0;
-  }
-}
-
-
-.hero-top .hero-portrait-wrap {
-  width: clamp(160px, 20vw, 240px);
-  height: clamp(160px, 20vw, 240px);
-}
-
-.related-hero-card.hero-card .hero-portrait-wrap {
-  width: clamp(80px, 10vw, 120px);
-  height: clamp(80px, 10vw, 120px);
-}
-
-/* ------------------------------------ */
-/*  Related Heroes (가로 스크롤 레이아웃) */
-/* ------------------------------------ */
-.related-heroes {
-  margin-bottom: 32px;
-}
-
-.related-heroes h2 {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: var(--accent-primary);
-  margin: 0 0 20px 0;
-  padding-bottom: 12px;
-  border-bottom: 2px solid var(--border-secondary);
-}
-
-.related-hero-list {
-  display: flex;
-  flex-wrap: nowrap;
-  overflow-x: auto;
-  gap: 16px;
-  padding: 16px 8px;
-  scrollbar-width: thin;
-  scrollbar-color: var(--accent-primary) var(--overlay-light);
-}
-
-.related-hero-list::-webkit-scrollbar {
-  height: 8px;
-}
-
-.related-hero-list::-webkit-scrollbar-track {
-  background: var(--overlay-light);
-  border-radius: 4px;
-}
-
-.related-hero-list::-webkit-scrollbar-thumb {
-  background: var(--accent-primary);
-  border-radius: 4px;
-}
-
-.related-hero-list::-webkit-scrollbar-thumb:hover {
-  background: var(--accent-secondary);
-}
-
-.related-hero-card {
-  flex: 0 0 auto;
-  width: 120px;
-  background: var(--bg-elevated);
-  backdrop-filter: blur(var(--blur-sm));
-  -webkit-backdrop-filter: blur(var(--blur-sm));
-  border: 1px solid var(--border-secondary);
-  border-radius: 16px;
-  padding: 12px;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  cursor: pointer;
-  box-shadow: 0 2px 8px var(--shadow-sm);
-}
-
-.related-hero-card:hover {
-  border-color: var(--accent-primary);
-  transform: translateY(-4px);
-  box-shadow: 0 8px 32px var(--shadow-md);
-}
-
-.related-hero-card .hero-name {
-  margin-top: 8px;
-  font-size: 0.9rem;
-  text-align: center;
-}
-
-.no-related {
-  color: var(--text-muted);
-  font-style: italic;
-  text-align: center;
-  padding: 20px;
-}
-
-/* ------------------------------------ */
-/*  Skeleton Overlay Behavior            */
-/* ------------------------------------ */
-.hero-detail-container.loading {
-  position: relative;
-  overflow: hidden;
-}
-
-.hero-detail-container.loading > *:not(#hero-skeleton) {
-  opacity: 0;
-  pointer-events: none;
-}
-/* ------------------------------------ */
-/*  기존 모바일 레이아웃 (1023px 이하) — 영웅 상세 페이지용 */
-/* ------------------------------------ */
-@media (max-width: 1023px) {
-  body {
-    margin: 0;
-  }
-
-  /* 영웅 상세 페이지 */
-  .hero-detail-page {
-    flex-direction: column;
-    padding: 0 20px 24px;
-  }
-
-  .hero-detail-container {
-    max-width: 100%;
-    padding: 20px 0;
-  }
-
-  .hero-comments {
-    order: 3;
-    max-width: 100%;
-    margin-top: 24px;
-    position: static;
-  }
-
-  .hero-header {
-    padding: 0 20px;
-  }
-
-  .hero-top {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 24px;
-    padding: 28px 24px;
-  }
-
-  .hero-basic-info {
-    text-align: center;
-    margin-top: 12px;
-  }
-
-  .hero-meta {
-    justify-content: center;
-  }
-
-  /* Stats Section - General Mobile */
-  .hero-stats {
-    padding: 24px;
-  }
-
-  .stats-table {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
-  }
-
-  /* Skills Section - General Mobile */
-  .hero-skills .skill {
-    padding: 20px;
-  }
-
-  .hero-skills .skill img {
-    width: 65px;
-    height: 65px;
-  }
-
-  /* Related Heroes - General Mobile */
-  .related-hero-list {
-    padding: 12px 8px;
-    gap: 12px;
-  }
-
-  .related-hero-card {
-    width: 85px;
-    padding: 10px;
-  }
-
-  /* 영웅 상세 페이지 아이콘 */
-  .hero-detail-portrait {
-    width: 180px;
-    height: 180px;
-  }
-
-  .hero-top .hero-portrait-wrap {
-    width: 180px;
-    height: 180px;
-  }
-
-  .hero-top .hero-type-badge {
-    width: 34px;
-    height: 34px;
-    bottom: 7px;
-    left: 7px;
-  }
-
-  .hero-top .rarity-diamond-effect {
-    width: 28px;
-    height: 28px;
-    top: 5px;
-    right: 5px;
-  }
-
-  .related-hero-card .hero-portrait-wrap {
-    width: 80px;
-    height: 80px;
-  }
-
-  .related-hero-card .hero-type-badge {
-    width: 22px;
-    height: 22px;
-    bottom: 4px;
-    left: 4px;
-  }
-
-  .related-hero-card .rarity-diamond-effect {
-    width: 18px;
-    height: 18px;
-    top: 2px;
-    right: 2px;
-  }
-}
-
-/* ------------------------------------ */
-/*  네비게이션 메뉴 스타일               */
-/* ------------------------------------ */
-.sidebar-left nav ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.sidebar-left nav ul li {
-  padding: 16px 24px;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  font-weight: 500;
-  border-bottom: 1px solid var(--border-primary);
-  color: var(--text-primary);
-}
-
-.sidebar-left nav ul li:hover {
-  background: var(--overlay-medium);
-  color: var(--accent-primary);
-}
-
-.sidebar-left nav ul li.active {
-  background: var(--accent-primary);
-  color: var(--bg-primary);
-  font-weight: 600;
-}
-
-.sidebar-left nav ul li a {
-  display: block;
-  width: 100%;
-  height: 100%;
-  color: inherit;
-}
-
-/* ------------------------------------ */
-/*  결투장 덱 페이지 스타일              */
-/* ------------------------------------ */
-.deck-content {
-  display: flex;
-  flex-direction: column;
-  padding: 32px;
-  width: 100%;
-  max-width: 100%;
-  margin: 0 auto;
-  box-sizing: border-box;
-  height: calc(100vh - 80px);
-  overflow-y: auto;
-  overflow-x: hidden;
-  align-items: center;
-  scrollbar-width: thin;
-  scrollbar-color: var(--accent-primary) var(--overlay-light);
-}
-
-.deck-content::-webkit-scrollbar {
-  width: 12px;
-}
-
-.deck-content::-webkit-scrollbar-track {
-  background: var(--bg-tertiary);
-}
-
-.deck-content::-webkit-scrollbar-thumb {
-  background: var(--accent-primary);
-  border-radius: 6px;
-  border: 3px solid var(--bg-tertiary);
-}
-
-.deck-content::-webkit-scrollbar-thumb:hover {
-  background: var(--accent-secondary);
-}
-
-.deck-content h1 {
-  position: static !important;
-  width: 100%;
-  max-width: 1200px;
-  height: auto;
-  padding: 0;
-  margin: 0 0 8px 0;
-  overflow: visible;
-  clip: auto;
-  font-size: 2rem;
-  font-weight: 700;
-  color: var(--text-primary);
-}
-
-.deck-content .subtitle {
-  position: static !important;
-  width: 100%;
-  max-width: 1200px;
-  height: auto;
-  padding: 0;
-  margin: 0 0 24px 0;
-  overflow: visible;
-  clip: auto;
-  color: var(--text-tertiary);
-  font-size: 1rem;
-}
-
-/* 중앙 레이아웃 */
-.deck-layout {
-  display: flex;
-  justify-content: center;
-  gap: 32px;
-  width: 100%;
-  max-width: 1200px;
-}
-
-/* 덱 배치 영역 (중앙) */
-.deck-left {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-/* 진형 선택기 */
-.formation-selector {
-  background: var(--bg-elevated);
-  backdrop-filter: blur(var(--blur-md)) saturate(180%);
-  -webkit-backdrop-filter: blur(var(--blur-md)) saturate(180%);
-  border: 1px solid var(--border-tertiary);
-  border-radius: 20px;
-  padding: 20px;
-  box-shadow: 0 4px 24px var(--shadow-sm);
-}
-
-.formation-selector h3 {
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: var(--accent-primary);
-  margin: 0 0 16px 0;
-}
-
-.formation-options {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px;
-}
-
-.formation-option {
-  background: var(--bg-tertiary);
-  backdrop-filter: blur(var(--blur-sm));
-  -webkit-backdrop-filter: blur(var(--blur-sm));
-  border: 1px solid var(--border-secondary);
-  border-radius: 12px;
-  padding: 14px;
-  cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 4px;
-  user-select: none;
-  box-shadow: 0 2px 8px var(--shadow-sm);
-}
-
-.formation-option input {
-  display: none;
-}
-
-.formation-option:hover {
-  border-color: var(--accent-tertiary);
-  background: var(--bg-elevated-hover);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px var(--shadow-md);
-}
-
-.formation-option.active {
-  border-color: var(--accent-primary);
-  background: var(--overlay-medium);
-  box-shadow: 0 4px 16px rgba(100, 181, 246, 0.3);
-}
-
-.formation-name {
-  font-weight: 600;
-  color: var(--text-primary);
-  font-size: 0.95rem;
-}
-
-.formation-detail {
-  font-size: 0.8rem;
-  color: var(--text-tertiary);
-}
-
-/* 우측: 영웅 선택 (숨김) */
-.deck-right {
-  display: none;
-}
-
-/* 덱 디스플레이 영역 */
-.deck-display {
-  background: var(--bg-elevated);
-  backdrop-filter: blur(var(--blur-md)) saturate(180%);
-  -webkit-backdrop-filter: blur(var(--blur-md)) saturate(180%);
-  border: 1px solid var(--border-tertiary);
-  border-radius: 20px;
-  padding: 24px;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  max-width: 100%;
-  box-sizing: border-box;
-  box-shadow: 0 4px 24px var(--shadow-sm);
-}
-
-.deck-display h2 {
-  font-size: 1.3rem;
-  font-weight: 600;
-  color: var(--accent-primary);
-  margin: 0 0 20px 0;
-}
-
-/* 진형 배치 */
-.deck-formation {
-  display: flex;
-  gap: 16px;
-  margin-bottom: auto;
-  align-items: center;
-}
-
-.formation-line {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.line-label {
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: var(--text-tertiary);
-  text-align: center;
-  margin-bottom: 4px;
-}
-
-.formation-slots {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  justify-content: center;
-}
-
-/* 앞줄 (파란색) */
-.front-line {}
-
-.front-slot {
-  border-color: #4a90e2 !important;
-  background: rgba(74, 144, 226, 0.05);
-}
-
-.front-slot:hover {
-  border-color: #5fa3ff !important;
-  background: rgba(74, 144, 226, 0.1);
-}
-
-.front-slot .slot-indicator {
-  background: #4a90e2;
-}
-
-/* 뒷줄 (빨간색) */
-.back-line {}
-
-.back-slot {
-  border-color: #e25c5c !important;
-  background: rgba(226, 92, 92, 0.05);
-}
-
-.back-slot:hover {
-  border-color: #ff7070 !important;
-  background: rgba(226, 92, 92, 0.1);
-}
-
-.back-slot .slot-indicator {
-  background: #e25c5c;
-}
-
-/* 덱 슬롯 */
-.deck-slot {
-  position: relative;
-  width: 100%;
-  min-height: 130px;
-  background: var(--bg-tertiary);
-  backdrop-filter: blur(var(--blur-sm));
-  -webkit-backdrop-filter: blur(var(--blur-sm));
-  border: 2px dashed var(--border-secondary);
-  border-radius: 16px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  padding: 12px;
-  gap: 10px;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  box-sizing: border-box;
-  cursor: pointer;
-}
-
-.deck-slot:hover {
-  border-color: var(--accent-tertiary);
-  background: var(--bg-elevated-hover);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 16px var(--shadow-sm);
-}
-
-/* F/B 인디케이터 */
-.slot-indicator {
-  width: 36px;
-  height: 36px;
-  background: var(--border-secondary);
-  color: var(--text-primary);
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 700;
-  font-size: 1.1rem;
-  flex-shrink: 0;
-}
-
-.slot-placeholder {
-  font-size: 1.5rem;
-  color: var(--text-muted);
-  font-weight: 300;
-  flex: 1;
-  text-align: center;
-}
-
-.slot-hero {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  gap: 8px;
-  position: relative;
-  flex: 1;
-}
-
-.slot-hero-portrait {
-  width: 70px;
-  height: 70px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 3px solid #c1b494;
-  flex-shrink: 0;
-}
-
-.slot-hero-name {
-  font-size: 0.9rem;
-  font-weight: 500;
-  color: var(--text-primary);
-  text-align: center;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  max-width: 100%;
-}
-
-.slot-remove {
-  position: absolute;
-  top: 4px;
-  right: 4px;
-  width: 24px;
-  height: 24px;
-  background: #ff4444;
-  color: #fff;
-  border: none;
-  border-radius: 50%;
-  cursor: pointer;
-  font-size: 1rem;
-  line-height: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background 0.2s ease;
-  flex-shrink: 0;
-}
-
-.slot-remove:hover {
-  background: #ff6666;
-}
-
-/* 덱 액션 버튼 */
-.deck-actions {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  margin-top: 20px;
-}
-
-.btn-primary,
-.btn-secondary {
-  padding: 12px 24px;
-  border: none;
-  border-radius: 12px;
-  font-weight: 600;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-family: "Pretendard", sans-serif;
-}
-
-.btn-primary {
-  background: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-secondary) 100%);
-  color: #ffffff;
-  box-shadow: 0 4px 16px rgba(100, 181, 246, 0.4);
-}
-
-.btn-primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(100, 181, 246, 0.5);
-}
-
-.btn-secondary {
-  background: var(--bg-elevated);
-  backdrop-filter: blur(var(--blur-sm));
-  -webkit-backdrop-filter: blur(var(--blur-sm));
-  color: var(--text-primary);
-  border: 1px solid var(--border-tertiary);
-  box-shadow: 0 2px 8px var(--shadow-sm);
-}
-
-.btn-secondary:hover {
-  background: var(--bg-elevated-hover);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px var(--shadow-md);
-}
-
-/* 영웅 선택 영역 헤더 */
-.hero-selection-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 16px;
-}
-
-.hero-selection-header h2 {
-  font-size: 1.3rem;
-  font-weight: 600;
-  color: var(--accent-primary);
-  margin: 0;
-}
-
-.selection-info {
-  font-size: 1rem;
-  color: var(--text-primary);
-  font-weight: 500;
-}
-
-.selection-info span {
-  color: var(--accent-primary);
-  font-size: 1.2rem;
-}
-
-/* 컴팩트 가로 필터 */
-.filters-compact {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  margin-bottom: 16px;
-  align-items: center;
-}
-
-.filter-select {
-  padding: 10px 16px;
-  background: var(--bg-elevated);
-  border: 1px solid var(--border-secondary);
-  border-radius: 8px;
-  color: var(--text-primary);
-  font-size: 0.9rem;
-  font-family: "Pretendard", sans-serif;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  min-width: 140px;
-}
-
-.filter-select:hover {
-  border-color: var(--border-tertiary);
-  background: var(--bg-elevated-hover);
-}
-
-.filter-select:focus {
-  outline: none;
-  border-color: var(--accent-primary);
-  background: var(--bg-elevated-hover);
-}
-
-.filter-select option {
-  background: var(--bg-elevated);
-  color: var(--text-primary);
-  padding: 8px;
-}
-
-/* 가로 필터 (구버전 - 제거 예정) */
-.filters-horizontal {
-  background: var(--bg-elevated);
-  border: 1px solid var(--border-tertiary);
-  border-radius: 8px;
-  padding: 16px;
-  margin-bottom: 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.filter-row {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.filter-label {
-  font-weight: 600;
-  color: var(--accent-primary);
-  min-width: 60px;
-  font-size: 0.9rem;
-}
-
-.search-input {
-  flex: 1;
-  padding: 8px 12px;
-  background: var(--bg-tertiary);
-  border: 1px solid var(--border-tertiary);
-  border-radius: 6px;
-  color: var(--text-primary);
-  font-size: 0.9rem;
-  font-family: "Pretendard", sans-serif;
-  transition: border-color 0.2s ease;
-}
-
-.search-input:focus {
-  outline: none;
-  border-color: var(--accent-primary);
-}
-
-.search-input::placeholder {
-  color: var(--text-muted);
-}
-
-.filter-chips {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  flex: 1;
-}
-
-.chip {
-  display: inline-flex;
-  align-items: center;
-  background: var(--bg-tertiary);
-  border: 1px solid var(--border-secondary);
-  border-radius: 16px;
-  padding: 6px 12px;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  user-select: none;
-  font-size: 0.85rem;
-}
-
-.chip input {
-  display: none;
-}
-
-.chip span {
-  color: var(--text-secondary);
-}
-
-.chip:hover {
-  background: var(--bg-elevated-hover);
-  border-color: var(--border-tertiary);
-}
-
-.chip:has(input:checked) {
-  background: var(--accent-primary);
-  border-color: var(--accent-primary);
-}
-
-.chip:has(input:checked) span {
-  color: var(--bg-primary);
-  font-weight: 600;
-}
-
-/* 덱 페이지 영웅 그리드 - 메인 페이지 #heroes 스타일 적용 */
-#heroes-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-  gap: 16px;
-  padding: 16px;
-  background: var(--bg-elevated);
-  border: 1px solid var(--border-tertiary);
-  border-radius: 8px;
-  overflow-y: auto;
-  flex: 1;
-  align-content: start;
-  scrollbar-width: thin;
-  scrollbar-color: var(--accent-primary) var(--bg-tertiary);
-}
-
-#heroes-list::-webkit-scrollbar {
-  width: 8px;
-}
-
-#heroes-list::-webkit-scrollbar-track {
-  background: var(--bg-tertiary);
-  border-radius: 4px;
-}
-
-#heroes-list::-webkit-scrollbar-thumb {
-  background: var(--accent-primary);
-  border-radius: 4px;
-}
-
-#heroes-list::-webkit-scrollbar-thumb:hover {
-  background: var(--accent-secondary);
-}
-
-/* 선택 가능한 영웅 카드 */
-.hero-card.selectable {
-  position: relative;
-  opacity: 1;
-  transition: all 0.2s ease;
-}
-
-.hero-card.selectable.selected {
-  opacity: 0.6;
-  transform: scale(0.95);
-}
-
-.hero-card.selectable.selected::after {
-  content: "✓";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 60px;
-  height: 60px;
-  background: rgba(255, 213, 106, 0.95);
-  color: #000;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 2rem;
-  font-weight: 700;
-  z-index: 10;
-}
-
-.hero-nickname {
-  font-size: 0.8rem;
-  color: var(--text-tertiary);
-  text-align: center;
-  margin-top: 4px;
-}
-
-/* 모달 공통 */
-.modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.8);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 1000;
-}
-
-/* 영웅 선택 모달 */
-#hero-select-modal .modal-content {
-  max-width: 90%;
-  width: 1200px;
-  max-height: 90vh;
-  display: flex;
-  flex-direction: column;
-}
-
-#hero-select-modal .modal-body {
-  overflow-y: auto;
-  max-height: calc(90vh - 120px);
-}
-
-#hero-select-modal .hero-select-filters {
-  display: flex;
-  gap: 12px;
-  margin-bottom: 20px;
-  flex-wrap: wrap;
-}
-
-#hero-select-modal .hero-select-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-  gap: 16px;
-  max-height: 500px;
-  overflow-y: auto;
-  padding: 8px;
-  background: var(--bg-tertiary);
-  border-radius: 8px;
-}
-
-#hero-select-modal .hero-card {
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-#hero-select-modal .hero-card:hover {
-  transform: scale(1.05);
-  filter: brightness(1.2);
-}
-
-.modal-content {
-  background: var(--bg-elevated);
-  backdrop-filter: blur(var(--blur-lg)) saturate(180%);
-  -webkit-backdrop-filter: blur(var(--blur-lg)) saturate(180%);
-  border: 1px solid var(--border-tertiary);
-  border-radius: 24px;
-  width: 90%;
-  max-width: 600px;
-  padding: 0;
-  box-shadow: 0 16px 64px var(--shadow-lg);
-}
-
-.modal-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 24px;
-  border-bottom: 1px solid var(--border-tertiary);
-}
-
-.modal-header h3 {
-  margin: 0;
-  font-size: 1.5rem;
-  color: var(--accent-primary);
-}
-
-.modal-close {
-  background: transparent;
-  border: none;
-  color: var(--text-primary);
-  font-size: 2rem;
-  cursor: pointer;
-  width: 32px;
-  height: 32px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: color 0.2s ease;
-  line-height: 1;
-}
-
-.modal-close:hover {
-  color: var(--accent-primary);
-}
-
-.modal-body {
-  padding: 24px;
-}
-
-.modal-body p {
-  color: var(--text-secondary);
-  margin: 0 0 16px 0;
-}
-
-.share-url-container {
-  display: flex;
-  gap: 8px;
-  margin-bottom: 16px;
-}
-
-.share-url-container input {
-  flex: 1;
-  padding: 12px 16px;
-  background: var(--bg-tertiary);
-  border: 1px solid var(--border-tertiary);
-  border-radius: 6px;
-  color: var(--text-primary);
-  font-size: 0.95rem;
-  font-family: "Pretendard", sans-serif;
-}
-
-.share-url-container button {
-  padding: 12px 24px;
-}
-
-.success-message {
-  color: #4caf50;
-  font-weight: 600;
-  text-align: center;
-  padding: 8px;
-  background: rgba(76, 175, 80, 0.1);
-  border-radius: 6px;
-}
-
-/* 덱 페이지 모바일 (768px 이하) */
-@media (max-width: 768px) {
-  .deck-content {
-    padding: 16px;
-    height: auto;
-    overflow: visible;
-  }
-
-  .deck-content h1 {
-    font-size: 1.5rem;
-    text-align: center;
-  }
-
-  .deck-content .subtitle {
-    font-size: 0.9rem;
-    text-align: center;
-  }
-
-  .deck-layout {
-    flex-direction: column;
-    gap: 16px;
-    max-width: 100%;
-  }
-
-  .deck-left {
-    width: 100%;
-  }
-
-  /* 진형 선택기 */
-  .formation-selector {
-    padding: 16px;
-  }
-
-  .formation-selector h3 {
-    font-size: 1rem;
-    margin-bottom: 12px;
-  }
-
-  .formation-options {
-    grid-template-columns: 1fr 1fr;
-    gap: 8px;
-  }
-
-  .formation-option {
-    padding: 10px 8px;
-  }
-
-  .formation-name {
-    font-size: 0.85rem;
-  }
-
-  /* 덱 디스플레이 */
-  .deck-display {
-    padding: 16px;
-  }
-
-  .deck-display h2 {
-    font-size: 1.1rem;
-  }
-
-  .deck-formation {
-    flex-direction: column;
-    gap: 12px;
-    align-items: stretch;
-  }
-
-  .formation-line {
-    width: 100%;
-  }
-
-  .line-label {
-    font-size: 0.8rem;
-  }
-
-  .deck-slot {
-    min-height: 100px;
-    padding: 10px;
-  }
-
-  .slot-indicator {
-    width: 30px;
-    height: 30px;
-    font-size: 1rem;
-  }
-
-  .slot-hero-portrait {
-    width: 60px;
-    height: 60px;
-  }
-
-  .slot-hero-name {
-    font-size: 0.85rem;
-  }
-
-  .slot-remove {
-    width: 22px;
-    height: 22px;
+  .page-subtitle {
     font-size: 0.9rem;
   }
 
-  /* 덱 액션 버튼 */
-  .deck-actions {
-    flex-direction: column;
-    gap: 8px;
-  }
-
-  .btn-primary,
-  .btn-secondary {
-    width: 100%;
-    justify-content: center;
-    font-size: 0.9rem;
-    padding: 12px 16px;
-  }
-
-  /* 영웅 선택 모달 */
-  #hero-select-modal .modal-content {
-    max-width: 95%;
-    width: 100%;
-  }
-
-  #hero-select-modal .hero-select-filters {
-    flex-direction: column;
-    gap: 8px;
-  }
-
-  .search-input,
-  .filter-select {
-    width: 100%;
-    min-width: 0;
-  }
-
-  #hero-select-modal .hero-select-grid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 12px;
-    max-height: 400px;
-  }
-
-  /* 모달 내 영웅 카드 아이콘 조정 */
-  #hero-select-modal .hero-type-badge {
-    width: 24px;
-    height: 24px;
-    bottom: 4px;
-    left: 4px;
-  }
-
-  #hero-select-modal .rarity-diamond-effect {
-    width: 20px;
-    height: 20px;
-    top: 2px;
-    right: 2px;
-  }
-
-  #hero-select-modal .hero-name {
-    font-size: 0.8rem;
-  }
-
-  #hero-select-modal .hero-nickname {
-    font-size: 0.7rem;
-  }
-
-  /* 공유 모달 */
-  .modal-content {
-    max-width: 95%;
-    width: 100%;
-    padding: 0;
-  }
-
-  .modal-header {
-    padding: 16px;
-  }
-
-  .modal-header h3 {
-    font-size: 1.2rem;
-  }
-
-  .modal-body {
-    padding: 16px;
-  }
-
-  .modal-body p {
-    font-size: 0.9rem;
-  }
-
-  .share-url-container {
-    flex-direction: column;
-    gap: 8px;
-  }
-
-  .share-url-container input {
-    font-size: 0.85rem;
-  }
-
-  .share-url-container button {
-    width: 100%;
-  }
-}
-
-/* 덱 페이지 반응형 (1023px 이하) */
-@media (max-width: 1023px) {
-  .deck-content {
-    padding: 16px;
-    height: auto;
-    overflow: visible;
-  }
-
-  .deck-layout {
-    flex-direction: column;
-    gap: 16px;
-  }
-
-  .deck-left {
-    flex: 0 0 auto;
-  }
-
-  .deck-display {
-    padding: 16px;
-  }
-
-  .deck-slot {
-    min-height: 110px;
-  }
-
-  .deck-actions {
-    flex-direction: row;
-    gap: 8px;
-  }
-
-  .btn-primary,
-  .btn-secondary {
-    flex: 1;
-    justify-content: center;
-    font-size: 0.9rem;
-    padding: 10px 16px;
-  }
-
-  /* 컴팩트 필터 모바일 */
-  .filters-compact {
-    gap: 8px;
-  }
-
-  .search-input {
-    width: 100%;
-    font-size: 0.85rem;
-  }
-
-  .filter-select {
-    flex: 1;
-    min-width: 120px;
-    font-size: 0.85rem;
-    padding: 8px 12px;
-  }
-}
-
-/* 데스크톱 크기별 최적화 */
-@media (min-width: 1024px) and (max-width: 1439px) {
-  .deck-left {
-    flex: 0 0 350px;
-  }
-
-  #heroes-list {
-    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-  }
-}
-
-@media (min-width: 1440px) {
-  #heroes-list {
-    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
-  }
-}/* ------------------------------------ */
-/*  모바일 필터 (드롭다운 스타일)        */
-/* ------------------------------------ */
-.mobile-filters {
-  display: none;
-}
-
-@media (max-width: 768px) {
-  .mobile-filters {
+  /* Show Mobile Filter Bar */
+  .mobile-filter-bar {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 8px;
-    padding: 12px 16px;
+    margin-bottom: 20px;
+    padding: 12px;
     background: var(--bg-elevated);
     backdrop-filter: blur(var(--blur-md)) saturate(180%);
     -webkit-backdrop-filter: blur(var(--blur-md)) saturate(180%);
-    border-bottom: 1px solid var(--border-primary);
-    position: fixed;
-    top: 80px;
-    left: 0;
-    right: 0;
-    z-index: 100;
+    border: 1px solid var(--border-primary);
+    border-radius: 16px;
     box-shadow: 0 4px 16px var(--shadow-sm);
   }
 
-  .mobile-filter-select {
+  .filter-select {
     padding: 10px 12px;
     background: var(--bg-tertiary);
     backdrop-filter: blur(var(--blur-sm));
     -webkit-backdrop-filter: blur(var(--blur-sm));
     border: 1px solid var(--border-tertiary);
-    border-radius: 12px;
+    border-radius: 10px;
     color: var(--text-primary);
-    font-size: 0.9rem;
-    font-family: "Pretendard", sans-serif;
+    font-size: 0.85rem;
+    font-family: inherit;
     cursor: pointer;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 0 2px 6px var(--shadow-sm);
   }
 
-  .mobile-filter-select:focus {
+  .filter-select:focus {
     outline: none;
     border-color: var(--accent-primary);
     background: var(--bg-elevated-hover);
-    box-shadow: 0 0 0 4px rgba(100, 181, 246, 0.15);
+    box-shadow: 0 0 0 4px var(--accent-glow);
   }
 
-  /* 데스크톱 필터 숨기기 */
-  .sidebar-right {
-    display: none !important;
+  .hero-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
   }
-}
 
-/* ------------------------------------ */
-/*  모바일 바텀 네비게이션               */
-/* ------------------------------------ */
-.bottom-nav {
-  display: none;
-}
+  .hero-card {
+    padding: 8px;
+  }
 
-@media (max-width: 768px) {
-  .bottom-nav {
+  .hero-type-badge {
+    width: 24px;
+    height: 24px;
+    bottom: 4px;
+    left: 4px;
+  }
+
+  .rarity-diamond-effect {
+    width: 20px;
+    height: 20px;
+  }
+
+  .hero-name {
+    font-size: 0.8rem;
+  }
+
+  .hero-nickname {
+    font-size: 0.7rem;
+  }
+
+  /* Show Mobile Bottom Navigation */
+  .mobile-bottom-nav {
     display: flex;
     position: fixed;
     bottom: 0;
     left: 0;
     right: 0;
+    height: var(--mobile-nav-height);
     background: var(--bg-elevated);
     backdrop-filter: blur(var(--blur-md)) saturate(180%);
     -webkit-backdrop-filter: blur(var(--blur-md)) saturate(180%);
     border-top: 1px solid var(--border-primary);
-    z-index: 1000;
     box-shadow: 0 -4px 24px var(--shadow-sm);
+    z-index: 90;
   }
 
-  .bottom-nav-item {
+  .mobile-bottom-nav .nav-item {
     flex: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 12px 8px;
-    color: var(--text-tertiary);
-    text-decoration: none;
-    transition: all 0.2s ease;
     gap: 4px;
+    padding: 8px;
+    color: var(--text-tertiary);
+    font-size: 0.75rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
   }
 
-  .bottom-nav-item i {
+  .mobile-bottom-nav .nav-item i {
     font-size: 24px;
   }
 
-  .bottom-nav-item span {
-    font-size: 0.75rem;
-    font-weight: 500;
-  }
-
-  .bottom-nav-item.active {
+  .mobile-bottom-nav .nav-item.active {
     color: var(--accent-primary);
   }
 
-  .bottom-nav-item:hover {
+  .mobile-bottom-nav .nav-item:active {
     background: var(--overlay-light);
-  }
-
-  /* 바텀 네비게이션 공간 확보 */
-  body {
-    padding-bottom: 70px;
-  }
-
-  .layout {
-    padding-bottom: 70px;
-  }
-}
-
-/* ------------------------------------ */
-/*  영웅 상세 - 좌우 네비게이션          */
-/* ------------------------------------ */
-.hero-nav-side {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: var(--overlay-light);
-  backdrop-filter: blur(var(--blur-sm));
-  -webkit-backdrop-filter: blur(var(--blur-sm));
-  border: 1px solid var(--border-tertiary);
-  border-radius: 16px;
-  padding: 16px 12px;
-  cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  color: var(--text-primary);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;
-  z-index: 10;
-  max-width: 120px;
-  box-shadow: 0 4px 16px var(--shadow-sm);
-}
-
-.hero-nav-side:hover {
-  background: var(--overlay-medium);
-  border-color: var(--accent-primary);
-  color: var(--accent-primary);
-  transform: translateY(-50%) scale(1.05);
-  box-shadow: 0 8px 24px var(--shadow-md);
-}
-
-.hero-nav-side i {
-  font-size: 32px;
-}
-
-.nav-hero-name {
-  font-size: 0.85rem;
-  font-weight: 600;
-  text-align: center;
-  line-height: 1.2;
-  word-break: keep-all;
-}
-
-.prev-hero-side {
-  left: -140px;
-}
-
-.next-hero-side {
-  right: -140px;
-}
-
-@media (max-width: 1440px) {
-  .hero-nav-side {
-    position: static;
-    transform: none;
-    max-width: none;
-    flex-direction: row;
-    padding: 12px 16px;
-  }
-
-  .hero-nav-side:hover {
-    transform: scale(1.02);
-  }
-
-  .hero-nav-side i {
-    font-size: 24px;
-  }
-
-  .prev-hero-side {
-    left: auto;
-    margin-right: auto;
-  }
-
-  .next-hero-side {
-    right: auto;
-    margin-left: auto;
-  }
-
-  .hero-top {
-    position: relative;
-    flex-wrap: wrap;
-  }
-}
-
-@media (max-width: 768px) {
-  .hero-nav-side {
-    padding: 10px 12px;
-    flex: 0 0 auto;
-  }
-
-  .nav-hero-name {
-    font-size: 0.75rem;
-  }
-
-  .hero-nav-side i {
-    font-size: 20px;
-  }
-
-  .hero-top {
-    gap: 12px;
-  }
-
-  .prev-hero-side {
-    order: -1;
-  }
-
-  .next-hero-side {
-    order: 3;
-  }
-
-  .hero-portrait-wrap {
-    order: 1;
-  }
-
-  .hero-basic-info {
-    order: 2;
-    flex: 1 0 100%;
   }
 }
