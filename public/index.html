@@ -96,6 +96,37 @@
       <main class="content">
         <h1>세븐나이츠 리버스 영웅 도감</h1>
         <p class="subtitle">모든 영웅의 능력치, 소속, 스킬, 장비 정보를 한눈에 볼 수 있는 도감</p>
+
+        <!-- 모바일 전용 컴팩트 필터 -->
+        <div class="mobile-filters">
+          <select id="mobile-filter-rarity" class="mobile-filter-select">
+            <option value="전체">등급: 전체</option>
+            <option value="전설+">전설+</option>
+            <option value="전설">전설</option>
+            <option value="희귀">희귀</option>
+          </select>
+
+          <select id="mobile-filter-type" class="mobile-filter-select">
+            <option value="전체">타입: 전체</option>
+            <option value="공격형">공격형</option>
+            <option value="마법형">마법형</option>
+            <option value="만능형">만능형</option>
+            <option value="방어형">방어형</option>
+            <option value="지원형">지원형</option>
+          </select>
+
+          <select id="mobile-filter-group" class="mobile-filter-select">
+            <option value="전체">소속: 전체</option>
+          </select>
+
+          <select id="mobile-sort" class="mobile-filter-select">
+            <option value="name">가나다 순</option>
+            <option value="attack">공격력 높은 순</option>
+            <option value="hp">생명력 높은 순</option>
+            <option value="rarity">등급 높은 순</option>
+          </select>
+        </div>
+
         <div id="heroes"></div>
       </main>
 
@@ -145,6 +176,18 @@
       </aside>
     </div>
 
+    <!-- 모바일 바텀 네비게이션 -->
+    <nav class="bottom-nav">
+      <a href="/index.html" class="bottom-nav-item active">
+        <i class="ph-bold ph-users-three"></i>
+        <span>영웅 도감</span>
+      </a>
+      <a href="/deck.html" class="bottom-nav-item">
+        <i class="ph-bold ph-sword"></i>
+        <span>결투장 덱</span>
+      </a>
+    </nav>
+
     <!-- Global Loading Overlay -->
     <div id="global-loading" class="loading-container" aria-hidden="true" style="display:flex;">
       <div class="spinner"></div>
@@ -177,6 +220,7 @@
         <label><input type="checkbox" value="전체" checked>전체</label>
         ${uniqueGroups.map(group => `<label><input type="checkbox" value="${group}">${group}</label>`).join('')}
       `;
+      updateMobileGroupFilter();
       const filtered = applyFiltersAndSort(allHeroes);
       renderHeroes(filtered);
     } catch (error) {
@@ -381,7 +425,60 @@
         });
       });
     });
+
+    // 모바일 필터 동기화
+    const mobileFilterRarity = document.getElementById('mobile-filter-rarity');
+    const mobileFilterType = document.getElementById('mobile-filter-type');
+    const mobileFilterGroup = document.getElementById('mobile-filter-group');
+    const mobileSort = document.getElementById('mobile-sort');
+
+    if (mobileFilterRarity) {
+      mobileFilterRarity.addEventListener('change', (e) => {
+        document.querySelectorAll('#filter-rarity input').forEach(inp => inp.checked = false);
+        const target = document.querySelector(`#filter-rarity input[value="${e.target.value}"]`);
+        if (target) target.checked = true;
+        renderHeroes(applyFiltersAndSort(allHeroes));
+      });
+    }
+
+    if (mobileFilterType) {
+      mobileFilterType.addEventListener('change', (e) => {
+        document.querySelectorAll('#filter-type input').forEach(inp => inp.checked = false);
+        const target = document.querySelector(`#filter-type input[value="${e.target.value}"]`);
+        if (target) target.checked = true;
+        renderHeroes(applyFiltersAndSort(allHeroes));
+      });
+    }
+
+    if (mobileFilterGroup) {
+      mobileFilterGroup.addEventListener('change', (e) => {
+        document.querySelectorAll('#filter-group input').forEach(inp => inp.checked = false);
+        const target = document.querySelector(`#filter-group input[value="${e.target.value}"]`);
+        if (target) target.checked = true;
+        renderHeroes(applyFiltersAndSort(allHeroes));
+      });
+    }
+
+    if (mobileSort) {
+      mobileSort.addEventListener('change', (e) => {
+        const target = document.querySelector(`input[name="sort"][value="${e.target.value}"]`);
+        if (target) target.checked = true;
+        renderHeroes(applyFiltersAndSort(allHeroes));
+      });
+    }
   });
+
+  // 소속 필터가 동적으로 생성된 후 모바일 select에도 추가
+  function updateMobileGroupFilter() {
+    const mobileFilterGroup = document.getElementById('mobile-filter-group');
+    const groupOptions = [...document.querySelectorAll('#filter-group input')].map(inp => inp.value);
+    if (mobileFilterGroup && groupOptions.length > 0) {
+      mobileFilterGroup.innerHTML = `
+        <option value="전체">소속: 전체</option>
+        ${groupOptions.filter(g => g !== '전체').map(group => `<option value="${group}">${group}</option>`).join('')}
+      `;
+    }
+  }
 </script>
 
 <script>
