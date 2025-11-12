@@ -69,7 +69,17 @@
     window.heroId = globalParams.get("name") ? decodeURIComponent(globalParams.get("name")) : null;
   </script>
   <header class="hero-header">
-    <button class="back-button" onclick="window.history.back()"><i class="ph-bold ph-caret-left"></i> 목록으로</button>
+    <div class="hero-nav-buttons">
+      <button class="back-button" onclick="window.history.back()"><i class="ph-bold ph-caret-left"></i> 목록으로</button>
+      <div class="hero-navigation">
+        <button class="nav-arrow prev-hero" id="prev-hero" aria-label="이전 영웅" title="이전 영웅">
+          <i class="ph-bold ph-caret-left"></i>
+        </button>
+        <button class="nav-arrow next-hero" id="next-hero" aria-label="다음 영웅" title="다음 영웅">
+          <i class="ph-bold ph-caret-right"></i>
+        </button>
+      </div>
+    </div>
     <div class="header-actions">
       <button class="theme-toggle" id="theme-toggle" aria-label="테마 전환">
         <i class="ph-bold ph-sun" id="theme-icon"></i>
@@ -108,6 +118,7 @@
 
     <section class="hero-stats">
       <h2>스탯</h2>
+      <p class="stats-info">30레벨 5강화 0초월 기준입니다</p>
       <table class="stats-table">
         <tr><td>공격력</td><td id="atk"></td></tr>
         <tr><td>방어력</td><td id="def"></td></tr>
@@ -674,6 +685,48 @@ commentForm.addEventListener("submit", async (e) => {
 
     // 초기 로드
     loadComments();
+  </script>
+
+  <script>
+    // 영웅 네비게이션 (이전/다음 영웅)
+    let allHeroes = [];
+    let currentHeroIndex = -1;
+
+    // 전체 영웅 목록 가져오기
+    fetch('/api/heroes')
+      .then(res => res.json())
+      .then(heroes => {
+        allHeroes = heroes.sort((a, b) => a.name.localeCompare(b.name, 'ko'));
+        currentHeroIndex = allHeroes.findIndex(h => h.name === heroName);
+
+        const prevButton = document.getElementById('prev-hero');
+        const nextButton = document.getElementById('next-hero');
+
+        if (currentHeroIndex > 0) {
+          prevButton.disabled = false;
+          prevButton.onclick = () => {
+            const prevHero = allHeroes[currentHeroIndex - 1];
+            window.location.href = `/hero.html?name=${encodeURIComponent(prevHero.name)}`;
+          };
+        } else {
+          prevButton.disabled = true;
+          prevButton.style.opacity = '0.3';
+          prevButton.style.cursor = 'not-allowed';
+        }
+
+        if (currentHeroIndex < allHeroes.length - 1) {
+          nextButton.disabled = false;
+          nextButton.onclick = () => {
+            const nextHero = allHeroes[currentHeroIndex + 1];
+            window.location.href = `/hero.html?name=${encodeURIComponent(nextHero.name)}`;
+          };
+        } else {
+          nextButton.disabled = true;
+          nextButton.style.opacity = '0.3';
+          nextButton.style.cursor = 'not-allowed';
+        }
+      })
+      .catch(err => console.error('영웅 목록 로드 실패:', err));
   </script>
 
   <script>

@@ -175,7 +175,7 @@ img {
 .header-title {
   font-family: 'SchoolSafeLocker', sans-serif;
   font-size: 1.5rem;
-  color: #fff;
+  color: var(--text-primary);
   margin-left: 12px;
   display: inline-block;
   vertical-align: middle;
@@ -399,6 +399,12 @@ img {
   box-sizing: border-box;
   box-shadow: 0 2px 8px var(--shadow-sm);
 }
+.hero-nav-buttons {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
 .back-button {
   background: transparent;
   color: var(--text-primary);
@@ -413,6 +419,41 @@ img {
 }
 .back-button i {
   font-size:16px;
+}
+
+.hero-navigation {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.nav-arrow {
+  background: var(--overlay-light);
+  border: 1px solid var(--border-tertiary);
+  border-radius: 8px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: var(--text-primary);
+}
+
+.nav-arrow:hover:not(:disabled) {
+  background: var(--overlay-medium);
+  border-color: var(--accent-primary);
+  color: var(--accent-primary);
+}
+
+.nav-arrow:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.nav-arrow i {
+  font-size: 20px;
 }
 
 .hero-detail-container {
@@ -525,51 +566,47 @@ img {
   font-size: 1.8rem;
   font-weight: 700;
   color: var(--accent-primary);
-  margin: 0 0 24px 0;
+  margin: 0 0 12px 0;
   padding-bottom: 16px;
   border-bottom: 2px solid var(--border-secondary);
 }
 
+.stats-info {
+  font-size: 0.85rem;
+  color: var(--text-tertiary);
+  margin: 0 0 20px 0;
+  font-style: italic;
+}
+
 .stats-table {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 16px;
-  border-collapse: separate;
-  border: none;
   width: 100%;
+  border-collapse: collapse;
 }
 
 .stats-table tr {
-  display: flex;
-  flex-direction: column;
-  background: var(--overlay-light);
-  border: 1px solid var(--border-tertiary);
-  border-radius: 12px;
-  padding: 16px;
-  transition: all 0.2s ease;
+  border-bottom: 1px solid var(--border-secondary);
 }
 
-.stats-table tr:hover {
-  background: var(--overlay-medium);
-  border-color: var(--accent-primary);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px var(--shadow-sm);
+.stats-table tr:last-child {
+  border-bottom: none;
+}
+
+.stats-table td {
+  padding: 12px 0;
 }
 
 .stats-table td:first-child {
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: var(--text-tertiary);
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  margin-bottom: 8px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  width: 40%;
 }
 
 .stats-table td:last-child {
-  font-size: 1.5rem;
-  font-weight: 700;
+  font-size: 1.1rem;
+  font-weight: 600;
   color: var(--text-primary);
-  text-shadow: 1px 1px 4px var(--shadow-sm);
+  text-align: right;
 }
 
 /* Hero Skills Section */
