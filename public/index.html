@@ -139,16 +139,30 @@
     <link rel="stylesheet" href="/style.css" />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <script src="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2"></script>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-DMD8LXSEQ5"></script>
+    <!-- Google tag (gtag.js) - Only on production -->
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-DMD8LXSEQ5');
+      // Only load analytics on production domain
+      if (window.location.hostname === 'sena-rebirth-guidebook.app') {
+        // Load gtag.js
+        var gtagScript = document.createElement('script');
+        gtagScript.async = true;
+        gtagScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-DMD8LXSEQ5';
+        document.head.appendChild(gtagScript);
+
+        // Initialize GA
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-DMD8LXSEQ5');
+
+        // Load AdSense
+        var adsenseScript = document.createElement('script');
+        adsenseScript.async = true;
+        adsenseScript.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7293515082092840';
+        adsenseScript.crossOrigin = 'anonymous';
+        document.head.appendChild(adsenseScript);
+      }
     </script>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7293515082092840"
-         crossorigin="anonymous"></script>
   </head>
   <body>
     <div class="app-container">

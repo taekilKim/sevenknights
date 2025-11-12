@@ -16,13 +16,22 @@
     <link rel="canonical" href="https://sena-rebirth-guidebook.app/deck.html" />
     <link rel="stylesheet" href="/style.css" />
     <script src="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2"></script>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-DMD8LXSEQ5"></script>
+    <!-- Google tag (gtag.js) - Only on production -->
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-DMD8LXSEQ5');
+      // Only load analytics on production domain
+      if (window.location.hostname === 'sena-rebirth-guidebook.app') {
+        // Load gtag.js
+        var gtagScript = document.createElement('script');
+        gtagScript.async = true;
+        gtagScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-DMD8LXSEQ5';
+        document.head.appendChild(gtagScript);
+
+        // Initialize GA
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-DMD8LXSEQ5');
+      }
     </script>
   </head>
   <body>

@@ -47,19 +47,28 @@
 </script>
   <link rel="stylesheet" href="./style.css" />
   <script src="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2"></script>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-DMD8LXSEQ5"></script>
+  <!-- Google tag (gtag.js) - Only on production -->
   <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    // Dynamically extract hero name for analytics
-    const analyticsParams = new URLSearchParams(window.location.search);
-    const heroNameForAnalytics = analyticsParams.get("name") || "unknown";
-    gtag('config', 'G-DMD8LXSEQ5', {
-      'page_title': `Hero Detail - ${heroNameForAnalytics}`,
-      'page_path': `/hero/${encodeURIComponent(heroNameForAnalytics)}`
-    });
+    // Only load analytics on production domain
+    if (window.location.hostname === 'sena-rebirth-guidebook.app') {
+      // Load gtag.js
+      var gtagScript = document.createElement('script');
+      gtagScript.async = true;
+      gtagScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-DMD8LXSEQ5';
+      document.head.appendChild(gtagScript);
+
+      // Initialize GA with hero-specific tracking
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      // Dynamically extract hero name for analytics
+      const analyticsParams = new URLSearchParams(window.location.search);
+      const heroNameForAnalytics = analyticsParams.get("name") || "unknown";
+      gtag('config', 'G-DMD8LXSEQ5', {
+        'page_title': `Hero Detail - ${heroNameForAnalytics}`,
+        'page_path': `/hero/${encodeURIComponent(heroNameForAnalytics)}`
+      });
+    }
   </script>
 </head>
 <body>
