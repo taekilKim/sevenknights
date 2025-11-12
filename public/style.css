@@ -2840,4 +2840,224 @@ svg defs {
   #heroes-list {
     grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
   }
+}/* ------------------------------------ */
+/*  모바일 필터 (드롭다운 스타일)        */
+/* ------------------------------------ */
+.mobile-filters {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .mobile-filters {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    padding: 12px 16px;
+    background: var(--bg-elevated);
+    border-bottom: 1px solid var(--border-primary);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .mobile-filter-select {
+    padding: 10px 12px;
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border-tertiary);
+    border-radius: 8px;
+    color: var(--text-primary);
+    font-size: 0.9rem;
+    font-family: "Pretendard", sans-serif;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .mobile-filter-select:focus {
+    outline: none;
+    border-color: var(--accent-primary);
+    background: var(--bg-elevated-hover);
+  }
+
+  /* 데스크톱 필터 숨기기 */
+  .sidebar-right {
+    display: none !important;
+  }
+}
+
+/* ------------------------------------ */
+/*  모바일 바텀 네비게이션               */
+/* ------------------------------------ */
+.bottom-nav {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .bottom-nav {
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: var(--bg-elevated);
+    border-top: 1px solid var(--border-primary);
+    z-index: 1000;
+    box-shadow: 0 -2px 10px var(--shadow-sm);
+  }
+
+  .bottom-nav-item {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 8px;
+    color: var(--text-tertiary);
+    text-decoration: none;
+    transition: all 0.2s ease;
+    gap: 4px;
+  }
+
+  .bottom-nav-item i {
+    font-size: 24px;
+  }
+
+  .bottom-nav-item span {
+    font-size: 0.75rem;
+    font-weight: 500;
+  }
+
+  .bottom-nav-item.active {
+    color: var(--accent-primary);
+  }
+
+  .bottom-nav-item:hover {
+    background: var(--overlay-light);
+  }
+
+  /* 바텀 네비게이션 공간 확보 */
+  body {
+    padding-bottom: 70px;
+  }
+
+  .layout {
+    padding-bottom: 70px;
+  }
+}
+
+/* ------------------------------------ */
+/*  영웅 상세 - 좌우 네비게이션          */
+/* ------------------------------------ */
+.hero-nav-side {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--overlay-light);
+  border: 1px solid var(--border-tertiary);
+  border-radius: 12px;
+  padding: 16px 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: var(--text-primary);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  z-index: 10;
+  max-width: 120px;
+}
+
+.hero-nav-side:hover {
+  background: var(--overlay-medium);
+  border-color: var(--accent-primary);
+  color: var(--accent-primary);
+  transform: translateY(-50%) scale(1.05);
+}
+
+.hero-nav-side i {
+  font-size: 32px;
+}
+
+.nav-hero-name {
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-align: center;
+  line-height: 1.2;
+  word-break: keep-all;
+}
+
+.prev-hero-side {
+  left: -140px;
+}
+
+.next-hero-side {
+  right: -140px;
+}
+
+@media (max-width: 1440px) {
+  .hero-nav-side {
+    position: static;
+    transform: none;
+    max-width: none;
+    flex-direction: row;
+    padding: 12px 16px;
+  }
+
+  .hero-nav-side:hover {
+    transform: scale(1.02);
+  }
+
+  .hero-nav-side i {
+    font-size: 24px;
+  }
+
+  .prev-hero-side {
+    left: auto;
+    margin-right: auto;
+  }
+
+  .next-hero-side {
+    right: auto;
+    margin-left: auto;
+  }
+
+  .hero-top {
+    position: relative;
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-nav-side {
+    padding: 10px 12px;
+    flex: 0 0 auto;
+  }
+
+  .nav-hero-name {
+    font-size: 0.75rem;
+  }
+
+  .hero-nav-side i {
+    font-size: 20px;
+  }
+
+  .hero-top {
+    gap: 12px;
+  }
+
+  .prev-hero-side {
+    order: -1;
+  }
+
+  .next-hero-side {
+    order: 3;
+  }
+
+  .hero-portrait-wrap {
+    order: 1;
+  }
+
+  .hero-basic-info {
+    order: 2;
+    flex: 1 0 100%;
+  }
 }
