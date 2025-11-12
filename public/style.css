@@ -7,6 +7,70 @@
 }
 
 /* ------------------------------------ */
+/*  테마 시스템 - CSS 변수              */
+/* ------------------------------------ */
+
+:root {
+  /* 다크 테마 (기본) */
+  --bg-primary: #000;
+  --bg-secondary: #0a0a0a;
+  --bg-tertiary: #0e0e0e;
+  --bg-elevated: #1a1a1a;
+  --bg-elevated-hover: #2a2a2a;
+
+  --text-primary: #fff;
+  --text-secondary: #ccc;
+  --text-tertiary: #999;
+  --text-muted: #666;
+
+  --border-primary: #222;
+  --border-secondary: #2a2a2a;
+  --border-tertiary: #333;
+
+  --accent-primary: #ffd56a;
+  --accent-secondary: #ffb84d;
+  --accent-tertiary: #f0c674;
+
+  --shadow-sm: rgba(0, 0, 0, 0.3);
+  --shadow-md: rgba(0, 0, 0, 0.4);
+  --shadow-lg: rgba(0, 0, 0, 0.5);
+
+  --overlay-light: rgba(255, 255, 255, 0.03);
+  --overlay-medium: rgba(255, 255, 255, 0.05);
+  --overlay-heavy: rgba(255, 255, 255, 0.08);
+}
+
+[data-theme="light"] {
+  /* 라이트 테마 */
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8f9fa;
+  --bg-tertiary: #f1f3f5;
+  --bg-elevated: #ffffff;
+  --bg-elevated-hover: #f8f9fa;
+
+  --text-primary: #212529;
+  --text-secondary: #495057;
+  --text-tertiary: #6c757d;
+  --text-muted: #adb5bd;
+
+  --border-primary: #dee2e6;
+  --border-secondary: #e9ecef;
+  --border-tertiary: #ced4da;
+
+  --accent-primary: #ff9800;
+  --accent-secondary: #f57c00;
+  --accent-tertiary: #ffa726;
+
+  --shadow-sm: rgba(0, 0, 0, 0.08);
+  --shadow-md: rgba(0, 0, 0, 0.12);
+  --shadow-lg: rgba(0, 0, 0, 0.16);
+
+  --overlay-light: rgba(0, 0, 0, 0.02);
+  --overlay-medium: rgba(0, 0, 0, 0.04);
+  --overlay-heavy: rgba(0, 0, 0, 0.06);
+}
+
+/* ------------------------------------ */
 /*  공통 스타일                         */
 /* ------------------------------------ */
 
@@ -24,9 +88,10 @@ h1,
 
 body {
   font-family: "Pretendard", sans-serif;
-  background: #000;
-  color: #fff;
+  background: var(--bg-primary);
+  color: var(--text-primary);
   margin: 0;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 a {
@@ -52,21 +117,52 @@ img {
     "sidebar-left content sidebar-right";
   width: 100%;
   height: 100vh;
-  background: #0e0e0e;
-  overflow: hidden;
+  background: var(--bg-tertiary);
 }
 
 /* Header */
 .header {
   grid-area: header;
   height: 80px;
-  background: #1a1a1a;
+  background: var(--bg-elevated);
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0 32px;
-  border-bottom: 2px solid #222;
+  border-bottom: 2px solid var(--border-primary);
   box-sizing: border-box;
+  box-shadow: 0 2px 8px var(--shadow-sm);
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* 테마 토글 버튼 */
+.theme-toggle {
+  background: var(--overlay-light);
+  border: 1px solid var(--border-tertiary);
+  border-radius: 8px;
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-primary);
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.theme-toggle:hover {
+  background: var(--overlay-medium);
+  border-color: var(--accent-primary);
+}
+
+.theme-toggle i {
+  font-size: 1.2rem;
 }
 .header-logo img {
   height: 40px;
@@ -94,14 +190,34 @@ img {
   width: 280px;
   overflow-y: auto;
   box-sizing: border-box;
+  background: var(--bg-elevated);
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent-primary) var(--overlay-light);
 }
+
+.sidebar-left::-webkit-scrollbar,
+.sidebar-right::-webkit-scrollbar {
+  width: 8px;
+}
+
+.sidebar-left::-webkit-scrollbar-track,
+.sidebar-right::-webkit-scrollbar-track {
+  background: var(--overlay-light);
+}
+
+.sidebar-left::-webkit-scrollbar-thumb,
+.sidebar-right::-webkit-scrollbar-thumb {
+  background: var(--accent-primary);
+  border-radius: 4px;
+}
+
 .sidebar-left {
   left: 0;
-  border-right: 2px solid #222;
+  border-right: 2px solid var(--border-primary);
 }
 .sidebar-right {
   right: 0;
-  border-left: 2px solid #222;
+  border-left: 2px solid var(--border-primary);
 }
 
 /* Content */
@@ -110,12 +226,30 @@ img {
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  overflow-y: scroll;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
+  overflow-y: auto;
+  overflow-x: hidden;
   height: 100%;
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent-primary) var(--overlay-light);
 }
-.content::-webkit-scrollbar { display: none; }
+
+.content::-webkit-scrollbar {
+  width: 12px;
+}
+
+.content::-webkit-scrollbar-track {
+  background: var(--bg-tertiary);
+}
+
+.content::-webkit-scrollbar-thumb {
+  background: var(--accent-primary);
+  border-radius: 6px;
+  border: 3px solid var(--bg-tertiary);
+}
+
+.content::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-secondary);
+}
 
 /* ------------------------------------ */
 /*  로딩 상태                           */
@@ -224,10 +358,11 @@ img {
   justify-content: center;
   align-items: flex-start;
   gap: 3rem;
-  background: linear-gradient(180deg, #0a0a0a 0%, #000 100%);
+  background: var(--bg-secondary);
   min-height: 100vh;
   padding: 0 24px;
   box-sizing: border-box;
+  transition: background-color 0.3s ease;
 }
 
 /* Adjust container widths for desktop */
@@ -255,17 +390,18 @@ img {
 .hero-header {
   width: 100%;
   height: 80px;
-  background: #1a1a1a;
+  background: var(--bg-elevated);
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0 32px;
-  border-bottom: 2px solid #222;
+  border-bottom: 2px solid var(--border-primary);
   box-sizing: border-box;
+  box-shadow: 0 2px 8px var(--shadow-sm);
 }
 .back-button {
   background: transparent;
-  color: #fff;
+  color: var(--text-primary);
   border: none;
   font-size: 1rem;
   font-weight:500;
@@ -273,7 +409,7 @@ img {
   transition: color 0.2s ease;
 }
 .back-button:hover {
-  color: #f0c674;
+  color: var(--accent-tertiary);
 }
 .back-button i {
   font-size:16px;
@@ -288,15 +424,15 @@ img {
 
 /* Hero Top Section - Portrait and Basic Info */
 .hero-top {
-  background: linear-gradient(135deg, #1a1a1a 0%, #151515 100%);
-  border: 1px solid #2a2a2a;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-secondary);
   border-radius: 20px;
   padding: 40px;
   margin-bottom: 32px;
   display: flex;
   align-items: center;
   gap: 40px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 8px 32px var(--shadow-md);
   position: relative;
   overflow: hidden;
 }
@@ -308,7 +444,7 @@ img {
   left: 0;
   right: 0;
   height: 200px;
-  background: radial-gradient(ellipse at top, rgba(255, 213, 106, 0.05) 0%, transparent 70%);
+  background: radial-gradient(ellipse at top, rgba(255, 153, 0, 0.03) 0%, transparent 70%);
   pointer-events: none;
 }
 
@@ -330,22 +466,22 @@ img {
 #hero-name {
   font-size: 2.5rem;
   font-weight: 700;
-  color: #fff;
+  color: var(--text-primary);
   margin-bottom: 8px;
   line-height: 1.2;
-  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+  text-shadow: 2px 2px 8px var(--shadow-sm);
 }
 
 .hero-nickname {
   font-size: 1.1rem;
-  color: #b8b8b8;
+  color: var(--text-tertiary);
   margin-bottom: 12px;
   font-style: italic;
 }
 
 .hero-group {
   font-size: 1rem;
-  color: #ffd56a;
+  color: var(--accent-primary);
   margin-bottom: 16px;
   font-weight: 500;
 }
@@ -358,13 +494,13 @@ img {
 
 #hero-type,
 #hero-rarity {
-  background: rgba(255, 213, 106, 0.1);
-  border: 1px solid rgba(255, 213, 106, 0.3);
+  background: var(--overlay-light);
+  border: 1px solid var(--border-tertiary);
   border-radius: 8px;
   padding: 8px 16px;
   font-size: 0.95rem;
   font-weight: 600;
-  color: #ffd56a;
+  color: var(--accent-primary);
 }
 
 #hero-description {
@@ -377,21 +513,21 @@ img {
 
 /* Hero Stats Section */
 .hero-stats {
-  background: linear-gradient(135deg, #1a1a1a 0%, #151515 100%);
-  border: 1px solid #2a2a2a;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-secondary);
   border-radius: 20px;
   padding: 32px;
   margin-bottom: 32px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 8px 32px var(--shadow-md);
 }
 
 .hero-stats h2 {
   font-size: 1.8rem;
   font-weight: 700;
-  color: #ffd56a;
+  color: var(--accent-primary);
   margin: 0 0 24px 0;
   padding-bottom: 16px;
-  border-bottom: 2px solid rgba(255, 213, 106, 0.2);
+  border-bottom: 2px solid var(--border-secondary);
 }
 
 .stats-table {
@@ -406,24 +542,24 @@ img {
 .stats-table tr {
   display: flex;
   flex-direction: column;
-  background: rgba(255, 213, 106, 0.05);
-  border: 1px solid rgba(255, 213, 106, 0.15);
+  background: var(--overlay-light);
+  border: 1px solid var(--border-tertiary);
   border-radius: 12px;
   padding: 16px;
   transition: all 0.2s ease;
 }
 
 .stats-table tr:hover {
-  background: rgba(255, 213, 106, 0.08);
-  border-color: rgba(255, 213, 106, 0.25);
+  background: var(--overlay-medium);
+  border-color: var(--accent-primary);
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(255, 213, 106, 0.1);
+  box-shadow: 0 4px 12px var(--shadow-sm);
 }
 
 .stats-table td:first-child {
   font-size: 0.85rem;
   font-weight: 600;
-  color: #999;
+  color: var(--text-tertiary);
   text-transform: uppercase;
   letter-spacing: 0.5px;
   margin-bottom: 8px;
@@ -432,8 +568,8 @@ img {
 .stats-table td:last-child {
   font-size: 1.5rem;
   font-weight: 700;
-  color: #fff;
-  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+  color: var(--text-primary);
+  text-shadow: 1px 1px 4px var(--shadow-sm);
 }
 
 /* Hero Skills Section */
@@ -444,19 +580,19 @@ img {
 .hero-skills h2 {
   font-size: 1.8rem;
   font-weight: 700;
-  color: #ffd56a;
+  color: var(--accent-primary);
   margin: 0 0 24px 0;
   padding-bottom: 16px;
-  border-bottom: 2px solid rgba(255, 213, 106, 0.2);
+  border-bottom: 2px solid var(--border-secondary);
 }
 
 .hero-skills .skill {
-  background: linear-gradient(135deg, #1a1a1a 0%, #151515 100%);
-  border: 1px solid #2a2a2a;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-secondary);
   border-radius: 16px;
   padding: 24px;
   margin-bottom: 20px;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 16px var(--shadow-sm);
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
@@ -469,15 +605,15 @@ img {
   left: 0;
   right: 0;
   height: 4px;
-  background: linear-gradient(90deg, #ffd56a 0%, #ffb84d 100%);
+  background: linear-gradient(90deg, var(--accent-primary) 0%, var(--accent-secondary) 100%);
   opacity: 0;
   transition: opacity 0.3s ease;
 }
 
 .hero-skills .skill:hover {
-  border-color: rgba(255, 213, 106, 0.3);
+  border-color: var(--accent-primary);
   transform: translateX(4px);
-  box-shadow: 0 6px 24px rgba(255, 213, 106, 0.15);
+  box-shadow: 0 6px 24px var(--shadow-md);
 }
 
 .hero-skills .skill:hover::before {
@@ -487,41 +623,41 @@ img {
 .hero-skills .skill h3 {
   font-size: 1rem;
   font-weight: 600;
-  color: #ffd56a;
+  color: var(--accent-primary);
   margin: 0 0 16px 0;
   text-transform: uppercase;
   letter-spacing: 1px;
-  opacity: 0.8;
+  opacity: 0.9;
 }
 
 .hero-skills .skill img {
   width: 80px;
   height: 80px;
   border-radius: 12px;
-  border: 2px solid rgba(255, 213, 106, 0.2);
+  border: 2px solid var(--border-tertiary);
   margin-bottom: 16px;
   float: left;
   margin-right: 20px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 12px var(--shadow-sm);
 }
 
 .hero-skills .skill .skill-name {
   font-size: 1.3rem;
   font-weight: 700;
-  color: #fff;
+  color: var(--text-primary);
   margin-bottom: 8px;
   display: block;
 }
 
 .hero-skills .skill .skill-cooltime {
   display: inline-block;
-  background: rgba(255, 213, 106, 0.15);
-  border: 1px solid rgba(255, 213, 106, 0.3);
+  background: var(--overlay-light);
+  border: 1px solid var(--border-tertiary);
   border-radius: 6px;
   padding: 4px 12px;
   font-size: 0.85rem;
   font-weight: 600;
-  color: #ffd56a;
+  color: var(--accent-primary);
   margin-bottom: 12px;
   margin-left: 8px;
 }
@@ -529,7 +665,7 @@ img {
 .hero-skills .skill .skill-desc {
   font-size: 1rem;
   line-height: 1.7;
-  color: #ccc;
+  color: var(--text-secondary);
   clear: both;
   padding-top: 12px;
 }
@@ -540,12 +676,12 @@ img {
   margin: 0;
 }
 #hero-skills li {
-  background: #1a1a1a;
-  border: 1px solid #333;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-tertiary);
   border-radius: 8px;
   padding: 12px 16px;
   margin-bottom: 12px;
-  color: #eee;
+  color: var(--text-secondary);
   text-align: left;
 }
 
@@ -640,18 +776,18 @@ svg defs {
 /* ------------------------------------ */
 .hero-comments {
   width: 100%;
-  background: linear-gradient(135deg, #1a1a1a 0%, #151515 100%);
-  border: 1px solid #2a2a2a;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-secondary);
   border-radius: 20px;
   padding: 32px;
   box-sizing: border-box;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 8px 32px var(--shadow-md);
   position: sticky;
   top: 100px;
   max-height: calc(100vh - 120px);
   overflow-y: auto;
   scrollbar-width: thin;
-  scrollbar-color: rgba(255, 213, 106, 0.3) rgba(255, 255, 255, 0.05);
+  scrollbar-color: var(--accent-primary) var(--overlay-light);
 }
 
 .hero-comments::-webkit-scrollbar {
@@ -659,26 +795,26 @@ svg defs {
 }
 
 .hero-comments::-webkit-scrollbar-track {
-  background: rgba(255, 255, 255, 0.05);
+  background: var(--overlay-light);
   border-radius: 4px;
 }
 
 .hero-comments::-webkit-scrollbar-thumb {
-  background: rgba(255, 213, 106, 0.3);
+  background: var(--accent-primary);
   border-radius: 4px;
 }
 
 .hero-comments::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 213, 106, 0.5);
+  background: var(--accent-secondary);
 }
 
 .hero-comments h2 {
   font-size: 1.5rem;
   font-weight: 700;
-  color: #ffd56a;
+  color: var(--accent-primary);
   margin: 0 0 24px 0;
   padding-bottom: 16px;
-  border-bottom: 2px solid rgba(255, 213, 106, 0.2);
+  border-bottom: 2px solid var(--border-secondary);
 }
 
 #comment-form {
@@ -690,9 +826,9 @@ svg defs {
 
 #comment-form input,
 #comment-form textarea {
-  background: rgba(255, 255, 255, 0.03);
-  color: #fff;
-  border: 1px solid rgba(255, 213, 106, 0.2);
+  background: var(--overlay-light);
+  color: var(--text-primary);
+  border: 1px solid var(--border-tertiary);
   border-radius: 10px;
   padding: 12px 16px;
   font-family: "Pretendard", sans-serif;
@@ -703,14 +839,14 @@ svg defs {
 #comment-form input:focus,
 #comment-form textarea:focus {
   outline: none;
-  border-color: rgba(255, 213, 106, 0.5);
-  background: rgba(255, 255, 255, 0.05);
-  box-shadow: 0 0 0 3px rgba(255, 213, 106, 0.1);
+  border-color: var(--accent-primary);
+  background: var(--overlay-medium);
+  box-shadow: 0 0 0 3px var(--overlay-light);
 }
 
 #comment-form input::placeholder,
 #comment-form textarea::placeholder {
-  color: #666;
+  color: var(--text-muted);
 }
 
 #comment-form textarea {
@@ -720,8 +856,8 @@ svg defs {
 
 #comment-form button {
   align-self: flex-end;
-  background: linear-gradient(135deg, #ffd56a 0%, #ffb84d 100%);
-  color: #000;
+  background: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-secondary) 100%);
+  color: var(--bg-primary);
   border: none;
   padding: 12px 24px;
   border-radius: 10px;
@@ -729,12 +865,12 @@ svg defs {
   font-size: 1rem;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 12px rgba(255, 213, 106, 0.3);
+  box-shadow: 0 4px 12px var(--shadow-sm);
 }
 
 #comment-form button:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(255, 213, 106, 0.4);
+  box-shadow: 0 6px 20px var(--shadow-md);
 }
 
 #comment-form button:active {
@@ -751,21 +887,21 @@ svg defs {
 }
 
 .comment-list li {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 213, 106, 0.15);
+  background: var(--overlay-light);
+  border: 1px solid var(--border-tertiary);
   border-radius: 12px;
   padding: 16px;
   transition: all 0.2s ease;
 }
 
 .comment-list li:hover {
-  background: rgba(255, 255, 255, 0.05);
-  border-color: rgba(255, 213, 106, 0.25);
+  background: var(--overlay-medium);
+  border-color: var(--accent-primary);
   transform: translateX(4px);
 }
 
 .comment-list li strong {
-  color: #ffd56a;
+  color: var(--accent-primary);
   display: block;
   margin-bottom: 8px;
   font-size: 1rem;
@@ -773,27 +909,27 @@ svg defs {
 }
 
 .comment-list li p {
-  color: #ccc;
+  color: var(--text-secondary);
   margin: 0 0 8px 0;
   font-size: 0.95rem;
   line-height: 1.5;
 }
 
 .comment-list li span {
-  color: #777;
+  color: var(--text-tertiary);
   font-size: 0.8rem;
 }
 
 .filter-container {
   padding: 24px;
-  color: #fff;
+  color: var(--text-primary);
   font-size: 0.9rem;
 }
 .filter-container h3 {
   font-size: 1.1rem;
   margin-top: 24px;
   margin-bottom: 12px;
-  color: #ffd56a;
+  color: var(--accent-primary);
 }
 .filter-group {
   margin-bottom: 20px;
@@ -802,6 +938,7 @@ svg defs {
   display: block;
   font-weight: 600;
   margin-bottom: 8px;
+  color: var(--text-secondary);
 }
 .filter-buttons {
   display: flex;
@@ -809,33 +946,38 @@ svg defs {
   gap: 6px;
 }
 .filter-buttons label {
-  background: #1a1a1a;
-  border: 1px solid #333;
+  background: var(--overlay-light);
+  border: 1px solid var(--border-tertiary);
   border-radius: 6px;
   padding: 6px 10px;
   cursor: pointer;
-  transition: background 0.2s, border-color 0.2s;
+  transition: all 0.2s ease;
   user-select: none;
+  color: var(--text-primary);
 }
 .filter-buttons label:hover {
-  background: #2c2c2c;
+  background: var(--overlay-medium);
+  border-color: var(--accent-primary);
 }
 .filter-buttons input {
   display: none;
 }
 .filter-buttons input:checked + label,
 .filter-buttons label:has(input:checked) {
-  background: #ffd56a;
-  color: #000;
-  border-color: #ffd56a;
+  background: var(--accent-primary);
+  color: var(--bg-primary);
+  border-color: var(--accent-primary);
+  font-weight: 600;
 }
 .sort-buttons label {
   display: block;
   margin-bottom: 6px;
   cursor: pointer;
+  color: var(--text-primary);
 }
 .sort-buttons input {
   margin-right: 6px;
+  accent-color: var(--accent-primary);
 }
 /* ------------------------------------ */
 /*  반응형 레이아웃 */
@@ -857,8 +999,8 @@ svg defs {
     width: 100%;
     height: auto;
     border: none;
-    border-bottom: 2px solid #222;
-    background: #1a1a1a;
+    border-bottom: 2px solid var(--border-primary);
+    background: var(--bg-elevated);
     order: -1;
   }
 
@@ -889,8 +1031,8 @@ svg defs {
 
   .sidebar-left nav ul li.active {
     background: transparent;
-    color: #ffd56a;
-    border-bottom-color: #ffd56a;
+    color: var(--accent-primary);
+    border-bottom-color: var(--accent-primary);
   }
 
   .sidebar-left nav ul li a {
@@ -917,8 +1059,8 @@ svg defs {
   .filter-container {
     position: static;
     width: 100%;
-    background: #1a1a1a;
-    border-bottom: 1px solid #222;
+    background: var(--bg-elevated);
+    border-bottom: 1px solid var(--border-primary);
     padding: 16px;
     order: 0;
   }
@@ -1419,10 +1561,10 @@ svg defs {
 .related-heroes h2 {
   font-size: 1.5rem;
   font-weight: 700;
-  color: #ffd56a;
+  color: var(--accent-primary);
   margin: 0 0 20px 0;
   padding-bottom: 12px;
-  border-bottom: 2px solid rgba(255, 213, 106, 0.2);
+  border-bottom: 2px solid var(--border-secondary);
 }
 
 .related-hero-list {
@@ -1432,7 +1574,7 @@ svg defs {
   gap: 16px;
   padding: 16px 8px;
   scrollbar-width: thin;
-  scrollbar-color: rgba(255, 213, 106, 0.3) rgba(255, 255, 255, 0.05);
+  scrollbar-color: var(--accent-primary) var(--overlay-light);
 }
 
 .related-hero-list::-webkit-scrollbar {
@@ -1440,24 +1582,24 @@ svg defs {
 }
 
 .related-hero-list::-webkit-scrollbar-track {
-  background: rgba(255, 255, 255, 0.05);
+  background: var(--overlay-light);
   border-radius: 4px;
 }
 
 .related-hero-list::-webkit-scrollbar-thumb {
-  background: rgba(255, 213, 106, 0.3);
+  background: var(--accent-primary);
   border-radius: 4px;
 }
 
 .related-hero-list::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 213, 106, 0.5);
+  background: var(--accent-secondary);
 }
 
 .related-hero-card {
   flex: 0 0 auto;
   width: 120px;
-  background: linear-gradient(135deg, #1a1a1a 0%, #151515 100%);
-  border: 1px solid #2a2a2a;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-secondary);
   border-radius: 12px;
   padding: 12px;
   transition: all 0.3s ease;
@@ -1465,9 +1607,9 @@ svg defs {
 }
 
 .related-hero-card:hover {
-  border-color: rgba(255, 213, 106, 0.4);
+  border-color: var(--accent-primary);
   transform: translateY(-4px);
-  box-shadow: 0 8px 20px rgba(255, 213, 106, 0.15);
+  box-shadow: 0 8px 20px var(--shadow-md);
 }
 
 .related-hero-card .hero-name {
@@ -1477,7 +1619,7 @@ svg defs {
 }
 
 .no-related {
-  color: #666;
+  color: var(--text-muted);
   font-style: italic;
   text-align: center;
   padding: 20px;
@@ -1630,19 +1772,20 @@ svg defs {
 .sidebar-left nav ul li {
   padding: 16px 24px;
   cursor: pointer;
-  transition: background 0.2s ease, color 0.2s ease;
+  transition: all 0.2s ease;
   font-weight: 500;
-  border-bottom: 1px solid #222;
+  border-bottom: 1px solid var(--border-primary);
+  color: var(--text-primary);
 }
 
 .sidebar-left nav ul li:hover {
-  background: #2a2a2a;
-  color: #ffd56a;
+  background: var(--overlay-medium);
+  color: var(--accent-primary);
 }
 
 .sidebar-left nav ul li.active {
-  background: #ffd56a;
-  color: #000;
+  background: var(--accent-primary);
+  color: var(--bg-primary);
   font-weight: 600;
 }
 
@@ -1650,6 +1793,7 @@ svg defs {
   display: block;
   width: 100%;
   height: 100%;
+  color: inherit;
 }
 
 /* ------------------------------------ */
@@ -1667,6 +1811,26 @@ svg defs {
   overflow-y: auto;
   overflow-x: hidden;
   align-items: center;
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent-primary) var(--overlay-light);
+}
+
+.deck-content::-webkit-scrollbar {
+  width: 12px;
+}
+
+.deck-content::-webkit-scrollbar-track {
+  background: var(--bg-tertiary);
+}
+
+.deck-content::-webkit-scrollbar-thumb {
+  background: var(--accent-primary);
+  border-radius: 6px;
+  border: 3px solid var(--bg-tertiary);
+}
+
+.deck-content::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-secondary);
 }
 
 .deck-content h1 {
@@ -1680,7 +1844,7 @@ svg defs {
   clip: auto;
   font-size: 2rem;
   font-weight: 700;
-  color: #fff;
+  color: var(--text-primary);
 }
 
 .deck-content .subtitle {
@@ -1692,7 +1856,7 @@ svg defs {
   margin: 0 0 24px 0;
   overflow: visible;
   clip: auto;
-  color: #999;
+  color: var(--text-tertiary);
   font-size: 1rem;
 }
 
@@ -1715,8 +1879,8 @@ svg defs {
 
 /* 진형 선택기 */
 .formation-selector {
-  background: #1a1a1a;
-  border: 2px solid #333;
+  background: var(--bg-elevated);
+  border: 2px solid var(--border-tertiary);
   border-radius: 12px;
   padding: 20px;
 }
@@ -1724,7 +1888,7 @@ svg defs {
 .formation-selector h3 {
   font-size: 1.1rem;
   font-weight: 600;
-  color: #ffd56a;
+  color: var(--accent-primary);
   margin: 0 0 16px 0;
 }
 
@@ -1735,8 +1899,8 @@ svg defs {
 }
 
 .formation-option {
-  background: #0e0e0e;
-  border: 2px solid #444;
+  background: var(--bg-tertiary);
+  border: 2px solid var(--border-secondary);
   border-radius: 8px;
   padding: 12px;
   cursor: pointer;
@@ -1753,24 +1917,24 @@ svg defs {
 }
 
 .formation-option:hover {
-  border-color: #666;
-  background: #1a1a1a;
+  border-color: var(--border-tertiary);
+  background: var(--bg-elevated-hover);
 }
 
 .formation-option.active {
-  border-color: #ffd56a;
-  background: rgba(255, 213, 106, 0.1);
+  border-color: var(--accent-primary);
+  background: var(--overlay-medium);
 }
 
 .formation-name {
   font-weight: 600;
-  color: #fff;
+  color: var(--text-primary);
   font-size: 0.95rem;
 }
 
 .formation-detail {
   font-size: 0.8rem;
-  color: #999;
+  color: var(--text-tertiary);
 }
 
 /* 우측: 영웅 선택 (숨김) */
@@ -1780,8 +1944,8 @@ svg defs {
 
 /* 덱 디스플레이 영역 */
 .deck-display {
-  background: #1a1a1a;
-  border: 2px solid #333;
+  background: var(--bg-elevated);
+  border: 2px solid var(--border-tertiary);
   border-radius: 12px;
   padding: 24px;
   flex: 1;
@@ -1794,7 +1958,7 @@ svg defs {
 .deck-display h2 {
   font-size: 1.3rem;
   font-weight: 600;
-  color: #ffd56a;
+  color: var(--accent-primary);
   margin: 0 0 20px 0;
 }
 
@@ -1816,7 +1980,7 @@ svg defs {
 .line-label {
   font-size: 0.85rem;
   font-weight: 600;
-  color: #999;
+  color: var(--text-tertiary);
   text-align: center;
   margin-bottom: 4px;
 }
@@ -1867,8 +2031,8 @@ svg defs {
   position: relative;
   width: 100%;
   min-height: 130px;
-  background: #0e0e0e;
-  border: 2px dashed #444;
+  background: var(--bg-tertiary);
+  border: 2px dashed var(--border-secondary);
   border-radius: 10px;
   display: flex;
   flex-direction: row;
@@ -1881,8 +2045,8 @@ svg defs {
 }
 
 .deck-slot:hover {
-  border-color: #666;
-  background: #1a1a1a;
+  border-color: var(--border-tertiary);
+  background: var(--bg-elevated-hover);
   transform: translateY(-2px);
 }
 
@@ -1890,8 +2054,8 @@ svg defs {
 .slot-indicator {
   width: 36px;
   height: 36px;
-  background: #444;
-  color: #fff;
+  background: var(--border-secondary);
+  color: var(--text-primary);
   border-radius: 8px;
   display: flex;
   align-items: center;
@@ -1903,7 +2067,7 @@ svg defs {
 
 .slot-placeholder {
   font-size: 1.5rem;
-  color: #444;
+  color: var(--text-muted);
   font-weight: 300;
   flex: 1;
   text-align: center;
@@ -1932,7 +2096,7 @@ svg defs {
 .slot-hero-name {
   font-size: 0.9rem;
   font-weight: 500;
-  color: #fff;
+  color: var(--text-primary);
   text-align: center;
   white-space: nowrap;
   overflow: hidden;
@@ -1988,23 +2152,23 @@ svg defs {
 }
 
 .btn-primary {
-  background: #ffd56a;
-  color: #000;
+  background: var(--accent-primary);
+  color: var(--bg-primary);
 }
 
 .btn-primary:hover {
-  background: #ffdd7f;
+  background: var(--accent-tertiary);
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(255, 213, 106, 0.3);
+  box-shadow: 0 4px 12px var(--shadow-md);
 }
 
 .btn-secondary {
-  background: #333;
-  color: #fff;
+  background: var(--bg-elevated);
+  color: var(--text-primary);
 }
 
 .btn-secondary:hover {
-  background: #444;
+  background: var(--bg-elevated-hover);
 }
 
 /* 영웅 선택 영역 헤더 */
@@ -2018,18 +2182,18 @@ svg defs {
 .hero-selection-header h2 {
   font-size: 1.3rem;
   font-weight: 600;
-  color: #ffd56a;
+  color: var(--accent-primary);
   margin: 0;
 }
 
 .selection-info {
   font-size: 1rem;
-  color: #fff;
+  color: var(--text-primary);
   font-weight: 500;
 }
 
 .selection-info span {
-  color: #ffd56a;
+  color: var(--accent-primary);
   font-size: 1.2rem;
 }
 
@@ -2044,10 +2208,10 @@ svg defs {
 
 .filter-select {
   padding: 10px 16px;
-  background: #1a1a1a;
-  border: 1px solid #444;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-secondary);
   border-radius: 8px;
-  color: #fff;
+  color: var(--text-primary);
   font-size: 0.9rem;
   font-family: "Pretendard", sans-serif;
   cursor: pointer;
@@ -2056,26 +2220,26 @@ svg defs {
 }
 
 .filter-select:hover {
-  border-color: #666;
-  background: #2a2a2a;
+  border-color: var(--border-tertiary);
+  background: var(--bg-elevated-hover);
 }
 
 .filter-select:focus {
   outline: none;
-  border-color: #ffd56a;
-  background: #2a2a2a;
+  border-color: var(--accent-primary);
+  background: var(--bg-elevated-hover);
 }
 
 .filter-select option {
-  background: #1a1a1a;
-  color: #fff;
+  background: var(--bg-elevated);
+  color: var(--text-primary);
   padding: 8px;
 }
 
 /* 가로 필터 (구버전 - 제거 예정) */
 .filters-horizontal {
-  background: #1a1a1a;
-  border: 1px solid #333;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-tertiary);
   border-radius: 8px;
   padding: 16px;
   margin-bottom: 16px;
@@ -2092,7 +2256,7 @@ svg defs {
 
 .filter-label {
   font-weight: 600;
-  color: #ffd56a;
+  color: var(--accent-primary);
   min-width: 60px;
   font-size: 0.9rem;
 }
@@ -2100,10 +2264,10 @@ svg defs {
 .search-input {
   flex: 1;
   padding: 8px 12px;
-  background: #0e0e0e;
-  border: 1px solid #333;
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-tertiary);
   border-radius: 6px;
-  color: #fff;
+  color: var(--text-primary);
   font-size: 0.9rem;
   font-family: "Pretendard", sans-serif;
   transition: border-color 0.2s ease;
@@ -2111,11 +2275,11 @@ svg defs {
 
 .search-input:focus {
   outline: none;
-  border-color: #ffd56a;
+  border-color: var(--accent-primary);
 }
 
 .search-input::placeholder {
-  color: #666;
+  color: var(--text-muted);
 }
 
 .filter-chips {
@@ -2128,8 +2292,8 @@ svg defs {
 .chip {
   display: inline-flex;
   align-items: center;
-  background: #0e0e0e;
-  border: 1px solid #444;
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-secondary);
   border-radius: 16px;
   padding: 6px 12px;
   cursor: pointer;
@@ -2143,21 +2307,21 @@ svg defs {
 }
 
 .chip span {
-  color: #ccc;
+  color: var(--text-secondary);
 }
 
 .chip:hover {
-  background: #2a2a2a;
-  border-color: #666;
+  background: var(--bg-elevated-hover);
+  border-color: var(--border-tertiary);
 }
 
 .chip:has(input:checked) {
-  background: #ffd56a;
-  border-color: #ffd56a;
+  background: var(--accent-primary);
+  border-color: var(--accent-primary);
 }
 
 .chip:has(input:checked) span {
-  color: #000;
+  color: var(--bg-primary);
   font-weight: 600;
 }
 
@@ -2167,12 +2331,14 @@ svg defs {
   grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
   gap: 16px;
   padding: 16px;
-  background: #1a1a1a;
-  border: 1px solid #333;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-tertiary);
   border-radius: 8px;
   overflow-y: auto;
   flex: 1;
   align-content: start;
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent-primary) var(--bg-tertiary);
 }
 
 #heroes-list::-webkit-scrollbar {
@@ -2180,17 +2346,17 @@ svg defs {
 }
 
 #heroes-list::-webkit-scrollbar-track {
-  background: #0e0e0e;
+  background: var(--bg-tertiary);
   border-radius: 4px;
 }
 
 #heroes-list::-webkit-scrollbar-thumb {
-  background: #444;
+  background: var(--accent-primary);
   border-radius: 4px;
 }
 
 #heroes-list::-webkit-scrollbar-thumb:hover {
-  background: #666;
+  background: var(--accent-secondary);
 }
 
 /* 선택 가능한 영웅 카드 */
@@ -2226,7 +2392,7 @@ svg defs {
 
 .hero-nickname {
   font-size: 0.8rem;
-  color: #999;
+  color: var(--text-tertiary);
   text-align: center;
   margin-top: 4px;
 }
@@ -2273,7 +2439,7 @@ svg defs {
   max-height: 500px;
   overflow-y: auto;
   padding: 8px;
-  background: #0e0e0e;
+  background: var(--bg-tertiary);
   border-radius: 8px;
 }
 
@@ -2288,13 +2454,13 @@ svg defs {
 }
 
 .modal-content {
-  background: #1a1a1a;
-  border: 2px solid #333;
+  background: var(--bg-elevated);
+  border: 2px solid var(--border-tertiary);
   border-radius: 12px;
   width: 90%;
   max-width: 600px;
   padding: 0;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 8px 32px var(--shadow-lg);
 }
 
 .modal-header {
@@ -2302,19 +2468,19 @@ svg defs {
   justify-content: space-between;
   align-items: center;
   padding: 24px;
-  border-bottom: 1px solid #333;
+  border-bottom: 1px solid var(--border-tertiary);
 }
 
 .modal-header h3 {
   margin: 0;
   font-size: 1.5rem;
-  color: #ffd56a;
+  color: var(--accent-primary);
 }
 
 .modal-close {
   background: transparent;
   border: none;
-  color: #fff;
+  color: var(--text-primary);
   font-size: 2rem;
   cursor: pointer;
   width: 32px;
@@ -2327,7 +2493,7 @@ svg defs {
 }
 
 .modal-close:hover {
-  color: #ffd56a;
+  color: var(--accent-primary);
 }
 
 .modal-body {
@@ -2335,7 +2501,7 @@ svg defs {
 }
 
 .modal-body p {
-  color: #ccc;
+  color: var(--text-secondary);
   margin: 0 0 16px 0;
 }
 
@@ -2348,10 +2514,10 @@ svg defs {
 .share-url-container input {
   flex: 1;
   padding: 12px 16px;
-  background: #0e0e0e;
-  border: 1px solid #333;
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-tertiary);
   border-radius: 6px;
-  color: #fff;
+  color: var(--text-primary);
   font-size: 0.95rem;
   font-family: "Pretendard", sans-serif;
 }
