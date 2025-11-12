@@ -1142,7 +1142,7 @@ button {
   margin-bottom: 32px;
   display: flex;
   align-items: center;
-  gap: 40px;
+  gap: 32px;
   box-shadow: 0 8px 48px var(--shadow-md);
   position: relative;
   overflow: hidden;
@@ -1159,13 +1159,58 @@ button {
   pointer-events: none;
 }
 
+/* Hero Navigation Side Buttons */
+.hero-nav-side {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  min-width: 56px;
+  background: var(--overlay-light);
+  backdrop-filter: blur(var(--blur-sm));
+  -webkit-backdrop-filter: blur(var(--blur-sm));
+  border: 1px solid var(--border-tertiary);
+  border-radius: 50%;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 2;
+}
+
+.hero-nav-side i {
+  font-size: 24px;
+}
+
+.hero-nav-side .nav-hero-name {
+  display: none;
+}
+
+.hero-nav-side:hover:not(:disabled) {
+  background: var(--overlay-medium);
+  border-color: var(--accent-primary);
+  color: var(--accent-primary);
+  transform: scale(1.1);
+  box-shadow: 0 4px 16px var(--shadow-md);
+}
+
+.hero-nav-side:active:not(:disabled) {
+  transform: scale(1.05);
+}
+
+.hero-nav-side:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
 .hero-detail-portrait {
-  width: 240px;
-  height: 240px;
+  width: 180px;
+  height: 180px;
   border-radius: 24px;
   object-fit: cover;
   border: 4px solid #c1b494;
-  margin: 0 auto 24px;
+  margin: 0;
 }
 
 .hero-basic-info {
@@ -1175,25 +1220,25 @@ button {
 }
 
 #hero-name {
-  font-size: 2.5rem;
+  font-size: 2rem;
   font-weight: 700;
   color: var(--text-primary);
-  margin-bottom: 8px;
+  margin-bottom: 6px;
   line-height: 1.2;
-  text-shadow: 2px 2px 8px var(--shadow-sm);
+  letter-spacing: -0.02em;
 }
 
 .hero-nickname {
-  font-size: 1.1rem;
+  font-size: 1rem;
   color: var(--text-tertiary);
-  margin-bottom: 12px;
-  font-style: italic;
+  margin-bottom: 10px;
+  font-weight: 400;
 }
 
 .hero-group {
-  font-size: 1rem;
-  color: var(--accent-primary);
-  margin-bottom: 16px;
+  font-size: 0.95rem;
+  color: var(--text-tertiary);
+  margin-bottom: 14px;
   font-weight: 500;
 }
 
@@ -1318,26 +1363,25 @@ button {
   backdrop-filter: blur(var(--blur-md)) saturate(180%);
   -webkit-backdrop-filter: blur(var(--blur-md)) saturate(180%);
   border: 1px solid var(--border-secondary);
-  border-radius: 24px;
-  padding: 32px;
-  margin-bottom: 32px;
-  box-shadow: 0 8px 48px var(--shadow-md);
+  border-radius: 20px;
+  padding: 24px;
+  margin-bottom: 24px;
+  box-shadow: 0 4px 24px var(--shadow-sm);
 }
 
 .hero-stats h2 {
-  font-size: 1.8rem;
+  font-size: 1.4rem;
   font-weight: 700;
   color: var(--accent-primary);
-  margin: 0 0 12px 0;
-  padding-bottom: 16px;
-  border-bottom: 2px solid var(--border-secondary);
+  margin: 0 0 8px 0;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border-secondary);
 }
 
 .stats-info {
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   color: var(--text-tertiary);
-  margin: 0 0 20px 0;
-  font-style: italic;
+  margin: 0 0 16px 0;
 }
 
 .stats-table {
@@ -1346,7 +1390,7 @@ button {
 }
 
 .stats-table tr {
-  border-bottom: 1px solid var(--border-secondary);
+  border-bottom: 1px solid var(--border-tertiary);
 }
 
 .stats-table tr:last-child {
@@ -1354,18 +1398,18 @@ button {
 }
 
 .stats-table td {
-  padding: 12px 0;
+  padding: 10px 0;
 }
 
 .stats-table td:first-child {
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   font-weight: 500;
   color: var(--text-secondary);
   width: 40%;
 }
 
 .stats-table td:last-child {
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: 600;
   color: var(--text-primary);
   text-align: right;
@@ -1373,16 +1417,16 @@ button {
 
 /* Hero Skills Section */
 .hero-skills {
-  margin-bottom: 32px;
+  margin-bottom: 24px;
 }
 
 .hero-skills h2 {
-  font-size: 1.8rem;
+  font-size: 1.4rem;
   font-weight: 700;
   color: var(--accent-primary);
-  margin: 0 0 24px 0;
-  padding-bottom: 16px;
-  border-bottom: 2px solid var(--border-secondary);
+  margin: 0 0 16px 0;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border-secondary);
 }
 
 .hero-skills .skill {
@@ -1390,10 +1434,10 @@ button {
   backdrop-filter: blur(var(--blur-md)) saturate(180%);
   -webkit-backdrop-filter: blur(var(--blur-md)) saturate(180%);
   border: 1px solid var(--border-secondary);
-  border-radius: 20px;
-  padding: 24px;
-  margin-bottom: 20px;
-  box-shadow: 0 4px 24px var(--shadow-sm);
+  border-radius: 16px;
+  padding: 20px;
+  margin-bottom: 14px;
+  box-shadow: 0 2px 16px var(--shadow-sm);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   overflow: hidden;
@@ -1405,7 +1449,7 @@ button {
   top: 0;
   left: 0;
   right: 0;
-  height: 4px;
+  height: 3px;
   background: linear-gradient(90deg, var(--accent-primary) 0%, var(--accent-secondary) 100%);
   opacity: 0;
   transition: opacity 0.3s ease;
@@ -1413,8 +1457,8 @@ button {
 
 .hero-skills .skill:hover {
   border-color: var(--accent-primary);
-  transform: translateY(-4px);
-  box-shadow: 0 8px 40px var(--shadow-md);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 24px var(--shadow-md);
 }
 
 .hero-skills .skill:hover::before {
@@ -1422,31 +1466,31 @@ button {
 }
 
 .hero-skills .skill h3 {
-  font-size: 1rem;
+  font-size: 0.85rem;
   font-weight: 600;
   color: var(--accent-primary);
-  margin: 0 0 16px 0;
+  margin: 0 0 12px 0;
   text-transform: uppercase;
-  letter-spacing: 1px;
-  opacity: 0.9;
+  letter-spacing: 0.5px;
+  opacity: 0.85;
 }
 
 .hero-skills .skill img {
-  width: 80px;
-  height: 80px;
-  border-radius: 12px;
+  width: 64px;
+  height: 64px;
+  border-radius: 10px;
   border: 2px solid var(--border-tertiary);
-  margin-bottom: 16px;
+  margin-bottom: 12px;
   float: left;
-  margin-right: 20px;
-  box-shadow: 0 4px 12px var(--shadow-sm);
+  margin-right: 16px;
+  box-shadow: 0 2px 8px var(--shadow-sm);
 }
 
 .hero-skills .skill .skill-name {
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   font-weight: 700;
   color: var(--text-primary);
-  margin-bottom: 8px;
+  margin-bottom: 6px;
   display: block;
 }
 
@@ -1455,20 +1499,20 @@ button {
   background: var(--overlay-light);
   border: 1px solid var(--border-tertiary);
   border-radius: 6px;
-  padding: 4px 12px;
-  font-size: 0.85rem;
+  padding: 3px 10px;
+  font-size: 0.8rem;
   font-weight: 600;
   color: var(--accent-primary);
-  margin-bottom: 12px;
-  margin-left: 8px;
+  margin-bottom: 10px;
+  margin-left: 6px;
 }
 
 .hero-skills .skill .skill-desc {
-  font-size: 1rem;
-  line-height: 1.7;
+  font-size: 0.9rem;
+  line-height: 1.6;
   color: var(--text-secondary);
   clear: both;
-  padding-top: 12px;
+  padding-top: 8px;
 }
 
 #hero-skills {
