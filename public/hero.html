@@ -113,16 +113,15 @@
       <h1 id="hero-guide-heading">세븐나이츠 리버스 영웅 상세 정보</h1>
       <p class="subtitle">영웅의 스탯, 스킬, 희귀도 및 소속을 자세히 확인하세요.</p>
     </div>
-    <section class="hero-top">
-      <!-- 이전 영웅 네비게이션 -->
-      <button class="hero-nav-side prev-hero-side" id="prev-hero-side" aria-label="이전 영웅" title="이전 영웅">
-        <i class="ph-bold ph-caret-left nav-arrow"></i>
-        <div class="nav-hero-info">
-          <img class="nav-hero-portrait" id="prev-hero-portrait" alt="" />
-          <span class="nav-hero-name" id="prev-hero-name"></span>
-        </div>
-      </button>
 
+    <!-- 영웅 캐러셀 네비게이션 -->
+    <section class="hero-carousel-section">
+      <div class="hero-carousel" id="hero-carousel">
+        <!-- JavaScript로 동적 생성 -->
+      </div>
+    </section>
+
+    <section class="hero-top">
       <div class="hero-center-content">
         <div class="hero-portrait-wrap">
           <img id="hero-portrait" class="hero-portrait" alt="영웅 초상화" />
@@ -138,15 +137,6 @@
           </div>
         </div>
       </div>
-
-      <!-- 다음 영웅 네비게이션 -->
-      <button class="hero-nav-side next-hero-side" id="next-hero-side" aria-label="다음 영웅" title="다음 영웅">
-        <div class="nav-hero-info">
-          <img class="nav-hero-portrait" id="next-hero-portrait" alt="" />
-          <span class="nav-hero-name" id="next-hero-name"></span>
-        </div>
-        <i class="ph-bold ph-caret-right nav-arrow"></i>
-      </button>
     </section>
 
     <section class="hero-stats">
@@ -610,11 +600,11 @@ commentForm.addEventListener("submit", async (e) => {
   </script>
 
   <script>
-    // 영웅 네비게이션 (이전/다음 영웅)
+    // 영웅 캐러셀 네비게이션
     let allHeroes = [];
     let currentHeroIndex = -1;
 
-    // 전체 영웅 목록 가져오기
+    // 전체 영웅 목록 가져오기 및 캐러셀 렌더링
     fetch('/api/heroes')
       .then(res => res.json())
       .then(heroes => {
@@ -623,45 +613,59 @@ commentForm.addEventListener("submit", async (e) => {
         currentHeroIndex = allHeroes.findIndex(h => h.name === heroName);
         console.log('🎯 현재 영웅:', heroName, '/ 인덱스:', currentHeroIndex);
 
-        const prevButton = document.getElementById('prev-hero-side');
-        const nextButton = document.getElementById('next-hero-side');
-        const prevNameEl = document.getElementById('prev-hero-name');
-        const nextNameEl = document.getElementById('next-hero-name');
-        const prevPortraitEl = document.getElementById('prev-hero-portrait');
-        const nextPortraitEl = document.getElementById('next-hero-portrait');
+        // 캐러셀 렌더링
+        const carousel = document.getElementById('hero-carousel');
+        if (!carousel) return;
 
-        console.log('🔍 버튼 요소:', { prevButton, nextButton, prevNameEl, nextNameEl });
+        allHeroes.forEach((hero, index) => {
+          const item = document.createElement('div');
+          item.className = 'carousel-item';
+          if (index === currentHeroIndex) {
+            item.classList.add('active');
+          }
 
-        if (currentHeroIndex > 0) {
-          const prevHero = allHeroes[currentHeroIndex - 1];
-          console.log('⬅️ 이전 영웅:', prevHero.name);
-          prevButton.disabled = false;
-          prevButton.style.display = 'flex';
-          prevNameEl.textContent = prevHero.name;
-          prevPortraitEl.src = prevHero.portrait;
-          prevPortraitEl.alt = prevHero.name;
-          prevButton.onclick = () => {
-            window.location.href = `/hero.html?name=${encodeURIComponent(prevHero.name)}`;
+          // 등급별 클래스
+          const rarityClass = (() => {
+            switch (hero.rarity) {
+              case "전설+": return "legendary-plus";
+              case "전설": return "legendary";
+              case "희귀": return "rare";
+              case "고급": return "uncommon";
+              default: return "normal";
+            }
+          })();
+
+          const portrait = document.createElement('img');
+          portrait.src = hero.portrait || '';
+          portrait.alt = hero.name;
+          portrait.className = `carousel-portrait rarity-${rarityClass}`;
+          portrait.onerror = function() {
+            this.style.display = 'none';
           };
-        } else {
-          console.log('⬅️ 이전 영웅 없음 (첫 번째 영웅)');
-          prevButton.style.display = 'none';
-        }
 
-        if (currentHeroIndex < allHeroes.length - 1 && currentHeroIndex !== -1) {
-          const nextHero = allHeroes[currentHeroIndex + 1];
-          console.log('➡️ 다음 영웅:', nextHero.name);
-          nextButton.disabled = false;
-          nextButton.style.display = 'flex';
-          nextNameEl.textContent = nextHero.name;
-          nextPortraitEl.src = nextHero.portrait;
-          nextPortraitEl.alt = nextHero.name;
-          nextButton.onclick = () => {
-            window.location.href = `/hero.html?name=${encodeURIComponent(nextHero.name)}`;
-          };
-        } else {
-          console.log('➡️ 다음 영웅 없음 (마지막 영웅)');
-          nextButton.style.display = 'none';
+          // hasEffect 효과 추가
+          if (hero.hasEffect === true || hero.hasEffect === "true" || hero.hasEffect === 1) {
+            portrait.classList.add('has-effect');
+          }
+
+          item.appendChild(portrait);
+
+          // 클릭 이벤트
+          item.addEventListener('click', () => {
+            window.location.href = `/hero.html?name=${encodeURIComponent(hero.name)}`;
+          });
+
+          carousel.appendChild(item);
+        });
+
+        // 현재 영웅으로 스크롤
+        if (currentHeroIndex !== -1) {
+          const activeItem = carousel.querySelector('.carousel-item.active');
+          if (activeItem) {
+            setTimeout(() => {
+              activeItem.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+            }, 100);
+          }
         }
       })
       .catch(err => console.error('❌ 영웅 목록 로드 실패:', err));
