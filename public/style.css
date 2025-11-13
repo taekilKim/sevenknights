@@ -2078,11 +2078,8 @@ svg defs {
 
 /* 진형 선택기 */
 .formation-selector {
-  background: var(--bg-elevated);
-  border: 1px solid var(--border-tertiary);
   border-radius: 16px;
   padding: 12px;
-  box-shadow: 0 4px 24px var(--shadow-sm);
 }
 
 .formation-selector h3 {
@@ -2126,8 +2123,7 @@ svg defs {
 
 .formation-option.active {
   border-color: var(--accent-primary);
-  background: var(--overlay-medium);
-  box-shadow: 0 4px 16px rgba(100, 181, 246, 0.3);
+  background: rgb(0 122 255 / 10%);
 }
 
 .formation-name {
@@ -2780,7 +2776,7 @@ svg defs {
 
   /* 진형 선택기 */
   .formation-selector {
-    padding: 16px;
+    padding: 0;
   }
 
   .formation-selector h3 {
@@ -2789,8 +2785,7 @@ svg defs {
   }
 
   .formation-options {
-    grid-template-columns: 1fr 1fr;
-    gap: 8px;
+    gap: 4px;
   }
 
   .formation-option {
