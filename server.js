@@ -117,7 +117,7 @@ app.get("/api/heroes", async (req, res) => {
       filteredHeroes = filteredHeroes.filter(h => h.type && h.type === type);
     }
 
-    res.json({ records: filteredHeroes });
+    res.json(filteredHeroes);
   } catch (error) {
     console.error("Airtable fetch error:", error);
     res.status(500).json({ error: "Failed to fetch heroes" });
