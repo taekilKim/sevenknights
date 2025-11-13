@@ -1003,7 +1003,7 @@ button {
   justify-content: center;
   align-items: flex-start;
   gap: 3rem;
-  background: var(--bg-secondary);
+  background: #fbfbfb;
   min-height: 100vh;
   padding: 0 24px;
   box-sizing: border-box;
@@ -1226,49 +1226,64 @@ button {
 }
 
 #hero-name {
-  font-size: 1.5rem;
+  font-size: 20px;
   font-weight: 700;
   color: var(--text-primary);
-  margin-bottom: 4px;
-  line-height: 1.3;
+  margin-bottom: 0;
+  line-height: 1;
   letter-spacing: -0.02em;
 }
 
 .hero-nickname {
   font-size: 1rem;
   color: var(--text-tertiary);
-  margin-bottom: 4px;
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 0;
   font-weight: 400;
-  line-height: 1.4;
+  line-height: 1.5;
 }
 
 .hero-group {
-  font-size: 1rem;
+  font-size: 0.95rem;
   color: var(--text-tertiary);
-  margin-bottom: 8px;
   font-weight: 500;
-  line-height: 1.4;
+  line-height: 1;
+  height: 32px;
+  display: inline-flex;
+  align-items: center;
+  padding: 4px;
+  border-radius: 8px;
 }
 
 .hero-meta {
   display: flex;
   gap: 12px;
   align-items: center;
+  justify-content: center;
 }
 
 #hero-type {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: 0;
   font-size: 0.95rem;
   font-weight: 600;
   color: var(--text-secondary);
+  padding: 4px;
+  border-radius: 8px;
+  height: 32px;
 }
 
 #hero-rarity {
   font-size: 0.95rem;
   font-weight: 600;
   color: var(--text-secondary);
+  padding: 8px;
+  border-radius: 8px;
+  line-height: 1.1em;
+  height: 32px;
+  vertical-align: middle;
 }
 
 /* Type-specific colors */
@@ -1373,26 +1388,23 @@ button {
 /* Hero Stats Section */
 .hero-stats {
   background: var(--bg-elevated);
-  backdrop-filter: blur(var(--blur-md)) saturate(180%);
-  -webkit-backdrop-filter: blur(var(--blur-md)) saturate(180%);
   border: 1px solid var(--border-secondary);
-  border-radius: 20px;
-  padding: 24px;
+  border-radius: 12px;
+  padding: 16px;
   margin-bottom: 24px;
-  box-shadow: 0 4px 24px var(--shadow-sm);
 }
 
 .hero-stats h2 {
-  font-size: 1.4rem;
+  font-size: 1rem;
   font-weight: 700;
   color: var(--accent-primary);
   margin: 0 0 8px 0;
-  padding-bottom: 12px;
+  padding-bottom: 4px;
   border-bottom: 1px solid var(--border-secondary);
 }
 
 .stats-info {
-  font-size: 0.8rem;
+  font-size: 12px;
   color: var(--text-tertiary);
   margin: 0 0 16px 0;
 }
@@ -1415,14 +1427,14 @@ button {
 }
 
 .stats-table td:first-child {
-  font-size: 0.9rem;
+  font-size: 14px;
   font-weight: 500;
   color: var(--text-secondary);
   width: 40%;
 }
 
 .stats-table td:last-child {
-  font-size: 1rem;
+  font-size: 14px;
   font-weight: 600;
   color: var(--text-primary);
   text-align: right;
