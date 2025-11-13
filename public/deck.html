@@ -204,6 +204,15 @@
                   <div class="line-label">앞줄 (FRONT)</div>
                   <div id="front-slots" class="formation-slots"></div>
                 </div>
+
+                <!-- 펫 슬롯 -->
+                <div class="pet-slot-container">
+                  <div class="line-label">펫 (PET)</div>
+                  <div id="pet-slot" class="deck-slot pet-slot">
+                    <div class="slot-indicator">P</div>
+                    <div class="slot-placeholder">+</div>
+                  </div>
+                </div>
               </div>
 
               <!-- 덱 액션 버튼 -->
@@ -250,6 +259,14 @@
 
             <!-- 영웅 목록 -->
             <div id="heroes-list"></div>
+
+            <!-- 덱 패시브 효과 -->
+            <div class="deck-passives-section">
+              <h3 class="passives-title">덱 패시브 효과</h3>
+              <div id="deck-passives-list" class="passives-list">
+                <div class="passives-empty">영웅을 선택하면 패시브 효과가 표시됩니다</div>
+              </div>
+            </div>
           </div>
         </div>
       </main>
@@ -340,10 +357,11 @@
       let allHeroes = [];
       let selectedHeroes = {
         front: [null, null], // 기본 진형: 앞줄 2
-        back: [null, null, null] // 기본 진형: 뒷줄 3
+        back: [null, null, null], // 기본 진형: 뒷줄 3
+        pet: null // 펫 슬롯
       };
       const MAX_DECK_SIZE = 5;
-      let currentSelectingSlot = null; // { line: 'front'|'back', index: number }
+      let currentSelectingSlot = null; // { line: 'front'|'back'|'pet', index: number }
 
       // 진형 설정
       const formations = {
@@ -787,9 +805,9 @@
           // 현재 진형에 따라 적절한 라인에 추가
           const formation = formations[currentFormation];
           if (selectedHeroes.front.length < formation.front) {
-            selectedHeroes.front.push(hero);
+            selectedHeroes.front.push({ ...hero, transcendence: 0 });
           } else if (selectedHeroes.back.length < formation.back) {
-            selectedHeroes.back.push(hero);
+            selectedHeroes.back.push({ ...hero, transcendence: 0 });
           } else {
             // 둘 다 가득 찬 경우 (이론상 도달 불가능)
             alert(`덱이 가득 찼습니다.`);
@@ -800,6 +818,42 @@
 
         updateDeckDisplay();
         updateSelectedCount();
+      }
+
+      // 초월 별 렌더링 함수
+      function renderTranscendenceStars(transcendence = 0) {
+        let starsHTML = '<div class="transcendence-stars">';
+        for (let i = 0; i < 6; i++) {
+          const highlighted = i < transcendence;
+          starsHTML += `<span class="star ${highlighted ? 'highlighted' : ''}">★</span>`;
+        }
+        starsHTML += '</div>';
+        return starsHTML;
+      }
+
+      // 초월 상태 순환 (0 → 2 → 6 → 0)
+      function cycleTranscendence(line, index) {
+        let hero;
+        if (line === 'front') {
+          hero = selectedHeroes.front[index];
+        } else if (line === 'back') {
+          hero = selectedHeroes.back[index];
+        } else if (line === 'pet') {
+          hero = selectedHeroes.pet;
+        }
+
+        if (!hero) return;
+
+        // 초월 상태 순환
+        if (!hero.transcendence || hero.transcendence === 0) {
+          hero.transcendence = 2;
+        } else if (hero.transcendence === 2) {
+          hero.transcendence = 6;
+        } else {
+          hero.transcendence = 0;
+        }
+
+        updateDeckDisplay();
       }
 
       // 덱 디스플레이 업데이트
@@ -815,6 +869,7 @@
               <div class="slot-hero">
                 <img src="${hero.portrait}" alt="${hero.name}" class="slot-hero-portrait rarity-${getRarityClass(hero.rarity)}" />
                 <div class="slot-hero-name">${hero.name}</div>
+                ${renderTranscendenceStars(hero.transcendence || 0)}
               </div>
             `;
           } else {
@@ -827,15 +882,29 @@
           // 슬롯 클릭 이벤트 재부착
           slot.replaceWith(slot.cloneNode(true));
           const newSlot = document.querySelectorAll('.front-slot')[index];
-          newSlot.addEventListener('click', () => {
-            if (hero) {
-              // 영웅이 있으면 제거
-              removeHeroFromDeck('front', index);
-            } else {
-              // 빈 슬롯이면 선택 모달 열기
-              openHeroSelectModal('front', index);
+
+          // 슬롯 전체 클릭 (영웅 제거/추가)
+          newSlot.addEventListener('click', (e) => {
+            // 별 클릭이 아닌 경우에만
+            if (!e.target.closest('.transcendence-stars')) {
+              if (hero) {
+                removeHeroFromDeck('front', index);
+              } else {
+                openHeroSelectModal('front', index);
+              }
             }
           });
+
+          // 별 클릭 이벤트
+          if (hero) {
+            const stars = newSlot.querySelector('.transcendence-stars');
+            if (stars) {
+              stars.addEventListener('click', (e) => {
+                e.stopPropagation();
+                cycleTranscendence('front', index);
+              });
+            }
+          }
         });
 
         // 뒷줄 슬롯 업데이트
@@ -849,6 +918,7 @@
               <div class="slot-hero">
                 <img src="${hero.portrait}" alt="${hero.name}" class="slot-hero-portrait rarity-${getRarityClass(hero.rarity)}" />
                 <div class="slot-hero-name">${hero.name}</div>
+                ${renderTranscendenceStars(hero.transcendence || 0)}
               </div>
             `;
           } else {
@@ -861,16 +931,65 @@
           // 슬롯 클릭 이벤트 재부착
           slot.replaceWith(slot.cloneNode(true));
           const newSlot = document.querySelectorAll('.back-slot')[index];
-          newSlot.addEventListener('click', () => {
-            if (hero) {
-              // 영웅이 있으면 제거
-              removeHeroFromDeck('back', index);
-            } else {
-              // 빈 슬롯이면 선택 모달 열기
-              openHeroSelectModal('back', index);
+
+          // 슬롯 전체 클릭 (영웅 제거/추가)
+          newSlot.addEventListener('click', (e) => {
+            // 별 클릭이 아닌 경우에만
+            if (!e.target.closest('.transcendence-stars')) {
+              if (hero) {
+                removeHeroFromDeck('back', index);
+              } else {
+                openHeroSelectModal('back', index);
+              }
             }
           });
+
+          // 별 클릭 이벤트
+          if (hero) {
+            const stars = newSlot.querySelector('.transcendence-stars');
+            if (stars) {
+              stars.addEventListener('click', (e) => {
+                e.stopPropagation();
+                cycleTranscendence('back', index);
+              });
+            }
+          }
         });
+
+        // 펫 슬롯 업데이트
+        const petSlot = document.getElementById('pet-slot');
+        const pet = selectedHeroes.pet;
+
+        if (pet) {
+          petSlot.innerHTML = `
+            <div class="slot-indicator">P</div>
+            <div class="slot-hero">
+              <img src="${pet.portrait}" alt="${pet.name}" class="slot-hero-portrait" />
+              <div class="slot-hero-name">${pet.name}</div>
+            </div>
+          `;
+        } else {
+          petSlot.innerHTML = `
+            <div class="slot-indicator">P</div>
+            <div class="slot-placeholder">+</div>
+          `;
+        }
+
+        // 펫 슬롯 클릭 이벤트
+        const newPetSlot = petSlot.cloneNode(true);
+        petSlot.replaceWith(newPetSlot);
+        document.getElementById('pet-slot').addEventListener('click', () => {
+          if (pet) {
+            selectedHeroes.pet = null;
+            updateDeckDisplay();
+          } else {
+            // TODO: 펫 선택 모달 열기 (펫 데이터 준비 후)
+            alert('펫 에어테이블 준비 후 추가 예정');
+          }
+        });
+
+        // 패시브 효과 업데이트
+        updateDeckPassives();
       }
 
       // 덱에서 영웅 제거
@@ -881,6 +1000,55 @@
           selectedHeroes.back[index] = null;
         }
         updateDeckDisplay();
+        updateDeckPassives();
+      }
+
+      // 덱 패시브 효과 업데이트
+      function updateDeckPassives() {
+        const passivesList = document.getElementById('deck-passives-list');
+        const allSelected = [...selectedHeroes.front, ...selectedHeroes.back].filter(h => h);
+
+        if (allSelected.length === 0) {
+          passivesList.innerHTML = '<div class="passives-empty">영웅을 선택하면 패시브 효과가 표시됩니다</div>';
+          return;
+        }
+
+        let passivesHTML = '';
+
+        allSelected.forEach(hero => {
+          if (!hero.skills || hero.skills.length === 0) return;
+
+          // 패시브 스킬 찾기 (스킬 이름에 "패시브"가 포함된 스킬)
+          const passiveSkills = hero.skills.filter(skill =>
+            skill.name && (skill.name.includes('패시브') || skill.type === '패시브')
+          );
+
+          passiveSkills.forEach(skill => {
+            const transcendenceLabel = hero.transcendence
+              ? `★${hero.transcendence}초월`
+              : '★0초월';
+
+            passivesHTML += `
+              <div class="passive-item">
+                <div class="passive-hero-info">
+                  <img src="${hero.portrait}" alt="${hero.name}" class="passive-hero-portrait" />
+                  <div class="passive-hero-details">
+                    <div class="passive-hero-name">${hero.name}</div>
+                    <div class="passive-transcendence">${transcendenceLabel}</div>
+                  </div>
+                </div>
+                <div class="passive-skill-name">${skill.name}</div>
+                <div class="passive-skill-desc">${skill.description || '설명 없음'}</div>
+              </div>
+            `;
+          });
+        });
+
+        if (passivesHTML === '') {
+          passivesList.innerHTML = '<div class="passives-empty">패시브 스킬 정보가 없습니다</div>';
+        } else {
+          passivesList.innerHTML = passivesHTML;
+        }
       }
 
       // 등급 클래스 반환
