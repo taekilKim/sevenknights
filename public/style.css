@@ -44,9 +44,9 @@
   --blur-lg: 40px;
 
   /* Layout */
-  --header-height: 64px;
+  --header-height: 60px;
   --sidebar-width: 240px;
-  --mobile-nav-height: 64px;
+  --mobile-nav-height: 60px;
 }
 
 [data-theme="light"] {
@@ -152,6 +152,7 @@ button {
   position: sticky;
   top: 0;
   z-index: 100;
+  height: 60px;
   display: flex;
   align-items: center;
   justify-content: space-between;
