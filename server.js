@@ -183,6 +183,7 @@ app.get("/api/hero/:id", async (req, res) => {
         name: f.Name || "",
         desc: f.desc || "",
         image: Array.isArray(f.image) && f.image[0] ? f.image[0].url : null,
+        cooltime: f.cooltime || f.Cooltime || f.coolTime || f.cool_time || null,
       };
 
       if ((f.attack_hero || []).includes(id)) attackSkill = skillData;
