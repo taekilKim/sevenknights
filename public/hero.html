@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title id="dynamic-title">영웅 상세 - 세븐나이츠 리버스 가이드북</title>
+  <title id="dynamic-title">영웅 상세 - 세나DB</title>
   <!-- SEO Meta Tags for Hero Detail Page -->
-  <meta id="meta-description" name="description" content="세븐나이츠 리버스 영웅 상세 페이지" />
-  <meta id="meta-keywords" name="keywords" content="세븐나이츠 리버스, 영웅, 상세, 도감, Seven Knights, Hero, Detail" />
-  <meta name="author" content="세븐나이츠 리버스 가이드북" />
+  <meta id="meta-description" name="description" content="세나DB - 세븐나이츠 리버스 영웅 상세 페이지" />
+  <meta id="meta-keywords" name="keywords" content="세나DB, 세나db, 세나 리버스, 세븐나이츠 리버스, 영웅, 상세, 도감, Seven Knights, Hero, Detail" />
+  <meta name="author" content="세나DB" />
   <!-- Open Graph Meta Tags -->
-  <meta property="og:site_name" content="세븐나이츠 리버스 가이드북" />
-  <meta id="og-title" property="og:title" content="영웅 상세 - 세븐나이츠 리버스 가이드북" />
-  <meta id="og-description" property="og:description" content="세븐나이츠 리버스 영웅의 상세 정보를 확인하세요." />
+  <meta property="og:site_name" content="세나DB" />
+  <meta id="og-title" property="og:title" content="영웅 상세 - 세나DB" />
+  <meta id="og-description" property="og:description" content="세나DB - 세븐나이츠 리버스 영웅의 상세 정보를 확인하세요." />
   <meta id="og-image" property="og:image" content="/default-hero-og-image.png" />
-  <meta id="og-url" property="og:url" content="https://sena-rebirth-guidebook.app/hero.html" />
+  <meta id="og-url" property="og:url" content="https://senadb.games/hero.html" />
   <meta property="og:type" content="article" />
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta id="twitter-title" name="twitter:title" content="영웅 상세 - 세븐나이츠 리버스 가이드북" />
-  <meta id="twitter-description" name="twitter:description" content="세븐나이츠 리버스 영웅의 상세 정보를 확인하세요." />
+  <meta id="twitter-title" name="twitter:title" content="영웅 상세 - 세나DB" />
+  <meta id="twitter-description" name="twitter:description" content="세나DB - 세븐나이츠 리버스 영웅의 상세 정보를 확인하세요." />
   <meta id="twitter-image" name="twitter:image" content="/default-hero-og-image.png" />
   <!-- Canonical Link -->
-  <link id="canonical-link" rel="canonical" href="https://sena-rebirth-guidebook.app/hero.html" />
+  <link id="canonical-link" rel="canonical" href="https://senadb.games/hero.html" />
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
   <meta name="googlebot" content="index, follow">
   <meta name="naverbot" content="index, follow">
@@ -36,8 +36,8 @@
   "@context": "https://schema.org",
   "@type": "VideoGameCharacter",
   "name": "세븐나이츠 리버스 영웅",
-  "url": "https://sena-rebirth-guidebook.app/hero.html",
-  "description": "세븐나이츠 리버스 영웅의 스탯, 스킬, 소속 및 희귀도 상세 정보 페이지입니다.",
+  "url": "https://senadb.games/hero.html",
+  "description": "세나DB - 세븐나이츠 리버스 영웅의 스탯, 스킬, 소속 및 희귀도 상세 정보 페이지입니다.",
   "inLanguage": "ko",
   "isPartOf": {
     "@type": "VideoGame",
@@ -54,7 +54,7 @@
     //   Console: localStorage.setItem('devMode', 'true')
     // To disable developer mode:
     //   Console: localStorage.removeItem('devMode')
-    var isProduction = window.location.hostname === 'sena-rebirth-guidebook.app';
+    var isProduction = window.location.hostname === 'senadb.games';
     var isDeveloperMode = localStorage.getItem('devMode') === 'true';
 
     if (isProduction && !isDeveloperMode) {
@@ -250,7 +250,7 @@
           }
 
           // Update SEO meta tags dynamically
-          const heroTitle = `${hero.name} (${hero.rarity} / ${hero.type}) - 세븐나이츠 리버스 가이드북`;
+          const heroTitle = `${hero.name} (${hero.rarity} / ${hero.type}) - 세나DB`;
           document.title = heroTitle;
           const titleEl = document.getElementById("dynamic-title");
           if (titleEl) titleEl.textContent = heroTitle;
@@ -332,7 +332,7 @@
               "headline": `세븐나이츠 리버스 ${hero.name} 완벽 공략: 스킬, 성능, 장비 총정리`,
               "articleSection": "영웅 가이드, 상세 정보, 스킬/성능/장비 분석",
               "about": hero.name,
-              "author": { "@type": "Organization", "name": "세븐나이츠 리버스 가이드북" },
+              "author": { "@type": "Organization", "name": "세나DB" },
               "inLanguage": "ko",
               "image": hero.portrait || "/default-hero-og-image.png",
               "datePublished": hero.datePublished || undefined,
