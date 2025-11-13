@@ -3238,3 +3238,516 @@ svg defs {
     flex: 1 0 100%;
   }
 }
+
+/* =================================
+   Tier List Page Styles
+   ================================= */
+
+.tier-list-page {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.update-info {
+  background: var(--card-bg);
+  border: 1px solid var(--border-primary);
+  border-radius: 12px;
+  padding: 16px 24px;
+  margin-bottom: 32px;
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.update-info p {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
+
+.update-info i {
+  color: var(--accent-primary);
+}
+
+/* Tier Guide Section */
+.tier-guide {
+  background: var(--card-bg);
+  border: 1px solid var(--border-primary);
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 32px;
+}
+
+.tier-guide h2 {
+  margin-top: 0;
+  margin-bottom: 20px;
+  color: var(--text-primary);
+}
+
+.tier-explanation {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.tier-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.tier-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.tier-badge.tier-s {
+  background: linear-gradient(135deg, #ff6b6b 0%, #ff8787 100%);
+  color: white;
+  box-shadow: 0 4px 12px rgba(255, 107, 107, 0.3);
+}
+
+.tier-badge.tier-a {
+  background: linear-gradient(135deg, #ffd93d 0%, #ffe66d 100%);
+  color: #1a1a1a;
+  box-shadow: 0 4px 12px rgba(255, 217, 61, 0.3);
+}
+
+.tier-badge.tier-b {
+  background: linear-gradient(135deg, #64b5f6 0%, #90caf9 100%);
+  color: white;
+  box-shadow: 0 4px 12px rgba(100, 181, 246, 0.3);
+}
+
+.tier-badge.tier-c {
+  background: linear-gradient(135deg, #81c784 0%, #a5d6a7 100%);
+  color: white;
+  box-shadow: 0 4px 12px rgba(129, 199, 132, 0.3);
+}
+
+.tier-badge.tier-d {
+  background: linear-gradient(135deg, #bdbdbd 0%, #e0e0e0 100%);
+  color: #1a1a1a;
+  box-shadow: 0 4px 12px rgba(189, 189, 189, 0.3);
+}
+
+.tier-item p {
+  margin: 0;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* Tier Tabs */
+.tier-tabs {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 32px;
+  border-bottom: 2px solid var(--border-primary);
+  overflow-x: auto;
+}
+
+.tier-tab {
+  background: transparent;
+  border: none;
+  padding: 12px 24px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-bottom: 3px solid transparent;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+}
+
+.tier-tab:hover {
+  color: var(--text-primary);
+  background: var(--overlay-light);
+}
+
+.tier-tab.active {
+  color: var(--accent-primary);
+  border-bottom-color: var(--accent-primary);
+}
+
+.tier-tab i {
+  font-size: 1.2rem;
+}
+
+/* Tier Content */
+.tier-content {
+  display: none;
+}
+
+.tier-content.active {
+  display: block;
+}
+
+.tier-description {
+  color: var(--text-secondary);
+  margin-bottom: 32px;
+  line-height: 1.6;
+}
+
+.tier-hero-list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.tier-section {
+  background: var(--card-bg);
+  border: 1px solid var(--border-primary);
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.tier-header {
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+  border-bottom: 2px solid var(--border-primary);
+}
+
+.tier-hero-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 16px;
+}
+
+.tier-hero-card {
+  background: var(--card-secondary);
+  border: 1px solid var(--border-secondary);
+  border-radius: 8px;
+  padding: 12px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.tier-hero-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  border-color: var(--accent-primary);
+}
+
+.tier-hero-portrait {
+  margin-bottom: 8px;
+}
+
+.tier-hero-portrait img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.tier-hero-name {
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+
+.tier-hero-type {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+/* Tier FAQ */
+.tier-faq {
+  background: var(--card-bg);
+  border: 1px solid var(--border-primary);
+  border-radius: 12px;
+  padding: 24px;
+  margin-top: 48px;
+}
+
+.tier-faq h2 {
+  margin-top: 0;
+  margin-bottom: 24px;
+  color: var(--text-primary);
+}
+
+.faq-item {
+  margin-bottom: 24px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--border-secondary);
+}
+
+.faq-item:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.faq-item h3 {
+  color: var(--accent-primary);
+  font-size: 1.1rem;
+  margin-top: 0;
+  margin-bottom: 12px;
+}
+
+.faq-item p {
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Responsive Design for Tier List */
+@media (max-width: 768px) {
+  .tier-list-page {
+    padding: 16px;
+  }
+
+  .tier-tabs {
+    gap: 8px;
+  }
+
+  .tier-tab {
+    padding: 10px 16px;
+    font-size: 0.9rem;
+  }
+
+  .tier-hero-grid {
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 12px;
+  }
+
+  .tier-badge {
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+  }
+
+  .update-info {
+    flex-direction: column;
+    gap: 12px;
+  }
+}
+
+/* =================================
+   FAQ Page Styles
+   ================================= */
+
+.faq-page {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+/* FAQ Search */
+.faq-search {
+  position: relative;
+  margin-bottom: 32px;
+}
+
+.faq-search input {
+  width: 100%;
+  padding: 16px 50px 16px 20px;
+  font-size: 1rem;
+  background: var(--card-bg);
+  border: 2px solid var(--border-primary);
+  border-radius: 12px;
+  color: var(--text-primary);
+  transition: all 0.3s ease;
+}
+
+.faq-search input:focus {
+  outline: none;
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 0 3px rgba(100, 181, 246, 0.1);
+}
+
+.faq-search i {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.5rem;
+  color: var(--text-secondary);
+  pointer-events: none;
+}
+
+/* FAQ Categories */
+.faq-categories {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 32px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+}
+
+.faq-category {
+  padding: 10px 20px;
+  background: var(--card-secondary);
+  border: 2px solid var(--border-secondary);
+  border-radius: 24px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.faq-category:hover {
+  border-color: var(--accent-primary);
+  color: var(--accent-primary);
+}
+
+.faq-category.active {
+  background: var(--accent-primary);
+  border-color: var(--accent-primary);
+  color: white;
+}
+
+/* FAQ List */
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.faq-item {
+  background: var(--card-bg);
+  border: 1px solid var(--border-primary);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.faq-item:hover {
+  border-color: var(--accent-primary);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.faq-question {
+  padding: 20px 24px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+
+.faq-question h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  color: var(--text-primary);
+  transition: color 0.3s ease;
+}
+
+.faq-question i {
+  font-size: 1.5rem;
+  color: var(--text-secondary);
+  transition: transform 0.3s ease, color 0.3s ease;
+  flex-shrink: 0;
+}
+
+.faq-item.active .faq-question h3 {
+  color: var(--accent-primary);
+}
+
+.faq-item.active .faq-question i {
+  transform: rotate(180deg);
+  color: var(--accent-primary);
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.faq-item.active .faq-answer {
+  max-height: 500px;
+}
+
+.faq-answer p {
+  padding: 0 24px 20px 24px;
+  margin: 0;
+  color: var(--text-secondary);
+  line-height: 1.8;
+}
+
+.faq-answer a {
+  color: var(--accent-primary);
+  text-decoration: underline;
+}
+
+.faq-answer a:hover {
+  color: var(--accent-secondary);
+}
+
+/* FAQ Help Section */
+.faq-help {
+  background: var(--card-bg);
+  border: 2px solid var(--accent-primary);
+  border-radius: 12px;
+  padding: 32px;
+  margin-top: 48px;
+  text-align: center;
+}
+
+.faq-help h2 {
+  margin-top: 0;
+  margin-bottom: 16px;
+  color: var(--accent-primary);
+}
+
+.faq-help p {
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.faq-help a {
+  color: var(--accent-primary);
+  text-decoration: underline;
+  font-weight: 600;
+}
+
+.faq-help a:hover {
+  color: var(--accent-secondary);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .faq-page {
+    padding: 16px;
+  }
+
+  .faq-question {
+    padding: 16px 20px;
+  }
+
+  .faq-question h3 {
+    font-size: 1rem;
+  }
+
+  .faq-answer p {
+    padding: 0 20px 16px 20px;
+  }
+
+  .faq-categories {
+    gap: 8px;
+  }
+
+  .faq-category {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+  }
+}
