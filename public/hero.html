@@ -618,8 +618,10 @@ commentForm.addEventListener("submit", async (e) => {
     fetch('/api/heroes')
       .then(res => res.json())
       .then(heroes => {
+        console.log('📊 전체 영웅 목록:', heroes.length, '명');
         allHeroes = heroes.sort((a, b) => a.name.localeCompare(b.name, 'ko'));
         currentHeroIndex = allHeroes.findIndex(h => h.name === heroName);
+        console.log('🎯 현재 영웅:', heroName, '/ 인덱스:', currentHeroIndex);
 
         const prevButton = document.getElementById('prev-hero-side');
         const nextButton = document.getElementById('next-hero-side');
@@ -628,8 +630,11 @@ commentForm.addEventListener("submit", async (e) => {
         const prevPortraitEl = document.getElementById('prev-hero-portrait');
         const nextPortraitEl = document.getElementById('next-hero-portrait');
 
+        console.log('🔍 버튼 요소:', { prevButton, nextButton, prevNameEl, nextNameEl });
+
         if (currentHeroIndex > 0) {
           const prevHero = allHeroes[currentHeroIndex - 1];
+          console.log('⬅️ 이전 영웅:', prevHero.name);
           prevButton.disabled = false;
           prevButton.style.display = 'flex';
           prevNameEl.textContent = prevHero.name;
@@ -639,11 +644,13 @@ commentForm.addEventListener("submit", async (e) => {
             window.location.href = `/hero.html?name=${encodeURIComponent(prevHero.name)}`;
           };
         } else {
+          console.log('⬅️ 이전 영웅 없음 (첫 번째 영웅)');
           prevButton.style.display = 'none';
         }
 
-        if (currentHeroIndex < allHeroes.length - 1) {
+        if (currentHeroIndex < allHeroes.length - 1 && currentHeroIndex !== -1) {
           const nextHero = allHeroes[currentHeroIndex + 1];
+          console.log('➡️ 다음 영웅:', nextHero.name);
           nextButton.disabled = false;
           nextButton.style.display = 'flex';
           nextNameEl.textContent = nextHero.name;
@@ -653,10 +660,11 @@ commentForm.addEventListener("submit", async (e) => {
             window.location.href = `/hero.html?name=${encodeURIComponent(nextHero.name)}`;
           };
         } else {
+          console.log('➡️ 다음 영웅 없음 (마지막 영웅)');
           nextButton.style.display = 'none';
         }
       })
-      .catch(err => console.error('영웅 목록 로드 실패:', err));
+      .catch(err => console.error('❌ 영웅 목록 로드 실패:', err));
   </script>
 
   <script>

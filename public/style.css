@@ -750,9 +750,7 @@ button {
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.8);
-  backdrop-filter: blur(var(--blur-md));
-  -webkit-backdrop-filter: blur(var(--blur-md));
+  background: rgba(255, 255, 255, 0.95);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -763,8 +761,6 @@ button {
 .error-message {
   padding: 32px;
   background: var(--bg-elevated);
-  backdrop-filter: blur(var(--blur-md)) saturate(180%);
-  -webkit-backdrop-filter: blur(var(--blur-md)) saturate(180%);
   border: 1px solid var(--border-primary);
   border-radius: 20px;
   color: var(--text-primary);
@@ -2059,28 +2055,27 @@ svg defs {
 
 /* 중앙 레이아웃 */
 .deck-layout {
-  display: flex;
-  justify-content: center;
-  gap: 32px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
   width: 100%;
-  max-width: 1200px;
+  max-width: 1400px;
+  height: 100%;
 }
 
-/* 덱 배치 영역 (중앙) */
+/* 덱 배치 영역 (왼쪽) */
 .deck-left {
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 16px;
+  overflow-y: auto;
 }
 
 /* 진형 선택기 */
 .formation-selector {
-  background: var(--bg-elevated);
-  border: 1px solid var(--border-tertiary);
   border-radius: 16px;
   padding: 12px;
-  box-shadow: 0 4px 24px var(--shadow-sm);
 }
 
 .formation-selector h3 {
@@ -2124,8 +2119,7 @@ svg defs {
 
 .formation-option.active {
   border-color: var(--accent-primary);
-  background: var(--overlay-medium);
-  box-shadow: 0 4px 16px rgba(100, 181, 246, 0.3);
+  background: rgb(0 122 255 / 10%);
 }
 
 .formation-name {
@@ -2170,7 +2164,7 @@ svg defs {
   display: flex;
   gap: 16px;
   margin-bottom: auto;
-  align-items: center;
+  align-items: flex-start;
 }
 
 .formation-line {
@@ -2766,9 +2760,10 @@ svg defs {
   }
 
   .deck-layout {
-    flex-direction: column;
+    grid-template-columns: 1fr;
     gap: 16px;
     max-width: 100%;
+    height: auto;
   }
 
   .deck-left {
@@ -2777,7 +2772,7 @@ svg defs {
 
   /* 진형 선택기 */
   .formation-selector {
-    padding: 16px;
+    padding: 0;
   }
 
   .formation-selector h3 {
@@ -2786,8 +2781,7 @@ svg defs {
   }
 
   .formation-options {
-    grid-template-columns: 1fr 1fr;
-    gap: 8px;
+    gap: 4px;
   }
 
   .formation-option {
