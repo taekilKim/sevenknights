@@ -138,7 +138,25 @@ app.get("/api/hero/:id", async (req, res) => {
     const heroData = await heroRes.json();
     const fields = heroData.fields || {};
 
-  
+    // Fetch Type table for type image
+    const typesRes = await fetch(
+      `https://api.airtable.com/v0/${BASE_ID}/Type`,
+      { headers: { Authorization: `Bearer ${AIRTABLE_TOKEN}` } }
+    );
+    if (!typesRes.ok)
+      throw new Error(`Airtable Type API error: ${typesRes.status}`);
+    const typesData = await typesRes.json();
+
+    // Type image mapping
+    const typeImageMap = {};
+    if (Array.isArray(typesData.records)) {
+      for (const typeRecord of typesData.records) {
+        const name = typeRecord.fields?.Name;
+        const attachments = typeRecord.fields?.Attachments;
+        const url = Array.isArray(attachments) && attachments[0] && attachments[0].url;
+        if (name && url) typeImageMap[name] = url;
+      }
+    }
 
     const skillsRes = await fetch(
       `https://api.airtable.com/v0/${BASE_ID}/Skills`,
@@ -174,13 +192,15 @@ app.get("/api/hero/:id", async (req, res) => {
     }
 
     // ✅ 응답 구성
+    const typeName = pick(fields, ["type", "Type"]);
     res.json({
       id: heroData.id,
       name: pick(fields, ["Name"]),
       nickname: pick(fields, ["nickname"]),
       group: pick(fields, ["group"]),
       rarity: pick(fields, ["rarity", "Rarity"]),
-      type: pick(fields, ["type", "Type"]),
+      type: typeName,
+      typeImage: typeImageMap[typeName] || null,
       portrait: pickAttachmentUrl(fields, ["portrait", "Portrait", "초상", "이미지"]),
       atk: pick(fields, ["atk", "공격력"]),
       def: pick(fields, ["def", "방어력"]),
