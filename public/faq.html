@@ -70,6 +70,32 @@
     </script>
     <link rel="stylesheet" href="/style.css" />
     <script src="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2"></script>
+    <!-- Google tag (gtag.js) - Only on production -->
+    <script>
+      // Only load analytics on production domain and not in developer mode
+      // To enable developer mode (exclude your traffic):
+      //   Console: localStorage.setItem('devMode', 'true')
+      // To disable developer mode:
+      //   Console: localStorage.removeItem('devMode')
+      var isProduction = window.location.hostname === 'senadb.games';
+      var isDeveloperMode = localStorage.getItem('devMode') === 'true';
+
+      if (isProduction && !isDeveloperMode) {
+        // Load gtag.js
+        var gtagScript = document.createElement('script');
+        gtagScript.async = true;
+        gtagScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-DMD8LXSEQ5';
+        document.head.appendChild(gtagScript);
+
+        // Initialize GA
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-DMD8LXSEQ5');
+      } else if (isDeveloperMode) {
+        console.log('Developer mode enabled - Analytics disabled');
+      }
+    </script>
   </head>
   <body>
     <div class="app-container">
