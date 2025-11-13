@@ -2266,7 +2266,7 @@ svg defs {
   display: flex;
   gap: 16px;
   margin-bottom: auto;
-  align-items: flex-start;
+  align-items: center;
 }
 
 .formation-line {
@@ -2813,6 +2813,41 @@ svg defs {
   margin: 0 0 16px 0;
 }
 
+/* 공유 옵션 버튼들 */
+.share-options {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.share-option-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 16px 12px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-secondary);
+  border-radius: 12px;
+  color: var(--text-secondary);
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.share-option-btn:hover {
+  background: var(--bg-tertiary);
+  border-color: var(--accent-primary);
+  color: var(--accent-primary);
+  transform: translateY(-2px);
+}
+
+.share-option-btn i {
+  font-size: 24px;
+}
+
 .share-url-container {
   display: flex;
   gap: 8px;
@@ -2906,7 +2941,7 @@ svg defs {
   .deck-formation {
     flex-direction: row;
     gap: 8px;
-    align-items: flex-start;
+    align-items: center;
   }
 
   .formation-line {
@@ -3028,6 +3063,21 @@ svg defs {
 
   .modal-body p {
     font-size: 0.9rem;
+  }
+
+  .share-options {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .share-option-btn {
+    flex-direction: row;
+    justify-content: center;
+    padding: 14px 16px;
+  }
+
+  .share-option-btn i {
+    font-size: 20px;
   }
 
   .share-url-container {

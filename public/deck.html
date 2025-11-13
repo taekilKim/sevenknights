@@ -73,6 +73,7 @@
     </script>
     <link rel="stylesheet" href="/style.css" />
     <script src="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
     <!-- Google tag (gtag.js) - Only on production -->
     <script>
       // Only load analytics on production domain and not in developer mode
@@ -262,13 +263,33 @@
           <button class="modal-close" id="close-modal">×</button>
         </div>
         <div class="modal-body">
-          <p>이 URL을 복사하여 다른 사람과 공유하세요:</p>
-          <div class="share-url-container">
-            <input type="text" id="share-url" readonly />
-            <button id="copy-url" class="btn-primary">
-              <i class="ph ph-copy"></i> 복사
+          <!-- 공유 옵션 버튼들 -->
+          <div class="share-options">
+            <button id="save-image" class="share-option-btn">
+              <i class="ph ph-download"></i>
+              <span>이미지로 저장</span>
+            </button>
+            <button id="copy-image" class="share-option-btn">
+              <i class="ph ph-clipboard"></i>
+              <span>이미지 복사</span>
+            </button>
+            <button id="show-url" class="share-option-btn">
+              <i class="ph ph-link"></i>
+              <span>URL 공유</span>
             </button>
           </div>
+
+          <!-- URL 공유 섹션 (기본 숨김) -->
+          <div id="url-share-section" style="display: none;">
+            <p style="margin-top: 16px;">이 URL을 복사하여 다른 사람과 공유하세요:</p>
+            <div class="share-url-container">
+              <input type="text" id="share-url" readonly />
+              <button id="copy-url" class="btn-primary">
+                <i class="ph ph-copy"></i> 복사
+              </button>
+            </div>
+          </div>
+
           <div id="copy-success" class="success-message" style="display: none;">
             ✓ 복사되었습니다!
           </div>
@@ -912,6 +933,26 @@
       });
 
       // 덱 공유
+      // 덱을 이미지로 캡처하는 함수
+      async function captureDeckImage() {
+        const deckDisplay = document.querySelector('.deck-display');
+
+        try {
+          const canvas = await html2canvas(deckDisplay, {
+            backgroundColor: '#ffffff',
+            scale: 2,
+            logging: false,
+            useCORS: true
+          });
+          return canvas;
+        } catch (error) {
+          console.error('이미지 생성 실패:', error);
+          alert('이미지 생성에 실패했습니다.');
+          return null;
+        }
+      }
+
+      // 공유 버튼 클릭
       document.getElementById('share-deck').addEventListener('click', () => {
         const allHeroes = [...selectedHeroes.front, ...selectedHeroes.back].filter(h => h);
 
@@ -924,13 +965,66 @@
         const shareUrl = `${window.location.origin}/deck.html?deck=${allHeroNames}&formation=${currentFormation}`;
 
         document.getElementById('share-url').value = shareUrl;
+        document.getElementById('url-share-section').style.display = 'none';
         document.getElementById('share-modal').style.display = 'flex';
+      });
+
+      // 이미지로 저장
+      document.getElementById('save-image').addEventListener('click', async () => {
+        const canvas = await captureDeckImage();
+        if (!canvas) return;
+
+        canvas.toBlob((blob) => {
+          const url = URL.createObjectURL(blob);
+          const a = document.createElement('a');
+          a.href = url;
+          a.download = `세나DB_덱_${new Date().getTime()}.png`;
+          a.click();
+          URL.revokeObjectURL(url);
+
+          const successMsg = document.getElementById('copy-success');
+          successMsg.textContent = '✓ 이미지가 저장되었습니다!';
+          successMsg.style.display = 'block';
+          setTimeout(() => {
+            successMsg.style.display = 'none';
+          }, 3000);
+        });
+      });
+
+      // 이미지 클립보드 복사
+      document.getElementById('copy-image').addEventListener('click', async () => {
+        const canvas = await captureDeckImage();
+        if (!canvas) return;
+
+        try {
+          canvas.toBlob(async (blob) => {
+            await navigator.clipboard.write([
+              new ClipboardItem({ 'image/png': blob })
+            ]);
+
+            const successMsg = document.getElementById('copy-success');
+            successMsg.textContent = '✓ 이미지가 클립보드에 복사되었습니다!';
+            successMsg.style.display = 'block';
+            setTimeout(() => {
+              successMsg.style.display = 'none';
+            }, 3000);
+          });
+        } catch (error) {
+          console.error('클립보드 복사 실패:', error);
+          alert('클립보드 복사에 실패했습니다. 브라우저가 지원하지 않을 수 있습니다.');
+        }
+      });
+
+      // URL 공유 섹션 표시
+      document.getElementById('show-url').addEventListener('click', () => {
+        document.getElementById('url-share-section').style.display = 'block';
       });
 
       // 모달 닫기
       document.getElementById('close-modal').addEventListener('click', () => {
         document.getElementById('share-modal').style.display = 'none';
         document.getElementById('copy-success').style.display = 'none';
+        document.getElementById('url-share-section').style.display = 'none';
       });
 
       // URL 복사
@@ -940,6 +1034,7 @@
         document.execCommand('copy');
 
         const successMsg = document.getElementById('copy-success');
+        successMsg.textContent = '✓ URL이 복사되었습니다!';
         successMsg.style.display = 'block';
         setTimeout(() => {
           successMsg.style.display = 'none';
@@ -951,6 +1046,7 @@
         if (e.target.id === 'share-modal') {
           document.getElementById('share-modal').style.display = 'none';
           document.getElementById('copy-success').style.display = 'none';
+          document.getElementById('url-share-section').style.display = 'none';
         }
       });
 
