@@ -815,15 +815,8 @@
               <div class="slot-hero">
                 <img src="${hero.portrait}" alt="${hero.name}" class="slot-hero-portrait rarity-${getRarityClass(hero.rarity)}" />
                 <div class="slot-hero-name">${hero.name}</div>
-                <button class="slot-remove" data-line="front" data-index="${index}">×</button>
               </div>
             `;
-
-            const removeBtn = slot.querySelector('.slot-remove');
-            removeBtn.addEventListener('click', (e) => {
-              e.stopPropagation();
-              removeHeroFromDeck('front', index);
-            });
           } else {
             slot.innerHTML = `
               <div class="slot-indicator">F</div>
@@ -834,20 +827,15 @@
           // 슬롯 클릭 이벤트 재부착
           slot.replaceWith(slot.cloneNode(true));
           const newSlot = document.querySelectorAll('.front-slot')[index];
-          newSlot.addEventListener('click', (e) => {
-            // 제거 버튼 클릭이 아닐 경우에만 모달 열기
-            if (!e.target.closest('.slot-remove')) {
+          newSlot.addEventListener('click', () => {
+            if (hero) {
+              // 영웅이 있으면 제거
+              removeHeroFromDeck('front', index);
+            } else {
+              // 빈 슬롯이면 선택 모달 열기
               openHeroSelectModal('front', index);
             }
           });
-
-          if (hero) {
-            const removeBtn = newSlot.querySelector('.slot-remove');
-            removeBtn.addEventListener('click', (e) => {
-              e.stopPropagation();
-              removeHeroFromDeck('front', index);
-            });
-          }
         });
 
         // 뒷줄 슬롯 업데이트
@@ -861,15 +849,8 @@
               <div class="slot-hero">
                 <img src="${hero.portrait}" alt="${hero.name}" class="slot-hero-portrait rarity-${getRarityClass(hero.rarity)}" />
                 <div class="slot-hero-name">${hero.name}</div>
-                <button class="slot-remove" data-line="back" data-index="${index}">×</button>
               </div>
             `;
-
-            const removeBtn = slot.querySelector('.slot-remove');
-            removeBtn.addEventListener('click', (e) => {
-              e.stopPropagation();
-              removeHeroFromDeck('back', index);
-            });
           } else {
             slot.innerHTML = `
               <div class="slot-indicator">B</div>
@@ -880,20 +861,15 @@
           // 슬롯 클릭 이벤트 재부착
           slot.replaceWith(slot.cloneNode(true));
           const newSlot = document.querySelectorAll('.back-slot')[index];
-          newSlot.addEventListener('click', (e) => {
-            // 제거 버튼 클릭이 아닐 경우에만 모달 열기
-            if (!e.target.closest('.slot-remove')) {
+          newSlot.addEventListener('click', () => {
+            if (hero) {
+              // 영웅이 있으면 제거
+              removeHeroFromDeck('back', index);
+            } else {
+              // 빈 슬롯이면 선택 모달 열기
               openHeroSelectModal('back', index);
             }
           });
-
-          if (hero) {
-            const removeBtn = newSlot.querySelector('.slot-remove');
-            removeBtn.addEventListener('click', (e) => {
-              e.stopPropagation();
-              removeHeroFromDeck('back', index);
-            });
-          }
         });
       }
 
