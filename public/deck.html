@@ -561,11 +561,11 @@
         try {
           const response = await fetch("/api/heroes");
           const data = await response.json();
-          if (!data.records || !Array.isArray(data.records)) {
+          if (!Array.isArray(data)) {
             console.error("서버 응답:", data);
             return;
           }
-          allHeroes = data.records;
+          allHeroes = data;
 
           // 진형 슬롯 생성
           createFormationSlots();

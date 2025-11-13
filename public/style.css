@@ -894,22 +894,15 @@ button {
 
   .mobile-filter-bar {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 8px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4px;
     flex: 1;
-    padding: 12px;
-    background: var(--bg-elevated);
-    backdrop-filter: blur(var(--blur-md)) saturate(180%);
-    -webkit-backdrop-filter: blur(var(--blur-md)) saturate(180%);
-    border: 1px solid var(--border-primary);
-    border-radius: 16px;
-    box-shadow: 0 4px 16px var(--shadow-sm);
   }
 
   .view-toggle {
     display: flex;
-    flex-direction: column;
-    gap: 8px;
+    flex-direction: row;
+    gap: 4px;
   }
 
   .view-btn {
@@ -919,10 +912,8 @@ button {
     width: 44px;
     height: 44px;
     background: var(--bg-elevated);
-    backdrop-filter: blur(var(--blur-md)) saturate(180%);
-    -webkit-backdrop-filter: blur(var(--blur-md)) saturate(180%);
     border: 1px solid var(--border-primary);
-    border-radius: 12px;
+    border-radius: 8px;
     color: var(--text-secondary);
     cursor: pointer;
     transition: all 0.2s ease;
@@ -1030,6 +1021,12 @@ button {
   .hero-detail-container,
   .hero-comments {
     max-width: 100%;
+  }
+
+  .filter-select {
+    min-width: 120px;
+    font-size: 0.85rem;
+    padding: 12px;
   }
 }
 .hero-header {
