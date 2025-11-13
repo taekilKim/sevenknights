@@ -1576,6 +1576,45 @@ button {
   margin-top: 0.5em;
 }
 
+/* Skill effect boxes */
+.skill-box {
+  display: inline-block;
+  padding: 8px 12px;
+  margin: 4px 0;
+  border-radius: 6px;
+  font-weight: 500;
+  line-height: 1.5;
+  border-left: 4px solid;
+}
+
+/* Skill enhancement box (청록색/cyan) */
+.skill-box.skill-enhancement {
+  background: linear-gradient(135deg, rgba(0, 206, 209, 0.15), rgba(32, 178, 170, 0.15));
+  border-left-color: #00CED1;
+  color: var(--text-primary);
+  box-shadow: 0 2px 8px rgba(0, 206, 209, 0.2);
+}
+
+/* Light mode adjustment */
+[data-theme="light"] .skill-box.skill-enhancement {
+  background: linear-gradient(135deg, rgba(0, 206, 209, 0.12), rgba(32, 178, 170, 0.12));
+  box-shadow: 0 2px 8px rgba(0, 206, 209, 0.15);
+}
+
+/* Awakening effect box (자주색/purple-magenta) */
+.skill-box.awakening-effect {
+  background: linear-gradient(135deg, rgba(147, 112, 219, 0.15), rgba(186, 85, 211, 0.15));
+  border-left-color: #9370DB;
+  color: var(--text-primary);
+  box-shadow: 0 2px 8px rgba(147, 112, 219, 0.2);
+}
+
+/* Light mode adjustment */
+[data-theme="light"] .skill-box.awakening-effect {
+  background: linear-gradient(135deg, rgba(147, 112, 219, 0.12), rgba(186, 85, 211, 0.12));
+  box-shadow: 0 2px 8px rgba(147, 112, 219, 0.15);
+}
+
 #hero-skills {
   list-style: none;
   padding: 0;

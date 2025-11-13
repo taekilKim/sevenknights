@@ -505,6 +505,14 @@
               // Line breaks: \n -> <br>
               .replace(/\n/g, '<br>');
 
+            // Wrap special effect boxes with colored backgrounds
+            // Skill enhancement (청록색/cyan box)
+            html = html.replace(/(\[스킬 강화\][^\[]*?)(?=\[|$|<br>)/g, '<span class="skill-box skill-enhancement">$1</span>');
+
+            // Awakening effects (자주색/purple box) - 6초월, 2초월
+            html = html.replace(/(\[6초월\][^\[]*?)(?=\[|$|<br>)/g, '<span class="skill-box awakening-effect">$1</span>');
+            html = html.replace(/(\[2초월\][^\[]*?)(?=\[|$|<br>)/g, '<span class="skill-box awakening-effect">$1</span>');
+
             return html;
           };
 
