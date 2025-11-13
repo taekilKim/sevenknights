@@ -384,6 +384,11 @@
             img.className = `hero-portrait rarity-${rarityClass}`;
             img.alt = "영웅 초상화";
             img.src = hero.portrait || "";
+            // Add error handler for missing portraits
+            img.onerror = function() {
+              console.warn(`초상화 로드 실패: ${hero.name}`);
+              this.style.display = 'none'; // Hide broken image
+            };
             // Add shine border if hasEffect
             if (hero.hasEffect === true || hero.hasEffect === "true" || hero.hasEffect === 1) {
               img.classList.add("has-effect");
@@ -445,9 +450,27 @@
           document.getElementById("hero-nickname").textContent = hero.nickname || "";
           document.getElementById("hero-group").textContent = hero.group || "";
 
-          // Set hero type with color class
+          // Set hero type with icon and color class
           const heroTypeEl = document.getElementById("hero-type");
-          heroTypeEl.textContent = hero.type || "";
+          heroTypeEl.innerHTML = ""; // Clear previous content
+
+          // Add type icon if available
+          if (hero.typeImage) {
+            const typeIcon = document.createElement("img");
+            typeIcon.src = hero.typeImage;
+            typeIcon.alt = hero.type || "타입";
+            typeIcon.className = "hero-type-icon";
+            typeIcon.style.width = "20px";
+            typeIcon.style.height = "20px";
+            typeIcon.style.marginRight = "6px";
+            typeIcon.style.verticalAlign = "middle";
+            heroTypeEl.appendChild(typeIcon);
+          }
+
+          // Add type text
+          const typeText = document.createTextNode(hero.type || "");
+          heroTypeEl.appendChild(typeText);
+
           const typeClassMap = {
             "공격형": "type-attack",
             "마법형": "type-magic",

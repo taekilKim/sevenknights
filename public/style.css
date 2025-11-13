@@ -1137,13 +1137,13 @@ button {
   backdrop-filter: blur(var(--blur-md)) saturate(180%);
   -webkit-backdrop-filter: blur(var(--blur-md)) saturate(180%);
   border: 1px solid var(--border-secondary);
-  border-radius: 24px;
-  padding: 40px;
-  margin-bottom: 32px;
+  border-radius: 20px;
+  padding: 24px;
+  margin-bottom: 24px;
   display: flex;
   align-items: center;
-  gap: 32px;
-  box-shadow: 0 8px 48px var(--shadow-md);
+  gap: 20px;
+  box-shadow: 0 4px 24px var(--shadow-md);
   position: relative;
   overflow: hidden;
 }
@@ -1272,12 +1272,9 @@ button {
 
 #hero-type,
 #hero-rarity {
-  background: var(--overlay-light);
-  border: 1px solid;
-  border-radius: 8px;
-  padding: 8px 16px;
   font-size: 0.95rem;
   font-weight: 600;
+  color: var(--text-secondary);
 }
 
 /* Type-specific colors */
@@ -1456,10 +1453,10 @@ button {
   backdrop-filter: blur(var(--blur-md)) saturate(180%);
   -webkit-backdrop-filter: blur(var(--blur-md)) saturate(180%);
   border: 1px solid var(--border-secondary);
-  border-radius: 16px;
-  padding: 20px;
-  margin-bottom: 14px;
-  box-shadow: 0 2px 16px var(--shadow-sm);
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 12px;
+  box-shadow: 0 2px 12px var(--shadow-sm);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   overflow: hidden;
@@ -3163,11 +3160,11 @@ svg defs {
 }
 
 .prev-hero-side {
-  left: -160px;
+  left: 20px;
 }
 
 .next-hero-side {
-  right: -160px;
+  right: 20px;
 }
 
 @media (max-width: 1440px) {
