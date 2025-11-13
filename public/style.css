@@ -1281,8 +1281,9 @@ button {
   color: var(--text-secondary);
   padding: 8px;
   border-radius: 8px;
-  line-height: 1;
+  line-height: 1.1em;
   height: 32px;
+  vertical-align: middle;
 }
 
 /* Type-specific colors */
