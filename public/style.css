@@ -2415,6 +2415,59 @@ svg defs {
   background: #ff6666;
 }
 
+/* 펫 슬롯 */
+.pet-slot-container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 100px;
+}
+
+.pet-slot {
+  border-color: #9b59b6 !important;
+  background: rgba(155, 89, 182, 0.05);
+}
+
+.pet-slot:hover {
+  border-color: #c39bd3 !important;
+  background: rgba(155, 89, 182, 0.1);
+}
+
+.pet-slot .slot-indicator {
+  background: #9b59b6;
+}
+
+/* 초월 별 */
+.transcendence-stars {
+  display: flex;
+  gap: 2px;
+  justify-content: center;
+  margin-top: 4px;
+  cursor: pointer;
+  user-select: none;
+  padding: 4px;
+  border-radius: 4px;
+  transition: background 0.2s ease;
+}
+
+.transcendence-stars:hover {
+  background: rgba(255, 215, 0, 0.1);
+}
+
+.transcendence-stars .star {
+  font-size: 0.85rem;
+  color: #ffd700;
+  text-shadow: 0 0 2px rgba(255, 215, 0, 0.5);
+  transition: all 0.2s ease;
+}
+
+.transcendence-stars .star.highlighted {
+  color: #64b5f6;
+  text-shadow: 0 0 4px rgba(100, 181, 246, 0.8),
+               0 0 2px rgba(100, 181, 246, 0.6);
+  transform: scale(1.1);
+}
+
 /* 덱 액션 버튼 */
 .deck-actions {
   display: flex;
@@ -2650,6 +2703,95 @@ svg defs {
 
 #heroes-list::-webkit-scrollbar-thumb:hover {
   background: var(--accent-secondary);
+}
+
+/* 덱 패시브 효과 섹션 */
+.deck-passives-section {
+  margin-top: 16px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-tertiary);
+  border-radius: 8px;
+  padding: 16px;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.passives-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 12px 0;
+}
+
+.passives-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.passives-empty {
+  text-align: center;
+  color: var(--text-muted);
+  padding: 20px;
+  font-size: 0.9rem;
+}
+
+.passive-item {
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-secondary);
+  border-radius: 8px;
+  padding: 12px;
+  transition: all 0.2s ease;
+}
+
+.passive-item:hover {
+  border-color: var(--accent-primary);
+  background: var(--bg-elevated-hover);
+}
+
+.passive-hero-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.passive-hero-portrait {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  object-fit: cover;
+  border: 2px solid #c1b494;
+}
+
+.passive-hero-details {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.passive-hero-name {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.passive-transcendence {
+  font-size: 0.75rem;
+  color: var(--text-tertiary);
+}
+
+.passive-skill-name {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--accent-primary);
+  margin-bottom: 4px;
+}
+
+.passive-skill-desc {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  line-height: 1.4;
 }
 
 /* 선택 가능한 영웅 카드 */
