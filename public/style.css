@@ -1003,7 +1003,7 @@ button {
   justify-content: center;
   align-items: flex-start;
   gap: 3rem;
-  background: var(--bg-secondary);
+  background: #fbfbfb;
   min-height: 100vh;
   padding: 0 24px;
   box-sizing: border-box;
@@ -1388,26 +1388,23 @@ button {
 /* Hero Stats Section */
 .hero-stats {
   background: var(--bg-elevated);
-  backdrop-filter: blur(var(--blur-md)) saturate(180%);
-  -webkit-backdrop-filter: blur(var(--blur-md)) saturate(180%);
   border: 1px solid var(--border-secondary);
-  border-radius: 20px;
-  padding: 24px;
+  border-radius: 12px;
+  padding: 16px;
   margin-bottom: 24px;
-  box-shadow: 0 4px 24px var(--shadow-sm);
 }
 
 .hero-stats h2 {
-  font-size: 1.4rem;
+  font-size: 1rem;
   font-weight: 700;
   color: var(--accent-primary);
   margin: 0 0 8px 0;
-  padding-bottom: 12px;
+  padding-bottom: 4px;
   border-bottom: 1px solid var(--border-secondary);
 }
 
 .stats-info {
-  font-size: 0.8rem;
+  font-size: 12px;
   color: var(--text-tertiary);
   margin: 0 0 16px 0;
 }
@@ -1430,14 +1427,14 @@ button {
 }
 
 .stats-table td:first-child {
-  font-size: 0.9rem;
+  font-size: 14px;
   font-weight: 500;
   color: var(--text-secondary);
   width: 40%;
 }
 
 .stats-table td:last-child {
-  font-size: 1rem;
+  font-size: 14px;
   font-weight: 600;
   color: var(--text-primary);
   text-align: right;
