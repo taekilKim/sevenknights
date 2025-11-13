@@ -1452,13 +1452,67 @@ button {
   white-space: pre-line;
 }
 
+/* Hero Tabs */
+.hero-tabs {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid var(--border-secondary);
+  padding-bottom: 0;
+}
+
+.tab-btn {
+  flex: 1;
+  padding: 12px 16px;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid transparent;
+  color: var(--text-secondary);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+  margin-bottom: -1px;
+}
+
+.tab-btn:hover {
+  color: var(--text-primary);
+  background: var(--bg-elevated);
+}
+
+.tab-btn.active {
+  color: var(--accent-primary);
+  border-bottom-color: var(--accent-primary);
+  font-weight: 600;
+}
+
+.tab-content {
+  display: none;
+  animation: fadeIn 0.2s ease;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* Hero Stats Section */
 .hero-stats {
   background: var(--bg-elevated);
   border: 1px solid var(--border-secondary);
   border-radius: 12px;
   padding: 16px;
-  margin-bottom: 24px;
 }
 
 .hero-stats h2 {
@@ -1508,10 +1562,6 @@ button {
 }
 
 /* Hero Skills Section */
-.hero-skills {
-  margin-bottom: 24px;
-}
-
 .hero-skills h2 {
   font-size: 1.4rem;
   font-weight: 700;
@@ -1848,37 +1898,10 @@ svg defs {
 .hero-comments {
   width: 100%;
   background: var(--bg-elevated);
-  backdrop-filter: blur(var(--blur-md)) saturate(180%);
-  -webkit-backdrop-filter: blur(var(--blur-md)) saturate(180%);
   border: 1px solid var(--border-secondary);
-  border-radius: 24px;
-  padding: 32px;
+  border-radius: 12px;
+  padding: 16px;
   box-sizing: border-box;
-  box-shadow: 0 8px 48px var(--shadow-md);
-  position: sticky;
-  top: 100px;
-  max-height: calc(100vh - 120px);
-  overflow-y: auto;
-  scrollbar-width: thin;
-  scrollbar-color: var(--accent-primary) var(--overlay-light);
-}
-
-.hero-comments::-webkit-scrollbar {
-  width: 8px;
-}
-
-.hero-comments::-webkit-scrollbar-track {
-  background: var(--overlay-light);
-  border-radius: 4px;
-}
-
-.hero-comments::-webkit-scrollbar-thumb {
-  background: var(--accent-primary);
-  border-radius: 4px;
-}
-
-.hero-comments::-webkit-scrollbar-thumb:hover {
-  background: var(--accent-secondary);
 }
 
 .hero-comments h2 {
