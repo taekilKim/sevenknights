@@ -452,18 +452,12 @@
 
             // Portrait img
             const img = document.createElement("img");
-            img.className = `hero-portrait rarity-${rarityClass} img-loading`;
+            img.className = `hero-portrait rarity-${rarityClass}`;
             img.alt = "영웅 초상화";
             img.src = hero.portrait || "";
 
-            // Image load events
-            img.addEventListener('load', function() {
-              this.classList.add('loaded');
-            });
-
             img.addEventListener('error', function() {
               console.warn(`초상화 로드 실패: ${hero.name}`);
-              this.classList.add('loaded');
               this.style.display = 'none'; // Hide broken image
             });
 
@@ -840,15 +834,9 @@ commentForm.addEventListener("submit", async (e) => {
           const portrait = document.createElement('img');
           portrait.src = hero.portrait || '';
           portrait.alt = hero.name;
-          portrait.className = `carousel-portrait rarity-${rarityClass} img-loading`;
-
-          // Image load events
-          portrait.addEventListener('load', function() {
-            this.classList.add('loaded');
-          });
+          portrait.className = `carousel-portrait rarity-${rarityClass}`;
 
           portrait.addEventListener('error', function() {
-            this.classList.add('loaded');
             this.style.display = 'none';
           });
 
