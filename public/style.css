@@ -7,77 +7,82 @@
 }
 
 /* ================================ */
-/* CSS Variables - iOS Glassmorphism */
+/* CSS Variables - shadcn/ui Style */
 /* ================================ */
 :root {
-  /* Dark Theme (Default) */
-  --bg-primary: #000000;
-  --bg-secondary: #0a0a0a;
-  --bg-tertiary: rgba(20, 20, 20, 0.6);
-  --bg-elevated: rgba(30, 30, 30, 0.7);
-  --bg-elevated-hover: rgba(45, 45, 45, 0.8);
+  /* Dark Theme (Default) - shadcn zinc palette */
+  --bg-primary: #09090b;
+  --bg-secondary: #18181b;
+  --bg-tertiary: #27272a;
+  --bg-elevated: #27272a;
+  --bg-elevated-hover: #3f3f46;
 
-  --text-primary: #ffffff;
-  --text-secondary: rgba(255, 255, 255, 0.85);
-  --text-tertiary: rgba(255, 255, 255, 0.6);
-  --text-muted: rgba(255, 255, 255, 0.4);
+  --text-primary: #fafafa;
+  --text-secondary: #e4e4e7;
+  --text-tertiary: #a1a1aa;
+  --text-muted: #71717a;
 
-  --border-primary: rgba(255, 255, 255, 0.1);
-  --border-secondary: rgba(255, 255, 255, 0.08);
-  --border-tertiary: rgba(255, 255, 255, 0.05);
+  --border-primary: #3f3f46;
+  --border-secondary: #27272a;
+  --border-tertiary: #27272a;
 
-  --accent-primary: #64b5f6;
-  --accent-secondary: #42a5f5;
-  --accent-tertiary: #90caf9;
-  --accent-glow: rgba(100, 181, 246, 0.4);
+  --accent-primary: #3b82f6;
+  --accent-secondary: #2563eb;
+  --accent-tertiary: #60a5fa;
+  --accent-glow: rgba(59, 130, 246, 0.3);
 
-  --shadow-sm: rgba(0, 0, 0, 0.2);
-  --shadow-md: rgba(0, 0, 0, 0.3);
-  --shadow-lg: rgba(0, 0, 0, 0.4);
+  --shadow-sm: rgba(0, 0, 0, 0.1);
+  --shadow-md: rgba(0, 0, 0, 0.2);
+  --shadow-lg: rgba(0, 0, 0, 0.3);
 
-  --overlay-light: rgba(255, 255, 255, 0.05);
-  --overlay-medium: rgba(255, 255, 255, 0.1);
-  --overlay-heavy: rgba(255, 255, 255, 0.15);
+  --overlay-light: rgba(255, 255, 255, 0.03);
+  --overlay-medium: rgba(255, 255, 255, 0.05);
+  --overlay-heavy: rgba(255, 255, 255, 0.08);
 
-  --blur-sm: 10px;
-  --blur-md: 20px;
-  --blur-lg: 40px;
+  --blur-sm: 8px;
+  --blur-md: 16px;
+  --blur-lg: 24px;
 
   /* Layout */
   --header-height: 60px;
   --sidebar-width: 240px;
   --mobile-nav-height: 60px;
+
+  /* Border Radius */
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
 }
 
 [data-theme="light"] {
-  /* Light Theme */
-  --bg-primary: #f5f5f7;
-  --bg-secondary: #ffffff;
-  --bg-tertiary: rgba(255, 255, 255, 0.7);
-  --bg-elevated: rgba(255, 255, 255, 0.8);
-  --bg-elevated-hover: rgba(255, 255, 255, 0.9);
+  /* Light Theme - shadcn zinc palette */
+  --bg-primary: #ffffff;
+  --bg-secondary: #fafafa;
+  --bg-tertiary: #f4f4f5;
+  --bg-elevated: #ffffff;
+  --bg-elevated-hover: #f4f4f5;
 
-  --text-primary: #1d1d1f;
-  --text-secondary: rgba(0, 0, 0, 0.8);
-  --text-tertiary: rgba(0, 0, 0, 0.6);
-  --text-muted: rgba(0, 0, 0, 0.4);
+  --text-primary: #09090b;
+  --text-secondary: #18181b;
+  --text-tertiary: #71717a;
+  --text-muted: #a1a1aa;
 
-  --border-primary: rgba(0, 0, 0, 0.1);
-  --border-secondary: rgba(0, 0, 0, 0.08);
-  --border-tertiary: rgba(0, 0, 0, 0.05);
+  --border-primary: #e4e4e7;
+  --border-secondary: #f4f4f5;
+  --border-tertiary: #fafafa;
 
-  --accent-primary: #007aff;
-  --accent-secondary: #0051d5;
-  --accent-tertiary: #3395ff;
-  --accent-glow: rgba(0, 122, 255, 0.3);
+  --accent-primary: #3b82f6;
+  --accent-secondary: #2563eb;
+  --accent-tertiary: #60a5fa;
+  --accent-glow: rgba(59, 130, 246, 0.2);
 
-  --shadow-sm: rgba(0, 0, 0, 0.1);
-  --shadow-md: rgba(0, 0, 0, 0.15);
-  --shadow-lg: rgba(0, 0, 0, 0.2);
+  --shadow-sm: rgba(0, 0, 0, 0.05);
+  --shadow-md: rgba(0, 0, 0, 0.1);
+  --shadow-lg: rgba(0, 0, 0, 0.15);
 
-  --overlay-light: rgba(0, 0, 0, 0.03);
-  --overlay-medium: rgba(0, 0, 0, 0.06);
-  --overlay-heavy: rgba(0, 0, 0, 0.1);
+  --overlay-light: rgba(0, 0, 0, 0.02);
+  --overlay-medium: rgba(0, 0, 0, 0.04);
+  --overlay-heavy: rgba(0, 0, 0, 0.06);
 }
 
 /* ================================ */
@@ -153,9 +158,8 @@ button {
   align-items: center;
   justify-content: space-between;
   padding: 0 24px;
-  background: var(--bg-elevated);
+  background: var(--bg-primary);
   border-bottom: 1px solid var(--border-primary);
-  box-shadow: 0 4px 24px var(--shadow-sm);
 }
 
 /* Header Left Section */
@@ -186,7 +190,7 @@ button {
   gap: 8px;
   padding: 10px 20px;
   background: transparent;
-  border-radius: 12px;
+  border-radius: var(--radius-sm);
   color: var(--text-secondary);
   text-decoration: none;
   font-size: 0.95rem;
@@ -226,7 +230,7 @@ button {
   padding: 0;
   background: var(--overlay-light);
   border: 1px solid var(--border-tertiary);
-  border-radius: 10px;
+  border-radius: var(--radius-sm);
   color: var(--text-primary);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -249,7 +253,7 @@ button {
   height: 40px;
   background: var(--overlay-light);
   border: 1px solid var(--border-tertiary);
-  border-radius: 10px;
+  border-radius: var(--radius-sm);
   color: var(--text-primary);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -285,7 +289,7 @@ button {
   padding: 10px 18px;
   background: var(--overlay-light);
   border: 1px solid var(--border-tertiary);
-  border-radius: 12px;
+  border-radius: var(--radius-sm);
   color: var(--text-primary);
   font-size: 0.9rem;
   font-weight: 500;
@@ -334,7 +338,7 @@ button {
   padding: 14px 16px;
   background: var(--overlay-light);
   border: 1px solid var(--border-tertiary);
-  border-radius: 12px;
+  border-radius: var(--radius-sm);
   color: var(--text-secondary);
   font-weight: 500;
   transition: all 0.2s ease;
@@ -352,7 +356,7 @@ button {
   padding: 14px 16px;
   background: var(--overlay-light);
   border: 1px solid var(--border-tertiary);
-  border-radius: 12px;
+  border-radius: var(--radius-sm);
   color: var(--text-secondary);
   font-weight: 500;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -435,16 +439,16 @@ button {
   flex-direction: column;
   align-items: center;
   padding: 16px;
-  background: transparent;
-  border-radius: 20px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-secondary);
+  border-radius: var(--radius-md);
   cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.2s ease;
 }
 
 .hero-card:hover {
-  background: var(--overlay-light);
-  backdrop-filter: blur(var(--blur-sm));
-  -webkit-backdrop-filter: blur(var(--blur-sm));
+  background: var(--bg-tertiary);
+  border-color: var(--border-primary);
 }
 
 .hero-portrait-wrapper {
@@ -457,7 +461,7 @@ button {
 .hero-portrait {
   width: 100%;
   height: 100%;
-  border-radius: 20px;
+  border-radius: var(--radius-md);
   object-fit: cover;
   border: 3px solid #c1b494;
   padding: 4px;
@@ -561,7 +565,7 @@ button {
 }
 
 .hero-grid.list-view .hero-portrait {
-  border-radius: 12px;
+  border-radius: var(--radius-sm);
 }
 
 .hero-grid.list-view .hero-type-badge {
@@ -598,7 +602,7 @@ button {
   padding: 20px;
   background: var(--bg-elevated);
   border: 1px solid var(--border-primary);
-  border-radius: 16px;
+  border-radius: var(--radius-md);
 }
 
 @media (min-width: 769px) {
@@ -666,15 +670,14 @@ button {
   display: inline-flex;
   align-items: center;
   padding: 8px 14px;
-  background: var(--overlay-light);
-  border: 1px solid var(--border-tertiary);
-  border-radius: 12px;
-  color: var(--text-primary);
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-primary);
+  border-radius: var(--radius-sm);
+  color: var(--text-secondary);
   font-size: 0.85rem;
   cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.2s ease;
   user-select: none;
-  box-shadow: 0 2px 6px var(--shadow-sm);
 }
 
 .filter-chip input {
@@ -712,7 +715,7 @@ button {
   padding: 10px;
   background: var(--overlay-light);
   border: 1px solid var(--border-tertiary);
-  border-radius: 10px;
+  border-radius: var(--radius-sm);
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -847,7 +850,7 @@ button {
   backdrop-filter: blur(var(--blur-sm));
   -webkit-backdrop-filter: blur(var(--blur-sm));
   border: 1px solid var(--border-tertiary);
-  border-radius: 12px;
+  border-radius: var(--radius-sm);
   color: var(--text-secondary);
   font-weight: 500;
   transition: all 0.2s ease;
@@ -867,7 +870,7 @@ button {
   backdrop-filter: blur(var(--blur-sm));
   -webkit-backdrop-filter: blur(var(--blur-sm));
   border: 1px solid var(--border-tertiary);
-  border-radius: 12px;
+  border-radius: var(--radius-sm);
   color: var(--text-secondary);
   font-weight: 500;
   transition: all 0.2s ease;
@@ -917,7 +920,7 @@ button {
   padding: 32px;
   background: var(--bg-elevated);
   border: 1px solid var(--border-primary);
-  border-radius: 20px;
+  border-radius: var(--radius-md);
   color: var(--text-primary);
   text-align: center;
   font-size: 1.1rem;
@@ -1106,7 +1109,7 @@ button {
     backdrop-filter: blur(var(--blur-sm));
     -webkit-backdrop-filter: blur(var(--blur-sm));
     border: 1px solid var(--border-tertiary);
-    border-radius: 10px;
+    border-radius: var(--radius-sm);
     color: var(--text-primary);
     font-size: 0.85rem;
     font-family: inherit;
@@ -1321,14 +1324,14 @@ button {
 .carousel-item.active {
   box-shadow: 0 0 0 2px var(--accent-primary);
   z-index: 1;
-  border-radius: 12px;
+  border-radius: var(--radius-sm);
 }
 
 .carousel-portrait {
   width: 56px;
   height: 56px;
   object-fit: cover;
-  border-radius: 12px;
+  border-radius: var(--radius-sm);
   border: 2px solid var(--border-secondary);
 }
 
@@ -1440,7 +1443,7 @@ button {
 .hero-top .hero-portrait {
   width: 100%;
   height: 100%;
-  border-radius: 16px;
+  border-radius: var(--radius-md);
   object-fit: cover;
 }
 
@@ -1454,7 +1457,7 @@ button {
   padding: 12px 16px;
   background: var(--overlay-light);
   border: 1px solid var(--border-tertiary);
-  border-radius: 16px;
+  border-radius: var(--radius-md);
   color: var(--text-secondary);
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -1476,7 +1479,7 @@ button {
 .hero-nav-side .nav-hero-portrait {
   width: 48px;
   height: 48px;
-  border-radius: 12px;
+  border-radius: var(--radius-sm);
   object-fit: cover;
   border: 2px solid var(--border-primary);
 }
@@ -1510,7 +1513,7 @@ button {
 .hero-detail-portrait {
   width: 180px;
   height: 180px;
-  border-radius: 24px;
+  border-radius: var(--radius-md);
   object-fit: cover;
   border: 4px solid #c1b494;
   margin: 0;
@@ -1746,7 +1749,7 @@ button {
 .hero-stats {
   background: var(--bg-elevated);
   border: 1px solid var(--border-secondary);
-  border-radius: 12px;
+  border-radius: var(--radius-sm);
   padding: 16px;
 }
 
@@ -1811,7 +1814,7 @@ button {
   backdrop-filter: blur(var(--blur-md)) saturate(180%);
   -webkit-backdrop-filter: blur(var(--blur-md)) saturate(180%);
   border: 1px solid var(--border-secondary);
-  border-radius: 12px;
+  border-radius: var(--radius-sm);
   padding: 16px;
   margin-bottom: 12px;
   box-shadow: 0 2px 12px var(--shadow-sm);
@@ -1854,7 +1857,7 @@ button {
 .hero-skills .skill img {
   width: 64px;
   height: 64px;
-  border-radius: 10px;
+  border-radius: var(--radius-sm);
   border: 2px solid var(--border-tertiary);
   margin-bottom: 12px;
   float: left;
@@ -2133,7 +2136,7 @@ svg defs {
   width: 100%;
   background: var(--bg-elevated);
   border: 1px solid var(--border-secondary);
-  border-radius: 12px;
+  border-radius: var(--radius-sm);
   padding: 16px;
   box-sizing: border-box;
 }
@@ -2161,7 +2164,7 @@ svg defs {
   -webkit-backdrop-filter: blur(var(--blur-sm));
   color: var(--text-primary);
   border: 1px solid var(--border-tertiary);
-  border-radius: 12px;
+  border-radius: var(--radius-sm);
   padding: 12px 16px;
   font-family: "Pretendard", sans-serif;
   font-size: 0.95rem;
@@ -2192,7 +2195,7 @@ svg defs {
   color: #ffffff;
   border: none;
   padding: 12px 24px;
-  border-radius: 12px;
+  border-radius: var(--radius-sm);
   font-weight: 600;
   font-size: 1rem;
   cursor: pointer;
@@ -2320,7 +2323,7 @@ svg defs {
   backdrop-filter: blur(var(--blur-sm));
   -webkit-backdrop-filter: blur(var(--blur-sm));
   border: 1px solid var(--border-tertiary);
-  border-radius: 16px;
+  border-radius: var(--radius-md);
   padding: 16px;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -2380,7 +2383,7 @@ svg defs {
   backdrop-filter: blur(var(--blur-sm));
   -webkit-backdrop-filter: blur(var(--blur-sm));
   border: 1px solid var(--border-tertiary);
-  border-radius: 12px;
+  border-radius: var(--radius-sm);
   padding: 8px 14px;
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -2502,7 +2505,7 @@ svg defs {
 
 /* 진형 선택기 */
 .formation-selector {
-  border-radius: 16px;
+  border-radius: var(--radius-md);
   padding: 12px;
 }
 
@@ -2568,7 +2571,7 @@ svg defs {
 .deck-display {
   background: var(--bg-elevated);
   border: 1px solid var(--border-tertiary);
-  border-radius: 16px;
+  border-radius: var(--radius-md);
   padding: 16px;
   flex: 1;
   display: flex;
@@ -2656,7 +2659,7 @@ svg defs {
   aspect-ratio: 1 / 1;
   background: var(--bg-tertiary);
   border: 2px dashed var(--border-secondary);
-  border-radius: 12px;
+  border-radius: var(--radius-sm);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -2712,7 +2715,7 @@ svg defs {
 .slot-hero-portrait {
   width: 70px;
   height: 70px;
-  border-radius: 12px;
+  border-radius: var(--radius-sm);
   object-fit: cover;
   border: 3px solid #c1b494;
   flex-shrink: 0;
@@ -2823,7 +2826,7 @@ svg defs {
 .btn-secondary {
   padding: 12px 24px;
   border: none;
-  border-radius: 12px;
+  border-radius: var(--radius-sm);
   font-weight: 600;
   font-size: 1rem;
   cursor: pointer;
@@ -2835,26 +2838,23 @@ svg defs {
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-secondary) 100%);
+  background: var(--accent-primary);
   color: #ffffff;
-  box-shadow: 0 4px 16px rgba(100, 181, 246, 0.4);
+  border: 1px solid transparent;
 }
 
 .btn-primary:hover {
-  opacity: 0.9;
+  background: var(--accent-secondary);
 }
 
 .btn-secondary {
-  background: var(--bg-elevated);
-  backdrop-filter: blur(var(--blur-sm));
-  -webkit-backdrop-filter: blur(var(--blur-sm));
+  background: var(--bg-secondary);
   color: var(--text-primary);
-  border: 1px solid var(--border-tertiary);
-  box-shadow: 0 2px 8px var(--shadow-sm);
+  border: 1px solid var(--border-primary);
 }
 
 .btn-secondary:hover {
-  background: var(--bg-elevated-hover);
+  background: var(--bg-tertiary);
 }
 
 /* Primary button large variant */
@@ -2994,7 +2994,7 @@ svg defs {
   backdrop-filter: blur(var(--blur-md));
   -webkit-backdrop-filter: blur(var(--blur-md));
   border: 1px solid var(--border-secondary);
-  border-radius: 16px;
+  border-radius: var(--radius-md);
   padding: 20px;
   box-shadow: 0 4px 16px var(--shadow-md);
   transition: all 0.3s ease;
@@ -3026,7 +3026,7 @@ svg defs {
 
 .shared-deck-image {
   width: 100%;
-  border-radius: 12px;
+  border-radius: var(--radius-sm);
   margin-bottom: 16px;
   background: var(--bg-secondary);
 }
@@ -3055,7 +3055,7 @@ svg defs {
   height: 200px;
   background: var(--bg-secondary);
   border: 2px dashed var(--border-secondary);
-  border-radius: 12px;
+  border-radius: var(--radius-sm);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -3066,7 +3066,7 @@ svg defs {
 #deck-preview-image img {
   width: 100%;
   height: auto;
-  border-radius: 12px;
+  border-radius: var(--radius-sm);
 }
 
 /* Form Groups */
@@ -3167,9 +3167,9 @@ svg defs {
 
 .filter-select {
   padding: 10px 16px;
-  background: var(--bg-elevated);
-  border: 1px solid var(--border-secondary);
-  border-radius: 8px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-primary);
+  border-radius: var(--radius-sm);
   color: var(--text-primary);
   font-size: 0.9rem;
   font-family: "Pretendard", sans-serif;
@@ -3253,7 +3253,7 @@ svg defs {
   align-items: center;
   background: var(--bg-tertiary);
   border: 1px solid var(--border-secondary);
-  border-radius: 16px;
+  border-radius: var(--radius-md);
   padding: 6px 12px;
   cursor: pointer;
   transition: all 0.2s ease;
@@ -3505,7 +3505,7 @@ svg defs {
   backdrop-filter: blur(var(--blur-lg)) saturate(180%);
   -webkit-backdrop-filter: blur(var(--blur-lg)) saturate(180%);
   border: 1px solid var(--border-tertiary);
-  border-radius: 24px;
+  border-radius: var(--radius-md);
   width: 90%;
   max-width: 600px;
   padding: 0;
@@ -3570,7 +3570,7 @@ svg defs {
   padding: 16px 12px;
   background: var(--bg-elevated);
   border: 1px solid var(--border-secondary);
-  border-radius: 12px;
+  border-radius: var(--radius-sm);
   color: var(--text-secondary);
   font-size: 13px;
   font-weight: 500;
@@ -3932,7 +3932,7 @@ svg defs {
     backdrop-filter: blur(var(--blur-sm));
     -webkit-backdrop-filter: blur(var(--blur-sm));
     border: 1px solid var(--border-tertiary);
-    border-radius: 12px;
+    border-radius: var(--radius-sm);
     color: var(--text-primary);
     font-size: 0.9rem;
     font-family: "Pretendard", sans-serif;
@@ -4117,7 +4117,7 @@ svg defs {
 .update-info {
   background: var(--card-bg);
   border: 1px solid var(--border-primary);
-  border-radius: 12px;
+  border-radius: var(--radius-sm);
   padding: 16px 24px;
   margin-bottom: 32px;
   display: flex;
@@ -4142,7 +4142,7 @@ svg defs {
 .tier-guide {
   background: var(--card-bg);
   border: 1px solid var(--border-primary);
-  border-radius: 12px;
+  border-radius: var(--radius-sm);
   padding: 24px;
   margin-bottom: 32px;
 }
@@ -4276,7 +4276,7 @@ svg defs {
 .tier-section {
   background: var(--card-bg);
   border: 1px solid var(--border-primary);
-  border-radius: 12px;
+  border-radius: var(--radius-sm);
   padding: 20px;
 }
 
@@ -4335,7 +4335,7 @@ svg defs {
 .tier-faq {
   background: var(--card-bg);
   border: 1px solid var(--border-primary);
-  border-radius: 12px;
+  border-radius: var(--radius-sm);
   padding: 24px;
   margin-top: 48px;
 }
@@ -4425,7 +4425,7 @@ svg defs {
   font-size: 1rem;
   background: var(--card-bg);
   border: 2px solid var(--border-primary);
-  border-radius: 12px;
+  border-radius: var(--radius-sm);
   color: var(--text-primary);
   transition: all 0.3s ease;
 }
@@ -4459,7 +4459,7 @@ svg defs {
   padding: 10px 20px;
   background: var(--card-secondary);
   border: 2px solid var(--border-secondary);
-  border-radius: 24px;
+  border-radius: var(--radius-md);
   font-size: 0.95rem;
   font-weight: 600;
   color: var(--text-secondary);
@@ -4489,7 +4489,7 @@ svg defs {
 .faq-item {
   background: var(--card-bg);
   border: 1px solid var(--border-primary);
-  border-radius: 12px;
+  border-radius: var(--radius-sm);
   overflow: hidden;
   transition: all 0.3s ease;
 }
@@ -4561,7 +4561,7 @@ svg defs {
 .faq-help {
   background: var(--card-bg);
   border: 2px solid var(--accent-primary);
-  border-radius: 12px;
+  border-radius: var(--radius-sm);
   padding: 32px;
   margin-top: 48px;
   text-align: center;
