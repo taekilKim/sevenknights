@@ -468,7 +468,7 @@ button {
 }
 
 .hero-portrait.rarity-legendary-plus {
-  background: radial-gradient(circle at center, #ffefb8, #eba22a);
+  background: url(/images/bg-legendary.png) center/cover no-repeat;
   border-color: #FFD700;
 }
 
