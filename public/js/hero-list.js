@@ -119,6 +119,24 @@ function renderHeroes(heroes) {
   if (!grid) return;
 
   grid.innerHTML = heroes.map(hero => createHeroCard(hero)).join('');
+
+  // Add skeleton loading to all images
+  const images = grid.querySelectorAll('.hero-portrait');
+  images.forEach(img => {
+    img.classList.add('img-loading');
+
+    if (img.complete) {
+      img.classList.add('loaded');
+    } else {
+      img.addEventListener('load', function() {
+        this.classList.add('loaded');
+      });
+
+      img.addEventListener('error', function() {
+        this.classList.add('loaded');
+      });
+    }
+  });
 }
 
 // Create Hero Card HTML

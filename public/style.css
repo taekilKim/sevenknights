@@ -839,6 +839,36 @@ button {
   to { transform: rotate(360deg); }
 }
 
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* ================================ */
+/* Image Skeleton Loading */
+/* ================================ */
+.img-loading {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(
+    90deg,
+    var(--bg-elevated) 0%,
+    var(--bg-tertiary) 50%,
+    var(--bg-elevated) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s ease-in-out infinite;
+}
+
+.img-loading.loaded {
+  animation: none;
+  background: transparent;
+}
+
 .loading-text {
   font-weight: 600;
   font-size: 18px;
@@ -2059,6 +2089,103 @@ svg defs {
   box-shadow: 0 2px 8px rgba(100, 181, 246, 0.3);
 }
 
+/* Rating Input */
+.rating-input-container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.rating-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 600;
+  color: var(--text-primary);
+  font-size: 0.95rem;
+}
+
+.rating-label i {
+  color: var(--accent-primary);
+  font-size: 1.1rem;
+}
+
+.star-rating-input {
+  display: flex;
+  gap: 4px;
+  font-size: 2rem;
+}
+
+.star-rating-input .star {
+  cursor: pointer;
+  color: var(--border-secondary);
+  transition: all 0.2s ease;
+  user-select: none;
+}
+
+.star-rating-input .star:hover,
+.star-rating-input .star.hovered {
+  color: #FFD700;
+  transform: scale(1.1);
+}
+
+.star-rating-input .star.selected {
+  color: #FFD700;
+}
+
+/* Hero Rating Display */
+.hero-rating-display {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 12px;
+  padding: 8px 12px;
+  background: var(--overlay-light);
+  backdrop-filter: blur(var(--blur-sm));
+  -webkit-backdrop-filter: blur(var(--blur-sm));
+  border: 1px solid var(--border-tertiary);
+  border-radius: 8px;
+  width: fit-content;
+}
+
+.rating-stars {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #FFD700;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.rating-stars i {
+  font-size: 1.2rem;
+}
+
+.rating-value {
+  color: var(--text-primary);
+}
+
+.rating-count {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+/* Comment Rating Display */
+.comment-rating {
+  display: flex;
+  gap: 2px;
+  margin-top: 4px;
+  font-size: 0.9rem;
+}
+
+.comment-rating .star {
+  color: #FFD700;
+}
+
+.comment-rating .star.empty {
+  color: var(--border-secondary);
+}
+
 .comment-list {
   list-style: none;
   padding: 0;
@@ -2619,6 +2746,280 @@ svg defs {
   background: var(--bg-elevated-hover);
   transform: translateY(-2px);
   box-shadow: 0 4px 12px var(--shadow-md);
+}
+
+/* Primary button large variant */
+.btn-large {
+  padding: 16px 32px;
+  font-size: 1.1rem;
+  justify-content: center;
+  width: 100%;
+}
+
+/* Secondary actions group */
+.deck-actions-secondary {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.deck-actions-secondary .btn-secondary {
+  font-size: 0.95rem;
+  padding: 10px 20px;
+}
+
+/* Tab Navigation */
+.deck-tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 24px;
+  border-bottom: 2px solid var(--border-secondary);
+  padding-bottom: 0;
+}
+
+.deck-tab {
+  padding: 12px 24px;
+  background: transparent;
+  border: none;
+  border-bottom: 3px solid transparent;
+  color: var(--text-secondary);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: "Pretendard", sans-serif;
+  position: relative;
+  bottom: -2px;
+}
+
+.deck-tab:hover {
+  color: var(--text-primary);
+  background: var(--bg-elevated);
+}
+
+.deck-tab.active {
+  color: var(--accent-primary);
+  border-bottom-color: var(--accent-primary);
+}
+
+.deck-tab i {
+  font-size: 1.2rem;
+}
+
+/* Tab Content */
+.deck-tab-content {
+  display: none;
+}
+
+.deck-tab-content.active {
+  display: block;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Shared Decks Container */
+.shared-decks-container {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.shared-decks-header {
+  margin-bottom: 32px;
+  text-align: center;
+}
+
+.shared-decks-header h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--accent-primary);
+  margin-bottom: 8px;
+}
+
+.shared-decks-subtitle {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  margin: 0;
+}
+
+.shared-decks-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.shared-decks-empty {
+  text-align: center;
+  padding: 60px 20px;
+  color: var(--text-secondary);
+}
+
+.shared-decks-empty p {
+  margin: 8px 0;
+  font-size: 1.1rem;
+}
+
+.empty-subtitle {
+  font-size: 0.95rem;
+  opacity: 0.7;
+}
+
+/* Shared Deck Card */
+.shared-deck-card {
+  background: var(--bg-elevated);
+  backdrop-filter: blur(var(--blur-md));
+  -webkit-backdrop-filter: blur(var(--blur-md));
+  border: 1px solid var(--border-secondary);
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 4px 16px var(--shadow-md);
+  transition: all 0.3s ease;
+}
+
+.shared-deck-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px var(--shadow-lg);
+}
+
+.shared-deck-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.shared-deck-author {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.shared-deck-date {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.shared-deck-image {
+  width: 100%;
+  border-radius: 12px;
+  margin-bottom: 16px;
+  background: var(--bg-secondary);
+}
+
+.shared-deck-comment {
+  color: var(--text-primary);
+  line-height: 1.6;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+/* Deck Preview Section */
+.deck-preview-section {
+  margin-bottom: 24px;
+}
+
+.deck-preview-section h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 12px;
+}
+
+.deck-preview-placeholder {
+  width: 100%;
+  height: 200px;
+  background: var(--bg-secondary);
+  border: 2px dashed var(--border-secondary);
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-secondary);
+}
+
+#deck-preview-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
+
+/* Form Groups */
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+  font-size: 0.95rem;
+}
+
+.form-input,
+.form-textarea {
+  width: 100%;
+  padding: 12px 16px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-secondary);
+  border-radius: 8px;
+  color: var(--text-primary);
+  font-size: 1rem;
+  font-family: "Pretendard", sans-serif;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+}
+
+.form-input:focus,
+.form-textarea:focus {
+  outline: none;
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 0 3px rgba(100, 181, 246, 0.1);
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.char-counter {
+  text-align: right;
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  margin-top: 4px;
+}
+
+/* Modal Actions */
+.modal-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.modal-actions .btn-primary,
+.modal-actions .btn-secondary {
+  flex: 1;
+  justify-content: center;
 }
 
 /* 영웅 선택 영역 헤더 */
