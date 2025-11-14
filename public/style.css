@@ -1380,15 +1380,18 @@ button {
 
 /* Carousel portrait rarity backgrounds */
 .carousel-portrait.rarity-legendary-plus {
-  background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+  background: radial-gradient(circle at center, #ffefb8, #eba22a);
+  border-color: #FFD700;
 }
 
 .carousel-portrait.rarity-legendary {
-  background: linear-gradient(135deg, #9C27B0 0%, #673AB7 100%);
+  background: radial-gradient(circle at center, #f3e0a8, #b68700);
+  border-color: #DAA520;
 }
 
 .carousel-portrait.rarity-rare {
-  background: linear-gradient(135deg, #2196F3 0%, #1976D2 100%);
+  background: radial-gradient(circle at center, #a693ff, #5a3ebd);
+  border-color: #9C27B0;
 }
 
 .carousel-portrait.rarity-uncommon {
