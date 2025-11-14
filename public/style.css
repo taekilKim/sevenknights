@@ -135,11 +135,11 @@ button {
 /* ================================ */
 .app-container {
   display: grid;
-  grid-template-columns: var(--sidebar-width) 1fr var(--sidebar-width);
+  grid-template-columns: 1fr;
   grid-template-rows: var(--header-height) 1fr;
   grid-template-areas:
-    "header header header"
-    "nav main filters";
+    "header"
+    "main";
   min-height: 100vh;
   background: var(--bg-secondary);
 }
@@ -167,6 +167,74 @@ button {
   display: flex;
   align-items: center;
   gap: 12px;
+}
+
+/* Desktop Header Navigation */
+.desktop-header-nav {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.desktop-nav-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  background: transparent;
+  border-radius: 12px;
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.desktop-nav-link:hover {
+  background: var(--overlay-light);
+  color: var(--text-primary);
+}
+
+.desktop-nav-link.active {
+  background: var(--overlay-light);
+  color: var(--accent-primary);
+  border: 1px solid var(--border-tertiary);
+}
+
+.desktop-nav-link i {
+  font-size: 1.1rem;
+}
+
+/* Header Right Section */
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Desktop Header Theme Toggle (compact, icon only) */
+.desktop-header-theme-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  background: var(--overlay-light);
+  border: 1px solid var(--border-tertiary);
+  border-radius: 10px;
+  color: var(--text-primary);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.desktop-header-theme-toggle:hover {
+  background: var(--overlay-medium);
+  border-color: var(--accent-primary);
+  color: var(--accent-primary);
+}
+
+.desktop-header-theme-toggle i {
+  font-size: 20px;
 }
 
 .hamburger-menu {
@@ -236,15 +304,7 @@ button {
 /* Desktop Navigation Sidebar */
 /* ================================ */
 .desktop-nav {
-  grid-area: nav;
-  position: sticky;
-  top: var(--header-height);
-  height: calc(100vh - var(--header-height));
-  padding: 24px 16px;
-  background: var(--bg-elevated);
-  border-right: 1px solid var(--border-primary);
-  overflow-y: auto;
-  display: flex;
+  display: none; /* Hide sidebar completely */
   flex-direction: column;
 }
 
@@ -318,6 +378,11 @@ button {
 .main-container {
   grid-area: main;
   overflow-y: auto;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 0 20px;
+  box-sizing: border-box;
 }
 
 .page-header {
@@ -376,8 +441,6 @@ button {
   background: var(--overlay-light);
   backdrop-filter: blur(var(--blur-sm));
   -webkit-backdrop-filter: blur(var(--blur-sm));
-  transform: scale(1.05) translateY(-4px);
-  box-shadow: 0 8px 32px var(--shadow-md);
 }
 
 .hero-portrait-wrapper {
@@ -580,8 +643,6 @@ button {
 .filter-chip:hover {
   background: var(--overlay-medium);
   border-color: var(--accent-primary);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px var(--shadow-md);
 }
 
 .filter-chip:has(input:checked) {
@@ -903,6 +964,16 @@ button {
   /* Show hamburger menu on mobile */
   .hamburger-menu {
     display: flex;
+  }
+
+  /* Hide desktop navigation on mobile */
+  .desktop-header-nav {
+    display: none;
+  }
+
+  /* Hide desktop theme toggle on mobile */
+  .desktop-header-theme-toggle {
+    display: none;
   }
 
   .header-brand {
@@ -1340,8 +1411,6 @@ button {
   background: var(--overlay-medium);
   border-color: var(--accent-primary);
   color: var(--accent-primary);
-  transform: scale(1.1);
-  box-shadow: 0 4px 16px var(--shadow-md);
 }
 
 .hero-nav-side:active:not(:disabled) {
@@ -1680,8 +1749,7 @@ button {
 
 .hero-skills .skill:hover {
   border-color: var(--accent-primary);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 24px var(--shadow-md);
+  background: var(--bg-elevated-hover);
 }
 
 .hero-skills .skill:hover::before {
@@ -2048,8 +2116,7 @@ svg defs {
 }
 
 #comment-form button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(100, 181, 246, 0.5);
+  opacity: 0.9;
 }
 
 #comment-form button:active {
@@ -2176,8 +2243,6 @@ svg defs {
 .comment-list li:hover {
   background: var(--overlay-medium);
   border-color: var(--accent-primary);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 16px var(--shadow-sm);
 }
 
 .comment-list li strong {
@@ -2241,8 +2306,6 @@ svg defs {
 .filter-buttons label:hover {
   background: var(--overlay-medium);
   border-color: var(--accent-primary);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px var(--shadow-md);
 }
 .filter-buttons input {
   display: none;
@@ -2393,8 +2456,6 @@ svg defs {
 .formation-option:hover {
   border-color: var(--accent-tertiary);
   background: var(--bg-elevated-hover);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px var(--shadow-md);
 }
 
 .formation-option.active {
@@ -2525,8 +2586,6 @@ svg defs {
 .deck-slot:hover {
   border-color: var(--accent-tertiary);
   background: var(--bg-elevated-hover);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 16px var(--shadow-sm);
 }
 
 /* F/B 인디케이터 */
@@ -2697,8 +2756,7 @@ svg defs {
 }
 
 .btn-primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(100, 181, 246, 0.5);
+  opacity: 0.9;
 }
 
 .btn-secondary {
@@ -2712,8 +2770,6 @@ svg defs {
 
 .btn-secondary:hover {
   background: var(--bg-elevated-hover);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px var(--shadow-md);
 }
 
 /* Primary button large variant */
@@ -2860,8 +2916,7 @@ svg defs {
 }
 
 .shared-deck-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 24px var(--shadow-lg);
+  background: var(--bg-elevated-hover);
 }
 
 .shared-deck-header {
@@ -3359,8 +3414,7 @@ svg defs {
 }
 
 #hero-select-modal .hero-card:hover {
-  transform: scale(1.05);
-  filter: brightness(1.2);
+  filter: brightness(1.1);
 }
 
 .modal-content {
@@ -3445,7 +3499,6 @@ svg defs {
   background: var(--bg-tertiary);
   border-color: var(--accent-primary);
   color: var(--accent-primary);
-  transform: translateY(-2px);
 }
 
 .share-option-btn i {
@@ -3891,10 +3944,6 @@ svg defs {
   /* Grid layout에서는 absolute positioning 불필요 */
 }
 
-.hero-top .hero-nav-side:hover {
-  transform: scale(1.05);
-}
-
 .prev-hero-side {
   /* Grid layout에서는 left positioning 불필요 */
 }
@@ -4171,8 +4220,7 @@ svg defs {
 }
 
 .tier-hero-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  background: var(--bg-elevated-hover);
   border-color: var(--accent-primary);
 }
 
