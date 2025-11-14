@@ -463,31 +463,18 @@ button {
   height: 100%;
   border-radius: var(--radius-md);
   object-fit: cover;
-  border: 3px solid #c1b494;
+  border: 1px solid #5e5a53;
   box-sizing: border-box;
 }
 
 .hero-portrait.rarity-legendary-plus {
   background: url(/images/bg-legendary.png) center/cover no-repeat;
-  border-color: #FFD700;
 }
-
 .hero-portrait.rarity-legendary {
   background: radial-gradient(circle at center, #f3e0a8, #b68700);
-  border-color: #DAA520;
 }
-
 .hero-portrait.rarity-rare {
   background: radial-gradient(circle at center, #a693ff, #5a3ebd);
-  border-color: #9C27B0;
-}
-
-.hero-portrait.has-effect {
-  border-color: rgb(255 187 61);
-  box-shadow:
-    0 0 10px rgba(255, 210, 130, 0.7),
-    0 0 20px rgba(255, 170, 70, 0.5),
-    0 0 30px rgba(255, 140, 40, 0.3);
 }
 
 .hero-type-badge {
@@ -2421,12 +2408,7 @@ svg defs {
 
 .hero-portrait.has-effect {
   position: relative;
-  border: 3px solid rgb(255 187 61);
   background-clip: padding-box;
-  box-shadow:
-    0 0 10px rgba(255, 210, 130, 0.7),
-    0 0 20px rgba(255, 170, 70, 0.5),
-    0 0 30px rgba(255, 140, 40, 0.3);
 }
 
 /* ------------------------------------ */
