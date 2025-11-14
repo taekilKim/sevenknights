@@ -191,6 +191,15 @@
             <span id="hero-type" class="hero-type"></span>
             <span id="hero-rarity" class="hero-rarity"></span>
           </div>
+
+          <!-- Average Rating Display -->
+          <div class="hero-rating-display" id="hero-rating-display" style="display: none;">
+            <div class="rating-stars">
+              <i class="ph-fill ph-star"></i>
+              <span class="rating-value" id="average-rating">0.0</span>
+            </div>
+            <span class="rating-count">(<span id="comment-count">0</span>)</span>
+          </div>
         </div>
       </div>
     </section>
@@ -255,6 +264,23 @@
       <section class="hero-comments">
         <form id="comment-form">
           <input type="text" id="nickname" name="nickname" placeholder="닉네임" required />
+
+          <!-- Star Rating Input -->
+          <div class="rating-input-container">
+            <label for="rating-input" class="rating-label">
+              <i class="ph-fill ph-star"></i>
+              평가
+            </label>
+            <div class="star-rating-input" id="star-rating-input">
+              <span class="star" data-rating="1">★</span>
+              <span class="star" data-rating="2">★</span>
+              <span class="star" data-rating="3">★</span>
+              <span class="star" data-rating="4">★</span>
+              <span class="star" data-rating="5">★</span>
+            </div>
+            <input type="hidden" id="rating-value" name="rating" value="0" required />
+          </div>
+
           <textarea id="comment-content" name="content" placeholder="의견을 입력하세요..." required></textarea>
           <button type="submit">등록</button>
         </form>
@@ -619,8 +645,86 @@
 </script>
 
   <script>
+    // Star Rating Input
+    const starInput = document.getElementById('star-rating-input');
+    const ratingValue = document.getElementById('rating-value');
+
+    if (starInput) {
+      const stars = starInput.querySelectorAll('.star');
+      let currentRating = 0;
+
+      stars.forEach(star => {
+        star.addEventListener('mouseenter', () => {
+          const rating = parseInt(star.dataset.rating);
+          updateStarDisplay(rating, true);
+        });
+
+        star.addEventListener('click', () => {
+          currentRating = parseInt(star.dataset.rating);
+          ratingValue.value = currentRating;
+          updateStarDisplay(currentRating, false);
+        });
+      });
+
+      starInput.addEventListener('mouseleave', () => {
+        updateStarDisplay(currentRating, false);
+      });
+
+      function updateStarDisplay(rating, isHover) {
+        stars.forEach(star => {
+          const starRating = parseInt(star.dataset.rating);
+          star.classList.remove('selected', 'hovered');
+
+          if (isHover) {
+            if (starRating <= rating) {
+              star.classList.add('hovered');
+            }
+          } else {
+            if (starRating <= rating) {
+              star.classList.add('selected');
+            }
+          }
+        });
+      }
+
+      // Expose reset function
+      window.resetRating = function() {
+        currentRating = 0;
+        ratingValue.value = "0";
+        stars.forEach(star => star.classList.remove('selected', 'hovered'));
+      };
+    }
+  </script>
+
+  <script>
     const commentForm = document.getElementById("comment-form");
     const commentList = document.getElementById("comment-list");
+
+    // Calculate and display average rating
+    function updateAverageRating(comments) {
+      const ratingDisplay = document.getElementById('hero-rating-display');
+      const avgRatingEl = document.getElementById('average-rating');
+      const commentCountEl = document.getElementById('comment-count');
+
+      if (!comments || comments.length === 0) {
+        ratingDisplay.style.display = 'none';
+        return;
+      }
+
+      const ratingsWithValues = comments.filter(c => c.rating && c.rating > 0);
+
+      if (ratingsWithValues.length === 0) {
+        ratingDisplay.style.display = 'none';
+        return;
+      }
+
+      const totalRating = ratingsWithValues.reduce((sum, c) => sum + c.rating, 0);
+      const avgRating = (totalRating / ratingsWithValues.length).toFixed(1);
+
+      avgRatingEl.textContent = avgRating;
+      commentCountEl.textContent = comments.length;
+      ratingDisplay.style.display = 'flex';
+    }
 
     // 댓글 불러오기
     async function loadComments() {
@@ -632,9 +736,26 @@
         commentList.innerHTML = "";
         (data.comments || []).forEach(comment => {
           const li = document.createElement("li");
-          li.innerHTML = `<strong>${comment.nickname}</strong><p>${comment.content}</p><span>${comment.timestamp || ""}</span>`;
+
+          // Create rating stars display
+          const rating = comment.rating || 0;
+          let ratingHTML = '<div class="comment-rating">';
+          for (let i = 1; i <= 5; i++) {
+            ratingHTML += `<span class="star ${i <= rating ? '' : 'empty'}">★</span>`;
+          }
+          ratingHTML += '</div>';
+
+          li.innerHTML = `
+            <strong>${comment.nickname}</strong>
+            ${ratingHTML}
+            <p>${comment.content}</p>
+            <span>${comment.timestamp || ""}</span>
+          `;
           commentList.appendChild(li);
         });
+
+        // Update average rating display
+        updateAverageRating(data.comments || []);
       } catch (err) {
         console.error("댓글 불러오기 오류:", err);
       }
@@ -645,16 +766,19 @@ commentForm.addEventListener("submit", async (e) => {
   e.preventDefault();
   const nickname = document.getElementById("nickname").value.trim();
   const content = document.getElementById("comment-content").value.trim();
+  const rating = parseInt(document.getElementById("rating-value").value);
+
   if (!nickname || !content) return alert("닉네임과 내용을 입력해주세요.");
+  if (!rating || rating < 1 || rating > 5) return alert("별점을 선택해주세요 (1-5).");
 
   try {
     // ✅ [추가된 부분] 실제로 전송되는 데이터를 콘솔에 출력
-    console.log("📩 전송 데이터:", { heroId: window.heroId, nickname, content });
+    console.log("📩 전송 데이터:", { heroId: window.heroId, nickname, content, rating });
 
     const res = await fetch(`/api/comments/${window.heroId}`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ heroId: window.heroId, nickname, content }),
+      body: JSON.stringify({ heroId: window.heroId, nickname, content, rating }),
     });
 
     // ✅ [추가된 부분] 서버 응답 상태 코드 확인
@@ -662,6 +786,10 @@ commentForm.addEventListener("submit", async (e) => {
 
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     document.getElementById("comment-content").value = "";
+    document.getElementById("nickname").value = "";
+    // Reset star rating
+    if (window.resetRating) window.resetRating();
+
     await loadComments();
   } catch (err) {
     console.error("❌ 댓글 등록 오류:", err);
