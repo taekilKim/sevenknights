@@ -689,7 +689,7 @@
       async function fetchHeroes() {
         showLoading(true);
         try {
-          const response = await fetch("/api/heroes");
+          const response = await fetch("/api/heroes", { cache: 'no-store' });
           const data = await response.json();
           if (!Array.isArray(data)) {
             console.error("서버 응답:", data);

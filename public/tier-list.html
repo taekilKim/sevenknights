@@ -302,7 +302,7 @@
       });
 
       // Load heroes and organize by tier
-      fetch('/api/heroes')
+      fetch('/api/heroes', { cache: 'no-store' })
         .then(res => res.json())
         .then(data => {
           const heroes = data.records || data || [];

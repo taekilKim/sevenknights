@@ -13,7 +13,7 @@ function showLoading(show) {
 async function fetchHeroes() {
   showLoading(true);
   try {
-    const response = await fetch('/api/heroes');
+    const response = await fetch('/api/heroes', { cache: 'no-store' });
     const data = await response.json();
 
     // Handle both {records: [...]} and direct array response
