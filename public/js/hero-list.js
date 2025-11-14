@@ -130,11 +130,7 @@ function createRarityBorder(isOldSevenKnights) {
     ? '/images/border-legendary-oldsena.png'
     : '/images/border-legendary.png';
 
-  return `
-    <div class="rarity-border">
-      <img src="${borderImage}" alt="전설 테두리" style="position: absolute; top: 0; right: 0; width: 100%; height: 100%; z-index: 1; pointer-events: none;">
-    </div>
-  `;
+  return `<img src="${borderImage}" alt="전설 테두리" class="rarity-border">`;
 }
 
 // Navigate to Hero Detail

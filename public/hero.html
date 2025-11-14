@@ -504,24 +504,13 @@
             // Rarity border PNG if hasEffect
             if (hero.hasEffect === true || hero.hasEffect === "true" || hero.hasEffect === 1) {
               const isOldSevenKnights = hero.group && hero.group.includes("(구)세븐나이츠");
-              const borderWrapper = document.createElement("div");
-              borderWrapper.className = "rarity-border";
-
               const borderImg = document.createElement("img");
+              borderImg.className = "rarity-border";
               borderImg.src = isOldSevenKnights
                 ? "/images/border-legendary-oldsena.png"
                 : "/images/border-legendary.png";
               borderImg.alt = "전설 테두리";
-              borderImg.style.position = "absolute";
-              borderImg.style.top = "0";
-              borderImg.style.right = "0";
-              borderImg.style.width = "100%";
-              borderImg.style.height = "100%";
-              borderImg.style.zIndex = "1";
-              borderImg.style.pointerEvents = "none";
-
-              borderWrapper.appendChild(borderImg);
-              wrap.appendChild(borderWrapper);
+              wrap.appendChild(borderImg);
             }
 
             // Type badge (if hero.typeImage)
@@ -980,24 +969,13 @@ commentForm.addEventListener("submit", async (e) => {
           // Rarity border PNG if hasEffect
           if (hero.hasEffect === true || hero.hasEffect === "true" || hero.hasEffect === 1) {
             const isOldSevenKnights = hero.group && hero.group.includes("(구)세븐나이츠");
-            const borderWrapper = document.createElement("div");
-            borderWrapper.className = "rarity-border";
-
             const borderImg = document.createElement("img");
+            borderImg.className = "rarity-border";
             borderImg.src = isOldSevenKnights
               ? "/images/border-legendary-oldsena.png"
               : "/images/border-legendary.png";
             borderImg.alt = "전설 테두리";
-            borderImg.style.position = "absolute";
-            borderImg.style.top = "0";
-            borderImg.style.right = "0";
-            borderImg.style.width = "100%";
-            borderImg.style.height = "100%";
-            borderImg.style.zIndex = "1";
-            borderImg.style.pointerEvents = "none";
-
-            borderWrapper.appendChild(borderImg);
-            item.appendChild(borderWrapper);
+            item.appendChild(borderImg);
           }
 
           // 영웅 이름 추가
