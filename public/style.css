@@ -2087,7 +2087,7 @@ button {
 }
 
 .skill-target-box.target-enemy-single::before {
-  background-image: url('/images/target-enemy-single.svg');
+  background-image: url('/images/target_enemy_single.png');
 }
 
 [data-theme="light"] .skill-target-box.target-enemy-single {
@@ -2104,7 +2104,7 @@ button {
 }
 
 .skill-target-box.target-enemy-multi::before {
-  background-image: url('/images/target-enemy-multi.svg');
+  background-image: url('/images/target_enemy_multiple.png');
 }
 
 [data-theme="light"] .skill-target-box.target-enemy-multi {
@@ -2121,7 +2121,7 @@ button {
 }
 
 .skill-target-box.target-ally-single::before {
-  background-image: url('/images/target-ally-single.svg');
+  background-image: url('/images/target_friendly_single.png');
 }
 
 [data-theme="light"] .skill-target-box.target-ally-single {
@@ -2138,7 +2138,7 @@ button {
 }
 
 .skill-target-box.target-ally-multi::before {
-  background-image: url('/images/target-ally-multi.svg');
+  background-image: url('/images/target_friendly_multiple.png');
 }
 
 [data-theme="light"] .skill-target-box.target-ally-multi {
