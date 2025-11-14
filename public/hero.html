@@ -717,6 +717,12 @@ commentForm.addEventListener("submit", async (e) => {
 
           item.appendChild(portrait);
 
+          // 영웅 이름 추가
+          const nameLabel = document.createElement('div');
+          nameLabel.className = 'carousel-name';
+          nameLabel.textContent = hero.name;
+          item.appendChild(nameLabel);
+
           // 클릭 이벤트
           item.addEventListener('click', () => {
             window.location.href = `/hero.html?name=${encodeURIComponent(hero.name)}`;
