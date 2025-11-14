@@ -353,7 +353,7 @@
         container.classList.add("loading");
         skeleton.style.display = "block";
       }
-      fetch(`/api/hero/name/${encodeURIComponent(heroId)}`)
+      fetch(`/api/hero/name/${encodeURIComponent(heroId)}`, { cache: 'no-store' })
         .then(res => {
           if (!res.ok) throw new Error(`HTTP ${res.status}`);
           return res.json();
@@ -936,7 +936,7 @@ commentForm.addEventListener("submit", async (e) => {
     let currentHeroIndex = -1;
 
     // 전체 영웅 목록 가져오기 및 캐러셀 렌더링
-    fetch('/api/heroes')
+    fetch('/api/heroes', { cache: 'no-store' })
       .then(res => res.json())
       .then(heroes => {
         console.log('📊 전체 영웅 목록:', heroes.length, '명');
