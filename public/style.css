@@ -357,8 +357,8 @@ button {
 .hero-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-  gap: 24px;
-  padding: 16px 0;
+  gap: 8px;
+  padding: 24px;
 }
 
 .hero-card {
@@ -393,7 +393,6 @@ button {
   border-radius: 20px;
   object-fit: cover;
   border: 3px solid #c1b494;
-  padding: 4px;
   box-sizing: border-box;
 }
 
@@ -460,13 +459,6 @@ button {
   color: var(--text-primary);
   text-align: center;
   margin-top: 4px;
-}
-
-.hero-nickname {
-  font-size: 0.75rem;
-  color: var(--text-tertiary);
-  text-align: center;
-  margin-top: 2px;
 }
 
 /* ================================ */
@@ -3306,11 +3298,13 @@ svg defs {
 }
 
 .hero-nickname {
-  font-size: 0.8rem;
+  font-size: 1rem;
+  font-weight:600;
   color: var(--text-tertiary);
   text-align: center;
   margin-top: 4px;
 }
+
 
 /* 모달 공통 */
 .modal {
