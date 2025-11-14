@@ -86,20 +86,63 @@
     const globalParams = new URLSearchParams(window.location.search);
     window.heroId = globalParams.get("name") ? decodeURIComponent(globalParams.get("name")) : null;
   </script>
-  <header class="hero-header">
-    <div class="hero-nav-buttons">
-      <button class="back-button" onclick="window.history.back()"><i class="ph-bold ph-caret-left"></i> 목록으로</button>
-    </div>
-    <div class="header-actions">
+  <div class="app-container">
+    <!-- Header -->
+    <header class="app-header">
+      <div class="header-left">
+        <button class="hamburger-menu" id="hamburger-menu" aria-label="메뉴">
+          <i class="ph-bold ph-list"></i>
+        </button>
+        <img src="/favicon.ico" alt="세븐나이츠 리버스 로고" class="header-logo" />
+        <div class="header-brand">세나DB</div>
+      </div>
       <button class="theme-toggle" id="theme-toggle" aria-label="테마 전환">
         <i class="ph-bold ph-sun" id="theme-icon"></i>
         <span id="theme-text">라이트 모드</span>
       </button>
-    </div>
-  </header>
+    </header>
 
-  <div class="hero-detail-page">
-    <main class="hero-detail-container">
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="mobile-menu-overlay">
+      <div class="mobile-menu">
+        <div class="mobile-menu-header">
+          <img src="/favicon.ico" alt="세븐나이츠 리버스 로고" class="mobile-menu-logo" />
+          <span>메뉴</span>
+          <button class="mobile-menu-close" id="mobile-menu-close" aria-label="닫기">
+            <i class="ph-bold ph-x"></i>
+          </button>
+        </div>
+        <nav class="mobile-menu-nav">
+          <a href="/index.html" class="mobile-nav-link">
+            <i class="ph-bold ph-users-three"></i>
+            <span>영웅 도감</span>
+          </a>
+          <a href="/deck.html" class="mobile-nav-link">
+            <i class="ph-bold ph-sword"></i>
+            <span>결투장 덱</span>
+          </a>
+        </nav>
+      </div>
+    </div>
+
+    <!-- Desktop Navigation Sidebar -->
+    <aside class="desktop-nav">
+      <nav>
+        <a href="/index.html" class="nav-link">
+          <i class="ph-bold ph-users-three"></i>
+          <span>영웅 도감</span>
+        </a>
+        <a href="/deck.html" class="nav-link">
+          <i class="ph-bold ph-sword"></i>
+          <span>결투장 덱</span>
+        </a>
+      </nav>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-container">
+      <div class="hero-detail-page">
+    <div class="hero-detail-container">
       <div id="hero-skeleton" class="skeleton-container">
         <div class="skeleton hero-portrait-skeleton"></div>
         <div class="skeleton hero-name-skeleton"></div>
@@ -112,6 +155,11 @@
     <div class="page-header sr-only">
       <h1 id="hero-guide-heading">세븐나이츠 리버스 영웅 상세 정보</h1>
       <p class="subtitle">영웅의 스탯, 스킬, 희귀도 및 소속을 자세히 확인하세요.</p>
+    </div>
+
+    <!-- 목록으로 버튼 -->
+    <div class="hero-nav-buttons">
+      <button class="back-button" onclick="window.location.href='/index.html'"><i class="ph-bold ph-caret-left"></i> 목록으로</button>
     </div>
 
     <!-- 영웅 캐러셀 네비게이션 -->
@@ -205,8 +253,8 @@
         <ul id="comment-list" class="comment-list"></ul>
       </section>
     </div>
-    </main>
-  </div>
+    </div>
+      </div>
 
   <script>
     const heroName = window.heroId;
@@ -756,5 +804,10 @@ commentForm.addEventListener("submit", async (e) => {
       }
     });
   </script>
+
+  <!-- Mobile Menu Script -->
+  <script src="/js/mobile-menu.js"></script>
+    </main>
+  </div>
 </body>
 </html>
