@@ -259,6 +259,68 @@
           <p class="page-subtitle">모든 영웅의 능력치, 소속, 스킬, 장비 정보를 한눈에 확인</p>
         </div>
 
+        <!-- Desktop Filters -->
+        <div class="desktop-filters">
+          <div class="filter-section-horizontal">
+            <div class="filter-group-horizontal">
+              <label class="filter-label">등급</label>
+              <div class="filter-options" id="filter-rarity">
+                <label class="filter-chip">
+                  <input type="checkbox" value="전체" checked>
+                  <span>전체</span>
+                </label>
+                <label class="filter-chip">
+                  <input type="checkbox" value="전설+">
+                  <span>전설+</span>
+                </label>
+                <label class="filter-chip">
+                  <input type="checkbox" value="전설">
+                  <span>전설</span>
+                </label>
+                <label class="filter-chip">
+                  <input type="checkbox" value="희귀">
+                  <span>희귀</span>
+                </label>
+              </div>
+            </div>
+
+            <div class="filter-group-horizontal">
+              <label class="filter-label">타입</label>
+              <div class="filter-options" id="filter-type">
+                <label class="filter-chip">
+                  <input type="checkbox" value="전체" checked>
+                  <span>전체</span>
+                </label>
+                <label class="filter-chip">
+                  <input type="checkbox" value="공격형">
+                  <span>공격형</span>
+                </label>
+                <label class="filter-chip">
+                  <input type="checkbox" value="마법형">
+                  <span>마법형</span>
+                </label>
+                <label class="filter-chip">
+                  <input type="checkbox" value="만능형">
+                  <span>만능형</span>
+                </label>
+                <label class="filter-chip">
+                  <input type="checkbox" value="방어형">
+                  <span>방어형</span>
+                </label>
+                <label class="filter-chip">
+                  <input type="checkbox" value="지원형">
+                  <span>지원형</span>
+                </label>
+              </div>
+            </div>
+
+            <div class="filter-group-horizontal">
+              <label class="filter-label">소속</label>
+              <div class="filter-options" id="filter-group"></div>
+            </div>
+          </div>
+        </div>
+
         <!-- Mobile Filters and View Toggle -->
         <div class="filter-and-view-controls">
           <div class="mobile-filter-bar">
@@ -295,70 +357,6 @@
         <!-- Hero Grid -->
         <div id="hero-grid" class="hero-grid"></div>
       </main>
-
-      <!-- Desktop Filters Sidebar -->
-      <aside class="desktop-filters">
-        <div class="filter-section">
-          <h3 class="filter-heading">필터</h3>
-
-          <div class="filter-group">
-            <label class="filter-label">등급</label>
-            <div class="filter-options" id="filter-rarity">
-              <label class="filter-chip">
-                <input type="checkbox" value="전체" checked>
-                <span>전체</span>
-              </label>
-              <label class="filter-chip">
-                <input type="checkbox" value="전설+">
-                <span>전설+</span>
-              </label>
-              <label class="filter-chip">
-                <input type="checkbox" value="전설">
-                <span>전설</span>
-              </label>
-              <label class="filter-chip">
-                <input type="checkbox" value="희귀">
-                <span>희귀</span>
-              </label>
-            </div>
-          </div>
-
-          <div class="filter-group">
-            <label class="filter-label">타입</label>
-            <div class="filter-options" id="filter-type">
-              <label class="filter-chip">
-                <input type="checkbox" value="전체" checked>
-                <span>전체</span>
-              </label>
-              <label class="filter-chip">
-                <input type="checkbox" value="공격형">
-                <span>공격형</span>
-              </label>
-              <label class="filter-chip">
-                <input type="checkbox" value="마법형">
-                <span>마법형</span>
-              </label>
-              <label class="filter-chip">
-                <input type="checkbox" value="만능형">
-                <span>만능형</span>
-              </label>
-              <label class="filter-chip">
-                <input type="checkbox" value="방어형">
-                <span>방어형</span>
-              </label>
-              <label class="filter-chip">
-                <input type="checkbox" value="지원형">
-                <span>지원형</span>
-              </label>
-            </div>
-          </div>
-
-          <div class="filter-group">
-            <label class="filter-label">소속</label>
-            <div class="filter-options" id="filter-group"></div>
-          </div>
-        </div>
-      </aside>
 
       <!-- Mobile Bottom Navigation -->
       <nav class="mobile-bottom-nav">
