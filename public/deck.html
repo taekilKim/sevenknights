@@ -612,24 +612,13 @@
             // Rarity border PNG if hasEffect
             if (hero.hasEffect) {
               const isOldSevenKnights = hero.group && hero.group.includes("(구)세븐나이츠");
-              const borderWrapper = document.createElement("div");
-              borderWrapper.className = "rarity-border";
-
               const borderImg = document.createElement("img");
+              borderImg.className = "rarity-border";
               borderImg.src = isOldSevenKnights
                 ? "/images/border-legendary-oldsena.png"
                 : "/images/border-legendary.png";
               borderImg.alt = "전설 테두리";
-              borderImg.style.position = "absolute";
-              borderImg.style.top = "0";
-              borderImg.style.right = "0";
-              borderImg.style.width = "100%";
-              borderImg.style.height = "100%";
-              borderImg.style.zIndex = "1";
-              borderImg.style.pointerEvents = "none";
-
-              borderWrapper.appendChild(borderImg);
-              imgWrapper.appendChild(borderWrapper);
+              imgWrapper.appendChild(borderImg);
             }
 
             if (hero.typeImage) {
@@ -795,24 +784,13 @@
             // Rarity border PNG if hasEffect
             if (hero.hasEffect) {
               const isOldSevenKnights = hero.group && hero.group.includes("(구)세븐나이츠");
-              const borderWrapper = document.createElement("div");
-              borderWrapper.className = "rarity-border";
-
               const borderImg = document.createElement("img");
+              borderImg.className = "rarity-border";
               borderImg.src = isOldSevenKnights
                 ? "/images/border-legendary-oldsena.png"
                 : "/images/border-legendary.png";
               borderImg.alt = "전설 테두리";
-              borderImg.style.position = "absolute";
-              borderImg.style.top = "0";
-              borderImg.style.right = "0";
-              borderImg.style.width = "100%";
-              borderImg.style.height = "100%";
-              borderImg.style.zIndex = "1";
-              borderImg.style.pointerEvents = "none";
-
-              borderWrapper.appendChild(borderImg);
-              imgWrapper.appendChild(borderWrapper);
+              imgWrapper.appendChild(borderImg);
             }
 
             if (hero.typeImage) {
