@@ -471,10 +471,10 @@ button {
   background: url(/images/bg-legendary.png) center/cover no-repeat;
 }
 .hero-portrait.rarity-legendary {
-  background: radial-gradient(circle at center, #f3e0a8, #b68700);
+  background: url(/images/bg-legendary.png) center/cover no-repeat;
 }
 .hero-portrait.rarity-rare {
-  background: radial-gradient(circle at center, #a693ff, #5a3ebd);
+  background: url(/images/bg-rare.png) center/cover no-repeat;
 }
 
 .hero-type-badge {
