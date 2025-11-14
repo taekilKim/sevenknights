@@ -1197,6 +1197,7 @@ button {
   cursor: pointer;
   transition: all 0.2s ease;
   position: relative;
+  padding:4px;
 }
 
 .carousel-item:hover {
@@ -1204,16 +1205,16 @@ button {
 }
 
 .carousel-item.active {
-  box-shadow: 0 0 0 2px var(--accent-primary);
-  z-index: 1;
-  border-radius: 12px;
+    box-shadow: 0 0 0 2px var(--accent-primary);
+    z-index: 1;
+    border-radius: 10px;
 }
 
 .carousel-portrait {
   width: 56px;
   height: 56px;
   object-fit: cover;
-  border-radius: 12px;
+  border-radius: 8px;
   border: 2px solid var(--border-secondary);
 }
 
