@@ -153,6 +153,11 @@ app.get("/api/hero/:id", async (req, res) => {
     const heroData = await heroRes.json();
     const fields = heroData.fields || {};
 
+    // 🔍 디버깅: 영웅 데이터 확인
+    console.log(`\n🔍 영웅 조회: ${fields.Name || id}`);
+    console.log(`📝 Description 필드:`, fields.Description ? '있음' : '없음');
+    console.log(`📝 모든 필드 키:`, Object.keys(fields));
+
     // Fetch Type table for type image
     const typesRes = await fetch(
       `https://api.airtable.com/v0/${BASE_ID}/Type`,
@@ -191,6 +196,8 @@ app.get("/api/hero/:id", async (req, res) => {
     let active1Skill = null;
     let active2Skill = null;
 
+    console.log(`🎯 스킬 테이블 레코드 수:`, skillsData.records?.length || 0);
+
     for (const skillRecord of skillsData.records || []) {
       const f = skillRecord.fields || {};
 
@@ -201,15 +208,33 @@ app.get("/api/hero/:id", async (req, res) => {
         cooltime: f.cooltime || f.Cooltime || f.coolTime || f.cool_time || null,
       };
 
-      if ((f.attack_hero || []).includes(id)) attackSkill = skillData;
-      if ((f.passive_hero || []).includes(id)) passiveSkill = skillData;
-      if ((f.active_1_hero || []).includes(id)) active1Skill = skillData;
-      if ((f.active_2_hero || []).includes(id)) active2Skill = skillData;
+      if ((f.attack_hero || []).includes(id)) {
+        attackSkill = skillData;
+        console.log(`⚔️ 공격 스킬 발견: ${skillData.name}`);
+      }
+      if ((f.passive_hero || []).includes(id)) {
+        passiveSkill = skillData;
+        console.log(`🛡️ 패시브 스킬 발견: ${skillData.name}`);
+      }
+      if ((f.active_1_hero || []).includes(id)) {
+        active1Skill = skillData;
+        console.log(`✨ 액티브1 스킬 발견: ${skillData.name}`);
+      }
+      if ((f.active_2_hero || []).includes(id)) {
+        active2Skill = skillData;
+        console.log(`💫 액티브2 스킬 발견: ${skillData.name}`);
+      }
     }
+
+    console.log(`📊 스킬 매칭 결과: 공격=${!!attackSkill}, 패시브=${!!passiveSkill}, 액티브1=${!!active1Skill}, 액티브2=${!!active2Skill}`);
 
     // ✅ 응답 구성
     const typeName = pick(fields, ["type", "Type"]);
-    res.json({
+    const description = pick(fields, ["Description"]);
+
+    console.log(`📖 Description 값:`, description ? `"${description.substring(0, 50)}..."` : 'null');
+
+    const responseData = {
       id: heroData.id,
       name: pick(fields, ["Name"]),
       nickname: pick(fields, ["nickname"]),
@@ -236,9 +261,12 @@ app.get("/api/hero/:id", async (req, res) => {
       active_1: active1Skill,
       active_2: active2Skill,
 
-      description: pick(fields, ["Description"]),
+      description: description,
       hasEffect: !!fields.hasEffect // ✅ 추가됨
-    });
+    };
+
+    console.log(`✅ 최종 응답 데이터 구성 완료\n`);
+    res.json(responseData);
   } catch (error) {
     console.error("Failed to fetch hero:", error);
     res.status(500).json({ error: "Failed to fetch hero details" });
