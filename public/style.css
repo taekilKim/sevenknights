@@ -163,6 +163,14 @@ button {
   display: flex;
   align-items: center;
   gap: 12px;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+.header-left:hover {
+  opacity: 0.8;
 }
 
 /* Desktop Header Navigation */
