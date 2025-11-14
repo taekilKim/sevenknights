@@ -107,7 +107,7 @@ function createHeroCard(hero) {
   const hasEffect = hero.hasEffect === true || hero.hasEffect === 'true' || hero.hasEffect === 1;
   const isOldSevenKnights = hero.group && hero.group.includes('(구)세븐나이츠');
 
-  const diamondSvg = hasEffect ? createDiamondSvg(hero, isOldSevenKnights) : '';
+  const rarityBorder = hasEffect ? createRarityBorder(isOldSevenKnights) : '';
   const typeBadge = hero.typeImage ? `<img src="${hero.typeImage}" alt="${hero.type}" class="hero-type-badge">` : '';
   const nickname = hero.nickname ? `<div class="hero-nickname">${hero.nickname}</div>` : '';
 
@@ -115,7 +115,7 @@ function createHeroCard(hero) {
     <div class="hero-card" data-name="${hero.name}" data-group="${hero.group || ''}" onclick="navigateToHero('${hero.name}')">
       <div class="hero-portrait-wrapper">
         <img src="${hero.portrait}" alt="${hero.name}" class="hero-portrait rarity-${rarityClass} ${hasEffect ? 'has-effect' : ''}">
-        ${diamondSvg}
+        ${rarityBorder}
         ${typeBadge}
       </div>
       <div class="hero-name">${hero.name}</div>
@@ -124,25 +124,15 @@ function createHeroCard(hero) {
   `;
 }
 
-// Create Diamond SVG for Legendary+
-function createDiamondSvg(hero, isOldSevenKnights) {
-  const gradientId = `diamond_${hero.name.replace(/\s/g, '')}_${Date.now()}`;
-  const colors = isOldSevenKnights
-    ? { start: '#EEDBFF', mid: '#C49CFF', end: '#9C6BFF' }
-    : { start: '#FFF8E1', mid: '#FFE082', end: '#FFB300' };
+// Create Rarity Border PNG for Legendary+
+function createRarityBorder(isOldSevenKnights) {
+  const borderImage = isOldSevenKnights
+    ? '/images/border-legendary-oldsena.png'
+    : '/images/border-legendary.png';
 
   return `
-    <div class="rarity-diamond-effect">
-      <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 100 100" fill="none">
-        <defs>
-          <linearGradient id="${gradientId}" x1="0" y1="0" x2="500" y2="500" gradientUnits="userSpaceOnUse">
-            <stop stop-color="${colors.start}"/>
-            <stop offset="0.533654" stop-color="${colors.mid}"/>
-            <stop offset="1" stop-color="${colors.end}"/>
-          </linearGradient>
-        </defs>
-        <path d="M99.0854 0.124826C99.6876 -0.259713 100.26 0.312411 99.8752 0.914611C74.5556 40.6083 73.1362 54.5342 90.8173 89.847C91.0858 90.3826 90.384 91.0844 89.8483 90.816L89.847 90.8174C54.5329 73.1375 40.6072 74.5546 0.914577 99.8752C0.312412 100.26 -0.259673 99.6876 0.124792 99.0854C25.4444 59.3918 26.8625 45.4671 9.18167 10.1521C8.9215 9.63314 9.57223 8.95807 10.1001 9.16059L10.1507 9.18308C45.4657 26.8639 59.3905 25.4457 99.0854 0.124826ZM65.703 34.2974C61.9959 35.3198 58.2999 36.037 54.5685 36.4171C48.0147 37.0846 41.7138 36.6839 35.4457 35.4467C36.6829 41.7148 37.0837 48.0156 36.4162 54.5693C36.0363 58.3003 35.3191 61.996 34.2969 65.7027C38.0036 64.6805 41.6993 63.9633 45.4303 63.5834C51.9843 62.9159 58.2853 63.3166 64.5537 64.5539C63.3165 58.2856 62.9157 51.9848 63.5833 45.4307C63.9634 41.6997 64.6808 38.0041 65.703 34.2974Z" fill="url(#${gradientId})"/>
-      </svg>
+    <div class="rarity-border">
+      <img src="${borderImage}" alt="전설 테두리" style="position: absolute; top: 0; right: 0; width: 100%; height: 100%; z-index: 1; pointer-events: none;">
     </div>
   `;
 }
