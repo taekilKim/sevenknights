@@ -2998,29 +2998,21 @@ svg defs {
   height: 70px;
   border-radius: var(--radius-sm);
   object-fit: cover;
-  border: 3px solid #c1b494;
+  border: 1px solid #5e5a53;
   flex-shrink: 0;
 }
 
 /* Deck slot portrait rarity backgrounds */
 .slot-hero-portrait.rarity-legendary-plus {
-  background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+  background: url(/images/bg-legendary.png) center/cover no-repeat;
 }
 
 .slot-hero-portrait.rarity-legendary {
-  background: linear-gradient(135deg, #9C27B0 0%, #673AB7 100%);
+  background: url(/images/bg-legendary.png) center/cover no-repeat;
 }
 
 .slot-hero-portrait.rarity-rare {
-  background: linear-gradient(135deg, #2196F3 0%, #1976D2 100%);
-}
-
-.slot-hero-portrait.rarity-uncommon {
-  background: linear-gradient(135deg, #4CAF50 0%, #388E3C 100%);
-}
-
-.slot-hero-portrait.rarity-normal {
-  background: linear-gradient(135deg, #9E9E9E 0%, #757575 100%);
+  background: url(/images/bg-rare.png) center/cover no-repeat;
 }
 
 .slot-hero-name {
