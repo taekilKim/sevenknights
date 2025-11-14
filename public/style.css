@@ -2709,7 +2709,7 @@ svg defs {
   flex-direction: column;
   padding: 32px;
   width: 100%;
-  max-width: 100%;
+  max-width: 1200px;
   margin: 0 auto;
   box-sizing: border-box;
   height: calc(100vh - 80px);
@@ -2771,7 +2771,7 @@ svg defs {
   grid-template-columns: 1fr 1fr;
   gap: 24px;
   width: 100%;
-  max-width: 1400px;
+  max-width: 1200px;
   height: 100%;
 }
 
