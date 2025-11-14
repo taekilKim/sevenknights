@@ -44,46 +44,20 @@ async function fetchHeroes() {
 
 // Initialize Dynamic Filters
 function initializeFilters() {
-  // Generate group filter options
-  const groupContainer = document.getElementById('filter-group');
-  const uniqueGroups = [...new Set(allHeroes.map(h => h.group).filter(Boolean))].sort((a, b) => a.localeCompare(b, 'ko'));
-
-  groupContainer.innerHTML = `
-    <label class="filter-chip">
-      <input type="checkbox" value="전체" checked>
-      <span>전체</span>
-    </label>
-    ${uniqueGroups.map(group => `
-      <label class="filter-chip">
-        <input type="checkbox" value="${group}">
-        <span>${group}</span>
-      </label>
-    `).join('')}
-  `;
-
-  // Update mobile group filter
-  const mobileGroupFilter = document.getElementById('mobile-filter-group');
-  if (mobileGroupFilter) {
-    mobileGroupFilter.innerHTML = `
-      <option value="전체">소속: 전체</option>
-      ${uniqueGroups.map(group => `<option value="${group}">${group}</option>`).join('')}
-    `;
-  }
+  // No dynamic filters to initialize
 }
 
 // Apply Filters and Sort
 function applyFiltersAndSort(heroes) {
   const selectedRarity = getCheckedValues('#filter-rarity input:checked');
   const selectedType = getCheckedValues('#filter-type input:checked');
-  const selectedGroup = getCheckedValues('#filter-group input:checked');
   const sortValue = document.querySelector('input[name="sort"]:checked')?.value || 'name';
 
   // Filter heroes
   let filtered = heroes.filter(hero => {
     const rarityMatch = selectedRarity.includes('전체') || selectedRarity.includes(hero.rarity);
     const typeMatch = selectedType.includes('전체') || selectedType.includes(hero.type);
-    const groupMatch = selectedGroup.includes('전체') || selectedGroup.includes(hero.group);
-    return rarityMatch && typeMatch && groupMatch;
+    return rarityMatch && typeMatch;
   });
 
   // Sort heroes
@@ -182,7 +156,7 @@ function navigateToHero(heroName) {
 // Setup Filter Event Listeners
 function setupFilterListeners() {
   // Desktop filter checkboxes
-  const filterSelectors = '#filter-rarity input, #filter-type input, #filter-group input, input[name="sort"]';
+  const filterSelectors = '#filter-rarity input, #filter-type input, input[name="sort"]';
   document.querySelectorAll(filterSelectors).forEach(el => {
     el.addEventListener('change', () => {
       renderHeroes(applyFiltersAndSort(allHeroes));
@@ -190,7 +164,7 @@ function setupFilterListeners() {
   });
 
   // "전체" checkbox logic for each filter group
-  ['filter-rarity', 'filter-type', 'filter-group'].forEach(groupId => {
+  ['filter-rarity', 'filter-type'].forEach(groupId => {
     const container = document.getElementById(groupId);
     if (!container) return;
 
@@ -230,7 +204,6 @@ function handleFilterGroupLogic(container, checkboxes, changedCheckbox) {
 function setupMobileFilterSync() {
   const mobileRarity = document.getElementById('mobile-filter-rarity');
   const mobileType = document.getElementById('mobile-filter-type');
-  const mobileGroup = document.getElementById('mobile-filter-group');
   const mobileSort = document.getElementById('mobile-sort');
 
   if (mobileRarity) {
@@ -243,13 +216,6 @@ function setupMobileFilterSync() {
   if (mobileType) {
     mobileType.addEventListener('change', (e) => {
       syncMobileToDesktop('#filter-type', e.target.value);
-      renderHeroes(applyFiltersAndSort(allHeroes));
-    });
-  }
-
-  if (mobileGroup) {
-    mobileGroup.addEventListener('change', (e) => {
-      syncMobileToDesktop('#filter-group', e.target.value);
       renderHeroes(applyFiltersAndSort(allHeroes));
     });
   }
