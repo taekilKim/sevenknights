@@ -914,8 +914,9 @@
           if (hero) {
             slot.innerHTML = `
               <div class="slot-indicator">F</div>
-              <div class="slot-hero">
-                <img src="${hero.portrait}" alt="${hero.name}" class="slot-hero-portrait rarity-${getRarityClass(hero.rarity)}" />
+              <div class="slot-hero" style="position: relative;">
+                <img src="${hero.portrait}" alt="${hero.name}" class="slot-hero-portrait rarity-${getRarityClass(hero.rarity)} ${hero.hasEffect ? 'has-effect' : ''}" />
+                ${renderRarityBorder(hero)}
                 <div class="slot-hero-name">${hero.name}</div>
                 ${renderTranscendenceStars(hero.transcendence || 0)}
               </div>
@@ -963,8 +964,9 @@
           if (hero) {
             slot.innerHTML = `
               <div class="slot-indicator">B</div>
-              <div class="slot-hero">
-                <img src="${hero.portrait}" alt="${hero.name}" class="slot-hero-portrait rarity-${getRarityClass(hero.rarity)}" />
+              <div class="slot-hero" style="position: relative;">
+                <img src="${hero.portrait}" alt="${hero.name}" class="slot-hero-portrait rarity-${getRarityClass(hero.rarity)} ${hero.hasEffect ? 'has-effect' : ''}" />
+                ${renderRarityBorder(hero)}
                 <div class="slot-hero-name">${hero.name}</div>
                 ${renderTranscendenceStars(hero.transcendence || 0)}
               </div>
@@ -1108,6 +1110,18 @@
           case "고급": return "uncommon";
           default: return "normal";
         }
+      }
+
+      // Rarity border HTML 생성
+      function renderRarityBorder(hero) {
+        if (!hero.hasEffect) return '';
+
+        const isOldSevenKnights = hero.group && hero.group.includes("(구)세븐나이츠");
+        const borderImage = isOldSevenKnights
+          ? "/images/border-legendary-oldsena.png"
+          : "/images/border-legendary.png";
+
+        return `<img src="${borderImage}" alt="전설 테두리" class="rarity-border">`;
       }
 
       // 덱 초기화
