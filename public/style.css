@@ -398,18 +398,18 @@ button {
 }
 
 .hero-portrait.rarity-legendary-plus {
-  background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+  background: radial-gradient(circle at center, #ffefb8, #eba22a);
   border-color: #FFD700;
 }
 
 .hero-portrait.rarity-legendary {
-  background: linear-gradient(135deg, #9C27B0 0%, #673AB7 100%);
-  border-color: #9C27B0;
+  background: radial-gradient(circle at center, #f3e0a8, #b68700);
+  border-color: #DAA520;
 }
 
 .hero-portrait.rarity-rare {
-  background: linear-gradient(135deg, #2196F3 0%, #1976D2 100%);
-  border-color: #2196F3;
+  background: radial-gradient(circle at center, #a693ff, #5a3ebd);
+  border-color: #9C27B0;
 }
 
 .hero-portrait.has-effect {
