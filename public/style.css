@@ -134,12 +134,8 @@ button {
 /* App Container - Grid Layout */
 /* ================================ */
 .app-container {
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: var(--header-height) 1fr;
-  grid-template-areas:
-    "header"
-    "main";
+  display: flex;
+  flex-direction: column;
   min-height: 100vh;
   background: var(--bg-secondary);
 }
@@ -148,11 +144,11 @@ button {
 /* Header */
 /* ================================ */
 .app-header {
-  grid-area: header;
   position: sticky;
   top: 0;
   z-index: 100;
   height: 60px;
+  flex-shrink: 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -376,7 +372,7 @@ button {
 /* Main Content Area */
 /* ================================ */
 .main-container {
-  grid-area: main;
+  flex: 1;
   overflow-y: auto;
   max-width: 1200px;
   margin: 0 auto;
@@ -588,20 +584,49 @@ button {
 /* Desktop Filters Sidebar */
 /* ================================ */
 .desktop-filters {
-  grid-area: filters;
-  position: sticky;
-  top: var(--header-height);
-  height: calc(100vh - var(--header-height));
-  padding: 24px 16px;
+  display: none;
+  width: 100%;
+  margin-bottom: 24px;
+  padding: 20px;
   background: var(--bg-elevated);
-  border-left: 1px solid var(--border-primary);
-  overflow-y: auto;
+  border: 1px solid var(--border-primary);
+  border-radius: 16px;
+}
+
+@media (min-width: 769px) {
+  .desktop-filters {
+    display: block;
+  }
 }
 
 .filter-section {
   display: flex;
   flex-direction: column;
   gap: 24px;
+}
+
+.filter-section-horizontal {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  align-items: flex-start;
+}
+
+.filter-group-horizontal {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.filter-group-horizontal .filter-label {
+  white-space: nowrap;
+  min-width: fit-content;
+}
+
+.filter-group-horizontal .filter-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
 }
 
 .filter-heading {
