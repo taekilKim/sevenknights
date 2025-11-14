@@ -1124,7 +1124,6 @@ button {
 /* Adjust container widths for desktop */
 .hero-detail-container {
   flex: 1;
-  max-width: 900px;
   width: 100%;
 }
 
@@ -1229,6 +1228,10 @@ button {
 .hero-carousel-section {
   margin-bottom: 24px;
   padding: 0;
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
 
 .hero-carousel {
@@ -1295,6 +1298,48 @@ button {
 
 .carousel-portrait.has-effect {
   box-shadow: 0 0 12px rgba(255, 215, 0, 0.6);
+}
+
+/* Carousel Navigation Buttons (Desktop only) */
+.carousel-nav-btn {
+  display: none;
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-tertiary);
+  border-radius: 50%;
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  z-index: 10;
+}
+
+.carousel-nav-btn:hover {
+  background: var(--overlay-medium);
+  border-color: var(--accent-primary);
+  color: var(--accent-primary);
+}
+
+.carousel-nav-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.carousel-nav-btn:disabled:hover {
+  background: var(--bg-elevated);
+  border-color: var(--border-tertiary);
+  color: var(--text-primary);
+}
+
+/* Show carousel nav buttons on desktop */
+@media (min-width: 769px) {
+  .carousel-nav-btn {
+    display: flex;
+  }
 }
 
 /* Carousel portrait rarity backgrounds */

@@ -193,9 +193,15 @@
 
     <!-- 영웅 캐러셀 네비게이션 -->
     <section class="hero-carousel-section">
+      <button class="carousel-nav-btn carousel-nav-prev" id="carousel-prev" aria-label="이전 영웅">
+        <i class="ph-bold ph-caret-left"></i>
+      </button>
       <div class="hero-carousel" id="hero-carousel">
         <!-- JavaScript로 동적 생성 -->
       </div>
+      <button class="carousel-nav-btn carousel-nav-next" id="carousel-next" aria-label="다음 영웅">
+        <i class="ph-bold ph-caret-right"></i>
+      </button>
     </section>
 
     <section class="hero-top">
@@ -890,6 +896,39 @@ commentForm.addEventListener("submit", async (e) => {
               activeItem.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
             }, 100);
           }
+        }
+
+        // 캐러셀 화살표 버튼 기능
+        const prevBtn = document.getElementById('carousel-prev');
+        const nextBtn = document.getElementById('carousel-next');
+
+        if (prevBtn && nextBtn) {
+          // 이전 버튼 클릭
+          prevBtn.addEventListener('click', () => {
+            const scrollAmount = 300;
+            carousel.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+          });
+
+          // 다음 버튼 클릭
+          nextBtn.addEventListener('click', () => {
+            const scrollAmount = 300;
+            carousel.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+          });
+
+          // 스크롤 위치에 따라 버튼 활성화/비활성화
+          function updateButtonStates() {
+            const isAtStart = carousel.scrollLeft <= 0;
+            const isAtEnd = carousel.scrollLeft >= carousel.scrollWidth - carousel.clientWidth - 10;
+
+            prevBtn.disabled = isAtStart;
+            nextBtn.disabled = isAtEnd;
+          }
+
+          // 초기 상태 설정
+          updateButtonStates();
+
+          // 스크롤 시 버튼 상태 업데이트
+          carousel.addEventListener('scroll', updateButtonStates);
         }
       })
       .catch(err => console.error('❌ 영웅 목록 로드 실패:', err));
