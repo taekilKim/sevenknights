@@ -2052,6 +2052,100 @@ button {
   box-shadow: 0 2px 8px rgba(147, 112, 219, 0.15);
 }
 
+/* Target type boxes */
+.skill-target-box {
+  display: block;
+  padding: 12px 16px;
+  margin: 8px 0;
+  border-radius: 8px;
+  font-weight: 400;
+  line-height: 1.6;
+  border-left: 4px solid;
+  position: relative;
+  padding-left: 48px;
+}
+
+.skill-target-box::before {
+  content: '';
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 24px;
+  height: 24px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* 적군 단일 타겟 (빨강) */
+.skill-target-box.target-enemy-single {
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.12), rgba(220, 38, 38, 0.12));
+  border-left-color: #ef4444;
+  color: var(--text-primary);
+  box-shadow: 0 2px 8px rgba(239, 68, 68, 0.15);
+}
+
+.skill-target-box.target-enemy-single::before {
+  background-image: url('/images/target-enemy-single.svg');
+}
+
+[data-theme="light"] .skill-target-box.target-enemy-single {
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.08), rgba(220, 38, 38, 0.08));
+  box-shadow: 0 2px 8px rgba(239, 68, 68, 0.12);
+}
+
+/* 적군 다중 타겟 (진한 빨강) */
+.skill-target-box.target-enemy-multi {
+  background: linear-gradient(135deg, rgba(220, 38, 38, 0.15), rgba(185, 28, 28, 0.15));
+  border-left-color: #dc2626;
+  color: var(--text-primary);
+  box-shadow: 0 2px 8px rgba(220, 38, 38, 0.2);
+}
+
+.skill-target-box.target-enemy-multi::before {
+  background-image: url('/images/target-enemy-multi.svg');
+}
+
+[data-theme="light"] .skill-target-box.target-enemy-multi {
+  background: linear-gradient(135deg, rgba(220, 38, 38, 0.1), rgba(185, 28, 28, 0.1));
+  box-shadow: 0 2px 8px rgba(220, 38, 38, 0.15);
+}
+
+/* 아군 단일 타겟 (초록) */
+.skill-target-box.target-ally-single {
+  background: linear-gradient(135deg, rgba(34, 197, 94, 0.12), rgba(22, 163, 74, 0.12));
+  border-left-color: #22c55e;
+  color: var(--text-primary);
+  box-shadow: 0 2px 8px rgba(34, 197, 94, 0.15);
+}
+
+.skill-target-box.target-ally-single::before {
+  background-image: url('/images/target-ally-single.svg');
+}
+
+[data-theme="light"] .skill-target-box.target-ally-single {
+  background: linear-gradient(135deg, rgba(34, 197, 94, 0.08), rgba(22, 163, 74, 0.08));
+  box-shadow: 0 2px 8px rgba(34, 197, 94, 0.12);
+}
+
+/* 아군 다중 타겟 (진한 초록) */
+.skill-target-box.target-ally-multi {
+  background: linear-gradient(135deg, rgba(22, 163, 74, 0.15), rgba(21, 128, 61, 0.15));
+  border-left-color: #16a34a;
+  color: var(--text-primary);
+  box-shadow: 0 2px 8px rgba(22, 163, 74, 0.2);
+}
+
+.skill-target-box.target-ally-multi::before {
+  background-image: url('/images/target-ally-multi.svg');
+}
+
+[data-theme="light"] .skill-target-box.target-ally-multi {
+  background: linear-gradient(135deg, rgba(22, 163, 74, 0.1), rgba(21, 128, 61, 0.1));
+  box-shadow: 0 2px 8px rgba(22, 163, 74, 0.15);
+}
+
 /* History Timeline */
 .hero-history {
   padding: 24px;
