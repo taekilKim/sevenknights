@@ -46,6 +46,13 @@ const rarityColorMap = {
 
 // ✅ 영웅 목록 API (요약 정보만)
 app.get("/api/heroes", async (req, res) => {
+  // 캐시 방지 헤더 설정
+  res.set({
+    'Cache-Control': 'no-store, no-cache, must-revalidate, private',
+    'Pragma': 'no-cache',
+    'Expires': '0'
+  });
+
   try {
     const heroesRes = await fetch(
       `https://api.airtable.com/v0/${BASE_ID}/Heroes?sort[0][field]=Name&sort[0][direction]=asc`,
@@ -127,6 +134,14 @@ app.get("/api/heroes", async (req, res) => {
 // ✅ 단일 영웅 조회 API
 app.get("/api/hero/:id", async (req, res) => {
   const { id } = req.params;
+
+  // 캐시 방지 헤더 설정
+  res.set({
+    'Cache-Control': 'no-store, no-cache, must-revalidate, private',
+    'Pragma': 'no-cache',
+    'Expires': '0'
+  });
+
   try {
     const heroRes = await fetch(
       `https://api.airtable.com/v0/${BASE_ID}/Heroes/${id}`,
@@ -233,6 +248,14 @@ app.get("/api/hero/:id", async (req, res) => {
 // ✅ 단일 영웅 이름 기반 조회 API
 app.get("/api/hero/name/:name", async (req, res) => {
   const { name } = req.params;
+
+  // 캐시 방지 헤더 설정
+  res.set({
+    'Cache-Control': 'no-store, no-cache, must-revalidate, private',
+    'Pragma': 'no-cache',
+    'Expires': '0'
+  });
+
   try {
     const heroesRes = await fetch(
       `https://api.airtable.com/v0/${BASE_ID}/Heroes?filterByFormula=({Name}='${decodeURIComponent(name)}')`,
