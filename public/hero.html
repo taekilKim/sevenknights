@@ -236,6 +236,7 @@
       <button class="tab-btn active" data-tab="stats">스탯</button>
       <button class="tab-btn" data-tab="skills">스킬</button>
       <button class="tab-btn" data-tab="comments">의견</button>
+      <button class="tab-btn" data-tab="history">업데이트</button>
     </div>
 
     <!-- 탭 컨텐츠 -->
@@ -266,12 +267,10 @@
           <p><strong id="attack-name" class="skill-name"></strong> <span id="attack-cooltime" class="skill-cooltime"></span></p>
           <p id="attack-desc" class="skill-desc"></p>
         </div>
-        <div class="skill active-skill-1">
-          <h3>액티브 스킬 1</h3>
-          <img id="active-1-image" alt="액티브 스킬 1 이미지" />
-          <p><strong id="active-1-name" class="skill-name"></strong> <span id="active-1-cooltime" class="skill-cooltime"></span></p>
-          <p id="active-1-desc" class="skill-desc"></p>
-        </div>
+
+        <!-- Active Skill 1 - 동적 렌더링 -->
+        <div id="active-1-container"></div>
+
         <div class="skill active-skill-2">
           <h3>액티브 스킬 2</h3>
           <img id="active-2-image" alt="액티브 스킬 2 이미지" />
@@ -312,6 +311,14 @@
           <button type="submit">등록</button>
         </form>
         <ul id="comment-list" class="comment-list"></ul>
+      </section>
+    </div>
+
+    <div class="tab-content" id="tab-history">
+      <section class="hero-history">
+        <div id="history-timeline" class="history-timeline">
+          <!-- JavaScript로 동적 생성 -->
+        </div>
       </section>
     </div>
     </div>
@@ -645,10 +652,73 @@
             document.getElementById(`${prefix}-desc`).innerHTML = parseMarkdown(skill?.desc || "");
           };
 
+          // Render Active Skill 1 (with transformation support)
+          const renderActiveSkill1 = (skill, transformedSkill) => {
+            const container = document.getElementById('active-1-container');
+            if (!container) return;
+
+            if (transformedSkill) {
+              // 변환형 스킬 - 2단 구조
+              container.innerHTML = `
+                <div class="skill skill-transform">
+                  <h3>액티브 스킬 1 <span class="skill-transform-badge">(변환형 스킬)</span></h3>
+                  <div class="skill-transform-container">
+                    <div class="skill-transform-item">
+                      <div class="skill-transform-label">기본 상태</div>
+                      <img src="${skill?.image || ''}" alt="액티브 스킬 1" />
+                      <p><strong class="skill-name">${skill?.name || ''}</strong> <span class="skill-cooltime">${skill?.cooltime ? `쿨타임: ${skill.cooltime}` : ''}</span></p>
+                      <p class="skill-desc">${parseMarkdown(skill?.desc || '')}</p>
+                    </div>
+                    <div class="skill-transform-arrow">→</div>
+                    <div class="skill-transform-item">
+                      <div class="skill-transform-label">변환 후</div>
+                      <img src="${transformedSkill?.image || ''}" alt="변환 후" />
+                      <p><strong class="skill-name">${transformedSkill?.name || ''}</strong> <span class="skill-cooltime">${transformedSkill?.cooltime ? `쿨타임: ${transformedSkill.cooltime}` : ''}</span></p>
+                      <p class="skill-desc">${parseMarkdown(transformedSkill?.desc || '')}</p>
+                    </div>
+                  </div>
+                </div>
+              `;
+            } else {
+              // 일반 스킬
+              container.innerHTML = `
+                <div class="skill active-skill-1">
+                  <h3>액티브 스킬 1</h3>
+                  <img src="${skill?.image || ''}" alt="액티브 스킬 1 이미지" />
+                  <p><strong class="skill-name">${skill?.name || ''}</strong> <span class="skill-cooltime">${skill?.cooltime ? `쿨타임: ${skill.cooltime}` : ''}</span></p>
+                  <p class="skill-desc">${parseMarkdown(skill?.desc || '')}</p>
+                </div>
+              `;
+            }
+          };
+
+          // Render History Timeline
+          const renderHistory = (history) => {
+            const timeline = document.getElementById('history-timeline');
+            if (!timeline) return;
+
+            if (!history || history.length === 0) {
+              timeline.innerHTML = '<p class="history-empty">업데이트 히스토리가 없습니다.</p>';
+              return;
+            }
+
+            timeline.innerHTML = history.map(entry => `
+              <div class="history-entry">
+                <div class="history-date">${entry.date || ''}</div>
+                <div class="history-dot"></div>
+                <div class="history-content">
+                  <span class="history-type history-type-${entry.type?.toLowerCase() || 'default'}">${entry.type || ''}</span>
+                  <p class="history-text">${entry.content || ''}</p>
+                </div>
+              </div>
+            `).join('');
+          };
+
           renderSkill("attack", hero.attack);
-          renderSkill("active-1", hero.active_1);
+          renderActiveSkill1(hero.active_1, hero.active_1_change);
           renderSkill("active-2", hero.active_2);
           renderSkill("passive", hero.passive);
+          renderHistory(hero.history);
 
           const descEl = document.getElementById("hero-description");
           if (descEl) descEl.textContent = hero.description || "";
