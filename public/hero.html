@@ -565,61 +565,88 @@
               return html;
             };
 
-            // Split by sentences (periods, but preserve them)
-            // Also handle special boxes like [스킬 강화], [6초월], [2초월]
-            const sentences = text.split(/(?<=[.!?])\s+|\n/);
+            // Process a sentence to check for target markers
+            const processTargetMarker = (sentence) => {
+              if (!sentence.startsWith('!')) {
+                return parseMarkdownInline(sentence);
+              }
 
-            const processedSentences = sentences.map(sentence => {
-              if (!sentence.trim()) return '';
-
-              // Check for special effect boxes first (before target patterns)
-              if (sentence.includes('[스킬 강화]')) {
-                return '<div class="skill-effect-box skill-enhancement">' + parseMarkdownInline(sentence) + '</div>';
-              }
-              if (sentence.includes('[6초월]')) {
-                return '<div class="skill-effect-box awakening-6">' + parseMarkdownInline(sentence) + '</div>';
-              }
-              if (sentence.includes('[2초월]')) {
-                return '<div class="skill-effect-box awakening-2">' + parseMarkdownInline(sentence) + '</div>';
-              }
+              // Remove the ! marker
+              const content = sentence.substring(1);
 
               // Define target type patterns (in priority order)
               const targetPatterns = [
                 // 적군 다중 (가장 우선)
                 {
-                  pattern: /모든 적군|전체 적군|적군 \d+명/,
+                  pattern: /^(?:모든 적군|전체 적군|적군 \d+명)/,
                   type: 'target-enemy-multi'
                 },
                 // 적군 단일
                 {
-                  pattern: /단일 적군|(?:공격력|방어력|생명력|체력|속공)이 가장 (?:높은|낮은) 적군|무작위 적군 1명|대상 적군|적군 1명/,
+                  pattern: /^(?:단일 적군|(?:공격력|방어력|생명력|체력|속공)이 가장 (?:높은|낮은) 적군|무작위 적군 1명|대상 적군|적군 1명)/,
                   type: 'target-enemy-single'
                 },
                 // 아군 다중
                 {
-                  pattern: /모든 아군|전체 아군|아군 \d+명|(?:공격력|방어력|생명력|체력|속공)이 가장 (?:높은|낮은) 아군 \d+명/,
+                  pattern: /^(?:모든 아군|전체 아군|아군 \d+명|(?:공격력|방어력|생명력|체력|속공)이 가장 (?:높은|낮은) 아군 \d+명)/,
                   type: 'target-ally-multi'
                 },
                 // 아군 단일
                 {
-                  pattern: /자신|단일 아군|(?:공격력|방어력|생명력|체력|속공)이 가장 (?:높은|낮은) 아군|대상 아군|아군 1명/,
+                  pattern: /^(?:자신|단일 아군|(?:공격력|방어력|생명력|체력|속공)이 가장 (?:높은|낮은) 아군|대상 아군|아군 1명)/,
                   type: 'target-ally-single'
                 }
               ];
 
               // Check which target type matches
               for (const { pattern, type } of targetPatterns) {
-                if (pattern.test(sentence)) {
-                  return '<div class="skill-target-box ' + type + '">' + parseMarkdownInline(sentence) + '</div>';
+                if (pattern.test(content)) {
+                  return '<div class="skill-target-box ' + type + '">' + parseMarkdownInline(content) + '</div>';
                 }
               }
 
-              // No target type found, return as-is with inline markdown
-              return parseMarkdownInline(sentence);
-            });
+              // No target type found, return as-is with inline markdown (but ! was removed)
+              return parseMarkdownInline(content);
+            };
 
-            // Join sentences with line breaks
-            return processedSentences.filter(s => s).join('<br>');
+            // Split by lines
+            const lines = text.split('\n');
+            const processedLines = [];
+
+            for (let i = 0; i < lines.length; i++) {
+              const line = lines[i].trim();
+              if (!line) {
+                continue;
+              }
+
+              // Check for effect markers at the start of the line
+              if (line.startsWith('@@')) {
+                // 6초월 효과 - no target styling inside effect boxes
+                const content = line.substring(2).trim();
+                // Remove ! marker if present but don't apply target styling
+                const cleanContent = content.startsWith('!') ? content.substring(1) : content;
+                processedLines.push('<div class="skill-effect-box awakening-6"><strong>6초월</strong> ' + parseMarkdownInline(cleanContent) + '</div>');
+              } else if (line.startsWith('@')) {
+                // 2초월 효과 - no target styling inside effect boxes (must check after @@)
+                const content = line.substring(1).trim();
+                // Remove ! marker if present but don't apply target styling
+                const cleanContent = content.startsWith('!') ? content.substring(1) : content;
+                processedLines.push('<div class="skill-effect-box awakening-2"><strong>2초월</strong> ' + parseMarkdownInline(cleanContent) + '</div>');
+              } else if (line.startsWith('#')) {
+                // 스킬 강화 효과 - no target styling inside effect boxes
+                const content = line.substring(1).trim();
+                // Remove ! marker if present but don't apply target styling
+                const cleanContent = content.startsWith('!') ? content.substring(1) : content;
+                processedLines.push('<div class="skill-effect-box skill-enhancement"><strong>스킬 강화</strong> ' + parseMarkdownInline(cleanContent) + '</div>');
+              } else {
+                // Regular line - check for target marker or process as normal
+                const processedContent = processTargetMarker(line);
+                processedLines.push(processedContent);
+              }
+            }
+
+            // Join lines with <br>
+            return processedLines.join('<br>');
           };
 
           const renderSkill = (prefix, skill) => {
