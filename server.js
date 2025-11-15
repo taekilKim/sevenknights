@@ -178,6 +178,20 @@ app.get("/api/hero/:id", async (req, res) => {
       }
     }
 
+    // ✅ 영웅 테이블에 스킬 레코드 ID들이 직접 링크되어 있음
+    const attackSkillIds = fields.attack || [];
+    const passiveSkillIds = fields.passive || [];
+    const active1SkillIds = fields.active_1 || [];
+    const active2SkillIds = fields.active_2 || [];
+
+    console.log(`🔗 영웅의 스킬 링크:`, {
+      attack: attackSkillIds,
+      passive: passiveSkillIds,
+      active_1: active1SkillIds,
+      active_2: active2SkillIds
+    });
+
+    // Skills 테이블 전체 가져오기
     const skillsRes = await fetch(
       `https://api.airtable.com/v0/${BASE_ID}/Skills`,
       { headers: { Authorization: `Bearer ${AIRTABLE_TOKEN}` } }
@@ -189,52 +203,38 @@ app.get("/api/hero/:id", async (req, res) => {
     }
 
     const skillsData = await skillsRes.json();
-
-    // ✅ 영웅과 연결된 스킬 찾기
-    let attackSkill = null;
-    let passiveSkill = null;
-    let active1Skill = null;
-    let active2Skill = null;
-
     console.log(`🎯 스킬 테이블 레코드 수:`, skillsData.records?.length || 0);
-    console.log(`🔑 찾고 있는 영웅 ID:`, id);
 
-    // 첫 번째 스킬 레코드의 구조 확인
-    if (skillsData.records && skillsData.records.length > 0) {
-      const firstSkill = skillsData.records[0].fields || {};
-      console.log(`📋 첫 번째 스킬 레코드의 필드 키:`, Object.keys(firstSkill));
-      console.log(`📋 attack_hero 예시:`, firstSkill.attack_hero);
+    // 스킬 ID로 매핑
+    const skillsMap = {};
+    for (const skillRecord of skillsData.records || []) {
+      skillsMap[skillRecord.id] = skillRecord.fields;
     }
 
-    for (const skillRecord of skillsData.records || []) {
-      const f = skillRecord.fields || {};
-
-      const skillData = {
+    // 헬퍼 함수: 스킬 데이터 생성
+    const getSkillData = (skillId) => {
+      const f = skillsMap[skillId];
+      if (!f) return null;
+      return {
         name: f.Name || "",
         desc: f.desc || "",
         image: Array.isArray(f.image) && f.image[0] ? f.image[0].url : null,
         cooltime: f.cooltime || f.Cooltime || f.coolTime || f.cool_time || null,
       };
+    };
 
-      if ((f.attack_hero || []).includes(id)) {
-        attackSkill = skillData;
-        console.log(`⚔️ 공격 스킬 발견: ${skillData.name}`);
-      }
-      if ((f.passive_hero || []).includes(id)) {
-        passiveSkill = skillData;
-        console.log(`🛡️ 패시브 스킬 발견: ${skillData.name}`);
-      }
-      if ((f.active_1_hero || []).includes(id)) {
-        active1Skill = skillData;
-        console.log(`✨ 액티브1 스킬 발견: ${skillData.name}`);
-      }
-      if ((f.active_2_hero || []).includes(id)) {
-        active2Skill = skillData;
-        console.log(`💫 액티브2 스킬 발견: ${skillData.name}`);
-      }
-    }
+    // 스킬 매칭 (배열의 첫 번째 ID 사용)
+    const attackSkill = attackSkillIds[0] ? getSkillData(attackSkillIds[0]) : null;
+    const passiveSkill = passiveSkillIds[0] ? getSkillData(passiveSkillIds[0]) : null;
+    const active1Skill = active1SkillIds[0] ? getSkillData(active1SkillIds[0]) : null;
+    const active2Skill = active2SkillIds[0] ? getSkillData(active2SkillIds[0]) : null;
 
-    console.log(`📊 스킬 매칭 결과: 공격=${!!attackSkill}, 패시브=${!!passiveSkill}, 액티브1=${!!active1Skill}, 액티브2=${!!active2Skill}`);
+    console.log(`📊 스킬 매칭 결과:`, {
+      attack: attackSkill?.name || 'null',
+      passive: passiveSkill?.name || 'null',
+      active_1: active1Skill?.name || 'null',
+      active_2: active2Skill?.name || 'null'
+    });
 
     // ✅ 응답 구성
     const typeName = pick(fields, ["type", "Type"]);
