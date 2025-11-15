@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://sena-rebirth-guidebook.app/sitemap.xml
+Sitemap: https://senadb.games/sitemap.xml
