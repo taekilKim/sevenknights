@@ -259,7 +259,7 @@ app.get("/api/hero/:id", async (req, res) => {
     if (!attackSkill || !passiveSkill || !active1Skill || !active2Skill) {
       console.log(`🔄 일부 스킬 누락, 역방향 링크로 재시도...`);
 
-      for (const skillRecord of skillsData.records || []) {
+      for (const skillRecord of allSkills) {
         const f = skillRecord.fields || {};
         const skillData = {
           name: f.Name || "",
