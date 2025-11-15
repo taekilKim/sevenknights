@@ -555,21 +555,144 @@
             };
 
             // Split by sentences (periods, but preserve them)
-            // Also handle special boxes like [스킬 강화], [6초월], [2초월]
+            // Also handle special boxes like @@스킬 강화 효과, @@6초월 효과, @@2초월 효과
             const sentences = text.split(/(?<=[.!?])\s+|\n/);
 
-            const processedSentences = sentences.map(sentence => {
-              if (!sentence.trim()) return '';
+            const processedSentences = [];
+            let i = 0;
 
-              // Check for special effect boxes first (before target patterns)
-              if (sentence.includes('[스킬 강화]')) {
-                return '<div class="skill-effect-box skill-enhancement">' + parseMarkdownInline(sentence) + '</div>';
+            while (i < sentences.length) {
+              const sentence = sentences[i].trim();
+              if (!sentence) {
+                i++;
+                continue;
               }
-              if (sentence.includes('[6초월]')) {
-                return '<div class="skill-effect-box awakening-6">' + parseMarkdownInline(sentence) + '</div>';
+
+              // Check for effect markers (@@6초월 효과, @@2초월 효과, @@스킬 강화 효과)
+              if (sentence.includes('@@6초월 효과')) {
+                const effectContent = [];
+                i++; // Skip the marker line
+
+                // Collect all lines until next marker or target pattern
+                while (i < sentences.length) {
+                  const nextSentence = sentences[i].trim();
+                  if (!nextSentence) {
+                    i++;
+                    continue;
+                  }
+
+                  // Stop if we hit another marker
+                  if (nextSentence.includes('@@6초월 효과') ||
+                      nextSentence.includes('@@2초월 효과') ||
+                      nextSentence.includes('@@스킬 강화 효과')) {
+                    break;
+                  }
+
+                  // Stop if we hit a target pattern
+                  const hasTargetPattern = /모든 적군|전체 적군|적군 \d+명|단일 적군|적군 1명|무작위 적군 1명|대상 적군|(?:공격력|방어력|생명력|체력|속공)이 가장 (?:높은|낮은) 적군|모든 아군|전체 아군|아군 \d+명|자신|단일 아군|아군 1명|대상 아군|(?:공격력|방어력|생명력|체력|속공)이 가장 (?:높은|낮은) 아군/.test(nextSentence);
+                  if (hasTargetPattern) {
+                    break;
+                  }
+
+                  effectContent.push(parseMarkdownInline(nextSentence));
+                  i++;
+                }
+
+                const effectHtml = `
+                  <div class="skill-effect-box awakening-6">
+                    <div class="effect-title">
+                      <span class="effect-icon">★★★</span>
+                      6초월 효과
+                    </div>
+                    <div class="effect-desc">
+                      ${effectContent.map(content => `<p>${content}</p>`).join('')}
+                    </div>
+                  </div>
+                `;
+                processedSentences.push(effectHtml);
+                continue;
               }
-              if (sentence.includes('[2초월]')) {
-                return '<div class="skill-effect-box awakening-2">' + parseMarkdownInline(sentence) + '</div>';
+
+              if (sentence.includes('@@2초월 효과')) {
+                const effectContent = [];
+                i++; // Skip the marker line
+
+                while (i < sentences.length) {
+                  const nextSentence = sentences[i].trim();
+                  if (!nextSentence) {
+                    i++;
+                    continue;
+                  }
+
+                  if (nextSentence.includes('@@6초월 효과') ||
+                      nextSentence.includes('@@2초월 효과') ||
+                      nextSentence.includes('@@스킬 강화 효과')) {
+                    break;
+                  }
+
+                  const hasTargetPattern = /모든 적군|전체 적군|적군 \d+명|단일 적군|적군 1명|무작위 적군 1명|대상 적군|(?:공격력|방어력|생명력|체력|속공)이 가장 (?:높은|낮은) 적군|모든 아군|전체 아군|아군 \d+명|자신|단일 아군|아군 1명|대상 아군|(?:공격력|방어력|생명력|체력|속공)이 가장 (?:높은|낮은) 아군/.test(nextSentence);
+                  if (hasTargetPattern) {
+                    break;
+                  }
+
+                  effectContent.push(parseMarkdownInline(nextSentence));
+                  i++;
+                }
+
+                const effectHtml = `
+                  <div class="skill-effect-box awakening-2">
+                    <div class="effect-title">
+                      <span class="effect-icon">★★</span>
+                      2초월 효과
+                    </div>
+                    <div class="effect-desc">
+                      ${effectContent.map(content => `<p>${content}</p>`).join('')}
+                    </div>
+                  </div>
+                `;
+                processedSentences.push(effectHtml);
+                continue;
+              }
+
+              if (sentence.includes('@@스킬 강화 효과')) {
+                const effectContent = [];
+                i++; // Skip the marker line
+
+                while (i < sentences.length) {
+                  const nextSentence = sentences[i].trim();
+                  if (!nextSentence) {
+                    i++;
+                    continue;
+                  }
+
+                  if (nextSentence.includes('@@6초월 효과') ||
+                      nextSentence.includes('@@2초월 효과') ||
+                      nextSentence.includes('@@스킬 강화 효과')) {
+                    break;
+                  }
+
+                  const hasTargetPattern = /모든 적군|전체 적군|적군 \d+명|단일 적군|적군 1명|무작위 적군 1명|대상 적군|(?:공격력|방어력|생명력|체력|속공)이 가장 (?:높은|낮은) 적군|모든 아군|전체 아군|아군 \d+명|자신|단일 아군|아군 1명|대상 아군|(?:공격력|방어력|생명력|체력|속공)이 가장 (?:높은|낮은) 아군/.test(nextSentence);
+                  if (hasTargetPattern) {
+                    break;
+                  }
+
+                  effectContent.push(parseMarkdownInline(nextSentence));
+                  i++;
+                }
+
+                const effectHtml = `
+                  <div class="skill-effect-box skill-enhancement">
+                    <div class="effect-title">
+                      <span class="effect-icon">⚡</span>
+                      스킬 강화 효과
+                    </div>
+                    <div class="effect-desc">
+                      ${effectContent.map(content => `<p>${content}</p>`).join('')}
+                    </div>
+                  </div>
+                `;
+                processedSentences.push(effectHtml);
+                continue;
               }
 
               // Define target type patterns (in priority order)
@@ -597,15 +720,22 @@
               ];
 
               // Check which target type matches
+              let matched = false;
               for (const { pattern, type } of targetPatterns) {
                 if (pattern.test(sentence)) {
-                  return '<div class="skill-target-box ' + type + '">' + parseMarkdownInline(sentence) + '</div>';
+                  processedSentences.push('<div class="skill-target-box ' + type + '">' + parseMarkdownInline(sentence) + '</div>');
+                  matched = true;
+                  break;
                 }
               }
 
-              // No target type found, return as-is with inline markdown
-              return parseMarkdownInline(sentence);
-            });
+              // No special pattern found, return as-is with inline markdown
+              if (!matched) {
+                processedSentences.push(parseMarkdownInline(sentence));
+              }
+
+              i++;
+            }
 
             // Join sentences with line breaks
             return processedSentences.filter(s => s).join('<br>');
