@@ -92,51 +92,7 @@
   </head>
   <body>
     <div class="app-container">
-      <!-- Header -->
-      <header class="app-header">
-        <div class="header-left">
-          <button class="hamburger-menu" id="hamburger-menu" aria-label="메뉴">
-            <i class="ph-bold ph-list"></i>
-          </button>
-          <img src="/favicon.ico" alt="세븐나이츠 리버스 로고" class="header-logo" />
-          <div class="header-brand">세나DB</div>
-        </div>
-        <button class="theme-toggle" id="theme-toggle" aria-label="테마 전환">
-          <i class="ph-bold ph-sun" id="theme-icon"></i>
-          <span id="theme-text">라이트 모드</span>
-        </button>
-      </header>
-
-      <!-- Mobile Menu Overlay -->
-      <div class="mobile-menu-overlay" id="mobile-menu-overlay">
-        <div class="mobile-menu">
-          <div class="mobile-menu-header">
-            <img src="/favicon.ico" alt="세븐나이츠 리버스 로고" class="mobile-menu-logo" />
-            <span>메뉴</span>
-            <button class="mobile-menu-close" id="mobile-menu-close" aria-label="닫기">
-              <i class="ph-bold ph-x"></i>
-            </button>
-          </div>
-          <nav class="mobile-menu-nav">
-            <a href="/index.html" class="mobile-nav-link">
-              <i class="ph-bold ph-users-three"></i>
-              <span>영웅 도감</span>
-            </a>
-            <a href="/deck.html" class="mobile-nav-link">
-              <i class="ph-bold ph-sword"></i>
-              <span>결투장 덱</span>
-            </a>
-            <a href="/tier-list.html" class="mobile-nav-link active">
-              <i class="ph-bold ph-ranking"></i>
-              <span>티어 리스트</span>
-            </a>
-            <a href="/faq.html" class="mobile-nav-link">
-              <i class="ph-bold ph-question"></i>
-              <span>FAQ</span>
-            </a>
-          </nav>
-        </div>
-      </div>
+      <!-- Header는 /js/header.js에서 동적으로 생성됩니다 -->
 
       <!-- Desktop Navigation Sidebar -->
       <aside class="desktop-nav">
@@ -282,6 +238,7 @@
       </main>
     </div>
 
+    <script src="/js/header.js"></script>
     <script src="/js/theme.js"></script>
     <script src="/js/mobile-menu.js"></script>
     <script>
