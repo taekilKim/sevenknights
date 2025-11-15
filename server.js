@@ -297,21 +297,91 @@ app.get("/api/hero/:id", async (req, res) => {
     // ✅ 응답 구성
     const typeName = pick(fields, ["type", "Type"]);
     const description = pick(fields, ["Description", "description"]);
-    const historyRaw = pick(fields, ["history", "History"]);
+    const historyRaw = pick(fields, ["history", "History", "updateHistory", "UpdateHistory", "업데이트 히스토리", "히스토리"]);
 
-    // history를 JSON으로 파싱 시도
+    // 🔍 디버깅: history 필드의 원본 값 확인
+    console.log(`🔍 History 필드 원본 값:`, historyRaw);
+    console.log(`🔍 History 필드 타입:`, typeof historyRaw);
+
+    // 모든 필드 키 중 history와 유사한 것 찾기
+    const historyLikeKeys = Object.keys(fields).filter(key =>
+      key.toLowerCase().includes('history') ||
+      key.toLowerCase().includes('히스토리') ||
+      key.toLowerCase().includes('업데이트')
+    );
+    console.log(`🔍 History 관련 필드 키들:`, historyLikeKeys);
+    historyLikeKeys.forEach(key => {
+      console.log(`  - ${key}:`, fields[key]);
+    });
+
+    // history 파싱: JSON 또는 텍스트 형식 지원
     let history = [];
     if (historyRaw) {
+      // 먼저 JSON 파싱 시도
       try {
-        history = JSON.parse(historyRaw);
-        if (!Array.isArray(history)) {
-          console.log(`⚠️ History가 배열이 아님, 빈 배열로 설정`);
-          history = [];
+        // Trailing comma 제거 (JSON5 스타일 지원)
+        let cleanedJson = historyRaw
+          .replace(/,\s*}/g, '}')  // 객체 끝의 trailing comma 제거
+          .replace(/,\s*]/g, ']'); // 배열 끝의 trailing comma 제거
+
+        console.log(`🔧 JSON 정리 시도...`);
+        const parsed = JSON.parse(cleanedJson);
+        if (Array.isArray(parsed)) {
+          history = parsed;
+          console.log(`✅ History JSON 파싱 성공: ${history.length}개 엔트리`);
+        } else {
+          console.log(`⚠️ History가 배열이 아님, 텍스트 파싱으로 전환`);
+          throw new Error('Not an array');
         }
       } catch (e) {
-        console.log(`⚠️ History JSON 파싱 실패:`, e.message);
-        history = [];
+        // JSON 파싱 실패 시 텍스트 형식으로 파싱
+        console.log(`📝 History를 텍스트 형식으로 파싱 시도 (JSON 오류: ${e.message})`);
+        history = parseHistoryText(historyRaw);
+        console.log(`✅ History 텍스트 파싱 완료: ${history.length}개 엔트리`);
       }
+    } else {
+      console.log(`⚠️ historyRaw가 null 또는 undefined입니다`);
+    }
+
+    // 텍스트 형식 history 파싱 함수
+    function parseHistoryText(text) {
+      console.log(`🔍 parseHistoryText 입력 (길이 ${text.length}자):`, text.substring(0, 200));
+
+      const entries = [];
+      const lines = text.split('\n').map(line => line.trim()).filter(line => line);
+
+      console.log(`🔍 파싱할 줄 수: ${lines.length}개`);
+      lines.forEach((line, idx) => {
+        console.log(`  줄 ${idx}: "${line}"`);
+      });
+
+      // 날짜 패턴: YYYY.MM.DD, YYYY-MM-DD, YYYY/MM/DD
+      const datePattern = /^(\d{4})[.\-\/](\d{1,2})[.\-\/](\d{1,2})$/;
+
+      for (let i = 0; i < lines.length; i++) {
+        const line = lines[i];
+        const match = line.match(datePattern);
+
+        if (match) {
+          // 날짜 발견
+          const date = line;
+          const content = lines[i + 1] || ''; // 다음 줄이 내용
+
+          console.log(`  ✅ 날짜 발견: ${date}, 내용: ${content}`);
+
+          entries.push({
+            date: date,
+            content: content
+          });
+
+          i++; // 다음 줄(내용)을 건너뛰기
+        } else {
+          console.log(`  ❌ 날짜 패턴 불일치: "${line}"`);
+        }
+      }
+
+      console.log(`🔍 파싱 결과: ${entries.length}개 엔트리`);
+      return entries;
     }
 
     console.log(`📖 Description 값:`, description ? `"${description.substring(0, 30)}..."` : 'null');
@@ -346,7 +416,8 @@ app.get("/api/hero/:id", async (req, res) => {
 
       description: description,
       history: history,
-      hasEffect: !!fields.hasEffect // ✅ 추가됨
+      hasEffect: !!fields.hasEffect, // ✅ 추가됨
+      transLevel: pick(fields, ["transLevel", "TransLevel", "초월", "초월레벨"]) // ✅ 초월 레벨 정보
     };
 
     console.log(`✅ 최종 응답 데이터 구성 완료\n`);
@@ -354,6 +425,64 @@ app.get("/api/hero/:id", async (req, res) => {
   } catch (error) {
     console.error("Failed to fetch hero:", error);
     res.status(500).json({ error: "Failed to fetch hero details" });
+  }
+});
+
+// ✅ 스킬 효과(Effects) 테이블 조회 API
+app.get("/api/effects", async (req, res) => {
+  // 캐시 방지 헤더 설정
+  res.set({
+    'Cache-Control': 'no-store, no-cache, must-revalidate, private',
+    'Pragma': 'no-cache',
+    'Expires': '0'
+  });
+
+  try {
+    // Effects 테이블 전체 가져오기 (pagination 처리)
+    let allEffects = [];
+    let offset = null;
+
+    do {
+      const url = offset
+        ? `https://api.airtable.com/v0/${BASE_ID}/Effects?offset=${offset}`
+        : `https://api.airtable.com/v0/${BASE_ID}/Effects`;
+
+      const effectsRes = await fetch(url, {
+        headers: { Authorization: `Bearer ${AIRTABLE_TOKEN}` }
+      });
+
+      if (!effectsRes.ok) {
+        const errText = await effectsRes.text();
+        console.error("Airtable effects fetch error:", effectsRes.status, errText);
+        throw new Error(`Airtable effects fetch error: ${effectsRes.status}`);
+      }
+
+      const effectsData = await effectsRes.json();
+      allEffects = allEffects.concat(effectsData.records || []);
+      offset = effectsData.offset || null;
+
+      console.log(`📄 Effects 페이지 가져옴: ${effectsData.records?.length || 0}개, offset: ${offset || 'none'}`);
+    } while (offset);
+
+    console.log(`🎯 Effects 테이블 전체 레코드 수: ${allEffects.length}개`);
+
+    // 효과 데이터 포맷팅
+    const processedEffects = allEffects.map(effect => {
+      const f = effect.fields || {};
+      return {
+        id: effect.id,
+        name: f.Name || f.name || "",
+        description: f.Description || f.description || f.desc || "",
+        hasVariable: !!f.HasVariable || !!f.hasVariable,
+        icon: Array.isArray(f.Icon) && f.Icon[0] ? f.Icon[0].url : null,
+        color: f.Color || f.color || null
+      };
+    });
+
+    res.json(processedEffects);
+  } catch (error) {
+    console.error("Failed to fetch effects:", error);
+    res.status(500).json({ error: "Failed to fetch effects" });
   }
 });
 

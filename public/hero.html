@@ -182,21 +182,32 @@
 
     <!-- 탭 컨텐츠 -->
     <div class="tab-content active" id="tab-stats">
-      <section class="hero-stats">
-        <p class="stats-info">30레벨 5강화 0초월 기준입니다</p>
-        <table class="stats-table">
-          <tr><td>공격력</td><td id="atk"></td></tr>
-          <tr><td>방어력</td><td id="def"></td></tr>
-          <tr><td>생명력</td><td id="hp"></td></tr>
-          <tr><td>속공</td><td id="spd"></td></tr>
-          <tr><td>치명타 확률(%)</td><td id="crit_rate"></td></tr>
-          <tr><td>치명타 피해(%)</td><td id="crit_dmg"></td></tr>
-          <tr><td>약점 공격 확률(%)</td><td id="weak_rate"></td></tr>
-          <tr><td>막기 확률(%)</td><td id="block_rate"></td></tr>
-          <tr><td>받는 피해 감소(%)</td><td id="dmg_reduce"></td></tr>
-          <tr><td>효과 적중(%)</td><td id="eff_hit"></td></tr>
-          <tr><td>효과 저항(%)</td><td id="eff_res"></td></tr>
-        </table>
+      <section class="hero-stats-container">
+        <!-- 좌측: 기본 스탯 -->
+        <div class="stats-left">
+          <p class="stats-info">30레벨 5강화 0초월 기준입니다</p>
+          <table class="stats-table">
+            <tr><td>공격력</td><td id="atk"></td></tr>
+            <tr><td>방어력</td><td id="def"></td></tr>
+            <tr><td>생명력</td><td id="hp"></td></tr>
+            <tr><td>속공</td><td id="spd"></td></tr>
+            <tr><td>치명타 확률(%)</td><td id="crit_rate"></td></tr>
+            <tr><td>치명타 피해(%)</td><td id="crit_dmg"></td></tr>
+            <tr><td>약점 공격 확률(%)</td><td id="weak_rate"></td></tr>
+            <tr><td>막기 확률(%)</td><td id="block_rate"></td></tr>
+            <tr><td>받는 피해 감소(%)</td><td id="dmg_reduce"></td></tr>
+            <tr><td>효과 적중(%)</td><td id="eff_hit"></td></tr>
+            <tr><td>효과 저항(%)</td><td id="eff_res"></td></tr>
+          </table>
+        </div>
+
+        <!-- 우측: 초월 스탯 -->
+        <div class="stats-right">
+          <h3 class="transcendence-title">초월 단계별 스탯</h3>
+          <div id="transcendence-levels" class="transcendence-levels">
+            <!-- JavaScript로 동적 생성 -->
+          </div>
+        </div>
       </section>
     </div>
 
@@ -278,12 +289,33 @@
         container.classList.add("loading");
         skeleton.style.display = "block";
       }
-      fetch(`/api/hero/name/${encodeURIComponent(heroId)}`, { cache: 'no-store' })
-        .then(res => {
+
+      // ✅ 효과 데이터와 영웅 데이터를 동시에 가져오기
+      Promise.all([
+        fetch(`/api/hero/name/${encodeURIComponent(heroId)}`, { cache: 'no-store' }).then(res => {
           if (!res.ok) throw new Error(`HTTP ${res.status}`);
           return res.json();
+        }),
+        fetch('/api/effects', { cache: 'no-store' }).then(res => {
+          if (!res.ok) {
+            console.warn('Effects fetch failed, continuing without effects');
+            return [];
+          }
+          return res.json();
         })
-        .then(hero => {
+      ])
+        .then(([hero, effectsData]) => {
+          console.log(`📊 Effects loaded: ${effectsData.length} effects`);
+
+          // ✅ Effects를 이름으로 검색할 수 있도록 Map 생성
+          const effectsMap = new Map();
+          effectsData.forEach(effect => {
+            effectsMap.set(effect.name, effect);
+          });
+
+          return { hero, effectsMap };
+        })
+        .then(({ hero, effectsMap }) => {
           if (container && skeleton) {
             container.classList.remove("loading");
             skeleton.style.display = "none";
@@ -554,47 +586,124 @@
               return html;
             };
 
-            // Split by sentences (periods, but preserve them)
-            // Also handle special boxes like @@스킬 강화 효과, @@6초월 효과, @@2초월 효과
-            const sentences = text.split(/(?<=[.!?])\s+|\n/);
+            // ✅ Process effect markers <<효과명>> or <<효과명, 변수>>
+            const processEffectMarker = (sentence) => {
+              const effectPattern = /^<<(.+?)(?:,\s*(.+?))?>>$/;
+              const match = sentence.match(effectPattern);
 
-            const processedSentences = [];
-            let i = 0;
+              if (!match) {
+                return null; // Not an effect marker
+              }
 
-            while (i < sentences.length) {
-              const sentence = sentences[i].trim();
-              if (!sentence) {
-                i++;
+              const effectName = match[1].trim();
+              const variableValue = match[2] ? match[2].trim() : null;
+
+              // Find effect in effectsMap
+              const effect = effectsMap.get(effectName);
+
+              if (!effect) {
+                console.warn(`⚠️ Effect not found: ${effectName}`);
+                return `<div class="skill-effect-box skill-effect-unknown"><strong>효과 없음</strong> ${parseMarkdownInline(effectName)}</div>`;
+              }
+
+              // Process description with variable substitution
+              let description = effect.description;
+              if (effect.hasVariable && variableValue) {
+                // Replace 'n' with the variable value
+                description = description.replace(/n/g, variableValue);
+              }
+
+              // Render effect box
+              const colorStyle = effect.color ? `style="border-left-color: ${effect.color};"` : '';
+              const iconHtml = effect.icon
+                ? `<img src="${effect.icon}" alt="${effect.name}" class="effect-icon" />`
+                : '';
+
+              return `<div class="skill-effect-box skill-effect-custom" ${colorStyle}>${iconHtml}<strong>${effect.name}</strong> ${parseMarkdownInline(description)}</div>`;
+            };
+
+            // Process a sentence to check for target markers
+            const processTargetMarker = (sentence) => {
+              if (!sentence.startsWith('!')) {
+                return parseMarkdownInline(sentence);
+              }
+
+              // Remove the ! marker
+              const content = sentence.substring(1);
+
+              // Define target type patterns (in priority order)
+              const targetPatterns = [
+                // 적군 다중 (가장 우선)
+                {
+                  pattern: /^(?:모든 적군|전체 적군|적군 \d+명)/,
+                  type: 'target-enemy-multi'
+                },
+                // 적군 단일
+                {
+                  pattern: /^(?:단일 적군|(?:공격력|방어력|생명력|체력|속공)이 가장 (?:높은|낮은) 적군|무작위 적군 1명|대상 적군|적군 1명)/,
+                  type: 'target-enemy-single'
+                },
+                // 아군 다중
+                {
+                  pattern: /^(?:모든 아군|전체 아군|아군 \d+명|(?:공격력|방어력|생명력|체력|속공)이 가장 (?:높은|낮은) 아군 \d+명)/,
+                  type: 'target-ally-multi'
+                },
+                // 아군 단일
+                {
+                  pattern: /^(?:자신|단일 아군|(?:공격력|방어력|생명력|체력|속공)이 가장 (?:높은|낮은) 아군|대상 아군|아군 1명)/,
+                  type: 'target-ally-single'
+                }
+              ];
+
+              // Check which target type matches
+              for (const { pattern, type } of targetPatterns) {
+                if (pattern.test(content)) {
+                  return '<div class="skill-target-box ' + type + '">' + parseMarkdownInline(content) + '</div>';
+                }
+              }
+
+              // No target type found, return as-is with inline markdown (but ! was removed)
+              return parseMarkdownInline(content);
+            };
+
+            // Split by lines
+            const lines = text.split('\n');
+            const processedLines = [];
+
+            for (let i = 0; i < lines.length; i++) {
+              const line = lines[i].trim();
+              if (!line) {
                 continue;
               }
 
-              // Check for effect markers (@@6초월 효과, @@2초월 효과, @@스킬 강화 효과)
-              if (sentence.includes('@@6초월 효과')) {
+              // Check for container-style effect section headers
+              if (line === '@@6초월 효과') {
                 const effectContent = [];
-                i++; // Skip the marker line
+                i++; // Skip the header line
 
-                // Collect all lines until next marker or target pattern
-                while (i < sentences.length) {
-                  const nextSentence = sentences[i].trim();
-                  if (!nextSentence) {
+                // Collect all lines until next section header or target marker
+                while (i < lines.length) {
+                  const nextLine = lines[i].trim();
+                  if (!nextLine) {
                     i++;
                     continue;
                   }
 
-                  // Stop if we hit another marker
-                  if (nextSentence.includes('@@6초월 효과') ||
-                      nextSentence.includes('@@2초월 효과') ||
-                      nextSentence.includes('@@스킬 강화 효과')) {
+                  // Stop if we hit another section header
+                  if (nextLine === '@@6초월 효과' ||
+                      nextLine === '@@2초월 효과' ||
+                      nextLine === '@@스킬 강화 효과') {
+                    i--; // Back up so outer loop processes this line
                     break;
                   }
 
-                  // Stop if we hit a target pattern
-                  const hasTargetPattern = /모든 적군|전체 적군|적군 \d+명|단일 적군|적군 1명|무작위 적군 1명|대상 적군|(?:공격력|방어력|생명력|체력|속공)이 가장 (?:높은|낮은) 적군|모든 아군|전체 아군|아군 \d+명|자신|단일 아군|아군 1명|대상 아군|(?:공격력|방어력|생명력|체력|속공)이 가장 (?:높은|낮은) 아군/.test(nextSentence);
-                  if (hasTargetPattern) {
+                  // Stop if we hit a target marker (line starting with !)
+                  if (nextLine.startsWith('!')) {
+                    i--; // Back up so outer loop processes this line
                     break;
                   }
 
-                  effectContent.push(parseMarkdownInline(nextSentence));
+                  effectContent.push(parseMarkdownInline(nextLine));
                   i++;
                 }
 
@@ -609,33 +718,34 @@
                     </div>
                   </div>
                 `;
-                processedSentences.push(effectHtml);
+                processedLines.push(effectHtml);
                 continue;
               }
 
-              if (sentence.includes('@@2초월 효과')) {
+              if (line === '@@2초월 효과') {
                 const effectContent = [];
-                i++; // Skip the marker line
+                i++; // Skip the header line
 
-                while (i < sentences.length) {
-                  const nextSentence = sentences[i].trim();
-                  if (!nextSentence) {
+                while (i < lines.length) {
+                  const nextLine = lines[i].trim();
+                  if (!nextLine) {
                     i++;
                     continue;
                   }
 
-                  if (nextSentence.includes('@@6초월 효과') ||
-                      nextSentence.includes('@@2초월 효과') ||
-                      nextSentence.includes('@@스킬 강화 효과')) {
+                  if (nextLine === '@@6초월 효과' ||
+                      nextLine === '@@2초월 효과' ||
+                      nextLine === '@@스킬 강화 효과') {
+                    i--;
                     break;
                   }
 
-                  const hasTargetPattern = /모든 적군|전체 적군|적군 \d+명|단일 적군|적군 1명|무작위 적군 1명|대상 적군|(?:공격력|방어력|생명력|체력|속공)이 가장 (?:높은|낮은) 적군|모든 아군|전체 아군|아군 \d+명|자신|단일 아군|아군 1명|대상 아군|(?:공격력|방어력|생명력|체력|속공)이 가장 (?:높은|낮은) 아군/.test(nextSentence);
-                  if (hasTargetPattern) {
+                  if (nextLine.startsWith('!')) {
+                    i--;
                     break;
                   }
 
-                  effectContent.push(parseMarkdownInline(nextSentence));
+                  effectContent.push(parseMarkdownInline(nextLine));
                   i++;
                 }
 
@@ -650,33 +760,34 @@
                     </div>
                   </div>
                 `;
-                processedSentences.push(effectHtml);
+                processedLines.push(effectHtml);
                 continue;
               }
 
-              if (sentence.includes('@@스킬 강화 효과')) {
+              if (line === '@@스킬 강화 효과') {
                 const effectContent = [];
-                i++; // Skip the marker line
+                i++; // Skip the header line
 
-                while (i < sentences.length) {
-                  const nextSentence = sentences[i].trim();
-                  if (!nextSentence) {
+                while (i < lines.length) {
+                  const nextLine = lines[i].trim();
+                  if (!nextLine) {
                     i++;
                     continue;
                   }
 
-                  if (nextSentence.includes('@@6초월 효과') ||
-                      nextSentence.includes('@@2초월 효과') ||
-                      nextSentence.includes('@@스킬 강화 효과')) {
+                  if (nextLine === '@@6초월 효과' ||
+                      nextLine === '@@2초월 효과' ||
+                      nextLine === '@@스킬 강화 효과') {
+                    i--;
                     break;
                   }
 
-                  const hasTargetPattern = /모든 적군|전체 적군|적군 \d+명|단일 적군|적군 1명|무작위 적군 1명|대상 적군|(?:공격력|방어력|생명력|체력|속공)이 가장 (?:높은|낮은) 적군|모든 아군|전체 아군|아군 \d+명|자신|단일 아군|아군 1명|대상 아군|(?:공격력|방어력|생명력|체력|속공)이 가장 (?:높은|낮은) 아군/.test(nextSentence);
-                  if (hasTargetPattern) {
+                  if (nextLine.startsWith('!')) {
+                    i--;
                     break;
                   }
 
-                  effectContent.push(parseMarkdownInline(nextSentence));
+                  effectContent.push(parseMarkdownInline(nextLine));
                   i++;
                 }
 
@@ -691,54 +802,45 @@
                     </div>
                   </div>
                 `;
-                processedSentences.push(effectHtml);
+                processedLines.push(effectHtml);
                 continue;
               }
 
-              // Define target type patterns (in priority order)
-              const targetPatterns = [
-                // 적군 다중 (가장 우선)
-                {
-                  pattern: /모든 적군|전체 적군|적군 \d+명/,
-                  type: 'target-enemy-multi'
-                },
-                // 적군 단일
-                {
-                  pattern: /단일 적군|(?:공격력|방어력|생명력|체력|속공)이 가장 (?:높은|낮은) 적군|무작위 적군 1명|대상 적군|적군 1명/,
-                  type: 'target-enemy-single'
-                },
-                // 아군 다중
-                {
-                  pattern: /모든 아군|전체 아군|아군 \d+명|(?:공격력|방어력|생명력|체력|속공)이 가장 (?:높은|낮은) 아군 \d+명/,
-                  type: 'target-ally-multi'
-                },
-                // 아군 단일
-                {
-                  pattern: /자신|단일 아군|(?:공격력|방어력|생명력|체력|속공)이 가장 (?:높은|낮은) 아군|대상 아군|아군 1명/,
-                  type: 'target-ally-single'
+              // Check for single-line effect markers (legacy support)
+              if (line.startsWith('@@')) {
+                // 6초월 효과 - single line format
+                const content = line.substring(2).trim();
+                const cleanContent = content.startsWith('!') ? content.substring(1) : content;
+                processedLines.push('<div class="skill-effect-box awakening-6"><strong>6초월</strong> ' + parseMarkdownInline(cleanContent) + '</div>');
+              } else if (line.startsWith('@')) {
+                // 2초월 효과 - single line format
+                const content = line.substring(1).trim();
+                const cleanContent = content.startsWith('!') ? content.substring(1) : content;
+                processedLines.push('<div class="skill-effect-box awakening-2"><strong>2초월</strong> ' + parseMarkdownInline(cleanContent) + '</div>');
+              } else if (line.startsWith('#')) {
+                // 스킬 강화 효과 - single line format
+                const content = line.substring(1).trim();
+                const cleanContent = content.startsWith('!') ? content.substring(1) : content;
+                processedLines.push('<div class="skill-effect-box skill-enhancement"><strong>스킬 강화</strong> ' + parseMarkdownInline(cleanContent) + '</div>');
+              } else if (line.startsWith('<<')) {
+                // ✅ 커스텀 효과 마커 - Effects 테이블에서 가져온 효과
+                const effectHtml = processEffectMarker(line);
+                if (effectHtml) {
+                  processedLines.push(effectHtml);
+                } else {
+                  // If effect marker parsing failed, treat as regular line
+                  const processedContent = processTargetMarker(line);
+                  processedLines.push(processedContent);
                 }
-              ];
-
-              // Check which target type matches
-              let matched = false;
-              for (const { pattern, type } of targetPatterns) {
-                if (pattern.test(sentence)) {
-                  processedSentences.push('<div class="skill-target-box ' + type + '">' + parseMarkdownInline(sentence) + '</div>');
-                  matched = true;
-                  break;
-                }
+              } else {
+                // Regular line - check for target marker or process as normal
+                const processedContent = processTargetMarker(line);
+                processedLines.push(processedContent);
               }
-
-              // No special pattern found, return as-is with inline markdown
-              if (!matched) {
-                processedSentences.push(parseMarkdownInline(sentence));
-              }
-
-              i++;
             }
 
-            // Join sentences with line breaks
-            return processedSentences.filter(s => s).join('<br>');
+            // Join lines with <br>
+            return processedLines.join('<br>');
           };
 
           const renderSkill = (prefix, skill) => {
@@ -810,11 +912,38 @@
                 <div class="history-date">${entry.date || ''}</div>
                 <div class="history-dot"></div>
                 <div class="history-content">
-                  <span class="history-type history-type-${entry.type?.toLowerCase() || 'default'}">${entry.type || ''}</span>
+                  ${entry.type ? `<span class="history-type history-type-${entry.type.toLowerCase()}">${entry.type}</span>` : ''}
                   <p class="history-text">${entry.content || ''}</p>
                 </div>
               </div>
             `).join('');
+          };
+
+          // Render Transcendence Levels
+          const renderTranscendence = (transLevelText) => {
+            const container = document.getElementById('transcendence-levels');
+            if (!container) return;
+
+            if (!transLevelText || transLevelText.trim() === '') {
+              container.innerHTML = '<p class="transcendence-empty">초월 정보가 없습니다.</p>';
+              return;
+            }
+
+            // Split by double newlines to separate each transcendence level
+            const levels = transLevelText.trim().split(/\n\n+/);
+
+            container.innerHTML = levels.map((levelText, index) => {
+              const levelNum = index + 1;
+              // Replace newlines with <br> for display
+              const formattedText = levelText.trim().replace(/\n/g, '<br>');
+
+              return `
+                <div class="transcendence-box">
+                  <div class="transcendence-level-number">${levelNum}초월</div>
+                  <div class="transcendence-content">${formattedText}</div>
+                </div>
+              `;
+            }).join('');
           };
 
           renderSkill("attack", hero.attack);
@@ -822,6 +951,7 @@
           renderSkill("active-2", hero.active_2);
           renderSkill("passive", hero.passive);
           renderHistory(hero.history);
+          renderTranscendence(hero.transLevel);
 
           const descEl = document.getElementById("hero-description");
           if (descEl) descEl.textContent = hero.description || "";
