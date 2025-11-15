@@ -299,19 +299,71 @@ app.get("/api/hero/:id", async (req, res) => {
     const description = pick(fields, ["Description", "description"]);
     const historyRaw = pick(fields, ["history", "History", "updateHistory", "UpdateHistory", "업데이트 히스토리", "히스토리"]);
 
-    // history를 JSON으로 파싱 시도
+    // 🔍 디버깅: history 필드의 원본 값 확인
+    console.log(`🔍 History 필드 원본 값:`, historyRaw);
+    console.log(`🔍 History 필드 타입:`, typeof historyRaw);
+
+    // 모든 필드 키 중 history와 유사한 것 찾기
+    const historyLikeKeys = Object.keys(fields).filter(key =>
+      key.toLowerCase().includes('history') ||
+      key.toLowerCase().includes('히스토리') ||
+      key.toLowerCase().includes('업데이트')
+    );
+    console.log(`🔍 History 관련 필드 키들:`, historyLikeKeys);
+    historyLikeKeys.forEach(key => {
+      console.log(`  - ${key}:`, fields[key]);
+    });
+
+    // history 파싱: JSON 또는 텍스트 형식 지원
     let history = [];
     if (historyRaw) {
+      // 먼저 JSON 파싱 시도
       try {
-        history = JSON.parse(historyRaw);
-        if (!Array.isArray(history)) {
-          console.log(`⚠️ History가 배열이 아님, 빈 배열로 설정`);
-          history = [];
+        const parsed = JSON.parse(historyRaw);
+        if (Array.isArray(parsed)) {
+          history = parsed;
+          console.log(`✅ History JSON 파싱 성공: ${history.length}개 엔트리`);
+        } else {
+          console.log(`⚠️ History가 배열이 아님, 텍스트 파싱으로 전환`);
+          throw new Error('Not an array');
         }
       } catch (e) {
-        console.log(`⚠️ History JSON 파싱 실패:`, e.message);
-        history = [];
+        // JSON 파싱 실패 시 텍스트 형식으로 파싱
+        console.log(`📝 History를 텍스트 형식으로 파싱 시도`);
+        history = parseHistoryText(historyRaw);
+        console.log(`✅ History 텍스트 파싱 완료: ${history.length}개 엔트리`);
       }
+    } else {
+      console.log(`⚠️ historyRaw가 null 또는 undefined입니다`);
+    }
+
+    // 텍스트 형식 history 파싱 함수
+    function parseHistoryText(text) {
+      const entries = [];
+      const lines = text.split('\n').map(line => line.trim()).filter(line => line);
+
+      // 날짜 패턴: YYYY.MM.DD, YYYY-MM-DD, YYYY/MM/DD
+      const datePattern = /^(\d{4})[.\-\/](\d{1,2})[.\-\/](\d{1,2})$/;
+
+      for (let i = 0; i < lines.length; i++) {
+        const line = lines[i];
+        const match = line.match(datePattern);
+
+        if (match) {
+          // 날짜 발견
+          const date = line;
+          const content = lines[i + 1] || ''; // 다음 줄이 내용
+
+          entries.push({
+            date: date,
+            content: content
+          });
+
+          i++; // 다음 줄(내용)을 건너뛰기
+        }
+      }
+
+      return entries;
     }
 
     console.log(`📖 Description 값:`, description ? `"${description.substring(0, 30)}..."` : 'null');
