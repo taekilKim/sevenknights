@@ -297,7 +297,13 @@ app.get("/api/hero/:id", async (req, res) => {
     // ✅ 응답 구성
     const typeName = pick(fields, ["type", "Type"]);
     const description = pick(fields, ["Description", "description"]);
+
+    // ✅ 디버깅: 모든 필드 키 확인
+    console.log(`🔍 사용 가능한 필드 키:`, Object.keys(fields).join(', '));
+
     const historyRaw = pick(fields, ["history", "History", "updateHistory", "UpdateHistory", "업데이트 히스토리", "히스토리"]);
+
+    console.log(`📜 historyRaw 값:`, historyRaw ? `"${typeof historyRaw === 'string' ? historyRaw.substring(0, 100) : JSON.stringify(historyRaw).substring(0, 100)}..."` : 'null');
 
     // history를 JSON으로 파싱 시도
     let history = [];
@@ -307,15 +313,21 @@ app.get("/api/hero/:id", async (req, res) => {
         if (!Array.isArray(history)) {
           console.log(`⚠️ History가 배열이 아님, 빈 배열로 설정`);
           history = [];
+        } else {
+          console.log(`✅ History 파싱 성공: ${history.length}개 엔트리`);
         }
       } catch (e) {
         console.log(`⚠️ History JSON 파싱 실패:`, e.message);
+        console.log(`   원본 데이터 타입: ${typeof historyRaw}`);
+        console.log(`   원본 데이터 샘플: ${historyRaw ? String(historyRaw).substring(0, 200) : 'null'}`);
         history = [];
       }
+    } else {
+      console.log(`⚠️ historyRaw가 null/undefined - 필드를 찾지 못함`);
     }
 
     console.log(`📖 Description 값:`, description ? `"${description.substring(0, 30)}..."` : 'null');
-    console.log(`📜 History 엔트리 수:`, history.length);
+    console.log(`📜 History 최종 엔트리 수:`, history.length);
 
     const responseData = {
       id: heroData.id,
