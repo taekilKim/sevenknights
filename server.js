@@ -382,6 +382,10 @@ app.get("/api/hero/:id", async (req, res) => {
     // ✅ 응답 구성
     const typeName = pick(fields, ["type", "Type"]);
     const description = pick(fields, ["Description", "description"]);
+
+    // ✅ 디버깅: 모든 필드 키 확인
+    console.log(`🔍 사용 가능한 필드 키:`, Object.keys(fields).join(', '));
+
     const historyRaw = pick(fields, ["history", "History", "updateHistory", "UpdateHistory", "업데이트 히스토리", "히스토리"]);
 
     // 🔍 디버깅: history 필드의 원본 값 확인
@@ -470,7 +474,7 @@ app.get("/api/hero/:id", async (req, res) => {
     }
 
     console.log(`📖 Description 값:`, description ? `"${description.substring(0, 30)}..."` : 'null');
-    console.log(`📜 History 엔트리 수:`, history.length);
+    console.log(`📜 History 최종 엔트리 수:`, history.length);
 
     const responseData = {
       id: heroData.id,
