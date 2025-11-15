@@ -100,6 +100,9 @@ const renderHeader = () => {
 
   // 새 헤더 삽입 (app-container의 첫 번째 자식으로)
   appContainer.insertAdjacentHTML('afterbegin', headerHTML);
+
+  // 헤더 렌더링 완료 이벤트 발생
+  window.dispatchEvent(new CustomEvent('headerRendered'));
 };
 
 // 초기화
