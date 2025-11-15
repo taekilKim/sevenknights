@@ -238,9 +238,26 @@ app.get("/api/hero/:id", async (req, res) => {
 
     // ✅ 응답 구성
     const typeName = pick(fields, ["type", "Type"]);
-    const description = pick(fields, ["Description", "history"]);
+    const description = pick(fields, ["Description", "description"]);
+    const historyRaw = pick(fields, ["history", "History"]);
 
-    console.log(`📖 Description/history 값:`, description ? `"${description.substring(0, 50)}..."` : 'null');
+    // history를 JSON으로 파싱 시도
+    let history = [];
+    if (historyRaw) {
+      try {
+        history = JSON.parse(historyRaw);
+        if (!Array.isArray(history)) {
+          console.log(`⚠️ History가 배열이 아님, 빈 배열로 설정`);
+          history = [];
+        }
+      } catch (e) {
+        console.log(`⚠️ History JSON 파싱 실패:`, e.message);
+        history = [];
+      }
+    }
+
+    console.log(`📖 Description 값:`, description ? `"${description.substring(0, 30)}..."` : 'null');
+    console.log(`📜 History 엔트리 수:`, history.length);
 
     const responseData = {
       id: heroData.id,
@@ -270,6 +287,7 @@ app.get("/api/hero/:id", async (req, res) => {
       active_2: active2Skill,
 
       description: description,
+      history: history,
       hasEffect: !!fields.hasEffect // ✅ 추가됨
     };
 
