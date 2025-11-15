@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://senadb.games/sitemap.xml
+Sitemap: http://senadb.games/sitemap.xml
