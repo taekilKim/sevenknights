@@ -73,6 +73,14 @@ app.get("/sitemap.xml", async (req, res) => {
     xml += '    <priority>0.8</priority>\n';
     xml += '  </url>\n';
 
+    // 초보자 가이드
+    xml += '  <url>\n';
+    xml += '    <loc>https://senadb.games/beginner-guide.html</loc>\n';
+    xml += `    <lastmod>${now}</lastmod>\n`;
+    xml += '    <changefreq>monthly</changefreq>\n';
+    xml += '    <priority>0.9</priority>\n';
+    xml += '  </url>\n';
+
     // 덱 빌더
     xml += '  <url>\n';
     xml += '    <loc>https://senadb.games/deck.html</loc>\n';
