@@ -358,6 +358,64 @@ app.get("/api/hero/:id", async (req, res) => {
   }
 });
 
+// ✅ 스킬 효과(Effects) 테이블 조회 API
+app.get("/api/effects", async (req, res) => {
+  // 캐시 방지 헤더 설정
+  res.set({
+    'Cache-Control': 'no-store, no-cache, must-revalidate, private',
+    'Pragma': 'no-cache',
+    'Expires': '0'
+  });
+
+  try {
+    // Effects 테이블 전체 가져오기 (pagination 처리)
+    let allEffects = [];
+    let offset = null;
+
+    do {
+      const url = offset
+        ? `https://api.airtable.com/v0/${BASE_ID}/Effects?offset=${offset}`
+        : `https://api.airtable.com/v0/${BASE_ID}/Effects`;
+
+      const effectsRes = await fetch(url, {
+        headers: { Authorization: `Bearer ${AIRTABLE_TOKEN}` }
+      });
+
+      if (!effectsRes.ok) {
+        const errText = await effectsRes.text();
+        console.error("Airtable effects fetch error:", effectsRes.status, errText);
+        throw new Error(`Airtable effects fetch error: ${effectsRes.status}`);
+      }
+
+      const effectsData = await effectsRes.json();
+      allEffects = allEffects.concat(effectsData.records || []);
+      offset = effectsData.offset || null;
+
+      console.log(`📄 Effects 페이지 가져옴: ${effectsData.records?.length || 0}개, offset: ${offset || 'none'}`);
+    } while (offset);
+
+    console.log(`🎯 Effects 테이블 전체 레코드 수: ${allEffects.length}개`);
+
+    // 효과 데이터 포맷팅
+    const processedEffects = allEffects.map(effect => {
+      const f = effect.fields || {};
+      return {
+        id: effect.id,
+        name: f.Name || f.name || "",
+        description: f.Description || f.description || f.desc || "",
+        hasVariable: !!f.HasVariable || !!f.hasVariable,
+        icon: Array.isArray(f.Icon) && f.Icon[0] ? f.Icon[0].url : null,
+        color: f.Color || f.color || null
+      };
+    });
+
+    res.json(processedEffects);
+  } catch (error) {
+    console.error("Failed to fetch effects:", error);
+    res.status(500).json({ error: "Failed to fetch effects" });
+  }
+});
+
 // ✅ 단일 영웅 이름 기반 조회 API
 app.get("/api/hero/name/:name", async (req, res) => {
   const { name } = req.params;
