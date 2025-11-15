@@ -339,8 +339,15 @@ app.get("/api/hero/:id", async (req, res) => {
 
     // 텍스트 형식 history 파싱 함수
     function parseHistoryText(text) {
+      console.log(`🔍 parseHistoryText 입력 (길이 ${text.length}자):`, text.substring(0, 200));
+
       const entries = [];
       const lines = text.split('\n').map(line => line.trim()).filter(line => line);
+
+      console.log(`🔍 파싱할 줄 수: ${lines.length}개`);
+      lines.forEach((line, idx) => {
+        console.log(`  줄 ${idx}: "${line}"`);
+      });
 
       // 날짜 패턴: YYYY.MM.DD, YYYY-MM-DD, YYYY/MM/DD
       const datePattern = /^(\d{4})[.\-\/](\d{1,2})[.\-\/](\d{1,2})$/;
@@ -354,15 +361,20 @@ app.get("/api/hero/:id", async (req, res) => {
           const date = line;
           const content = lines[i + 1] || ''; // 다음 줄이 내용
 
+          console.log(`  ✅ 날짜 발견: ${date}, 내용: ${content}`);
+
           entries.push({
             date: date,
             content: content
           });
 
           i++; // 다음 줄(내용)을 건너뛰기
+        } else {
+          console.log(`  ❌ 날짜 패턴 불일치: "${line}"`);
         }
       }
 
+      console.log(`🔍 파싱 결과: ${entries.length}개 엔트리`);
       return entries;
     }
 
