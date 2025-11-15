@@ -785,7 +785,7 @@
                 <div class="history-date">${entry.date || ''}</div>
                 <div class="history-dot"></div>
                 <div class="history-content">
-                  <span class="history-type history-type-${entry.type?.toLowerCase() || 'default'}">${entry.type || ''}</span>
+                  ${entry.type ? `<span class="history-type history-type-${entry.type.toLowerCase()}">${entry.type}</span>` : ''}
                   <p class="history-text">${entry.content || ''}</p>
                 </div>
               </div>
