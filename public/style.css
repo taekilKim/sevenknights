@@ -2236,6 +2236,45 @@ button {
   font-weight: bold;
 }
 
+/* Container structure for effect boxes */
+.skill-effect-box .effect-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  font-size: 15px;
+  margin-bottom: 12px;
+}
+
+.skill-effect-box .effect-title .effect-icon {
+  font-size: 20px;
+  line-height: 1;
+  position: static;
+  width: auto;
+  height: auto;
+  transform: none;
+}
+
+.skill-effect-box .effect-desc {
+  padding-left: 28px;
+}
+
+.skill-effect-box .effect-desc p {
+  margin: 4px 0;
+  line-height: 1.6;
+  font-weight: 400;
+}
+
+/* Hide ::before when using container structure */
+.skill-effect-box:has(.effect-title)::before {
+  display: none;
+}
+
+/* Reset padding when using container structure */
+.skill-effect-box:has(.effect-title) {
+  padding-left: 16px;
+}
+
 /* 스킬 강화 (주황색) */
 .skill-effect-box.skill-enhancement {
   background: linear-gradient(135deg, rgba(249, 115, 22, 0.15), rgba(234, 88, 12, 0.15));
@@ -2246,6 +2285,14 @@ button {
 
 .skill-effect-box.skill-enhancement::before {
   content: '⚡';
+  color: #f97316;
+}
+
+.skill-effect-box.skill-enhancement .effect-icon {
+  color: #f97316;
+}
+
+.skill-effect-box.skill-enhancement .effect-title {
   color: #f97316;
 }
 
@@ -2268,6 +2315,15 @@ button {
   font-size: 16px;
 }
 
+.skill-effect-box.awakening-2 .effect-icon {
+  color: #3b82f6;
+  font-size: 16px;
+}
+
+.skill-effect-box.awakening-2 .effect-title {
+  color: #3b82f6;
+}
+
 [data-theme="light"] .skill-effect-box.awakening-2 {
   background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(37, 99, 235, 0.1));
   box-shadow: 0 2px 8px rgba(59, 130, 246, 0.15);
@@ -2285,6 +2341,15 @@ button {
   content: '★★★';
   color: #a855f7;
   font-size: 14px;
+}
+
+.skill-effect-box.awakening-6 .effect-icon {
+  color: #a855f7;
+  font-size: 14px;
+}
+
+.skill-effect-box.awakening-6 .effect-title {
+  color: #a855f7;
 }
 
 [data-theme="light"] .skill-effect-box.awakening-6 {
