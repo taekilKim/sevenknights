@@ -197,17 +197,23 @@ app.get("/api/hero/:id", async (req, res) => {
     for (const skillRecord of skillsData.records || []) {
       skillsMap[skillRecord.id] = skillRecord.fields;
     }
+    console.log(`📋 skillsMap 생성 완료, 총 ${Object.keys(skillsMap).length}개 스킬`);
 
     // 헬퍼 함수: 스킬 데이터 생성
     const getSkillData = (skillId) => {
       const f = skillsMap[skillId];
-      if (!f) return null;
-      return {
+      if (!f) {
+        console.log(`  ❌ 스킬 ID "${skillId}" 를 skillsMap에서 찾을 수 없음`);
+        return null;
+      }
+      const skillData = {
         name: f.Name || "",
         desc: f.desc || "",
         image: Array.isArray(f.image) && f.image[0] ? f.image[0].url : null,
         cooltime: f.cooltime || f.Cooltime || f.coolTime || f.cool_time || null,
       };
+      console.log(`  ✅ 스킬 ID "${skillId}" → "${skillData.name}"`);
+      return skillData;
     };
 
     // ✅ 방법 1: Heroes 테이블에 직접 링크된 스킬 ID 사용
@@ -216,10 +222,24 @@ app.get("/api/hero/:id", async (req, res) => {
     const active1SkillIds = fields.active_1 || [];
     const active2SkillIds = fields.active_2 || [];
 
+    console.log(`🔗 Direct Link 필드 값:`, {
+      attack: attackSkillIds,
+      passive: passiveSkillIds,
+      active_1: active1SkillIds,
+      active_2: active2SkillIds
+    });
+
     let attackSkill = attackSkillIds[0] ? getSkillData(attackSkillIds[0]) : null;
     let passiveSkill = passiveSkillIds[0] ? getSkillData(passiveSkillIds[0]) : null;
     let active1Skill = active1SkillIds[0] ? getSkillData(active1SkillIds[0]) : null;
     let active2Skill = active2SkillIds[0] ? getSkillData(active2SkillIds[0]) : null;
+
+    console.log(`🎲 Direct Link 결과:`, {
+      attack: attackSkill?.name || 'null',
+      passive: passiveSkill?.name || 'null',
+      active_1: active1Skill?.name || 'null',
+      active_2: active2Skill?.name || 'null'
+    });
 
     // ✅ 방법 2: Fallback - Skills 테이블의 역방향 링크 사용 (기존 방식)
     if (!attackSkill || !passiveSkill || !active1Skill || !active2Skill) {
