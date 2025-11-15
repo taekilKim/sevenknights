@@ -2292,6 +2292,61 @@ button {
   box-shadow: 0 2px 8px rgba(168, 85, 247, 0.15);
 }
 
+/* ✅ 커스텀 효과 (녹색/청록색) */
+.skill-effect-box.skill-effect-custom {
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.15), rgba(5, 150, 105, 0.15));
+  border-left-color: #10b981;
+  color: var(--text-primary);
+  box-shadow: 0 2px 8px rgba(16, 185, 129, 0.2);
+}
+
+.skill-effect-box.skill-effect-custom::before {
+  content: '✦';
+  color: #10b981;
+  font-size: 18px;
+}
+
+[data-theme="light"] .skill-effect-box.skill-effect-custom {
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(5, 150, 105, 0.1));
+  box-shadow: 0 2px 8px rgba(16, 185, 129, 0.15);
+}
+
+/* ✅ 효과 아이콘 */
+.effect-icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  border-radius: 4px;
+}
+
+/* 아이콘이 있을 때는 ::before 숨기기 */
+.skill-effect-box.skill-effect-custom:has(.effect-icon)::before {
+  display: none;
+}
+
+/* ✅ 효과를 찾지 못했을 때 (빨간색 경고) */
+.skill-effect-box.skill-effect-unknown {
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.15), rgba(220, 38, 38, 0.15));
+  border-left-color: #ef4444;
+  color: var(--text-primary);
+  box-shadow: 0 2px 8px rgba(239, 68, 68, 0.2);
+}
+
+.skill-effect-box.skill-effect-unknown::before {
+  content: '⚠';
+  color: #ef4444;
+  font-size: 18px;
+}
+
+[data-theme="light"] .skill-effect-box.skill-effect-unknown {
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.1), rgba(220, 38, 38, 0.1));
+  box-shadow: 0 2px 8px rgba(239, 68, 68, 0.15);
+}
+
 /* History Timeline */
 .hero-history {
   padding: 24px;

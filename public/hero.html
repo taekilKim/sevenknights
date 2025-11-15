@@ -289,12 +289,33 @@
         container.classList.add("loading");
         skeleton.style.display = "block";
       }
-      fetch(`/api/hero/name/${encodeURIComponent(heroId)}`, { cache: 'no-store' })
-        .then(res => {
+
+      // ✅ 효과 데이터와 영웅 데이터를 동시에 가져오기
+      Promise.all([
+        fetch(`/api/hero/name/${encodeURIComponent(heroId)}`, { cache: 'no-store' }).then(res => {
           if (!res.ok) throw new Error(`HTTP ${res.status}`);
           return res.json();
+        }),
+        fetch('/api/effects', { cache: 'no-store' }).then(res => {
+          if (!res.ok) {
+            console.warn('Effects fetch failed, continuing without effects');
+            return [];
+          }
+          return res.json();
         })
-        .then(hero => {
+      ])
+        .then(([hero, effectsData]) => {
+          console.log(`📊 Effects loaded: ${effectsData.length} effects`);
+
+          // ✅ Effects를 이름으로 검색할 수 있도록 Map 생성
+          const effectsMap = new Map();
+          effectsData.forEach(effect => {
+            effectsMap.set(effect.name, effect);
+          });
+
+          return { hero, effectsMap };
+        })
+        .then(({ hero, effectsMap }) => {
           if (container && skeleton) {
             container.classList.remove("loading");
             skeleton.style.display = "none";
@@ -565,6 +586,42 @@
               return html;
             };
 
+            // ✅ Process effect markers <<효과명>> or <<효과명, 변수>>
+            const processEffectMarker = (sentence) => {
+              const effectPattern = /^<<(.+?)(?:,\s*(.+?))?>>$/;
+              const match = sentence.match(effectPattern);
+
+              if (!match) {
+                return null; // Not an effect marker
+              }
+
+              const effectName = match[1].trim();
+              const variableValue = match[2] ? match[2].trim() : null;
+
+              // Find effect in effectsMap
+              const effect = effectsMap.get(effectName);
+
+              if (!effect) {
+                console.warn(`⚠️ Effect not found: ${effectName}`);
+                return `<div class="skill-effect-box skill-effect-unknown"><strong>효과 없음</strong> ${parseMarkdownInline(effectName)}</div>`;
+              }
+
+              // Process description with variable substitution
+              let description = effect.description;
+              if (effect.hasVariable && variableValue) {
+                // Replace 'n' with the variable value
+                description = description.replace(/n/g, variableValue);
+              }
+
+              // Render effect box
+              const colorStyle = effect.color ? `style="border-left-color: ${effect.color};"` : '';
+              const iconHtml = effect.icon
+                ? `<img src="${effect.icon}" alt="${effect.name}" class="effect-icon" />`
+                : '';
+
+              return `<div class="skill-effect-box skill-effect-custom" ${colorStyle}>${iconHtml}<strong>${effect.name}</strong> ${parseMarkdownInline(description)}</div>`;
+            };
+
             // Process a sentence to check for target markers
             const processTargetMarker = (sentence) => {
               if (!sentence.startsWith('!')) {
@@ -638,6 +695,16 @@
                 // Remove ! marker if present but don't apply target styling
                 const cleanContent = content.startsWith('!') ? content.substring(1) : content;
                 processedLines.push('<div class="skill-effect-box skill-enhancement"><strong>스킬 강화</strong> ' + parseMarkdownInline(cleanContent) + '</div>');
+              } else if (line.startsWith('<<')) {
+                // ✅ 커스텀 효과 마커 - Effects 테이블에서 가져온 효과
+                const effectHtml = processEffectMarker(line);
+                if (effectHtml) {
+                  processedLines.push(effectHtml);
+                } else {
+                  // If effect marker parsing failed, treat as regular line
+                  const processedContent = processTargetMarker(line);
+                  processedLines.push(processedContent);
+                }
               } else {
                 // Regular line - check for target marker or process as normal
                 const processedContent = processTargetMarker(line);
