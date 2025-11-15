@@ -319,7 +319,13 @@ app.get("/api/hero/:id", async (req, res) => {
     if (historyRaw) {
       // 먼저 JSON 파싱 시도
       try {
-        const parsed = JSON.parse(historyRaw);
+        // Trailing comma 제거 (JSON5 스타일 지원)
+        let cleanedJson = historyRaw
+          .replace(/,\s*}/g, '}')  // 객체 끝의 trailing comma 제거
+          .replace(/,\s*]/g, ']'); // 배열 끝의 trailing comma 제거
+
+        console.log(`🔧 JSON 정리 시도...`);
+        const parsed = JSON.parse(cleanedJson);
         if (Array.isArray(parsed)) {
           history = parsed;
           console.log(`✅ History JSON 파싱 성공: ${history.length}개 엔트리`);
@@ -329,7 +335,7 @@ app.get("/api/hero/:id", async (req, res) => {
         }
       } catch (e) {
         // JSON 파싱 실패 시 텍스트 형식으로 파싱
-        console.log(`📝 History를 텍스트 형식으로 파싱 시도`);
+        console.log(`📝 History를 텍스트 형식으로 파싱 시도 (JSON 오류: ${e.message})`);
         history = parseHistoryText(historyRaw);
         console.log(`✅ History 텍스트 파싱 완료: ${history.length}개 엔트리`);
       }
