@@ -17,6 +17,91 @@ const COMMENTS_TABLE = process.env.AIRTABLE_COMMENTS_TABLE || "Comments";
 console.log("🔑 Airtable Token:", AIRTABLE_TOKEN ? "✅ Loaded" : "❌ Missing");
 console.log("📁 Base ID:", BASE_ID);
 
+// ====== Sitemap.xml 동적 생성 ======
+app.get("/sitemap.xml", async (req, res) => {
+  try {
+    // 영웅 목록 가져오기
+    const heroesRes = await fetch(
+      `https://api.airtable.com/v0/${BASE_ID}/Heroes?sort[0][field]=Name&sort[0][direction]=asc`,
+      { headers: { Authorization: `Bearer ${AIRTABLE_TOKEN}` } }
+    );
+
+    if (!heroesRes.ok) {
+      throw new Error(`Airtable Heroes API error: ${heroesRes.status}`);
+    }
+
+    const heroesData = await heroesRes.json();
+    const heroes = heroesData.records.map(hero => ({
+      name: hero.fields.Name || ""
+    })).filter(h => h.name);
+
+    const now = new Date().toISOString().split('T')[0]; // YYYY-MM-DD
+
+    // Sitemap XML 생성
+    let xml = '<?xml version="1.0" encoding="UTF-8"?>\n';
+    xml += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n';
+
+    // 홈페이지
+    xml += '  <url>\n';
+    xml += '    <loc>https://senadb.games/</loc>\n';
+    xml += `    <lastmod>${now}</lastmod>\n`;
+    xml += '    <changefreq>daily</changefreq>\n';
+    xml += '    <priority>1.0</priority>\n';
+    xml += '  </url>\n';
+
+    // 영웅 도감 페이지
+    xml += '  <url>\n';
+    xml += '    <loc>https://senadb.games/index.html</loc>\n';
+    xml += `    <lastmod>${now}</lastmod>\n`;
+    xml += '    <changefreq>weekly</changefreq>\n';
+    xml += '    <priority>0.9</priority>\n';
+    xml += '  </url>\n';
+
+    // 티어 리스트
+    xml += '  <url>\n';
+    xml += '    <loc>https://senadb.games/tier-list.html</loc>\n';
+    xml += `    <lastmod>${now}</lastmod>\n`;
+    xml += '    <changefreq>weekly</changefreq>\n';
+    xml += '    <priority>0.9</priority>\n';
+    xml += '  </url>\n';
+
+    // FAQ
+    xml += '  <url>\n';
+    xml += '    <loc>https://senadb.games/faq.html</loc>\n';
+    xml += `    <lastmod>${now}</lastmod>\n`;
+    xml += '    <changefreq>monthly</changefreq>\n';
+    xml += '    <priority>0.8</priority>\n';
+    xml += '  </url>\n';
+
+    // 덱 빌더
+    xml += '  <url>\n';
+    xml += '    <loc>https://senadb.games/deck.html</loc>\n';
+    xml += `    <lastmod>${now}</lastmod>\n`;
+    xml += '    <changefreq>weekly</changefreq>\n';
+    xml += '    <priority>0.8</priority>\n';
+    xml += '  </url>\n';
+
+    // 각 영웅 페이지
+    heroes.forEach(hero => {
+      xml += '  <url>\n';
+      xml += `    <loc>https://senadb.games/hero.html?name=${encodeURIComponent(hero.name)}</loc>\n`;
+      xml += `    <lastmod>${now}</lastmod>\n`;
+      xml += '    <changefreq>weekly</changefreq>\n';
+      xml += '    <priority>0.8</priority>\n';
+      xml += '  </url>\n';
+    });
+
+    xml += '</urlset>';
+
+    res.header('Content-Type', 'application/xml');
+    res.send(xml);
+  } catch (err) {
+    console.error("Sitemap generation error:", err);
+    res.status(500).send('Error generating sitemap');
+  }
+});
+// ====== End Sitemap ======
+
 // -------- helpers --------
 const pick = (obj, keys) => {
   for (const k of keys) {
@@ -297,6 +382,10 @@ app.get("/api/hero/:id", async (req, res) => {
     // ✅ 응답 구성
     const typeName = pick(fields, ["type", "Type"]);
     const description = pick(fields, ["Description", "description"]);
+
+    // ✅ 디버깅: 모든 필드 키 확인
+    console.log(`🔍 사용 가능한 필드 키:`, Object.keys(fields).join(', '));
+
     const historyRaw = pick(fields, ["history", "History", "updateHistory", "UpdateHistory", "업데이트 히스토리", "히스토리"]);
 
     // 🔍 디버깅: history 필드의 원본 값 확인
@@ -385,7 +474,7 @@ app.get("/api/hero/:id", async (req, res) => {
     }
 
     console.log(`📖 Description 값:`, description ? `"${description.substring(0, 30)}..."` : 'null');
-    console.log(`📜 History 엔트리 수:`, history.length);
+    console.log(`📜 History 최종 엔트리 수:`, history.length);
 
     const responseData = {
       id: heroData.id,

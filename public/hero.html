@@ -176,6 +176,7 @@
     <div class="hero-tabs">
       <button class="tab-btn active" data-tab="stats">스탯</button>
       <button class="tab-btn" data-tab="skills">스킬</button>
+      <button class="tab-btn" data-tab="guide">가이드</button>
       <button class="tab-btn" data-tab="comments">의견</button>
       <button class="tab-btn" data-tab="history">업데이트</button>
     </div>
@@ -265,6 +266,240 @@
         <ul id="comment-list" class="comment-list"></ul>
       </section>
     </div>
+
+    <!-- ✅ 가이드 탭 추가 -->
+    <div class="tab-content" id="tab-guide">
+      <section class="hero-guide">
+
+        <!-- 한눈에 보기 섹션 -->
+        <div class="guide-section">
+          <h2 class="guide-section-title">
+            <i class="ph-bold ph-star"></i>
+            한눈에 보기
+          </h2>
+          <div class="guide-overview">
+            <div class="overview-item">
+              <span class="overview-label">⭐ 티어</span>
+              <span class="overview-value" id="guide-tier">PVP S / PVE A</span>
+            </div>
+            <div class="overview-item">
+              <span class="overview-label">🎯 주요 용도</span>
+              <span class="overview-value" id="guide-role">결투장, 총력전</span>
+            </div>
+            <div class="overview-item">
+              <span class="overview-label">💎 획득</span>
+              <span class="overview-value" id="guide-obtain">일반 가챠</span>
+            </div>
+            <div class="overview-item">
+              <span class="overview-label">👥 추천 파티</span>
+              <span class="overview-value" id="guide-party">관련 영웅들</span>
+            </div>
+            <div class="overview-item">
+              <span class="overview-label">🔰 초보자 추천도</span>
+              <span class="overview-value" id="guide-beginner">★★★★☆</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 추천 장비 세팅 섹션 -->
+        <div class="guide-section">
+          <h2 class="guide-section-title">
+            <i class="ph-bold ph-sword"></i>
+            추천 장비 세팅
+          </h2>
+
+          <!-- PVE 빌드 -->
+          <div class="equipment-build">
+            <h3 class="build-title">
+              <span class="build-badge build-pve">PVE</span>
+              스토리 / 레이드 빌드
+            </h3>
+            <div class="equipment-grid">
+              <div class="equipment-item">
+                <div class="equipment-slot">무기</div>
+                <div class="equipment-details">
+                  <p class="equipment-name">생명 세트 무기</p>
+                  <p class="equipment-desc">주옵션: 공격력 / 부옵션: HP, 방어력</p>
+                  <p class="equipment-reason"><strong>이유:</strong> 생존력을 높이면서 딜량 확보</p>
+                </div>
+              </div>
+              <div class="equipment-item">
+                <div class="equipment-slot">방어구</div>
+                <div class="equipment-details">
+                  <p class="equipment-name">생명 세트 방어구</p>
+                  <p class="equipment-desc">주옵션: HP, 방어력</p>
+                </div>
+              </div>
+              <div class="equipment-item">
+                <div class="equipment-slot">악세서리</div>
+                <div class="equipment-details">
+                  <p class="equipment-name">생명력 목걸이</p>
+                  <p class="equipment-desc">생존 최우선</p>
+                </div>
+              </div>
+            </div>
+            <div class="build-summary">
+              <p><strong>세트 효과 추천:</strong> 생명 4세트 (HP +30%)</p>
+              <p><strong>옵션 우선순위:</strong> 공격력 ≥ HP &gt; 방어력 &gt; 치명타</p>
+            </div>
+          </div>
+
+          <!-- PVP 빌드 -->
+          <div class="equipment-build">
+            <h3 class="build-title">
+              <span class="build-badge build-pvp">PVP</span>
+              결투장 빌드
+            </h3>
+            <div class="equipment-grid">
+              <div class="equipment-item">
+                <div class="equipment-slot">무기</div>
+                <div class="equipment-details">
+                  <p class="equipment-name">수호 세트 무기</p>
+                  <p class="equipment-desc">주옵션: 방어력, HP</p>
+                </div>
+              </div>
+              <div class="equipment-item">
+                <div class="equipment-slot">방어구</div>
+                <div class="equipment-details">
+                  <p class="equipment-name">수호 세트 방어구</p>
+                  <p class="equipment-desc">주옵션: HP, 방어력</p>
+                </div>
+              </div>
+              <div class="equipment-item">
+                <div class="equipment-slot">악세서리</div>
+                <div class="equipment-details">
+                  <p class="equipment-name">생명력 목걸이</p>
+                </div>
+              </div>
+            </div>
+            <div class="build-summary">
+              <p><strong>세트 효과:</strong> 수호 4세트 (방어력 +30%)</p>
+              <p><strong>옵션 우선순위:</strong> HP &gt; 방어력 &gt; 공격력</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 스킬 빌드 섹션 -->
+        <div class="guide-section">
+          <h2 class="guide-section-title">
+            <i class="ph-bold ph-lightning"></i>
+            스킬 빌드
+          </h2>
+          <div class="skill-priority">
+            <h3>스킬업 우선순위</h3>
+            <ol class="priority-list">
+              <li><strong>궁극기</strong> - 최우선! 핵심 스킬</li>
+              <li><strong>2번 스킬</strong> - 주력 딜링/유틸리티</li>
+              <li><strong>1번 스킬</strong> - 마지막</li>
+            </ol>
+            <p class="skill-reason">
+              <strong>이유:</strong> 궁극기와 2번 스킬이 영웅의 핵심 역할을 담당하므로 최우선 투자
+            </p>
+          </div>
+        </div>
+
+        <!-- 파티 조합 추천 -->
+        <div class="guide-section">
+          <h2 class="guide-section-title">
+            <i class="ph-bold ph-users-three"></i>
+            파티 조합 추천
+          </h2>
+          <div class="party-composition">
+            <div class="synergy-group">
+              <h3>시너지 좋은 영웅</h3>
+              <div class="synergy-heroes" id="synergy-heroes">
+                <p class="guide-placeholder">영웅 데이터와 연동하여 추천 파티를 표시합니다</p>
+              </div>
+            </div>
+            <div class="synergy-group">
+              <h3>카운터 영웅 (주의)</h3>
+              <div class="counter-heroes" id="counter-heroes">
+                <p class="guide-placeholder">상성이 불리한 영웅들을 표시합니다</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 육성 가이드 -->
+        <div class="guide-section">
+          <h2 class="guide-section-title">
+            <i class="ph-bold ph-trend-up"></i>
+            육성 가이드
+          </h2>
+          <div class="growth-guide">
+            <h3>초반 육성 순서</h3>
+            <ol class="growth-steps">
+              <li>4성까지 우선 승급 (핵심 스킬 해금)</li>
+              <li>장비는 생명 세트 우선 착용</li>
+              <li>스킬북은 궁극기에 투자</li>
+            </ol>
+
+            <h3>각성 우선순위</h3>
+            <ul class="awakening-priority">
+              <li>1차 각성: 공격력 증가 선택</li>
+              <li>2차 각성: HP 증가 선택</li>
+            </ul>
+
+            <h3>투자 가치</h3>
+            <div class="investment-rating">
+              <p><strong>평가:</strong> ★★★★★ (5/5)</p>
+              <div class="pros-cons">
+                <div class="pros">
+                  <h4>장점</h4>
+                  <ul>
+                    <li>범용성이 높음</li>
+                    <li>초반부터 후반까지 활용 가능</li>
+                    <li>육성 난이도 낮음</li>
+                  </ul>
+                </div>
+                <div class="cons">
+                  <h4>단점</h4>
+                  <ul>
+                    <li>특정 콘텐츠에서 제한적</li>
+                    <li>고급 콘텐츠에서는 전문 영웅에 밀림</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 자주 묻는 질문 -->
+        <div class="guide-section">
+          <h2 class="guide-section-title">
+            <i class="ph-bold ph-question"></i>
+            자주 묻는 질문
+          </h2>
+          <div class="hero-faq">
+            <div class="faq-item">
+              <h3 class="faq-question">Q: 이 영웅은 리세마라에서 노려야 하나요?</h3>
+              <p class="faq-answer">A: 필수는 아니지만, 있으면 초반 진행이 매우 편합니다.</p>
+            </div>
+            <div class="faq-item">
+              <h3 class="faq-question">Q: 초반에 키울 가치가 있나요?</h3>
+              <p class="faq-answer">A: ★★★★★ 적극 추천! 초반 스토리 진행에 매우 유용합니다.</p>
+            </div>
+            <div class="faq-item">
+              <h3 class="faq-question">Q: 장비는 어떤 세트를 맞춰야 하나요?</h3>
+              <p class="faq-answer">A: PVE는 생명 세트, PVP는 수호 세트를 추천합니다.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 가이드 업데이트 정보 -->
+        <div class="guide-footer">
+          <p class="guide-update-info">
+            <i class="ph-bold ph-calendar"></i>
+            이 가이드는 커뮤니티 기여자들의 노하우를 바탕으로 작성되었습니다.
+          </p>
+          <p class="guide-disclaimer">
+            ※ 메타 변화에 따라 추천 사항이 달라질 수 있습니다. 최신 패치 정보를 확인하세요.
+          </p>
+        </div>
+
+      </section>
+    </div>
+    <!-- ✅ 가이드 탭 끝 -->
 
     <div class="tab-content" id="tab-history">
       <section class="hero-history">
