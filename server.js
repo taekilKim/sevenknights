@@ -43,7 +43,7 @@ app.get("/sitemap.xml", async (req, res) => {
 
     // 홈페이지
     xml += '  <url>\n';
-    xml += '    <loc>http://senadb.games/</loc>\n';
+    xml += '    <loc>https://senadb.games/</loc>\n';
     xml += `    <lastmod>${now}</lastmod>\n`;
     xml += '    <changefreq>daily</changefreq>\n';
     xml += '    <priority>1.0</priority>\n';
@@ -51,7 +51,7 @@ app.get("/sitemap.xml", async (req, res) => {
 
     // 영웅 도감 페이지
     xml += '  <url>\n';
-    xml += '    <loc>http://senadb.games/index.html</loc>\n';
+    xml += '    <loc>https://senadb.games/index.html</loc>\n';
     xml += `    <lastmod>${now}</lastmod>\n`;
     xml += '    <changefreq>weekly</changefreq>\n';
     xml += '    <priority>0.9</priority>\n';
@@ -59,7 +59,7 @@ app.get("/sitemap.xml", async (req, res) => {
 
     // 티어 리스트
     xml += '  <url>\n';
-    xml += '    <loc>http://senadb.games/tier-list.html</loc>\n';
+    xml += '    <loc>https://senadb.games/tier-list.html</loc>\n';
     xml += `    <lastmod>${now}</lastmod>\n`;
     xml += '    <changefreq>weekly</changefreq>\n';
     xml += '    <priority>0.9</priority>\n';
@@ -67,7 +67,7 @@ app.get("/sitemap.xml", async (req, res) => {
 
     // FAQ
     xml += '  <url>\n';
-    xml += '    <loc>http://senadb.games/faq.html</loc>\n';
+    xml += '    <loc>https://senadb.games/faq.html</loc>\n';
     xml += `    <lastmod>${now}</lastmod>\n`;
     xml += '    <changefreq>monthly</changefreq>\n';
     xml += '    <priority>0.8</priority>\n';
@@ -75,7 +75,7 @@ app.get("/sitemap.xml", async (req, res) => {
 
     // 초보자 가이드
     xml += '  <url>\n';
-    xml += '    <loc>http://senadb.games/beginner-guide.html</loc>\n';
+    xml += '    <loc>https://senadb.games/beginner-guide.html</loc>\n';
     xml += `    <lastmod>${now}</lastmod>\n`;
     xml += '    <changefreq>monthly</changefreq>\n';
     xml += '    <priority>0.9</priority>\n';
@@ -83,7 +83,7 @@ app.get("/sitemap.xml", async (req, res) => {
 
     // 덱 빌더
     xml += '  <url>\n';
-    xml += '    <loc>http://senadb.games/deck.html</loc>\n';
+    xml += '    <loc>https://senadb.games/deck.html</loc>\n';
     xml += `    <lastmod>${now}</lastmod>\n`;
     xml += '    <changefreq>weekly</changefreq>\n';
     xml += '    <priority>0.8</priority>\n';
@@ -92,7 +92,7 @@ app.get("/sitemap.xml", async (req, res) => {
     // 각 영웅 페이지
     heroes.forEach(hero => {
       xml += '  <url>\n';
-      xml += `    <loc>http://senadb.games/hero.html?name=${encodeURIComponent(hero.name)}</loc>\n`;
+      xml += `    <loc>https://senadb.games/hero.html?name=${encodeURIComponent(hero.name)}</loc>\n`;
       xml += `    <lastmod>${now}</lastmod>\n`;
       xml += '    <changefreq>weekly</changefreq>\n';
       xml += '    <priority>0.8</priority>\n';
