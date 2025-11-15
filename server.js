@@ -299,6 +299,21 @@ app.get("/api/hero/:id", async (req, res) => {
     const description = pick(fields, ["Description", "description"]);
     const historyRaw = pick(fields, ["history", "History", "updateHistory", "UpdateHistory", "업데이트 히스토리", "히스토리"]);
 
+    // 🔍 디버깅: history 필드의 원본 값 확인
+    console.log(`🔍 History 필드 원본 값:`, historyRaw);
+    console.log(`🔍 History 필드 타입:`, typeof historyRaw);
+
+    // 모든 필드 키 중 history와 유사한 것 찾기
+    const historyLikeKeys = Object.keys(fields).filter(key =>
+      key.toLowerCase().includes('history') ||
+      key.toLowerCase().includes('히스토리') ||
+      key.toLowerCase().includes('업데이트')
+    );
+    console.log(`🔍 History 관련 필드 키들:`, historyLikeKeys);
+    historyLikeKeys.forEach(key => {
+      console.log(`  - ${key}:`, fields[key]);
+    });
+
     // history를 JSON으로 파싱 시도
     let history = [];
     if (historyRaw) {
@@ -310,8 +325,11 @@ app.get("/api/hero/:id", async (req, res) => {
         }
       } catch (e) {
         console.log(`⚠️ History JSON 파싱 실패:`, e.message);
+        console.log(`⚠️ History 원본 데이터 (처음 100자):`, String(historyRaw).substring(0, 100));
         history = [];
       }
+    } else {
+      console.log(`⚠️ historyRaw가 null 또는 undefined입니다`);
     }
 
     console.log(`📖 Description 값:`, description ? `"${description.substring(0, 30)}..."` : 'null');
