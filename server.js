@@ -178,23 +178,37 @@ app.get("/api/hero/:id", async (req, res) => {
       }
     }
 
-    // Skills 테이블 전체 가져오기
-    const skillsRes = await fetch(
-      `https://api.airtable.com/v0/${BASE_ID}/Skills`,
-      { headers: { Authorization: `Bearer ${AIRTABLE_TOKEN}` } }
-    );
-    if (!skillsRes.ok) {
-      const errText = await skillsRes.text();
-      console.error("Airtable skills fetch error:", skillsRes.status, errText);
-      throw new Error(`Airtable skills fetch error: ${skillsRes.status}`);
-    }
+    // Skills 테이블 전체 가져오기 (pagination 처리)
+    let allSkills = [];
+    let offset = null;
 
-    const skillsData = await skillsRes.json();
-    console.log(`🎯 스킬 테이블 레코드 수:`, skillsData.records?.length || 0);
+    do {
+      const url = offset
+        ? `https://api.airtable.com/v0/${BASE_ID}/Skills?offset=${offset}`
+        : `https://api.airtable.com/v0/${BASE_ID}/Skills`;
+
+      const skillsRes = await fetch(url, {
+        headers: { Authorization: `Bearer ${AIRTABLE_TOKEN}` }
+      });
+
+      if (!skillsRes.ok) {
+        const errText = await skillsRes.text();
+        console.error("Airtable skills fetch error:", skillsRes.status, errText);
+        throw new Error(`Airtable skills fetch error: ${skillsRes.status}`);
+      }
+
+      const skillsData = await skillsRes.json();
+      allSkills = allSkills.concat(skillsData.records || []);
+      offset = skillsData.offset || null;
+
+      console.log(`📄 Skills 페이지 가져옴: ${skillsData.records?.length || 0}개, offset: ${offset || 'none'}`);
+    } while (offset);
+
+    console.log(`🎯 스킬 테이블 전체 레코드 수: ${allSkills.length}개`);
 
     // 스킬 ID로 매핑 & 역방향 매핑
     const skillsMap = {};
-    for (const skillRecord of skillsData.records || []) {
+    for (const skillRecord of allSkills) {
       skillsMap[skillRecord.id] = skillRecord.fields;
     }
     console.log(`📋 skillsMap 생성 완료, 총 ${Object.keys(skillsMap).length}개 스킬`);
