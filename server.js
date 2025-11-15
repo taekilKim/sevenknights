@@ -197,6 +197,14 @@ app.get("/api/hero/:id", async (req, res) => {
     let active2Skill = null;
 
     console.log(`🎯 스킬 테이블 레코드 수:`, skillsData.records?.length || 0);
+    console.log(`🔑 찾고 있는 영웅 ID:`, id);
+
+    // 첫 번째 스킬 레코드의 구조 확인
+    if (skillsData.records && skillsData.records.length > 0) {
+      const firstSkill = skillsData.records[0].fields || {};
+      console.log(`📋 첫 번째 스킬 레코드의 필드 키:`, Object.keys(firstSkill));
+      console.log(`📋 attack_hero 예시:`, firstSkill.attack_hero);
+    }
 
     for (const skillRecord of skillsData.records || []) {
       const f = skillRecord.fields || {};
@@ -230,9 +238,9 @@ app.get("/api/hero/:id", async (req, res) => {
 
     // ✅ 응답 구성
     const typeName = pick(fields, ["type", "Type"]);
-    const description = pick(fields, ["Description"]);
+    const description = pick(fields, ["Description", "history"]);
 
-    console.log(`📖 Description 값:`, description ? `"${description.substring(0, 50)}..."` : 'null');
+    console.log(`📖 Description/history 값:`, description ? `"${description.substring(0, 50)}..."` : 'null');
 
     const responseData = {
       id: heroData.id,
@@ -296,10 +304,9 @@ app.get("/api/hero/name/:name", async (req, res) => {
       return res.status(404).json({ error: "영웅을 찾을 수 없습니다." });
     const heroRecord = heroesData.records[0];
     const heroId = heroRecord.id;
-    // 기존 /api/hero/:id 로직 재사용
-    const heroDetailRes = await fetch(`https://sena-rebirth-guidebook.app/api/hero/${heroId}`);
-    const heroDetail = await heroDetailRes.json();
-    res.json(heroDetail);
+
+    // /api/hero/:id로 리다이렉트
+    return res.redirect(308, `/api/hero/${heroId}`);
   } catch (error) {
     console.error("Failed to fetch hero by name:", error);
     res.status(500).json({ error: "Failed to fetch hero by name" });
