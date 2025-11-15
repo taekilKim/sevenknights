@@ -1728,6 +1728,29 @@ button {
 }
 
 /* Hero Stats Section */
+/* 2단 레이아웃 컨테이너 */
+.hero-stats-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  padding: 0;
+}
+
+@media (max-width: 768px) {
+  .hero-stats-container {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
+
+.stats-left,
+.stats-right {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-secondary);
+  border-radius: var(--radius-sm);
+  padding: 16px;
+}
+
 .hero-stats {
   background: var(--bg-elevated);
   border: 1px solid var(--border-secondary);
@@ -1779,6 +1802,59 @@ button {
   font-weight: 600;
   color: var(--text-primary);
   text-align: right;
+}
+
+/* 초월 레벨 스타일 */
+.transcendence-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--accent-primary);
+  margin: 0 0 16px 0;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border-secondary);
+}
+
+.transcendence-levels {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.transcendence-box {
+  background: var(--bg-base);
+  border: 1px solid var(--border-secondary);
+  border-radius: var(--radius-sm);
+  padding: 12px;
+  transition: all 0.2s ease;
+}
+
+.transcendence-box:hover {
+  border-color: var(--accent-primary);
+  background: var(--bg-elevated-hover);
+}
+
+.transcendence-level-number {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--accent-primary);
+  margin-bottom: 6px;
+  display: inline-block;
+  padding: 2px 8px;
+  background: var(--accent-primary-alpha);
+  border-radius: 4px;
+}
+
+.transcendence-content {
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--text-secondary);
+}
+
+.transcendence-empty {
+  font-size: 13px;
+  color: var(--text-tertiary);
+  text-align: center;
+  padding: 24px;
 }
 
 /* Hero Skills Section */
