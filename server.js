@@ -297,7 +297,7 @@ app.get("/api/hero/:id", async (req, res) => {
     // ✅ 응답 구성
     const typeName = pick(fields, ["type", "Type"]);
     const description = pick(fields, ["Description", "description"]);
-    const historyRaw = pick(fields, ["history", "History"]);
+    const historyRaw = pick(fields, ["history", "History", "updateHistory", "UpdateHistory", "업데이트 히스토리", "히스토리"]);
 
     // history를 JSON으로 파싱 시도
     let history = [];
@@ -346,7 +346,8 @@ app.get("/api/hero/:id", async (req, res) => {
 
       description: description,
       history: history,
-      hasEffect: !!fields.hasEffect // ✅ 추가됨
+      hasEffect: !!fields.hasEffect, // ✅ 추가됨
+      transLevel: pick(fields, ["transLevel", "TransLevel", "초월", "초월레벨"]) // ✅ 초월 레벨 정보
     };
 
     console.log(`✅ 최종 응답 데이터 구성 완료\n`);
