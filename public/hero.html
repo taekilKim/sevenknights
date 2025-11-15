@@ -561,12 +561,15 @@
             const processedSentences = sentences.map(sentence => {
               if (!sentence.trim()) return '';
 
-              // Check for special effect boxes first
+              // Check for special effect boxes first (before target patterns)
               if (sentence.includes('[스킬 강화]')) {
-                return '<span class="skill-box skill-enhancement">' + parseMarkdownInline(sentence) + '</span>';
+                return '<div class="skill-effect-box skill-enhancement">' + parseMarkdownInline(sentence) + '</div>';
               }
-              if (sentence.includes('[6초월]') || sentence.includes('[2초월]')) {
-                return '<span class="skill-box awakening-effect">' + parseMarkdownInline(sentence) + '</span>';
+              if (sentence.includes('[6초월]')) {
+                return '<div class="skill-effect-box awakening-6">' + parseMarkdownInline(sentence) + '</div>';
+              }
+              if (sentence.includes('[2초월]')) {
+                return '<div class="skill-effect-box awakening-2">' + parseMarkdownInline(sentence) + '</div>';
               }
 
               // Define target type patterns (in priority order)
