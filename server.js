@@ -238,26 +238,10 @@ app.get("/api/heroes", async (req, res) => {
       skillsMap[skillRecord.id] = skillRecord.fields;
     }
 
-    // Effects를 스킬별로 그룹화
-    const skillEffectsMap = {};
+    // Effects를 ID로 매핑
+    const effectsMap = {};
     for (const effectRecord of allEffects) {
-      const fields = effectRecord.fields;
-      const skillIds = fields.skill || fields.Skill || fields.skills || fields.Skills || [];
-
-      // 각 스킬에 대해 효과 추가
-      skillIds.forEach(skillId => {
-        if (!skillEffectsMap[skillId]) {
-          skillEffectsMap[skillId] = [];
-        }
-        skillEffectsMap[skillId].push({
-          id: effectRecord.id,
-          name: fields.Name || fields.name || "",
-          description: fields.desc || fields.description || fields.Description || "",
-          effectType: fields.effectType || fields.effect_type || fields.EffectType || null,
-          hasVariable: !!fields.hasVariable,
-          icon: Array.isArray(fields.icon) && fields.icon[0] ? fields.icon[0].url : null
-        });
-      });
+      effectsMap[effectRecord.id] = effectRecord.fields;
     }
 
     // 영웅 데이터 구성 (요약 + 패시브 스킬)
@@ -274,8 +258,24 @@ app.get("/api/heroes", async (req, res) => {
         const skillId = passiveSkillIds[0];
         const skillFields = skillsMap[skillId];
 
-        // 이 스킬에 연결된 Effects 가져오기
-        const effects = skillEffectsMap[skillId] || [];
+        // Skills 테이블의 Effect 필드에서 Effects ID 가져오기
+        const effectIds = skillFields.Effect || skillFields.effect || skillFields.effects || [];
+        const effects = [];
+
+        // 각 Effect ID로 Effects 테이블에서 데이터 가져오기
+        effectIds.forEach(effectId => {
+          const effectFields = effectsMap[effectId];
+          if (effectFields) {
+            effects.push({
+              id: effectId,
+              name: effectFields.Name || effectFields.name || "",
+              description: effectFields.desc || effectFields.description || effectFields.Description || "",
+              effectType: effectFields.effectType || effectFields.effect_type || effectFields.EffectType || null,
+              hasVariable: !!effectFields.hasVariable,
+              icon: Array.isArray(effectFields.icon) && effectFields.icon[0] ? effectFields.icon[0].url : null
+            });
+          }
+        });
 
         skills.push({
           type: '패시브',
