@@ -269,10 +269,41 @@
             <!-- 영웅 목록 -->
             <div id="heroes-list"></div>
 
-            <!-- 덱 패시브 효과 -->
+            <!-- 덱 패시브 효과 요약 -->
             <div class="deck-passives-section">
-              <h3 class="passives-title">덱 패시브 효과</h3>
-              <div id="deck-passives-list" class="passives-list">
+              <h3 class="passives-title">덱 효과 요약</h3>
+
+              <!-- 효과 요약 카드 -->
+              <div class="effects-summary">
+                <div class="effect-category ally-effects">
+                  <div class="category-header">
+                    <i class="ph ph-shield-check"></i>
+                    <span>아군 강화 효과</span>
+                  </div>
+                  <div id="ally-effects-list" class="effects-list">
+                    <div class="effects-empty">영웅을 선택하면 효과가 표시됩니다</div>
+                  </div>
+                </div>
+
+                <div class="effect-category enemy-effects">
+                  <div class="category-header">
+                    <i class="ph ph-sword"></i>
+                    <span>적군 약화 효과</span>
+                  </div>
+                  <div id="enemy-effects-list" class="effects-list">
+                    <div class="effects-empty">영웅을 선택하면 효과가 표시됩니다</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 상세 패시브 효과 -->
+              <div class="passives-detail-toggle">
+                <button id="toggle-passives-detail" class="btn-toggle-detail">
+                  <i class="ph ph-caret-down"></i>
+                  <span>패시브 상세 보기</span>
+                </button>
+              </div>
+              <div id="deck-passives-list" class="passives-list" style="display: none;">
                 <div class="passives-empty">영웅을 선택하면 패시브 효과가 표시됩니다</div>
               </div>
             </div>
@@ -1009,19 +1040,25 @@
       // 덱 패시브 효과 업데이트
       function updateDeckPassives() {
         const passivesList = document.getElementById('deck-passives-list');
+        const allyEffectsList = document.getElementById('ally-effects-list');
+        const enemyEffectsList = document.getElementById('enemy-effects-list');
         const allSelected = [...selectedHeroes.front, ...selectedHeroes.back].filter(h => h);
 
         if (allSelected.length === 0) {
           passivesList.innerHTML = '<div class="passives-empty">영웅을 선택하면 패시브 효과가 표시됩니다</div>';
+          allyEffectsList.innerHTML = '<div class="effects-empty">영웅을 선택하면 효과가 표시됩니다</div>';
+          enemyEffectsList.innerHTML = '<div class="effects-empty">영웅을 선택하면 효과가 표시됩니다</div>';
           return;
         }
 
         let passivesHTML = '';
+        const allAllyEffects = [];
+        const allEnemyEffects = [];
 
         allSelected.forEach(hero => {
           if (!hero.skills || hero.skills.length === 0) return;
 
-          // 패시브 스킬 찾기 (스킬 이름에 "패시브"가 포함된 스킬)
+          // 패시브 스킬 찾기
           const passiveSkills = hero.skills.filter(skill =>
             skill.name && (skill.name.includes('패시브') || skill.type === '패시브')
           );
@@ -1031,6 +1068,10 @@
               ? `★${hero.transcendence}초월`
               : '★0초월';
 
+            // 스킬 설명에서 <<효과, 변수>> 패턴 제거
+            const cleanedDescription = (skill.description || '').replace(/<<[^>]+>>/g, '').trim();
+
+            // 상세 패시브 목록
             passivesHTML += `
               <div class="passive-item">
                 <div class="passive-hero-info">
@@ -1041,16 +1082,138 @@
                   </div>
                 </div>
                 <div class="passive-skill-name">${skill.name}</div>
-                <div class="passive-skill-desc">${skill.description || '설명 없음'}</div>
+                <div class="passive-skill-desc">${cleanedDescription || '설명 없음'}</div>
               </div>
             `;
+
+            // ✅ 스킬의 effects 배열을 순회하여 분류
+            const effects = skill.effects || [];
+            if (effects.length === 0) {
+              console.warn(`⚠️ ${hero.name}의 ${skill.name}에 효과가 없습니다`);
+            }
+
+            // 스킬 설명에서 <<효과이름, 변수>> 패턴 추출
+            const skillDescription = skill.description || '';
+            const effectParamsMap = {};
+
+            // <<효과이름>> 또는 <<효과이름, 변수>> 패턴 파싱
+            const effectPattern = /<<([^,>]+)(?:,\s*(\d+(?:\.\d+)?))?>>/g;
+            let match;
+            while ((match = effectPattern.exec(skillDescription)) !== null) {
+              const effectName = match[1].trim();
+              const paramValue = match[2] ? match[2].trim() : null;
+              effectParamsMap[effectName] = paramValue;
+            }
+
+            effects.forEach(effect => {
+              const effectType = effect.effectType;
+              const effectName = effect.name || '';
+              const effectTemplate = effect.description || '설명 없음';
+              const hasVariable = effect.hasVariable || false;
+
+              // 변수 처리
+              let finalDescription = effectTemplate;
+
+              if (hasVariable) {
+                // 변수가 있는 효과: 스킬 설명에서 변수값을 가져와 치환
+                const paramValue = effectParamsMap[effectName];
+                if (paramValue !== null && paramValue !== undefined) {
+                  // "n"을 변수값으로 치환
+                  finalDescription = effectTemplate.replace(/\bn\b/g, paramValue);
+                } else {
+                  // 변수값을 찾지 못한 경우 경고
+                  console.warn(`⚠️ 변수가 필요한 효과이지만 값을 찾을 수 없음: ${hero.name} - ${skill.name} - ${effectName}`);
+                }
+              }
+              // hasVariable이 false면 description을 그대로 사용
+
+              const effectData = {
+                hero: hero.name,
+                effectName: effectName,
+                effectDescription: finalDescription,
+                portrait: hero.portrait,
+                transcendence: hero.transcendence || 0,
+                skillName: skill.name,
+                icon: effect.icon
+              };
+
+              // effectType에 따라 분류
+              if (effectType === 'buff' || effectType === 'BUFF') {
+                allAllyEffects.push(effectData);
+              } else if (effectType === 'debuff' || effectType === 'DEBUFF') {
+                allEnemyEffects.push(effectData);
+              } else if (effectType === 'mixed' || effectType === 'MIXED') {
+                // 혼합 효과는 양쪽에 모두 추가
+                allAllyEffects.push(effectData);
+                allEnemyEffects.push(effectData);
+              } else if (!effectType || effectType === 'neutral' || effectType === 'NEUTRAL') {
+                // effectType이 없거나 중립인 경우, 분류하지 않음
+                console.warn(`⚠️ effectType 미지정: ${hero.name} - ${skill.name} - ${effect.name}`);
+              } else {
+                // 예상치 못한 effectType인 경우 경고
+                console.warn(`⚠️ 알 수 없는 effectType: ${effectType} (${hero.name} - ${skill.name} - ${effect.name})`);
+              }
+            });
           });
         });
 
+        // 상세 패시브 목록 업데이트
         if (passivesHTML === '') {
           passivesList.innerHTML = '<div class="passives-empty">패시브 스킬 정보가 없습니다</div>';
         } else {
           passivesList.innerHTML = passivesHTML;
+        }
+
+        // 아군 효과 목록 업데이트
+        if (allAllyEffects.length === 0) {
+          allyEffectsList.innerHTML = '<div class="effects-empty">아군 강화 효과가 없습니다</div>';
+        } else {
+          let allyHTML = '';
+          allAllyEffects.forEach(({ hero, effectName, effectDescription, portrait, transcendence, skillName, icon }) => {
+            const transcLabel = transcendence ? `★${transcendence}초월` : '★0초월';
+            const iconHTML = icon ? `<img src="${icon}" alt="${effectName}" class="effect-icon" />` : '';
+            allyHTML += `
+              <div class="effect-item">
+                <div class="effect-hero-badge">
+                  <img src="${portrait}" alt="${hero}" class="effect-hero-portrait" />
+                  <span class="effect-hero-name">${hero}</span>
+                  <span class="effect-transcendence">${transcLabel}</span>
+                </div>
+                <div class="effect-name-row">
+                  ${iconHTML}
+                  <span class="effect-name">${effectName || skillName}</span>
+                </div>
+                <div class="effect-text">${effectDescription}</div>
+              </div>
+            `;
+          });
+          allyEffectsList.innerHTML = allyHTML;
+        }
+
+        // 적군 효과 목록 업데이트
+        if (allEnemyEffects.length === 0) {
+          enemyEffectsList.innerHTML = '<div class="effects-empty">적군 약화 효과가 없습니다</div>';
+        } else {
+          let enemyHTML = '';
+          allEnemyEffects.forEach(({ hero, effectName, effectDescription, portrait, transcendence, skillName, icon }) => {
+            const transcLabel = transcendence ? `★${transcendence}초월` : '★0초월';
+            const iconHTML = icon ? `<img src="${icon}" alt="${effectName}" class="effect-icon" />` : '';
+            enemyHTML += `
+              <div class="effect-item">
+                <div class="effect-hero-badge">
+                  <img src="${portrait}" alt="${hero}" class="effect-hero-portrait" />
+                  <span class="effect-hero-name">${hero}</span>
+                  <span class="effect-transcendence">${transcLabel}</span>
+                </div>
+                <div class="effect-name-row">
+                  ${iconHTML}
+                  <span class="effect-name">${effectName || skillName}</span>
+                </div>
+                <div class="effect-text">${effectDescription}</div>
+              </div>
+            `;
+          });
+          enemyEffectsList.innerHTML = enemyHTML;
         }
       }
 
@@ -1347,6 +1510,29 @@
           document.getElementById('deck-author').value = '';
           document.getElementById('comment-char-count').textContent = '0';
           document.getElementById('share-success').style.display = 'none';
+        }
+      });
+
+      // 패시브 상세 보기 토글
+      document.addEventListener('DOMContentLoaded', () => {
+        const toggleBtn = document.getElementById('toggle-passives-detail');
+        const passivesList = document.getElementById('deck-passives-list');
+
+        if (toggleBtn) {
+          toggleBtn.addEventListener('click', () => {
+            const isVisible = passivesList.style.display !== 'none';
+            passivesList.style.display = isVisible ? 'none' : 'block';
+
+            const icon = toggleBtn.querySelector('i');
+            const text = toggleBtn.querySelector('span');
+            if (isVisible) {
+              icon.className = 'ph ph-caret-down';
+              text.textContent = '패시브 상세 보기';
+            } else {
+              icon.className = 'ph ph-caret-up';
+              text.textContent = '패시브 상세 닫기';
+            }
+          });
         }
       });
 
