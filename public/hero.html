@@ -79,6 +79,22 @@
       console.log('Developer mode enabled - Analytics disabled');
     }
   </script>
+  <!-- Eruda: Mobile Developer Tools -->
+  <script>
+    // Load Eruda in developer mode for mobile debugging
+    var isDeveloperMode = localStorage.getItem('devMode') === 'true';
+    if (isDeveloperMode) {
+      (function() {
+        var script = document.createElement('script');
+        script.src = 'https://cdn.jsdelivr.net/npm/eruda';
+        script.onload = function() {
+          eruda.init();
+          console.log('Eruda mobile debugger initialized');
+        };
+        document.head.appendChild(script);
+      })();
+    }
+  </script>
 </head>
 <body>
   <script>
@@ -851,6 +867,22 @@
               return html;
             };
 
+            // ✅ Get effect color based on effectType
+            const getEffectColor = (effectType) => {
+              const colorMap = {
+                'buff': '#10b981',        // 녹색 - 버프
+                'debuff': '#ef4444',      // 빨간색 - 디버프
+                'immunity': '#3b82f6',    // 파란색 - 면역
+                'damage': '#f97316',      // 주황색 - 데미지
+                'heal': '#22c55e',        // 밝은 녹색 - 힐
+                'shield': '#06b6d4',      // 시안 - 실드
+                'control': '#8b5cf6',     // 보라색 - 제어
+                'special': '#f59e0b',     // 엠버 - 특수
+                'passive': '#64748b'      // 슬레이트 - 패시브
+              };
+              return colorMap[effectType] || null;
+            };
+
             // ✅ Process effect markers <<효과명>> or <<효과명, 변수>>
             const processEffectMarker = (sentence) => {
               const effectPattern = /^<<(.+?)(?:,\s*(.+?))?>>$/;
@@ -879,7 +911,8 @@
               }
 
               // Render effect box
-              const colorStyle = effect.color ? `style="border-left-color: ${effect.color};"` : '';
+              const effectColor = getEffectColor(effect.effectType);
+              const colorStyle = effectColor ? `style="border-left-color: ${effectColor};"` : '';
               const iconHtml = effect.icon
                 ? `<img src="${effect.icon}" alt="${effect.name}" class="effect-icon" loading="lazy" />`
                 : '';
