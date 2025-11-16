@@ -13,6 +13,7 @@
   "images": {
     "domains": ["dl.airtable.com", "v5.airtableusercontent.com"],
     "formats": ["image/avif", "image/webp"],
-    "minimumCacheTTL": 86400
+    "minimumCacheTTL": 86400,
+    "sizes": [64, 256, 400, 640, 1024]
   }
 }
