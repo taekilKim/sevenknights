@@ -1097,16 +1097,23 @@
               const effectType = effect.effectType;
               const effectName = effect.name || '';
               const effectTemplate = effect.description || '설명 없음';
+              const hasVariable = effect.hasVariable || false;
 
-              // 변수값 가져오기
-              const paramValue = effectParamsMap[effectName];
-
-              // 템플릿에 변수 대입 (n을 변수값으로 치환)
+              // 변수 처리
               let finalDescription = effectTemplate;
-              if (paramValue !== null && paramValue !== undefined) {
-                // "n%"를 "변수값%"로 치환
-                finalDescription = effectTemplate.replace(/\bn\b/g, paramValue);
+
+              if (hasVariable) {
+                // 변수가 있는 효과: 스킬 설명에서 변수값을 가져와 치환
+                const paramValue = effectParamsMap[effectName];
+                if (paramValue !== null && paramValue !== undefined) {
+                  // "n"을 변수값으로 치환
+                  finalDescription = effectTemplate.replace(/\bn\b/g, paramValue);
+                } else {
+                  // 변수값을 찾지 못한 경우 경고
+                  console.warn(`⚠️ 변수가 필요한 효과이지만 값을 찾을 수 없음: ${hero.name} - ${skill.name} - ${effectName}`);
+                }
               }
+              // hasVariable이 false면 description을 그대로 사용
 
               const effectData = {
                 hero: hero.name,

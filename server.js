@@ -238,6 +238,7 @@ app.get("/api/heroes", async (req, res) => {
           name: fields.Name || fields.name || "",
           description: fields.desc || fields.description || fields.Description || "",
           effectType: fields.effectType || fields.effect_type || fields.EffectType || null,
+          hasVariable: !!fields.hasVariable,
           icon: Array.isArray(fields.icon) && fields.icon[0] ? fields.icon[0].url : null
         });
       });
