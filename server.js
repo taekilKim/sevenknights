@@ -217,15 +217,23 @@ app.get("/api/heroes", async (req, res) => {
       const url = offset
         ? `https://api.airtable.com/v0/${BASE_ID}/Effects?offset=${offset}`
         : `https://api.airtable.com/v0/${BASE_ID}/Effects`;
+
+      console.log(`🔍 Effects 테이블 가져오기 시도: ${url}`);
+
       const effectsRes = await fetch(url, {
         headers: { Authorization: `Bearer ${AIRTABLE_TOKEN}` }
       });
+
       if (effectsRes.ok) {
         const effectsData = await effectsRes.json();
         allEffects = allEffects.concat(effectsData.records || []);
         offset = effectsData.offset || null;
+        console.log(`✅ Effects 페이지 가져옴: ${effectsData.records?.length || 0}개, offset: ${offset || 'none'}`);
       } else {
-        console.warn('⚠️ Effects 테이블을 가져올 수 없습니다');
+        const errText = await effectsRes.text();
+        console.error(`❌ Effects 테이블 로드 실패: ${effectsRes.status}`);
+        console.error(`❌ 에러 내용: ${errText}`);
+        console.warn('⚠️ Effects 테이블을 가져올 수 없습니다. 효과 없이 계속 진행합니다.');
         break;
       }
     } while (offset);
