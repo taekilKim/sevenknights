@@ -1071,32 +1071,41 @@
               </div>
             `;
 
-            // effectType 기반 분류
-            const effectType = skill.effectType;
-            const effectData = {
-              hero: hero.name,
-              effect: skill.description || '설명 없음',
-              portrait: hero.portrait,
-              transcendence: hero.transcendence || 0,
-              skillName: skill.name
-            };
-
-            // effectType에 따라 분류
-            if (effectType === '아군 버프' || effectType === 'ally_buff' || effectType === 'ALLY_BUFF') {
-              allAllyEffects.push(effectData);
-            } else if (effectType === '적군 디버프' || effectType === 'enemy_debuff' || effectType === 'ENEMY_DEBUFF') {
-              allEnemyEffects.push(effectData);
-            } else if (effectType === '혼합' || effectType === 'mixed' || effectType === 'MIXED') {
-              // 혼합 효과는 양쪽에 모두 추가
-              allAllyEffects.push(effectData);
-              allEnemyEffects.push(effectData);
-            } else if (!effectType || effectType === '중립' || effectType === 'neutral' || effectType === 'NEUTRAL') {
-              // effectType이 없거나 중립인 경우, 스킬 이름으로만 표시 (분류하지 않음)
-              console.warn(`⚠️ effectType 미지정: ${hero.name} - ${skill.name}`);
-            } else {
-              // 예상치 못한 effectType인 경우 경고
-              console.warn(`⚠️ 알 수 없는 effectType: ${effectType} (${hero.name} - ${skill.name})`);
+            // ✅ 스킬의 effects 배열을 순회하여 분류
+            const effects = skill.effects || [];
+            if (effects.length === 0) {
+              console.warn(`⚠️ ${hero.name}의 ${skill.name}에 효과가 없습니다`);
             }
+
+            effects.forEach(effect => {
+              const effectType = effect.effectType;
+              const effectData = {
+                hero: hero.name,
+                effectName: effect.name,
+                effectDescription: effect.description || '설명 없음',
+                portrait: hero.portrait,
+                transcendence: hero.transcendence || 0,
+                skillName: skill.name,
+                icon: effect.icon
+              };
+
+              // effectType에 따라 분류
+              if (effectType === 'buff' || effectType === 'BUFF') {
+                allAllyEffects.push(effectData);
+              } else if (effectType === 'debuff' || effectType === 'DEBUFF') {
+                allEnemyEffects.push(effectData);
+              } else if (effectType === 'mixed' || effectType === 'MIXED') {
+                // 혼합 효과는 양쪽에 모두 추가
+                allAllyEffects.push(effectData);
+                allEnemyEffects.push(effectData);
+              } else if (!effectType || effectType === 'neutral' || effectType === 'NEUTRAL') {
+                // effectType이 없거나 중립인 경우, 분류하지 않음
+                console.warn(`⚠️ effectType 미지정: ${hero.name} - ${skill.name} - ${effect.name}`);
+              } else {
+                // 예상치 못한 effectType인 경우 경고
+                console.warn(`⚠️ 알 수 없는 effectType: ${effectType} (${hero.name} - ${skill.name} - ${effect.name})`);
+              }
+            });
           });
         });
 
@@ -1112,8 +1121,9 @@
           allyEffectsList.innerHTML = '<div class="effects-empty">아군 강화 효과가 없습니다</div>';
         } else {
           let allyHTML = '';
-          allAllyEffects.forEach(({ hero, effect, portrait, transcendence, skillName }) => {
+          allAllyEffects.forEach(({ hero, effectName, effectDescription, portrait, transcendence, skillName, icon }) => {
             const transcLabel = transcendence ? `★${transcendence}초월` : '★0초월';
+            const iconHTML = icon ? `<img src="${icon}" alt="${effectName}" class="effect-icon" />` : '';
             allyHTML += `
               <div class="effect-item">
                 <div class="effect-hero-badge">
@@ -1121,8 +1131,11 @@
                   <span class="effect-hero-name">${hero}</span>
                   <span class="effect-transcendence">${transcLabel}</span>
                 </div>
-                <div class="effect-skill-name">${skillName || ''}</div>
-                <div class="effect-text">${effect}</div>
+                <div class="effect-name-row">
+                  ${iconHTML}
+                  <span class="effect-name">${effectName || skillName}</span>
+                </div>
+                <div class="effect-text">${effectDescription}</div>
               </div>
             `;
           });
@@ -1134,8 +1147,9 @@
           enemyEffectsList.innerHTML = '<div class="effects-empty">적군 약화 효과가 없습니다</div>';
         } else {
           let enemyHTML = '';
-          allEnemyEffects.forEach(({ hero, effect, portrait, transcendence, skillName }) => {
+          allEnemyEffects.forEach(({ hero, effectName, effectDescription, portrait, transcendence, skillName, icon }) => {
             const transcLabel = transcendence ? `★${transcendence}초월` : '★0초월';
+            const iconHTML = icon ? `<img src="${icon}" alt="${effectName}" class="effect-icon" />` : '';
             enemyHTML += `
               <div class="effect-item">
                 <div class="effect-hero-badge">
@@ -1143,8 +1157,11 @@
                   <span class="effect-hero-name">${hero}</span>
                   <span class="effect-transcendence">${transcLabel}</span>
                 </div>
-                <div class="effect-skill-name">${skillName || ''}</div>
-                <div class="effect-text">${effect}</div>
+                <div class="effect-name-row">
+                  ${iconHTML}
+                  <span class="effect-name">${effectName || skillName}</span>
+                </div>
+                <div class="effect-text">${effectDescription}</div>
               </div>
             `;
           });

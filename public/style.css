@@ -4066,6 +4066,27 @@ svg defs {
   padding-left: 4px;
 }
 
+.effect-name-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 4px;
+  padding-left: 4px;
+}
+
+.effect-icon {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  border-radius: 3px;
+}
+
+.effect-name {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--accent-primary);
+}
+
 .effect-text {
   font-size: 0.8rem;
   color: var(--text-secondary);

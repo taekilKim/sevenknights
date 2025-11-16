@@ -194,10 +194,53 @@ app.get("/api/heroes", async (req, res) => {
       }
     } while (offset);
 
+    // ✅ Effects 테이블 전체 가져오기
+    let allEffects = [];
+    offset = null;
+    do {
+      const url = offset
+        ? `https://api.airtable.com/v0/${BASE_ID}/Effects?offset=${offset}`
+        : `https://api.airtable.com/v0/${BASE_ID}/Effects`;
+      const effectsRes = await fetch(url, {
+        headers: { Authorization: `Bearer ${AIRTABLE_TOKEN}` }
+      });
+      if (effectsRes.ok) {
+        const effectsData = await effectsRes.json();
+        allEffects = allEffects.concat(effectsData.records || []);
+        offset = effectsData.offset || null;
+      } else {
+        console.warn('⚠️ Effects 테이블을 가져올 수 없습니다');
+        break;
+      }
+    } while (offset);
+
+    console.log(`📊 Effects 테이블 전체 레코드 수: ${allEffects.length}개`);
+
     // 스킬 ID로 매핑
     const skillsMap = {};
     for (const skillRecord of allSkills) {
       skillsMap[skillRecord.id] = skillRecord.fields;
+    }
+
+    // Effects를 스킬별로 그룹화
+    const skillEffectsMap = {};
+    for (const effectRecord of allEffects) {
+      const fields = effectRecord.fields;
+      const skillIds = fields.skill || fields.Skill || fields.skills || fields.Skills || [];
+
+      // 각 스킬에 대해 효과 추가
+      skillIds.forEach(skillId => {
+        if (!skillEffectsMap[skillId]) {
+          skillEffectsMap[skillId] = [];
+        }
+        skillEffectsMap[skillId].push({
+          id: effectRecord.id,
+          name: fields.Name || fields.name || "",
+          description: fields.desc || fields.description || fields.Description || "",
+          effectType: fields.effectType || fields.effect_type || fields.EffectType || null,
+          icon: Array.isArray(fields.icon) && fields.icon[0] ? fields.icon[0].url : null
+        });
+      });
     }
 
     // 영웅 데이터 구성 (요약 + 패시브 스킬)
@@ -211,13 +254,18 @@ app.get("/api/heroes", async (req, res) => {
       const skills = [];
       const passiveSkillIds = f.passive || [];
       if (passiveSkillIds.length > 0 && skillsMap[passiveSkillIds[0]]) {
-        const skillFields = skillsMap[passiveSkillIds[0]];
+        const skillId = passiveSkillIds[0];
+        const skillFields = skillsMap[skillId];
+
+        // 이 스킬에 연결된 Effects 가져오기
+        const effects = skillEffectsMap[skillId] || [];
+
         skills.push({
           type: '패시브',
           name: skillFields.Name || "",
           description: skillFields.desc || "",
           image: Array.isArray(skillFields.image) && skillFields.image[0] ? skillFields.image[0].url : null,
-          effectType: skillFields.effectType || skillFields.effect_type || null // 에어테이블 effectType 필드
+          effects // ✅ Effects 배열 추가
         });
       }
 
