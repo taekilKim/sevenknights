@@ -1101,10 +1101,11 @@
               // 변수값 가져오기
               const paramValue = effectParamsMap[effectName];
 
-              // 템플릿에 변수 대입 ({0}, {1} 등을 변수값으로 치환)
+              // 템플릿에 변수 대입 (n을 변수값으로 치환)
               let finalDescription = effectTemplate;
               if (paramValue !== null && paramValue !== undefined) {
-                finalDescription = effectTemplate.replace(/\{0\}/g, paramValue);
+                // "n%"를 "변수값%"로 치환
+                finalDescription = effectTemplate.replace(/\bn\b/g, paramValue);
               }
 
               const effectData = {
