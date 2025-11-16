@@ -1106,10 +1106,15 @@
             }
 
             effects.forEach(effect => {
+              console.log('📊 Effect 데이터:', effect);
               const effectType = effect.effectType;
               const effectName = effect.name || '';
               const effectTemplate = effect.description || '설명 없음';
               const hasVariable = effect.hasVariable || false;
+
+              console.log(`  - effectName: "${effectName}"`);
+              console.log(`  - effectTemplate: "${effectTemplate}"`);
+              console.log(`  - hasVariable: ${hasVariable}`);
 
               // 변수 처리
               let finalDescription = effectTemplate;
