@@ -257,10 +257,41 @@
             <!-- 영웅 목록 -->
             <div id="heroes-list"></div>
 
-            <!-- 덱 패시브 효과 -->
+            <!-- 덱 패시브 효과 요약 -->
             <div class="deck-passives-section">
-              <h3 class="passives-title">덱 패시브 효과</h3>
-              <div id="deck-passives-list" class="passives-list">
+              <h3 class="passives-title">덱 효과 요약</h3>
+
+              <!-- 효과 요약 카드 -->
+              <div class="effects-summary">
+                <div class="effect-category ally-effects">
+                  <div class="category-header">
+                    <i class="ph ph-shield-check"></i>
+                    <span>아군 강화 효과</span>
+                  </div>
+                  <div id="ally-effects-list" class="effects-list">
+                    <div class="effects-empty">영웅을 선택하면 효과가 표시됩니다</div>
+                  </div>
+                </div>
+
+                <div class="effect-category enemy-effects">
+                  <div class="category-header">
+                    <i class="ph ph-sword"></i>
+                    <span>적군 약화 효과</span>
+                  </div>
+                  <div id="enemy-effects-list" class="effects-list">
+                    <div class="effects-empty">영웅을 선택하면 효과가 표시됩니다</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 상세 패시브 효과 -->
+              <div class="passives-detail-toggle">
+                <button id="toggle-passives-detail" class="btn-toggle-detail">
+                  <i class="ph ph-caret-down"></i>
+                  <span>패시브 상세 보기</span>
+                </button>
+              </div>
+              <div id="deck-passives-list" class="passives-list" style="display: none;">
                 <div class="passives-empty">영웅을 선택하면 패시브 효과가 표시됩니다</div>
               </div>
             </div>
@@ -994,22 +1025,67 @@
         updateDeckPassives();
       }
 
+      // 패시브 효과 분류 함수
+      function classifyPassiveEffect(description) {
+        if (!description) return { ally: [], enemy: [] };
+
+        const allyKeywords = ['아군', '아방', '우리', '자신', '모든 영웅', '증가', '강화', '회복', '획득', '부여', '면역', '상승', '추가'];
+        const enemyKeywords = ['적', '적군', '상대', '적 영웅', '감소', '약화', '피해', '화상', '빙결', '기절', '침묵', '하락', '공격 시'];
+
+        const sentences = description.split(/[.。]/);
+        const allyEffects = [];
+        const enemyEffects = [];
+
+        sentences.forEach(sentence => {
+          const trimmed = sentence.trim();
+          if (!trimmed) return;
+
+          const hasAllyKeyword = allyKeywords.some(kw => trimmed.includes(kw));
+          const hasEnemyKeyword = enemyKeywords.some(kw => trimmed.includes(kw));
+
+          if (hasAllyKeyword && !hasEnemyKeyword) {
+            allyEffects.push(trimmed);
+          } else if (hasEnemyKeyword && !hasAllyKeyword) {
+            enemyEffects.push(trimmed);
+          } else if (hasAllyKeyword && hasEnemyKeyword) {
+            // 혼합된 경우, 더 세부적으로 분류
+            if (trimmed.includes('아군') && trimmed.includes('증가')) {
+              allyEffects.push(trimmed);
+            } else if (trimmed.includes('적') && (trimmed.includes('감소') || trimmed.includes('피해'))) {
+              enemyEffects.push(trimmed);
+            } else {
+              // 둘 다 포함
+              allyEffects.push(trimmed);
+              enemyEffects.push(trimmed);
+            }
+          }
+        });
+
+        return { ally: allyEffects, enemy: enemyEffects };
+      }
+
       // 덱 패시브 효과 업데이트
       function updateDeckPassives() {
         const passivesList = document.getElementById('deck-passives-list');
+        const allyEffectsList = document.getElementById('ally-effects-list');
+        const enemyEffectsList = document.getElementById('enemy-effects-list');
         const allSelected = [...selectedHeroes.front, ...selectedHeroes.back].filter(h => h);
 
         if (allSelected.length === 0) {
           passivesList.innerHTML = '<div class="passives-empty">영웅을 선택하면 패시브 효과가 표시됩니다</div>';
+          allyEffectsList.innerHTML = '<div class="effects-empty">영웅을 선택하면 효과가 표시됩니다</div>';
+          enemyEffectsList.innerHTML = '<div class="effects-empty">영웅을 선택하면 효과가 표시됩니다</div>';
           return;
         }
 
         let passivesHTML = '';
+        const allAllyEffects = [];
+        const allEnemyEffects = [];
 
         allSelected.forEach(hero => {
           if (!hero.skills || hero.skills.length === 0) return;
 
-          // 패시브 스킬 찾기 (스킬 이름에 "패시브"가 포함된 스킬)
+          // 패시브 스킬 찾기
           const passiveSkills = hero.skills.filter(skill =>
             skill.name && (skill.name.includes('패시브') || skill.type === '패시브')
           );
@@ -1019,6 +1095,7 @@
               ? `★${hero.transcendence}초월`
               : '★0초월';
 
+            // 상세 패시브 목록
             passivesHTML += `
               <div class="passive-item">
                 <div class="passive-hero-info">
@@ -1032,13 +1109,75 @@
                 <div class="passive-skill-desc">${skill.description || '설명 없음'}</div>
               </div>
             `;
+
+            // 효과 분류
+            const { ally, enemy } = classifyPassiveEffect(skill.description);
+            ally.forEach(effect => {
+              allAllyEffects.push({
+                hero: hero.name,
+                effect: effect,
+                portrait: hero.portrait,
+                transcendence: hero.transcendence || 0
+              });
+            });
+            enemy.forEach(effect => {
+              allEnemyEffects.push({
+                hero: hero.name,
+                effect: effect,
+                portrait: hero.portrait,
+                transcendence: hero.transcendence || 0
+              });
+            });
           });
         });
 
+        // 상세 패시브 목록 업데이트
         if (passivesHTML === '') {
           passivesList.innerHTML = '<div class="passives-empty">패시브 스킬 정보가 없습니다</div>';
         } else {
           passivesList.innerHTML = passivesHTML;
+        }
+
+        // 아군 효과 목록 업데이트
+        if (allAllyEffects.length === 0) {
+          allyEffectsList.innerHTML = '<div class="effects-empty">아군 강화 효과가 없습니다</div>';
+        } else {
+          let allyHTML = '';
+          allAllyEffects.forEach(({ hero, effect, portrait, transcendence }) => {
+            const transcLabel = transcendence ? `★${transcendence}초월` : '★0초월';
+            allyHTML += `
+              <div class="effect-item">
+                <div class="effect-hero-badge">
+                  <img src="${portrait}" alt="${hero}" class="effect-hero-portrait" />
+                  <span class="effect-hero-name">${hero}</span>
+                  <span class="effect-transcendence">${transcLabel}</span>
+                </div>
+                <div class="effect-text">${effect}</div>
+              </div>
+            `;
+          });
+          allyEffectsList.innerHTML = allyHTML;
+        }
+
+        // 적군 효과 목록 업데이트
+        if (allEnemyEffects.length === 0) {
+          enemyEffectsList.innerHTML = '<div class="effects-empty">적군 약화 효과가 없습니다</div>';
+        } else {
+          let enemyHTML = '';
+          allEnemyEffects.forEach(({ hero, effect, portrait, transcendence }) => {
+            const transcLabel = transcendence ? `★${transcendence}초월` : '★0초월';
+            enemyHTML += `
+              <div class="effect-item">
+                <div class="effect-hero-badge">
+                  <img src="${portrait}" alt="${hero}" class="effect-hero-portrait" />
+                  <span class="effect-hero-name">${hero}</span>
+                  <span class="effect-transcendence">${transcLabel}</span>
+                </div>
+                <div class="effect-text">${effect}</div>
+              </div>
+            `;
+          });
+          enemyEffectsList.innerHTML = enemyHTML;
         }
       }
 
@@ -1335,6 +1474,29 @@
           document.getElementById('deck-author').value = '';
           document.getElementById('comment-char-count').textContent = '0';
           document.getElementById('share-success').style.display = 'none';
+        }
+      });
+
+      // 패시브 상세 보기 토글
+      document.addEventListener('DOMContentLoaded', () => {
+        const toggleBtn = document.getElementById('toggle-passives-detail');
+        const passivesList = document.getElementById('deck-passives-list');
+
+        if (toggleBtn) {
+          toggleBtn.addEventListener('click', () => {
+            const isVisible = passivesList.style.display !== 'none';
+            passivesList.style.display = isVisible ? 'none' : 'block';
+
+            const icon = toggleBtn.querySelector('i');
+            const text = toggleBtn.querySelector('span');
+            if (isVisible) {
+              icon.className = 'ph ph-caret-down';
+              text.textContent = '패시브 상세 보기';
+            } else {
+              icon.className = 'ph ph-caret-up';
+              text.textContent = '패시브 상세 닫기';
+            }
+          });
         }
       });
 

@@ -175,12 +175,50 @@ app.get("/api/heroes", async (req, res) => {
       }
     }
 
-    // 영웅 데이터 구성 (요약)
+    // ✅ Skills 테이블 전체 가져오기 (패시브 스킬 정보 포함용)
+    let allSkills = [];
+    let offset = null;
+    do {
+      const url = offset
+        ? `https://api.airtable.com/v0/${BASE_ID}/Skills?offset=${offset}`
+        : `https://api.airtable.com/v0/${BASE_ID}/Skills`;
+      const skillsRes = await fetch(url, {
+        headers: { Authorization: `Bearer ${AIRTABLE_TOKEN}` }
+      });
+      if (skillsRes.ok) {
+        const skillsData = await skillsRes.json();
+        allSkills = allSkills.concat(skillsData.records || []);
+        offset = skillsData.offset || null;
+      } else {
+        break;
+      }
+    } while (offset);
+
+    // 스킬 ID로 매핑
+    const skillsMap = {};
+    for (const skillRecord of allSkills) {
+      skillsMap[skillRecord.id] = skillRecord.fields;
+    }
+
+    // 영웅 데이터 구성 (요약 + 패시브 스킬)
     const processedHeroes = heroesData.records.map((hero) => {
       const f = hero.fields || {};
       const rarityVal = f.rarity || f.Rarity || "";
       const typeName = f.type || f.Type || "";
       const hasEffect = !!f.hasEffect; // ✅ 에어테이블 체크박스 필드 불러오기
+
+      // 패시브 스킬 정보 가져오기
+      const skills = [];
+      const passiveSkillIds = f.passive || [];
+      if (passiveSkillIds.length > 0 && skillsMap[passiveSkillIds[0]]) {
+        const skillFields = skillsMap[passiveSkillIds[0]];
+        skills.push({
+          type: '패시브',
+          name: skillFields.Name || "",
+          description: skillFields.desc || "",
+          image: Array.isArray(skillFields.image) && skillFields.image[0] ? skillFields.image[0].url : null
+        });
+      }
 
       const heroData = {
         id: hero.id,
@@ -194,6 +232,7 @@ app.get("/api/heroes", async (req, res) => {
             ? f.portrait[0].thumbnails?.large?.url || f.portrait[0].url
             : "",
         typeImage: typeImageMap[typeName] || null,
+        skills, // ✅ 패시브 스킬 정보 추가
       };
 
       // ✅ group 필드 디버깅용 출력
