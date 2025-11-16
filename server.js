@@ -210,15 +210,15 @@ app.get("/api/heroes", async (req, res) => {
       }
     } while (offset);
 
-    // ✅ Effect 테이블 전체 가져오기
+    // ✅ Effects 테이블 전체 가져오기
     let allEffects = [];
     offset = null;
     do {
       const url = offset
-        ? `https://api.airtable.com/v0/${BASE_ID}/Effect?offset=${offset}`
-        : `https://api.airtable.com/v0/${BASE_ID}/Effect`;
+        ? `https://api.airtable.com/v0/${BASE_ID}/Effects?offset=${offset}`
+        : `https://api.airtable.com/v0/${BASE_ID}/Effects`;
 
-      console.log(`🔍 Effect 테이블 가져오기 시도: ${url}`);
+      console.log(`🔍 Effects 테이블 가져오기 시도: ${url}`);
 
       const effectsRes = await fetch(url, {
         headers: { Authorization: `Bearer ${AIRTABLE_TOKEN}` }
@@ -228,17 +228,17 @@ app.get("/api/heroes", async (req, res) => {
         const effectsData = await effectsRes.json();
         allEffects = allEffects.concat(effectsData.records || []);
         offset = effectsData.offset || null;
-        console.log(`✅ Effect 페이지 가져옴: ${effectsData.records?.length || 0}개, offset: ${offset || 'none'}`);
+        console.log(`✅ Effects 페이지 가져옴: ${effectsData.records?.length || 0}개, offset: ${offset || 'none'}`);
       } else {
         const errText = await effectsRes.text();
-        console.error(`❌ Effect 테이블 로드 실패: ${effectsRes.status}`);
+        console.error(`❌ Effects 테이블 로드 실패: ${effectsRes.status}`);
         console.error(`❌ 에러 내용: ${errText}`);
-        console.warn('⚠️ Effect 테이블을 가져올 수 없습니다. 효과 없이 계속 진행합니다.');
+        console.warn('⚠️ Effects 테이블을 가져올 수 없습니다. 효과 없이 계속 진행합니다.');
         break;
       }
     } while (offset);
 
-    console.log(`📊 Effect 테이블 전체 레코드 수: ${allEffects.length}개`);
+    console.log(`📊 Effects 테이블 전체 레코드 수: ${allEffects.length}개`);
 
     // 스킬 ID로 매핑
     const skillsMap = {};
