@@ -799,8 +799,11 @@
 
             // Helper function to parse markdown within a sentence
             const parseMarkdownInline = (sentence) => {
-              // Escape HTML first to prevent XSS
-              let html = sentence
+              // Remove leading \- (backslash-dash-space) from bullet points
+              let html = sentence.replace(/^\\-\s+/, '');
+
+              // Escape HTML to prevent XSS
+              html = html
                 .replace(/&/g, '&amp;')
                 .replace(/</g, '&lt;')
                 .replace(/>/g, '&gt;');
@@ -911,12 +914,12 @@
                 continue;
               }
 
-              // Check for container-style effect section headers
-              if (line === '@@6초월 효과') {
+              // 6초월 효과 컨테이너 (@@로 시작)
+              if (line.startsWith('@@')) {
                 const effectContent = [];
                 i++; // Skip the header line
 
-                // Collect all lines until next section header or target marker
+                // Collect all lines until next marker
                 while (i < lines.length) {
                   const nextLine = lines[i].trim();
                   if (!nextLine) {
@@ -924,16 +927,10 @@
                     continue;
                   }
 
-                  // Stop if we hit another section header
-                  if (nextLine === '@@6초월 효과' ||
-                      nextLine === '@@2초월 효과' ||
-                      nextLine === '@@스킬 강화 효과') {
-                    i--; // Back up so outer loop processes this line
-                    break;
-                  }
-
-                  // Stop if we hit a target marker (line starting with !)
-                  if (nextLine.startsWith('!')) {
+                  // Stop if we hit any marker
+                  if (nextLine.startsWith('@@') || nextLine.startsWith('@') ||
+                      nextLine.startsWith('#') || nextLine.startsWith('<<') ||
+                      nextLine.startsWith('!')) {
                     i--; // Back up so outer loop processes this line
                     break;
                   }
@@ -957,7 +954,8 @@
                 continue;
               }
 
-              if (line === '@@2초월 효과') {
+              // 2초월 효과 컨테이너 (@로 시작)
+              if (line.startsWith('@')) {
                 const effectContent = [];
                 i++; // Skip the header line
 
@@ -968,14 +966,9 @@
                     continue;
                   }
 
-                  if (nextLine === '@@6초월 효과' ||
-                      nextLine === '@@2초월 효과' ||
-                      nextLine === '@@스킬 강화 효과') {
-                    i--;
-                    break;
-                  }
-
-                  if (nextLine.startsWith('!')) {
+                  if (nextLine.startsWith('@@') || nextLine.startsWith('@') ||
+                      nextLine.startsWith('#') || nextLine.startsWith('<<') ||
+                      nextLine.startsWith('!')) {
                     i--;
                     break;
                   }
@@ -999,7 +992,8 @@
                 continue;
               }
 
-              if (line === '@@스킬 강화 효과') {
+              // 스킬 강화 효과 컨테이너 (#로 시작)
+              if (line.startsWith('#')) {
                 const effectContent = [];
                 i++; // Skip the header line
 
@@ -1010,14 +1004,9 @@
                     continue;
                   }
 
-                  if (nextLine === '@@6초월 효과' ||
-                      nextLine === '@@2초월 효과' ||
-                      nextLine === '@@스킬 강화 효과') {
-                    i--;
-                    break;
-                  }
-
-                  if (nextLine.startsWith('!')) {
+                  if (nextLine.startsWith('@@') || nextLine.startsWith('@') ||
+                      nextLine.startsWith('#') || nextLine.startsWith('<<') ||
+                      nextLine.startsWith('!')) {
                     i--;
                     break;
                   }
@@ -1041,24 +1030,8 @@
                 continue;
               }
 
-              // Check for single-line effect markers (legacy support)
-              if (line.startsWith('@@')) {
-                // 6초월 효과 - single line format
-                const content = line.substring(2).trim();
-                const cleanContent = content.startsWith('!') ? content.substring(1) : content;
-                processedLines.push('<div class="skill-effect-box awakening-6"><strong>6초월</strong> ' + parseMarkdownInline(cleanContent) + '</div>');
-              } else if (line.startsWith('@')) {
-                // 2초월 효과 - single line format
-                const content = line.substring(1).trim();
-                const cleanContent = content.startsWith('!') ? content.substring(1) : content;
-                processedLines.push('<div class="skill-effect-box awakening-2"><strong>2초월</strong> ' + parseMarkdownInline(cleanContent) + '</div>');
-              } else if (line.startsWith('#')) {
-                // 스킬 강화 효과 - single line format
-                const content = line.substring(1).trim();
-                const cleanContent = content.startsWith('!') ? content.substring(1) : content;
-                processedLines.push('<div class="skill-effect-box skill-enhancement"><strong>스킬 강화</strong> ' + parseMarkdownInline(cleanContent) + '</div>');
-              } else if (line.startsWith('<<')) {
-                // ✅ 커스텀 효과 마커 - Effects 테이블에서 가져온 효과
+              // 커스텀 효과 마커 - Effects 테이블에서 가져온 효과
+              if (line.startsWith('<<')) {
                 const effectHtml = processEffectMarker(line);
                 if (effectHtml) {
                   processedLines.push(effectHtml);
