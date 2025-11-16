@@ -700,14 +700,14 @@ app.get("/api/effects", async (req, res) => {
     // 효과 데이터 포맷팅
     const processedEffects = allEffects.map(effect => {
       const f = effect.fields || {};
-      const iconUrl = Array.isArray(f.Icon) && f.Icon[0] ? f.Icon[0].url : null;
+      const iconUrl = Array.isArray(f.icon) && f.icon[0] ? f.icon[0].url : null;
       return {
         id: effect.id,
         name: f.Name || f.name || "",
-        description: f.Description || f.description || f.desc || "",
-        hasVariable: !!f.HasVariable || !!f.hasVariable,
+        description: f.desc || f.description || f.Description || "",
+        hasVariable: !!f.hasVariable,
         icon: optimizeImageUrl(iconUrl, { width: 64, quality: 90 }),
-        color: f.Color || f.color || null
+        effectType: f.effectType || f.effect_type || f.EffectType || null
       };
     });
 
