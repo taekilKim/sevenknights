@@ -1056,6 +1056,9 @@
               ? `★${hero.transcendence}초월`
               : '★0초월';
 
+            // 스킬 설명에서 <<효과, 변수>> 패턴 제거
+            const cleanedDescription = (skill.description || '').replace(/<<[^>]+>>/g, '').trim();
+
             // 상세 패시브 목록
             passivesHTML += `
               <div class="passive-item">
@@ -1067,7 +1070,7 @@
                   </div>
                 </div>
                 <div class="passive-skill-name">${skill.name}</div>
-                <div class="passive-skill-desc">${skill.description || '설명 없음'}</div>
+                <div class="passive-skill-desc">${cleanedDescription || '설명 없음'}</div>
               </div>
             `;
 
