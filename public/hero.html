@@ -79,6 +79,22 @@
       console.log('Developer mode enabled - Analytics disabled');
     }
   </script>
+  <!-- Eruda: Mobile Developer Tools -->
+  <script>
+    // Load Eruda in developer mode for mobile debugging
+    var isDeveloperMode = localStorage.getItem('devMode') === 'true';
+    if (isDeveloperMode) {
+      (function() {
+        var script = document.createElement('script');
+        script.src = 'https://cdn.jsdelivr.net/npm/eruda';
+        script.onload = function() {
+          eruda.init();
+          console.log('Eruda mobile debugger initialized');
+        };
+        document.head.appendChild(script);
+      })();
+    }
+  </script>
 </head>
 <body>
   <script>
@@ -868,7 +884,7 @@
 
               if (!effect) {
                 console.warn(`⚠️ Effect not found: ${effectName}`);
-                return `<div class="skill-effect-box skill-effect-unknown"><strong>효과 없음</strong> ${parseMarkdownInline(effectName)}</div>`;
+                return parseMarkdownInline(effectName);
               }
 
               // Process description with variable substitution
@@ -878,13 +894,8 @@
                 description = description.replace(/n/g, variableValue);
               }
 
-              // Render effect box
-              const colorStyle = effect.color ? `style="border-left-color: ${effect.color};"` : '';
-              const iconHtml = effect.icon
-                ? `<img src="${effect.icon}" alt="${effect.name}" class="effect-icon" loading="lazy" />`
-                : '';
-
-              return `<div class="skill-effect-box skill-effect-custom" ${colorStyle}>${iconHtml}<strong>${effect.name}</strong> ${parseMarkdownInline(description)}</div>`;
+              // Return plain text without box
+              return parseMarkdownInline(description);
             };
 
             // Process a sentence to check for target markers
