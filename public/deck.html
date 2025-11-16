@@ -1077,12 +1077,30 @@
               console.warn(`⚠️ ${hero.name}의 ${skill.name}에 효과가 없습니다`);
             }
 
+            // 스킬 설명을 문장 단위로 분리
+            const skillDescription = skill.description || '';
+            const sentences = skillDescription.split(/[.。]/).map(s => s.trim()).filter(s => s);
+
             effects.forEach(effect => {
               const effectType = effect.effectType;
+              const effectName = effect.name || '';
+
+              // 스킬 설명에서 이 효과에 해당하는 문장 찾기
+              let matchedSentence = '';
+              if (effectName) {
+                // effect name이 포함된 문장 찾기
+                matchedSentence = sentences.find(sentence =>
+                  sentence.includes(effectName)
+                ) || '';
+              }
+
+              // 매칭된 문장이 없으면 전체 스킬 설명 사용 (fallback)
+              const finalDescription = matchedSentence || skillDescription || '설명 없음';
+
               const effectData = {
                 hero: hero.name,
-                effectName: effect.name,
-                effectDescription: effect.description || '설명 없음',
+                effectName: effectName,
+                effectDescription: finalDescription,
                 portrait: hero.portrait,
                 transcendence: hero.transcendence || 0,
                 skillName: skill.name,
