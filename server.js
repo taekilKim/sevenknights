@@ -266,6 +266,14 @@ app.get("/api/heroes", async (req, res) => {
         effectIds.forEach(effectId => {
           const effectFields = effectsMap[effectId];
           if (effectFields) {
+            console.log(`🔍 Effect ID: ${effectId}`);
+            console.log(`   - Name: "${effectFields.Name || effectFields.name}"`);
+            console.log(`   - desc: "${effectFields.desc}"`);
+            console.log(`   - description: "${effectFields.description}"`);
+            console.log(`   - Description: "${effectFields.Description}"`);
+            console.log(`   - effectType: "${effectFields.effectType}"`);
+            console.log(`   - hasVariable: ${effectFields.hasVariable}`);
+
             effects.push({
               id: effectId,
               name: effectFields.Name || effectFields.name || "",
@@ -274,6 +282,8 @@ app.get("/api/heroes", async (req, res) => {
               hasVariable: !!effectFields.hasVariable,
               icon: Array.isArray(effectFields.icon) && effectFields.icon[0] ? effectFields.icon[0].url : null
             });
+          } else {
+            console.warn(`⚠️ Effect ID ${effectId}를 effectsMap에서 찾을 수 없음`);
           }
         });
 
