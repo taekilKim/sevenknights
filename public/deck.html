@@ -1077,25 +1077,32 @@
               console.warn(`⚠️ ${hero.name}의 ${skill.name}에 효과가 없습니다`);
             }
 
-            // 스킬 설명을 문장 단위로 분리
+            // 스킬 설명에서 <<효과이름, 변수>> 패턴 추출
             const skillDescription = skill.description || '';
-            const sentences = skillDescription.split(/[.。]/).map(s => s.trim()).filter(s => s);
+            const effectParamsMap = {};
+
+            // <<효과이름>> 또는 <<효과이름, 변수>> 패턴 파싱
+            const effectPattern = /<<([^,>]+)(?:,\s*(\d+(?:\.\d+)?))?>>/g;
+            let match;
+            while ((match = effectPattern.exec(skillDescription)) !== null) {
+              const effectName = match[1].trim();
+              const paramValue = match[2] ? match[2].trim() : null;
+              effectParamsMap[effectName] = paramValue;
+            }
 
             effects.forEach(effect => {
               const effectType = effect.effectType;
               const effectName = effect.name || '';
+              const effectTemplate = effect.description || '설명 없음';
 
-              // 스킬 설명에서 이 효과에 해당하는 문장 찾기
-              let matchedSentence = '';
-              if (effectName) {
-                // effect name이 포함된 문장 찾기
-                matchedSentence = sentences.find(sentence =>
-                  sentence.includes(effectName)
-                ) || '';
+              // 변수값 가져오기
+              const paramValue = effectParamsMap[effectName];
+
+              // 템플릿에 변수 대입 ({0}, {1} 등을 변수값으로 치환)
+              let finalDescription = effectTemplate;
+              if (paramValue !== null && paramValue !== undefined) {
+                finalDescription = effectTemplate.replace(/\{0\}/g, paramValue);
               }
-
-              // 매칭된 문장이 없으면 전체 스킬 설명 사용 (fallback)
-              const finalDescription = matchedSentence || skillDescription || '설명 없음';
 
               const effectData = {
                 hero: hero.name,
