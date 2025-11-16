@@ -216,7 +216,8 @@ app.get("/api/heroes", async (req, res) => {
           type: '패시브',
           name: skillFields.Name || "",
           description: skillFields.desc || "",
-          image: Array.isArray(skillFields.image) && skillFields.image[0] ? skillFields.image[0].url : null
+          image: Array.isArray(skillFields.image) && skillFields.image[0] ? skillFields.image[0].url : null,
+          effectType: skillFields.effectType || skillFields.effect_type || null // 에어테이블 effectType 필드
         });
       }
 

@@ -1025,45 +1025,6 @@
         updateDeckPassives();
       }
 
-      // 패시브 효과 분류 함수
-      function classifyPassiveEffect(description) {
-        if (!description) return { ally: [], enemy: [] };
-
-        const allyKeywords = ['아군', '아방', '우리', '자신', '모든 영웅', '증가', '강화', '회복', '획득', '부여', '면역', '상승', '추가'];
-        const enemyKeywords = ['적', '적군', '상대', '적 영웅', '감소', '약화', '피해', '화상', '빙결', '기절', '침묵', '하락', '공격 시'];
-
-        const sentences = description.split(/[.。]/);
-        const allyEffects = [];
-        const enemyEffects = [];
-
-        sentences.forEach(sentence => {
-          const trimmed = sentence.trim();
-          if (!trimmed) return;
-
-          const hasAllyKeyword = allyKeywords.some(kw => trimmed.includes(kw));
-          const hasEnemyKeyword = enemyKeywords.some(kw => trimmed.includes(kw));
-
-          if (hasAllyKeyword && !hasEnemyKeyword) {
-            allyEffects.push(trimmed);
-          } else if (hasEnemyKeyword && !hasAllyKeyword) {
-            enemyEffects.push(trimmed);
-          } else if (hasAllyKeyword && hasEnemyKeyword) {
-            // 혼합된 경우, 더 세부적으로 분류
-            if (trimmed.includes('아군') && trimmed.includes('증가')) {
-              allyEffects.push(trimmed);
-            } else if (trimmed.includes('적') && (trimmed.includes('감소') || trimmed.includes('피해'))) {
-              enemyEffects.push(trimmed);
-            } else {
-              // 둘 다 포함
-              allyEffects.push(trimmed);
-              enemyEffects.push(trimmed);
-            }
-          }
-        });
-
-        return { ally: allyEffects, enemy: enemyEffects };
-      }
-
       // 덱 패시브 효과 업데이트
       function updateDeckPassives() {
         const passivesList = document.getElementById('deck-passives-list');
@@ -1110,24 +1071,32 @@
               </div>
             `;
 
-            // 효과 분류
-            const { ally, enemy } = classifyPassiveEffect(skill.description);
-            ally.forEach(effect => {
-              allAllyEffects.push({
-                hero: hero.name,
-                effect: effect,
-                portrait: hero.portrait,
-                transcendence: hero.transcendence || 0
-              });
-            });
-            enemy.forEach(effect => {
-              allEnemyEffects.push({
-                hero: hero.name,
-                effect: effect,
-                portrait: hero.portrait,
-                transcendence: hero.transcendence || 0
-              });
-            });
+            // effectType 기반 분류
+            const effectType = skill.effectType;
+            const effectData = {
+              hero: hero.name,
+              effect: skill.description || '설명 없음',
+              portrait: hero.portrait,
+              transcendence: hero.transcendence || 0,
+              skillName: skill.name
+            };
+
+            // effectType에 따라 분류
+            if (effectType === '아군 버프' || effectType === 'ally_buff' || effectType === 'ALLY_BUFF') {
+              allAllyEffects.push(effectData);
+            } else if (effectType === '적군 디버프' || effectType === 'enemy_debuff' || effectType === 'ENEMY_DEBUFF') {
+              allEnemyEffects.push(effectData);
+            } else if (effectType === '혼합' || effectType === 'mixed' || effectType === 'MIXED') {
+              // 혼합 효과는 양쪽에 모두 추가
+              allAllyEffects.push(effectData);
+              allEnemyEffects.push(effectData);
+            } else if (!effectType || effectType === '중립' || effectType === 'neutral' || effectType === 'NEUTRAL') {
+              // effectType이 없거나 중립인 경우, 스킬 이름으로만 표시 (분류하지 않음)
+              console.warn(`⚠️ effectType 미지정: ${hero.name} - ${skill.name}`);
+            } else {
+              // 예상치 못한 effectType인 경우 경고
+              console.warn(`⚠️ 알 수 없는 effectType: ${effectType} (${hero.name} - ${skill.name})`);
+            }
           });
         });
 
@@ -1143,7 +1112,7 @@
           allyEffectsList.innerHTML = '<div class="effects-empty">아군 강화 효과가 없습니다</div>';
         } else {
           let allyHTML = '';
-          allAllyEffects.forEach(({ hero, effect, portrait, transcendence }) => {
+          allAllyEffects.forEach(({ hero, effect, portrait, transcendence, skillName }) => {
             const transcLabel = transcendence ? `★${transcendence}초월` : '★0초월';
             allyHTML += `
               <div class="effect-item">
@@ -1152,6 +1121,7 @@
                   <span class="effect-hero-name">${hero}</span>
                   <span class="effect-transcendence">${transcLabel}</span>
                 </div>
+                <div class="effect-skill-name">${skillName || ''}</div>
                 <div class="effect-text">${effect}</div>
               </div>
             `;
@@ -1164,7 +1134,7 @@
           enemyEffectsList.innerHTML = '<div class="effects-empty">적군 약화 효과가 없습니다</div>';
         } else {
           let enemyHTML = '';
-          allEnemyEffects.forEach(({ hero, effect, portrait, transcendence }) => {
+          allEnemyEffects.forEach(({ hero, effect, portrait, transcendence, skillName }) => {
             const transcLabel = transcendence ? `★${transcendence}초월` : '★0초월';
             enemyHTML += `
               <div class="effect-item">
@@ -1173,6 +1143,7 @@
                   <span class="effect-hero-name">${hero}</span>
                   <span class="effect-transcendence">${transcLabel}</span>
                 </div>
+                <div class="effect-skill-name">${skillName || ''}</div>
                 <div class="effect-text">${effect}</div>
               </div>
             `;
