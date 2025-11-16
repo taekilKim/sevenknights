@@ -218,8 +218,6 @@ app.get("/api/heroes", async (req, res) => {
         ? `https://api.airtable.com/v0/${BASE_ID}/Effects?offset=${offset}`
         : `https://api.airtable.com/v0/${BASE_ID}/Effects`;
 
-      console.log(`🔍 Effects 테이블 가져오기 시도: ${url}`);
-
       const effectsRes = await fetch(url, {
         headers: { Authorization: `Bearer ${AIRTABLE_TOKEN}` }
       });
@@ -228,17 +226,11 @@ app.get("/api/heroes", async (req, res) => {
         const effectsData = await effectsRes.json();
         allEffects = allEffects.concat(effectsData.records || []);
         offset = effectsData.offset || null;
-        console.log(`✅ Effects 페이지 가져옴: ${effectsData.records?.length || 0}개, offset: ${offset || 'none'}`);
       } else {
-        const errText = await effectsRes.text();
         console.error(`❌ Effects 테이블 로드 실패: ${effectsRes.status}`);
-        console.error(`❌ 에러 내용: ${errText}`);
-        console.warn('⚠️ Effects 테이블을 가져올 수 없습니다. 효과 없이 계속 진행합니다.');
         break;
       }
     } while (offset);
-
-    console.log(`📊 Effects 테이블 전체 레코드 수: ${allEffects.length}개`);
 
     // 스킬 ID로 매핑
     const skillsMap = {};
@@ -274,14 +266,6 @@ app.get("/api/heroes", async (req, res) => {
         effectIds.forEach(effectId => {
           const effectFields = effectsMap[effectId];
           if (effectFields) {
-            console.log(`🔍 Effect ID: ${effectId}`);
-            console.log(`   - Name: "${effectFields.Name || effectFields.name}"`);
-            console.log(`   - desc: "${effectFields.desc}"`);
-            console.log(`   - description: "${effectFields.description}"`);
-            console.log(`   - Description: "${effectFields.Description}"`);
-            console.log(`   - effectType: "${effectFields.effectType}"`);
-            console.log(`   - hasVariable: ${effectFields.hasVariable}`);
-
             effects.push({
               id: effectId,
               name: effectFields.Name || effectFields.name || "",
@@ -290,8 +274,6 @@ app.get("/api/heroes", async (req, res) => {
               hasVariable: !!effectFields.hasVariable,
               icon: Array.isArray(effectFields.icon) && effectFields.icon[0] ? effectFields.icon[0].url : null
             });
-          } else {
-            console.warn(`⚠️ Effect ID ${effectId}를 effectsMap에서 찾을 수 없음`);
           }
         });
 
@@ -324,13 +306,6 @@ app.get("/api/heroes", async (req, res) => {
         portrait: optimizeImageUrl(portraitUrl, { width: 400, quality: 80 }),
         typeImage: optimizeImageUrl(typeImageUrl, { width: 64, quality: 90 }),
       };
-
-      // ✅ group 필드 디버깅용 출력
-      if (!heroData.group) {
-        console.warn(`⚠️ 그룹 누락: ${heroData.name}`);
-      } else {
-        console.log(`🧩 ${heroData.name} → 그룹: ${heroData.group}`);
-      }
 
       return heroData;
     });
@@ -375,11 +350,6 @@ app.get("/api/hero/:id", async (req, res) => {
     const heroData = await heroRes.json();
     const fields = heroData.fields || {};
 
-    // 🔍 디버깅: 영웅 데이터 확인
-    console.log(`\n🔍 영웅 조회: ${fields.Name || id}`);
-    console.log(`📝 Description 필드:`, fields.Description ? '있음' : '없음');
-    console.log(`📝 모든 필드 키:`, Object.keys(fields));
-
     // Fetch Type table for type image
     const typesRes = await fetch(
       `https://api.airtable.com/v0/${BASE_ID}/Type`,
@@ -422,35 +392,25 @@ app.get("/api/hero/:id", async (req, res) => {
       const skillsData = await skillsRes.json();
       allSkills = allSkills.concat(skillsData.records || []);
       offset = skillsData.offset || null;
-
-      console.log(`📄 Skills 페이지 가져옴: ${skillsData.records?.length || 0}개, offset: ${offset || 'none'}`);
     } while (offset);
-
-    console.log(`🎯 스킬 테이블 전체 레코드 수: ${allSkills.length}개`);
 
     // 스킬 ID로 매핑 & 역방향 매핑
     const skillsMap = {};
     for (const skillRecord of allSkills) {
       skillsMap[skillRecord.id] = skillRecord.fields;
     }
-    console.log(`📋 skillsMap 생성 완료, 총 ${Object.keys(skillsMap).length}개 스킬`);
 
     // 헬퍼 함수: 스킬 데이터 생성
     const getSkillData = (skillId) => {
       const f = skillsMap[skillId];
-      if (!f) {
-        console.log(`  ❌ 스킬 ID "${skillId}" 를 skillsMap에서 찾을 수 없음`);
-        return null;
-      }
+      if (!f) return null;
       const imageUrl = Array.isArray(f.image) && f.image[0] ? f.image[0].url : null;
-      const skillData = {
+      return {
         name: f.Name || "",
         desc: f.desc || "",
         image: optimizeImageUrl(imageUrl, { width: 256, quality: 85 }),
         cooltime: f.cooltime || f.Cooltime || f.coolTime || f.cool_time || null,
       };
-      console.log(`  ✅ 스킬 ID "${skillId}" → "${skillData.name}"`);
-      return skillData;
     };
 
     // ✅ 방법 1: Heroes 테이블에 직접 링크된 스킬 ID 사용
@@ -459,28 +419,13 @@ app.get("/api/hero/:id", async (req, res) => {
     const active1SkillIds = fields.active_1 || [];
     const active2SkillIds = fields.active_2 || [];
 
-    console.log(`🔗 Direct Link 필드 값:`, {
-      attack: attackSkillIds,
-      passive: passiveSkillIds,
-      active_1: active1SkillIds,
-      active_2: active2SkillIds
-    });
-
     let attackSkill = attackSkillIds[0] ? getSkillData(attackSkillIds[0]) : null;
     let passiveSkill = passiveSkillIds[0] ? getSkillData(passiveSkillIds[0]) : null;
     let active1Skill = active1SkillIds[0] ? getSkillData(active1SkillIds[0]) : null;
     let active2Skill = active2SkillIds[0] ? getSkillData(active2SkillIds[0]) : null;
 
-    console.log(`🎲 Direct Link 결과:`, {
-      attack: attackSkill?.name || 'null',
-      passive: passiveSkill?.name || 'null',
-      active_1: active1Skill?.name || 'null',
-      active_2: active2Skill?.name || 'null'
-    });
-
     // ✅ 방법 2: Fallback - Skills 테이블의 역방향 링크 사용 (기존 방식)
     if (!attackSkill || !passiveSkill || !active1Skill || !active2Skill) {
-      console.log(`🔄 일부 스킬 누락, 역방향 링크로 재시도...`);
 
       for (const skillRecord of allSkills) {
         const f = skillRecord.fields || {};
@@ -494,53 +439,23 @@ app.get("/api/hero/:id", async (req, res) => {
 
         if (!attackSkill && (f.attack_hero || []).includes(id)) {
           attackSkill = skillData;
-          console.log(`  ⚔️ 공격 스킬 발견 (역방향): ${skillData.name}`);
         }
         if (!passiveSkill && (f.passive_hero || []).includes(id)) {
           passiveSkill = skillData;
-          console.log(`  🛡️ 패시브 스킬 발견 (역방향): ${skillData.name}`);
         }
         if (!active1Skill && (f.active_1_hero || []).includes(id)) {
           active1Skill = skillData;
-          console.log(`  ✨ 액티브1 스킬 발견 (역방향): ${skillData.name}`);
         }
         if (!active2Skill && (f.active_2_hero || []).includes(id)) {
           active2Skill = skillData;
-          console.log(`  💫 액티브2 스킬 발견 (역방향): ${skillData.name}`);
         }
       }
     }
 
-    console.log(`📊 최종 스킬 매칭 결과:`, {
-      attack: attackSkill?.name || 'null',
-      passive: passiveSkill?.name || 'null',
-      active_1: active1Skill?.name || 'null',
-      active_2: active2Skill?.name || 'null'
-    });
-
     // ✅ 응답 구성
     const typeName = pick(fields, ["type", "Type"]);
     const description = pick(fields, ["Description", "description"]);
-
-    // ✅ 디버깅: 모든 필드 키 확인
-    console.log(`🔍 사용 가능한 필드 키:`, Object.keys(fields).join(', '));
-
     const historyRaw = pick(fields, ["history", "History", "updateHistory", "UpdateHistory", "업데이트 히스토리", "히스토리"]);
-
-    // 🔍 디버깅: history 필드의 원본 값 확인
-    console.log(`🔍 History 필드 원본 값:`, historyRaw);
-    console.log(`🔍 History 필드 타입:`, typeof historyRaw);
-
-    // 모든 필드 키 중 history와 유사한 것 찾기
-    const historyLikeKeys = Object.keys(fields).filter(key =>
-      key.toLowerCase().includes('history') ||
-      key.toLowerCase().includes('히스토리') ||
-      key.toLowerCase().includes('업데이트')
-    );
-    console.log(`🔍 History 관련 필드 키들:`, historyLikeKeys);
-    historyLikeKeys.forEach(key => {
-      console.log(`  - ${key}:`, fields[key]);
-    });
 
     // history 파싱: JSON 또는 텍스트 형식 지원
     let history = [];
@@ -552,38 +467,22 @@ app.get("/api/hero/:id", async (req, res) => {
           .replace(/,\s*}/g, '}')  // 객체 끝의 trailing comma 제거
           .replace(/,\s*]/g, ']'); // 배열 끝의 trailing comma 제거
 
-        console.log(`🔧 JSON 정리 시도...`);
         const parsed = JSON.parse(cleanedJson);
         if (Array.isArray(parsed)) {
           history = parsed;
-          console.log(`✅ History JSON 파싱 성공: ${history.length}개 엔트리`);
         } else {
-          console.log(`⚠️ History가 배열이 아님, 텍스트 파싱으로 전환`);
           throw new Error('Not an array');
         }
       } catch (e) {
         // JSON 파싱 실패 시 텍스트 형식으로 파싱
-        console.log(`📝 History를 텍스트 형식으로 파싱 시도 (JSON 오류: ${e.message})`);
         history = parseHistoryText(historyRaw);
-        console.log(`✅ History 텍스트 파싱 완료: ${history.length}개 엔트리`);
       }
-    } else {
-      console.log(`⚠️ historyRaw가 null 또는 undefined입니다`);
     }
 
     // 텍스트 형식 history 파싱 함수
     function parseHistoryText(text) {
-      console.log(`🔍 parseHistoryText 입력 (길이 ${text.length}자):`, text.substring(0, 200));
-
       const entries = [];
       const lines = text.split('\n').map(line => line.trim()).filter(line => line);
-
-      console.log(`🔍 파싱할 줄 수: ${lines.length}개`);
-      lines.forEach((line, idx) => {
-        console.log(`  줄 ${idx}: "${line}"`);
-      });
-
-      // 날짜 패턴: YYYY.MM.DD, YYYY-MM-DD, YYYY/MM/DD
       const datePattern = /^(\d{4})[.\-\/](\d{1,2})[.\-\/](\d{1,2})$/;
 
       for (let i = 0; i < lines.length; i++) {
@@ -591,29 +490,18 @@ app.get("/api/hero/:id", async (req, res) => {
         const match = line.match(datePattern);
 
         if (match) {
-          // 날짜 발견
           const date = line;
-          const content = lines[i + 1] || ''; // 다음 줄이 내용
-
-          console.log(`  ✅ 날짜 발견: ${date}, 내용: ${content}`);
-
+          const content = lines[i + 1] || '';
           entries.push({
             date: date,
             content: content
           });
-
-          i++; // 다음 줄(내용)을 건너뛰기
-        } else {
-          console.log(`  ❌ 날짜 패턴 불일치: "${line}"`);
+          i++;
         }
       }
 
-      console.log(`🔍 파싱 결과: ${entries.length}개 엔트리`);
       return entries;
     }
-
-    console.log(`📖 Description 값:`, description ? `"${description.substring(0, 30)}..."` : 'null');
-    console.log(`📜 History 최종 엔트리 수:`, history.length);
 
     const portraitUrl = pickAttachmentUrl(fields, ["portrait", "Portrait", "초상", "이미지"]);
     const typeImageUrl = typeImageMap[typeName] || null;
@@ -651,7 +539,6 @@ app.get("/api/hero/:id", async (req, res) => {
       transLevel: pick(fields, ["transLevel", "TransLevel", "초월", "초월레벨"]) // ✅ 초월 레벨 정보
     };
 
-    console.log(`✅ 최종 응답 데이터 구성 완료\n`);
     res.json(responseData);
   } catch (error) {
     console.error("Failed to fetch hero:", error);
@@ -691,11 +578,7 @@ app.get("/api/effects", async (req, res) => {
       const effectsData = await effectsRes.json();
       allEffects = allEffects.concat(effectsData.records || []);
       offset = effectsData.offset || null;
-
-      console.log(`📄 Effects 페이지 가져옴: ${effectsData.records?.length || 0}개, offset: ${offset || 'none'}`);
     } while (offset);
-
-    console.log(`🎯 Effects 테이블 전체 레코드 수: ${allEffects.length}개`);
 
     // 효과 데이터 포맷팅
     const processedEffects = allEffects.map(effect => {
