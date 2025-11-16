@@ -9,5 +9,10 @@
     { "handle": "filesystem" },
     { "src": "/sitemap.xml", "dest": "/server.js" },
     { "src": "/(.*)", "dest": "/public/$1" }
-  ]
+  ],
+  "images": {
+    "domains": ["dl.airtable.com", "v5.airtableusercontent.com"],
+    "formats": ["image/avif", "image/webp"],
+    "minimumCacheTTL": 86400
+  }
 }

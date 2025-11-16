@@ -157,7 +157,7 @@
     <section class="hero-top">
       <div class="hero-center-content">
         <div class="hero-portrait-wrap">
-          <img id="hero-portrait" class="hero-portrait" alt="영웅 초상화" />
+          <img id="hero-portrait" class="hero-portrait" alt="영웅 초상화" loading="lazy" />
         </div>
 
         <div class="hero-basic-info">
@@ -225,7 +225,7 @@
       <section class="hero-skills">
         <div class="skill attack-skill">
           <h3>기본 공격</h3>
-          <img id="attack-image" alt="공격 이미지" />
+          <img id="attack-image" alt="공격 이미지" loading="lazy" />
           <p><strong id="attack-name" class="skill-name"></strong> <span id="attack-cooltime" class="skill-cooltime"></span></p>
           <p id="attack-desc" class="skill-desc"></p>
         </div>
@@ -235,13 +235,13 @@
 
         <div class="skill active-skill-2">
           <h3>액티브 스킬 2</h3>
-          <img id="active-2-image" alt="액티브 스킬 2 이미지" />
+          <img id="active-2-image" alt="액티브 스킬 2 이미지" loading="lazy" />
           <p><strong id="active-2-name" class="skill-name"></strong> <span id="active-2-cooltime" class="skill-cooltime"></span></p>
           <p id="active-2-desc" class="skill-desc"></p>
         </div>
         <div class="skill passive-skill">
           <h3>패시브</h3>
-          <img id="passive-image" alt="패시브 이미지" />
+          <img id="passive-image" alt="패시브 이미지" loading="lazy" />
           <p><strong id="passive-name" class="skill-name"></strong> <span id="passive-cooltime" class="skill-cooltime"></span></p>
           <p id="passive-desc" class="skill-desc"></p>
         </div>
@@ -875,7 +875,7 @@
               // Render effect box
               const colorStyle = effect.color ? `style="border-left-color: ${effect.color};"` : '';
               const iconHtml = effect.icon
-                ? `<img src="${effect.icon}" alt="${effect.name}" class="effect-icon" />`
+                ? `<img src="${effect.icon}" alt="${effect.name}" class="effect-icon" loading="lazy" />`
                 : '';
 
               return `<div class="skill-effect-box skill-effect-custom" ${colorStyle}>${iconHtml}<strong>${effect.name}</strong> ${parseMarkdownInline(description)}</div>`;
@@ -1099,14 +1099,14 @@
                   <div class="skill-transform-container">
                     <div class="skill-transform-item">
                       <div class="skill-transform-label">기본 상태</div>
-                      <img src="${skill?.image || ''}" alt="액티브 스킬 1" />
+                      <img src="${skill?.image || ''}" alt="액티브 스킬 1" loading="lazy" />
                       <p><strong class="skill-name">${skill?.name || ''}</strong>${skill?.cooltime ? ` <span class="skill-cooltime">쿨타임: ${skill.cooltime}</span>` : ''}</p>
                       <p class="skill-desc">${parseMarkdown(skill?.desc || '')}</p>
                     </div>
                     <div class="skill-transform-arrow">→</div>
                     <div class="skill-transform-item">
                       <div class="skill-transform-label">변환 후</div>
-                      <img src="${transformedSkill?.image || ''}" alt="변환 후" />
+                      <img src="${transformedSkill?.image || ''}" alt="변환 후" loading="lazy" />
                       <p><strong class="skill-name">${transformedSkill?.name || ''}</strong>${transformedSkill?.cooltime ? ` <span class="skill-cooltime">쿨타임: ${transformedSkill.cooltime}</span>` : ''}</p>
                       <p class="skill-desc">${parseMarkdown(transformedSkill?.desc || '')}</p>
                     </div>
@@ -1118,7 +1118,7 @@
               container.innerHTML = `
                 <div class="skill active-skill-1">
                   <h3>액티브 스킬 1</h3>
-                  <img src="${skill?.image || ''}" alt="액티브 스킬 1 이미지" />
+                  <img src="${skill?.image || ''}" alt="액티브 스킬 1 이미지" loading="lazy" />
                   <p><strong class="skill-name">${skill?.name || ''}</strong>${skill?.cooltime ? ` <span class="skill-cooltime">쿨타임: ${skill.cooltime}</span>` : ''}</p>
                   <p class="skill-desc">${parseMarkdown(skill?.desc || '')}</p>
                 </div>
@@ -1527,9 +1527,9 @@ commentForm.addEventListener("submit", async (e) => {
         return `
           <a href="/hero.html?name=${encodeURIComponent(hero.name)}" class="related-hero-card">
             <div class="related-hero-portrait-wrap">
-              <img src="${hero.portrait || ''}" alt="${hero.name} 초상화" class="related-hero-portrait rarity-${rarityClass} ${hasEffectClass}" />
-              ${borderImage ? `<img src="${borderImage}" alt="전설 테두리" class="rarity-border" />` : ''}
-              ${hero.typeImage ? `<img src="${hero.typeImage}" alt="${hero.type}" class="hero-type-badge" />` : ''}
+              <img src="${hero.portrait || ''}" alt="${hero.name} 초상화" class="related-hero-portrait rarity-${rarityClass} ${hasEffectClass}" loading="lazy" />
+              ${borderImage ? `<img src="${borderImage}" alt="전설 테두리" class="rarity-border" loading="lazy" />` : ''}
+              ${hero.typeImage ? `<img src="${hero.typeImage}" alt="${hero.type}" class="hero-type-badge" loading="lazy" />` : ''}
             </div>
             <div class="related-hero-info">
               <h3 class="related-hero-name">${hero.name}</h3>
