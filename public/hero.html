@@ -872,8 +872,8 @@
               }
 
               // Process description with variable substitution
-              let description = effect.description;
-              if (effect.hasVariable && variableValue) {
+              let description = effect.description || '';
+              if (effect.hasVariable && variableValue && description) {
                 // Replace 'n' with the variable value
                 description = description.replace(/n/g, variableValue);
               }
@@ -1614,12 +1614,12 @@ commentForm.addEventListener("submit", async (e) => {
     function applyTheme(theme) {
       if (theme === 'light') {
         htmlElement.setAttribute('data-theme', 'light');
-        themeIcon.className = 'ph-bold ph-moon';
-        themeText.textContent = '다크 모드';
+        if (themeIcon) themeIcon.className = 'ph-bold ph-moon';
+        if (themeText) themeText.textContent = '다크 모드';
       } else {
         htmlElement.removeAttribute('data-theme');
-        themeIcon.className = 'ph-bold ph-sun';
-        themeText.textContent = '라이트 모드';
+        if (themeIcon) themeIcon.className = 'ph-bold ph-sun';
+        if (themeText) themeText.textContent = '라이트 모드';
       }
       localStorage.setItem('theme', theme);
     }
@@ -1635,7 +1635,9 @@ commentForm.addEventListener("submit", async (e) => {
     applyTheme(getInitialTheme());
 
     // 이벤트 리스너
-    themeToggle.addEventListener('click', toggleTheme);
+    if (themeToggle) {
+      themeToggle.addEventListener('click', toggleTheme);
+    }
 
     // 시스템 테마 변경 감지 (선택사항)
     window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
