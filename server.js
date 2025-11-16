@@ -135,6 +135,22 @@ const rarityColorMap = {
   "희귀": "#63a4ff",
   "일반": "#aaaaaa",
 };
+
+// ✅ Vercel Image Optimization helper
+const optimizeImageUrl = (url, options = {}) => {
+  if (!url) return url;
+
+  // 이미 최적화된 URL이거나 로컬 이미지인 경우 스킵
+  if (url.includes('/_vercel/image') || url.startsWith('/images/')) return url;
+
+  const {
+    width = 640,      // 기본 너비 (모바일 최적화)
+    quality = 75,     // 기본 품질 (75%면 충분히 좋은 품질)
+  } = options;
+
+  // Vercel Image Optimization API 사용
+  return `/_vercel/image?url=${encodeURIComponent(url)}&w=${width}&q=${quality}`;
+};
 // -------------------------
 
 // ✅ 영웅 목록 API (요약 정보만)
@@ -269,6 +285,10 @@ app.get("/api/heroes", async (req, res) => {
           effects // ✅ Effects 배열 추가
         });
       }
+      const portraitUrl = Array.isArray(f.portrait) && f.portrait[0]
+        ? f.portrait[0].thumbnails?.large?.url || f.portrait[0].url
+        : "";
+      const typeImageUrl = typeImageMap[typeName] || null;
 
       const heroData = {
         id: hero.id,
@@ -283,6 +303,8 @@ app.get("/api/heroes", async (req, res) => {
             : "",
         typeImage: typeImageMap[typeName] || null,
         skills, // ✅ 패시브 스킬 정보 추가
+        portrait: optimizeImageUrl(portraitUrl, { width: 400, quality: 80 }),
+        typeImage: optimizeImageUrl(typeImageUrl, { width: 64, quality: 90 }),
       };
 
       // ✅ group 필드 디버깅용 출력
@@ -402,10 +424,11 @@ app.get("/api/hero/:id", async (req, res) => {
         console.log(`  ❌ 스킬 ID "${skillId}" 를 skillsMap에서 찾을 수 없음`);
         return null;
       }
+      const imageUrl = Array.isArray(f.image) && f.image[0] ? f.image[0].url : null;
       const skillData = {
         name: f.Name || "",
         desc: f.desc || "",
-        image: Array.isArray(f.image) && f.image[0] ? f.image[0].url : null,
+        image: optimizeImageUrl(imageUrl, { width: 256, quality: 85 }),
         cooltime: f.cooltime || f.Cooltime || f.coolTime || f.cool_time || null,
       };
       console.log(`  ✅ 스킬 ID "${skillId}" → "${skillData.name}"`);
@@ -443,10 +466,11 @@ app.get("/api/hero/:id", async (req, res) => {
 
       for (const skillRecord of allSkills) {
         const f = skillRecord.fields || {};
+        const imageUrl = Array.isArray(f.image) && f.image[0] ? f.image[0].url : null;
         const skillData = {
           name: f.Name || "",
           desc: f.desc || "",
-          image: Array.isArray(f.image) && f.image[0] ? f.image[0].url : null,
+          image: optimizeImageUrl(imageUrl, { width: 256, quality: 85 }),
           cooltime: f.cooltime || f.Cooltime || f.coolTime || f.cool_time || null,
         };
 
@@ -573,6 +597,9 @@ app.get("/api/hero/:id", async (req, res) => {
     console.log(`📖 Description 값:`, description ? `"${description.substring(0, 30)}..."` : 'null');
     console.log(`📜 History 최종 엔트리 수:`, history.length);
 
+    const portraitUrl = pickAttachmentUrl(fields, ["portrait", "Portrait", "초상", "이미지"]);
+    const typeImageUrl = typeImageMap[typeName] || null;
+
     const responseData = {
       id: heroData.id,
       name: pick(fields, ["Name"]),
@@ -580,8 +607,8 @@ app.get("/api/hero/:id", async (req, res) => {
       group: pick(fields, ["group"]),
       rarity: pick(fields, ["rarity", "Rarity"]),
       type: typeName,
-      typeImage: typeImageMap[typeName] || null,
-      portrait: pickAttachmentUrl(fields, ["portrait", "Portrait", "초상", "이미지"]),
+      typeImage: optimizeImageUrl(typeImageUrl, { width: 64, quality: 90 }),
+      portrait: optimizeImageUrl(portraitUrl, { width: 640, quality: 85 }),
       atk: pick(fields, ["atk", "공격력"]),
       def: pick(fields, ["def", "방어력"]),
       hp: pick(fields, ["hp", "생명력"]),
@@ -655,12 +682,13 @@ app.get("/api/effects", async (req, res) => {
     // 효과 데이터 포맷팅
     const processedEffects = allEffects.map(effect => {
       const f = effect.fields || {};
+      const iconUrl = Array.isArray(f.Icon) && f.Icon[0] ? f.Icon[0].url : null;
       return {
         id: effect.id,
         name: f.Name || f.name || "",
         description: f.Description || f.description || f.desc || "",
         hasVariable: !!f.HasVariable || !!f.hasVariable,
-        icon: Array.isArray(f.Icon) && f.Icon[0] ? f.Icon[0].url : null,
+        icon: optimizeImageUrl(iconUrl, { width: 64, quality: 90 }),
         color: f.Color || f.color || null
       };
     });
