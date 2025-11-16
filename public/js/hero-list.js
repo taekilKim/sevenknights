@@ -108,13 +108,13 @@ function createHeroCard(hero) {
   const isOldSevenKnights = hero.group && hero.group.includes('(구)세븐나이츠');
 
   const rarityBorder = hasEffect ? createRarityBorder(isOldSevenKnights) : '';
-  const typeBadge = hero.typeImage ? `<img src="${hero.typeImage}" alt="${hero.type}" class="hero-type-badge">` : '';
+  const typeBadge = hero.typeImage ? `<img src="${hero.typeImage}" alt="${hero.type}" class="hero-type-badge" loading="lazy">` : '';
   const nickname = hero.nickname ? `<div class="hero-nickname">${hero.nickname}</div>` : '';
 
   return `
     <div class="hero-card" data-name="${hero.name}" data-group="${hero.group || ''}" onclick="navigateToHero('${hero.name}')">
       <div class="hero-portrait-wrapper">
-        <img src="${hero.portrait}" alt="${hero.name}" class="hero-portrait rarity-${rarityClass} ${hasEffect ? 'has-effect' : ''}">
+        <img src="${hero.portrait}" alt="${hero.name}" class="hero-portrait rarity-${rarityClass} ${hasEffect ? 'has-effect' : ''}" loading="lazy">
         ${rarityBorder}
         ${typeBadge}
       </div>
