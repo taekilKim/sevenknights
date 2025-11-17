@@ -894,7 +894,8 @@
                 if (Array.isArray(effect.description)) {
                   description = effect.description.join(' ');
                 } else if (typeof effect.description === 'object') {
-                  description = JSON.stringify(effect.description);
+                  // Handle {state, value, isStale} object structure
+                  description = effect.description.value || JSON.stringify(effect.description);
                 } else {
                   description = String(effect.description);
                 }
@@ -905,16 +906,20 @@
                 description = description.replace(/n/g, variableValue);
               }
 
-              // Render effect box with name, variable, and description
+              // Render effect box with title/desc structure
               const effectTypeClass = effect.effectType ? `skill-effect-${effect.effectType}` : '';
               const iconHtml = effect.icon
                 ? `<img src="${effect.icon}" alt="${effect.name}" class="effect-icon" loading="lazy" />`
                 : '';
 
-              // Display: 효과명 (변수값) - 설명
+              // Display: 효과명 (변수값)
               const variableDisplay = variableValue ? ` (${variableValue})` : '';
+              const titleContent = `${iconHtml}${effect.name}${variableDisplay}`;
 
-              return `<div class="skill-effect-box skill-effect-custom ${effectTypeClass}">${iconHtml}<strong>${effect.name}${variableDisplay}</strong> ${parseMarkdownInline(description)}</div>`;
+              return `<div class="skill-effect-box skill-effect-custom ${effectTypeClass}">
+  <div class="effect-title">${titleContent}</div>
+  <div class="effect-desc">${parseMarkdownInline(description)}</div>
+</div>`;
             };
 
             // Process a sentence to check for target markers

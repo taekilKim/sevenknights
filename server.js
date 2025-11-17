@@ -266,10 +266,16 @@ app.get("/api/heroes", async (req, res) => {
         effectIds.forEach(effectId => {
           const effectFields = effectsMap[effectId];
           if (effectFields) {
+            // description 처리: 객체인 경우 .value 추출
+            let description = effectFields.desc || effectFields.description || effectFields.Description || "";
+            if (typeof description === 'object' && description !== null) {
+              description = description.value || JSON.stringify(description);
+            }
+
             effects.push({
               id: effectId,
               name: effectFields.Name || effectFields.name || "",
-              description: effectFields.desc || effectFields.description || effectFields.Description || "",
+              description: description,
               effectType: effectFields.effectType || effectFields.effect_type || effectFields.EffectType || null,
               hasVariable: !!effectFields.hasVariable,
               icon: Array.isArray(effectFields.icon) && effectFields.icon[0] ? effectFields.icon[0].url : null
@@ -584,10 +590,17 @@ app.get("/api/effects", async (req, res) => {
     const processedEffects = allEffects.map(effect => {
       const f = effect.fields || {};
       const iconUrl = Array.isArray(f.icon) && f.icon[0] ? f.icon[0].url : null;
+
+      // description 처리: 객체인 경우 .value 추출
+      let description = f.desc || f.description || f.Description || "";
+      if (typeof description === 'object' && description !== null) {
+        description = description.value || JSON.stringify(description);
+      }
+
       return {
         id: effect.id,
         name: f.Name || f.name || "",
-        description: f.desc || f.description || f.Description || "",
+        description: description,
         hasVariable: !!f.hasVariable,
         icon: optimizeImageUrl(iconUrl, { width: 64, quality: 90 }),
         effectType: f.effectType || f.effect_type || f.EffectType || null
