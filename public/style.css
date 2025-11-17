@@ -3519,6 +3519,7 @@ svg defs {
   margin-bottom: 24px;
   border-bottom: 2px solid var(--border-secondary);
   padding-bottom: 0;
+  width: 100%;
 }
 
 .deck-tab {
@@ -3561,6 +3562,10 @@ svg defs {
 .deck-tab-content.active {
   display: block;
   animation: fadeIn 0.3s ease;
+}
+
+#tab-formation {
+  width: 100%;
 }
 
 @keyframes fadeIn {
