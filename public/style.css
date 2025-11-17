@@ -3942,8 +3942,6 @@ svg defs {
   border: 1px solid var(--border-tertiary);
   border-radius: 8px;
   padding: 16px;
-  max-height: 400px;
-  overflow-y: auto;
 }
 
 .passives-title {
@@ -4024,49 +4022,67 @@ svg defs {
   line-height: 1.4;
 }
 
-/* 효과 요약 */
-.effects-summary {
+/* 효과 탭 버튼 */
+.effects-tabs {
   display: flex;
-  flex-direction: column;
-  gap: 12px;
-  margin-bottom: 16px;
+  gap: 8px;
+  margin-bottom: 12px;
+  border-bottom: 2px solid var(--border-secondary);
 }
 
-.effect-category {
-  background: var(--bg-tertiary);
-  border: 1px solid var(--border-secondary);
-  border-radius: 8px;
-  padding: 12px;
+.effects-tab-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 10px 16px;
+  background: transparent;
+  border: none;
+  border-bottom: 3px solid transparent;
+  margin-bottom: -2px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--text-tertiary);
   transition: all 0.2s ease;
 }
 
-.effect-category.ally-effects {
-  border-left: 3px solid #4caf50;
+.effects-tab-btn:hover {
+  color: var(--text-secondary);
+  background: var(--bg-tertiary);
 }
 
-.effect-category.enemy-effects {
-  border-left: 3px solid #f44336;
+.effects-tab-btn.active {
+  color: var(--accent-primary);
+  border-bottom-color: var(--accent-primary);
 }
 
-.category-header {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 8px;
-  font-weight: 600;
-  color: var(--text-primary);
-}
-
-.category-header i {
-  font-size: 1.2rem;
-}
-
-.ally-effects .category-header {
+.effects-tab-btn[data-tab="ally"].active {
   color: #4caf50;
+  border-bottom-color: #4caf50;
 }
 
-.enemy-effects .category-header {
+.effects-tab-btn[data-tab="enemy"].active {
   color: #f44336;
+  border-bottom-color: #f44336;
+}
+
+.effects-tab-btn i {
+  font-size: 1.1rem;
+}
+
+/* 탭 콘텐츠 */
+.effects-tab-content {
+  position: relative;
+}
+
+.effects-tab-panel {
+  display: none;
+}
+
+.effects-tab-panel.active {
+  display: block;
 }
 
 .effects-list {

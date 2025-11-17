@@ -242,23 +242,27 @@
             <div class="deck-passives-section">
               <h3 class="passives-title">덱 효과 요약</h3>
 
-              <!-- 효과 요약 카드 -->
-              <div class="effects-summary">
-                <div class="effect-category ally-effects">
-                  <div class="category-header">
-                    <i class="ph ph-shield-check"></i>
-                    <span>아군 강화 효과</span>
-                  </div>
+              <!-- 탭 버튼 -->
+              <div class="effects-tabs">
+                <button class="effects-tab-btn active" data-tab="ally">
+                  <i class="ph ph-shield-check"></i>
+                  <span>아군 강화</span>
+                </button>
+                <button class="effects-tab-btn" data-tab="enemy">
+                  <i class="ph ph-sword"></i>
+                  <span>적군 약화</span>
+                </button>
+              </div>
+
+              <!-- 탭 콘텐츠 -->
+              <div class="effects-tab-content">
+                <div id="ally-effects-tab" class="effects-tab-panel active">
                   <div id="ally-effects-list" class="effects-list">
                     <div class="effects-empty">영웅을 선택하면 효과가 표시됩니다</div>
                   </div>
                 </div>
 
-                <div class="effect-category enemy-effects">
-                  <div class="category-header">
-                    <i class="ph ph-sword"></i>
-                    <span>적군 약화 효과</span>
-                  </div>
+                <div id="enemy-effects-tab" class="effects-tab-panel">
                   <div id="enemy-effects-list" class="effects-list">
                     <div class="effects-empty">영웅을 선택하면 효과가 표시됩니다</div>
                   </div>
@@ -1527,6 +1531,31 @@
             }
           });
         }
+
+        // 효과 탭 전환
+        const tabBtns = document.querySelectorAll('.effects-tab-btn');
+        tabBtns.forEach(btn => {
+          btn.addEventListener('click', () => {
+            const targetTab = btn.dataset.tab;
+
+            // 모든 탭 버튼에서 active 제거
+            tabBtns.forEach(b => b.classList.remove('active'));
+
+            // 클릭한 탭 버튼에 active 추가
+            btn.classList.add('active');
+
+            // 모든 탭 패널 숨기기
+            document.querySelectorAll('.effects-tab-panel').forEach(panel => {
+              panel.classList.remove('active');
+            });
+
+            // 선택한 탭 패널 표시
+            const targetPanel = document.getElementById(`${targetTab}-effects-tab`);
+            if (targetPanel) {
+              targetPanel.classList.add('active');
+            }
+          });
+        });
       });
 
       // 페이지 로드 시 초기화
