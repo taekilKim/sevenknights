@@ -269,16 +269,6 @@
                 </div>
               </div>
 
-              <!-- 상세 패시브 효과 -->
-              <div class="passives-detail-toggle">
-                <button id="toggle-passives-detail" class="btn-toggle-detail">
-                  <i class="ph ph-caret-down"></i>
-                  <span>패시브 상세 보기</span>
-                </button>
-              </div>
-              <div id="deck-passives-list" class="passives-list" style="display: none;">
-                <div class="passives-empty">영웅을 선택하면 패시브 효과가 표시됩니다</div>
-              </div>
             </div>
           </div>
         </div>
@@ -1012,7 +1002,6 @@
 
       // 덱 패시브 효과 업데이트
       function updateDeckPassives() {
-        const passivesList = document.getElementById('deck-passives-list');
         const allyEffectsList = document.getElementById('ally-effects-list');
         const enemyEffectsList = document.getElementById('enemy-effects-list');
         const allSelected = [...selectedHeroes.front, ...selectedHeroes.back].filter(h => h);
@@ -1021,13 +1010,11 @@
         console.log('  선택된 영웅 수:', allSelected.length);
 
         if (allSelected.length === 0) {
-          passivesList.innerHTML = '<div class="passives-empty">영웅을 선택하면 패시브 효과가 표시됩니다</div>';
           allyEffectsList.innerHTML = '<div class="effects-empty">영웅을 선택하면 효과가 표시됩니다</div>';
           enemyEffectsList.innerHTML = '<div class="effects-empty">영웅을 선택하면 효과가 표시됩니다</div>';
           return;
         }
 
-        let passivesHTML = '';
         const allAllyEffects = [];
         const allEnemyEffects = [];
         console.log('  배열 초기화 완료');
@@ -1041,28 +1028,6 @@
           );
 
           passiveSkills.forEach(skill => {
-            const transcendenceLabel = hero.transcendence
-              ? `★${hero.transcendence}초월`
-              : '★0초월';
-
-            // 스킬 설명에서 <<효과, 변수>> 패턴 제거
-            const cleanedDescription = (skill.description || '').replace(/<<[^>]+>>/g, '').trim();
-
-            // 상세 패시브 목록
-            passivesHTML += `
-              <div class="passive-item">
-                <div class="passive-hero-info">
-                  <img src="${hero.portrait}" alt="${hero.name}" class="passive-hero-portrait" />
-                  <div class="passive-hero-details">
-                    <div class="passive-hero-name">${hero.name}</div>
-                    <div class="passive-transcendence">${transcendenceLabel}</div>
-                  </div>
-                </div>
-                <div class="passive-skill-name">${skill.name}</div>
-                <div class="passive-skill-desc">${cleanedDescription || '설명 없음'}</div>
-              </div>
-            `;
-
             // ✅ 스킬의 effects 배열을 순회하여 분류
             const effects = skill.effects || [];
             if (effects.length === 0) {
@@ -1147,13 +1112,6 @@
         console.log('📊 최종 효과 수집 결과:');
         console.log('  allAllyEffects:', allAllyEffects.length, '개');
         console.log('  allEnemyEffects:', allEnemyEffects.length, '개');
-
-        // 상세 패시브 목록 업데이트
-        if (passivesHTML === '') {
-          passivesList.innerHTML = '<div class="passives-empty">패시브 스킬 정보가 없습니다</div>';
-        } else {
-          passivesList.innerHTML = passivesHTML;
-        }
 
         // 아군 효과 목록 업데이트
         console.log('🎨 HTML 업데이트 시작');
@@ -1510,29 +1468,8 @@
         }
       });
 
-      // 패시브 상세 보기 토글
+      // 효과 탭 전환
       document.addEventListener('DOMContentLoaded', () => {
-        const toggleBtn = document.getElementById('toggle-passives-detail');
-        const passivesList = document.getElementById('deck-passives-list');
-
-        if (toggleBtn) {
-          toggleBtn.addEventListener('click', () => {
-            const isVisible = passivesList.style.display !== 'none';
-            passivesList.style.display = isVisible ? 'none' : 'block';
-
-            const icon = toggleBtn.querySelector('i');
-            const text = toggleBtn.querySelector('span');
-            if (isVisible) {
-              icon.className = 'ph ph-caret-down';
-              text.textContent = '패시브 상세 보기';
-            } else {
-              icon.className = 'ph ph-caret-up';
-              text.textContent = '패시브 상세 닫기';
-            }
-          });
-        }
-
-        // 효과 탭 전환
         const tabBtns = document.querySelectorAll('.effects-tab-btn');
         tabBtns.forEach(btn => {
           btn.addEventListener('click', () => {
