@@ -867,17 +867,6 @@
               return html;
             };
 
-            // ✅ Get effect color based on effectType
-            const getEffectColor = (effectType) => {
-              const colorMap = {
-                'buff': '#10b981',        // 녹색 - 버프
-                'debuff': '#ef4444',      // 빨간색 - 디버프
-                'neutral': '#64748b',     // 슬레이트 - 중립
-                'mixed': '#f59e0b'        // 엠버 - 혼합
-              };
-              return colorMap[effectType] || null;
-            };
-
             // ✅ Process effect markers <<효과명>> or <<효과명, 변수>>
             const processEffectMarker = (sentence) => {
               const effectPattern = /^<<(.+?)(?:,\s*(.+?))?>>$/;
@@ -917,8 +906,7 @@
               }
 
               // Render effect box with name, variable, and description
-              const effectColor = getEffectColor(effect.effectType);
-              const colorStyle = effectColor ? `style="border-left-color: ${effectColor};"` : '';
+              const effectTypeClass = effect.effectType ? `skill-effect-${effect.effectType}` : '';
               const iconHtml = effect.icon
                 ? `<img src="${effect.icon}" alt="${effect.name}" class="effect-icon" loading="lazy" />`
                 : '';
@@ -926,7 +914,7 @@
               // Display: 효과명 (변수값) - 설명
               const variableDisplay = variableValue ? ` (${variableValue})` : '';
 
-              return `<div class="skill-effect-box skill-effect-custom" ${colorStyle}>${iconHtml}<strong>${effect.name}${variableDisplay}</strong> ${parseMarkdownInline(description)}</div>`;
+              return `<div class="skill-effect-box skill-effect-custom ${effectTypeClass}">${iconHtml}<strong>${effect.name}${variableDisplay}</strong> ${parseMarkdownInline(description)}</div>`;
             };
 
             // Process a sentence to check for target markers

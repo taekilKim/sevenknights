@@ -2376,6 +2376,27 @@ button {
   box-shadow: 0 2px 8px rgba(16, 185, 129, 0.15);
 }
 
+/* ✅ 효과 타입별 스타일 (effectType) */
+/* Buff (녹색) */
+.skill-effect-box.skill-effect-buff {
+  border-left-color: #10b981;
+}
+
+/* Debuff (빨간색) */
+.skill-effect-box.skill-effect-debuff {
+  border-left-color: #ef4444;
+}
+
+/* Neutral (슬레이트) */
+.skill-effect-box.skill-effect-neutral {
+  border-left-color: #64748b;
+}
+
+/* Mixed (엠버) */
+.skill-effect-box.skill-effect-mixed {
+  border-left-color: #f59e0b;
+}
+
 /* ✅ 효과 아이콘 */
 .effect-icon {
   position: absolute;
