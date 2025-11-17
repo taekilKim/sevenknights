@@ -3183,9 +3183,14 @@ svg defs {
   color: var(--text-tertiary);
 }
 
-/* 우측: 영웅 선택 (숨김) */
+/* 우측: 영웅 선택 */
 .deck-right {
-  display: none;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-height: 100%;
+  overflow-y: auto;
 }
 
 /* 덱 디스플레이 영역 */
