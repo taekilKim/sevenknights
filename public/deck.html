@@ -1044,6 +1044,9 @@
         const enemyEffectsList = document.getElementById('enemy-effects-list');
         const allSelected = [...selectedHeroes.front, ...selectedHeroes.back].filter(h => h);
 
+        console.log('🔄 updateDeckPassives 호출됨');
+        console.log('  선택된 영웅 수:', allSelected.length);
+
         if (allSelected.length === 0) {
           passivesList.innerHTML = '<div class="passives-empty">영웅을 선택하면 패시브 효과가 표시됩니다</div>';
           allyEffectsList.innerHTML = '<div class="effects-empty">영웅을 선택하면 효과가 표시됩니다</div>';
@@ -1054,6 +1057,7 @@
         let passivesHTML = '';
         const allAllyEffects = [];
         const allEnemyEffects = [];
+        console.log('  배열 초기화 완료');
 
         allSelected.forEach(hero => {
           if (!hero.skills || hero.skills.length === 0) return;
@@ -1144,14 +1148,18 @@
               };
 
               // effectType에 따라 분류
+              console.log(`  🎯 분류 시도: effectType="${effectType}"`);
               if (effectType === 'buff' || effectType === 'BUFF') {
                 allAllyEffects.push(effectData);
+                console.log(`    ✅ buff로 분류됨 (현재 ally: ${allAllyEffects.length}개)`);
               } else if (effectType === 'debuff' || effectType === 'DEBUFF') {
                 allEnemyEffects.push(effectData);
+                console.log(`    ✅ debuff로 분류됨 (현재 enemy: ${allEnemyEffects.length}개)`);
               } else if (effectType === 'mixed' || effectType === 'MIXED') {
                 // 혼합 효과는 양쪽에 모두 추가
                 allAllyEffects.push(effectData);
                 allEnemyEffects.push(effectData);
+                console.log(`    ✅ mixed로 분류됨`);
               } else if (!effectType || effectType === 'neutral' || effectType === 'NEUTRAL') {
                 // effectType이 없거나 중립인 경우, 분류하지 않음
                 console.warn(`⚠️ effectType 미지정: ${hero.name} - ${skill.name} - ${effect.name}`);
@@ -1163,6 +1171,10 @@
           });
         });
 
+        console.log('📊 최종 효과 수집 결과:');
+        console.log('  allAllyEffects:', allAllyEffects.length, '개');
+        console.log('  allEnemyEffects:', allEnemyEffects.length, '개');
+
         // 상세 패시브 목록 업데이트
         if (passivesHTML === '') {
           passivesList.innerHTML = '<div class="passives-empty">패시브 스킬 정보가 없습니다</div>';
@@ -1171,9 +1183,12 @@
         }
 
         // 아군 효과 목록 업데이트
+        console.log('🎨 HTML 업데이트 시작');
         if (allAllyEffects.length === 0) {
+          console.log('  ally: 효과 없음');
           allyEffectsList.innerHTML = '<div class="effects-empty">아군 강화 효과가 없습니다</div>';
         } else {
+          console.log('  ally: HTML 생성 시작, 총', allAllyEffects.length, '개');
           let allyHTML = '';
           allAllyEffects.forEach(({ hero, effectName, effectDescription, portrait, transcendence, skillName, icon }) => {
             const transcLabel = transcendence ? `★${transcendence}초월` : '★0초월';
@@ -1193,7 +1208,10 @@
               </div>
             `;
           });
+          console.log('  ally: HTML 길이:', allyHTML.length, '자');
           allyEffectsList.innerHTML = allyHTML;
+          console.log('  ally: innerHTML 업데이트 완료');
+          console.log('  allyEffectsList DOM:', allyEffectsList);
         }
 
         // 적군 효과 목록 업데이트
