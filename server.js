@@ -272,10 +272,16 @@ app.get("/api/heroes", async (req, res) => {
               effectTypeValue = effectTypeValue[0] || null;
             }
 
+            // description 처리: 객체인 경우 .value 추출
+            let description = effectFields.desc || "";
+            if (typeof description === 'object' && description !== null) {
+              description = description.value || JSON.stringify(description);
+            }
+
             effects.push({
               id: effectId,
               name: effectFields.Name || "",
-              description: effectFields.desc || "",
+              description: description,
               effectType: effectTypeValue,
               hasVariable: !!effectFields.hasVariable,
               icon: Array.isArray(effectFields.icon) && effectFields.icon[0] ? effectFields.icon[0].url : null
@@ -597,10 +603,16 @@ app.get("/api/effects", async (req, res) => {
         effectTypeValue = effectTypeValue[0] || null;
       }
 
+      // description 처리: 객체인 경우 .value 추출
+      let description = f.desc || "";
+      if (typeof description === 'object' && description !== null) {
+        description = description.value || JSON.stringify(description);
+      }
+
       return {
         id: effect.id,
         name: f.Name || "",
-        description: f.desc || "",
+        description: description,
         hasVariable: !!f.hasVariable,
         icon: optimizeImageUrl(iconUrl, { width: 64, quality: 90 }),
         effectType: effectTypeValue
