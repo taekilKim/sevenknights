@@ -2437,8 +2437,8 @@ button {
   border-left-color: #f59e0b;
 }
 
-/* ✅ 효과 아이콘 */
-.effect-icon {
+/* ✅ 효과 아이콘 (영웅 상세 페이지 - 스킬 효과 박스용) */
+.skill-effect-box .effect-icon {
   position: absolute;
   left: 12px;
   top: 50%;
@@ -3184,14 +3184,12 @@ svg defs {
   color: var(--text-tertiary);
 }
 
-/* 우측: 영웅 선택 */
+/* 우측: 덱 효과 요약 */
 .deck-right {
   flex: 1;
   display: flex;
   flex-direction: column;
   gap: 16px;
-  max-height: 100%;
-  overflow-y: auto;
 }
 
 /* 덱 디스플레이 영역 */
@@ -4140,6 +4138,7 @@ svg defs {
   padding-left: 4px;
 }
 
+/* 덱 효과 요약용 아이콘 (일반 flow) */
 .effect-icon {
   width: 20px;
   height: 20px;
