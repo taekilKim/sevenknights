@@ -1124,6 +1124,21 @@
             return processedLines.join('<br>');
           };
 
+          // Helper: Separate effects from description
+          const separateEffects = (parsedHtml) => {
+            const tempDiv = document.createElement('div');
+            tempDiv.innerHTML = parsedHtml;
+
+            // 효과 테이블 연동 효과만 오른쪽으로 (skill-effect-custom)
+            const customEffectBoxes = tempDiv.querySelectorAll('.skill-effect-box.skill-effect-custom');
+            const effectsHtml = Array.from(customEffectBoxes).map(box => box.outerHTML).join('');
+
+            // 오른쪽으로 옮길 효과들만 제거 (스킬 강화/초월은 왼쪽에 남김)
+            customEffectBoxes.forEach(box => box.remove());
+
+            return { descHtml: tempDiv.innerHTML, effectsHtml };
+          };
+
           const renderSkill = (prefix, skill) => {
             document.getElementById(`${prefix}-image`).src = skill?.image || "";
             document.getElementById(`${prefix}-name`).textContent = skill?.name || "";
@@ -1136,36 +1151,15 @@
               cooltimeEl.style.display = 'none';
             }
 
-            // Parse skill description
-            const parsedHtml = parseMarkdown(skill?.desc || "");
-
-            // Extract effect boxes and remaining text
-            const tempDiv = document.createElement('div');
-            tempDiv.innerHTML = parsedHtml;
-
-            const effectBoxes = tempDiv.querySelectorAll('.skill-effect-box');
-            const effectsHtml = Array.from(effectBoxes).map(box => box.outerHTML).join('');
-
-            // Remove effect boxes from main content
-            effectBoxes.forEach(box => box.remove());
-            const descHtml = tempDiv.innerHTML;
+            // Parse skill description and separate custom effects
+            const parsed = separateEffects(parseMarkdown(skill?.desc || ""));
 
             // Render separated content
-            document.getElementById(`${prefix}-desc`).innerHTML = descHtml;
+            document.getElementById(`${prefix}-desc`).innerHTML = parsed.descHtml;
             const effectsContainer = document.getElementById(`${prefix}-effects`);
             if (effectsContainer) {
-              effectsContainer.innerHTML = effectsHtml;
+              effectsContainer.innerHTML = parsed.effectsHtml;
             }
-          };
-
-          // Helper: Separate effects from description
-          const separateEffects = (parsedHtml) => {
-            const tempDiv = document.createElement('div');
-            tempDiv.innerHTML = parsedHtml;
-            const effectBoxes = tempDiv.querySelectorAll('.skill-effect-box');
-            const effectsHtml = Array.from(effectBoxes).map(box => box.outerHTML).join('');
-            effectBoxes.forEach(box => box.remove());
-            return { descHtml: tempDiv.innerHTML, effectsHtml };
           };
 
           // Render Active Skill 1 (with transformation support)
