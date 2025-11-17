@@ -1885,8 +1885,26 @@ button {
   gap: 16px;
 }
 
+/* 모바일: 원래 위치 효과 표시, 사이드바 효과 숨김 */
+.skill-effect-box.inline-effect {
+  display: block;
+}
+
+.skill-effect-box.sidebar-effect {
+  display: none;
+}
+
 /* 데스크탑: 2단 레이아웃 */
 @media (min-width: 768px) {
+  /* 데스크탑: 원래 위치 효과 숨김, 사이드바 효과 표시 */
+  .skill-effect-box.inline-effect {
+    display: none;
+  }
+
+  .skill-effect-box.sidebar-effect {
+    display: block;
+  }
+
   .hero-skills .skill {
     display: grid;
     grid-template-columns: 1fr 1fr;
