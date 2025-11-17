@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <title id="dynamic-title">영웅 상세 - 세나DB</title>
   <!-- SEO Meta Tags for Hero Detail Page -->
   <meta id="meta-description" name="description" content="세나DB - 세븐나이츠 리버스 영웅 상세 페이지" />
@@ -1124,6 +1124,30 @@
             return processedLines.join('<br>');
           };
 
+          // Helper: Separate effects from description
+          const separateEffects = (parsedHtml) => {
+            const tempDiv = document.createElement('div');
+            tempDiv.innerHTML = parsedHtml;
+
+            // 효과 테이블 연동 효과를 복제 (제거하지 않음)
+            const customEffectBoxes = tempDiv.querySelectorAll('.skill-effect-box.skill-effect-custom');
+
+            // 원래 위치 효과에 클래스 추가 (데스크탑에서 숨김용)
+            customEffectBoxes.forEach(box => {
+              box.classList.add('inline-effect');
+            });
+
+            // 오른쪽 컨테이너용 복제 (데스크탑 전용)
+            const effectsHtml = Array.from(customEffectBoxes).map(box => {
+              const clone = box.cloneNode(true);
+              clone.classList.remove('inline-effect');
+              clone.classList.add('sidebar-effect');
+              return clone.outerHTML;
+            }).join('');
+
+            return { descHtml: tempDiv.innerHTML, effectsHtml };
+          };
+
           const renderSkill = (prefix, skill) => {
             document.getElementById(`${prefix}-image`).src = skill?.image || "";
             document.getElementById(`${prefix}-name`).textContent = skill?.name || "";
@@ -1136,36 +1160,15 @@
               cooltimeEl.style.display = 'none';
             }
 
-            // Parse skill description
-            const parsedHtml = parseMarkdown(skill?.desc || "");
-
-            // Extract effect boxes and remaining text
-            const tempDiv = document.createElement('div');
-            tempDiv.innerHTML = parsedHtml;
-
-            const effectBoxes = tempDiv.querySelectorAll('.skill-effect-box');
-            const effectsHtml = Array.from(effectBoxes).map(box => box.outerHTML).join('');
-
-            // Remove effect boxes from main content
-            effectBoxes.forEach(box => box.remove());
-            const descHtml = tempDiv.innerHTML;
+            // Parse skill description and separate custom effects
+            const parsed = separateEffects(parseMarkdown(skill?.desc || ""));
 
             // Render separated content
-            document.getElementById(`${prefix}-desc`).innerHTML = descHtml;
+            document.getElementById(`${prefix}-desc`).innerHTML = parsed.descHtml;
             const effectsContainer = document.getElementById(`${prefix}-effects`);
             if (effectsContainer) {
-              effectsContainer.innerHTML = effectsHtml;
+              effectsContainer.innerHTML = parsed.effectsHtml;
             }
-          };
-
-          // Helper: Separate effects from description
-          const separateEffects = (parsedHtml) => {
-            const tempDiv = document.createElement('div');
-            tempDiv.innerHTML = parsedHtml;
-            const effectBoxes = tempDiv.querySelectorAll('.skill-effect-box');
-            const effectsHtml = Array.from(effectBoxes).map(box => box.outerHTML).join('');
-            effectBoxes.forEach(box => box.remove());
-            return { descHtml: tempDiv.innerHTML, effectsHtml };
           };
 
           // Render Active Skill 1 (with transformation support)
@@ -1736,6 +1739,7 @@ commentForm.addEventListener("submit", async (e) => {
   </script>
 
   <!-- Header, Mobile Menu, Theme Scripts -->
+  <script src="/js/global-protection.js"></script>
   <script src="/js/header.js"></script>
   <script src="/js/theme.js"></script>
   <script src="/js/mobile-menu.js"></script>
