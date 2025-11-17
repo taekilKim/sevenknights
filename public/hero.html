@@ -872,13 +872,8 @@
               const colorMap = {
                 'buff': '#10b981',        // 녹색 - 버프
                 'debuff': '#ef4444',      // 빨간색 - 디버프
-                'immunity': '#3b82f6',    // 파란색 - 면역
-                'damage': '#f97316',      // 주황색 - 데미지
-                'heal': '#22c55e',        // 밝은 녹색 - 힐
-                'shield': '#06b6d4',      // 시안 - 실드
-                'control': '#8b5cf6',     // 보라색 - 제어
-                'special': '#f59e0b',     // 엠버 - 특수
-                'passive': '#64748b'      // 슬레이트 - 패시브
+                'neutral': '#64748b',     // 슬레이트 - 중립
+                'mixed': '#f59e0b'        // 엠버 - 혼합
               };
               return colorMap[effectType] || null;
             };
@@ -904,7 +899,18 @@
               }
 
               // Process description with variable substitution
-              let description = effect.description || '';
+              // Ensure description is a string (handle arrays, objects, etc.)
+              let description = '';
+              if (effect.description) {
+                if (Array.isArray(effect.description)) {
+                  description = effect.description.join(' ');
+                } else if (typeof effect.description === 'object') {
+                  description = JSON.stringify(effect.description);
+                } else {
+                  description = String(effect.description);
+                }
+              }
+
               if (effect.hasVariable && variableValue && description) {
                 // Replace 'n' with the variable value
                 description = description.replace(/n/g, variableValue);
