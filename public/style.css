@@ -1803,7 +1803,7 @@ button {
   text-align: right;
 }
 
-.stats-table td img.stat-img {
+.stats-table td img.stat-icon {
   display:inline-block;
   width:20px;
   height:auto;
