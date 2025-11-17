@@ -1803,6 +1803,12 @@ button {
   text-align: right;
 }
 
+.stats-table td img.stat-img {
+  display:inline-block;
+  width:20px;
+  height:auto;
+}
+
 /* 초월 레벨 스타일 */
 .transcendence-title {
   font-size: 1rem;
