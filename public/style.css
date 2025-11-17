@@ -1308,7 +1308,6 @@ button {
   cursor: pointer;
   transition: all 0.2s ease;
   position: relative;
-  padding:4px;
 }
 
 .carousel-item:hover {
