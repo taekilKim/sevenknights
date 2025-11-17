@@ -603,7 +603,7 @@ app.get("/api/effects", async (req, res) => {
         description: description,
         hasVariable: !!f.hasVariable,
         icon: optimizeImageUrl(iconUrl, { width: 64, quality: 90 }),
-        effectType: f.effectType || f.effect_type || f.EffectType || null
+        effectType: f.effectType || null
       };
     });
 

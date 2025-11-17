@@ -842,6 +842,9 @@
 
             // Helper function to parse markdown within a sentence
             const parseMarkdownInline = (sentence) => {
+              // Handle null/undefined/non-string values
+              if (!sentence || typeof sentence !== 'string') return '';
+
               // Remove leading \- (backslash-dash-space) from bullet points
               let html = sentence.replace(/^\\-\s+/, '');
 
