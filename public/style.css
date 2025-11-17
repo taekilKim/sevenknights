@@ -2313,6 +2313,12 @@ button {
   transform: none;
 }
 
+.skill-effect-box .effect-title .effect-icon-img {
+  height: 20px;
+  width: auto;
+  vertical-align: middle;
+}
+
 .skill-effect-box .effect-desc {
   padding-left: 28px;
 }
@@ -2342,8 +2348,11 @@ button {
 }
 
 .skill-effect-box.skill-enhancement::before {
-  content: '⚡';
-  color: #f97316;
+  content: '';
+  background: url('/images/enhance.png') center/contain no-repeat;
+  width: 16px;
+  height: 16px;
+  display: inline-block;
 }
 
 .skill-effect-box.skill-enhancement .effect-icon {
@@ -2368,9 +2377,11 @@ button {
 }
 
 .skill-effect-box.awakening-2::before {
-  content: '★★';
-  color: #3b82f6;
-  font-size: 16px;
+  content: '';
+  background: url('/images/trans-2.png') center/contain no-repeat;
+  width: 24px;
+  height: 16px;
+  display: inline-block;
 }
 
 .skill-effect-box.awakening-2 .effect-icon {
@@ -2396,9 +2407,11 @@ button {
 }
 
 .skill-effect-box.awakening-6::before {
-  content: '★★★';
-  color: #a855f7;
-  font-size: 14px;
+  content: '';
+  background: url('/images/trans-6.png') center/contain no-repeat;
+  width: 36px;
+  height: 16px;
+  display: inline-block;
 }
 
 .skill-effect-box.awakening-6 .effect-icon {
@@ -3130,7 +3143,7 @@ svg defs {
   grid-template-columns: 1fr 1fr;
   gap: 24px;
   width: 100%;
-  max-width: 1200px;
+  align-self: stretch;
   height: 100%;
 }
 
@@ -3520,6 +3533,7 @@ svg defs {
   margin-bottom: 24px;
   border-bottom: 2px solid var(--border-secondary);
   padding-bottom: 0;
+  width: 100%;
 }
 
 .deck-tab {
@@ -3562,6 +3576,10 @@ svg defs {
 .deck-tab-content.active {
   display: block;
   animation: fadeIn 0.3s ease;
+}
+
+#tab-formation {
+  width: 100%;
 }
 
 @keyframes fadeIn {
