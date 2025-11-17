@@ -867,6 +867,22 @@
               return html;
             };
 
+            // ✅ Get effect color based on effectType
+            const getEffectColor = (effectType) => {
+              const colorMap = {
+                'buff': '#10b981',        // 녹색 - 버프
+                'debuff': '#ef4444',      // 빨간색 - 디버프
+                'immunity': '#3b82f6',    // 파란색 - 면역
+                'damage': '#f97316',      // 주황색 - 데미지
+                'heal': '#22c55e',        // 밝은 녹색 - 힐
+                'shield': '#06b6d4',      // 시안 - 실드
+                'control': '#8b5cf6',     // 보라색 - 제어
+                'special': '#f59e0b',     // 엠버 - 특수
+                'passive': '#64748b'      // 슬레이트 - 패시브
+              };
+              return colorMap[effectType] || null;
+            };
+
             // ✅ Process effect markers <<효과명>> or <<효과명, 변수>>
             const processEffectMarker = (sentence) => {
               const effectPattern = /^<<(.+?)(?:,\s*(.+?))?>>$/;
@@ -884,7 +900,7 @@
 
               if (!effect) {
                 console.warn(`⚠️ Effect not found: ${effectName}`);
-                return parseMarkdownInline(effectName);
+                return `<div class="skill-effect-box skill-effect-unknown"><strong>효과 없음</strong> ${parseMarkdownInline(effectName)}</div>`;
               }
 
               // Process description with variable substitution
@@ -894,8 +910,17 @@
                 description = description.replace(/n/g, variableValue);
               }
 
-              // Return plain text without box
-              return parseMarkdownInline(description);
+              // Render effect box with name, variable, and description
+              const effectColor = getEffectColor(effect.effectType);
+              const colorStyle = effectColor ? `style="border-left-color: ${effectColor};"` : '';
+              const iconHtml = effect.icon
+                ? `<img src="${effect.icon}" alt="${effect.name}" class="effect-icon" loading="lazy" />`
+                : '';
+
+              // Display: 효과명 (변수값) - 설명
+              const variableDisplay = variableValue ? ` (${variableValue})` : '';
+
+              return `<div class="skill-effect-box skill-effect-custom" ${colorStyle}>${iconHtml}<strong>${effect.name}${variableDisplay}</strong> ${parseMarkdownInline(description)}</div>`;
             };
 
             // Process a sentence to check for target markers
