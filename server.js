@@ -268,9 +268,9 @@ app.get("/api/heroes", async (req, res) => {
           if (effectFields) {
             effects.push({
               id: effectId,
-              name: effectFields.Name || effectFields.name || "",
-              description: effectFields.desc || effectFields.description || effectFields.Description || "",
-              effectType: effectFields.effectType || effectFields.effect_type || effectFields.EffectType || null,
+              name: effectFields.Name || "",
+              description: effectFields.desc || "",
+              effectType: effectFields.effectType || null,
               hasVariable: !!effectFields.hasVariable,
               icon: Array.isArray(effectFields.icon) && effectFields.icon[0] ? effectFields.icon[0].url : null
             });
@@ -586,11 +586,11 @@ app.get("/api/effects", async (req, res) => {
       const iconUrl = Array.isArray(f.icon) && f.icon[0] ? f.icon[0].url : null;
       return {
         id: effect.id,
-        name: f.Name || f.name || "",
-        description: f.desc || f.description || f.Description || "",
+        name: f.Name || "",
+        description: f.desc || "",
         hasVariable: !!f.hasVariable,
         icon: optimizeImageUrl(iconUrl, { width: 64, quality: 90 }),
-        effectType: f.effectType || f.effect_type || f.EffectType || null
+        effectType: f.effectType || null
       };
     });
 
