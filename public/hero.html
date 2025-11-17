@@ -887,18 +887,37 @@
 
               if (!effect) {
                 console.warn(`⚠️ Effect not found: ${effectName}`);
-                return parseMarkdownInline(effectName);
+                return `<div class="skill-effect-box skill-effect-unknown"><strong>효과 없음</strong> ${parseMarkdownInline(effectName)}</div>`;
               }
 
               // Process description with variable substitution
-              let description = effect.description || '';
+              // Ensure description is a string (handle arrays, objects, etc.)
+              let description = '';
+              if (effect.description) {
+                if (Array.isArray(effect.description)) {
+                  description = effect.description.join(' ');
+                } else if (typeof effect.description === 'object') {
+                  description = JSON.stringify(effect.description);
+                } else {
+                  description = String(effect.description);
+                }
+              }
+
               if (effect.hasVariable && variableValue && description) {
                 // Replace 'n' with the variable value
                 description = description.replace(/n/g, variableValue);
               }
 
-              // Return plain text without box
-              return parseMarkdownInline(description);
+              // Render effect box with name, variable, and description
+              const effectTypeClass = effect.effectType ? `skill-effect-${effect.effectType}` : '';
+              const iconHtml = effect.icon
+                ? `<img src="${effect.icon}" alt="${effect.name}" class="effect-icon" loading="lazy" />`
+                : '';
+
+              // Display: 효과명 (변수값) - 설명
+              const variableDisplay = variableValue ? ` (${variableValue})` : '';
+
+              return `<div class="skill-effect-box skill-effect-custom ${effectTypeClass}">${iconHtml}<strong>${effect.name}${variableDisplay}</strong> ${parseMarkdownInline(description)}</div>`;
             };
 
             // Process a sentence to check for target markers
