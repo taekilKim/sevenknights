@@ -912,9 +912,8 @@
                 ? `<img src="${effect.icon}" alt="${effect.name}" class="effect-icon" loading="lazy" />`
                 : '';
 
-              // Display: 효과명 (변수값)
-              const variableDisplay = variableValue ? ` (${variableValue})` : '';
-              const titleContent = `${iconHtml}${effect.name}${variableDisplay}`;
+              // Display: 효과명만 (변수는 desc에서만 치환)
+              const titleContent = `${iconHtml}${effect.name}`;
 
               return `<div class="skill-effect-box skill-effect-custom ${effectTypeClass}">
   <div class="effect-title">${titleContent}</div>
