@@ -246,26 +246,35 @@
     <div class="tab-content" id="tab-skills">
       <section class="hero-skills">
         <div class="skill attack-skill">
-          <h3>기본 공격</h3>
-          <img id="attack-image" alt="공격 이미지" loading="lazy" />
-          <p><strong id="attack-name" class="skill-name"></strong> <span id="attack-cooltime" class="skill-cooltime"></span></p>
-          <p id="attack-desc" class="skill-desc"></p>
+          <div class="skill-main">
+            <h3>기본 공격</h3>
+            <img id="attack-image" alt="공격 이미지" loading="lazy" />
+            <p><strong id="attack-name" class="skill-name"></strong> <span id="attack-cooltime" class="skill-cooltime"></span></p>
+            <div id="attack-desc" class="skill-desc"></div>
+          </div>
+          <div id="attack-effects" class="skill-effects"></div>
         </div>
 
         <!-- Active Skill 1 - 동적 렌더링 -->
         <div id="active-1-container"></div>
 
         <div class="skill active-skill-2">
-          <h3>액티브 스킬 2</h3>
-          <img id="active-2-image" alt="액티브 스킬 2 이미지" loading="lazy" />
-          <p><strong id="active-2-name" class="skill-name"></strong> <span id="active-2-cooltime" class="skill-cooltime"></span></p>
-          <p id="active-2-desc" class="skill-desc"></p>
+          <div class="skill-main">
+            <h3>액티브 스킬 2</h3>
+            <img id="active-2-image" alt="액티브 스킬 2 이미지" loading="lazy" />
+            <p><strong id="active-2-name" class="skill-name"></strong> <span id="active-2-cooltime" class="skill-cooltime"></span></p>
+            <div id="active-2-desc" class="skill-desc"></div>
+          </div>
+          <div id="active-2-effects" class="skill-effects"></div>
         </div>
         <div class="skill passive-skill">
-          <h3>패시브</h3>
-          <img id="passive-image" alt="패시브 이미지" loading="lazy" />
-          <p><strong id="passive-name" class="skill-name"></strong> <span id="passive-cooltime" class="skill-cooltime"></span></p>
-          <p id="passive-desc" class="skill-desc"></p>
+          <div class="skill-main">
+            <h3>패시브</h3>
+            <img id="passive-image" alt="패시브 이미지" loading="lazy" />
+            <p><strong id="passive-name" class="skill-name"></strong> <span id="passive-cooltime" class="skill-cooltime"></span></p>
+            <div id="passive-desc" class="skill-desc"></div>
+          </div>
+          <div id="passive-effects" class="skill-effects"></div>
         </div>
       </section>
     </div>
@@ -1126,7 +1135,37 @@
               cooltimeEl.textContent = "";
               cooltimeEl.style.display = 'none';
             }
-            document.getElementById(`${prefix}-desc`).innerHTML = parseMarkdown(skill?.desc || "");
+
+            // Parse skill description
+            const parsedHtml = parseMarkdown(skill?.desc || "");
+
+            // Extract effect boxes and remaining text
+            const tempDiv = document.createElement('div');
+            tempDiv.innerHTML = parsedHtml;
+
+            const effectBoxes = tempDiv.querySelectorAll('.skill-effect-box');
+            const effectsHtml = Array.from(effectBoxes).map(box => box.outerHTML).join('');
+
+            // Remove effect boxes from main content
+            effectBoxes.forEach(box => box.remove());
+            const descHtml = tempDiv.innerHTML;
+
+            // Render separated content
+            document.getElementById(`${prefix}-desc`).innerHTML = descHtml;
+            const effectsContainer = document.getElementById(`${prefix}-effects`);
+            if (effectsContainer) {
+              effectsContainer.innerHTML = effectsHtml;
+            }
+          };
+
+          // Helper: Separate effects from description
+          const separateEffects = (parsedHtml) => {
+            const tempDiv = document.createElement('div');
+            tempDiv.innerHTML = parsedHtml;
+            const effectBoxes = tempDiv.querySelectorAll('.skill-effect-box');
+            const effectsHtml = Array.from(effectBoxes).map(box => box.outerHTML).join('');
+            effectBoxes.forEach(box => box.remove());
+            return { descHtml: tempDiv.innerHTML, effectsHtml };
           };
 
           // Render Active Skill 1 (with transformation support)
@@ -1134,25 +1173,34 @@
             const container = document.getElementById('active-1-container');
             if (!container) return;
 
+            const skill1Parsed = separateEffects(parseMarkdown(skill?.desc || ''));
+            const skill2Parsed = transformedSkill ? separateEffects(parseMarkdown(transformedSkill?.desc || '')) : null;
+
             if (transformedSkill) {
               // 변환형 스킬 - 2단 구조
               container.innerHTML = `
                 <div class="skill skill-transform">
-                  <h3>액티브 스킬 1 <span class="skill-transform-badge">(변환형 스킬)</span></h3>
-                  <div class="skill-transform-container">
-                    <div class="skill-transform-item">
-                      <div class="skill-transform-label">기본 상태</div>
-                      <img src="${skill?.image || ''}" alt="액티브 스킬 1" loading="lazy" />
-                      <p><strong class="skill-name">${skill?.name || ''}</strong>${skill?.cooltime ? ` <span class="skill-cooltime">쿨타임: ${skill.cooltime}</span>` : ''}</p>
-                      <p class="skill-desc">${parseMarkdown(skill?.desc || '')}</p>
+                  <div class="skill-main">
+                    <h3>액티브 스킬 1 <span class="skill-transform-badge">(변환형 스킬)</span></h3>
+                    <div class="skill-transform-container">
+                      <div class="skill-transform-item">
+                        <div class="skill-transform-label">기본 상태</div>
+                        <img src="${skill?.image || ''}" alt="액티브 스킬 1" loading="lazy" />
+                        <p><strong class="skill-name">${skill?.name || ''}</strong>${skill?.cooltime ? ` <span class="skill-cooltime">쿨타임: ${skill.cooltime}</span>` : ''}</p>
+                        <div class="skill-desc">${skill1Parsed.descHtml}</div>
+                      </div>
+                      <div class="skill-transform-arrow">→</div>
+                      <div class="skill-transform-item">
+                        <div class="skill-transform-label">변환 후</div>
+                        <img src="${transformedSkill?.image || ''}" alt="변환 후" loading="lazy" />
+                        <p><strong class="skill-name">${transformedSkill?.name || ''}</strong>${transformedSkill?.cooltime ? ` <span class="skill-cooltime">쿨타임: ${transformedSkill.cooltime}</span>` : ''}</p>
+                        <div class="skill-desc">${skill2Parsed.descHtml}</div>
+                      </div>
                     </div>
-                    <div class="skill-transform-arrow">→</div>
-                    <div class="skill-transform-item">
-                      <div class="skill-transform-label">변환 후</div>
-                      <img src="${transformedSkill?.image || ''}" alt="변환 후" loading="lazy" />
-                      <p><strong class="skill-name">${transformedSkill?.name || ''}</strong>${transformedSkill?.cooltime ? ` <span class="skill-cooltime">쿨타임: ${transformedSkill.cooltime}</span>` : ''}</p>
-                      <p class="skill-desc">${parseMarkdown(transformedSkill?.desc || '')}</p>
-                    </div>
+                  </div>
+                  <div class="skill-effects">
+                    ${skill1Parsed.effectsHtml}
+                    ${skill2Parsed.effectsHtml}
                   </div>
                 </div>
               `;
@@ -1160,10 +1208,13 @@
               // 일반 스킬
               container.innerHTML = `
                 <div class="skill active-skill-1">
-                  <h3>액티브 스킬 1</h3>
-                  <img src="${skill?.image || ''}" alt="액티브 스킬 1 이미지" loading="lazy" />
-                  <p><strong class="skill-name">${skill?.name || ''}</strong>${skill?.cooltime ? ` <span class="skill-cooltime">쿨타임: ${skill.cooltime}</span>` : ''}</p>
-                  <p class="skill-desc">${parseMarkdown(skill?.desc || '')}</p>
+                  <div class="skill-main">
+                    <h3>액티브 스킬 1</h3>
+                    <img src="${skill?.image || ''}" alt="액티브 스킬 1 이미지" loading="lazy" />
+                    <p><strong class="skill-name">${skill?.name || ''}</strong>${skill?.cooltime ? ` <span class="skill-cooltime">쿨타임: ${skill.cooltime}</span>` : ''}</p>
+                    <div class="skill-desc">${skill1Parsed.descHtml}</div>
+                  </div>
+                  <div class="skill-effects">${skill1Parsed.effectsHtml}</div>
                 </div>
               `;
             }
