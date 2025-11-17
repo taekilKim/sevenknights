@@ -420,10 +420,10 @@ app.get("/api/hero/:id", async (req, res) => {
     };
 
     // ✅ 방법 1: Heroes 테이블에 직접 링크된 스킬 ID 사용
-    const attackSkillIds = fields.attack || [];
-    const passiveSkillIds = fields.passive || [];
-    const active1SkillIds = fields.active_1 || [];
-    const active2SkillIds = fields.active_2 || [];
+    const attackSkillIds = fields.attack || fields.Attack || [];
+    const passiveSkillIds = fields.passive || fields.Passive || [];
+    const active1SkillIds = fields.active_1 || fields.Active_1 || fields.active1 || fields.Active1 || [];
+    const active2SkillIds = fields.active_2 || fields.Active_2 || fields.active2 || fields.Active2 || [];
 
     let attackSkill = attackSkillIds[0] ? getSkillData(attackSkillIds[0]) : null;
     let passiveSkill = passiveSkillIds[0] ? getSkillData(passiveSkillIds[0]) : null;
