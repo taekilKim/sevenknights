@@ -266,17 +266,23 @@ app.get("/api/heroes", async (req, res) => {
         effectIds.forEach(effectId => {
           const effectFields = effectsMap[effectId];
           if (effectFields) {
+            // effectType이 배열이면 첫 번째 값 추출
+            let effectTypeValue = effectFields.effectType;
+            if (Array.isArray(effectTypeValue)) {
+              effectTypeValue = effectTypeValue[0] || null;
+            }
+
             // description 처리: 객체인 경우 .value 추출
-            let description = effectFields.desc || effectFields.description || effectFields.Description || "";
+            let description = effectFields.desc || "";
             if (typeof description === 'object' && description !== null) {
               description = description.value || JSON.stringify(description);
             }
 
             effects.push({
               id: effectId,
-              name: effectFields.Name || effectFields.name || "",
+              name: effectFields.Name || "",
               description: description,
-              effectType: effectFields.effectType || effectFields.effect_type || effectFields.EffectType || null,
+              effectType: effectTypeValue,
               hasVariable: !!effectFields.hasVariable,
               icon: Array.isArray(effectFields.icon) && effectFields.icon[0] ? effectFields.icon[0].url : null
             });
@@ -591,19 +597,25 @@ app.get("/api/effects", async (req, res) => {
       const f = effect.fields || {};
       const iconUrl = Array.isArray(f.icon) && f.icon[0] ? f.icon[0].url : null;
 
+      // effectType이 배열이면 첫 번째 값 추출
+      let effectTypeValue = f.effectType;
+      if (Array.isArray(effectTypeValue)) {
+        effectTypeValue = effectTypeValue[0] || null;
+      }
+
       // description 처리: 객체인 경우 .value 추출
-      let description = f.desc || f.description || f.Description || "";
+      let description = f.desc || "";
       if (typeof description === 'object' && description !== null) {
         description = description.value || JSON.stringify(description);
       }
 
       return {
         id: effect.id,
-        name: f.Name || f.name || "",
+        name: f.Name || "",
         description: description,
         hasVariable: !!f.hasVariable,
         icon: optimizeImageUrl(iconUrl, { width: 64, quality: 90 }),
-        effectType: f.effectType || null
+        effectType: effectTypeValue
       };
     });
 
