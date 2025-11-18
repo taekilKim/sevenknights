@@ -2249,6 +2249,7 @@ button {
   font-weight: 600;
   font-size: 14px;
   margin-bottom: 8px;
+  line-height: 1rem;
   
 }
 
@@ -2267,6 +2268,7 @@ button {
   vertical-align: middle;
   border:none;
   margin:0;
+  border-radius:none;
 }
 
 .skill-effect-box .effect-desc {
@@ -2327,23 +2329,22 @@ button {
 
 .skill-effect-box.awakening-2 .effect-title {
   color: #EBD9F8;
+  background: #815BA1;
+  border-radius: 4px;
+  gap:6px;
 }
-
-.skill-effect-box.awakening-6::before {
-  content: '';
-  background: url('/images/trans-6.png') center/contain no-repeat;
-  width: 36px;
-  height: 16px;
-  display: inline-block;
-}
+/* 6초월 (자주색) */
 
 .skill-effect-box.awakening-6 .effect-icon {
-  color: #a855f7;
+  color: #EBD9F8;
   font-size: 14px;
 }
 
 .skill-effect-box.awakening-6 .effect-title {
-  color: #a855f7;
+  color: #EBD9F8;
+  background: #815BA1;
+  border-radius: 4px;
+  gap:6px;
 }
 
 /* ✅ 커스텀 효과 (녹색/청록색) */
