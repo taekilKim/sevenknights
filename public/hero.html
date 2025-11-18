@@ -603,12 +603,12 @@
           return { hero, effectsMap };
         })
         .then(({ hero, effectsMap }) => {
-          if (container && skeleton) {
-            container.classList.remove("loading");
-            skeleton.style.display = "none";
-          }
           if (!hero || !hero.name) {
             document.querySelector("main").innerHTML = "<p>영웅 정보를 불러올 수 없습니다.</p>";
+            if (container && skeleton) {
+              container.classList.remove("loading");
+              skeleton.style.display = "none";
+            }
             return;
           }
 
@@ -748,12 +748,26 @@
             const img = document.createElement("img");
             img.className = `hero-portrait rarity-${rarityClass}`;
             img.alt = "영웅 초상화";
-            img.src = hero.portrait || "";
+
+            // Hide skeleton after image loads
+            img.addEventListener('load', function() {
+              if (container && skeleton) {
+                container.classList.remove("loading");
+                skeleton.style.display = "none";
+              }
+            });
 
             img.addEventListener('error', function() {
               console.warn(`초상화 로드 실패: ${hero.name}`);
               this.style.display = 'none'; // Hide broken image
+              // Hide skeleton even on error
+              if (container && skeleton) {
+                container.classList.remove("loading");
+                skeleton.style.display = "none";
+              }
             });
+
+            img.src = hero.portrait || "";
 
             // Add shine border if hasEffect
             if (hero.hasEffect === true || hero.hasEffect === "true" || hero.hasEffect === 1) {
