@@ -1835,7 +1835,13 @@ button {
 }
 
 .hero-skills .skill {
-  background: #fff;
+  background-color: #fff;
+  background-image: url('/images/bg-skill.png');
+  background-repeat: no-repeat;
+  background-position: right top;
+  background-size: auto 100%; /* 높이에 맞춰 크기 조정 */
+  backdrop-filter: blur(var(--blur-md)) saturate(180%);
+  -webkit-backdrop-filter: blur(var(--blur-md)) saturate(180%);
   border: 1px solid var(--border-secondary);
   border-radius: var(--radius-sm);
   padding: 16px;
@@ -1940,7 +1946,9 @@ button {
 }
 
 .hero-skills .skill .skill-cooltime {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
   background: var(--overlay-light);
   border: 1px solid var(--border-tertiary);
   border-radius: 6px;
@@ -1950,6 +1958,17 @@ button {
   color: var(--accent-primary);
   margin-bottom: 10px;
   margin-left: 6px;
+}
+
+.hero-skills .skill .skill-cooltime::before {
+  content: '';
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  background-image: url('/images/cooltime.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .hero-skills .skill .skill-desc {
@@ -2022,9 +2041,22 @@ button {
 }
 
 .skill-transform-item .skill-cooltime {
-  display: block;
-  text-align: center;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  justify-content: center;
   margin: 4px auto;
+}
+
+.skill-transform-item .skill-cooltime::before {
+  content: '';
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  background-image: url('/images/cooltime.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .skill-transform-item .skill-desc {
