@@ -1420,6 +1420,7 @@ button {
   position: relative;
   border: 1px solid #e4ae60;
   border-radius: 26px 4px;
+  padding:2px;
 }
 
 .hero-top .hero-portrait {
