@@ -1974,10 +1974,10 @@ button {
 }
 
 .hero-skills .skill .skill-desc {
-  font-size: 0.75rem;
+  font-size: 14px;
   line-height: 1.6;
-  color: #757078;
-  font-weight:500;
+  color: #757178;
+  font-weight:600;
   clear: both;
   padding: 12px;
   background: #CECCC7;
