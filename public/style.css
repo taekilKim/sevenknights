@@ -1266,6 +1266,11 @@ button {
   width: 100%;
 }
 
+/* Hide content when loading */
+.hero-detail-container.loading > *:not(.skeleton-container) {
+  display: none !important;
+}
+
 .skeleton {
   background: linear-gradient(90deg, var(--bg-tertiary) 25%, var(--bg-elevated-hover) 50%, var(--bg-tertiary) 75%);
   background-size: 200% 100%;
