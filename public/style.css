@@ -1,53 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@100;200;300;400;500;600;700&display=swap');
 /* ================================ */
-/* CSS Variables - shadcn/ui Style */
+/* CSS Variables - Light Theme Only */
 /* ================================ */
 :root {
-  /* Dark Theme (Default) - shadcn zinc palette */
-  --bg-primary: #09090b;
-  --bg-secondary: #18181b;
-  --bg-tertiary: #27272a;
-  --bg-elevated: #27272a;
-  --bg-elevated-hover: #3f3f46;
-
-  --text-primary: #fafafa;
-  --text-secondary: #e4e4e7;
-  --text-tertiary: #a1a1aa;
-  --text-muted: #71717a;
-
-  --border-primary: #3f3f46;
-  --border-secondary: #27272a;
-  --border-tertiary: #27272a;
-
-  --accent-primary: #3b82f6;
-  --accent-secondary: #2563eb;
-  --accent-tertiary: #60a5fa;
-  --accent-glow: rgba(59, 130, 246, 0.3);
-
-  --shadow-sm: rgba(0, 0, 0, 0.1);
-  --shadow-md: rgba(0, 0, 0, 0.2);
-  --shadow-lg: rgba(0, 0, 0, 0.3);
-
-  --overlay-light: rgba(255, 255, 255, 0.03);
-  --overlay-medium: rgba(255, 255, 255, 0.05);
-  --overlay-heavy: rgba(255, 255, 255, 0.08);
-
-  --blur-sm: 8px;
-  --blur-md: 16px;
-  --blur-lg: 24px;
-
-  /* Layout */
-  --header-height: 60px;
-  --sidebar-width: 240px;
-  --mobile-nav-height: 60px;
-
-  /* Border Radius */
-  --radius-sm: 0.375rem;
-  --radius-md: 0.5rem;
-  --radius-lg: 0.75rem;
-}
-
-[data-theme="light"] {
   /* Light Theme - shadcn zinc palette */
   --bg-primary: #ffffff;
   --bg-secondary: #fafafa;
@@ -76,6 +31,20 @@
   --overlay-light: rgba(0, 0, 0, 0.02);
   --overlay-medium: rgba(0, 0, 0, 0.04);
   --overlay-heavy: rgba(0, 0, 0, 0.06);
+
+  --blur-sm: 8px;
+  --blur-md: 16px;
+  --blur-lg: 24px;
+
+  /* Layout */
+  --header-height: 60px;
+  --sidebar-width: 240px;
+  --mobile-nav-height: 60px;
+
+  /* Border Radius */
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
 }
 
 /* ================================ */
@@ -94,7 +63,6 @@ body {
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 a {
@@ -275,18 +243,7 @@ button {
 }
 
 .theme-toggle {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 10px 18px;
-  background: var(--overlay-light);
-  border: 1px solid var(--border-tertiary);
-  border-radius: var(--radius-sm);
-  color: var(--text-primary);
-  font-size: 0.9rem;
-  font-weight: 500;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 2px 8px var(--shadow-sm);
+  display: none; /* Light theme only - 테마 토글 비활성화 */
 }
 
 .theme-toggle:hover {
@@ -687,10 +644,6 @@ button {
   box-shadow: 0 2px 8px rgba(100, 181, 246, 0.2);
 }
 
-[data-theme="light"] .filter-chip:has(input:checked) {
-  background: rgba(0, 122, 255, 0.12);
-  color: var(--accent-primary);
-}
 
 .sort-options {
   display: flex;
@@ -1089,60 +1042,6 @@ button {
     box-shadow: 0 2px 8px rgba(100, 181, 246, 0.2);
   }
 
-  [data-theme="light"] .view-btn.active {
-    background: rgba(0, 122, 255, 0.12);
-  }
-
-  .filter-select {
-    padding: 10px 12px;
-    background: var(--bg-tertiary);
-    backdrop-filter: blur(var(--blur-sm));
-    -webkit-backdrop-filter: blur(var(--blur-sm));
-    border: 1px solid var(--border-tertiary);
-    border-radius: var(--radius-sm);
-    color: var(--text-primary);
-    font-size: 0.85rem;
-    font-family: inherit;
-    cursor: pointer;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-
-  .filter-select:focus {
-    outline: none;
-    border-color: var(--accent-primary);
-    background: var(--bg-elevated-hover);
-    box-shadow: 0 0 0 4px var(--accent-glow);
-  }
-
-  .hero-grid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 12px;
-  }
-
-  .hero-card {
-    padding: 8px;
-  }
-
-  .hero-type-badge {
-    width: 24px;
-    height: 24px;
-    bottom: 4px;
-    left: 4px;
-  }
-
-  .rarity-diamond-effect {
-    width: 20px;
-    height: 20px;
-  }
-
-  .hero-name {
-    font-size: 0.8rem;
-  }
-
-  .hero-nickname {
-    font-size: 0.7rem;
-  }
-}
 .hero-detail-page {
   display: flex;
   justify-content: center;
@@ -1676,45 +1575,13 @@ button {
 }
 
 /* Light theme adjustments */
-[data-theme="light"] #hero-type.type-attack {
-  color: #d32f2f;
-  background: rgba(211, 47, 47, 0.08);
-}
 
-[data-theme="light"] #hero-type.type-magic {
-  color: #1976d2;
-  background: rgba(25, 118, 210, 0.08);
-}
 
-[data-theme="light"] #hero-type.type-support {
-  color: #c08830;
-  background: rgba(192, 136, 48, 0.08);
-}
 
-[data-theme="light"] #hero-type.type-versatile {
-  color: #8e24aa;
-  background: rgba(142, 36, 170, 0.08);
-}
 
-[data-theme="light"] #hero-type.type-defense {
-  color: #6d4c41;
-  background: rgba(109, 76, 65, 0.08);
-}
 
-[data-theme="light"] #hero-rarity.rarity-legendary-plus {
-  color: #d88c1f;
-  background: rgba(216, 140, 31, 0.08);
-}
 
-[data-theme="light"] #hero-rarity.rarity-legendary {
-  color: #996a00;
-  background: rgba(153, 106, 0, 0.08);
-}
 
-[data-theme="light"] #hero-rarity.rarity-rare {
-  color: #7b68ee;
-  background: rgba(123, 104, 238, 0.08);
-}
 
 #hero-description {
   font-size: 1rem;
@@ -2229,10 +2096,6 @@ button {
 }
 
 /* Light mode adjustment */
-[data-theme="light"] .skill-box.skill-enhancement {
-  background: linear-gradient(135deg, rgba(0, 206, 209, 0.12), rgba(32, 178, 170, 0.12));
-  box-shadow: 0 2px 8px rgba(0, 206, 209, 0.15);
-}
 
 /* Awakening effect box (자주색/purple-magenta) */
 .skill-box.awakening-effect {
@@ -2243,10 +2106,6 @@ button {
 }
 
 /* Light mode adjustment */
-[data-theme="light"] .skill-box.awakening-effect {
-  background: linear-gradient(135deg, rgba(147, 112, 219, 0.12), rgba(186, 85, 211, 0.12));
-  box-shadow: 0 2px 8px rgba(147, 112, 219, 0.15);
-}
 
 /* Target type boxes */
 .skill-target-box {
@@ -2282,10 +2141,6 @@ button {
   background-image: url('/images/target_enemy_single.png');
 }
 
-[data-theme="light"] .skill-target-box.target-enemy-single {
-  background: #F3F1EA;
-  color: #AE5267;
-}
 
 /* 적군 다중 타겟 (진한 빨강) */
 .skill-target-box.target-enemy-multi {
@@ -2298,9 +2153,6 @@ button {
   background-image: url('/images/target_enemy_multiple.png');
 }
 
-[data-theme="light"] .skill-target-box.target-enemy-multi {
-  background: linear-gradient(135deg, rgba(220, 38, 38, 0.1), rgba(185, 28, 28, 0.1));
-}
 
 /* 아군 단일 타겟 (초록) */
 .skill-target-box.target-ally-single {
@@ -2313,9 +2165,6 @@ button {
   background-image: url('/images/target_friendly_single.png');
 }
 
-[data-theme="light"] .skill-target-box.target-ally-single {
-  background: linear-gradient(135deg, rgba(34, 197, 94, 0.08), rgba(22, 163, 74, 0.08));
-}
 
 /* 아군 다중 타겟 (진한 초록) */
 .skill-target-box.target-ally-multi {
@@ -2328,9 +2177,6 @@ button {
   background-image: url('/images/target_friendly_multiple.png');
 }
 
-[data-theme="light"] .skill-target-box.target-ally-multi {
-  background: linear-gradient(135deg, rgba(22, 163, 74, 0.1), rgba(21, 128, 61, 0.1));
-}
 
 /* 스킬 효과 박스 (스킬 강화, 2초월, 6초월) */
 .skill-effect-box {
@@ -2416,8 +2262,6 @@ button {
 .skill-effect-box.skill-enhancement .effect-title {
 }
 
-[data-theme="light"] .skill-effect-box.skill-enhancement {
-}
 
 /* 2초월 (파란색) */
 .skill-effect-box.awakening-2 {
@@ -2444,10 +2288,6 @@ button {
   color: #3b82f6;
 }
 
-[data-theme="light"] .skill-effect-box.awakening-2 {
-  background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(37, 99, 235, 0.1));
-  box-shadow: 0 2px 8px rgba(59, 130, 246, 0.15);
-}
 
 /* 6초월 (보라색) */
 .skill-effect-box.awakening-6 {
@@ -2474,10 +2314,6 @@ button {
   color: #a855f7;
 }
 
-[data-theme="light"] .skill-effect-box.awakening-6 {
-  background: linear-gradient(135deg, rgba(168, 85, 247, 0.1), rgba(147, 51, 234, 0.1));
-  box-shadow: 0 2px 8px rgba(168, 85, 247, 0.15);
-}
 
 /* ✅ 커스텀 효과 (녹색/청록색) */
 .skill-effect-box.skill-effect-custom {
@@ -2493,10 +2329,6 @@ button {
   font-size: 18px;
 }
 
-[data-theme="light"] .skill-effect-box.skill-effect-custom {
-  background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(5, 150, 105, 0.1));
-  box-shadow: 0 2px 8px rgba(16, 185, 129, 0.15);
-}
 
 /* ✅ 효과 타입별 스타일 (effectType) */
 /* Buff (녹색) */
@@ -2550,10 +2382,6 @@ button {
   font-size: 18px;
 }
 
-[data-theme="light"] .skill-effect-box.skill-effect-unknown {
-  background: linear-gradient(135deg, rgba(239, 68, 68, 0.1), rgba(220, 38, 38, 0.1));
-  box-shadow: 0 2px 8px rgba(239, 68, 68, 0.15);
-}
 
 /* History Timeline */
 .hero-history {
