@@ -1842,7 +1842,7 @@ button {
   background-image: url('/images/bg-skill.png');
   background-repeat: no-repeat;
   background-position: right top;
-  background-size: 120px 100%; /* 높이에 맞춰 크기 조정 */
+  background-size: 120px auto; /* 높이에 맞춰 크기 조정 */
   border: 1px solid var(--border-secondary);
   border-radius: var(--radius-sm);
   padding: 16px;
