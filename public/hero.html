@@ -872,11 +872,8 @@
               // Handle null/undefined/non-string values
               if (!sentence || typeof sentence !== 'string') return '';
 
-              // Remove leading \- (backslash-dash-space) from bullet points
-              let html = sentence.replace(/^\\-\s+/, '');
-
-              // Convert remaining \- to - (restore hyphens with spaces)
-              html = html.replace(/\\-/g, '-');
+              // Convert all \- to - (including leading bullet points and mid-sentence hyphens)
+              let html = sentence.replace(/\\-/g, '-');
 
               // Escape HTML to prevent XSS
               html = html
