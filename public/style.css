@@ -1959,7 +1959,7 @@ button {
   font-weight:600;
   clear: both;
   padding: 12px;
-  background: #dddbd7;
+  background: #e4e2dd;
   border-radius: 8px;
 }
 
@@ -2147,7 +2147,7 @@ button {
 
 /* 적군 단일 타겟 (빨강) */
 .skill-target-box.target-enemy-single {
-  background: #F3F1EA;
+  background: #f7f6f0
   color: #AE5267;
 }
 
@@ -2157,7 +2157,7 @@ button {
 
 /* 적군 다중 타겟 (진한 빨강) */
 .skill-target-box.target-enemy-multi {
-  background: #F3F1EA;
+  background: #f7f6f0
   color: #AE5267;
 }
 
@@ -2167,7 +2167,7 @@ button {
 
 /* 아군 단일 타겟 (초록) */
 .skill-target-box.target-ally-single {
-  background: #F3F1EA;
+  background: #f7f6f0
   color: #437AA4;
 }
 
@@ -2177,7 +2177,7 @@ button {
 
 /* 아군 다중 타겟 (진한 초록) */
 .skill-target-box.target-ally-multi {
-  background: #F3F1EA;
+  background: #f7f6f0
   color: #437AA4;
 }
 
