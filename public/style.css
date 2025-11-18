@@ -1309,6 +1309,11 @@ button {
   position: relative;
 }
 
+.carousel-item .rarity-border {
+  top:2px;
+  right:2px;
+}
+
 .carousel-item:hover {
   opacity: 0.8;
 }
@@ -1326,11 +1331,6 @@ button {
   border-radius: var(--radius-sm);
   border: 2px solid var(--border-secondary);
 }
-
-.carousel-portrait.has-effect {
-  box-shadow: 0 0 12px rgba(255, 215, 0, 0.6);
-}
-
 /* Carousel Navigation Buttons (Desktop only) */
 .carousel-nav-btn {
   display: none;
@@ -1423,7 +1423,7 @@ button {
 .hero-top .hero-portrait {
   width: 100%;
   height: 100%;
-  border-radius: var(--radius-md);
+  border-radius: 24px 4px;
   object-fit: cover;
 }
 
