@@ -1807,6 +1807,7 @@ button {
   width:16px;
   height:auto;
   vertical-align:middle;
+  margin-right:4px;
 }
 
 /* 초월 레벨 스타일 */
