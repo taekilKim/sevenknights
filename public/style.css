@@ -2340,6 +2340,12 @@ button {
   border:none;
 }
 /* 6초월 (자주색) */
+.skill-effect-box.awakening-6 {
+  color: #502F68;
+  background: #F0E0FD;
+  padding: 8px;
+  border: none;
+}
 
 .skill-effect-box.awakening-6 .effect-icon {
   color: #EBD9F8;
