@@ -2315,6 +2315,7 @@ button {
   color:#E3F8E7;
   padding: 4px;
   border-radius: 4px;
+  border:none;
 }
 
 /* 2초월 (파란색) */
@@ -2335,6 +2336,8 @@ button {
   background: #815BA1;
   border-radius: 4px;
   gap:6px;
+  padding:4px;
+  border:none;
 }
 /* 6초월 (자주색) */
 
@@ -2348,11 +2351,18 @@ button {
   background: #815BA1;
   border-radius: 4px;
   gap:6px;
+  padding:4px;
+  border:none;
 }
 
 /* ✅ 커스텀 효과 (녹색/청록색) */
 .skill-effect-box.skill-effect-custom {
   background: #fff;
+  border: 1px solid var(--border-primary);
+  padding: 12px;
+}
+
+.skill-effect-box.skill-effect-custom .effect-desc {
   color: #757178;
 }
 
