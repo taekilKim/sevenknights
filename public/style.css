@@ -644,7 +644,6 @@ button {
   box-shadow: 0 2px 8px rgba(100, 181, 246, 0.2);
 }
 
-
 .sort-options {
   display: flex;
   flex-direction: column;
@@ -1042,6 +1041,56 @@ button {
     box-shadow: 0 2px 8px rgba(100, 181, 246, 0.2);
   }
 
+  .filter-select {
+    padding: 10px 12px;
+    background: var(--bg-tertiary);
+    backdrop-filter: blur(var(--blur-sm));
+    -webkit-backdrop-filter: blur(var(--blur-sm));
+    border: 1px solid var(--border-tertiary);
+    border-radius: var(--radius-sm);
+    color: var(--text-primary);
+    font-size: 0.85rem;
+    font-family: inherit;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .filter-select:focus {
+    outline: none;
+    border-color: var(--accent-primary);
+    background: var(--bg-elevated-hover);
+    box-shadow: 0 0 0 4px var(--accent-glow);
+  }
+
+  .hero-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+  }
+
+  .hero-card {
+    padding: 8px;
+  }
+
+  .hero-type-badge {
+    width: 24px;
+    height: 24px;
+    bottom: 4px;
+    left: 4px;
+  }
+
+  .rarity-diamond-effect {
+    width: 20px;
+    height: 20px;
+  }
+
+  .hero-name {
+    font-size: 0.8rem;
+  }
+
+  .hero-nickname {
+    font-size: 0.7rem;
+  }
+}
 .hero-detail-page {
   display: flex;
   justify-content: center;
@@ -1574,15 +1623,6 @@ button {
   background: rgba(166, 147, 255, 0.1);
 }
 
-/* Light theme adjustments */
-
-
-
-
-
-
-
-
 #hero-description {
   font-size: 1rem;
   line-height: 1.6;
@@ -2095,8 +2135,6 @@ button {
   box-shadow: 0 2px 8px rgba(0, 206, 209, 0.2);
 }
 
-/* Light mode adjustment */
-
 /* Awakening effect box (자주색/purple-magenta) */
 .skill-box.awakening-effect {
   background: linear-gradient(135deg, rgba(147, 112, 219, 0.15), rgba(186, 85, 211, 0.15));
@@ -2104,8 +2142,6 @@ button {
   color: var(--text-primary);
   box-shadow: 0 2px 8px rgba(147, 112, 219, 0.2);
 }
-
-/* Light mode adjustment */
 
 /* Target type boxes */
 .skill-target-box {
@@ -2141,7 +2177,6 @@ button {
   background-image: url('/images/target_enemy_single.png');
 }
 
-
 /* 적군 다중 타겟 (진한 빨강) */
 .skill-target-box.target-enemy-multi {
   background: linear-gradient(135deg, rgba(220, 38, 38, 0.15), rgba(185, 28, 28, 0.15));
@@ -2152,7 +2187,6 @@ button {
 .skill-target-box.target-enemy-multi::before {
   background-image: url('/images/target_enemy_multiple.png');
 }
-
 
 /* 아군 단일 타겟 (초록) */
 .skill-target-box.target-ally-single {
@@ -2165,7 +2199,6 @@ button {
   background-image: url('/images/target_friendly_single.png');
 }
 
-
 /* 아군 다중 타겟 (진한 초록) */
 .skill-target-box.target-ally-multi {
   background: linear-gradient(135deg, rgba(22, 163, 74, 0.15), rgba(21, 128, 61, 0.15));
@@ -2176,7 +2209,6 @@ button {
 .skill-target-box.target-ally-multi::before {
   background-image: url('/images/target_friendly_multiple.png');
 }
-
 
 /* 스킬 효과 박스 (스킬 강화, 2초월, 6초월) */
 .skill-effect-box {
@@ -2262,7 +2294,6 @@ button {
 .skill-effect-box.skill-enhancement .effect-title {
 }
 
-
 /* 2초월 (파란색) */
 .skill-effect-box.awakening-2 {
   background: linear-gradient(135deg, rgba(59, 130, 246, 0.15), rgba(37, 99, 235, 0.15));
@@ -2287,7 +2318,6 @@ button {
 .skill-effect-box.awakening-2 .effect-title {
   color: #3b82f6;
 }
-
 
 /* 6초월 (보라색) */
 .skill-effect-box.awakening-6 {
@@ -2314,7 +2344,6 @@ button {
   color: #a855f7;
 }
 
-
 /* ✅ 커스텀 효과 (녹색/청록색) */
 .skill-effect-box.skill-effect-custom {
   background: linear-gradient(135deg, rgba(16, 185, 129, 0.15), rgba(5, 150, 105, 0.15));
@@ -2328,7 +2357,6 @@ button {
   color: #10b981;
   font-size: 18px;
 }
-
 
 /* ✅ 효과 타입별 스타일 (effectType) */
 /* Buff (녹색) */
@@ -2381,7 +2409,6 @@ button {
   color: #ef4444;
   font-size: 18px;
 }
-
 
 /* History Timeline */
 .hero-history {
