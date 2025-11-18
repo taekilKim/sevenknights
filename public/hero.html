@@ -598,10 +598,13 @@
         .then(([hero, effectsData]) => {
           console.log(`📊 Effects loaded: ${effectsData.length} effects`);
 
-          // ✅ Effects를 이름으로 검색할 수 있도록 Map 생성
+          // ✅ Effects를 이름으로 검색할 수 있도록 Map 생성 (같은 이름의 효과는 배열로 저장)
           const effectsMap = new Map();
           effectsData.forEach(effect => {
-            effectsMap.set(effect.name, effect);
+            if (!effectsMap.has(effect.name)) {
+              effectsMap.set(effect.name, []);
+            }
+            effectsMap.get(effect.name).push(effect);
           });
 
           return { hero, effectsMap };
@@ -902,9 +905,9 @@
               return html;
             };
 
-            // ✅ Process effect markers <<효과명>> or <<효과명, 변수>>
+            // ✅ Process effect markers <<효과명>>, <<효과명, 변수>>, <<효과명, 상시>>, <<효과명, 상시, 변수>>
             const processEffectMarker = (sentence) => {
-              const effectPattern = /^<<(.+?)(?:,\s*(.+?))?>>$/;
+              const effectPattern = /^<<([^,]+)(?:,\s*([^,]+))?(?:,\s*([^>]+))?>>$/;
               const match = sentence.match(effectPattern);
 
               if (!match) {
@@ -912,14 +915,42 @@
               }
 
               const effectName = match[1].trim();
-              const variableValue = match[2] ? match[2].trim() : null;
+              let isFulltime = false;
+              let variableValue = null;
 
-              // Find effect in effectsMap
-              const effect = effectsMap.get(effectName);
+              // Parse second and third parameters
+              if (match[2]) {
+                const secondParam = match[2].trim();
+                if (secondParam === '상시') {
+                  isFulltime = true;
+                  if (match[3]) {
+                    variableValue = match[3].trim();
+                  }
+                } else {
+                  variableValue = secondParam;
+                }
+              }
 
-              if (!effect) {
+              // Find effects list in effectsMap
+              const effectsList = effectsMap.get(effectName);
+
+              if (!effectsList || effectsList.length === 0) {
                 console.warn(`⚠️ Effect not found: ${effectName}`);
                 return `<div class="skill-effect-box skill-effect-unknown"><strong>효과 없음</strong> ${parseMarkdownInline(effectName)}</div>`;
+              }
+
+              // Filter by fulltime condition
+              const effect = effectsList.find(e => {
+                if (isFulltime) {
+                  return e.fulltime === true;
+                } else {
+                  return !e.fulltime; // false or undefined
+                }
+              });
+
+              if (!effect) {
+                console.warn(`⚠️ Effect not found with fulltime=${isFulltime}: ${effectName}`);
+                return `<div class="skill-effect-box skill-effect-unknown"><strong>효과 없음</strong> ${parseMarkdownInline(effectName)} (${isFulltime ? '상시' : '한시'})</div>`;
               }
 
               // Process description with variable substitution
