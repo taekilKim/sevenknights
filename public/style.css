@@ -1951,16 +1951,11 @@ button {
 .hero-skills .skill .skill-cooltime {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  background: var(--overlay-light);
-  border: 1px solid var(--border-tertiary);
-  border-radius: 6px;
-  padding: 3px 10px;
-  font-size: 0.8rem;
-  font-weight: 600;
-  color: var(--accent-primary);
-  margin-bottom: 10px;
-  margin-left: 6px;
+  gap: 4px;
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--text-primary);
+  margin-top:4px;
 }
 
 .hero-skills .skill .skill-cooltime::before {
