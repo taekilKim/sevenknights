@@ -2247,10 +2247,11 @@ button {
 .skill-effect-box .effect-title {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 4px;
   font-weight: 600;
-  font-size: 0.75rem;
-  margin-bottom: 12px;
+  font-size: 14px;
+  margin-bottom: 8px;
+  
 }
 
 .skill-effect-box .effect-title .effect-icon {
@@ -2266,10 +2267,13 @@ button {
   height: 20px;
   width: auto;
   vertical-align: middle;
+  border:none;
+  margin:0;
 }
 
 .skill-effect-box .effect-desc {
-  padding-left: 28px;
+  font-size:14px;
+  color:#416E79;
 }
 
 .skill-effect-box .effect-desc p {
@@ -2290,7 +2294,10 @@ button {
 
 /* 스킬 강화 (주황색) */
 .skill-effect-box.skill-enhancement {
-  color: var(--text-primary);
+  color: #285665;
+  background: #DFF0E5;
+  padding: 8px;
+  border: none;
 }
 
 .skill-effect-box.skill-enhancement .effect-icon {
@@ -2299,6 +2306,8 @@ button {
 .skill-effect-box.skill-enhancement .effect-title {
   background:#6FA799;
   color:#E3F8E7;
+  padding: 4px;
+  border-radius: 4px;
 }
 
 /* 2초월 (파란색) */
