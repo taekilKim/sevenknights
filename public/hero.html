@@ -868,12 +868,17 @@
             if (!text) return "";
 
             // Helper function to parse markdown within a sentence
-            const parseMarkdownInline = (sentence) => {
+            const parseMarkdownInline = (sentence, isEffectBox = false) => {
               // Handle null/undefined/non-string values
               if (!sentence || typeof sentence !== 'string') return '';
 
               // Convert all \- to - (including leading bullet points and mid-sentence hyphens)
               let html = sentence.replace(/\\-/g, '-');
+
+              // Remove leading "- " only in effect boxes (효과, 초월, 스킬강화)
+              if (isEffectBox) {
+                html = html.replace(/^-\s*/, '');
+              }
 
               // Escape HTML to prevent XSS
               html = html
@@ -947,7 +952,7 @@
 
               return `<div class="skill-effect-box skill-effect-custom ${effectTypeClass}">
   <div class="effect-title">${titleContent}</div>
-  <div class="effect-desc">${parseMarkdownInline(description)}</div>
+  <div class="effect-desc">${parseMarkdownInline(description, true)}</div>
 </div>`;
             };
 
@@ -1026,7 +1031,7 @@
                     break;
                   }
 
-                  effectContent.push(parseMarkdownInline(nextLine));
+                  effectContent.push(parseMarkdownInline(nextLine, true));
                   i++;
                 }
 
@@ -1064,7 +1069,7 @@
                     break;
                   }
 
-                  effectContent.push(parseMarkdownInline(nextLine));
+                  effectContent.push(parseMarkdownInline(nextLine, true));
                   i++;
                 }
 
@@ -1102,7 +1107,7 @@
                     break;
                   }
 
-                  effectContent.push(parseMarkdownInline(nextLine));
+                  effectContent.push(parseMarkdownInline(nextLine, true));
                   i++;
                 }
 
