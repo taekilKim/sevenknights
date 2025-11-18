@@ -2181,6 +2181,20 @@ button {
   margin-top: 0.5em;
 }
 
+/* Skill description lines (p tags) */
+.skill-card .skill-desc p.skill-description-line,
+.skill-transform-item .skill-desc p.skill-description-line {
+  margin: 0 0 8px 0;
+  padding: 0;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+.skill-card .skill-desc p.skill-description-line:last-child,
+.skill-transform-item .skill-desc p.skill-description-line:last-child {
+  margin-bottom: 0;
+}
+
 /* Skill effect boxes */
 .skill-box {
   display: inline-block;

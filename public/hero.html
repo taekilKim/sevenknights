@@ -1111,17 +1111,27 @@
                 } else {
                   // If effect marker parsing failed, treat as regular line
                   const processedContent = processTargetMarker(line);
-                  processedLines.push(processedContent);
+                  // Wrap in <p> tag if it's not already a div
+                  if (processedContent.startsWith('<div')) {
+                    processedLines.push(processedContent);
+                  } else {
+                    processedLines.push(`<p class="skill-description-line">${processedContent}</p>`);
+                  }
                 }
               } else {
                 // Regular line - check for target marker or process as normal
                 const processedContent = processTargetMarker(line);
-                processedLines.push(processedContent);
+                // Wrap in <p> tag if it's not already a div
+                if (processedContent.startsWith('<div')) {
+                  processedLines.push(processedContent);
+                } else {
+                  processedLines.push(`<p class="skill-description-line">${processedContent}</p>`);
+                }
               }
             }
 
-            // Join lines with <br>
-            return processedLines.join('<br>');
+            // Join lines without separator (each line is now wrapped in proper tags)
+            return processedLines.join('');
           };
 
           // Helper: Separate effects from description
