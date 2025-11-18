@@ -2278,7 +2278,8 @@ button {
   font-size:14px;
   color:#416E79;
 }
-.skill-effect-box.awakening-2 .effect-desc, .stkill-effect-box.awakening-6 .effect-desc {
+.skill-effect-box.awakening-2 .effect-desc,
+.skill-effect-box.awakening-6 .effect-desc {
   font-size:14px;
   color:#54336C
 }
