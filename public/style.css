@@ -1098,7 +1098,7 @@ button {
   gap: 3rem;
   background: var(--bg-secondary);
   min-height: 100vh;
-  padding: 0 16px;
+  padding: 0;
   box-sizing: border-box;
   transition: background-color 0.3s ease;
 }
@@ -2366,7 +2366,7 @@ button {
 .skill-effect-box.skill-effect-custom {
   background: #fff;
   border: 1px solid var(--border-primary);
-  padding: 12px;
+  padding: 8px;
 }
 
 .skill-effect-box.skill-effect-custom .effect-desc {
