@@ -875,6 +875,9 @@
               // Remove leading \- (backslash-dash-space) from bullet points
               let html = sentence.replace(/^\\-\s+/, '');
 
+              // Convert remaining \- to - (restore hyphens with spaces)
+              html = html.replace(/\\-/g, '-');
+
               // Escape HTML to prevent XSS
               html = html
                 .replace(/&/g, '&amp;')
