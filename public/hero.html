@@ -1185,7 +1185,15 @@
             document.getElementById(`${prefix}-image`).src = skill?.image || "";
             document.getElementById(`${prefix}-name`).textContent = skill?.name || "";
             const cooltimeEl = document.getElementById(`${prefix}-cooltime`);
-            if (skill?.cooltime) {
+
+            // 기본 공격과 패시브는 쿨타임 대신 스킬 타입 표시
+            if (prefix === 'attack') {
+              cooltimeEl.textContent = '기본 공격';
+              cooltimeEl.style.display = '';
+            } else if (prefix === 'passive') {
+              cooltimeEl.textContent = '패시브';
+              cooltimeEl.style.display = '';
+            } else if (skill?.cooltime) {
               cooltimeEl.textContent = skill.cooltime;
               cooltimeEl.style.display = '';
             } else {
