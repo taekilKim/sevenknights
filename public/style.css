@@ -2275,6 +2275,10 @@ button {
   font-size:14px;
   color:#416E79;
 }
+.skill-effect-box.awakening-2 .effect-desc, .stkill-effect-box.awakening-6 .effect-desc {
+  font-size:14px;
+  color:#54336C
+}
 
 .skill-effect-box .effect-desc p {
   margin: 0;
@@ -2312,35 +2316,19 @@ button {
 
 /* 2초월 (파란색) */
 .skill-effect-box.awakening-2 {
-  background: linear-gradient(135deg, rgba(59, 130, 246, 0.15), rgba(37, 99, 235, 0.15));
-  border-left-color: #3b82f6;
-  color: var(--text-primary);
-  box-shadow: 0 2px 8px rgba(59, 130, 246, 0.2);
-}
-
-.skill-effect-box.awakening-2::before {
-  content: '';
-  background: url('/images/trans-2.png') center/contain no-repeat;
-  width: 24px;
-  height: 16px;
-  display: inline-block;
+  color: #502F68;
+  background: #F0E0FD;
+  padding: 8px;
+  border: none;
 }
 
 .skill-effect-box.awakening-2 .effect-icon {
-  color: #3b82f6;
-  font-size: 16px;
+  color: #EBD9F8;
+  font-size: 14px;
 }
 
 .skill-effect-box.awakening-2 .effect-title {
-  color: #3b82f6;
-}
-
-/* 6초월 (보라색) */
-.skill-effect-box.awakening-6 {
-  background: linear-gradient(135deg, rgba(168, 85, 247, 0.15), rgba(147, 51, 234, 0.15));
-  border-left-color: #a855f7;
-  color: var(--text-primary);
-  box-shadow: 0 2px 8px rgba(168, 85, 247, 0.2);
+  color: #EBD9F8;
 }
 
 .skill-effect-box.awakening-6::before {
