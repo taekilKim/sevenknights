@@ -2010,7 +2010,8 @@ button {
 .hero-skills .skill .skill-desc {
   font-size: 0.9rem;
   line-height: 1.6;
-  color: var(--text-secondary);
+  color: #757078;
+  font-weight:500;
   clear: both;
   padding: 12px;
   background: #CECCC7;
@@ -2214,7 +2215,8 @@ button {
 }
 
 [data-theme="light"] .skill-target-box.target-enemy-single {
-  background: linear-gradient(135deg, rgba(239, 68, 68, 0.08), rgba(220, 38, 38, 0.08));
+  background: #F3F1EA;
+  color: #AE5267;
 }
 
 /* 적군 다중 타겟 (진한 빨강) */
