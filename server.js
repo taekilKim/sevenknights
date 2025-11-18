@@ -615,7 +615,8 @@ app.get("/api/effects", async (req, res) => {
         description: description,
         hasVariable: !!f.hasVariable,
         icon: optimizeImageUrl(iconUrl, { width: 64, quality: 90 }),
-        effectType: effectTypeValue
+        effectType: effectTypeValue,
+        fulltime: f.fulltime || false
       };
     });
 
