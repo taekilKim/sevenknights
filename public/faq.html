@@ -70,12 +70,16 @@
     </script>
     <link rel="stylesheet" href="/style.css" />
     <script src="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2"></script>
+    <!-- Developer Mode Handler -->
+    <script src="/js/devmode.js"></script>
     <!-- Google tag (gtag.js) - Only on production -->
     <script>
       // Only load analytics on production domain and not in developer mode
       // To enable developer mode (exclude your traffic):
+      //   URL: https://senadb.games/?devMode=true (recommended for mobile)
       //   Console: localStorage.setItem('devMode', 'true')
       // To disable developer mode:
+      //   URL: https://senadb.games/?devMode=false
       //   Console: localStorage.removeItem('devMode')
       var isProduction = window.location.hostname === 'senadb.games';
       var isDeveloperMode = localStorage.getItem('devMode') === 'true';
