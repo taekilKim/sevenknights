@@ -1902,27 +1902,6 @@ button {
   }
 }
 
-.hero-skills .skill::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: linear-gradient(90deg, var(--accent-primary) 0%, var(--accent-secondary) 100%);
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.hero-skills .skill:hover {
-  border-color: var(--accent-primary);
-  background: var(--bg-elevated-hover);
-}
-
-.hero-skills .skill:hover::before {
-  opacity: 1;
-}
-
 .hero-skills .skill h3 {
   font-size: 0.85rem;
   font-weight: 600;
@@ -2093,12 +2072,6 @@ button {
 .skill-desc a {
   color: var(--accent-primary);
   text-decoration: underline;
-  transition: color 0.2s ease;
-}
-
-.skill-desc a:hover {
-  color: var(--accent-secondary);
-  text-decoration: none;
 }
 
 .skill-desc br + br {
