@@ -1935,6 +1935,15 @@ button {
   text-transform: uppercase;
   letter-spacing: 0.5px;
   opacity: 0.85;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
 }
 
 .hero-skills .skill img {
@@ -1969,7 +1978,7 @@ button {
 }
 
 .hero-skills .skill .skill-desc {
-  font-size: 0.9rem;
+  font-size: 0.75rem;
   line-height: 1.6;
   color: #757078;
   font-weight:500;
@@ -2147,11 +2156,11 @@ button {
 .skill-target-box {
   display: block;
   padding: 4px 4px 4px 32px;
-  border-radius: 8px;
+  border-radius: 4px;
   font-weight: 600;
   line-height: 1.5;
   position: relative;
-  font-size:1rem;
+  font-size:0.75rem;
 }
 
 .skill-target-box::before {
@@ -2244,7 +2253,7 @@ button {
   align-items: center;
   gap: 8px;
   font-weight: 600;
-  font-size: 15px;
+  font-size: 0.75rem;
   margin-bottom: 12px;
 }
 
@@ -2292,6 +2301,8 @@ button {
 }
 
 .skill-effect-box.skill-enhancement .effect-title {
+  background:#6FA799;
+  color:#E3F8E7;
 }
 
 /* 2초월 (파란색) */
