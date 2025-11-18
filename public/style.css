@@ -1265,6 +1265,11 @@ button {
   width: 100%;
 }
 
+/* Hide content when loading */
+.hero-detail-container.loading > *:not(.skeleton-container) {
+  display: none !important;
+}
+
 .skeleton {
   background: linear-gradient(90deg, var(--bg-tertiary) 25%, var(--bg-elevated-hover) 50%, var(--bg-tertiary) 75%);
   background-size: 200% 100%;
@@ -2188,6 +2193,20 @@ button {
   display: block;
   content: "";
   margin-top: 0.5em;
+}
+
+/* Skill description lines (p tags) */
+.skill-card .skill-desc p.skill-description-line,
+.skill-transform-item .skill-desc p.skill-description-line {
+  margin: 0 0 8px 0;
+  padding: 0;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+.skill-card .skill-desc p.skill-description-line:last-child,
+.skill-transform-item .skill-desc p.skill-description-line:last-child {
+  margin-bottom: 0;
 }
 
 /* Skill effect boxes */
