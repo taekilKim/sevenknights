@@ -950,6 +950,12 @@
 
               if (!effect) {
                 console.warn(`⚠️ Effect not found with fulltime=${isFulltime}: ${effectName}`);
+                console.warn(`📋 Available effects for "${effectName}":`, effectsList.map(e => ({
+                  name: e.name,
+                  fulltime: e.fulltime,
+                  fulltimeType: typeof e.fulltime,
+                  description: typeof e.description === 'string' ? e.description.substring(0, 50) : e.description
+                })));
                 return `<div class="skill-effect-box skill-effect-unknown"><strong>효과 없음</strong> ${parseMarkdownInline(effectName)} (${isFulltime ? '상시' : '한시'})</div>`;
               }
 
