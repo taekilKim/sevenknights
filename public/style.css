@@ -1843,12 +1843,10 @@ button {
   background-repeat: no-repeat;
   background-position: right top;
   background-size: auto 100%; /* 높이에 맞춰 크기 조정 */
-  backdrop-filter: blur(var(--blur-md)) saturate(180%);
-  -webkit-backdrop-filter: blur(var(--blur-md)) saturate(180%);
   border: 1px solid var(--border-secondary);
   border-radius: var(--radius-sm);
   padding: 16px;
-  margin-bottom: 8px;
+  margin-bottom: 24px;
   position: relative;
   overflow: hidden;
 
