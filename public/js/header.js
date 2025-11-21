@@ -6,18 +6,20 @@
 // 현재 페이지 경로 확인
 const getCurrentPage = () => {
   const path = window.location.pathname;
-  if (path === '/' || path === '/index.html' || path.includes('index')) return 'index';
+  if (path === '/' || path === '/index.html') return 'home';
+  if (path.includes('heroes.html')) return 'heroes';
   if (path.includes('hero.html') || path.includes('hero/')) return 'hero';
   if (path.includes('deck.html')) return 'deck';
   if (path.includes('tier-list.html')) return 'tier-list';
   if (path.includes('beginner-guide.html')) return 'beginner-guide';
   if (path.includes('faq.html')) return 'faq';
-  return 'index';
+  return 'home';
 };
 
 // 페이지별 네비게이션 정보
 const navItems = [
-  { id: 'index', href: '/index.html', icon: 'ph-users-three', label: '영웅 도감' },
+  { id: 'home', href: '/index.html', icon: 'ph-house', label: '홈' },
+  { id: 'heroes', href: '/heroes.html', icon: 'ph-users-three', label: '영웅 도감' },
   { id: 'deck', href: '/deck.html', icon: 'ph-sword', label: '결투장 덱' },
   { id: 'tier-list', href: '/tier-list.html', icon: 'ph-ranking', label: '티어표' },
   { id: 'beginner-guide', href: '/beginner-guide.html', icon: 'ph-book-open', label: '초보자 가이드' },
