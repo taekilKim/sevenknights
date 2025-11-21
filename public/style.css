@@ -2160,7 +2160,9 @@ button {
   font-size:14px;
   margin-bottom:8px;
 }
-
+.skill-target-box:nth-last-child\ {
+  margin-top:12px;
+}
 .skill-target-box::before {
   content: '';
   position: absolute;
