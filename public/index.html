@@ -77,40 +77,49 @@
       }
     </script>
     <style>
-      /* 라운지 스타일 레이아웃 */
+      /* 모던 미니멀 레이아웃 */
       .lounge-container {
         max-width: 1200px;
         margin: 0 auto;
-        padding: 20px;
+        padding: 32px 24px;
       }
 
-      /* 게임 헤더 배너 */
+      /* 헤더 배너 - 미니멀 디자인 */
       .game-header {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        border-radius: 16px;
-        padding: 40px 32px;
-        margin-bottom: 24px;
-        color: white;
+        background: rgba(102, 126, 234, 0.05);
+        border-radius: 20px;
+        padding: 56px 40px;
+        margin-bottom: 48px;
+        border: 1px solid rgba(102, 126, 234, 0.1);
         display: flex;
         align-items: center;
         justify-content: space-between;
-        gap: 24px;
+        gap: 32px;
+        transition: all 0.3s ease;
+      }
+
+      .game-header:hover {
+        background: rgba(102, 126, 234, 0.08);
       }
 
       .game-header-info h1 {
-        font-size: 2rem;
-        margin-bottom: 8px;
-        font-weight: 700;
+        font-size: 2.5rem;
+        margin-bottom: 12px;
+        font-weight: 300;
+        letter-spacing: -0.5px;
+        color: var(--text-primary);
       }
 
       .game-header-info p {
-        opacity: 0.9;
         font-size: 1rem;
+        color: var(--text-secondary);
+        font-weight: 400;
+        letter-spacing: 0.2px;
       }
 
       .game-header-stats {
         display: flex;
-        gap: 32px;
+        gap: 48px;
         align-items: center;
       }
 
@@ -119,25 +128,34 @@
       }
 
       .stat-value {
-        font-size: 1.8rem;
-        font-weight: 700;
+        font-size: 2rem;
+        font-weight: 300;
         display: block;
+        color: #667eea;
+        letter-spacing: -0.5px;
       }
 
       .stat-label {
-        font-size: 0.85rem;
-        opacity: 0.8;
-        margin-top: 4px;
+        font-size: 0.8rem;
+        color: var(--text-secondary);
+        margin-top: 6px;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
       }
 
-      /* 탭 네비게이션 */
+      /* 탭 네비게이션 - 미니멀 */
       .tab-navigation {
         display: flex;
-        gap: 8px;
-        margin-bottom: 24px;
-        border-bottom: 2px solid var(--border-color);
+        gap: 4px;
+        margin-bottom: 40px;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.06);
         overflow-x: auto;
         -webkit-overflow-scrolling: touch;
+      }
+
+      [data-theme="light"] .tab-navigation {
+        border-bottom-color: rgba(0, 0, 0, 0.06);
       }
 
       .tab-navigation::-webkit-scrollbar {
@@ -145,20 +163,22 @@
       }
 
       .tab-btn-nav {
-        padding: 12px 24px;
+        padding: 14px 28px;
         background: none;
         border: none;
         color: var(--text-secondary);
-        font-weight: 600;
-        font-size: 1rem;
+        font-weight: 500;
+        font-size: 0.95rem;
         cursor: pointer;
-        border-bottom: 3px solid transparent;
-        transition: all 0.2s;
+        border-bottom: 2px solid transparent;
+        transition: all 0.3s ease;
         white-space: nowrap;
+        letter-spacing: 0.3px;
       }
 
       .tab-btn-nav:hover {
         color: var(--text-primary);
+        background: rgba(102, 126, 234, 0.04);
       }
 
       .tab-btn-nav.active {
@@ -166,27 +186,32 @@
         border-bottom-color: #667eea;
       }
 
+      .tab-btn-nav i {
+        font-size: 1.1rem;
+      }
+
       /* 메인 콘텐츠 그리드 */
       .content-grid {
         display: grid;
-        grid-template-columns: 1fr 320px;
-        gap: 24px;
-        margin-bottom: 24px;
+        grid-template-columns: 1fr 340px;
+        gap: 32px;
+        margin-bottom: 32px;
       }
 
       /* 피드 섹션 */
       .feed-section {
         display: flex;
         flex-direction: column;
-        gap: 16px;
+        gap: 20px;
       }
 
       .feed-card {
         background: var(--card-bg);
-        border-radius: 12px;
-        padding: 20px;
-        border: 1px solid var(--border-color);
-        transition: all 0.2s;
+        border-radius: 16px;
+        padding: 28px;
+        border: none;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         cursor: pointer;
         text-decoration: none;
         color: var(--text-primary);
@@ -195,98 +220,111 @@
 
       .feed-card:hover {
         transform: translateY(-2px);
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        border-color: #667eea;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
       }
 
       .feed-card-header {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        margin-bottom: 12px;
+        margin-bottom: 16px;
       }
 
       .feed-category {
         display: inline-flex;
         align-items: center;
         gap: 6px;
-        padding: 4px 12px;
-        background: #667eea;
-        color: white;
+        padding: 6px 14px;
+        background: rgba(102, 126, 234, 0.1);
+        color: #667eea;
         border-radius: 20px;
-        font-size: 0.85rem;
+        font-size: 0.75rem;
         font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
       }
 
       .feed-category.deck {
-        background: #f59e0b;
+        background: rgba(245, 158, 11, 0.1);
+        color: #f59e0b;
       }
 
       .feed-category.guide {
-        background: #10b981;
+        background: rgba(16, 185, 129, 0.1);
+        color: #10b981;
       }
 
       .feed-category.notice {
-        background: #ef4444;
+        background: rgba(239, 68, 68, 0.1);
+        color: #ef4444;
       }
 
       .feed-date {
-        font-size: 0.85rem;
+        font-size: 0.8rem;
         color: var(--text-secondary);
+        font-weight: 500;
       }
 
       .feed-title {
-        font-size: 1.15rem;
-        font-weight: 600;
-        margin-bottom: 8px;
-        line-height: 1.4;
+        font-size: 1.25rem;
+        font-weight: 500;
+        margin-bottom: 12px;
+        line-height: 1.5;
+        letter-spacing: -0.2px;
       }
 
       .feed-description {
         font-size: 0.95rem;
         color: var(--text-secondary);
-        line-height: 1.6;
-        margin-bottom: 12px;
+        line-height: 1.7;
+        margin-bottom: 16px;
+        font-weight: 400;
       }
 
       .feed-meta {
         display: flex;
-        gap: 16px;
-        font-size: 0.85rem;
+        gap: 20px;
+        font-size: 0.8rem;
         color: var(--text-secondary);
+        font-weight: 500;
       }
 
       .feed-meta-item {
         display: flex;
         align-items: center;
-        gap: 4px;
+        gap: 6px;
       }
 
       /* 사이드바 */
       .sidebar {
         display: flex;
         flex-direction: column;
-        gap: 20px;
+        gap: 24px;
       }
 
       .sidebar-card {
         background: var(--card-bg);
-        border-radius: 12px;
-        padding: 20px;
-        border: 1px solid var(--border-color);
+        border-radius: 16px;
+        padding: 24px;
+        border: none;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
       }
 
       .sidebar-card h3 {
-        font-size: 1.1rem;
-        font-weight: 700;
-        margin-bottom: 16px;
+        font-size: 1rem;
+        font-weight: 600;
+        margin-bottom: 20px;
         display: flex;
         align-items: center;
-        gap: 8px;
+        gap: 10px;
+        letter-spacing: 0.2px;
+        text-transform: uppercase;
+        font-size: 0.85rem;
       }
 
       .sidebar-card h3 i {
         color: #667eea;
+        font-size: 1.2rem;
       }
 
       .quick-menu {
@@ -298,28 +336,29 @@
       .quick-menu-item {
         display: flex;
         align-items: center;
-        gap: 12px;
-        padding: 12px;
-        background: var(--bg-primary);
-        border-radius: 8px;
+        gap: 14px;
+        padding: 14px 16px;
+        background: transparent;
+        border-radius: 10px;
         text-decoration: none;
         color: var(--text-primary);
-        transition: all 0.2s;
-        border: 1px solid var(--border-color);
+        transition: all 0.3s ease;
+        border: none;
       }
 
       .quick-menu-item:hover {
-        background: #667eea;
-        color: white;
-        transform: translateX(4px);
+        background: rgba(102, 126, 234, 0.08);
+        transform: translateX(2px);
       }
 
       .quick-menu-item i {
-        font-size: 1.3rem;
+        font-size: 1.2rem;
+        color: #667eea;
       }
 
       .quick-menu-item span {
-        font-weight: 600;
+        font-weight: 500;
+        font-size: 0.95rem;
       }
 
       /* 인기 영웅 */
@@ -332,37 +371,37 @@
       .hero-item {
         display: flex;
         align-items: center;
-        gap: 12px;
-        padding: 8px;
-        border-radius: 8px;
-        transition: background 0.2s;
+        gap: 14px;
+        padding: 10px;
+        border-radius: 10px;
+        transition: all 0.3s ease;
         cursor: pointer;
         text-decoration: none;
         color: var(--text-primary);
       }
 
       .hero-item:hover {
-        background: var(--bg-primary);
+        background: rgba(102, 126, 234, 0.05);
       }
 
       .hero-rank {
-        width: 24px;
-        height: 24px;
+        width: 28px;
+        height: 28px;
         display: flex;
         align-items: center;
         justify-content: center;
-        background: #667eea;
-        color: white;
+        background: rgba(102, 126, 234, 0.1);
+        color: #667eea;
         border-radius: 50%;
-        font-weight: 700;
-        font-size: 0.85rem;
+        font-weight: 600;
+        font-size: 0.8rem;
         flex-shrink: 0;
       }
 
       .hero-avatar {
-        width: 48px;
-        height: 48px;
-        border-radius: 8px;
+        width: 52px;
+        height: 52px;
+        border-radius: 10px;
         object-fit: cover;
         flex-shrink: 0;
       }
@@ -373,56 +412,59 @@
       }
 
       .hero-name {
-        font-weight: 600;
+        font-weight: 500;
         font-size: 0.95rem;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
+        margin-bottom: 2px;
       }
 
       .hero-type {
-        font-size: 0.8rem;
+        font-size: 0.75rem;
         color: var(--text-secondary);
+        font-weight: 500;
       }
 
       /* 공지사항 */
       .notice-list {
         display: flex;
         flex-direction: column;
-        gap: 12px;
+        gap: 10px;
       }
 
       .notice-item {
-        padding: 12px;
-        background: var(--bg-primary);
-        border-radius: 8px;
-        border-left: 3px solid #667eea;
+        padding: 14px 16px;
+        background: transparent;
+        border-radius: 10px;
+        border-left: 2px solid #667eea;
         cursor: pointer;
-        transition: all 0.2s;
+        transition: all 0.3s ease;
       }
 
       .notice-item:hover {
-        background: var(--card-bg);
-        transform: translateX(4px);
+        background: rgba(102, 126, 234, 0.05);
+        transform: translateX(2px);
       }
 
       .notice-title {
-        font-weight: 600;
-        font-size: 0.95rem;
-        margin-bottom: 4px;
+        font-weight: 500;
+        font-size: 0.9rem;
+        margin-bottom: 6px;
       }
 
       .notice-date {
-        font-size: 0.8rem;
+        font-size: 0.75rem;
         color: var(--text-secondary);
+        font-weight: 500;
       }
 
       /* 덱 카드 */
       .deck-preview {
         display: flex;
         gap: 8px;
-        margin-top: 12px;
-        margin-bottom: 12px;
+        margin-top: 16px;
+        margin-bottom: 16px;
       }
 
       .deck-hero-mini {
@@ -430,7 +472,7 @@
         height: 48px;
         border-radius: 8px;
         object-fit: cover;
-        border: 2px solid var(--border-color);
+        border: none;
       }
 
       /* 반응형 */
@@ -446,6 +488,7 @@
         .game-header {
           flex-direction: column;
           text-align: center;
+          padding: 40px 32px;
         }
 
         .game-header-stats {
@@ -456,27 +499,36 @@
 
       @media (max-width: 768px) {
         .lounge-container {
-          padding: 12px;
+          padding: 16px;
         }
 
         .game-header {
-          padding: 24px 20px;
+          padding: 32px 24px;
+          margin-bottom: 32px;
         }
 
         .game-header-info h1 {
-          font-size: 1.5rem;
+          font-size: 1.75rem;
         }
 
         .stat-value {
-          font-size: 1.4rem;
+          font-size: 1.5rem;
         }
 
         .content-grid {
-          gap: 16px;
+          gap: 20px;
+        }
+
+        .feed-card {
+          padding: 20px;
         }
 
         .feed-title {
-          font-size: 1rem;
+          font-size: 1.05rem;
+        }
+
+        .sidebar-card {
+          padding: 20px;
         }
       }
 
@@ -492,18 +544,19 @@
       /* 빈 상태 */
       .empty-state {
         text-align: center;
-        padding: 60px 20px;
+        padding: 80px 20px;
         color: var(--text-secondary);
       }
 
       .empty-state i {
-        font-size: 4rem;
+        font-size: 3rem;
         margin-bottom: 16px;
-        opacity: 0.3;
+        opacity: 0.2;
       }
 
       .empty-state p {
-        font-size: 1.1rem;
+        font-size: 1rem;
+        font-weight: 500;
       }
     </style>
   </head>
