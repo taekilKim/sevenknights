@@ -168,21 +168,8 @@
 
     <!-- 목록으로 버튼 -->
     <div class="hero-nav-buttons">
-      <button class="back-button" onclick="window.location.href='/index.html'"><i class="ph-bold ph-caret-left"></i> 목록으로</button>
+      <button class="back-button" onclick="window.location.href='/heroes.html'"><i class="ph-bold ph-caret-left"></i> 영웅 도감으로</button>
     </div>
-
-    <!-- 영웅 캐러셀 네비게이션 -->
-    <section class="hero-carousel-section">
-      <button class="carousel-nav-btn carousel-nav-prev" id="carousel-prev" aria-label="이전 영웅">
-        <i class="ph-bold ph-caret-left"></i>
-      </button>
-      <div class="hero-carousel" id="hero-carousel">
-        <!-- JavaScript로 동적 생성 -->
-      </div>
-      <button class="carousel-nav-btn carousel-nav-next" id="carousel-next" aria-label="다음 영웅">
-        <i class="ph-bold ph-caret-right"></i>
-      </button>
-    </section>
 
     <section class="hero-top">
       <div class="hero-center-content">
@@ -549,14 +536,26 @@
     </div>
     <!-- ✅ 가이드 탭 끝 -->
 
-    <!-- 관련 영웅 섹션 (내부 링크 강화) -->
-    <section class="related-heroes-section">
+    <!-- 같은 타입 영웅 섹션 -->
+    <section class="related-heroes-section" id="same-type-section" style="display: none;">
       <h2 class="section-title">
-        <i class="ph-bold ph-link"></i>
-        관련 영웅 더보기
+        <i class="ph-bold ph-users-three"></i>
+        같은 타입 영웅
       </h2>
-      <p class="section-subtitle">이 영웅과 함께 사용하면 좋은 영웅들을 확인해보세요</p>
-      <div id="related-heroes-grid" class="related-heroes-grid">
+      <p class="section-subtitle" id="same-type-subtitle"></p>
+      <div id="same-type-grid" class="related-heroes-grid">
+        <!-- JavaScript로 동적 생성 -->
+      </div>
+    </section>
+
+    <!-- 같은 소속 영웅 섹션 -->
+    <section class="related-heroes-section" id="same-group-section" style="display: none;">
+      <h2 class="section-title">
+        <i class="ph-bold ph-shield"></i>
+        같은 소속 영웅
+      </h2>
+      <p class="section-subtitle" id="same-group-subtitle"></p>
+      <div id="same-group-grid" class="related-heroes-grid">
         <!-- JavaScript로 동적 생성 -->
       </div>
     </section>
@@ -1368,8 +1367,8 @@
           const breadcrumbName = document.getElementById("breadcrumb-hero-name");
           if (breadcrumbName) breadcrumbName.textContent = hero.name || "영웅 상세";
 
-          // ✅ 관련 영웅 렌더링 (내부 링크 강화)
-          renderRelatedHeroes(hero);
+          // ✅ 같은 타입/소속 영웅 렌더링
+          renderRelatedHeroesByTypeAndGroup(hero);
 
         })
         .catch(err => {
@@ -1541,152 +1540,51 @@ commentForm.addEventListener("submit", async (e) => {
   </script>
 
   <script>
-    // 영웅 캐러셀 네비게이션
-    let allHeroes = [];
-    let currentHeroIndex = -1;
+    // 같은 타입/소속 영웅 렌더링
+    let currentHeroData = null;
 
-    // 전체 영웅 목록 가져오기 및 캐러셀 렌더링
-    fetch('/api/heroes', { cache: 'no-store' })
-      .then(res => res.json())
-      .then(heroes => {
-        console.log('📊 전체 영웅 목록:', heroes.length, '명');
-        allHeroes = heroes.sort((a, b) => a.name.localeCompare(b.name, 'ko'));
-        currentHeroIndex = allHeroes.findIndex(h => h.name === heroName);
-        console.log('🎯 현재 영웅:', heroName, '/ 인덱스:', currentHeroIndex);
+    // 현재 영웅 정보가 로드되면 같은 타입/소속 영웅 표시
+    function renderRelatedHeroesByTypeAndGroup(currentHero) {
+      if (!currentHero || !currentHero.type) return;
 
-        // 캐러셀 렌더링
-        const carousel = document.getElementById('hero-carousel');
-        if (!carousel) return;
+      currentHeroData = currentHero;
 
-        allHeroes.forEach((hero, index) => {
-          const item = document.createElement('div');
-          item.className = 'carousel-item';
-          if (index === currentHeroIndex) {
-            item.classList.add('active');
+      // 같은 타입 영웅 가져오기
+      fetch(`/api/heroes?type=${encodeURIComponent(currentHero.type)}`, { cache: 'no-store' })
+        .then(res => res.json())
+        .then(heroes => {
+          const filtered = heroes.filter(h => h.name !== currentHero.name).slice(0, 8);
+          if (filtered.length > 0) {
+            renderHeroGrid('same-type-grid', 'same-type-section', 'same-type-subtitle', filtered, `${currentHero.type} 영웅 ${filtered.length}명`);
           }
+        })
+        .catch(err => console.error('❌ 같은 타입 영웅 로드 실패:', err));
 
-          // 등급별 클래스
-          const rarityClass = (() => {
-            switch (hero.rarity) {
-              case "전설+": return "legendary-plus";
-              case "전설": return "legendary";
-              case "희귀": return "rare";
-              case "고급": return "uncommon";
-              default: return "normal";
+      // 같은 소속 영웅 가져오기
+      if (currentHero.group) {
+        fetch(`/api/heroes?group=${encodeURIComponent(currentHero.group)}`, { cache: 'no-store' })
+          .then(res => res.json())
+          .then(heroes => {
+            const filtered = heroes.filter(h => h.name !== currentHero.name).slice(0, 8);
+            if (filtered.length > 0) {
+              renderHeroGrid('same-group-grid', 'same-group-section', 'same-group-subtitle', filtered, `${currentHero.group} 소속 영웅 ${filtered.length}명`);
             }
-          })();
-
-          const portrait = document.createElement('img');
-          portrait.src = hero.portrait || '';
-          portrait.alt = hero.name;
-          portrait.className = `carousel-portrait rarity-${rarityClass}`;
-
-          portrait.addEventListener('error', function() {
-            this.style.display = 'none';
-          });
-
-          // hasEffect 효과 추가
-          if (hero.hasEffect === true || hero.hasEffect === "true" || hero.hasEffect === 1) {
-            portrait.classList.add('has-effect');
-          }
-
-          item.appendChild(portrait);
-
-          // Rarity border PNG if hasEffect
-          if (hero.hasEffect === true || hero.hasEffect === "true" || hero.hasEffect === 1) {
-            const isOldSevenKnights = hero.group && hero.group.includes("(구)세븐나이츠");
-            const borderImg = document.createElement("img");
-            borderImg.className = "rarity-border";
-            borderImg.src = isOldSevenKnights
-              ? "/images/border-legendary-oldsena.png"
-              : "/images/border-legendary.png";
-            borderImg.alt = "전설 테두리";
-            item.appendChild(borderImg);
-          }
-
-          // 영웅 이름 추가
-          const nameLabel = document.createElement('div');
-          nameLabel.className = 'carousel-name';
-          nameLabel.textContent = hero.name;
-          item.appendChild(nameLabel);
-
-          // 클릭 이벤트
-          item.addEventListener('click', () => {
-            window.location.href = `/hero.html?name=${encodeURIComponent(hero.name)}`;
-          });
-
-          carousel.appendChild(item);
-        });
-
-        // 현재 영웅으로 스크롤
-        if (currentHeroIndex !== -1) {
-          const activeItem = carousel.querySelector('.carousel-item.active');
-          if (activeItem) {
-            setTimeout(() => {
-              activeItem.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
-            }, 100);
-          }
-        }
-
-        // 캐러셀 화살표 버튼 기능
-        const prevBtn = document.getElementById('carousel-prev');
-        const nextBtn = document.getElementById('carousel-next');
-
-        if (prevBtn && nextBtn) {
-          // 이전 버튼 클릭
-          prevBtn.addEventListener('click', () => {
-            const scrollAmount = 300;
-            carousel.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
-          });
-
-          // 다음 버튼 클릭
-          nextBtn.addEventListener('click', () => {
-            const scrollAmount = 300;
-            carousel.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-          });
-
-          // 스크롤 위치에 따라 버튼 활성화/비활성화
-          function updateButtonStates() {
-            const isAtStart = carousel.scrollLeft <= 0;
-            const isAtEnd = carousel.scrollLeft >= carousel.scrollWidth - carousel.clientWidth - 10;
-
-            prevBtn.disabled = isAtStart;
-            nextBtn.disabled = isAtEnd;
-          }
-
-          // 초기 상태 설정
-          updateButtonStates();
-
-          // 스크롤 시 버튼 상태 업데이트
-          carousel.addEventListener('scroll', updateButtonStates);
-        }
-      })
-      .catch(err => console.error('❌ 영웅 목록 로드 실패:', err));
-
-    // ✅ 관련 영웅 렌더링 함수 (내부 링크 강화)
-    function renderRelatedHeroes(currentHero) {
-      const grid = document.getElementById('related-heroes-grid');
-      if (!grid || !allHeroes || allHeroes.length === 0) return;
-
-      // 같은 타입 또는 같은 그룹의 영웅을 찾기 (현재 영웅 제외)
-      const related = allHeroes.filter(h =>
-        h.name !== currentHero.name &&
-        (h.type === currentHero.type || h.group === currentHero.group)
-      ).slice(0, 5);
-
-      // 5개가 안 되면 랜덤으로 채우기
-      if (related.length < 5) {
-        const remaining = allHeroes.filter(h =>
-          h.name !== currentHero.name && !related.includes(h)
-        );
-        while (related.length < 5 && remaining.length > 0) {
-          const randomIndex = Math.floor(Math.random() * remaining.length);
-          related.push(remaining.splice(randomIndex, 1)[0]);
-        }
+          })
+          .catch(err => console.error('❌ 같은 소속 영웅 로드 실패:', err));
       }
+    }
 
-      // 렌더링
-      grid.innerHTML = related.map(hero => {
+    function renderHeroGrid(gridId, sectionId, subtitleId, heroes, subtitle) {
+      const grid = document.getElementById(gridId);
+      const section = document.getElementById(sectionId);
+      const subtitleEl = document.getElementById(subtitleId);
+
+      if (!grid || !section || heroes.length === 0) return;
+
+      subtitleEl.textContent = subtitle;
+      section.style.display = 'block';
+
+      grid.innerHTML = heroes.map(hero => {
         const rarityClass = (() => {
           switch (hero.rarity) {
             case "전설+": return "legendary-plus";
