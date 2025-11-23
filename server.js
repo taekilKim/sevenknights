@@ -309,14 +309,9 @@ app.get("/api/heroes", async (req, res) => {
         type: typeName,
         group: f.group || "", // ✅ 영웅 소속군 (UI 미노출, 정렬/필터용)
         hasEffect, // ✅ 추가됨
-        portrait:
-          Array.isArray(f.portrait) && f.portrait[0]
-            ? f.portrait[0].thumbnails?.large?.url || f.portrait[0].url
-            : "",
-        typeImage: typeImageMap[typeName] || null,
+        portrait: portraitUrl, // ✅ 원본 URL 직접 사용
+        typeImage: typeImageUrl, // ✅ 원본 URL 직접 사용
         skills, // ✅ 패시브 스킬 정보 추가
-        portrait: optimizeImageUrl(portraitUrl, { width: 400, quality: 80 }),
-        typeImage: optimizeImageUrl(typeImageUrl, { width: 64, quality: 90 }),
       };
 
       return heroData;
