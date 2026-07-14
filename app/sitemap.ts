@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 
-import { getHeroes } from "@/lib/airtable";
+import { getHeroes } from "@/lib/catalog";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const heroes = await getHeroes().catch(() => []);
@@ -12,12 +12,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       lastModified: now,
       changeFrequency: "daily",
       priority: 1,
-    },
-    {
-      url: "https://senadb.games/heroes",
-      lastModified: now,
-      changeFrequency: "weekly",
-      priority: 0.9,
     },
     ...heroes.map((hero) => ({
       url: `https://senadb.games/heroes/${hero.slug}`,

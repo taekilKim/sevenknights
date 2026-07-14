@@ -1,0 +1,5346 @@
+{
+  "generatedAt": "2026-07-14T13:56:24.955Z",
+  "heroes": [
+    {
+      "id": "hero-%EB%85%B8%ED%98%B8",
+      "slug": "%EB%85%B8%ED%98%B8",
+      "name": "노호",
+      "nickname": "역사의 기록자",
+      "group": "테라영지",
+      "rarity": "희귀",
+      "type": "마법형",
+      "portrait": "/content/heroes/노호-714b7eb515.png",
+      "typeImage": "/content/types/RoleIcon_02-3bdba832b0.png",
+      "hasEffect": false,
+      "transLevel": null,
+      "history": [],
+      "description": null,
+      "atk": "1389",
+      "def": "533",
+      "hp": "3174",
+      "spd": "25",
+      "crit_rate": "5",
+      "crit_dmg": "150",
+      "weak_rate": "0",
+      "block_rate": "0",
+      "dmg_reduce": "0",
+      "eff_hit": "0",
+      "eff_res": "0",
+      "attack": null,
+      "active_1": null,
+      "active_2": null,
+      "passive": null
+    },
+    {
+      "id": "hero-%EB%85%B9%EC%8A%A4",
+      "slug": "%EB%85%B9%EC%8A%A4",
+      "name": "녹스",
+      "nickname": "지옥의 총사령관",
+      "group": "복수자의 지옥",
+      "rarity": "전설",
+      "type": "방어형",
+      "portrait": "/content/heroes/녹스-0e58a4be92.png",
+      "typeImage": "/content/types/RoleIcon_03-c8af05f852.png",
+      "hasEffect": false,
+      "transLevel": null,
+      "history": [],
+      "description": null,
+      "atk": "727",
+      "def": "892",
+      "hp": "4825",
+      "spd": "19",
+      "crit_rate": "5",
+      "crit_dmg": "150",
+      "weak_rate": "0",
+      "block_rate": "0",
+      "dmg_reduce": "0",
+      "eff_hit": "0",
+      "eff_res": "0",
+      "attack": null,
+      "active_1": null,
+      "active_2": null,
+      "passive": null
+    },
+    {
+      "id": "hero-%EB%8B%88%EC%95%84",
+      "slug": "%EB%8B%88%EC%95%84",
+      "name": "니아",
+      "nickname": "마공학 볼트와",
+      "group": "성십자단",
+      "rarity": "전설",
+      "type": "만능형",
+      "portrait": "/content/heroes/니아-b7368ea239.png",
+      "typeImage": "/content/types/RoleIcon_05-f7672beb62.png",
+      "hasEffect": false,
+      "transLevel": null,
+      "history": [],
+      "description": null,
+      "atk": "1306",
+      "def": "659",
+      "hp": "3693",
+      "spd": "25",
+      "crit_rate": "5",
+      "crit_dmg": "150",
+      "weak_rate": "0",
+      "block_rate": "0",
+      "dmg_reduce": "0",
+      "eff_hit": "0",
+      "eff_res": "0",
+      "attack": null,
+      "active_1": null,
+      "active_2": null,
+      "passive": null
+    },
+    {
+      "id": "hero-%EB%8D%B0%EC%9D%B4%EC%A7%80",
+      "slug": "%EB%8D%B0%EC%9D%B4%EC%A7%80",
+      "name": "데이지",
+      "nickname": "붉은 나비",
+      "group": "달빛의 섬",
+      "rarity": "전설",
+      "type": "마법형",
+      "portrait": "/content/heroes/데이지-1059634e74.png",
+      "typeImage": "/content/types/RoleIcon_02-3bdba832b0.png",
+      "hasEffect": false,
+      "transLevel": null,
+      "history": [],
+      "description": null,
+      "atk": "1500",
+      "def": "571",
+      "hp": "3326",
+      "spd": "29",
+      "crit_rate": "5",
+      "crit_dmg": "150",
+      "weak_rate": "0",
+      "block_rate": "0",
+      "dmg_reduce": "0",
+      "eff_hit": "0",
+      "eff_res": "0",
+      "attack": null,
+      "active_1": null,
+      "active_2": null,
+      "passive": null
+    },
+    {
+      "id": "hero-%EB%8D%B8%EB%A1%A0%EC%A6%88",
+      "slug": "%EB%8D%B8%EB%A1%A0%EC%A6%88",
+      "name": "델론즈",
+      "nickname": "죽음의 군주",
+      "group": "세븐나이츠",
+      "rarity": "전설+",
+      "type": "공격형",
+      "portrait": "/content/heroes/델론즈-4f266886f7.png",
+      "typeImage": "/content/types/RoleIcon_01-1e0c023e6e.png",
+      "hasEffect": true,
+      "transLevel": null,
+      "history": [],
+      "description": null,
+      "atk": "1500",
+      "def": "571",
+      "hp": "3326",
+      "spd": "29",
+      "crit_rate": "5",
+      "crit_dmg": "150",
+      "weak_rate": "0",
+      "block_rate": "0",
+      "dmg_reduce": "0",
+      "eff_hit": "0",
+      "eff_res": "0",
+      "attack": {
+        "id": "skill-13",
+        "name": "기본 공격",
+        "type": "Attack",
+        "description": "!단일 적군\n- 물리 공격력의 100%만큼 1회 피해\n#스킬 강화 효과\n- 피해량 상승 : 물리 공격력의 120%\n- 효과 추가 : 침묵 [45% 확률] [1턴 지속]\n<<침묵>>",
+        "cooltime": null,
+        "image": "/content/skills/default_purple-f1e2ebbe81.webp",
+        "effects": [
+          {
+            "id": "effect-60",
+            "name": "침묵",
+            "description": "지속시간 동안 액티브 스킬을 사용할 수 없습니다.",
+            "effectType": "debuff",
+            "hasVariable": false,
+            "fulltime": false,
+            "icon": "/content/effects/Bufficon_11005-492aa4b29a.png"
+          }
+        ],
+        "linkedHeroes": {
+          "attack": [
+            "델론즈"
+          ],
+          "active_1": [],
+          "active_2": [],
+          "passive": []
+        }
+      },
+      "active_1": {
+        "id": "skill-14",
+        "name": "사신강림",
+        "type": "Active",
+        "description": "!모든 적군\n- 물리 공격력의 115%만큼 1회 피해\n- 침묵 [50% 확률] [2턴 지속]\n<<침묵>>\n#스킬 강화 효과\n- 피해량 상승 : 물리 공격력의 135%\n- 침묵 확률 60%",
+        "cooltime": "80",
+        "image": "/content/skills/B98NEBjQdC5ZjZV3m-VDgiMSkv-S1BQ5lj3LZN1kmqWGhF4XjhpnhwYi6Lq7lfalGJi-m18eOpbmS821umX4vw-a8024a6712.webp",
+        "effects": [
+          {
+            "id": "effect-60",
+            "name": "침묵",
+            "description": "지속시간 동안 액티브 스킬을 사용할 수 없습니다.",
+            "effectType": "debuff",
+            "hasVariable": false,
+            "fulltime": false,
+            "icon": "/content/effects/Bufficon_11005-492aa4b29a.png"
+          }
+        ],
+        "linkedHeroes": {
+          "attack": [],
+          "active_1": [
+            "델론즈"
+          ],
+          "active_2": [],
+          "passive": []
+        }
+      },
+      "active_2": {
+        "id": "skill-15",
+        "name": "죽음의 일격",
+        "type": "Active",
+        "description": "!단일 적군\n- 물리 공격력의 119%만큼 5회 피해\n#스킬 강화 효과\n- 피해량 상승 : 물리 공격력의 158%\n@2초월 효과\n- 효과 추가 : 해당 스킬의 적접 피해로 적군 처치 시 100% 위력으로 연속 발동",
+        "cooltime": "108",
+        "image": "/content/skills/YCU7RLoiI_b5epSsbW7ge7w_bpUN7r1uSqFcdpI7PWEFEbNo7eUe6a8PMVW-Cts5ZjU4m16cx-NLKeWN17ADCQ-27e2393c7b.webp",
+        "effects": [],
+        "linkedHeroes": {
+          "attack": [],
+          "active_1": [],
+          "active_2": [
+            "델론즈"
+          ],
+          "passive": []
+        }
+      },
+      "passive": {
+        "id": "skill-16",
+        "name": "죽음의 경계",
+        "type": "Passive",
+        "description": "!모든 아군\n- 물리 피해량 증가 [상시]\n<<물리 피해량 증가>>\n!자신\n- 모든 피해 무효화 [피격 3회]\n<<모든 피해 무효화>>\n#스킬 강화 효과\n- 효과 상승 : 물리 피해량 증가 20%\n- 횟수 상승 : 모든 피해 무효화 횟수 4회\n@@6초월 효과\n- 효과 추가 : 아군 사망 시 모든 피해 무효화 [피격 1회]\n- 효과 추가 : 아군 사망 시 물리 공격력 증가 39% [2턴 지속]",
+        "cooltime": null,
+        "image": "/content/skills/h3buctaLZkCxoGcMC0AWkLCbuUQoX0w2zn1BU7mo5NRU3tlGZwisVOTY4oBCzsl6oS_hGHqM95MRZNqgkN4A_Q-21ba5a8147.webp",
+        "effects": [
+          {
+            "id": "effect-27",
+            "name": "물리 피해량 증가",
+            "description": "주는 물리 피해량이 n% 증가합니다.",
+            "effectType": "buff",
+            "hasVariable": true,
+            "fulltime": true,
+            "icon": "/content/effects/BuffIcon_01012_reverse-e62988403e.png"
+          },
+          {
+            "id": "effect-22",
+            "name": "모든 피해 무효화",
+            "description": "모든 피해를 일정 횟수만큼 무효화합니다.",
+            "effectType": "buff",
+            "hasVariable": false,
+            "fulltime": false,
+            "icon": "/content/effects/BuffIcon_02005_reverse-a754f1195b.png"
+          }
+        ],
+        "linkedHeroes": {
+          "attack": [],
+          "active_1": [],
+          "active_2": [],
+          "passive": [
+            "델론즈"
+          ]
+        }
+      }
+    },
+    {
+      "id": "hero-%EB%9D%BC%EB%8B%88%EC%95%84",
+      "slug": "%EB%9D%BC%EB%8B%88%EC%95%84",
+      "name": "라니아",
+      "nickname": "설원의 주인",
+      "group": "눈보라의 대지",
+      "rarity": "희귀",
+      "type": "만능형",
+      "portrait": "/content/heroes/라니아-7536251425.png",
+      "typeImage": "/content/types/RoleIcon_05-f7672beb62.png",
+      "hasEffect": false,
+      "transLevel": null,
+      "history": [],
+      "description": null,
+      "atk": "1238",
+      "def": "616",
+      "hp": "3529",
+      "spd": "21",
+      "crit_rate": "5",
+      "crit_dmg": "150",
+      "weak_rate": "0",
+      "block_rate": "0",
+      "dmg_reduce": "0",
+      "eff_hit": "0",
+      "eff_res": "0",
+      "attack": null,
+      "active_1": null,
+      "active_2": null,
+      "passive": null
+    },
+    {
+      "id": "hero-%EB%9D%BC%EC%BF%A4",
+      "slug": "%EB%9D%BC%EC%BF%A4",
+      "name": "라쿤",
+      "nickname": "광산의 지배자",
+      "group": "침묵의 광산",
+      "rarity": "희귀",
+      "type": "방어형",
+      "portrait": "/content/heroes/라쿤-82a64f31f7.png",
+      "typeImage": "/content/types/RoleIcon_03-c8af05f852.png",
+      "hasEffect": false,
+      "transLevel": null,
+      "history": [],
+      "description": null,
+      "atk": "704",
+      "def": "818",
+      "hp": "4572",
+      "spd": "16",
+      "crit_rate": "5",
+      "crit_dmg": "150",
+      "weak_rate": "0",
+      "block_rate": "0",
+      "dmg_reduce": "0",
+      "eff_hit": "0",
+      "eff_res": "0",
+      "attack": null,
+      "active_1": null,
+      "active_2": null,
+      "passive": null
+    },
+    {
+      "id": "hero-%EB%A0%88%EC%98%A4",
+      "slug": "%EB%A0%88%EC%98%A4",
+      "name": "레오",
+      "nickname": "검은 복수",
+      "group": "화염의 사막",
+      "rarity": "희귀",
+      "type": "공격형",
+      "portrait": "/content/heroes/레오-4c33561d41.png",
+      "typeImage": "/content/types/RoleIcon_01-1e0c023e6e.png",
+      "hasEffect": false,
+      "transLevel": null,
+      "history": [],
+      "description": null,
+      "atk": "1389",
+      "def": "533",
+      "hp": "3174",
+      "spd": "25",
+      "crit_rate": "5",
+      "crit_dmg": "150",
+      "weak_rate": "0",
+      "block_rate": "0",
+      "dmg_reduce": "0",
+      "eff_hit": "0",
+      "eff_res": "0",
+      "attack": null,
+      "active_1": null,
+      "active_2": null,
+      "passive": null
+    },
+    {
+      "id": "hero-%EB%A0%88%EC%9D%B4",
+      "slug": "%EB%A0%88%EC%9D%B4",
+      "name": "레이",
+      "nickname": "영원한 복수",
+      "group": "달빛의 섬",
+      "rarity": "희귀",
+      "type": "공격형",
+      "portrait": "/content/heroes/레이-0053cf25c0.png",
+      "typeImage": "/content/types/RoleIcon_01-1e0c023e6e.png",
+      "hasEffect": false,
+      "transLevel": null,
+      "history": [],
+      "description": null,
+      "atk": "1389",
+      "def": "533",
+      "hp": "3174",
+      "spd": "25",
+      "crit_rate": "5",
+      "crit_dmg": "150",
+      "weak_rate": "0",
+      "block_rate": "0",
+      "dmg_reduce": "0",
+      "eff_hit": "0",
+      "eff_res": "0",
+      "attack": null,
+      "active_1": null,
+      "active_2": null,
+      "passive": null
+    },
+    {
+      "id": "hero-%EB%A0%88%EC%9D%B4%EC%B2%BC",
+      "slug": "%EB%A0%88%EC%9D%B4%EC%B2%BC",
+      "name": "레이첼",
+      "nickname": "불멸의 화신",
+      "group": "세븐나이츠",
+      "rarity": "전설+",
+      "type": "만능형",
+      "portrait": "/content/heroes/레이첼-1075dc79dc.png",
+      "typeImage": "/content/types/RoleIcon_05-f7672beb62.png",
+      "hasEffect": true,
+      "transLevel": null,
+      "history": [],
+      "description": null,
+      "atk": "1306",
+      "def": "659",
+      "hp": "3693",
+      "spd": "25",
+      "crit_rate": "5",
+      "crit_dmg": "150",
+      "weak_rate": "0",
+      "block_rate": "0",
+      "dmg_reduce": "0",
+      "eff_hit": "0",
+      "eff_res": "0",
+      "attack": {
+        "id": "skill-9",
+        "name": "기본 공격",
+        "type": "Attack",
+        "description": "!단일 적군\n- 물리 공격력의 100%만큼 1회 피해\n- 화상 [40% 확률] [2턴 지속]\n<<화상>>\n#스킬 강화 효과\n- 피해량 상승 : 물리 공격력의 120%\n- 확률 상승 : 화상 확률 50%",
+        "cooltime": null,
+        "image": "/content/skills/_5wylIAKOy1epRrBsIgnA-OmDvWcVCS_I-EloJguuTTLULW2I5FqUGDcIqr0H0Ic78CUHvM7BXsQOKQ-Qv43UA-cd3b1d7805.webp",
+        "effects": [
+          {
+            "id": "effect-69",
+            "name": "화상",
+            "description": "매 턴마다 시전자 공격력의 80% 피해를 입힙니다.",
+            "effectType": "debuff",
+            "hasVariable": false,
+            "fulltime": false,
+            "icon": "/content/effects/BuffIcon_15003-c1bd3f9416.png"
+          }
+        ],
+        "linkedHeroes": {
+          "attack": [
+            "레이첼"
+          ],
+          "active_1": [],
+          "active_2": [],
+          "passive": []
+        }
+      },
+      "active_1": {
+        "id": "skill-10",
+        "name": "염화",
+        "type": "Active",
+        "description": "!단일 적군\n- 모든 공격력의 102%만큼 2회 피해\n- 모든 공격력 감소 [100% 확률] [5턴 지속]\n- 피해량 감소 [100% 확률] [5턴 지속]\n- 화상 [100% 확률] [3턴 지속]\n<<모든 공격력 감소, 22>>\n<<피해량 감소, 17>>\n<<화상>>\n#스킬 강화 효과\n- 피해량 상승 : 물리 공격력의 122%\n@@6초월 효과\n- 대상 수 변경 : 적군 3명",
+        "cooltime": "84",
+        "image": "/content/skills/q3Q-dZePVtN_0IWu6fJgVcEO42EcYI90KOogUp217TqLMm7G2G1DYB-0lmEHhW5ZLGeRqKGJGeYqdNiEd-XPqQ-025efebe91.webp",
+        "effects": [
+          {
+            "id": "effect-20",
+            "name": "모든 공격력 감소",
+            "description": "모든 공격력이 n% 감소합니다.",
+            "effectType": "debuff",
+            "hasVariable": true,
+            "fulltime": false,
+            "icon": "/content/effects/Bufficon_10003-d378f6b120.png"
+          },
+          {
+            "id": "effect-65",
+            "name": "피해량 감소",
+            "description": "주는 피해량이 n% 감소합니다.",
+            "effectType": "debuff",
+            "hasVariable": true,
+            "fulltime": false,
+            "icon": "/content/effects/Bufficon_10005-7d808b8435.png"
+          },
+          {
+            "id": "effect-69",
+            "name": "화상",
+            "description": "매 턴마다 시전자 공격력의 80% 피해를 입힙니다.",
+            "effectType": "debuff",
+            "hasVariable": false,
+            "fulltime": false,
+            "icon": "/content/effects/BuffIcon_15003-c1bd3f9416.png"
+          }
+        ],
+        "linkedHeroes": {
+          "attack": [],
+          "active_1": [
+            "레이첼"
+          ],
+          "active_2": [],
+          "passive": []
+        }
+      },
+      "active_2": {
+        "id": "skill-11",
+        "name": "불새",
+        "type": "Active",
+        "description": "!적군 3명\n- 방어력 감소 [100% 확률] [3턴 지속]\n- 물리 취약 [100% 확률] [3턴 지속]\n- 물리 공격력의 160%만큼 1회 피해\n<<방어력 감소, 29>>\n<<물리 취약, 22>>\n#스킬 강화 효과\n- 효과 상승 : 방어력 감소 36%\n- 효과 상승 : 물리 취약 28%\n@2초월 효과\n- 턴 상승 : 방어력 감소 지속 4턴 \n- 턴 상승 : 물리 취약 지속 4턴",
+        "cooltime": "84",
+        "image": "/content/skills/NI_I0qFbC5emARXrIAtHONQe094zl2XHpPWwEMFaFFjWhDOz9vAHdLKxMXer4lRa22Ozn3oj2XUWH7NwozmL9w-37db91fb00.webp",
+        "effects": [
+          {
+            "id": "effect-33",
+            "name": "방어력 감소",
+            "description": "방어력이 n% 감소합니다.",
+            "effectType": "debuff",
+            "hasVariable": true,
+            "fulltime": false,
+            "icon": "/content/effects/Bufficon_10004-25f5805ef7.png"
+          },
+          {
+            "id": "effect-26",
+            "name": "물리 취약",
+            "description": "받는 물리 피해가 n% 증가합니다.",
+            "effectType": "debuff",
+            "hasVariable": true,
+            "fulltime": false,
+            "icon": "/content/effects/BuffIcon_10012-30370eaa09.png"
+          }
+        ],
+        "linkedHeroes": {
+          "attack": [],
+          "active_1": [],
+          "active_2": [
+            "레이첼"
+          ],
+          "passive": []
+        }
+      },
+      "passive": {
+        "id": "skill-12",
+        "name": "화염의 힘",
+        "type": "Passive",
+        "description": "!모든 아군\n- 약점 공격 확률 증가 [상시]\n<<약점 공격 확률 증가, 22>>\n!자신\n- 사망시 생명력 80%로 부활 (전투당 1회 발동)\n<<부활>>\n#스킬 강화 효과\n- 효과 상승 : 부활 시 생명력 100%\n- 효과 상승 : 약점 공격 확률 증가 27%",
+        "cooltime": null,
+        "image": "/content/skills/IPGNG435w0l2Y81fz3GBQOEMO6CRnFcTrPtHOu9qtDKFgHSoB5EdpbH_wbkCAu-jVVuFK-Psp72hXKveILrKdA-1295712c3d.webp",
+        "effects": [
+          {
+            "id": "effect-49",
+            "name": "약점 공격 확률 증가",
+            "description": "약점 공격 확률이 n% 증가합니다.",
+            "effectType": "buff",
+            "hasVariable": true,
+            "fulltime": true,
+            "icon": "/content/effects/BuffIcon_01007_reverse-1a5b44c02f.png"
+          },
+          {
+            "id": "effect-38",
+            "name": "부활",
+            "description": "사망한 대상이 부활합니다.",
+            "effectType": "buff",
+            "hasVariable": false,
+            "fulltime": false,
+            "icon": "/content/effects/2025-11-16-14.49.58-1aadcf7012.png"
+          }
+        ],
+        "linkedHeroes": {
+          "attack": [],
+          "active_1": [],
+          "active_2": [],
+          "passive": [
+            "레이첼"
+          ]
+        }
+      }
+    },
+    {
+      "id": "hero-%EB%A1%9C%EC%A7%80",
+      "slug": "%EB%A1%9C%EC%A7%80",
+      "name": "로지",
+      "nickname": "은둔한 성기사",
+      "group": "(구)세븐나이츠",
+      "rarity": "전설+",
+      "type": "지원형",
+      "portrait": "/content/heroes/로지-3a9f9ad2ce.png",
+      "typeImage": "/content/types/RoleIcon_04-3c4c7a32e8.png",
+      "hasEffect": true,
+      "transLevel": null,
+      "history": [],
+      "description": null,
+      "atk": "1095",
+      "def": "675",
+      "hp": "4458",
+      "spd": "19",
+      "crit_rate": "5",
+      "crit_dmg": "150",
+      "weak_rate": "0",
+      "block_rate": "0",
+      "dmg_reduce": "0",
+      "eff_hit": "0",
+      "eff_res": "0",
+      "attack": {
+        "id": "skill-37",
+        "name": "기본 공격",
+        "type": "Attack",
+        "description": "적군 2명\n- 마법 공격력의 30%, 시전자 최대 생명력의 7%만큼 추가 피해\n스킬 강화 효과\n- 효과 추가 : 효과 저항 감소 16% [100% 확률] [2턴 지속]",
+        "cooltime": null,
+        "image": "/content/skills/uJHJeaMcm6Q8Csd7lsFoN6Lq1dC8MULlCUj1nxvE9a7GZAQ1d1YqjuZUgvy6oMiAgJqXMeC_m4vaWFO5wKlY9g-1-0296d91677.webp",
+        "effects": [],
+        "linkedHeroes": {
+          "attack": [
+            "로지"
+          ],
+          "active_1": [],
+          "active_2": [],
+          "passive": []
+        }
+      },
+      "active_1": {
+        "id": "skill-38",
+        "name": "달빛의 심판",
+        "type": "Active",
+        "description": "모든 적군\n- 마법 공격력의 30%, 시전자 최대 생명력의 7%만큼 2회 피해\n- 즉사 [25% 확률] [3턴 지속]\n스킬 강화 효과\n피해량 상승 : 마법 공격력의 37%, 시전자 최대 생명력의 10%\n확률 상승 : 즉사 확률 35%",
+        "cooltime": "80",
+        "image": "/content/skills/ABFZ4PjrcZUVuRwKy02yREpXdWUX1Me12HB2LqYIk-mGMucaCqHTC22b24dF9DnzD1mT4HkTy1Sb6FzixwwKcg-c26d387128.webp",
+        "effects": [],
+        "linkedHeroes": {
+          "attack": [],
+          "active_1": [
+            "로지"
+          ],
+          "active_2": [],
+          "passive": []
+        }
+      },
+      "active_2": {
+        "id": "skill-39",
+        "name": "성령의 기도",
+        "type": "Active",
+        "description": "아군 2명\n- 사망한 대상을 생명력 40%로 부활\n모든 적군\n- 대상의 턴제 버프 감소 2턴 [100% 확률]\n스킬 강화 효과\n- 효과 상승 : 부활 시 생명력 55%\n[아군 2명]\n- 효과 추가 : 부활 시 권능 [2턴 지속]\n6초월 효과\n- 대상 수 변경 : 아군 전체",
+        "cooltime": "112",
+        "image": "/content/skills/Pcz8HyiEnwCQOROELbNc0N6MgddgGM9Z10Cx85kSZnhxoxnHO-MTRz5iSruvc24HOr5GGwWFTsaGZnM3Wie9Dg-cae0bef618.webp",
+        "effects": [],
+        "linkedHeroes": {
+          "attack": [],
+          "active_1": [],
+          "active_2": [
+            "로지"
+          ],
+          "passive": []
+        }
+      },
+      "passive": {
+        "id": "skill-40",
+        "name": "망자의 축복",
+        "type": "Passive",
+        "description": "자신\n- 최대 생명력 비례 방어력 증가 [상시]\n- 자신의 생명력이 50% 이하가 되면 모든 피해 면역 [2턴 지속]\n아군 (방어형, 만능형)\n- 효과 적용 확률 20% 증가 [상시]\n스킬 강화 효과\n- 턴 상승 : 모든 피해 면역 지속 3턴\n2초월 효과\n- 효과 상승 : 효과 적용 확률 증가 26%",
+        "cooltime": null,
+        "image": "/content/skills/RpxUrHdE94QyxCPx0PW2OwQFO_OBuz9pXIwz_iJIUfMdvamdirCblIw1XZlmJv42kgFyjyYNhiBWaycv-VMeig-fe5b0da620.webp",
+        "effects": [],
+        "linkedHeroes": {
+          "attack": [],
+          "active_1": [],
+          "active_2": [],
+          "passive": [
+            "로지"
+          ]
+        }
+      }
+    },
+    {
+      "id": "hero-%EB%A3%A8%EB%94%94",
+      "slug": "%EB%A3%A8%EB%94%94",
+      "name": "루디",
+      "nickname": "절대 수호자",
+      "group": "세븐나이츠",
+      "rarity": "전설+",
+      "type": "방어형",
+      "portrait": "/content/heroes/루디-7c739c4950.png",
+      "typeImage": "/content/types/RoleIcon_03-c8af05f852.png",
+      "hasEffect": true,
+      "transLevel": "방어력이 12% 상승합니다.\n\n방어력이 6% 상승합니다.\n\n생명력이 18% 상승합니다.\n\n막기 확률이 18% 상승합니다.\n\n방어력이 12% 상승합니다.\n\n방어력이 6% 상승합니다.",
+      "history": [],
+      "description": null,
+      "atk": "727",
+      "def": "892",
+      "hp": "4825",
+      "spd": "19",
+      "crit_rate": "5",
+      "crit_dmg": "150",
+      "weak_rate": "0",
+      "block_rate": "0",
+      "dmg_reduce": "0",
+      "eff_hit": "0",
+      "eff_res": "0",
+      "attack": {
+        "id": "skill-1",
+        "name": "기본 공격",
+        "type": "Attack",
+        "description": "!단일 적군\n- 물리 공격력의 50%, 방어력의 60%만큼 1회 피해\n#스킬 강화 효과\n- 물리 공격력의 65%, 방어력의 75%",
+        "cooltime": null,
+        "image": "/content/skills/default_yellow-90bb6683bb.webp",
+        "effects": [],
+        "linkedHeroes": {
+          "attack": [
+            "루디"
+          ],
+          "active_1": [],
+          "active_2": [],
+          "passive": []
+        }
+      },
+      "active_1": {
+        "id": "skill-2",
+        "name": "돌격",
+        "type": "Active",
+        "description": "!단일 적군(버프가 많은 순)\n- 대상의 턴제 버프 감소 3턴 [100% 확률]\n- 물리 공격력의 170%, 방어력의 195%만큼 1회 피해\n- 기절 [85% 확률] [3턴 지속]\n<<턴제 버프 감소>>\n<<기절>>\n#스킬 강화 효과\n- 피해량 상승 : 물리 공격력의 205%, 방어력 235%\n- 확률 상승 : 기절 확률 100%\n",
+        "cooltime": "78",
+        "image": "/content/skills/Tex_Skill_1005602-ce35cb338b.png",
+        "effects": [
+          {
+            "id": "effect-62",
+            "name": "턴제 버프 감소",
+            "description": "턴제 버프의 턴을 감소 시킵니다.",
+            "effectType": "debuff",
+            "hasVariable": false,
+            "fulltime": false,
+            "icon": "/content/effects/Bufficon_14002-a7c2870144.png"
+          },
+          {
+            "id": "effect-10",
+            "name": "기절",
+            "description": "지속시간 동안 행동할 수 없습니다.",
+            "effectType": "debuff",
+            "hasVariable": false,
+            "fulltime": false,
+            "icon": "/content/effects/Bufficon_11001-72514c06bf.png"
+          }
+        ],
+        "linkedHeroes": {
+          "attack": [],
+          "active_1": [
+            "루디"
+          ],
+          "active_2": [],
+          "passive": []
+        }
+      },
+      "active_2": {
+        "id": "skill-3",
+        "name": "방어 준비",
+        "type": "Active",
+        "description": "!모든 아군\n- 링크 [2턴 지속]\n- 디버프 해제 1개\n<<링크>>\n<<디버프 해제>>\n#스킬 강화 효과\n- 효과 추가 : 링크 시 피해 감소율 10%\n@2초월 효과\n- 턴 상승 : 링크 지속 3턴\n@@6초월 효과\n- 효과 추가 : 행동 제어 면역 [2턴 지속]\n<<행동 제어 면역>>",
+        "cooltime": "96",
+        "image": "/content/skills/Tex_Skill_1005603-5307c78130.png",
+        "effects": [
+          {
+            "id": "effect-13",
+            "name": "링크",
+            "description": "링크 효과가 있는 아군의 피해를 균등하게 분배하여 피해를 입습니다.",
+            "effectType": "buff",
+            "hasVariable": false,
+            "fulltime": false,
+            "icon": "/content/effects/BuffIcon_02034-58e2549454.png"
+          },
+          {
+            "id": "effect-12",
+            "name": "디버프 해제",
+            "description": "적용 순서대로 디버프를 해제합니다.",
+            "effectType": "buff",
+            "hasVariable": false,
+            "fulltime": false,
+            "icon": "/content/effects/BuffIcon_03001-5c0840cef4.png"
+          },
+          {
+            "id": "effect-67",
+            "name": "행동 제어 면역",
+            "description": "행동 제어에 대해 면역 상태가 됩니다.",
+            "effectType": "buff",
+            "hasVariable": false,
+            "fulltime": false,
+            "icon": "/content/effects/Bufficon_2021-85e7b0149d.png"
+          }
+        ],
+        "linkedHeroes": {
+          "attack": [],
+          "active_1": [],
+          "active_2": [
+            "루디"
+          ],
+          "passive": []
+        }
+      },
+      "passive": {
+        "id": "skill-4",
+        "name": "견고한 방패",
+        "type": "Passive",
+        "description": "!모든 아군\n- 방어력 증가 [상시]\n<<방어력 증가, 20>>\n!자신\n- 감쇄 [상시]\n<<감쇄, 상시, 16>>\n#스킬 강화 효과\n- 효과 상승 : 방어력 증가 24%\n- 효과 상승 : 감쇄 효과 20%",
+        "cooltime": null,
+        "image": "/content/skills/Tex_Skill_1005604-21d3497848.png",
+        "effects": [
+          {
+            "id": "effect-34",
+            "name": "방어력 증가",
+            "description": "방어력이 n% 증가합니다.",
+            "effectType": "buff",
+            "hasVariable": true,
+            "fulltime": false,
+            "icon": "/content/effects/BuffIcon_01004_reverse-526528a053.png"
+          },
+          {
+            "id": "effect-2",
+            "name": "감쇄",
+            "description": "받는 피해량이 n% 감소합니다.",
+            "effectType": "buff",
+            "hasVariable": true,
+            "fulltime": true,
+            "icon": "/content/effects/BuffIcon_01006_reverse-ff9a90fb33.png"
+          }
+        ],
+        "linkedHeroes": {
+          "attack": [],
+          "active_1": [],
+          "active_2": [],
+          "passive": [
+            "루디"
+          ]
+        }
+      }
+    },
+    {
+      "id": "hero-%EB%A3%A8%EB%A6%AC",
+      "slug": "%EB%A3%A8%EB%A6%AC",
+      "name": "루리",
+      "nickname": "신성한 탄환",
+      "group": "성십자단",
+      "rarity": "전설",
+      "type": "마법형",
+      "portrait": "/content/heroes/루리-c92fcb1aa5.png",
+      "typeImage": "/content/types/RoleIcon_02-3bdba832b0.png",
+      "hasEffect": false,
+      "transLevel": null,
+      "history": [],
+      "description": null,
+      "atk": "1500",
+      "def": "571",
+      "hp": "3326",
+      "spd": "29",
+      "crit_rate": "5",
+      "crit_dmg": "150",
+      "weak_rate": "0",
+      "block_rate": "0",
+      "dmg_reduce": "0",
+      "eff_hit": "0",
+      "eff_res": "0",
+      "attack": null,
+      "active_1": null,
+      "active_2": null,
+      "passive": null
+    },
+    {
+      "id": "hero-%EB%A3%A8%EC%8B%9C",
+      "slug": "%EB%A3%A8%EC%8B%9C",
+      "name": "루시",
+      "nickname": "신기술사",
+      "group": "모험가",
+      "rarity": "희귀",
+      "type": "지원형",
+      "portrait": "/content/heroes/루시-212d9f1fda.png",
+      "typeImage": "/content/types/RoleIcon_04-3c4c7a32e8.png",
+      "hasEffect": false,
+      "transLevel": null,
+      "history": [],
+      "description": null,
+      "atk": "1035",
+      "def": "632",
+      "hp": "4248",
+      "spd": "16",
+      "crit_rate": "5",
+      "crit_dmg": "150",
+      "weak_rate": "0",
+      "block_rate": "0",
+      "dmg_reduce": "0",
+      "eff_hit": "0",
+      "eff_res": "0",
+      "attack": null,
+      "active_1": null,
+      "active_2": null,
+      "passive": null
+    },
+    {
+      "id": "hero-%EB%A3%A9",
+      "slug": "%EB%A3%A9",
+      "name": "룩",
+      "nickname": "친위대",
+      "group": "테라영지",
+      "rarity": "전설",
+      "type": "방어형",
+      "portrait": "/content/heroes/룩-85e6bc380c.png",
+      "typeImage": "/content/types/RoleIcon_03-c8af05f852.png",
+      "hasEffect": false,
+      "transLevel": null,
+      "history": [],
+      "description": null,
+      "atk": "727",
+      "def": "892",
+      "hp": "4825",
+      "spd": "19",
+      "crit_rate": "5",
+      "crit_dmg": "150",
+      "weak_rate": "0",
+      "block_rate": "0",
+      "dmg_reduce": "0",
+      "eff_hit": "0",
+      "eff_res": "0",
+      "attack": null,
+      "active_1": null,
+      "active_2": null,
+      "passive": null
+    },
+    {
+      "id": "hero-%EB%A6%AC",
+      "slug": "%EB%A6%AC",
+      "name": "리",
+      "nickname": "분노의 파계승",
+      "group": "에반원정대",
+      "rarity": "희귀",
+      "type": "방어형",
+      "portrait": "/content/heroes/리-b269e6f4cb.png",
+      "typeImage": "/content/types/RoleIcon_03-c8af05f852.png",
+      "hasEffect": false,
+      "transLevel": null,
+      "history": [],
+      "description": null,
+      "atk": "704",
+      "def": "818",
+      "hp": "4572",
+      "spd": "16",
+      "crit_rate": "5",
+      "crit_dmg": "150",
+      "weak_rate": "0",
+      "block_rate": "0",
+      "dmg_reduce": "0",
+      "eff_hit": "0",
+      "eff_res": "0",
+      "attack": null,
+      "active_1": null,
+      "active_2": null,
+      "passive": null
+    },
+    {
+      "id": "hero-%EB%A6%AC%EB%82%98",
+      "slug": "%EB%A6%AC%EB%82%98",
+      "name": "리나",
+      "nickname": "전설의 심금",
+      "group": "달빛의 섬",
+      "rarity": "전설",
+      "type": "지원형",
+      "portrait": "/content/heroes/리나-d8638711fa.png",
+      "typeImage": "/content/types/RoleIcon_04-3c4c7a32e8.png",
+      "hasEffect": false,
+      "transLevel": null,
+      "history": [],
+      "description": null,
+      "atk": "1096",
+      "def": "675",
+      "hp": "4458",
+      "spd": "19",
+      "crit_rate": "5",
+      "crit_dmg": "150",
+      "weak_rate": "0",
+      "block_rate": "0",
+      "dmg_reduce": "0",
+      "eff_hit": "0",
+      "eff_res": "0",
+      "attack": null,
+      "active_1": null,
+      "active_2": null,
+      "passive": null
+    },
+    {
+      "id": "hero-%EB%A6%B0",
+      "slug": "%EB%A6%B0",
+      "name": "린",
+      "nickname": "용제강림",
+      "group": "사황",
+      "rarity": "전설+",
+      "type": "마법형",
+      "portrait": "/content/heroes/린-c5b497f334.png",
+      "typeImage": "/content/types/RoleIcon_02-3bdba832b0.png",
+      "hasEffect": true,
+      "transLevel": null,
+      "history": [],
+      "description": null,
+      "atk": "1500",
+      "def": "571",
+      "hp": "3326",
+      "spd": "29",
+      "crit_rate": "5",
+      "crit_dmg": "150",
+      "weak_rate": "0",
+      "block_rate": "0",
+      "dmg_reduce": "0",
+      "eff_hit": "0",
+      "eff_res": "0",
+      "attack": {
+        "id": "skill-61",
+        "name": "기본 공격",
+        "type": "Attack",
+        "description": "단일 적군\n- 마법 공격력의 100%만큼 1회 피해\n- 혼란 [45% 확률] [타격 1회]\n스킬 강화 효과\n- 피해량 상승 : 마법 공격력의 120%\n- 효과 상승 : 혼란 확률 증가 50%",
+        "cooltime": null,
+        "image": "/content/skills/uJHJeaMcm6Q8Csd7lsFoN6Lq1dC8MULlCUj1nxvE9a7GZAQ1d1YqjuZUgvy6oMiAgJqXMeC_m4vaWFO5wKlY9g-5-b7a15819a4.webp",
+        "effects": [],
+        "linkedHeroes": {
+          "attack": [
+            "린"
+          ],
+          "active_1": [],
+          "active_2": [],
+          "passive": []
+        }
+      },
+      "active_1": {
+        "id": "skill-62",
+        "name": "용린성하",
+        "type": "Active",
+        "description": "적군 4명\n- 마법 공격력의 62%만큼 2회 피해\n- 대상의 턴제 버프 감소 2턴 [100% 확률]\n스킬 강화 효과\n- 피해량 추가 : 치명타 발생 시 각 공격마다 마법 공격력의 37%만큼 추가 피해\n6초월 효과\n- 효과 추가 : 해당 스킬의 직접 피해로 적군 처치 시 [용린성하] 쿨타임 초기화",
+        "cooltime": "80",
+        "image": "/content/skills/ghE04jyMFElHd0IkkRcDVajCTpVL7lyjpBGIP98dRri2JoXe3IvSksoXhcK5zBO8RW5wX2k42xP6Jk-NNvCfXA-6052951e48.webp",
+        "effects": [],
+        "linkedHeroes": {
+          "attack": [],
+          "active_1": [
+            "린"
+          ],
+          "active_2": [],
+          "passive": []
+        }
+      },
+      "active_2": {
+        "id": "skill-63",
+        "name": "용제의 진노",
+        "type": "Active",
+        "description": "적군 4명\n- 마법 공격력의 70%만큼 2회 피해\n- 대상의 현재 생명력이 50% 이상일 경우 각 공격마다 마법 공격력의 30%만큼 추가 피해\n- 혼란 [100% 확률] [타격 2회]\n스킬 강화 효과\n- 피해량 상승 : 마법 공격력의 90%\n- 피해량 상승 : 대상의 현재 생명력이 50% 이상일 경우 각 공격마다 마법 공격력의 42%",
+        "cooltime": "96",
+        "image": "/content/skills/nwgnNKemRWbbj7coRlUvBrNoSnrmTzzKVQUhO1i0N-ab8F2UpAwz5hgL0J0asvp5QG64X4LcaZN5jC-58k20Kg-495a7bbf9e.webp",
+        "effects": [],
+        "linkedHeroes": {
+          "attack": [],
+          "active_1": [],
+          "active_2": [
+            "린"
+          ],
+          "passive": []
+        }
+      },
+      "passive": {
+        "id": "skill-64",
+        "name": "홍린포",
+        "type": "Passive",
+        "description": "자신\n- 사망 시 생명력 80%로 부활 (전투당 1회 발동)\n- 자신의 스킬 1회 발동 시 시전자 마법 공격력의 67% 만큼 보호막 [3턴 지속]\n- 공격력 비례 치명타 확률 증가 [상시]\n스킬 강화 효과\n- 효과 상승 : 공격력 비례 치명타 확률 최대 증가 수치 33%\n2초월 효과\n- 효과 상승 : 부활 시 생명력 100%\n- 효과 추가 : 자신 부활 시 모든 피해 무효화 [피격 2회]",
+        "cooltime": null,
+        "image": "/content/skills/nNYCP5jMsY3ah_5DTuS2C4C1KY-y7CRcZhLZ_Z-30yUEfu18ciHlozKlUgotTtwoaulWwzsm0lrL2DCgrn-3nA-85f6f18fa3.webp",
+        "effects": [],
+        "linkedHeroes": {
+          "attack": [],
+          "active_1": [],
+          "active_2": [],
+          "passive": [
+            "린"
+          ]
+        }
+      }
+    },
+    {
+      "id": "hero-%EB%A9%94%EC%9D%B4",
+      "slug": "%EB%A9%94%EC%9D%B4",
+      "name": "메이",
+      "nickname": "사랑의 배달부",
+      "group": "테라영지",
+      "rarity": "희귀",
+      "type": "공격형",
+      "portrait": "/content/heroes/메이-3611b4f7c4.png",
+      "typeImage": "/content/types/RoleIcon_01-1e0c023e6e.png",
+      "hasEffect": false,
+      "transLevel": null,
+      "history": [],
+      "description": null,
+      "atk": "1389",
+      "def": "533",
+      "hp": "3174",
+      "spd": "25",
+      "crit_rate": "5",
+      "crit_dmg": "150",
+      "weak_rate": "0",
+      "block_rate": "0",
+      "dmg_reduce": "0",
+      "eff_hit": "0",
+      "eff_res": "0",
+      "attack": null,
+      "active_1": null,
+      "active_2": null,
+      "passive": null
+    },
+    {
+      "id": "hero-%EB%A9%9C%ED%82%A4%EB%A5%B4",
+      "slug": "%EB%A9%9C%ED%82%A4%EB%A5%B4",
+      "name": "멜키르",
+      "nickname": "혼돈의 흑기사",
+      "group": "다크나이츠",
+      "rarity": "전설+",
+      "type": "마법형",
+      "portrait": "/content/heroes/멜키르-80129f595a.png",
+      "typeImage": "/content/types/RoleIcon_02-3bdba832b0.png",
+      "hasEffect": true,
+      "transLevel": null,
+      "history": [],
+      "description": null,
+      "atk": "1500",
+      "def": "571",
+      "hp": "3326",
+      "spd": "29",
+      "crit_rate": "5",
+      "crit_dmg": "150",
+      "weak_rate": "0",
+      "block_rate": "0",
+      "dmg_reduce": "0",
+      "eff_hit": "0",
+      "eff_res": "0",
+      "attack": {
+        "id": "skill-45",
+        "name": "기본 공격",
+        "type": "Attack",
+        "description": "단일 적군\n- 마법 공격력의 100%만큼 1회 피해\n- 전투 시작 시 아군에 마법형 영웅이 3명 이상 있을 경우, 마력 역류 [45% 확률] [2턴 지속]\n스킬 강화 효과\n- 피해량 상승: 마법 공격력의 120%\n- 확률 상승: 마력 역류 50%\n6초월 효과\n- 효과 변경 : 마력 역류 피해량 15%로 변경, 마력 역류 전이 대상 4명으로 변경",
+        "cooltime": null,
+        "image": "/content/skills/lbdCz2lJC477AGAxRCKin9JN2UjhDqRKKI_bjNAxBq8cFb9FjPWC_pom477Ei-NLBwU_dbp1hqyTsWX0m4YxcQ-1-cd4f122b02.webp",
+        "effects": [],
+        "linkedHeroes": {
+          "attack": [
+            "멜키르"
+          ],
+          "active_1": [],
+          "active_2": [],
+          "passive": []
+        }
+      },
+      "active_1": {
+        "id": "skill-46",
+        "name": "어둠 강탈",
+        "type": "Active",
+        "description": "모든 마법형 아군\n- 시전자 마법 공격력의 40%만큼 보호막 [2턴 지속]\n모든 적군\n- 마법 공격력의 60%만큼 1회 피해\n- 기절 [45% 확률] [2턴 지속]\n스킬 강화 효과\n- 피해량 상승 : 마법 공격력의 70%\n- 확률 상승 : 기절 확률 55%",
+        "cooltime": "96",
+        "image": "/content/skills/iUrhchSZWmP7TC_m-Xjs-OPH7mT-QE9rwsqU1rjtx7W4FtzeblyqmGvj_pnzqiAfPoTZ1kUm8XckSCabVwxZfg-7566d6ec6b.webp",
+        "effects": [],
+        "linkedHeroes": {
+          "attack": [],
+          "active_1": [
+            "멜키르"
+          ],
+          "active_2": [],
+          "passive": []
+        }
+      },
+      "active_2": {
+        "id": "skill-47",
+        "name": "금지된 실험",
+        "type": "Active",
+        "description": "모든 적군\n- 마법 공격력의 52%만큼 2회 피해\n- 전투 시작 시 아군에 마법형 영웅이 3명 이상 있을 경우, 각 공격마다 마력 역류 [40% 확률] [2턴 지속]\n- 받는 회복량 감소 [100% 확률] [3턴 지속]\n스킬 강화 효과\n- 피해량 상승 : 마법 공격력의 60%\n- 확률 상승 : 마력 역류 50%\n6초월 효과\n- 효과 변경 : 마력 역류 피해량 15%로 변경, 마력 역류 전이 대상 4명으로 변경",
+        "cooltime": "88",
+        "image": "/content/skills/fS5qthWwTtpNaXuJtfaCnHkxs_NrfVfAfHP6BmpNLZSTW3wOJMi5gjahMAVUG0c3bhnggE1P03NLjycJVw2i2w-fda13e74c6.webp",
+        "effects": [],
+        "linkedHeroes": {
+          "attack": [],
+          "active_1": [],
+          "active_2": [
+            "멜키르"
+          ],
+          "passive": []
+        }
+      },
+      "passive": {
+        "id": "skill-48",
+        "name": "타락한 마법사",
+        "type": "Passive",
+        "description": "자신\n- 축복 [상시]\n모든 적군\n- 효과 저항 감소 [상시]\n스킬 강화 효과\n- 효과 상승 : 축복의 피격 제한 수치가 최대 생명력의 25%를 넘을 수 없습니다. \n2초월 효과\n[적군 3명] \n- 효과 추가 : 전투 시작 시 아군에 마법형 영웅이 3명 이상 있을 경우, 자신의 모든 공격 3회 발동 시 마력 역류 [100% 확률] [1턴 지속]\n6초월 효과\n- 효과 변경 : 마력 역류 피해량 15%로 변경, 마력 역류 전이 대상 4명으로 변경",
+        "cooltime": null,
+        "image": "/content/skills/ZCtUBQ33L0469CvaQCS-IJYfCPn2HVc_fyyir_RyVarWrFRm9H7ASwNRuKnvhL7Oq2DTGGo5FwSNCunfOz8kww-12ce2a1b27.webp",
+        "effects": [],
+        "linkedHeroes": {
+          "attack": [],
+          "active_1": [],
+          "active_2": [],
+          "passive": [
+            "멜키르"
+          ]
+        }
+      }
+    },
+    {
+      "id": "hero-%EB%AF%B8%ED%98%B8",
+      "slug": "%EB%AF%B8%ED%98%B8",
+      "name": "미호",
+      "nickname": "황비가 된 소녀",
+      "group": "숨은 강자들",
+      "rarity": "전설",
+      "type": "마법형",
+      "portrait": "/content/heroes/미호-c1d8d01d8c.png",
+      "typeImage": "/content/types/RoleIcon_02-3bdba832b0.png",
+      "hasEffect": false,
+      "transLevel": null,
+      "history": [],
+      "description": null,
+      "atk": "1500",
+      "def": "571",
+      "hp": "3326",
+      "spd": "29",
+      "crit_rate": "5",
+      "crit_dmg": "150",
+      "weak_rate": "0",
+      "block_rate": "0",
+      "dmg_reduce": "0",
+      "eff_hit": "0",
+      "eff_res": "0",
+      "attack": null,
+      "active_1": null,
+      "active_2": null,
+      "passive": null
+    },
+    {
+      "id": "hero-%EB%B0%94%EB%84%A4%EC%82%AC",
+      "slug": "%EB%B0%94%EB%84%A4%EC%82%AC",
+      "name": "바네사",
+      "nickname": "시간 목격자",
+      "group": "세븐나이츠",
+      "rarity": "전설+",
+      "type": "마법형",
+      "portrait": "/content/heroes/바네사-9391dfab71.png",
+      "typeImage": "/content/types/RoleIcon_02-3bdba832b0.png",
+      "hasEffect": true,
+      "transLevel": null,
+      "history": [],
+      "description": null,
+      "atk": "1500",
+      "def": "571",
+      "hp": "3326",
+      "spd": "29",
+      "crit_rate": "5",
+      "crit_dmg": "150",
+      "weak_rate": "0",
+      "block_rate": "0",
+      "dmg_reduce": "0",
+      "eff_hit": "0",
+      "eff_res": "0",
+      "attack": {
+        "id": "skill-29",
+        "name": "기본 공격",
+        "type": "Attack",
+        "description": "!단일 적군\n- 마법 공격력의 100% 만큼 1회 피해\n#스킬 강화 효과\n- 피해량 상승 : 마법 공격력의 130%",
+        "cooltime": null,
+        "image": "/content/skills/ZTgMOS0leHtJdrW3V-XgCkqIYwZv7r0ctijjjAU5wI8s9By9AxbRWJTQBoVK9qjPAE5xb8Z2JInHWsFiNqNjlw-e3f67354b7.webp",
+        "effects": [],
+        "linkedHeroes": {
+          "attack": [
+            "바네사"
+          ],
+          "active_1": [],
+          "active_2": [],
+          "passive": []
+        }
+      },
+      "active_1": {
+        "id": "skill-30",
+        "name": "모래열풍",
+        "type": "Active",
+        "description": "!적군 3명\n- 마법 공격력의 95% 만큼 2회 관통 피해\n- 스킬 쿨타임 증가 19초 [70% 확률]\n#스킬 강화 효과\n- 피해량 상승 : 마법 공격력의 110%\n- 효과 상승 : 스킬 쿨타임 증가 23초\n@2초월 효과\n- 효과 추가 : 버프 해제 2개 [100% 확률]",
+        "cooltime": "84",
+        "image": "/content/skills/pXoLv3xwXDdUw3hEJDayPPbspZt-_V-4NxBJ3LvMzP3XvdO3y9qpOYPxmYwZ5hsoI0eJKmX3-0NuLDRO9ZQmgA-5c86b1ef9a.webp",
+        "effects": [],
+        "linkedHeroes": {
+          "attack": [],
+          "active_1": [
+            "바네사"
+          ],
+          "active_2": [],
+          "passive": []
+        }
+      },
+      "active_2": {
+        "id": "skill-31",
+        "name": "메마른 해일",
+        "type": "Active",
+        "description": "!적군 4명\n- 마법 공격력의 70% 만큼 2회 피해\n- 석화 [40% 확률] [2턴 지속]\n#스킬 강화 효과\n- 피해량 상승 : 마법 공격력의 82%\n- 확률 상승 : 석화 확률 50%",
+        "cooltime": "96",
+        "image": "/content/skills/rYpZ8KKDtOSnZJtfMsK1w7YiVAdk97gsTxkNRUoFvZJkb_IUzZVdY30376nniTiPi0lb3CrbI8yyzSBUztqBEw-47437988d7.webp",
+        "effects": [],
+        "linkedHeroes": {
+          "attack": [],
+          "active_1": [],
+          "active_2": [
+            "바네사"
+          ],
+          "passive": []
+        }
+      },
+      "passive": {
+        "id": "skill-32",
+        "name": "사막의 마법사",
+        "type": "Passive",
+        "description": "!자신\n- 모든 피해 면역 [2턴 지속]\n!모든 적군\n- 방어력 20% 감소 [상시]\n#스킬 강화 효과\n- 턴 상승 : 모든 피해 면역 지속 3턴\n- 효과 상승 : 방어력 감소 24%\n@@6초월 효과\n모든 적군\n- 효과 추가 : 자신의 스킬 1회 발동 시 마법 취약 24% [100% 확률] [2턴 지속]",
+        "cooltime": null,
+        "image": "/content/skills/au1pQU4jeUWKqrg0stmEL4x1i0NwaReSemvgVYurE8s12TqwFuVBF4zImoSTuBjNNTmG8dmuTPtVQOzEPB3X9A-e34380f562.webp",
+        "effects": [],
+        "linkedHeroes": {
+          "attack": [],
+          "active_1": [],
+          "active_2": [],
+          "passive": [
+            "바네사"
+          ]
+        }
+      }
+    },
+    {
+      "id": "hero-%EB%B0%9C%EB%A6%AC%EC%8A%A4%ED%83%80",
+      "slug": "%EB%B0%9C%EB%A6%AC%EC%8A%A4%ED%83%80",
+      "name": "발리스타",
+      "nickname": "그림자 사냥꾼",
+      "group": "그림자단",
+      "rarity": "전설",
+      "type": "공격형",
+      "portrait": "/content/heroes/발리스타-dac3c23969.png",
+      "typeImage": "/content/types/RoleIcon_01-1e0c023e6e.png",
+      "hasEffect": false,
+      "transLevel": null,
+      "history": [],
+      "description": null,
+      "atk": "1500",
+      "def": "571",
+      "hp": "3326",
+      "spd": "29",
+      "crit_rate": "5",
+      "crit_dmg": "150",
+      "weak_rate": "0",
+      "block_rate": "0",
+      "dmg_reduce": "0",
+      "eff_hit": "0",
+      "eff_res": "0",
+      "attack": null,
+      "active_1": null,
+      "active_2": null,
+      "passive": null
+    },
+    {
+      "id": "hero-%EB%B2%A0%EC%9D%B8",
+      "slug": "%EB%B2%A0%EC%9D%B8",
+      "name": "베인",
+      "nickname": "야망의 반역자",
+      "group": "암흑의 무덤",
+      "rarity": "희귀",
+      "type": "마법형",
+      "portrait": "/content/heroes/베인-1b2cd256d2.png",
+      "typeImage": "/content/types/RoleIcon_02-3bdba832b0.png",
+      "hasEffect": false,
+      "transLevel": null,
+      "history": [],
+      "description": null,
+      "atk": "1389",
+      "def": "533",
+      "hp": "3174",
+      "spd": "25",
+      "crit_rate": "5",
+      "crit_dmg": "150",
+      "weak_rate": "0",
+      "block_rate": "0",
+      "dmg_reduce": "0",
+      "eff_hit": "0",
+      "eff_res": "0",
+      "attack": null,
+      "active_1": null,
+      "active_2": null,
+      "passive": null
+    },
+    {
+      "id": "hero-%EB%B2%A8%EB%A6%AC%EC%B9%B4",
+      "slug": "%EB%B2%A8%EB%A6%AC%EC%B9%B4",
+      "name": "벨리카",
+      "nickname": "어둠불꽃",
+      "group": "모험가",
+      "rarity": "전설",
+      "type": "마법형",
+      "portrait": "/content/heroes/벨리카-8f1b69c7b6.png",
+      "typeImage": "/content/types/RoleIcon_02-3bdba832b0.png",
+      "hasEffect": false,
+      "transLevel": null,
+      "history": [],
+      "description": null,
+      "atk": "1500",
+      "def": "571",
+      "hp": "3326",
+      "spd": "29",
+      "crit_rate": "5",
+      "crit_dmg": "150",
+      "weak_rate": "0",
+      "block_rate": "0",
+      "dmg_reduce": "0",
+      "eff_hit": "0",
+      "eff_res": "0",
+      "attack": null,
+      "active_1": null,
+      "active_2": null,
+      "passive": null
+    },
+    {
+      "id": "hero-%EB%B8%94%EB%9E%99%EB%A1%9C%EC%A6%88",
+      "slug": "%EB%B8%94%EB%9E%99%EB%A1%9C%EC%A6%88",
+      "name": "블랙로즈",
+      "nickname": "밤에 피는 꽃",
+      "group": "그림자단",
+      "rarity": "희귀",
+      "type": "공격형",
+      "portrait": "/content/heroes/블랙로즈-48e457c2ad.png",
+      "typeImage": "/content/types/RoleIcon_01-1e0c023e6e.png",
+      "hasEffect": false,
+      "transLevel": null,
+      "history": [],
+      "description": null,
+      "atk": "1389",
+      "def": "533",
+      "hp": "3174",
+      "spd": "25",
+      "crit_rate": "5",
+      "crit_dmg": "150",
+      "weak_rate": "0",
+      "block_rate": "0",
+      "dmg_reduce": "0",
+      "eff_hit": "0",
+      "eff_res": "0",
+      "attack": null,
+      "active_1": null,
+      "active_2": null,
+      "passive": null
+    },
+    {
+      "id": "hero-%EB%B9%84%EB%8B%B4",
+      "slug": "%EB%B9%84%EB%8B%B4",
+      "name": "비담",
+      "nickname": "풍월주",
+      "group": "천자의 땅 동쪽",
+      "rarity": "전설",
+      "type": "공격형",
+      "portrait": "/content/heroes/비담-cdac305fe0.png",
+      "typeImage": "/content/types/RoleIcon_01-1e0c023e6e.png",
+      "hasEffect": false,
+      "transLevel": null,
+      "history": [],
+      "description": null,
+      "atk": "1500",
+      "def": "571",
+      "hp": "3326",
+      "spd": "29",
+      "crit_rate": "5",
+      "crit_dmg": "150",
+      "weak_rate": "0",
+      "block_rate": "0",
+      "dmg_reduce": "0",
+      "eff_hit": "0",
+      "eff_res": "0",
+      "attack": null,
+      "active_1": null,
+      "active_2": null,
+      "passive": null
+    },
+    {
+      "id": "hero-%EB%B9%84%EC%8A%A4%ED%82%B7",
+      "slug": "%EB%B9%84%EC%8A%A4%ED%82%B7",
+      "name": "비스킷",
+      "nickname": "불꽃의 대장장이",
+      "group": "테라영지",
+      "rarity": "전설+",
+      "type": "지원형",
+      "portrait": "/content/heroes/비스킷-04af98cf8b.png",
+      "typeImage": "/content/types/RoleIcon_04-3c4c7a32e8.png",
+      "hasEffect": true,
+      "transLevel": null,
+      "history": [],
+      "description": null,
+      "atk": "1096",
+      "def": "675",
+      "hp": "4458",
+      "spd": "19",
+      "crit_rate": "5",
+      "crit_dmg": "150",
+      "weak_rate": "0",
+      "block_rate": "0",
+      "dmg_reduce": "0",
+      "eff_hit": "0",
+      "eff_res": "0",
+      "attack": null,
+      "active_1": null,
+      "active_2": null,
+      "passive": null
+    },
+    {
+      "id": "hero-%EB%B9%85%ED%86%A0%EB%A6%AC%EC%95%84",
+      "slug": "%EB%B9%85%ED%86%A0%EB%A6%AC%EC%95%84",
+      "name": "빅토리아",
+      "nickname": "해적왕",
+      "group": "모험가",
+      "rarity": "희귀",
+      "type": "만능형",
+      "portrait": "/content/heroes/빅토리아-0d15f1a445.png",
+      "typeImage": "/content/types/RoleIcon_05-f7672beb62.png",
+      "hasEffect": false,
+      "transLevel": null,
+      "history": [],
+      "description": null,
+      "atk": "1238",
+      "def": "616",
+      "hp": "3529",
+      "spd": "21",
+      "crit_rate": "5",
+      "crit_dmg": "150",
+      "weak_rate": "0",
+      "block_rate": "0",
+      "dmg_reduce": "0",
+      "eff_hit": "0",
+      "eff_res": "0",
+      "attack": null,
+      "active_1": null,
+      "active_2": null,
+      "passive": null
+    },
+    {
+      "id": "hero-%EC%82%AC%EB%9D%BC",
+      "slug": "%EC%82%AC%EB%9D%BC",
+      "name": "사라",
+      "nickname": "서큐버스 여왕",
+      "group": "복수자의 지옥",
+      "rarity": "희귀",
+      "type": "지원형",
+      "portrait": "/content/heroes/사라-199a606873.png",
+      "typeImage": "/content/types/RoleIcon_04-3c4c7a32e8.png",
+      "hasEffect": false,
+      "transLevel": null,
+      "history": [],
+      "description": null,
+      "atk": "1035",
+      "def": "632",
+      "hp": "4248",
+      "spd": "16",
+      "crit_rate": "5",
+      "crit_dmg": "150",
+      "weak_rate": "0",
+      "block_rate": "0",
+      "dmg_reduce": "0",
+      "eff_hit": "0",
+      "eff_res": "0",
+      "attack": null,
+      "active_1": null,
+      "active_2": null,
+      "passive": null
+    },
+    {
+      "id": "hero-%EC%84%B8%EB%9D%BC",
+      "slug": "%EC%84%B8%EB%9D%BC",
+      "name": "세라",
+      "nickname": "망령의 주인",
+      "group": "그림자단",
+      "rarity": "희귀",
+      "type": "마법형",
+      "portrait": "/content/heroes/세라-fa28e6c4dc.png",
+      "typeImage": "/content/types/RoleIcon_02-3bdba832b0.png",
+      "hasEffect": false,
+      "transLevel": null,
+      "history": [],
+      "description": null,
+      "atk": "1389",
+      "def": "533",
+      "hp": "3174",
+      "spd": "25",
+      "crit_rate": "5",
+      "crit_dmg": "150",
+      "weak_rate": "0",
+      "block_rate": "0",
+      "dmg_reduce": "0",
+      "eff_hit": "0",
+      "eff_res": "0",
+      "attack": null,
+      "active_1": null,
+      "active_2": null,
+      "passive": null
+    },
+    {
+      "id": "hero-%EC%84%B8%EC%9D%B8",
+      "slug": "%EC%84%B8%EC%9D%B8",
+      "name": "세인",
+      "nickname": "악마 봉인자",
+      "group": "성십자단",
+      "rarity": "전설",
+      "type": "공격형",
+      "portrait": "/content/heroes/세인-df49f5f275.png",
+      "typeImage": "/content/types/RoleIcon_01-1e0c023e6e.png",
+      "hasEffect": false,
+      "transLevel": null,
+      "history": [],
+      "description": null,
+      "atk": "1500",
+      "def": "571",
+      "hp": "3326",
+      "spd": "29",
+      "crit_rate": "5",
+      "crit_dmg": "150",
+      "weak_rate": "0",
+      "block_rate": "0",
+      "dmg_reduce": "0",
+      "eff_hit": "0",
+      "eff_res": "0",
+      "attack": null,
+      "active_1": null,
+      "active_2": null,
+      "passive": null
+    },
+    {
+      "id": "hero-%EC%86%8C%EC%9D%B4",
+      "slug": "%EC%86%8C%EC%9D%B4",
+      "name": "소이",
+      "nickname": "매의 눈",
+      "group": "천자의 땅 서쪽",
+      "rarity": "희귀",
+      "type": "공격형",
+      "portrait": "/content/heroes/소이-8ffce6073c.png",
+      "typeImage": "/content/types/RoleIcon_01-1e0c023e6e.png",
+      "hasEffect": false,
+      "transLevel": null,
+      "history": [],
+      "description": null,
+      "atk": "1389",
+      "def": "533",
+      "hp": "3174",
+      "spd": "25",
+      "crit_rate": "5",
+      "crit_dmg": "150",
+      "weak_rate": "0",
+      "block_rate": "0",
+      "dmg_reduce": "0",
+      "eff_hit": "0",
+      "eff_res": "0",
+      "attack": null,
+      "active_1": null,
+      "active_2": null,
+      "passive": null
+    },
+    {
+      "id": "hero-%EC%8A%A4%EB%8B%88%ED%8D%BC",
+      "slug": "%EC%8A%A4%EB%8B%88%ED%8D%BC",
+      "name": "스니퍼",
+      "nickname": "전설의 사냥꾼",
+      "group": "에반원정대",
+      "rarity": "희귀",
+      "type": "공격형",
+      "portrait": "/content/heroes/스니퍼-3a53e382ad.png",
+      "typeImage": "/content/types/RoleIcon_01-1e0c023e6e.png",
+      "hasEffect": false,
+      "transLevel": null,
+      "history": [],
+      "description": null,
+      "atk": "1389",
+      "def": "533",
+      "hp": "3174",
+      "spd": "25",
+      "crit_rate": "5",
+      "crit_dmg": "150",
+      "weak_rate": "0",
+      "block_rate": "0",
+      "dmg_reduce": "0",
+      "eff_hit": "0",
+      "eff_res": "0",
+      "attack": null,
+      "active_1": null,
+      "active_2": null,
+      "passive": null
+    },
+    {
+      "id": "hero-%EC%8A%A4%ED%8C%8C%EC%9D%B4%ED%81%AC",
+      "slug": "%EC%8A%A4%ED%8C%8C%EC%9D%B4%ED%81%AC",
+      "name": "스파이크",
+      "nickname": "혹한의 폭군",
+      "group": "세븐나이츠",
+      "rarity": "전설+",
+      "type": "만능형",
+      "portrait": "/content/heroes/스파이크-d0893022cd.png",
+      "typeImage": "/content/types/RoleIcon_05-f7672beb62.png",
+      "hasEffect": true,
+      "transLevel": null,
+      "history": [],
+      "description": null,
+      "atk": "1306",
+      "def": "659",
+      "hp": "3693",
+      "spd": "25",
+      "crit_rate": "5",
+      "crit_dmg": "150",
+      "weak_rate": "0",
+      "block_rate": "0",
+      "dmg_reduce": "0",
+      "eff_hit": "0",
+      "eff_res": "0",
+      "attack": {
+        "id": "skill-17",
+        "name": "기본 공격",
+        "type": "Attack",
+        "description": "!단일 아군\n- 자신의 기본 공격 2회 발동 후 디버프 해제 1개\n!단일 적군\n- 물리 공격력의 50%, 시전자 최대 생명력의 12%만큼 1회 피해\n#스킬 강화 효과\n- 피해량 상승 : 물리 공격력의 65%, 시전자 최대 생명력의 15%",
+        "cooltime": null,
+        "image": "/content/skills/uJHJeaMcm6Q8Csd7lsFoN6Lq1dC8MULlCUj1nxvE9a7GZAQ1d1YqjuZUgvy6oMiAgJqXMeC_m4vaWFO5wKlY9g-57ba805eea.webp",
+        "effects": [
+          {
+            "id": "effect-12",
+            "name": "디버프 해제",
+            "description": "적용 순서대로 디버프를 해제합니다.",
+            "effectType": "buff",
+            "hasVariable": false,
+            "fulltime": false,
+            "icon": "/content/effects/BuffIcon_03001-5c0840cef4.png"
+          }
+        ],
+        "linkedHeroes": {
+          "attack": [
+            "스파이크"
+          ],
+          "active_1": [],
+          "active_2": [],
+          "passive": []
+        }
+      },
+      "active_1": {
+        "id": "skill-18",
+        "name": "혹한의 일격",
+        "type": "Active",
+        "description": "!단일 적군\n- 물리 공격력의 195%, 시전자 최대 생명력의 47%만큼 1회 피해\n- 빙결 [100% 확률] [3턴 지속]\n<<빙결>>\n!주 스킬 대상과 동일 열 적군\n- 물리 공격력의 65%, 시전자 최대 생명력의 15%만큼 1회 피해\n- 빙결 [60%확률] [3턴 지속]\n#스킬 강화 효과\n주 스킬 대상과 동일 열 적군\n- 피해량 상승 : 물리 공격력의 75%, 시전자 최대 생명력의 18%\n- 확률 상승 : 빙결 확률 70%\n@@6초월 효과\n자신\n- 회복 추가 : 최대 생명력의 30%만큼 생명력 회복",
+        "cooltime": "72",
+        "image": "/content/skills/yQh3jsAjv0E_wIN7E9EZYDgH8WkAyhr1GPdlDMXkz4SEv9oOIPN-j7n_QtpMTuavpahZnixkmDARIUBacrUBeg-5044b1140a.webp",
+        "effects": [
+          {
+            "id": "effect-42",
+            "name": "빙결",
+            "description": "지속시간 동안 행동할 수 없으며, 적의 공격에 적중 당할 시 빙결 상태가 해제됩니다. 빙결 상태 해제 시 대상 최대 생명력의 40%만큼 방어 무시 피해를 입습니다. (대상의 방어력을 40%(고정) 무시하며, 피해량은 시전자 공격력의 300%를 넘을 수 없습니다.)",
+            "effectType": "debuff",
+            "hasVariable": false,
+            "fulltime": false,
+            "icon": "/content/effects/Bufficon_11004-c459b18e5b.png"
+          }
+        ],
+        "linkedHeroes": {
+          "attack": [],
+          "active_1": [
+            "스파이크"
+          ],
+          "active_2": [],
+          "passive": []
+        }
+      },
+      "active_2": {
+        "id": "skill-19",
+        "name": "혹한의 지진",
+        "type": "Active",
+        "description": "!모든 적군\n- 물리 공격력의 32%, 시전자 최대 생명력의 8%만큼 2회 피해\n- 각 공격마다 빙결 [40% 확률] [2턴 지속]\n<<빙결>>\n#스킬 강화 효과\n- 피해량 상승 : 물리 공격력의 40%, 시전자 최대 생명력의 9%\n- 확률 상승 : 빙결 확률 50%\n@@6초월 효과\n자신\n- 회복 추가 : 최대 생명력의 30%만큼 생명력 회복",
+        "cooltime": "80",
+        "image": "/content/skills/5ZKuzkwmPHw3NosT0hgqDfiJj9Op3JS7Mr_LWkxxtNl4idfen7xtGj4GvY_dW2ylRB_3EE6t9NTntVud0RL1PA-022d884482.webp",
+        "effects": [
+          {
+            "id": "effect-42",
+            "name": "빙결",
+            "description": "지속시간 동안 행동할 수 없으며, 적의 공격에 적중 당할 시 빙결 상태가 해제됩니다. 빙결 상태 해제 시 대상 최대 생명력의 40%만큼 방어 무시 피해를 입습니다. (대상의 방어력을 40%(고정) 무시하며, 피해량은 시전자 공격력의 300%를 넘을 수 없습니다.)",
+            "effectType": "debuff",
+            "hasVariable": false,
+            "fulltime": false,
+            "icon": "/content/effects/Bufficon_11004-c459b18e5b.png"
+          }
+        ],
+        "linkedHeroes": {
+          "attack": [],
+          "active_1": [],
+          "active_2": [
+            "스파이크"
+          ],
+          "passive": []
+        }
+      },
+      "passive": {
+        "id": "skill-20",
+        "name": "혹한의 심장",
+        "type": "Passive",
+        "description": "!자신\n- 최대 생명력 비례 공격력 증가 : 자신의 최대 생명력 수치 1,000마다 공격력이 120만큼 증가합니다.\n최대 증가 수치 : 1,080 [상시]\n- 효과 적중 40% 증가 [상시]\n<<최대 생명력 비례 공격력 증가>>\n<<효과 적중 증가, 40>>\n!모든 아군\n- 효과 저항 28% 증가 [상시]\n<<효과 저항 증가, 28>>\n#스킬 강화 효과\n- 효과 상승 : 최대 생명력 비례 공격력 최대 증가 수치 1320 \n- 효과 상승 : 효과 적중 증가 49%\n@2초월 효과\n자신\n- 효과 추가 : 권능 (전투당 1회 발동)\n<<권능>>\n- 회복 추가 : 권능 발동 시 최대 생명력의 30% 만큼 생명력 회복",
+        "cooltime": null,
+        "image": "/content/skills/Lnp0uBHFvpls7RUT0DZG3KC9oecuGvmkpNGpyhsQDEtOSofVOC7XxENJR2RWl1tK7erms8LrwzeNmeKl18-REw-b5a22f4481.webp",
+        "effects": [
+          {
+            "id": "effect-56",
+            "name": "최대 생명력 비례 공격력 증가",
+            "description": "자신의 최대 생명력 수치 1,000마다 공격력이 120만큼 증가합니다.\n최대 증가 수치 : 1,080",
+            "effectType": "buff",
+            "hasVariable": false,
+            "fulltime": false,
+            "icon": "/content/effects/BuffIcon_02033_reverse-ee414e0673.png"
+          },
+          {
+            "id": "effect-72",
+            "name": "효과 적중 증가",
+            "description": "효과 적중이 n% 증가합니다.",
+            "effectType": "buff",
+            "hasVariable": true,
+            "fulltime": false,
+            "icon": "/content/effects/BuffIcon_01010_reverse-218297c7b8.png"
+          },
+          {
+            "id": "effect-71",
+            "name": "효과 저항 증가",
+            "description": "효과 저항이 n% 증가합니다.",
+            "effectType": "buff",
+            "hasVariable": true,
+            "fulltime": false,
+            "icon": "/content/effects/BuffIcon_01011_reverse-c03a305be7.png"
+          },
+          {
+            "id": "effect-9",
+            "name": "권능",
+            "description": "현재 생명력 이상의 피해를 입었을 때, 생명력 1로 1회 생존합니다.",
+            "effectType": "buff",
+            "hasVariable": false,
+            "fulltime": false,
+            "icon": "/content/effects/BuffIcon_02012_reverse-a1a8b468ed.png"
+          }
+        ],
+        "linkedHeroes": {
+          "attack": [],
+          "active_1": [],
+          "active_2": [],
+          "passive": [
+            "스파이크"
+          ]
+        }
+      }
+    },
+    {
+      "id": "hero-%EC%8B%A4%EB%B2%A0%EC%8A%A4%ED%83%80",
+      "slug": "%EC%8B%A4%EB%B2%A0%EC%8A%A4%ED%83%80",
+      "name": "실베스타",
+      "nickname": "파괴의 정화자",
+      "group": "???",
+      "rarity": "전설+",
+      "type": "마법형",
+      "portrait": "/content/heroes/실베스타-9b9871f6c7.png",
+      "typeImage": "/content/types/RoleIcon_02-3bdba832b0.png",
+      "hasEffect": true,
+      "transLevel": null,
+      "history": [],
+      "description": null,
+      "atk": "1500",
+      "def": "571",
+      "hp": "3326",
+      "spd": "29",
+      "crit_rate": "5",
+      "crit_dmg": "150",
+      "weak_rate": "0",
+      "block_rate": "0",
+      "dmg_reduce": "0",
+      "eff_hit": "0",
+      "eff_res": "0",
+      "attack": null,
+      "active_1": null,
+      "active_2": null,
+      "passive": null
+    },
+    {
+      "id": "hero-%EC%8B%A4%EB%B9%84%EC%95%84",
+      "slug": "%EC%8B%A4%EB%B9%84%EC%95%84",
+      "name": "실비아",
+      "nickname": "음령술사",
+      "group": "모험가",
+      "rarity": "희귀",
+      "type": "마법형",
+      "portrait": "/content/heroes/실비아-7cc300972a.png",
+      "typeImage": "/content/types/RoleIcon_02-3bdba832b0.png",
+      "hasEffect": false,
+      "transLevel": null,
+      "history": [],
+      "description": null,
+      "atk": "1389",
+      "def": "533",
+      "hp": "3174",
+      "spd": "25",
+      "crit_rate": "5",
+      "crit_dmg": "150",
+      "weak_rate": "0",
+      "block_rate": "0",
+      "dmg_reduce": "0",
+      "eff_hit": "0",
+      "eff_res": "0",
+      "attack": null,
+      "active_1": null,
+      "active_2": null,
+      "passive": null
+    },
+    {
+      "id": "hero-%EC%95%84%EB%9D%BC%EA%B3%A4",
+      "slug": "%EC%95%84%EB%9D%BC%EA%B3%A4",
+      "name": "아라곤",
+      "nickname": "총사령관",
+      "group": "테라영지",
+      "rarity": "전설",
+      "type": "방어형",
+      "portrait": "/content/heroes/아라곤-f26cd96283.png",
+      "typeImage": "/content/types/RoleIcon_03-c8af05f852.png",
+      "hasEffect": false,
+      "transLevel": null,
+      "history": [],
+      "description": null,
+      "atk": "727",
+      "def": "892",
+      "hp": "4825",
+      "spd": "19",
+      "crit_rate": "5",
+      "crit_dmg": "150",
+      "weak_rate": "0",
+      "block_rate": "0",
+      "dmg_reduce": "0",
+      "eff_hit": "0",
+      "eff_res": "0",
+      "attack": null,
+      "active_1": null,
+      "active_2": null,
+      "passive": null
+    },
+    {
+      "id": "hero-%EC%95%84%EB%A6%AC%EC%97%98",
+      "slug": "%EC%95%84%EB%A6%AC%EC%97%98",
+      "name": "아리엘",
+      "nickname": "빛의 축복",
+      "group": "에반원정대",
+      "rarity": "희귀",
+      "type": "마법형",
+      "portrait": "/content/heroes/아리엘-60bbd8f2fe.png",
+      "typeImage": "/content/types/RoleIcon_02-3bdba832b0.png",
+      "hasEffect": false,
+      "transLevel": null,
+      "history": [],
+      "description": null,
+      "atk": "1389",
+      "def": "533",
+      "hp": "3174",
+      "spd": "25",
+      "crit_rate": "5",
+      "crit_dmg": "150",
+      "weak_rate": "0",
+      "block_rate": "0",
+      "dmg_reduce": "0",
+      "eff_hit": "0",
+      "eff_res": "0",
+      "attack": null,
+      "active_1": null,
+      "active_2": null,
+      "passive": null
+    },
+    {
+      "id": "hero-%EC%95%84%EB%A9%9C%EB%A6%AC%EC%95%84",
+      "slug": "%EC%95%84%EB%A9%9C%EB%A6%AC%EC%95%84",
+      "name": "아멜리아",
+      "nickname": "히어로",
+      "group": "숨은 강자들",
+      "rarity": "전설",
+      "type": "공격형",
+      "portrait": "/content/heroes/아멜리아-4c0312083a.png",
+      "typeImage": "/content/types/RoleIcon_01-1e0c023e6e.png",
+      "hasEffect": false,
+      "transLevel": null,
+      "history": [],
+      "description": null,
+      "atk": "1500",
+      "def": "571",
+      "hp": "3326",
+      "spd": "29",
+      "crit_rate": "5",
+      "crit_dmg": "150",
+      "weak_rate": "0",
+      "block_rate": "0",
+      "dmg_reduce": "0",
+      "eff_hit": "0",
+      "eff_res": "0",
+      "attack": null,
+      "active_1": null,
+      "active_2": null,
+      "passive": null
+    },
+    {
+      "id": "hero-%EC%95%84%EC%88%98%EB%9D%BC",
+      "slug": "%EC%95%84%EC%88%98%EB%9D%BC",
+      "name": "아수라",
+      "nickname": "황실 친위대",
+      "group": "어둠의 안식처",
+      "rarity": "희귀",
+      "type": "만능형",
+      "portrait": "/content/heroes/아수라-1a6d2e7574.png",
+      "typeImage": "/content/types/RoleIcon_05-f7672beb62.png",
+      "hasEffect": false,
+      "transLevel": null,
+      "history": [],
+      "description": null,
+      "atk": "1238",
+      "def": "616",
+      "hp": "3529",
+      "spd": "21",
+      "crit_rate": "5",
+      "crit_dmg": "150",
+      "weak_rate": "0",
+      "block_rate": "0",
+      "dmg_reduce": "0",
+      "eff_hit": "0",
+      "eff_res": "0",
+      "attack": null,
+      "active_1": null,
+      "active_2": null,
+      "passive": null
+    },
+    {
+      "id": "hero-%EC%95%84%EC%9D%BC%EB%A6%B0",
+      "slug": "%EC%95%84%EC%9D%BC%EB%A6%B0",
+      "name": "아일린",
+      "nickname": "포디나의 여제",
+      "group": "세븐나이츠",
+      "rarity": "전설+",
+      "type": "만능형",
+      "portrait": "/content/heroes/아일린-1c17593225.png",
+      "typeImage": "/content/types/RoleIcon_05-f7672beb62.png",
+      "hasEffect": true,
+      "transLevel": null,
+      "history": [],
+      "description": null,
+      "atk": "1306",
+      "def": "659",
+      "hp": "3693",
+      "spd": "25",
+      "crit_rate": "5",
+      "crit_dmg": "150",
+      "weak_rate": "0",
+      "block_rate": "0",
+      "dmg_reduce": "0",
+      "eff_hit": "0",
+      "eff_res": "0",
+      "attack": {
+        "id": "skill-5",
+        "name": "기본 공격",
+        "type": "Attack",
+        "description": "!단일 적군\n- 물리 공격력의 100%만큼 1회 피해\n- 대상이 [감전] 상태일 경우 물리 공격력의 45%만큼 추가 피해\n#스킬 강화 효과\n- 피해량 상승 : 물리 공격력의 130%\n- 피해량 상승 : 대상이 [감전] 상태일 경우 물리 공격력의 55%",
+        "cooltime": null,
+        "image": "/content/skills/lbdCz2lJC477AGAxRCKin9JN2UjhDqRKKI_bjNAxBq8cFb9FjPWC_pom477Ei-NLBwU_dbp1hqyTsWX0m4YxcQ-c7807aac55.webp",
+        "effects": [],
+        "linkedHeroes": {
+          "attack": [
+            "아일린"
+          ],
+          "active_1": [],
+          "active_2": [],
+          "passive": []
+        }
+      },
+      "active_1": {
+        "id": "skill-6",
+        "name": "뇌제의 분노",
+        "type": "Active",
+        "description": "!단일 적군\n- 물리 공격력의 113%만큼 3회 피해\n- 각 공격마다 감전 [35% 확률] [3턴 지속]\n<<감전>>\n#스킬 강화 효과\n- 피해량 상승 : 물리 공격력의 136%\n- 확률 상승 : 감전 확률 45%\n@2초월 효과\n- 효과 추가 : 관통\n<<관통>>",
+        "cooltime": "60",
+        "image": "/content/skills/ae5kdpBGL0aDzLEr0h3HIPzpz-eHZ3AHNVqcouoMK_arkkw4xK94nObO26h9TzCY8EeNN1-eG_jSdDrk9MmUpQ-b2341f582d.webp",
+        "effects": [
+          {
+            "id": "effect-4",
+            "name": "감전",
+            "description": "지속시간 동안 행동할 수 없으며, 적의 공격에 적중 당할 시 시전자 공격력의 40% 추가 피해를 입습니다.",
+            "effectType": "debuff",
+            "hasVariable": false,
+            "fulltime": false,
+            "icon": "/content/effects/Bufficon_11003-6dd17bd73b.png"
+          }
+        ],
+        "linkedHeroes": {
+          "attack": [],
+          "active_1": [
+            "아일린"
+          ],
+          "active_2": [],
+          "passive": []
+        }
+      },
+      "active_2": {
+        "id": "skill-7",
+        "name": "청천벽력",
+        "type": "Active",
+        "description": "!모든 적군\n- 물리 공격력의 62%만큼 2회 피해\n- 각 공격마다 감전[30% 확률] [2턴 지속]\n<<감전>>\n#스킬 강화 효과\n- 피해량 상승 : 물리 공격력의 75%\n@2초월 효과\n- 효과 추가 : 관통\n<<관통>>\n@@6초월 효과\n- 확률 상승 : 감전 확률 40%",
+        "cooltime": "80",
+        "image": "/content/skills/Jf6e7uYF5NVeosVqdPMorI00El-mOH_Ie9nnIE9VzvmzGVlEoBzSlDJERAyOcwgN-0NswHQv8EHPy8PU93fMLQ-1349d9bb54.webp",
+        "effects": [
+          {
+            "id": "effect-4",
+            "name": "감전",
+            "description": "지속시간 동안 행동할 수 없으며, 적의 공격에 적중 당할 시 시전자 공격력의 40% 추가 피해를 입습니다.",
+            "effectType": "debuff",
+            "hasVariable": false,
+            "fulltime": false,
+            "icon": "/content/effects/Bufficon_11003-6dd17bd73b.png"
+          }
+        ],
+        "linkedHeroes": {
+          "attack": [],
+          "active_1": [],
+          "active_2": [
+            "아일린"
+          ],
+          "passive": []
+        }
+      },
+      "passive": {
+        "id": "skill-8",
+        "name": "포디나의 분노",
+        "type": "Passive",
+        "description": "!모든 아군\n- 물리 공격력 증가 [상시]\n<<물리 공격력 증가, 19>>\n!자신\n- 사망 시 생명력 80%로 부활 (전투당 1회 발동)\n<<부활>>\n#스킬 강화 효과\n- 효과 상승 : 물리 공격력 증가 효과 25%\n- 효과 상승 : 부활 시 생명력 100%",
+        "cooltime": null,
+        "image": "/content/skills/K3grBNxNLT8SkgoykALD-_etrDkTrAI9H29yZ2sQ5v_GmEzC_pceCSJLPdIGynIotGzT6fLOE16Ag4Eq_EJ1PA-51ad454a69.webp",
+        "effects": [
+          {
+            "id": "effect-23",
+            "name": "물리 공격력 증가",
+            "description": "물리 공격력이 n% 증가합니다.",
+            "effectType": "buff",
+            "hasVariable": true,
+            "fulltime": true,
+            "icon": "/content/effects/2025-11-16-14.49.15-82fb7df711.png"
+          },
+          {
+            "id": "effect-38",
+            "name": "부활",
+            "description": "사망한 대상이 부활합니다.",
+            "effectType": "buff",
+            "hasVariable": false,
+            "fulltime": false,
+            "icon": "/content/effects/2025-11-16-14.49.58-1aadcf7012.png"
+          }
+        ],
+        "linkedHeroes": {
+          "attack": [],
+          "active_1": [],
+          "active_2": [],
+          "passive": [
+            "아일린"
+          ]
+        }
+      }
+    },
+    {
+      "id": "hero-%EC%95%84%ED%82%AC%EB%9D%BC",
+      "slug": "%EC%95%84%ED%82%AC%EB%9D%BC",
+      "name": "아킬라",
+      "nickname": "최후의 집행자",
+      "group": "나이트크로우",
+      "rarity": "전설+",
+      "type": "방어형",
+      "portrait": "/content/heroes/아킬라-8b0a41761d.png",
+      "typeImage": "/content/types/RoleIcon_03-c8af05f852.png",
+      "hasEffect": true,
+      "transLevel": null,
+      "history": [],
+      "description": null,
+      "atk": "727",
+      "def": "892",
+      "hp": "4825",
+      "spd": "19",
+      "crit_rate": "5",
+      "crit_dmg": "150",
+      "weak_rate": "0",
+      "block_rate": "0",
+      "dmg_reduce": "0",
+      "eff_hit": "0",
+      "eff_res": "0",
+      "attack": {
+        "id": "skill-89",
+        "name": "기본 공격",
+        "type": "Attack",
+        "description": "단일 적군\n- 물리 공격력의 50%, 시전자 최대 생명력의 12%만큼 1회 피해\n스킬 강화 효과\n- 피해량 상승: 물리 공격력의 60%, 시전자 최대 생명력의 14%\n[현재 생명력이 가장 낮은 아군(자신 제외)]\n- 효과 추가: 시전자 최대 생명력의 8% 만큼 보호막 지속 2턴",
+        "cooltime": null,
+        "image": "/content/skills/xtvvcK_4lw2pntJYMuvykZRhgQwIQguWc5fEqGURKoRLlwCzogjtavGNjsj1NX0wD060SQXOcWiMwaoRoFrBkg-6be626230a.webp",
+        "effects": [],
+        "linkedHeroes": {
+          "attack": [
+            "아킬라"
+          ],
+          "active_1": [],
+          "active_2": [],
+          "passive": []
+        }
+      },
+      "active_1": {
+        "id": "skill-90",
+        "name": "잔혹한 폭풍",
+        "type": "Active",
+        "description": "모든 적군\n- 물리 공격력의 15%, 시전자 최대 생명력의 4%만큼 2회 피해\n- 각 공격마다 대상의 즉사 턴 감소 1턴 [60% 확률]\n- 약점 공격 확률 감소 [100% 확률] [3턴 지속]\n스킬 강화 효과\n- 확률 상승: 즉사 턴 감소 확률 70%\n- 효과 상승: 약점 공격 확률 감소 30%",
+        "cooltime": "104",
+        "image": "/content/skills/YwNXfDbqHSHzbHMepvgqwvobbXcVhvKJuklbMHtqgdndq_gQnuQ-mSyVxN95GOsBecypqw80fH1B8tGH04DJuQ-62899f4649.webp",
+        "effects": [],
+        "linkedHeroes": {
+          "attack": [],
+          "active_1": [
+            "아킬라"
+          ],
+          "active_2": [],
+          "passive": []
+        }
+      },
+      "active_2": {
+        "id": "skill-91",
+        "name": "칠흑의 장막",
+        "type": "Active",
+        "description": "모든 아군\n- 링크 [2턴 지속]\n적군 3명\n- 물리 공격력의 35%, 시전자 최대 생명력의 9%만큼 1회 피해\n- 즉사 [35% 확률] [3턴 지속]\n스킬 강화 효과\n- 확률 상승: 즉사 확률 40%\n- 효과 추가: 링크 감소율 10%",
+        "cooltime": "91",
+        "image": "/content/skills/yxE4fnx7if-w6i4Rodtlwm90E0CRZ8YpzCWsOkAb82yCuGgcIDYZjOGb2A4_MeWavmm2xHh_v_6UDM0YLCv5NQ-c99608c050.webp",
+        "effects": [],
+        "linkedHeroes": {
+          "attack": [],
+          "active_1": [],
+          "active_2": [
+            "아킬라"
+          ],
+          "passive": []
+        }
+      },
+      "passive": {
+        "id": "skill-92",
+        "name": "어둠의 인도자",
+        "type": "Passive",
+        "description": "자신\n- 자신의 생명력이 50%이하가 되면 시전자 최대 생명력의 34%만큼 생명력 회복 (전투당 1회 발동)\n모든 적군\n- 효과 저항 감소 [상시]\n스킬 강화 효과\n- 효과 상승: 효과 저항 감소 34%\n2초월 효과\n- 횟수 상승: 생명력 회복 (전투당 2회 발동)\n6초월 효과\n[자신]\n- 효과 추가 : 적군 사망 시 스킬 쿨타임 감소 10초",
+        "cooltime": null,
+        "image": "/content/skills/20pViACQf3XMF66XAOl9hZ1o7a_COZLXXRS_A1zoT4qOawhW-hZwYAHc2oAjZaOVOh5Z5X0Mx9PW8IOqI0DIAA-197aa064c8.webp",
+        "effects": [],
+        "linkedHeroes": {
+          "attack": [],
+          "active_1": [],
+          "active_2": [],
+          "passive": [
+            "아킬라"
+          ]
+        }
+      }
+    },
+    {
+      "id": "hero-%EC%95%A8%EB%A6%AC%EC%8A%A4",
+      "slug": "%EC%95%A8%EB%A6%AC%EC%8A%A4",
+      "name": "앨리스",
+      "nickname": "로맨틱",
+      "group": "테라영지",
+      "rarity": "전설",
+      "type": "지원형",
+      "portrait": "/content/heroes/앨리스-323ae7d43d.png",
+      "typeImage": "/content/types/RoleIcon_04-3c4c7a32e8.png",
+      "hasEffect": false,
+      "transLevel": null,
+      "history": [],
+      "description": null,
+      "atk": "1096",
+      "def": "675",
+      "hp": "4458",
+      "spd": "19",
+      "crit_rate": "5",
+      "crit_dmg": "150",
+      "weak_rate": "0",
+      "block_rate": "0",
+      "dmg_reduce": "0",
+      "eff_hit": "0",
+      "eff_res": "0",
+      "attack": null,
+      "active_1": null,
+      "active_2": null,
+      "passive": null
+    },
+    {
+      "id": "hero-%EC%97%90%EB%B0%98",
+      "slug": "%EC%97%90%EB%B0%98",
+      "name": "에반",
+      "nickname": "모험가",
+      "group": "에반원정대",
+      "rarity": "희귀",
+      "type": "방어형",
+      "portrait": "/content/heroes/에반-d5553eba3b.png",
+      "typeImage": "/content/types/RoleIcon_03-c8af05f852.png",
+      "hasEffect": false,
+      "transLevel": null,
+      "history": [],
+      "description": null,
+      "atk": "704",
+      "def": "818",
+      "hp": "4572",
+      "spd": "16",
+      "crit_rate": "5",
+      "crit_dmg": "150",
+      "weak_rate": "0",
+      "block_rate": "0",
+      "dmg_reduce": "0",
+      "eff_hit": "0",
+      "eff_res": "0",
+      "attack": {
+        "id": "skill-121",
+        "name": "기본 공격",
+        "type": "Attack",
+        "description": "단일 적군\n- 물리 공격력의 50%, 방어력의 60%만큼 1회 피해\n스킬 강화 효과\n- 피해량 상승 : 물리 공격력 60%, 방어력의 70%",
+        "cooltime": null,
+        "image": "/content/skills/Tex_Skill_1007501-a151ebb303.png",
+        "effects": [],
+        "linkedHeroes": {
+          "attack": [
+            "에반"
+          ],
+          "active_1": [],
+          "active_2": [],
+          "passive": []
+        }
+      },
+      "active_1": null,
+      "active_2": null,
+      "passive": null
+    },
+    {
+      "id": "hero-%EC%97%90%EC%8A%A4%ED%8C%8C%EB%8B%A4",
+      "slug": "%EC%97%90%EC%8A%A4%ED%8C%8C%EB%8B%A4",
+      "name": "에스파다",
+      "nickname": "악마 사냥꾼",
+      "group": "성십자단",
+      "rarity": "전설",
+      "type": "마법형",
+      "portrait": "/content/heroes/에스파다-541f862790.png",
+      "typeImage": "/content/types/RoleIcon_02-3bdba832b0.png",
+      "hasEffect": false,
+      "transLevel": null,
+      "history": [],
+      "description": null,
+      "atk": "1500",
+      "def": "571",
+      "hp": "3326",
+      "spd": "29",
+      "crit_rate": "5",
+      "crit_dmg": "150",
+      "weak_rate": "0",
+      "block_rate": "0",
+      "dmg_reduce": "0",
+      "eff_hit": "0",
+      "eff_res": "0",
+      "attack": null,
+      "active_1": null,
+      "active_2": null,
+      "passive": null
+    },
+    {
+      "id": "hero-%EC%97%90%EC%9D%B4%EC%8A%A4",
+      "slug": "%EC%97%90%EC%9D%B4%EC%8A%A4",
+      "name": "에이스",
+      "nickname": "총운검의 주인",
+      "group": "사황",
+      "rarity": "전설+",
+      "type": "만능형",
+      "portrait": "/content/heroes/에이스-82f8b5751e.png",
+      "typeImage": "/content/types/RoleIcon_05-f7672beb62.png",
+      "hasEffect": true,
+      "transLevel": null,
+      "history": [],
+      "description": null,
+      "atk": "1306",
+      "def": "659",
+      "hp": "3693",
+      "spd": "25",
+      "crit_rate": "5",
+      "crit_dmg": "150",
+      "weak_rate": "0",
+      "block_rate": "0",
+      "dmg_reduce": "0",
+      "eff_hit": "0",
+      "eff_res": "0",
+      "attack": {
+        "id": "skill-57",
+        "name": "기본 공격",
+        "type": "Attack",
+        "description": "단일 적군\n- 물리 공격력의 100%만큼 1회 피해\n스킬 강화 효과\n- 피해량 상승 : 물리 공격력의 130%",
+        "cooltime": null,
+        "image": "/content/skills/uJHJeaMcm6Q8Csd7lsFoN6Lq1dC8MULlCUj1nxvE9a7GZAQ1d1YqjuZUgvy6oMiAgJqXMeC_m4vaWFO5wKlY9g-4-55aba534e6.webp",
+        "effects": [],
+        "linkedHeroes": {
+          "attack": [
+            "에이스"
+          ],
+          "active_1": [],
+          "active_2": [],
+          "passive": []
+        }
+      },
+      "active_1": {
+        "id": "skill-58",
+        "name": "달빛 베기",
+        "type": "Active",
+        "description": "단일 적군\n- 대상의 턴제 버프 감소 3턴 [100% 확률]\n- 물리 공격력의 177%만큼 2회 피해\n스킬 강화 효과\n- 피해량 상승 : 물리 공격력의 237%",
+        "cooltime": "60",
+        "image": "/content/skills/jDJR61BgJCAyIJ7ZecNVelWvhDGUfgKVntFR7QovHxb9XaauB9pIwYq2LVYz65umNztyBWpEuoODlOXEuKPRjA-01e1ea0360.webp",
+        "effects": [],
+        "linkedHeroes": {
+          "attack": [],
+          "active_1": [
+            "에이스"
+          ],
+          "active_2": [],
+          "passive": []
+        }
+      },
+      "active_2": {
+        "id": "skill-59",
+        "name": "일도천화엽",
+        "type": "Active",
+        "description": "모든 적군\n- 물리 공격력의 140%만큼 1회 피해\n- 물리 취약 17% [100% 확률] [3턴 지속]\n- 받는 회복량 감소 44% [100% 확률] [3턴 지속]\n스킬 강화 효과\n- 효과 상승 : 물리 취약 22%\n- 효과 상승 : 받는 회복량 감소 56%\n2초월 효과\n[아군 3명]\n- 효과 추가 : 디버프 해제 2개",
+        "cooltime": "104",
+        "image": "/content/skills/Jtkaap_y0EKBsWF7qnEUZZ35hwBEddSWydNCkuueYKbl56kG8gNmOudYQTtKit91VeSoeOrJxmdndNeF7-YH9Q-32eff6e096.webp",
+        "effects": [],
+        "linkedHeroes": {
+          "attack": [],
+          "active_1": [],
+          "active_2": [
+            "에이스"
+          ],
+          "passive": []
+        }
+      },
+      "passive": {
+        "id": "skill-60",
+        "name": "불굴의 지휘",
+        "type": "Passive",
+        "description": "모든 적군\n- 방어력 감소 20% [상시]\n자신\n- 권능 [전투당 1회 발동]\n- 권능 발동 시 시전자 물리 공격력의 135%만큼 보호막 [3턴 지속]\n스킬 강화 효과\n- 효과 상승 : 방어력 감소 24%\n- 효과 상승 : 보호막 흡수량이 물리 공격력의 155%\n6초월 효과\n[자신]\n- 효과 추가 : 자신의 기본 공격 1회 발동 시 물리 공격력 증가 13% 1중첩 [최대 6중첩]",
+        "cooltime": null,
+        "image": "/content/skills/4Pc_QV26VS7l4JhQS6Y31OkuMx3h59CA0-9_qrmCKeHeOgCR_V2YSmc3qqYLBI-eFQxmWZT_3VneIz-7gUH7iA-61f3d68b3b.webp",
+        "effects": [],
+        "linkedHeroes": {
+          "attack": [],
+          "active_1": [],
+          "active_2": [],
+          "passive": [
+            "에이스"
+          ]
+        }
+      }
+    },
+    {
+      "id": "hero-%EC%97%98%EB%A6%AC%EC%8B%9C%EC%95%84",
+      "slug": "%EC%97%98%EB%A6%AC%EC%8B%9C%EC%95%84",
+      "name": "엘리시아",
+      "nickname": "혁명단장",
+      "group": "루미너스 혁명단",
+      "rarity": "전설+",
+      "type": "만능형",
+      "portrait": "/content/heroes/Tex_HeroIcon_101276Card-ed3bdcedd0.png",
+      "typeImage": "/content/types/RoleIcon_05-f7672beb62.png",
+      "hasEffect": true,
+      "transLevel": null,
+      "history": [
+        {
+          "date": "2025.11.13",
+          "content": "신규 영웅 업데이트"
+        }
+      ],
+      "description": null,
+      "atk": "1306",
+      "def": "659",
+      "hp": "3693",
+      "spd": "25",
+      "crit_rate": "5",
+      "crit_dmg": "150",
+      "weak_rate": "0",
+      "block_rate": "0",
+      "dmg_reduce": "0",
+      "eff_hit": "0",
+      "eff_res": "0",
+      "attack": {
+        "id": "skill-97",
+        "name": "기본 공격",
+        "type": "Attack",
+        "description": "단일 적군\n- 물리 공격력의 100% 만큼 1회 피해\n스킬 강화 효과\n- 피해량 상승: 물리 공격력의 130%",
+        "cooltime": null,
+        "image": "/content/skills/uJHJeaMcm6Q8Csd7lsFoN6Lq1dC8MULlCUj1nxvE9a7GZAQ1d1YqjuZUgvy6oMiAgJqXMeC_m4vaWFO5wKlY9g-7-caba120838.webp",
+        "effects": [],
+        "linkedHeroes": {
+          "attack": [
+            "엘리시아"
+          ],
+          "active_1": [],
+          "active_2": [],
+          "passive": []
+        }
+      },
+      "active_1": {
+        "id": "skill-98",
+        "name": "천공의 빛",
+        "type": "Active",
+        "description": "모든 적군\n- 물리 공격력의 80%만큼 1회 피해\n- 775만큼 1회 고정 피해\n- 침묵 [50% 확률] [2턴 지속]\n스킬 강화 효과\n- 피해량 상승 : 고정 피해 1,285\n- 확률 상승 : 침묵 확률 60%",
+        "cooltime": "104",
+        "image": "/content/skills/ViJ9b3i7nZ7KM80g9-6Q3ZuAaarhkIxZIOnA_p0LJYYahLSPdXnM2ebCcwAEuGNL4PQRaAPXAy26Q70r0_qpzA-4e28932aff.webp",
+        "effects": [],
+        "linkedHeroes": {
+          "attack": [],
+          "active_1": [
+            "엘리시아"
+          ],
+          "active_2": [],
+          "passive": []
+        }
+      },
+      "active_2": {
+        "id": "skill-99",
+        "name": "별빛 낙하",
+        "type": "Active",
+        "description": "모든 적군\n- 물리 공격력의 100%만큼 1회 피해\n- 대상의 턴제 버프 감소 2턴 [100% 확률]\n- 빗나감 확률 증가 [100% 확률] [3턴 지속]\n스킬 강화 효과\n- 피해량 상승 : 물리 공격력의 115%\n- 효과 상승 : 빗나감 확률 증가 48%\n6초월 효과\n- 효과 상승 : 턴제 버프 감소 3턴",
+        "cooltime": "104",
+        "image": "/content/skills/0tLDihVHh7zAaAarK3Ge_GkLeQhe3C_oSlmYViUfRgSnUyfuxBFVUwimaA-oX4FitT8kdDD-aYt-uUnRgfWxLg-a0300d871f.webp",
+        "effects": [],
+        "linkedHeroes": {
+          "attack": [],
+          "active_1": [],
+          "active_2": [
+            "엘리시아"
+          ],
+          "passive": []
+        }
+      },
+      "passive": {
+        "id": "skill-100",
+        "name": "혁명단의 인도자",
+        "type": "Passive",
+        "description": "자신\n- 시전자 물리 공격력의 160%만큼 보호막 [3턴 지속] (라운드당 1회 발동)\n- 자신의 생명력이 50% 이하가 되면 모든 피해 면역 [2턴 지속] (전투당 1회 발동)\n모든 아군\n- 자신의 스킬 1회 발동 시 디버프 해제 2개\n모든 적군\n- 방어력 감소 [상시]\n스킬 강화 효과\n- 효과 상승: 방어력 감소 24%\n2초월 효과\n[자신]\n- 회복 추가 : 자신의 생명력이 50% 이하가 되면 시전자 물리 공격력의 165%만큼 생명력 회복 (전투당 1회 발동)",
+        "cooltime": null,
+        "image": "/content/skills/eJJ4xeUHMI95IZ81dTa59nt7LjvBbVWdVwt5D28Bc_Ct6ECPzJqWOKIjha-cf_LZmV82kbLOiYUwjQ_ftC1UVw-15b0d2cee5.webp",
+        "effects": [],
+        "linkedHeroes": {
+          "attack": [],
+          "active_1": [],
+          "active_2": [],
+          "passive": [
+            "엘리시아"
+          ]
+        }
+      }
+    },
+    {
+      "id": "hero-%EC%97%B0%ED%9D%AC",
+      "slug": "%EC%97%B0%ED%9D%AC",
+      "name": "연희",
+      "nickname": "종말의 인도자",
+      "group": "(구)사황",
+      "rarity": "전설+",
+      "type": "마법형",
+      "portrait": "/content/heroes/연희-3050fc7ebe.png",
+      "typeImage": "/content/types/RoleIcon_02-3bdba832b0.png",
+      "hasEffect": true,
+      "transLevel": null,
+      "history": [],
+      "description": null,
+      "atk": "1500",
+      "def": "571",
+      "hp": "3326",
+      "spd": "29",
+      "crit_rate": "5",
+      "crit_dmg": "150",
+      "weak_rate": "0",
+      "block_rate": "0",
+      "dmg_reduce": "0",
+      "eff_hit": "0",
+      "eff_res": "0",
+      "attack": {
+        "id": "skill-69",
+        "name": "기본 공격",
+        "type": "Attack",
+        "description": "적군 1명\n- 마법 공격력의 100%만큼 1회 피해\n- 수면 40% 확률 [1턴 지속]\n스킬 강화 효과\n- 피해량 상승 : 마법 공격력의 130%만큼 1회 피해\n2초월 효과\n- 대상 수 변경 : 적군 2명",
+        "cooltime": null,
+        "image": "/content/skills/_5wylIAKOy1epRrBsIgnA-OmDvWcVCS_I-EloJguuTTLULW2I5FqUGDcIqr0H0Ic78CUHvM7BXsQOKQ-Qv43UA-1-9ac4bf434b.webp",
+        "effects": [],
+        "linkedHeroes": {
+          "attack": [
+            "연희"
+          ],
+          "active_1": [],
+          "active_2": [],
+          "passive": []
+        }
+      },
+      "active_1": {
+        "id": "skill-70",
+        "name": "파괴의 손짓",
+        "type": "Active",
+        "description": "적군 3명\n- 마법 공격력의 43%, 대상 최대 생명력의 6% 만큼 3회 피해\n- (생명력 비례 피해는 시전자 공격력의 100% 제한)\n스킬 강화 효과\n- 피해량 상승 : 마법 공격력의 51%, 대상 최대 생명력의 7%만큼 3회 피해",
+        "cooltime": "91",
+        "image": "/content/skills/dwTQfwL5tJ-elaVPiol3rl4ED9D8nq6cNmZlSBCbxe8UjlnLs6h_YY8tXCaP54Rn06N3x3P_pzsuH4O6Y2qrtsre56AcY5EZEun3J_tjH4A5j037ilWSLmCb4eRtYAFNLQEniusgOStiFUBUiBfEWg-c426fe15c0.webp",
+        "effects": [],
+        "linkedHeroes": {
+          "attack": [],
+          "active_1": [
+            "연희"
+          ],
+          "active_2": [],
+          "passive": []
+        }
+      },
+      "active_2": {
+        "id": "skill-71",
+        "name": "종말의 영면",
+        "type": "Active",
+        "description": "모든 적군\n- 마법 공격력의 41%만큼 3회 방어 무시 피해\n- 수면 [50% 확률] [2턴 지속]\n스킬 강화 효과\n- 피해량 상승 : 마법 공격력의 55%만큼 3회 방어 무시 피해",
+        "cooltime": "120",
+        "image": "/content/skills/BR8jX2wr56dZhcUzIH2VMpJl7v0WD6xtOtZqXaJ-Ra91oLo2p04UCCaBOkC7is6gPxDaNRt9e4MQMuxLfi3ErU98W4DTQzJHTmfYn7ryrJxdkVglI3-zlm80fC0W-8Qo0pd_Y1OdgS2md9aTHePHqw-71de7da7f4.webp",
+        "effects": [],
+        "linkedHeroes": {
+          "attack": [],
+          "active_1": [],
+          "active_2": [
+            "연희"
+          ],
+          "passive": []
+        }
+      },
+      "passive": {
+        "id": "skill-72",
+        "name": "혜안",
+        "type": "Passive",
+        "description": "모든 아군\n- 마법 공격력 증가 [상시]\n자신\n- 모든 피해 무효화 [피격 3회]\n스킬 강화 효과\n- 효과 상승 : 마법 공격력 증가 25%\n- 횟수 상승 : 모든 피해 무효화 횟수 4회\n6초월 효과\n- (자신) \n- 효과 추가 : 마법 피해량 증가 35% [3턴 지속]",
+        "cooltime": null,
+        "image": "/content/skills/XxEyQwrDJqQ22BCAGkAj6j652Hw0qf23x_O3atOCdF0Y3JYnwTqsf3fF06I3TTWxgtogz2aMQAcCTQtCWKYBjEtCSKv35X2P0gElIdz_fq0tWAP4OVvBJrOEk0xxHdUEpbQl0UMDOm10cyLj4Xho7Q-f52ed81957.webp",
+        "effects": [],
+        "linkedHeroes": {
+          "attack": [],
+          "active_1": [],
+          "active_2": [],
+          "passive": [
+            "연희"
+          ]
+        }
+      }
+    },
+    {
+      "id": "hero-%EC%98%A4%EB%A5%BC%EB%A6%AC",
+      "slug": "%EC%98%A4%EB%A5%BC%EB%A6%AC",
+      "name": "오를리",
+      "nickname": "백마법의 화신",
+      "group": "나이트크로우",
+      "rarity": "전설+",
+      "type": "지원형",
+      "portrait": "/content/heroes/오를리-d05dae4cc2.png",
+      "typeImage": "/content/types/RoleIcon_04-3c4c7a32e8.png",
+      "hasEffect": true,
+      "transLevel": null,
+      "history": [],
+      "description": null,
+      "atk": "1096",
+      "def": "675",
+      "hp": "4458",
+      "spd": "19",
+      "crit_rate": "5",
+      "crit_dmg": "150",
+      "weak_rate": "0",
+      "block_rate": "0",
+      "dmg_reduce": "0",
+      "eff_hit": "0",
+      "eff_res": "0",
+      "attack": {
+        "id": "skill-85",
+        "name": "기본 공격",
+        "type": "Attack",
+        "description": "적군 1명\n- 마법 공격력의 100%만큼 1회 피해\n스킬 강화 효과\n- 피해량 상승: 마법 공격력의 120%\n[현재 생명력이 가장 낮은 아군(자신 제외)]\n- 효과 추가: 마법 공격력 비례 지속 회복 27% [1턴 지속]",
+        "cooltime": null,
+        "image": "/content/skills/6adV_7QGtfZJhBXzlzWzkqO3BE2cyeUnQcosNcyktVtpkEkupNv209Af4og599aPh6GaD8nmfKdWtI813AkD2A-1-6af74bfb09.webp",
+        "effects": [],
+        "linkedHeroes": {
+          "attack": [
+            "오를리"
+          ],
+          "active_1": [],
+          "active_2": [],
+          "passive": []
+        }
+      },
+      "active_1": {
+        "id": "skill-86",
+        "name": "고결한 유성",
+        "type": "Active",
+        "description": "적군 3명\n- 마법 공격력의 145%만큼 1회 피해\n- 버프 해제 2개 [100% 확률]\n스킬 강화 효과\n- 효과 추가: 방어력 감소 36% [100% 확률] [3턴 지속]",
+        "cooltime": "70",
+        "image": "/content/skills/hNS87HrGXFflpb7z-HmuEs8Yw7PkVRJzn6U7R_9ltbOTy4K1eZUupPxultC_-Bffeq9P7WSkxK0U0uvxCqsNtFx6AJC7PV9UwFJ0C9zEh8Qwb4_yb1VuwPFdngEc_F1SazX0yaqXg7mJ4DVxWlZAag-06b9a6a9e6.webp",
+        "effects": [],
+        "linkedHeroes": {
+          "attack": [],
+          "active_1": [
+            "오를리"
+          ],
+          "active_2": [],
+          "passive": []
+        }
+      },
+      "active_2": {
+        "id": "skill-87",
+        "name": "빛의 일갈",
+        "type": "Active",
+        "description": "자신\n- 시전자 마법 공격력의 55%만큼 보호막 [2턴 지속]\n모든 마법형 아군\n- 대상의 마법 공격력의 55%만큼 보호막 [2턴 지속]\n모든 적군\n- 마법 공격력의 50%만큼 2회 피해\n스킬 강화 효과\n- 피해량 상승: 마법 공격력의 57%\n2초월 효과\n[자신, 아군 마법형]\n- 효과 추가: 디버프 해제 2개",
+        "cooltime": "112",
+        "image": "/content/skills/NYV1PDTi0tEJYqeWouDVUzrqff7szHwlI1sKL8kjx5M-wsASwgsqPQuwN1biawnIabVye1bYCPk5sLQKtMyu_fdBRthYqyrWrgQ1lwrWn8yypCgWQEbwl2KgsBtGJpeSE-cmmC96WcMZA4mbY_7qRg-da8cadd94b.webp",
+        "effects": [],
+        "linkedHeroes": {
+          "attack": [],
+          "active_1": [],
+          "active_2": [
+            "오를리"
+          ],
+          "passive": []
+        }
+      },
+      "passive": {
+        "id": "skill-88",
+        "name": "통찰의 빛",
+        "type": "Passive",
+        "description": "자신\n- 시전자 마법 공격력의 160%만큼 보호막 [3턴 지속]\n아군 전열(마법형)\n- 치명타 확률 증가 [상시]\n- 치명타 피해 증가 [상시]\n스킬 강화 효과\n- 효과 상승: 보호막 흡수량이 마법 공격력의 185%\n6초월 효과\n[아군 마법형]\n- 효과 추가: 자신의 스킬 1회 발동 시 모든 피해 무효화 [피격 1회]",
+        "cooltime": null,
+        "image": "/content/skills/FiHbPBG4_qojF7ptBsPlowG2_ZVVyyi_FdaEgvA-gLwfCjyQSH-F8rdPArmfrPoizS2nZeEUCpSWDTgTBryJQ-9a075c3a25.webp",
+        "effects": [],
+        "linkedHeroes": {
+          "attack": [],
+          "active_1": [],
+          "active_2": [],
+          "passive": [
+            "오를리"
+          ]
+        }
+      }
+    },
+    {
+      "id": "hero-%EC%9C%A0%EB%A6%AC",
+      "slug": "%EC%9C%A0%EB%A6%AC",
+      "name": "유리",
+      "nickname": "우두머리 삼미호",
+      "group": "에반원정대",
+      "rarity": "희귀",
+      "type": "마법형",
+      "portrait": "/content/heroes/유리-ee55e228f6.png",
+      "typeImage": "/content/types/RoleIcon_02-3bdba832b0.png",
+      "hasEffect": false,
+      "transLevel": null,
+      "history": [],
+      "description": null,
+      "atk": "1389",
+      "def": "533",
+      "hp": "3174",
+      "spd": "25",
+      "crit_rate": "5",
+      "crit_dmg": "150",
+      "weak_rate": "0",
+      "block_rate": "0",
+      "dmg_reduce": "0",
+      "eff_hit": "0",
+      "eff_res": "0",
+      "attack": null,
+      "active_1": null,
+      "active_2": null,
+      "passive": null
+    },
+    {
+      "id": "hero-%EC%9C%A0%EC%8B%A0",
+      "slug": "%EC%9C%A0%EC%8B%A0",
+      "name": "유신",
+      "nickname": "천창신선",
+      "group": "천자의 땅 동쪽",
+      "rarity": "전설",
+      "type": "마법형",
+      "portrait": "/content/heroes/유신-245d3e2f07.png",
+      "typeImage": "/content/types/RoleIcon_02-3bdba832b0.png",
+      "hasEffect": false,
+      "transLevel": null,
+      "history": [],
+      "description": null,
+      "atk": "1500",
+      "def": "571",
+      "hp": "3326",
+      "spd": "29",
+      "crit_rate": "5",
+      "crit_dmg": "150",
+      "weak_rate": "0",
+      "block_rate": "0",
+      "dmg_reduce": "0",
+      "eff_hit": "0",
+      "eff_res": "0",
+      "attack": null,
+      "active_1": null,
+      "active_2": null,
+      "passive": null
+    },
+    {
+      "id": "hero-%EC%9C%A0%EC%9D%B4",
+      "slug": "%EC%9C%A0%EC%9D%B4",
+      "name": "유이",
+      "nickname": "마에스트로",
+      "group": "에반원정대",
+      "rarity": "희귀",
+      "type": "지원형",
+      "portrait": "/content/heroes/유이-dbbd98e135.png",
+      "typeImage": "/content/types/RoleIcon_04-3c4c7a32e8.png",
+      "hasEffect": false,
+      "transLevel": null,
+      "history": [],
+      "description": null,
+      "atk": "1035",
+      "def": "632",
+      "hp": "4248",
+      "spd": "16",
+      "crit_rate": "5",
+      "crit_dmg": "150",
+      "weak_rate": "0",
+      "block_rate": "0",
+      "dmg_reduce": "0",
+      "eff_hit": "0",
+      "eff_res": "0",
+      "attack": null,
+      "active_1": null,
+      "active_2": null,
+      "passive": null
+    },
+    {
+      "id": "hero-%EC%A0%9C%EC%9D%B4%EB%B8%8C",
+      "slug": "%EC%A0%9C%EC%9D%B4%EB%B8%8C",
+      "name": "제이브",
+      "nickname": "수호신",
+      "group": "세븐나이츠",
+      "rarity": "전설+",
+      "type": "만능형",
+      "portrait": "/content/heroes/제이브-90cf0e477d.png",
+      "typeImage": "/content/types/RoleIcon_05-f7672beb62.png",
+      "hasEffect": true,
+      "transLevel": null,
+      "history": [],
+      "description": null,
+      "atk": "1306",
+      "def": "659",
+      "hp": "3693",
+      "spd": "25",
+      "crit_rate": "5",
+      "crit_dmg": "150",
+      "weak_rate": "0",
+      "block_rate": "0",
+      "dmg_reduce": "0",
+      "eff_hit": "0",
+      "eff_res": "0",
+      "attack": {
+        "id": "skill-21",
+        "name": "기본 공격",
+        "type": "Attack",
+        "description": "!단일 적군\n- 물리 공격력의 100%만큼 1회 피해\n- 화상 [40% 확률] [2턴 지속]\n<<화상>>\n#스킬 강화 효과\n- 피해량 상승 : 물리 공격력의 120%\n- 확률 상승 : 화상 확률 50%",
+        "cooltime": null,
+        "image": "/content/skills/_VYyRSJDkCuVxpPRpWUYt1oVZOx3F_NoFFhE5_MAh9YXjGCZUizfpiXw6omLzrU22nZk_W0wtBwBc7DKXeXyWg-d0a80472e3.webp",
+        "effects": [
+          {
+            "id": "effect-69",
+            "name": "화상",
+            "description": "매 턴마다 시전자 공격력의 80% 피해를 입힙니다.",
+            "effectType": "debuff",
+            "hasVariable": false,
+            "fulltime": false,
+            "icon": "/content/effects/BuffIcon_15003-c1bd3f9416.png"
+          }
+        ],
+        "linkedHeroes": {
+          "attack": [
+            "제이브"
+          ],
+          "active_1": [],
+          "active_2": [],
+          "passive": []
+        }
+      },
+      "active_1": {
+        "id": "skill-22",
+        "name": "분노의 일격",
+        "type": "Active",
+        "description": "!모든 적군\n- 물리 공격력의 115%만큼 1회 피해\n- 피해 대상이 1명 줄어들 때마다 15%만큼 피해량 증가\n- 기절 [45% 확률] [2턴 지속]\n<<기절>>\n#스킬 강화 효과\n- 피해량 상승 : 물리 공격력의 150%",
+        "cooltime": "104",
+        "image": "/content/skills/3sE0uD5lYoRdLhsI33H98-zDTcNqk3hiMfJbfP5gRfs-ucQ_5s0u__CxuXyNbfzVg0CrTFX1XAs89E4TIn-Ysw-344e41af00.webp",
+        "effects": [
+          {
+            "id": "effect-10",
+            "name": "기절",
+            "description": "지속시간 동안 행동할 수 없습니다.",
+            "effectType": "debuff",
+            "hasVariable": false,
+            "fulltime": false,
+            "icon": "/content/effects/Bufficon_11001-72514c06bf.png"
+          }
+        ],
+        "linkedHeroes": {
+          "attack": [],
+          "active_1": [
+            "제이브"
+          ],
+          "active_2": [],
+          "passive": []
+        }
+      },
+      "active_2": {
+        "id": "skill-23",
+        "name": "용의 분노",
+        "type": "Active",
+        "description": "!모든 적군\n- 물리 공격력의 70%만큼 2회 관통 피해\n- 피해 대상이 1명 줄어들 때마다 8%만큼 피해량 증가\n- 각 공격마다 화상 [40% 확률] [2턴 지속]\n<<화상>>\n#스킬 강화 효과\n- 피해량 상승 : 물리 공격력의 80%\n- 확률 상승 : 화상 확률 55%",
+        "cooltime": "104",
+        "image": "/content/skills/Qm8a0spaUIvPb7MeTBgmYd4ljJKawS-pQU72i2KUMkgUfeaRqQE0CbUFVwDiPvRFrPRjyfaRoR0nllrOnpiVog-276d2dc816.webp",
+        "effects": [
+          {
+            "id": "effect-8",
+            "name": "관통",
+            "description": "대상의 피해 면역 효과를 무시합니다.",
+            "effectType": "buff",
+            "hasVariable": false,
+            "fulltime": false,
+            "icon": "/content/effects/Bufficon_21001-dd2948b21a.png"
+          },
+          {
+            "id": "effect-69",
+            "name": "화상",
+            "description": "매 턴마다 시전자 공격력의 80% 피해를 입힙니다.",
+            "effectType": "debuff",
+            "hasVariable": false,
+            "fulltime": false,
+            "icon": "/content/effects/BuffIcon_15003-c1bd3f9416.png"
+          }
+        ],
+        "linkedHeroes": {
+          "attack": [],
+          "active_1": [],
+          "active_2": [
+            "제이브"
+          ],
+          "passive": []
+        }
+      },
+      "passive": {
+        "id": "skill-24",
+        "name": "복수의 갑옷",
+        "type": "Passive",
+        "description": "!자신\n- 공격력 비례 방어력 증가 [상시]\n<<공격력 비례 방어력 증가>>\n- 반격 [38% 확률] [상시]\n<<반격>>\n!반격 발동 시 적군 3명\n- 물리 공격력의 40%만큼 1회 피해\n- 화상 [35% 확률] [2턴 지속]\n<<화상>>\n#스킬 강화 효과\n- 효과 상승 : 공격력 비례 방어력 최대 증가 수치 1375\n- 반격 피해량 상승 : 물리 공격력의 50%\n- 확률 상승 : 화상 확률 40%\n@2초월 효과\n자신\n- 효과 추가 : 행동 제어 면역 [3턴 지속]\n<<행동 제어 면역>>\n@@6초월 효과\n- 효과 변경 : 화상이 턴마다 공격력 120% 만큼 피해를 주는 [용염]으로 변경",
+        "cooltime": null,
+        "image": "/content/skills/kENdRedzcvwEtYDPWwTg4JluY4GvWy4XS5bTN-mV7O-yziUjh_3HzFECPHjoNqf-s6xag8dlMDkSkB5XRRgR9w-c10259aaa1.webp",
+        "effects": [
+          {
+            "id": "effect-6",
+            "name": "공격력 비례 방어력 증가",
+            "description": "자신의 공격력 수치 300마다 방어력이 125만큼 증가합니다.\n최대 증가 수치 : 1,125",
+            "effectType": "buff",
+            "hasVariable": false,
+            "fulltime": false,
+            "icon": "/content/effects/BuffIcon_02033_reverse-ee414e0673.png"
+          },
+          {
+            "id": "effect-29",
+            "name": "반격",
+            "description": "공격자에게 반격해 피해를 줍니다.",
+            "effectType": "neutral",
+            "hasVariable": false,
+            "fulltime": false,
+            "icon": "/content/effects/Bufficon_20003_reverse-16c2b1e2ca.png"
+          },
+          {
+            "id": "effect-69",
+            "name": "화상",
+            "description": "매 턴마다 시전자 공격력의 80% 피해를 입힙니다.",
+            "effectType": "debuff",
+            "hasVariable": false,
+            "fulltime": false,
+            "icon": "/content/effects/BuffIcon_15003-c1bd3f9416.png"
+          }
+        ],
+        "linkedHeroes": {
+          "attack": [],
+          "active_1": [],
+          "active_2": [],
+          "passive": [
+            "제이브"
+          ]
+        }
+      }
+    },
+    {
+      "id": "hero-%EC%A0%9C%EC%9D%B8",
+      "slug": "%EC%A0%9C%EC%9D%B8",
+      "name": "제인",
+      "nickname": "침묵의 암살자",
+      "group": "그림자단",
+      "rarity": "희귀",
+      "type": "공격형",
+      "portrait": "/content/heroes/제인-cec7fe75af.png",
+      "typeImage": "/content/types/RoleIcon_01-1e0c023e6e.png",
+      "hasEffect": false,
+      "transLevel": null,
+      "history": [],
+      "description": null,
+      "atk": "1389",
+      "def": "533",
+      "hp": "3174",
+      "spd": "25",
+      "crit_rate": "5",
+      "crit_dmg": "150",
+      "weak_rate": "0",
+      "block_rate": "0",
+      "dmg_reduce": "0",
+      "eff_hit": "0",
+      "eff_res": "0",
+      "attack": null,
+      "active_1": null,
+      "active_2": null,
+      "passive": null
+    },
+    {
+      "id": "hero-%EC%A1%B0%EC%BB%A4",
+      "slug": "%EC%A1%B0%EC%BB%A4",
+      "name": "조커",
+      "nickname": "환상 마술사",
+      "group": "모험가",
+      "rarity": "희귀",
+      "type": "마법형",
+      "portrait": "/content/heroes/조커-7b2655ff82.png",
+      "typeImage": "/content/types/RoleIcon_02-3bdba832b0.png",
+      "hasEffect": false,
+      "transLevel": null,
+      "history": [],
+      "description": null,
+      "atk": "1389",
+      "def": "533",
+      "hp": "3174",
+      "spd": "25",
+      "crit_rate": "5",
+      "crit_dmg": "150",
+      "weak_rate": "0",
+      "block_rate": "0",
+      "dmg_reduce": "0",
+      "eff_hit": "0",
+      "eff_res": "0",
+      "attack": null,
+      "active_1": null,
+      "active_2": null,
+      "passive": null
+    },
+    {
+      "id": "hero-%EC%A5%AC%EB%A6%AC",
+      "slug": "%EC%A5%AC%EB%A6%AC",
+      "name": "쥬리",
+      "nickname": "지고의 정의",
+      "group": "(구)세븐나이츠",
+      "rarity": "전설+",
+      "type": "마법형",
+      "portrait": "/content/heroes/쥬리-f148e7f6e5.png",
+      "typeImage": "/content/types/RoleIcon_02-3bdba832b0.png",
+      "hasEffect": true,
+      "transLevel": null,
+      "history": [],
+      "description": null,
+      "atk": "1500",
+      "def": "571",
+      "hp": "3326",
+      "spd": "29",
+      "crit_rate": "5",
+      "crit_dmg": "150",
+      "weak_rate": "0",
+      "block_rate": "0",
+      "dmg_reduce": "0",
+      "eff_hit": "0",
+      "eff_res": "0",
+      "attack": {
+        "id": "skill-41",
+        "name": "기본 공격",
+        "type": "Attack",
+        "description": "적군 2명\n- 마법 공격력의 55%만큼 1회 피해\n스킬 강화 효과\n- 피해량 상승 : 마법 공격력의 70%만큼 1회 피해",
+        "cooltime": null,
+        "image": "/content/skills/uJHJeaMcm6Q8Csd7lsFoN6Lq1dC8MULlCUj1nxvE9a7GZAQ1d1YqjuZUgvy6oMiAgJqXMeC_m4vaWFO5wKlY9g-2-baebea80ed.webp",
+        "effects": [],
+        "linkedHeroes": {
+          "attack": [
+            "쥬리"
+          ],
+          "active_1": [],
+          "active_2": [],
+          "passive": []
+        }
+      },
+      "active_1": {
+        "id": "skill-42",
+        "name": "천상의 심판",
+        "type": "Active",
+        "description": "모든 적군\n- 마법 공격력의 65%만큼 2회 피해\n- 방어력 감소 [100% 확률] [3턴 지속]\n스킬 강화 효과\n- 피해량 상승 : 마법 공격력의 77%\n- 효과 상승 : 방어력 감소 효과 29%",
+        "cooltime": "84",
+        "image": "/content/skills/5rhpjIaUspYaa2CFdlZt-7oFKfG7EV5uPmeqgo3mphWXjILK5W4C0j843Gbl_YAwQqjmw8QqiykCqAikeHDi0w-9826db3230.webp",
+        "effects": [],
+        "linkedHeroes": {
+          "attack": [],
+          "active_1": [
+            "쥬리"
+          ],
+          "active_2": [],
+          "passive": []
+        }
+      },
+      "active_2": {
+        "id": "skill-43",
+        "name": "최고 판결",
+        "type": "Active",
+        "description": "모든 적군\n- 영멸 [60% 확률] [2턴 지속]\n- 마법 공격력의 70%만큼 2회 피해\n스킬 강화 효과\n- 피해량 상승 : 마법 공격력의 80%\n- 확률 상승 : 영멸 확률 70%",
+        "cooltime": "96",
+        "image": "/content/skills/Eks6L35jkBA6T64pChMPwqrQ6XP5teDb8w6FNnbsuB7KAUsrA4lgA3b7ltWJp_ZFrnIYhaDLgBwQjR6S7b8MLA-4b217b31d8.webp",
+        "effects": [],
+        "linkedHeroes": {
+          "attack": [],
+          "active_1": [],
+          "active_2": [
+            "쥬리"
+          ],
+          "passive": []
+        }
+      },
+      "passive": {
+        "id": "skill-44",
+        "name": "신의 저울",
+        "type": "Passive",
+        "description": "자신\n- 협공 [25% 확률] [상시]\n- 모든 피해 무효화 [피격 2회]\n- 사망 시 불사 상태로 부활 [2턴 지속] (전투 당 1회 발동)\n협공 발동 시 적군 3명\n- 마법 공격력의 40%, 대상 최대 생명력의 7%만큼 1회 피해 (생명력 비례 피해는 시전자 공격력의 300% 제한)\n스킬 강화 효과\n- 턴 상승 : 불사 지속 3턴\n- 협공 피해량 상승 : 마법 공격력의 50%, 대상 최대 생명력의 9%\n2초월 효과\n- 확률 상승 : 협공 확률 35%\n6초월 효과\n[자신]\n- 효과 추가 : 불사 발동 시 행동 제어 면역 [3턴 지속]",
+        "cooltime": null,
+        "image": "/content/skills/i3XJoIFPBngKpmnjr3zLrC5cLElMXizynwIXxUYebWCJbdKKTtTn3FUZOlk-IjdCMuOA22mF6nrvexHEo4K1DA-5fe212f0c5.webp",
+        "effects": [],
+        "linkedHeroes": {
+          "attack": [],
+          "active_1": [],
+          "active_2": [],
+          "passive": [
+            "쥬리"
+          ]
+        }
+      }
+    },
+    {
+      "id": "hero-%EC%A5%AC%ED%94%BC",
+      "slug": "%EC%A5%AC%ED%94%BC",
+      "name": "쥬피",
+      "nickname": "꿰뚫는 화살",
+      "group": "에반원정대",
+      "rarity": "희귀",
+      "type": "공격형",
+      "portrait": "/content/heroes/쥬피-69af063ac6.png",
+      "typeImage": "/content/types/RoleIcon_01-1e0c023e6e.png",
+      "hasEffect": false,
+      "transLevel": null,
+      "history": [],
+      "description": null,
+      "atk": "1389",
+      "def": "533",
+      "hp": "3174",
+      "spd": "25",
+      "crit_rate": "5",
+      "crit_dmg": "150",
+      "weak_rate": "0",
+      "block_rate": "0",
+      "dmg_reduce": "0",
+      "eff_hit": "0",
+      "eff_res": "0",
+      "attack": null,
+      "active_1": null,
+      "active_2": null,
+      "passive": null
+    },
+    {
+      "id": "hero-%EC%A7%80%ED%81%AC",
+      "slug": "%EC%A7%80%ED%81%AC",
+      "name": "지크",
+      "nickname": "마검의 주인",
+      "group": "성십자단",
+      "rarity": "전설",
+      "type": "만능형",
+      "portrait": "/content/heroes/지크-2754d05bcb.png",
+      "typeImage": "/content/types/RoleIcon_05-f7672beb62.png",
+      "hasEffect": false,
+      "transLevel": null,
+      "history": [],
+      "description": null,
+      "atk": "1306",
+      "def": "659",
+      "hp": "3693",
+      "spd": "25",
+      "crit_rate": "5",
+      "crit_dmg": "150",
+      "weak_rate": "0",
+      "block_rate": "0",
+      "dmg_reduce": "0",
+      "eff_hit": "0",
+      "eff_res": "0",
+      "attack": null,
+      "active_1": null,
+      "active_2": null,
+      "passive": null
+    },
+    {
+      "id": "hero-%EC%A7%84",
+      "slug": "%EC%A7%84",
+      "name": "진",
+      "nickname": "강철 주먹",
+      "group": "달빛의 섬",
+      "rarity": "희귀",
+      "type": "공격형",
+      "portrait": "/content/heroes/진-3afe0fb32c.png",
+      "typeImage": "/content/types/RoleIcon_01-1e0c023e6e.png",
+      "hasEffect": false,
+      "transLevel": null,
+      "history": [],
+      "description": null,
+      "atk": "1389",
+      "def": "533",
+      "hp": "3174",
+      "spd": "25",
+      "crit_rate": "5",
+      "crit_dmg": "150",
+      "weak_rate": "0",
+      "block_rate": "0",
+      "dmg_reduce": "0",
+      "eff_hit": "0",
+      "eff_res": "0",
+      "attack": null,
+      "active_1": null,
+      "active_2": null,
+      "passive": null
+    },
+    {
+      "id": "hero-%EC%B1%88%EC%8A%AC%EB%9F%AC",
+      "slug": "%EC%B1%88%EC%8A%AC%EB%9F%AC",
+      "name": "챈슬러",
+      "nickname": "친위대장",
+      "group": "테라영지",
+      "rarity": "전설",
+      "type": "만능형",
+      "portrait": "/content/heroes/챈슬러-e8a4c51d5a.png",
+      "typeImage": "/content/types/RoleIcon_05-f7672beb62.png",
+      "hasEffect": false,
+      "transLevel": null,
+      "history": [],
+      "description": null,
+      "atk": "1306",
+      "def": "659",
+      "hp": "3693",
+      "spd": "25",
+      "crit_rate": "5",
+      "crit_dmg": "150",
+      "weak_rate": "0",
+      "block_rate": "0",
+      "dmg_reduce": "0",
+      "eff_hit": "0",
+      "eff_res": "0",
+      "attack": null,
+      "active_1": null,
+      "active_2": null,
+      "passive": null
+    },
+    {
+      "id": "hero-%EC%B9%B4%EA%B5%AC%EB%9D%BC",
+      "slug": "%EC%B9%B4%EA%B5%AC%EB%9D%BC",
+      "name": "카구라",
+      "nickname": "팔사검의 감시자",
+      "group": "숨은 강자들",
+      "rarity": "전설+",
+      "type": "공격형",
+      "portrait": "/content/heroes/카구라-791752ace0.png",
+      "typeImage": "/content/types/RoleIcon_01-1e0c023e6e.png",
+      "hasEffect": true,
+      "transLevel": null,
+      "history": [],
+      "description": null,
+      "atk": "1500",
+      "def": "571",
+      "hp": "3326",
+      "spd": "29",
+      "crit_rate": "5",
+      "crit_dmg": "150",
+      "weak_rate": "0",
+      "block_rate": "0",
+      "dmg_reduce": "0",
+      "eff_hit": "0",
+      "eff_res": "0",
+      "attack": {
+        "id": "skill-105",
+        "name": "기본 공격",
+        "type": "Attack",
+        "description": "단일 적군\n- 물리 공격력의 100%만큼 1회 피해\n스킬 강화 효과\n- 피해량 상승 : 물리 공격력의 130%",
+        "cooltime": null,
+        "image": "/content/skills/lbdCz2lJC477AGAxRCKin9JN2UjhDqRKKI_bjNAxBq8cFb9FjPWC_pom477Ei-NLBwU_dbp1hqyTsWX0m4YxcQ-2-952af6f9ba.webp",
+        "effects": [],
+        "linkedHeroes": {
+          "attack": [
+            "카구라"
+          ],
+          "active_1": [],
+          "active_2": [],
+          "passive": []
+        }
+      },
+      "active_1": {
+        "id": "skill-106",
+        "name": "해방-팔사검",
+        "type": "Active",
+        "description": "적군 4명 (전열 우선)\n- 물리 공격력의 62%만큼 2회 피해 \n- 받는 회복량 감소 [100% 확률] [3턴 지속]\n스킬 강화 효과\n- 효과 상승 : 받는 회복량 감소 68%",
+        "cooltime": "88",
+        "image": "/content/skills/QZ0LJd0-Nytw_eVbIO5kx6jP-gCvkhuOkOAcafjC21_IueGWCNDUNdYZzoozaksIXDhFiSqo0HmVk4zPcP1OZQ-e6a575284d.webp",
+        "effects": [],
+        "linkedHeroes": {
+          "attack": [],
+          "active_1": [
+            "카구라"
+          ],
+          "active_2": [],
+          "passive": []
+        }
+      },
+      "active_2": {
+        "id": "skill-107",
+        "name": "해방-뱀 사냥",
+        "type": "Active",
+        "description": "모든 적군\n- 물리 공격력의 57%만큼 2회 피해\n- 석화 [45% 확률] [2턴 지속]\n스킬 강화 효과\n- 확률 상승 : 석화 확률 55%",
+        "cooltime": "80",
+        "image": "/content/skills/rBgJpiHkpUKG7L0QH4zCyPf9Bk94m4W3V269kmIJFzA8OyMOTD_ONvvpPyhMVHbRDx3moBZP7n-dkkB-_vLX0A-be4b5865b7.webp",
+        "effects": [],
+        "linkedHeroes": {
+          "attack": [],
+          "active_1": [],
+          "active_2": [
+            "카구라"
+          ],
+          "passive": []
+        }
+      },
+      "passive": {
+        "id": "skill-108",
+        "name": "팔사의 저주",
+        "type": "Passive",
+        "description": "자신\n- 사망 시 불굴 상태로 부활 [피격 8회] (전투당 1회 발동)\n아군 (공격형, 만능형)\n- 치명타 피해 증가 [상시]\n- 불굴 발동 시 디버프 해제 2개\n- 불굴 발동 시 물리 피해량 증가 [3턴 지속]\n스킬 강화 효과\n- 효과 상승 : 치명타 피해 증가 34%\n2초월 효과\n[아군 공격형, 만능형]\n- 효과 추가 : 불굴 발동 시 시전자 물리 공격력의 65%만큼 생명력 회복\n6초월 효과\n[모든 적군]\n- 효과 추가 : 자신의 스킬 1회 발동 시 물리 취약 24% [100% 확률] [2턴 지속]",
+        "cooltime": null,
+        "image": "/content/skills/hSwAaEUr-DZRqHLjvuiC2PDqdzJf3F7_-RrpkEnoCCDyxu_7mDWEpWPzt81KltomBKaVt2L2vfrjQqc7JpUG7w-e55dd18d21.webp",
+        "effects": [],
+        "linkedHeroes": {
+          "attack": [],
+          "active_1": [],
+          "active_2": [],
+          "passive": [
+            "카구라"
+          ]
+        }
+      }
+    },
+    {
+      "id": "hero-%EC%B9%B4%EB%A1%A0",
+      "slug": "%EC%B9%B4%EB%A1%A0",
+      "name": "카론",
+      "nickname": "자연의 주인",
+      "group": "모험가",
+      "rarity": "희귀",
+      "type": "지원형",
+      "portrait": "/content/heroes/카론-bc82c4151c.png",
+      "typeImage": "/content/types/RoleIcon_04-3c4c7a32e8.png",
+      "hasEffect": false,
+      "transLevel": null,
+      "history": [],
+      "description": null,
+      "atk": "1035",
+      "def": "632",
+      "hp": "4248",
+      "spd": "16",
+      "crit_rate": "5",
+      "crit_dmg": "150",
+      "weak_rate": "0",
+      "block_rate": "0",
+      "dmg_reduce": "0",
+      "eff_hit": "0",
+      "eff_res": "0",
+      "attack": null,
+      "active_1": null,
+      "active_2": null,
+      "passive": null
+    },
+    {
+      "id": "hero-%EC%B9%B4%EB%A5%B4%EB%A7%88",
+      "slug": "%EC%B9%B4%EB%A5%B4%EB%A7%88",
+      "name": "카르마",
+      "nickname": "절망의 신선",
+      "group": "(구)사황",
+      "rarity": "전설+",
+      "type": "만능형",
+      "portrait": "/content/heroes/카르마-50edeb2faf.png",
+      "typeImage": "/content/types/RoleIcon_05-f7672beb62.png",
+      "hasEffect": true,
+      "transLevel": null,
+      "history": [],
+      "description": null,
+      "atk": "1306",
+      "def": "659",
+      "hp": "3693",
+      "spd": "25",
+      "crit_rate": "5",
+      "crit_dmg": "150",
+      "weak_rate": "0",
+      "block_rate": "0",
+      "dmg_reduce": "0",
+      "eff_hit": "0",
+      "eff_res": "0",
+      "attack": {
+        "id": "skill-73",
+        "name": "기본 공격",
+        "type": "Attack",
+        "description": "단일 적군\n- 마법 공격력의 50%, 방어력의 60%만큼 1회 피해\n스킬 강화 효과\n- 효과 추가 : (적군 3명) 피해량 감소 6% [100% 확률] [2턴 지속]",
+        "cooltime": null,
+        "image": "/content/skills/6adV_7QGtfZJhBXzlzWzkqO3BE2cyeUnQcosNcyktVtpkEkupNv209Af4og599aPh6GaD8nmfKdWtI813AkD2A-c18cb1ba55.webp",
+        "effects": [],
+        "linkedHeroes": {
+          "attack": [
+            "카르마"
+          ],
+          "active_1": [],
+          "active_2": [],
+          "passive": []
+        }
+      },
+      "active_1": {
+        "id": "skill-74",
+        "name": "과오의 화옥",
+        "type": "Active",
+        "description": "적군 3명\n- 마법 공격력의 25%, 방어력의 28%만큼 3회 방어 무시 피해\n스킬 강화 효과\n- 피해량 상승 : 마법 공격력의 28%, 방어력의 33%)",
+        "cooltime": "105",
+        "image": "/content/skills/Kk-RmUy5b6CmgYbtH4QaiN4JpbBuhHdpHdZ-t3lwhlZ2XvKUFmmTAMuyobigrrPZ6xclmIVx0tmJcSDTc1Bpfg-be9f7ecac5.webp",
+        "effects": [],
+        "linkedHeroes": {
+          "attack": [],
+          "active_1": [
+            "카르마"
+          ],
+          "active_2": [],
+          "passive": []
+        }
+      },
+      "active_2": {
+        "id": "skill-75",
+        "name": "절망의 폭풍",
+        "type": "Active",
+        "description": "모든 아군\n- 피해량의 31%만큼 생명력 회복\n적군 3명\n- 마법 공격력의 20%, 방어력의 23%만큼 3회 관통 피해\n- [인고]를 4개 소모하여 각 공격마다 마법 공격력의 39%, 방어력의 45% 관통 추가 피해\n스킬 강화 효과\n- 피해량 상승 : 마법 공격력의 23%, 방어력의 26%\n- 효과 상승 : 생명력 회복량이 피해량의 37%",
+        "cooltime": "105",
+        "image": "/content/skills/-FbKAM55WgxFO6_JkDIuLm4MoKpBhtxBV6eZVoKqaEkK82s8emDj3f_WJjbpXG6CIjvDgjI4lN_4AiKr1ClBIw-6d04b83f98.webp",
+        "effects": [],
+        "linkedHeroes": {
+          "attack": [],
+          "active_1": [],
+          "active_2": [
+            "카르마"
+          ],
+          "passive": []
+        }
+      },
+      "passive": {
+        "id": "skill-76",
+        "name": "타락한 신선",
+        "type": "Passive",
+        "description": "아군 - 만능형\n- 피해량 증가 [상시]\n자신\n- 자신이 피격 1회 시 인고 1중첩 [최대 4중첩]\n모든 아군\n- 감쇄 [피격 3회]\n- 자신의 모든 공격 2회 발동 시 감쇄 [피격 3회]\n스킬 강화 효과\n- 효과 상승 : 피해량 증가 15%\n2초월 효과\n[자신] \n- 효과 추가 : 막기 확률 증가 33% [상시]",
+        "cooltime": null,
+        "image": "/content/skills/LjEi2bomXcSF1S05gVS-jpqDkNHngR4hzgEuRN0RI54VicSHac8yAv1bjzrPoRnBlqWmQHFSu5Zen08zfp2pug-208ac0fbfa.webp",
+        "effects": [],
+        "linkedHeroes": {
+          "attack": [],
+          "active_1": [],
+          "active_2": [],
+          "passive": [
+            "카르마"
+          ]
+        }
+      }
+    },
+    {
+      "id": "hero-%EC%B9%B4%EB%A6%B0",
+      "slug": "%EC%B9%B4%EB%A6%B0",
+      "name": "카린",
+      "nickname": "마법사",
+      "group": "에반원정대",
+      "rarity": "희귀",
+      "type": "지원형",
+      "portrait": "/content/heroes/카린-6a2d63a46e.png",
+      "typeImage": "/content/types/RoleIcon_04-3c4c7a32e8.png",
+      "hasEffect": false,
+      "transLevel": null,
+      "history": [],
+      "description": null,
+      "atk": "1035",
+      "def": "632",
+      "hp": "4248",
+      "spd": "16",
+      "crit_rate": "5",
+      "crit_dmg": "150",
+      "weak_rate": "0",
+      "block_rate": "0",
+      "dmg_reduce": "0",
+      "eff_hit": "0",
+      "eff_res": "0",
+      "attack": null,
+      "active_1": null,
+      "active_2": null,
+      "passive": null
+    },
+    {
+      "id": "hero-%EC%B9%B4%EC%9D%BC",
+      "slug": "%EC%B9%B4%EC%9D%BC",
+      "name": "카일",
+      "nickname": "밤의 추적자",
+      "group": "(구)사황",
+      "rarity": "전설+",
+      "type": "공격형",
+      "portrait": "/content/heroes/카일-f42d5c31f5.png",
+      "typeImage": "/content/types/RoleIcon_01-1e0c023e6e.png",
+      "hasEffect": true,
+      "transLevel": null,
+      "history": [],
+      "description": null,
+      "atk": "1500",
+      "def": "571",
+      "hp": "3326",
+      "spd": "29",
+      "crit_rate": "5",
+      "crit_dmg": "150",
+      "weak_rate": "0",
+      "block_rate": "0",
+      "dmg_reduce": "0",
+      "eff_hit": "0",
+      "eff_res": "0",
+      "attack": {
+        "id": "skill-77",
+        "name": "기본 공격",
+        "type": "Attack",
+        "description": "단일 적군\n- 물리 공격력의 100%만큼 1회 피해\n- 자신의 기본 공격 2회 발동 시 물리 공격력의 130%만큼 1회 피해의 추가 공격\n단일 적군 (강자 주시)\n- 추가 공격 시, 버프 해제 1개 [30% 확률]\n스킬 강화 효과\n- 피해량 상승 : 물리 공격력의 130%",
+        "cooltime": null,
+        "image": "/content/skills/_5wylIAKOy1epRrBsIgnA-OmDvWcVCS_I-EloJguuTTLULW2I5FqUGDcIqr0H0Ic78CUHvM7BXsQOKQ-Qv43UA-2-370ce90125.webp",
+        "effects": [],
+        "linkedHeroes": {
+          "attack": [
+            "카일"
+          ],
+          "active_1": [],
+          "active_2": [],
+          "passive": []
+        }
+      },
+      "active_1": {
+        "id": "skill-78",
+        "name": "철쇄폭압",
+        "type": "Active",
+        "description": "적군 4명\n- 물리 공격력의 60%, 대상 최대 생명력의 8%만큼 2회 피해\n(대상이 잃은 생명력에 비례해 최대 50%만큼 피해량 증가)\n(생명력 비례 피해는 시전자 공격력의 75% 제한)\n단일 적군 (강자 주시)\n- 물리 공격력의 65%만큼 추가 피해\n스킬 강화 효과\n- 피해량 상승 : 물리 공격력의 72%, 대상 최대 생명력의 10%\n6초월 효과\n- 효과 추가: 방어 무시",
+        "cooltime": "90",
+        "image": "/content/skills/mHBhhm-X3Y2NVnVwihiikrjq2GUgCHpm-QDiC15-Cco7MgEUzYOX3agh1A80oK3KcGvQVCA0Mz4Y3XsqlgVRJg-c4b18a45cd.webp",
+        "effects": [],
+        "linkedHeroes": {
+          "attack": [],
+          "active_1": [
+            "카일"
+          ],
+          "active_2": [],
+          "passive": []
+        }
+      },
+      "active_2": {
+        "id": "skill-79",
+        "name": "사슬의 무덤",
+        "type": "Active",
+        "description": "적군 4명\n- 버프 해제 2개 [100% 확률]\n- 물리 공격력의 70%만큼 2회 관통 피해\n단일 적군 (강자 주시)\n- 물리 공격력의 65%만큼 추가 피해\n스킬 강화 효과\n- 피해량 상승 : 물리 공격력의 90%\n6초월 효과\n- 효과 추가: 방어 무시",
+        "cooltime": "94",
+        "image": "/content/skills/sQQynvdR52SZzs0ihEWA25tWfLEHnQ6KFESWgqhFB5biVMaqxKbiHgKtXFhC6IObIr4QYL9DlT7WIJ0VAXXpSQ-c45a79416b.webp",
+        "effects": [],
+        "linkedHeroes": {
+          "attack": [],
+          "active_1": [],
+          "active_2": [
+            "카일"
+          ],
+          "passive": []
+        }
+      },
+      "passive": {
+        "id": "skill-80",
+        "name": "소검쌍무",
+        "type": "Passive",
+        "description": "자신\n- 치명타 확률 증가 [상시]\n- 전투 시작 시 아군에 공격형 영웅이 3명 이상 있을 시, 모든 피해 무효화 [피격 3회]\n공격력이 가장 높은 적군\n- 강자 주시 [상시]\n모든 적군\n- 자신의 모든 공격 2회 발동 시 대상 최대 생명력의 23%만큼 1회 방어 무시 피해 (생명력 비례 피해는 시전자 공격력의 100% 제한)\n스킬 강화 효과\n- 횟수 상승 : 모든 피해 무효화 횟수 4회\n- 피해량 상승: 대상 최대 생명력의 32%\n2초월 효과\n- 효과 추가: 자신의 생명력이 70% 이하가 되면 모든 피해 무효화 [피격 3회] (전투당 1회 발동) (공격형 3명 이상 편성 시)",
+        "cooltime": null,
+        "image": "/content/skills/XTYz1Fd7gHyT6UfFhC4gXdC2sLzbQQp88So9UT2FJfrpwM7pcb1GhDdOLwHLpUj0OK3e54AsLcVqjCfVScQ0wg-e51ee9684e.webp",
+        "effects": [],
+        "linkedHeroes": {
+          "attack": [],
+          "active_1": [],
+          "active_2": [],
+          "passive": [
+            "카일"
+          ]
+        }
+      }
+    },
+    {
+      "id": "hero-%EC%BA%90%ED%8B%B0",
+      "slug": "%EC%BA%90%ED%8B%B0",
+      "name": "캐티",
+      "nickname": "고양이의 화신",
+      "group": "달빛의 섬",
+      "rarity": "희귀",
+      "type": "공격형",
+      "portrait": "/content/heroes/캐티-7ac5fe2e03.png",
+      "typeImage": "/content/types/RoleIcon_01-1e0c023e6e.png",
+      "hasEffect": false,
+      "transLevel": null,
+      "history": [],
+      "description": null,
+      "atk": "1389",
+      "def": "533",
+      "hp": "3174",
+      "spd": "25",
+      "crit_rate": "5",
+      "crit_dmg": "150",
+      "weak_rate": "0",
+      "block_rate": "0",
+      "dmg_reduce": "0",
+      "eff_hit": "0",
+      "eff_res": "0",
+      "attack": null,
+      "active_1": null,
+      "active_2": null,
+      "passive": null
+    },
+    {
+      "id": "hero-%EC%BD%9C%ED%8A%B8",
+      "slug": "%EC%BD%9C%ED%8A%B8",
+      "name": "콜트",
+      "nickname": "군사 간부",
+      "group": "다크나이츠",
+      "rarity": "전설+",
+      "type": "공격형",
+      "portrait": "/content/heroes/콜트-7180bb73f5.png",
+      "typeImage": "/content/types/RoleIcon_01-1e0c023e6e.png",
+      "hasEffect": true,
+      "transLevel": null,
+      "history": [],
+      "description": null,
+      "atk": "1500",
+      "def": "571",
+      "hp": "3326",
+      "spd": "29",
+      "crit_rate": "5",
+      "crit_dmg": "150",
+      "weak_rate": "0",
+      "block_rate": "0",
+      "dmg_reduce": "0",
+      "eff_hit": "0",
+      "eff_res": "0",
+      "attack": {
+        "id": "skill-49",
+        "name": "기본 공격",
+        "type": "Attack",
+        "description": "적군 2명\n- 물리 공격력의 55%만큼 1회 피해\n스킬 강화 효과\n- 피해량 상승: 물리 공격력의 70%",
+        "cooltime": null,
+        "image": "/content/skills/_VYyRSJDkCuVxpPRpWUYt1oVZOx3F_NoFFhE5_MAh9YXjGCZUizfpiXw6omLzrU22nZk_W0wtBwBc7DKXeXyWg-1-d76cfd2b33.webp",
+        "effects": [],
+        "linkedHeroes": {
+          "attack": [
+            "콜트"
+          ],
+          "active_1": [],
+          "active_2": [],
+          "passive": []
+        }
+      },
+      "active_1": {
+        "id": "skill-50",
+        "name": "빠르고, 멋있게.",
+        "type": "Active",
+        "description": "적군 4명\n- 물리 공격력의 40%만큼 2회 피해\n- 각 공격마다 폭탄 [35% 확률] [3턴 지속]\n스킬 강화 효과\n- 피해량 상승: 물리 공격력의 50%\n- 확률 상승: 폭탄 확률 45%",
+        "cooltime": "72",
+        "image": "/content/skills/NZr-jHIjFEB48USNVXtoZy5WVWTVAc1N5l0lTKHJqeeribRrYGgvKHsqYGHE24qZb1m2bNvrpLcgyyjFe-hDYg-86127a7d20.webp",
+        "effects": [],
+        "linkedHeroes": {
+          "attack": [],
+          "active_1": [
+            "콜트"
+          ],
+          "active_2": [],
+          "passive": []
+        }
+      },
+      "active_2": {
+        "id": "skill-51",
+        "name": "어때, 화려하지?",
+        "type": "Active",
+        "description": "모든 적군\n- 물리 공격력의 125% 만큼 1회 피해\n- 폭탄 [50% 확률] [3턴 지속]\n- 150% 위력으로 폭탄 폭파 [최대 3개]\n- 모든 공격력 감소 [100% 확률] [3턴 지속]\n스킬 강화 효과\n- 피해량 상승: 물리 공격력의 150%\n- 효과 상승: 모든 공격력 감소 18%",
+        "cooltime": "104",
+        "image": "/content/skills/uvjRdizFKydTuYitfJbbvvPmq3nG53jDtOEoSF_WyfhmT8S3yWf5-z26v8_dR7eawFNtbLvVRd-JrJdu6IUnHg-fad66762d2.webp",
+        "effects": [],
+        "linkedHeroes": {
+          "attack": [],
+          "active_1": [],
+          "active_2": [
+            "콜트"
+          ],
+          "passive": []
+        }
+      },
+      "passive": {
+        "id": "skill-52",
+        "name": "방랑의 사냥꾼",
+        "type": "Passive",
+        "description": "자신\n- 위장 [2턴 지속]\n- 속공 비례 공격력 증가 [상시]\n모든 아군\n- 효과 적중 증가 [상시]\n스킬 강화 효과\n- 효과 상승: 속공 비례 공격력 최대 증가 수치 1,320\n- 효과 상승: 효과 적중 증가 34%\n2초월 효과\n(자신)\n- 효과 추가: 권능 (전투당 1회 발동)\n- 효과 추가: 권능 발동 시 시전자 물리 공격력의 155%만큼 보호막 [3턴 지속]\n6초월 효과\n(자신)\n- 효과 추가: 적군 사망 후 스킬 쿨타임 감소 23초",
+        "cooltime": null,
+        "image": "/content/skills/VVB3ce5od-2oKiDvLb_HRKsN9NHKVtvaotVST8_mcqbsh6uqj2nSqLQvOG2Mot54WI5U3z1R0ElcjFsDjm6Rhw-e4e7a78d3c.webp",
+        "effects": [],
+        "linkedHeroes": {
+          "attack": [],
+          "active_1": [],
+          "active_2": [],
+          "passive": [
+            "콜트"
+          ]
+        }
+      }
+    },
+    {
+      "id": "hero-%ED%81%AC%EB%A6%AC%EC%8A%A4",
+      "slug": "%ED%81%AC%EB%A6%AC%EC%8A%A4",
+      "name": "크리스",
+      "nickname": "지옥의 군주",
+      "group": "세븐나이츠",
+      "rarity": "전설+",
+      "type": "만능형",
+      "portrait": "/content/heroes/크리스-ce9e242760.png",
+      "typeImage": "/content/types/RoleIcon_05-f7672beb62.png",
+      "hasEffect": true,
+      "transLevel": null,
+      "history": [],
+      "description": null,
+      "atk": "1306",
+      "def": "659",
+      "hp": "3693",
+      "spd": "25",
+      "crit_rate": "5",
+      "crit_dmg": "150",
+      "weak_rate": "0",
+      "block_rate": "0",
+      "dmg_reduce": "0",
+      "eff_hit": "0",
+      "eff_res": "0",
+      "attack": {
+        "id": "skill-25",
+        "name": "기본 공격",
+        "type": "Attack",
+        "description": "!단일 적군\n- 물리 공격력의 100% 만큼 1회 피해\n#스킬 강화 효과\n- 피해량 상승 : 물리 공격력의 120%\n- 효과 추가 : 즉사 [20% 확률] [3턴 지속]",
+        "cooltime": null,
+        "image": "/content/skills/ELcbQ-f2wLeOAlIHyYffAT0wc2lu5E6cyrky7ZD96DjIP33evtduunk7Hy_wkz7f8QAydnnv-X0AGsJBMJoS4Q-f1b58f8a03.webp",
+        "effects": [
+          {
+            "id": "effect-53",
+            "name": "즉사",
+            "description": "매 턴마다 대상 현재 생명력에 20%의 피해를 입으며, 마지막 턴에는 즉시 사망합니다.\n즉사 2회 중첩 시 즉시 사망합니다.",
+            "effectType": "debuff",
+            "hasVariable": false,
+            "fulltime": false,
+            "icon": "/content/effects/BuffIcon_15001-4c607864f4.png"
+          }
+        ],
+        "linkedHeroes": {
+          "attack": [
+            "크리스"
+          ],
+          "active_1": [],
+          "active_2": [],
+          "passive": []
+        }
+      },
+      "active_1": {
+        "id": "skill-26",
+        "name": "어둠의 일격",
+        "type": "Active",
+        "description": "!단일 적군\n- 물리 공격력의 305%만큼 1회 피해\n- 즉사 [50% 확률] [3턴 지속]\n!자신\n- 해당 스킬로 적군 처치 시 물리 공격력의 135%만큼 보호막 [3턴 지속]\n#스킬 강화 효과\n- 피해량 상승 : 물리 공격력의 370%\n- 확률 상승 : 즉사 확률 60%\n@@6초월 효과\n- 효과 추가 : 즉사 [30% 확률] [3턴 지속]",
+        "cooltime": "60",
+        "image": "/content/skills/5T6gWva8hIFLZXGic5oN-DpzIMMzcQiRHI_RjSkId_G39mp3D4weMNjSne_aWkAz6gT0QEmIvAXDMcw8oTvcwA-78ae817583.webp",
+        "effects": [
+          {
+            "id": "effect-53",
+            "name": "즉사",
+            "description": "매 턴마다 대상 현재 생명력에 20%의 피해를 입으며, 마지막 턴에는 즉시 사망합니다.\n즉사 2회 중첩 시 즉시 사망합니다.",
+            "effectType": "debuff",
+            "hasVariable": false,
+            "fulltime": false,
+            "icon": "/content/effects/BuffIcon_15001-4c607864f4.png"
+          },
+          {
+            "id": "effect-37",
+            "name": "보호막",
+            "description": "보호막 수치만큼 피해를 흡수합니다.",
+            "effectType": "buff",
+            "hasVariable": false,
+            "fulltime": false,
+            "icon": "/content/effects/BuffIcon_02001-7269688103.png"
+          }
+        ],
+        "linkedHeroes": {
+          "attack": [],
+          "active_1": [
+            "크리스"
+          ],
+          "active_2": [],
+          "passive": []
+        }
+      },
+      "active_2": {
+        "id": "skill-27",
+        "name": "어둠의 속삭임",
+        "type": "Active",
+        "description": "!모든 적군\n- 물리 공격력의 100%만큼 1회 피해\n- 즉사 [25% 확률] [3턴 지속]\n!자신\n- 해당 스킬로 적군 처치 시 물리 공격력의 135%만큼 보호막 [3턴 지속]\n#스킬 강화 효과\n- 피해량 상승 : 물리 공격력의 115%",
+        "cooltime": "80",
+        "image": "/content/skills/0Ya-ZVGy-o4KLv0yTeVVfOcRdgkucAWFHfQukg201y73mSDnSRDVqDwNuL-pvO_pWw3JemXLm7h1GAnGP1AzBg-74c5d8f968.webp",
+        "effects": [
+          {
+            "id": "effect-53",
+            "name": "즉사",
+            "description": "매 턴마다 대상 현재 생명력에 20%의 피해를 입으며, 마지막 턴에는 즉시 사망합니다.\n즉사 2회 중첩 시 즉시 사망합니다.",
+            "effectType": "debuff",
+            "hasVariable": false,
+            "fulltime": false,
+            "icon": "/content/effects/BuffIcon_15001-4c607864f4.png"
+          },
+          {
+            "id": "effect-37",
+            "name": "보호막",
+            "description": "보호막 수치만큼 피해를 흡수합니다.",
+            "effectType": "buff",
+            "hasVariable": false,
+            "fulltime": false,
+            "icon": "/content/effects/BuffIcon_02001-7269688103.png"
+          }
+        ],
+        "linkedHeroes": {
+          "attack": [],
+          "active_1": [],
+          "active_2": [
+            "크리스"
+          ],
+          "passive": []
+        }
+      },
+      "passive": {
+        "id": "skill-28",
+        "name": "영혼 흡수",
+        "type": "Passive",
+        "description": "!자신\n- 시전자 물리 공격력의 160%만큼 보호막 [3턴 지속]\n- 사망 시 불사 상태로 부활 [2턴 지속] (전투당 1회 발동)\n!모든 아군\n- 적 사망 후 시전자 물리 공격력의 20% 만큼 생명력 회복\n#스킬 강화 효과\n- 턴 상승 : 불사 지속 3턴\n@2초월 효과\n- [자신]\n효과 추가 : 불사 발동 시 스킬 쿨타임 초기화",
+        "cooltime": null,
+        "image": "/content/skills/6Fr5ZnMi052U3Uk1fgQHoKQcCFGY7b-o03kYQIkRHeZ-L06mIuvTGIY-FqrmY3NO2zpWZ10Hboextk2bb_24hw-51750258b0.webp",
+        "effects": [
+          {
+            "id": "effect-37",
+            "name": "보호막",
+            "description": "보호막 수치만큼 피해를 흡수합니다.",
+            "effectType": "buff",
+            "hasVariable": false,
+            "fulltime": false,
+            "icon": "/content/effects/BuffIcon_02001-7269688103.png"
+          },
+          {
+            "id": "effect-40",
+            "name": "불사",
+            "description": "지속하는 동안 생명력이 1로 고정되며, 만료 시 사망합니다.",
+            "effectType": "buff",
+            "hasVariable": false,
+            "fulltime": false,
+            "icon": "/content/effects/BuffIcon_02006-7881b7e1e4.png"
+          }
+        ],
+        "linkedHeroes": {
+          "attack": [],
+          "active_1": [],
+          "active_2": [],
+          "passive": [
+            "크리스"
+          ]
+        }
+      }
+    },
+    {
+      "id": "hero-%ED%81%B4%EB%9D%BC%ED%95%9C",
+      "slug": "%ED%81%B4%EB%9D%BC%ED%95%9C",
+      "name": "클라한",
+      "nickname": "무에타이 명인",
+      "group": "숨은 강자들",
+      "rarity": "전설+",
+      "type": "공격형",
+      "portrait": "/content/heroes/클라한-2ae9714f89.png",
+      "typeImage": "/content/types/RoleIcon_01-1e0c023e6e.png",
+      "hasEffect": true,
+      "transLevel": null,
+      "history": [],
+      "description": null,
+      "atk": "1500",
+      "def": "571",
+      "hp": "3326",
+      "spd": "29",
+      "crit_rate": "5",
+      "crit_dmg": "150",
+      "weak_rate": "0",
+      "block_rate": "0",
+      "dmg_reduce": "0",
+      "eff_hit": "0",
+      "eff_res": "0",
+      "attack": {
+        "id": "skill-101",
+        "name": "기본 공격",
+        "type": "Attack",
+        "description": "단일 적군\n- 물리 공격력의 100%만큼 1회 피해\n스킬 강화 효과\n- 피해량 상승: 물리 공격력의 130%",
+        "cooltime": null,
+        "image": "/content/skills/ZTgMOS0leHtJdrW3V-XgCkqIYwZv7r0ctijjjAU5wI8s9By9AxbRWJTQBoVK9qjPAE5xb8Z2JInHWsFiNqNjlw-1-0f7fb6f0fe.webp",
+        "effects": [],
+        "linkedHeroes": {
+          "attack": [
+            "클라한"
+          ],
+          "active_1": [],
+          "active_2": [],
+          "passive": []
+        }
+      },
+      "active_1": {
+        "id": "skill-102",
+        "name": "비호선풍",
+        "type": "Active",
+        "description": "모든 적군\n- 대상의 현재 생명력이 50% 이하일 경우 물리 공격력의 100%만큼 추가 관통 피해\n- 물리 공격력의 115%만큼 1회 관통 피해\n스킬 강화 효과\n- 피해량 상승: 물리 공격력의 150%",
+        "cooltime": "76",
+        "image": "/content/skills/N056bcV8RjRi4qgJO25VCfbU47QRT7N3V7glREvF_zs9DTL_MU5C-XYzKe98EGBWEFek2zS6bx4SV3AOc1SzJQ-4736eb6475.webp",
+        "effects": [],
+        "linkedHeroes": {
+          "attack": [],
+          "active_1": [
+            "클라한"
+          ],
+          "active_2": [],
+          "passive": []
+        }
+      },
+      "active_2": {
+        "id": "skill-103",
+        "name": "질풍 몰아치기",
+        "type": "Active",
+        "description": "모든 적군\n- 대상의 현재 생명력이 50% 이상일 경우 물리 공격력의 100%만큼 추가 피해\n- 물리 공격력의 115%만큼 1회 피해\n- 피해량 감소 [100% 확률] [3턴 지속]\n스킬 강화 효과\n- 피해량 상승: 물리 공격력의 135%\n- 효과 상승: 피해량 감소 15%",
+        "cooltime": "96",
+        "image": "/content/skills/KjP7a1k836rWGdDphuwFpO2PEqNVWp_ZiFvb6158fJDGpxGmD4CxZUMjltc_4wBo1WfHT2rISzjXn4e_N2Dz3A-31002fc811.webp",
+        "effects": [],
+        "linkedHeroes": {
+          "attack": [],
+          "active_1": [],
+          "active_2": [
+            "클라한"
+          ],
+          "passive": []
+        }
+      },
+      "passive": {
+        "id": "skill-104",
+        "name": "호랑이의 용맹",
+        "type": "Passive",
+        "description": "자신\n- 물리 공격력 증가 [상시]\n- 적 사망 시 시전자 물리 공격력의 30% 만큼 생명력 회복\n스킬 강화 효과\n- 효과 상승: 물리 공격력 증가 33%\n2초월 효과\n[자신]\n- 효과 추가: 모든 피해 면역 [2턴 지속]\n6초월 효과\n[자신]\n- 효과 추가: 물리 피해량 증가 33% [3턴 지속]",
+        "cooltime": null,
+        "image": "/content/skills/RzxF5C9pF0MK3wtkRXivl1B7BeQp1lYMZw-xCgSacmmO9ia-92295jL0euWoqdY-ovTucF5f5sYgA0PSM582_w-14d26e2d72.webp",
+        "effects": [],
+        "linkedHeroes": {
+          "attack": [],
+          "active_1": [],
+          "active_2": [],
+          "passive": [
+            "클라한"
+          ]
+        }
+      }
+    },
+    {
+      "id": "hero-%ED%81%B4%EB%A0%88%EC%98%A4",
+      "slug": "%ED%81%B4%EB%A0%88%EC%98%A4",
+      "name": "클레오",
+      "nickname": "파멸의 시선",
+      "group": "용의 유적지",
+      "rarity": "희귀",
+      "type": "마법형",
+      "portrait": "/content/heroes/클레오-1a52d975da.png",
+      "typeImage": "/content/types/RoleIcon_02-3bdba832b0.png",
+      "hasEffect": false,
+      "transLevel": null,
+      "history": [],
+      "description": null,
+      "atk": "1389",
+      "def": "533",
+      "hp": "3174",
+      "spd": "25",
+      "crit_rate": "5",
+      "crit_dmg": "150",
+      "weak_rate": "0",
+      "block_rate": "0",
+      "dmg_reduce": "0",
+      "eff_hit": "0",
+      "eff_res": "0",
+      "attack": null,
+      "active_1": null,
+      "active_2": null,
+      "passive": null
+    },
+    {
+      "id": "hero-%ED%81%B4%EB%A1%9C%EC%97%90",
+      "slug": "%ED%81%B4%EB%A1%9C%EC%97%90",
+      "name": "클로에",
+      "nickname": "소환상점 주인",
+      "group": "테라영지",
+      "rarity": "희귀",
+      "type": "지원형",
+      "portrait": "/content/heroes/클로에-a5c4bc0668.png",
+      "typeImage": "/content/types/RoleIcon_04-3c4c7a32e8.png",
+      "hasEffect": false,
+      "transLevel": null,
+      "history": [],
+      "description": null,
+      "atk": "1035",
+      "def": "632",
+      "hp": "4248",
+      "spd": "16",
+      "crit_rate": "5",
+      "crit_dmg": "150",
+      "weak_rate": "0",
+      "block_rate": "0",
+      "dmg_reduce": "0",
+      "eff_hit": "0",
+      "eff_res": "0",
+      "attack": null,
+      "active_1": null,
+      "active_2": null,
+      "passive": null
+    },
+    {
+      "id": "hero-%ED%82%A4%EB%A6%AC%EC%97%98",
+      "slug": "%ED%82%A4%EB%A6%AC%EC%97%98",
+      "name": "키리엘",
+      "nickname": "혁명단원",
+      "group": "루미너스 혁명단",
+      "rarity": "전설+",
+      "type": "마법형",
+      "portrait": "/content/heroes/Frame-1-83a1d2e0c0.png",
+      "typeImage": "/content/types/RoleIcon_02-3bdba832b0.png",
+      "hasEffect": true,
+      "transLevel": null,
+      "history": [],
+      "description": null,
+      "atk": "1500",
+      "def": "571",
+      "hp": "3326",
+      "spd": "29",
+      "crit_rate": "5",
+      "crit_dmg": "150",
+      "weak_rate": "0",
+      "block_rate": "0",
+      "dmg_reduce": "0",
+      "eff_hit": "0",
+      "eff_res": "0",
+      "attack": {
+        "id": "skill-93",
+        "name": "기본 공격",
+        "type": "Attack",
+        "description": "자신\n- 시전자 마법 공격력의 160%만큼 보호막 [3턴 지속]\n아군 전열(마법형)\n- 치명타 확률 증가 [상시]\n- 치명타 피해 증가 [상시]\n스킬 강화 효과\n- 효과 상승: 보호막 흡수량이 마법 공격력의 185%\n6초월 효과\n[아군 마법형]\n- 효과 추가: 자신의 스킬 1회 발동 시 모든 피해 무효화 [피격 1회]",
+        "cooltime": null,
+        "image": "/content/skills/wT5rGTRx4mWhZDkMUOiHPPrHMCb_KkcjGPB75dxnez6pq6mLvEDA9NJPm_XQN104XdjnOWsaP_g_lXzBBFB9Ew-7cde7ff2bd.webp",
+        "effects": [],
+        "linkedHeroes": {
+          "attack": [
+            "키리엘"
+          ],
+          "active_1": [],
+          "active_2": [],
+          "passive": []
+        }
+      },
+      "active_1": {
+        "id": "skill-94",
+        "name": "레굴루스",
+        "type": "Active",
+        "description": "자신\n- 모든 디버프 해제\n- 해제한 디버프 개수만큼 피해량 증가 1중첩 [최대 4중첩]\n단일 적군\n- 마법 공격력의 220%만큼 2회 피해\n스킬 강화 효과\n- 피해량 상승: 마법 공격력의 267%\n2초월 효과\n[단일 적군]\n- 효과 추가: 해당 스킬의 직접 피해로 적군 처치 시 100% 위력으로 연속 발동",
+        "cooltime": "75",
+        "image": "/content/skills/cThujbTozdrtbJQIGJRi-_WJ0QPGLKf1QOyLEMWwvBdttKlrkIwl3EDct7Cu5yrh8P2rOmNxTGl5NY68NAQ3IA-543a56e42e.webp",
+        "effects": [],
+        "linkedHeroes": {
+          "attack": [],
+          "active_1": [
+            "키리엘"
+          ],
+          "active_2": [],
+          "passive": []
+        }
+      },
+      "active_2": {
+        "id": "skill-95",
+        "name": "유성우",
+        "type": "Active",
+        "description": "모든 적군\n- 마법 공격력의 57% 만큼 2회 관통 피해\n- 각 공격마다 마비 [30% 확률] [2턴 지속]\n스킬 강화 효과\n- 피해량 상승: 마법 공격력의 67%\n- 확률 상승: 마비 확률 35%",
+        "cooltime": "92",
+        "image": "/content/skills/xo6hTq2ej__gYyWALIr5BqcDxRVheE63GnwiA2UIm_0xWt3UCVSrMml173U-J_xXyfHCMDyjGVZnaqyMMYAZVA-30027d7304.webp",
+        "effects": [],
+        "linkedHeroes": {
+          "attack": [],
+          "active_1": [],
+          "active_2": [
+            "키리엘"
+          ],
+          "passive": []
+        }
+      },
+      "passive": {
+        "id": "skill-96",
+        "name": "별의 축제",
+        "type": "Passive",
+        "description": "자신\n- 모든 피해 무효화 [피격 3회]\n- 권능(전투당 1회 발동)\n- 권능 발동 시 시전자 마법 공격력의 135% 만큼 보호막 [3턴 지속]\n- 속공 비례 공격력 증가 [상시]\n모든 아군\n- 마법 피해량 증가 [상시]\n스킬 강화 효과\n- 효과 상승: 속공 비례 공격력 최대 증가 수치 1,320\n- 효과 상승: 마법 피해량 증가 20%\n6초월 효과\n[자신]\n- 효과 상승: 보호막 흡수량이 마법 공격력의 155%\n- 효과 추가: 행동 제어 면역 [3턴 지속]",
+        "cooltime": null,
+        "image": "/content/skills/m4zFyGXg-5cNq6mWEvQF2aFKzlqiMVuVbDCPJJ-nuhmK2-fp787ePMTMXp4Md0_pSBdDAmAoO3254K9e-vB65w-904e1c443a.webp",
+        "effects": [],
+        "linkedHeroes": {
+          "attack": [],
+          "active_1": [],
+          "active_2": [],
+          "passive": [
+            "키리엘"
+          ]
+        }
+      }
+    },
+    {
+      "id": "hero-%ED%83%80%EC%B9%B4",
+      "slug": "%ED%83%80%EC%B9%B4",
+      "name": "타카",
+      "nickname": "나이트 크로우",
+      "group": "나이트크로우",
+      "rarity": "전설",
+      "type": "공격형",
+      "portrait": "/content/heroes/타카-bcc2c45445.png",
+      "typeImage": "/content/types/RoleIcon_01-1e0c023e6e.png",
+      "hasEffect": false,
+      "transLevel": null,
+      "history": [],
+      "description": null,
+      "atk": "1500",
+      "def": "571",
+      "hp": "3326",
+      "spd": "29",
+      "crit_rate": "5",
+      "crit_dmg": "150",
+      "weak_rate": "0",
+      "block_rate": "0",
+      "dmg_reduce": "0",
+      "eff_hit": "0",
+      "eff_res": "0",
+      "attack": {
+        "id": "skill-81",
+        "name": "기본 공격",
+        "type": "Attack",
+        "description": "단일적군\n- 물리 공격력의 100%만큼 1회 피해\n- 대상의 현재 생명력이 30% 이하일 경우 물리 공격력의 45%만큼 추가 피해\n스킬 강화 효과\n- 피해량 상승 : 물리 공격력의 120%\n- 피해량 상승 : 대상의 현재 생명력이 30% 이하일 경우 피해량이 물리 공격력의 55%",
+        "cooltime": null,
+        "image": "/content/skills/bepA4AdccypVeiXFKSlnNfCQS5N7MeW09loBHm8Yv8l-0wrUk23kQMrfCO3il5DKMORViDpUW3ApbOhc1f75Fg-cf297ba264.webp",
+        "effects": [],
+        "linkedHeroes": {
+          "attack": [
+            "타카"
+          ],
+          "active_1": [],
+          "active_2": [],
+          "passive": []
+        }
+      },
+      "active_1": {
+        "id": "skill-82",
+        "name": "바람의 칼날",
+        "type": "Active",
+        "description": "적군 3명\n- 물리 공격력의 145%만큼 1회 피해 [치명타 피해 37% 추가 적용]\n스킬 강화 효과\n- 효과 상승 : 치명타 피해 46% 추가 적용\n- 피해량 상승 : 물리 공격력의 170%",
+        "cooltime": "84",
+        "image": "/content/skills/V1NMHfTmkiXwOCwWxDwX6pXeTfUI_QnTA3DqbW-12QU7XCDuDx4xW7HFJei2rzfDesMZXoMYNis0WHnx-0C3Bg-dbe494253d.webp",
+        "effects": [],
+        "linkedHeroes": {
+          "attack": [],
+          "active_1": [
+            "타카"
+          ],
+          "active_2": [],
+          "passive": []
+        }
+      },
+      "active_2": {
+        "id": "skill-83",
+        "name": "죽음의 무도",
+        "type": "Active",
+        "description": "적군 3명\n- 물리 공격력의 145%만큼 1회 피해\n- 대상의 현재 생명력이 30% 이하일 경우 물리 공격력의 260%만큼 추가피해\n스킬 강화 효과\n- 피해량 상승 : 물리 공격력의 170%",
+        "cooltime": "70",
+        "image": "/content/skills/NqveavEUceA8WZPdnELIyoQVtX5wGy7VVI4345eAK_Oumbppj2wWoZ5xnvClTKLXz2nNJcXHVV_bu7UNza8zOA-d17f0897da.webp",
+        "effects": [],
+        "linkedHeroes": {
+          "attack": [],
+          "active_1": [],
+          "active_2": [
+            "타카"
+          ],
+          "passive": []
+        }
+      },
+      "passive": {
+        "id": "skill-84",
+        "name": "매의 발톱",
+        "type": "Passive",
+        "description": "적군 3명(공격력이 높은 순)\n- 자신의 모든 공격 2회 발동 시 [매의 발톱] [100% 확률] 2중첩 [최대 8중첩]\n스킬 강화 효과\n- 효과 추가 : 자신의 스킬 1회 발동 시 모든 피해 무효화 [피격 1회]\n2초월 효과\n- 효과 상승 : [매의 발톱] 물리 취약 4%",
+        "cooltime": null,
+        "image": "/content/skills/36d-IydrIUKPHbhHsU3707bAgnyRd41QLtDR0X6XiooNBTpIdxEUv36F_mUU0pxoX3fb1PqHrouGK9BclcTG-w-d9e9d52919.webp",
+        "effects": [],
+        "linkedHeroes": {
+          "attack": [],
+          "active_1": [],
+          "active_2": [],
+          "passive": [
+            "타카"
+          ]
+        }
+      }
+    },
+    {
+      "id": "hero-%ED%83%9C%EC%98%A4",
+      "slug": "%ED%83%9C%EC%98%A4",
+      "name": "태오",
+      "nickname": "나이트 크로우",
+      "group": "(구)사황,나이트크로우",
+      "rarity": "전설+",
+      "type": "공격형",
+      "portrait": "/content/heroes/태오-6a1c63d70b.png",
+      "typeImage": "/content/types/RoleIcon_01-1e0c023e6e.png",
+      "hasEffect": true,
+      "transLevel": null,
+      "history": [],
+      "description": null,
+      "atk": "1500",
+      "def": "571",
+      "hp": "3326",
+      "spd": "29",
+      "crit_rate": "5",
+      "crit_dmg": "150",
+      "weak_rate": "0",
+      "block_rate": "0",
+      "dmg_reduce": "0",
+      "eff_hit": "0",
+      "eff_res": "0",
+      "attack": {
+        "id": "skill-65",
+        "name": "기본 공격",
+        "type": "Attack",
+        "description": "단일 적군\n- 물리 공격력의 100%만큼 1회 피해\n스킬 강화 효과\n- 피해량 상승 : 물리 공격력의 130%",
+        "cooltime": null,
+        "image": "/content/skills/uJHJeaMcm6Q8Csd7lsFoN6Lq1dC8MULlCUj1nxvE9a7GZAQ1d1YqjuZUgvy6oMiAgJqXMeC_m4vaWFO5wKlY9g-6-d2f9f25fd4.webp",
+        "effects": [],
+        "linkedHeroes": {
+          "attack": [
+            "태오"
+          ],
+          "active_1": [],
+          "active_2": [],
+          "passive": []
+        }
+      },
+      "active_1": {
+        "id": "skill-66",
+        "name": "흑풍참",
+        "type": "Active",
+        "description": "모든 적군\n- 물리 공격력의 130%만큼 1회 관통 피해 [치명타 확률 30% 추가 적용]\n스킬 강화 효과\n- 피해량 상승 : 물리 공격력의 170%\n6초월 효과\n- 효과 상승 : 치명타 확률 100% 추가 적용",
+        "cooltime": "88",
+        "image": "/content/skills/FCgL2yeBJVeK28yikdjfM1m3ggj0k-yRz2AEf5YnqBHAsRLm_x901dRvwirnl95R3t44gAWShlRsSN0rYdyBmw-ee4f6f8056.webp",
+        "effects": [],
+        "linkedHeroes": {
+          "attack": [],
+          "active_1": [
+            "태오"
+          ],
+          "active_2": [],
+          "passive": []
+        }
+      },
+      "active_2": {
+        "id": "skill-67",
+        "name": "흑익만월참",
+        "type": "Active",
+        "description": "모든 적군\n- 물리 공격력의 65%만큼 2회 피해 [치명타 확률 30% 추가 적용] \n- 대상의 턴제 버프 감소 2턴 [100% 확률]\n스킬 강화 효과\n- 피해량 상승 : 물리 공격력의 85%\n6초월 효과\n- 효과 상승 : 치명타 확률 100% 추가 적용",
+        "cooltime": "88",
+        "image": "/content/skills/FS69KdTyUuntgAlv58RtughHBdI6n2bTcDgnSX46KptlnblvbxI5xbqVDj8cA44SNJ-zKrtdRlQexvXc0JDLZQ-63fd8cbee7.webp",
+        "effects": [],
+        "linkedHeroes": {
+          "attack": [],
+          "active_1": [],
+          "active_2": [
+            "태오"
+          ],
+          "passive": []
+        }
+      },
+      "passive": {
+        "id": "skill-68",
+        "name": "까마귀 눈동자",
+        "type": "Passive",
+        "description": "자신\n- 모든 피해 무효화 [피격 3회]\n- 사망 시 불사 상태로 부활 [2턴 지속] (전투당 1회 발동)\n스킬 강화 효과\n- 효과 추가 : 불사 발동 시 물리 공격력 증가 39% [2턴 지속]\n2초월 효과\n- 효과 추가 : 불사 발동 시 스킬 쿨타임 초기화",
+        "cooltime": null,
+        "image": "/content/skills/vtAUrAWR7_F2QrYw9Y7CagqQ3kn58AT6UmHagHs0hUQ6GDRZ96X2QP9N8-MNH7_pPt-H35DXGCnA_XiGj3VCdA-0daeb43724.webp",
+        "effects": [],
+        "linkedHeroes": {
+          "attack": [],
+          "active_1": [],
+          "active_2": [],
+          "passive": [
+            "태오"
+          ]
+        }
+      }
+    },
+    {
+      "id": "hero-%ED%8C%8C%EC%8A%A4%EC%B9%BC",
+      "slug": "%ED%8C%8C%EC%8A%A4%EC%B9%BC",
+      "name": "파스칼",
+      "nickname": "황제",
+      "group": "어둠의 안식처",
+      "rarity": "전설",
+      "type": "마법형",
+      "portrait": "/content/heroes/파스칼-91dfd194f3.png",
+      "typeImage": "/content/types/RoleIcon_02-3bdba832b0.png",
+      "hasEffect": false,
+      "transLevel": null,
+      "history": [],
+      "description": null,
+      "atk": "1500",
+      "def": "571",
+      "hp": "3326",
+      "spd": "29",
+      "crit_rate": "5",
+      "crit_dmg": "150",
+      "weak_rate": "0",
+      "block_rate": "0",
+      "dmg_reduce": "0",
+      "eff_hit": "0",
+      "eff_res": "0",
+      "attack": null,
+      "active_1": null,
+      "active_2": null,
+      "passive": null
+    },
+    {
+      "id": "hero-%ED%8C%8C%EC%9D%B4",
+      "slug": "%ED%8C%8C%EC%9D%B4",
+      "name": "파이",
+      "nickname": "사막의 화염",
+      "group": "(구)세븐나이츠",
+      "rarity": "전설+",
+      "type": "공격형",
+      "portrait": "/content/heroes/파이-c3822cc1be.png",
+      "typeImage": "/content/types/RoleIcon_01-1e0c023e6e.png",
+      "hasEffect": true,
+      "transLevel": null,
+      "history": [],
+      "description": null,
+      "atk": "1500",
+      "def": "571",
+      "hp": "3326",
+      "spd": "29",
+      "crit_rate": "5",
+      "crit_dmg": "150",
+      "weak_rate": "0",
+      "block_rate": "0",
+      "dmg_reduce": "0",
+      "eff_hit": "0",
+      "eff_res": "0",
+      "attack": {
+        "id": "skill-33",
+        "name": "기본 공격",
+        "type": "Attack",
+        "description": "!단일 적군\n- 물리 공격력의 100%만큼 1회 피해\n!적군 3명\n- 화상 [35% 확률] [2턴 지속]",
+        "cooltime": null,
+        "image": "/content/skills/jieiIl3EJftVs60cT8Q6mWqxuDLZvR0p7AnXfeocX7cAtpLnyxNGUIXGEZeLqyfVgNf0I7iY-zwbvposRC6Edw-9322776d5e.webp",
+        "effects": [
+          {
+            "id": "effect-69",
+            "name": "화상",
+            "description": "매 턴마다 시전자 공격력의 80% 피해를 입힙니다.",
+            "effectType": "debuff",
+            "hasVariable": false,
+            "fulltime": false,
+            "icon": "/content/effects/BuffIcon_15003-c1bd3f9416.png"
+          }
+        ],
+        "linkedHeroes": {
+          "attack": [
+            "파이"
+          ],
+          "active_1": [],
+          "active_2": [],
+          "passive": []
+        }
+      },
+      "active_1": {
+        "id": "skill-34",
+        "name": "아그니아의 창",
+        "type": "Active",
+        "description": "!모든 적군\n- 각 공격마다 화상 [60% 확률] [2턴 지속]\n- 물리 공격력의 57%만큼 2회 피해",
+        "cooltime": "104",
+        "image": "/content/skills/1rQP-mc5wK2lxeDP4jNB6TRgTWfxJ8t8MlYZM24D8kKZnmv2bof9xipn6xIf0pR6v7TaVFjaOzx-ewwge7ZsZg-8173c51816.webp",
+        "effects": [
+          {
+            "id": "effect-69",
+            "name": "화상",
+            "description": "매 턴마다 시전자 공격력의 80% 피해를 입힙니다.",
+            "effectType": "debuff",
+            "hasVariable": false,
+            "fulltime": false,
+            "icon": "/content/effects/BuffIcon_15003-c1bd3f9416.png"
+          }
+        ],
+        "linkedHeroes": {
+          "attack": [],
+          "active_1": [
+            "파이"
+          ],
+          "active_2": [],
+          "passive": []
+        }
+      },
+      "active_2": {
+        "id": "skill-35",
+        "name": "염룡의 연주",
+        "type": "Active",
+        "description": "!단일 적군\n- 버프 해제 3개 [100% 확률]\n- 화상 [100% 확률] [3턴 지속]\n- 물리 공격력의 340%, 대상 최대 생명력의 20%만큼 1회 피해 (생명력 비례 피해는 시전자 공격력의 300% 제한)\n- 생명력 24% 이하의 적을 즉시 처형\n!주 스킬 대상과 동일 열 적군\n- 화상 [60% 확률] [2턴 지속]\n- 물리 공격력의 125%, 대상 최대 생명력의 14%만큼 1회 피해 (생명력 비례 피해는 시전자 공격력의 150% 제한)\n#스킬 강화 효과\n- 피해량 상승 : 물리 공격력의 410%, 대상 최대 생명력의 26%\n@2초월 효과\n- 효과 상승 : 처형 조건 생명력 30%\n@@6초월 효과\n- 효과 추가 : 처형 대상 동일 열 전체로 확장",
+        "cooltime": "90",
+        "image": "/content/skills/-8DRgKGPCsT9-qpe9OJfX37cI7VLZEG05wdyqa6usbymePUArEWFa3J5g-LBD1vk7SFURxGsJbD9y0wAyz7XVg-4805b0907c.webp",
+        "effects": [
+          {
+            "id": "effect-35",
+            "name": "버프 해제",
+            "description": "적용 순서대로 버프를 해제합니다.\n피해 면역, 피해 무효화, 권능 효과는 해제할 수 없습니다.",
+            "effectType": "debuff",
+            "hasVariable": false,
+            "fulltime": false,
+            "icon": "/content/effects/Bufficon_14003-11010384c6.png"
+          },
+          {
+            "id": "effect-69",
+            "name": "화상",
+            "description": "매 턴마다 시전자 공격력의 80% 피해를 입힙니다.",
+            "effectType": "debuff",
+            "hasVariable": false,
+            "fulltime": false,
+            "icon": "/content/effects/BuffIcon_15003-c1bd3f9416.png"
+          },
+          {
+            "id": "effect-55",
+            "name": "처형",
+            "description": "일정 생명력 비율 이하의 대상을 즉시 사망시킵니다. (현재 생명력이 시전자 공격력의 120%를 초과하는 대상에게는 효과가 없습니다.)",
+            "effectType": "debuff",
+            "hasVariable": false,
+            "fulltime": false,
+            "icon": "/content/effects/Bufficon_13002-1d2454a8c4.png"
+          }
+        ],
+        "linkedHeroes": {
+          "attack": [],
+          "active_1": [],
+          "active_2": [
+            "파이"
+          ],
+          "passive": []
+        }
+      },
+      "passive": {
+        "id": "skill-36",
+        "name": "솟구치는 불꽃",
+        "type": "Passive",
+        "description": "모든 적군\n- 물리 취약 17% [상시]\n자신\n- 사망 시 생명력 80%로 부활 (전투당 1회 발동)\n- 부활 시 물리 공격력의 135%만큼 보호막 [3턴 지속] (전투당 1회 발동)\n- [화상] 상태인 대상 공격 시 물리 공격력의 70% 만큼 추가 피해",
+        "cooltime": null,
+        "image": "/content/skills/SQIJI78wEdDM7Xe3HuxQv691ZcvaMPZ2i71KC_-d-e6bYhdQ1gLOd6MJn_HEastWbBUEkTCIH4eSz4jC0Mdyrg-57ac8c5758.webp",
+        "effects": [],
+        "linkedHeroes": {
+          "attack": [],
+          "active_1": [],
+          "active_2": [],
+          "passive": [
+            "파이"
+          ]
+        }
+      }
+    },
+    {
+      "id": "hero-%ED%92%8D%EC%97%B0",
+      "slug": "%ED%92%8D%EC%97%B0",
+      "name": "풍연",
+      "nickname": "폭풍의 검신",
+      "group": "천자의 땅 서쪽",
+      "rarity": "희귀",
+      "type": "공격형",
+      "portrait": "/content/heroes/풍연-24843356aa.png",
+      "typeImage": "/content/types/RoleIcon_01-1e0c023e6e.png",
+      "hasEffect": false,
+      "transLevel": null,
+      "history": [],
+      "description": null,
+      "atk": "1389",
+      "def": "533",
+      "hp": "3174",
+      "spd": "25",
+      "crit_rate": "5",
+      "crit_dmg": "150",
+      "weak_rate": "0",
+      "block_rate": "0",
+      "dmg_reduce": "0",
+      "eff_hit": "0",
+      "eff_res": "0",
+      "attack": null,
+      "active_1": null,
+      "active_2": null,
+      "passive": null
+    },
+    {
+      "id": "hero-%ED%94%8C%EB%9D%BC%ED%8A%BC",
+      "slug": "%ED%94%8C%EB%9D%BC%ED%8A%BC",
+      "name": "플라튼",
+      "nickname": "대사제",
+      "group": "다크나이츠",
+      "rarity": "전설+",
+      "type": "지원형",
+      "portrait": "/content/heroes/플라튼-7e3de4ea3d.png",
+      "typeImage": "/content/types/RoleIcon_04-3c4c7a32e8.png",
+      "hasEffect": true,
+      "transLevel": null,
+      "history": [],
+      "description": null,
+      "atk": "1095",
+      "def": "675",
+      "hp": "4458",
+      "spd": "19",
+      "crit_rate": "5",
+      "crit_dmg": "150",
+      "weak_rate": "0",
+      "block_rate": "0",
+      "dmg_reduce": "0",
+      "eff_hit": "0",
+      "eff_res": "0",
+      "attack": {
+        "id": "skill-53",
+        "name": "기본 공격",
+        "type": "Attack",
+        "description": "단일 적군\n- 마법 공격력의 50%, 방어력의 60%만큼 1회 피해\n- 모든 공격력 감소 [100% 확률] [2턴 지속]\n스킬 강화 효과\n- 피해량 상승 : 마법 공격력의 60%, 방어력의 75%\n- 효과 상승 모든 공격력 감소 9%",
+        "cooltime": null,
+        "image": "/content/skills/uJHJeaMcm6Q8Csd7lsFoN6Lq1dC8MULlCUj1nxvE9a7GZAQ1d1YqjuZUgvy6oMiAgJqXMeC_m4vaWFO5wKlY9g-3-cbf16724b7.webp",
+        "effects": [],
+        "linkedHeroes": {
+          "attack": [
+            "플라튼"
+          ],
+          "active_1": [],
+          "active_2": [],
+          "passive": []
+        }
+      },
+      "active_1": {
+        "id": "skill-54",
+        "name": "심판대행",
+        "type": "Active",
+        "description": "자신\n- 피해량의 32%만큼 생명력 회복\n모든 적군\n- 마법 공격력의 42%, 방어력의 47%만큼 2회 피해\n스킬 강화 효과\n- 피해량 상승 : 마법 공격력의 50%, 방어력의 55%\n- 효과 상승 : 생명력 회복량이 피해량의 43%",
+        "cooltime": "96",
+        "image": "/content/skills/ysfxBVsR2B8xxgaiRCfNSiJrKkMYLsaQhfDpOyE7e08dva7WqOdbFlUpm_agw_PDV3wijf-_tIJUFlBWX27HcQ-87b3e55f36.webp",
+        "effects": [],
+        "linkedHeroes": {
+          "attack": [],
+          "active_1": [
+            "플라튼"
+          ],
+          "active_2": [],
+          "passive": []
+        }
+      },
+      "active_2": {
+        "id": "skill-55",
+        "name": "이계의 빛",
+        "type": "Active",
+        "description": "적군 2명 (버프가 많은 순)\n- 버프 해제 2개 [100% 확률]\n- 생명력 전환 32%\n스킬 강화 효과\n- 효과 상승 : 생명력 전환 25%",
+        "cooltime": "91",
+        "image": "/content/skills/QLKBo6y-nufPXRN7sggw-GOt2xWAMyDnjGc5YDsemQdCET2ibtt6oGCSMvybqmvw2AmKvoOTT0Ez2uOFszfg7g-d51c0c57e2.webp",
+        "effects": [],
+        "linkedHeroes": {
+          "attack": [],
+          "active_1": [],
+          "active_2": [
+            "플라튼"
+          ],
+          "passive": []
+        }
+      },
+      "passive": {
+        "id": "skill-56",
+        "name": "네스트라의 가호",
+        "type": "Passive",
+        "description": "자신\n- 자신의 생명력이 50% 이하가 되면 시전자 방어력의 165%만큼 생명력 회복 (전투당 2회 발동)\n모든 적군\n- 자신이 적의 공격 4회 적중당할 시 1,100만큼 1회 고정 피해\n스킬 강화 효과\n- 피해량 상승 : 생명력 회복량이 방어력의 190%\n2초월 효과\n- 횟수 상승 : 생명력 회복 (전투당 3회 발동)\n6초월 효과\n- 피해량 상승 : 고정 피해 1,485",
+        "cooltime": null,
+        "image": "/content/skills/gxtuBc20ZQrCDkTWRc80gzM_Kgh_kb0EVsrav8iJTA0ajiX1opD4fLDUWP-iVtL6cq6zZ0oiXLIxk8Z-aSYywA-c66c2777ba.webp",
+        "effects": [],
+        "linkedHeroes": {
+          "attack": [],
+          "active_1": [],
+          "active_2": [],
+          "passive": [
+            "플라튼"
+          ]
+        }
+      }
+    },
+    {
+      "id": "hero-%ED%97%A4%EB%B8%8C%EB%8B%88%EC%95%84",
+      "slug": "%ED%97%A4%EB%B8%8C%EB%8B%88%EC%95%84",
+      "name": "헤브니아",
+      "nickname": "푸른 유성",
+      "group": "에반원정대",
+      "rarity": "희귀",
+      "type": "공격형",
+      "portrait": "/content/heroes/헤브니아-b6d97a18af.png",
+      "typeImage": "/content/types/RoleIcon_01-1e0c023e6e.png",
+      "hasEffect": false,
+      "transLevel": null,
+      "history": [],
+      "description": null,
+      "atk": "1389",
+      "def": "533",
+      "hp": "3174",
+      "spd": "25",
+      "crit_rate": "5",
+      "crit_dmg": "150",
+      "weak_rate": "0",
+      "block_rate": "0",
+      "dmg_reduce": "0",
+      "eff_hit": "0",
+      "eff_res": "0",
+      "attack": null,
+      "active_1": null,
+      "active_2": null,
+      "passive": null
+    },
+    {
+      "id": "hero-%ED%97%AC%EB%A0%88%EB%8B%88%EC%95%84",
+      "slug": "%ED%97%AC%EB%A0%88%EB%8B%88%EC%95%84",
+      "name": "헬레니아",
+      "nickname": "붉은 혜성",
+      "group": "에반원정대",
+      "rarity": "희귀",
+      "type": "방어형",
+      "portrait": "/content/heroes/헬레니아-4872e90c73.png",
+      "typeImage": "/content/types/RoleIcon_03-c8af05f852.png",
+      "hasEffect": false,
+      "transLevel": null,
+      "history": [],
+      "description": null,
+      "atk": "704",
+      "def": "818",
+      "hp": "4572",
+      "spd": "16",
+      "crit_rate": "5",
+      "crit_dmg": "150",
+      "weak_rate": "0",
+      "block_rate": "0",
+      "dmg_reduce": "0",
+      "eff_hit": "0",
+      "eff_res": "0",
+      "attack": null,
+      "active_1": null,
+      "active_2": null,
+      "passive": null
+    },
+    {
+      "id": "hero-%ED%98%B8%ED%82%A8",
+      "slug": "%ED%98%B8%ED%82%A8",
+      "name": "호킨",
+      "nickname": "고블린 대족장",
+      "group": "신비의 숲",
+      "rarity": "희귀",
+      "type": "공격형",
+      "portrait": "/content/heroes/호킨-0fd9710f68.png",
+      "typeImage": "/content/types/RoleIcon_01-1e0c023e6e.png",
+      "hasEffect": false,
+      "transLevel": null,
+      "history": [],
+      "description": null,
+      "atk": "1389",
+      "def": "533",
+      "hp": "3174",
+      "spd": "25",
+      "crit_rate": "5",
+      "crit_dmg": "150",
+      "weak_rate": "0",
+      "block_rate": "0",
+      "dmg_reduce": "0",
+      "eff_hit": "0",
+      "eff_res": "0",
+      "attack": null,
+      "active_1": null,
+      "active_2": null,
+      "passive": null
+    }
+  ],
+  "effects": [
+    {
+      "id": "effect-1",
+      "name": "5인 공격기 감쇄",
+      "description": "5인 공격기에 받는 피해량이 n% 감소합니다.",
+      "effectType": "buff",
+      "hasVariable": true,
+      "fulltime": false,
+      "icon": "/content/effects/BuffIcon_01024_reverse-819a6e9dad.png"
+    },
+    {
+      "id": "effect-2",
+      "name": "감쇄",
+      "description": "받는 피해량이 n% 감소합니다.",
+      "effectType": "buff",
+      "hasVariable": true,
+      "fulltime": true,
+      "icon": "/content/effects/BuffIcon_01006_reverse-ff9a90fb33.png"
+    },
+    {
+      "id": "effect-3",
+      "name": "감쇄",
+      "description": "일정 횟수만큼 받는 피해량이 20% 감소합니다.",
+      "effectType": "buff",
+      "hasVariable": false,
+      "fulltime": false,
+      "icon": "/content/effects/BuffIcon_01006-06660fb8ca.png"
+    },
+    {
+      "id": "effect-4",
+      "name": "감전",
+      "description": "지속시간 동안 행동할 수 없으며, 적의 공격에 적중 당할 시 시전자 공격력의 40% 추가 피해를 입습니다.",
+      "effectType": "debuff",
+      "hasVariable": false,
+      "fulltime": false,
+      "icon": "/content/effects/Bufficon_11003-6dd17bd73b.png"
+    },
+    {
+      "id": "effect-5",
+      "name": "강자 주시",
+      "description": "카일이 이 대상을 주시해 우선하여 공격합니다. 추가로 철쇄폭압, 사슬의 무덤 스킬 사용 시 이 대상에게 추가 피해를 입힙니다.\n이 효과는 각 라운드에서 한 대상에게만 고정됩니다.",
+      "effectType": "debuff",
+      "hasVariable": false,
+      "fulltime": false,
+      "icon": "/content/effects/Bufficon_18901_reverse-8b2c5c1dc7.png"
+    },
+    {
+      "id": "effect-6",
+      "name": "공격력 비례 방어력 증가",
+      "description": "자신의 공격력 수치 300마다 방어력이 125만큼 증가합니다.\n최대 증가 수치 : 1,125",
+      "effectType": "buff",
+      "hasVariable": false,
+      "fulltime": false,
+      "icon": "/content/effects/BuffIcon_02033_reverse-ee414e0673.png"
+    },
+    {
+      "id": "effect-7",
+      "name": "공격력 비례 치명타 확률 증가",
+      "description": "자신의 공격력 수치 350마다 치명타 확률이 3%만큼 증가합니다.\n최대 증가 수치 : 27%",
+      "effectType": "buff",
+      "hasVariable": false,
+      "fulltime": false,
+      "icon": "/content/effects/BuffIcon_02033_reverse-ee414e0673.png"
+    },
+    {
+      "id": "effect-8",
+      "name": "관통",
+      "description": "대상의 피해 면역 효과를 무시합니다.",
+      "effectType": "buff",
+      "hasVariable": false,
+      "fulltime": false,
+      "icon": "/content/effects/Bufficon_21001-dd2948b21a.png"
+    },
+    {
+      "id": "effect-9",
+      "name": "권능",
+      "description": "현재 생명력 이상의 피해를 입었을 때, 생명력 1로 1회 생존합니다.",
+      "effectType": "buff",
+      "hasVariable": false,
+      "fulltime": false,
+      "icon": "/content/effects/BuffIcon_02012_reverse-a1a8b468ed.png"
+    },
+    {
+      "id": "effect-10",
+      "name": "기절",
+      "description": "지속시간 동안 행동할 수 없습니다.",
+      "effectType": "debuff",
+      "hasVariable": false,
+      "fulltime": false,
+      "icon": "/content/effects/Bufficon_11001-72514c06bf.png"
+    },
+    {
+      "id": "effect-11",
+      "name": "기절 면역",
+      "description": "기절 상태에 대해 면역 상태가 됩니다.",
+      "effectType": "buff",
+      "hasVariable": false,
+      "fulltime": false,
+      "icon": "/content/effects/BuffIcon_02010-962dd6e80c.png"
+    },
+    {
+      "id": "effect-12",
+      "name": "디버프 해제",
+      "description": "적용 순서대로 디버프를 해제합니다.",
+      "effectType": "buff",
+      "hasVariable": false,
+      "fulltime": false,
+      "icon": "/content/effects/BuffIcon_03001-5c0840cef4.png"
+    },
+    {
+      "id": "effect-13",
+      "name": "링크",
+      "description": "링크 효과가 있는 아군의 피해를 균등하게 분배하여 피해를 입습니다.",
+      "effectType": "buff",
+      "hasVariable": false,
+      "fulltime": false,
+      "icon": "/content/effects/BuffIcon_02034-58e2549454.png"
+    },
+    {
+      "id": "effect-14",
+      "name": "마력 역류",
+      "description": "지속시간 동안 적의 공격에 적중 당할 시 대상 최대 생명력의 12%만큼 피해를 입습니다. (피해량은 시전자 공격력의 90%를 넘을 수 없습니다.) 지속 시간이 종료되거나 대상 사망 시, 100% 확률로 대상과 같은 팀 내 3명에게 전이되며, 최대 7개까지 적용됩니다.",
+      "effectType": "debuff",
+      "hasVariable": false,
+      "fulltime": false,
+      "icon": "/content/effects/Bufficon_15005-7a4ae5caeb.png"
+    },
+    {
+      "id": "effect-15",
+      "name": "마법 감쇄",
+      "description": "받는 마법 피해량이 n% 감소합니다.",
+      "effectType": "buff",
+      "hasVariable": true,
+      "fulltime": false,
+      "icon": "/content/effects/BuffIcon_01015_reverse-3412630f6f.png"
+    },
+    {
+      "id": "effect-16",
+      "name": "마법 공격력 증가",
+      "description": "마법 공격력이 n% 증가합니다.",
+      "effectType": "buff",
+      "hasVariable": true,
+      "fulltime": false,
+      "icon": "/content/effects/BuffIcon_01002_reverse-362338543d.png"
+    },
+    {
+      "id": "effect-17",
+      "name": "마법 취약",
+      "description": "받는 마법 피해가 n% 증가합니다.",
+      "effectType": "debuff",
+      "hasVariable": true,
+      "fulltime": false,
+      "icon": "/content/effects/BuffIcon_10013-969ff956c0.png"
+    },
+    {
+      "id": "effect-18",
+      "name": "마법 피해량 증가",
+      "description": "주는 마법 피해량이 n% 증가합니다.",
+      "effectType": "buff",
+      "hasVariable": true,
+      "fulltime": false,
+      "icon": "/content/effects/BuffIcon_01013_reverse-5073b07193.png"
+    },
+    {
+      "id": "effect-19",
+      "name": "마비",
+      "description": "지속시간 동안 행동할 수 없으며, 막기 확률이 0%로 고정됩니다.",
+      "effectType": "buff",
+      "hasVariable": false,
+      "fulltime": false,
+      "icon": "/content/effects/Bufficon_11002-83340d7440.png"
+    },
+    {
+      "id": "effect-20",
+      "name": "모든 공격력 감소",
+      "description": "모든 공격력이 n% 감소합니다.",
+      "effectType": "debuff",
+      "hasVariable": true,
+      "fulltime": false,
+      "icon": "/content/effects/Bufficon_10003-d378f6b120.png"
+    },
+    {
+      "id": "effect-21",
+      "name": "모든 피해 면역",
+      "description": "모든 피해에 대해 면역 상태가 됩니다.",
+      "effectType": "buff",
+      "hasVariable": false,
+      "fulltime": false,
+      "icon": "/content/effects/BuffIcon_02004_3_reverse-8b0f2c3605.png"
+    },
+    {
+      "id": "effect-22",
+      "name": "모든 피해 무효화",
+      "description": "모든 피해를 일정 횟수만큼 무효화합니다.",
+      "effectType": "buff",
+      "hasVariable": false,
+      "fulltime": false,
+      "icon": "/content/effects/BuffIcon_02005_reverse-a754f1195b.png"
+    },
+    {
+      "id": "effect-23",
+      "name": "물리 공격력 증가",
+      "description": "물리 공격력이 n% 증가합니다.",
+      "effectType": "buff",
+      "hasVariable": true,
+      "fulltime": true,
+      "icon": "/content/effects/2025-11-16-14.49.15-82fb7df711.png"
+    },
+    {
+      "id": "effect-24",
+      "name": "물리 공격력 증가",
+      "description": "물리 공격력이 n% 증가합니다.",
+      "effectType": "buff",
+      "hasVariable": true,
+      "fulltime": false,
+      "icon": "/content/effects/BuffIcon_01001-24fe7e7036.png"
+    },
+    {
+      "id": "effect-25",
+      "name": "물리 취약",
+      "description": "받는 물리 피해가 n% 증가합니다.",
+      "effectType": "debuff",
+      "hasVariable": true,
+      "fulltime": false,
+      "icon": "/content/effects/BuffIcon_10012_reverse-7c08e74988.png"
+    },
+    {
+      "id": "effect-26",
+      "name": "물리 취약",
+      "description": "받는 물리 피해가 n% 증가합니다.",
+      "effectType": "debuff",
+      "hasVariable": true,
+      "fulltime": false,
+      "icon": "/content/effects/BuffIcon_10012-30370eaa09.png"
+    },
+    {
+      "id": "effect-27",
+      "name": "물리 피해량 증가",
+      "description": "주는 물리 피해량이 n% 증가합니다.",
+      "effectType": "buff",
+      "hasVariable": true,
+      "fulltime": true,
+      "icon": "/content/effects/BuffIcon_01012_reverse-e62988403e.png"
+    },
+    {
+      "id": "effect-28",
+      "name": "물리 피해량 증가",
+      "description": "주는 물리 피해량이 n% 증가합니다.",
+      "effectType": "buff",
+      "hasVariable": true,
+      "fulltime": false,
+      "icon": "/content/effects/BuffIcon_01012-9fcc6f49f4.png"
+    },
+    {
+      "id": "effect-29",
+      "name": "반격",
+      "description": "공격자에게 반격해 피해를 줍니다.",
+      "effectType": "neutral",
+      "hasVariable": false,
+      "fulltime": false,
+      "icon": "/content/effects/Bufficon_20003_reverse-16c2b1e2ca.png"
+    },
+    {
+      "id": "effect-30",
+      "name": "받는 회복량 감소",
+      "description": "받는 회복량이 n% 감소합니다.",
+      "effectType": "debuff",
+      "hasVariable": true,
+      "fulltime": false,
+      "icon": "/content/effects/Bufficon_10018-828b8084ec.png"
+    },
+    {
+      "id": "effect-31",
+      "name": "방어 무시",
+      "description": "대상의 방어력을 40% 무시합니다.",
+      "effectType": "buff",
+      "hasVariable": false,
+      "fulltime": false,
+      "icon": "/content/effects/Bufficon_21002-996fd9eea4.png"
+    },
+    {
+      "id": "effect-32",
+      "name": "방어력 감소",
+      "description": "방어력이 n% 감소합니다.",
+      "effectType": "debuff",
+      "hasVariable": true,
+      "fulltime": true,
+      "icon": "/content/effects/Bufficon_10004_reverse-208b3ca449.png"
+    },
+    {
+      "id": "effect-33",
+      "name": "방어력 감소",
+      "description": "방어력이 n% 감소합니다.",
+      "effectType": "debuff",
+      "hasVariable": true,
+      "fulltime": false,
+      "icon": "/content/effects/Bufficon_10004-25f5805ef7.png"
+    },
+    {
+      "id": "effect-34",
+      "name": "방어력 증가",
+      "description": "방어력이 n% 증가합니다.",
+      "effectType": "buff",
+      "hasVariable": true,
+      "fulltime": false,
+      "icon": "/content/effects/BuffIcon_01004_reverse-526528a053.png"
+    },
+    {
+      "id": "effect-35",
+      "name": "버프 해제",
+      "description": "적용 순서대로 버프를 해제합니다.\n피해 면역, 피해 무효화, 권능 효과는 해제할 수 없습니다.",
+      "effectType": "debuff",
+      "hasVariable": false,
+      "fulltime": false,
+      "icon": "/content/effects/Bufficon_14003-11010384c6.png"
+    },
+    {
+      "id": "effect-36",
+      "name": "보스 대상 피해량 증가",
+      "description": "보스에게 주는 피해량이 n% 증가합니다.",
+      "effectType": "buff",
+      "hasVariable": true,
+      "fulltime": false,
+      "icon": "/content/effects/Bufficon_2045-146f3794eb.png"
+    },
+    {
+      "id": "effect-37",
+      "name": "보호막",
+      "description": "보호막 수치만큼 피해를 흡수합니다.",
+      "effectType": "buff",
+      "hasVariable": false,
+      "fulltime": false,
+      "icon": "/content/effects/BuffIcon_02001-7269688103.png"
+    },
+    {
+      "id": "effect-38",
+      "name": "부활",
+      "description": "사망한 대상이 부활합니다.",
+      "effectType": "buff",
+      "hasVariable": false,
+      "fulltime": false,
+      "icon": "/content/effects/2025-11-16-14.49.58-1aadcf7012.png"
+    },
+    {
+      "id": "effect-39",
+      "name": "불굴",
+      "description": "사망 시 생명력 1인 상태로 부활하며, 8회 피격되기 전까지 사망하지 않습니다.\n적군 사망 시, 불굴 효과의 피격 횟수가 1회만큼 증가합니다.\n피격 횟수 증가 시, 8회를 초과해 증가할 수 없습니다.",
+      "effectType": "buff",
+      "hasVariable": false,
+      "fulltime": false,
+      "icon": "/content/effects/Bufficon_2053_reverse-24a81588aa.png"
+    },
+    {
+      "id": "effect-40",
+      "name": "불사",
+      "description": "지속하는 동안 생명력이 1로 고정되며, 만료 시 사망합니다.",
+      "effectType": "buff",
+      "hasVariable": false,
+      "fulltime": false,
+      "icon": "/content/effects/BuffIcon_02006-7881b7e1e4.png"
+    },
+    {
+      "id": "effect-41",
+      "name": "빗나감 확률 증가",
+      "description": "공격이 빗나갈 확률이 n% 증가합니다.",
+      "effectType": "debuff",
+      "hasVariable": true,
+      "fulltime": false,
+      "icon": "/content/effects/Bufficon_10017-0f6b8bbc3e.png"
+    },
+    {
+      "id": "effect-42",
+      "name": "빙결",
+      "description": "지속시간 동안 행동할 수 없으며, 적의 공격에 적중 당할 시 빙결 상태가 해제됩니다. 빙결 상태 해제 시 대상 최대 생명력의 40%만큼 방어 무시 피해를 입습니다. (대상의 방어력을 40%(고정) 무시하며, 피해량은 시전자 공격력의 300%를 넘을 수 없습니다.)",
+      "effectType": "debuff",
+      "hasVariable": false,
+      "fulltime": false,
+      "icon": "/content/effects/Bufficon_11004-c459b18e5b.png"
+    },
+    {
+      "id": "effect-43",
+      "name": "생명력 전환",
+      "description": "대상의 생명력을 전환합니다. 현재 생명력보다 높은 수치로는 전환되지 않습니다.",
+      "effectType": "debuff",
+      "hasVariable": false,
+      "fulltime": false,
+      "icon": "/content/effects/Bufficon_13001-a4b07a8d6c.png"
+    },
+    {
+      "id": "effect-44",
+      "name": "석화",
+      "description": "지속시간 동안 행동할 수 없으며, 해제 시 시전자 공격력의 120% 피해를 입습니다.",
+      "effectType": "debuff",
+      "hasVariable": false,
+      "fulltime": false,
+      "icon": "/content/effects/Bufficon_11007-2ff1610620.png"
+    },
+    {
+      "id": "effect-45",
+      "name": "속공 비례 공격력 증가",
+      "description": "자신의 속공 수치 7마다 공격력이 120만큼 증가합니다.\n최대 증가 수치 : 1,080",
+      "effectType": "buff",
+      "hasVariable": false,
+      "fulltime": false,
+      "icon": "/content/effects/BuffIcon_02033_reverse-ee414e0673.png"
+    },
+    {
+      "id": "effect-46",
+      "name": "스킬 쿨타임 증가",
+      "description": "스킬 쿨타임을 증가시킵니다.",
+      "effectType": "debuff",
+      "hasVariable": false,
+      "fulltime": false,
+      "icon": "/content/effects/Bufficon_14001-e64533f195.png"
+    },
+    {
+      "id": "effect-47",
+      "name": "약점 공격 피해량 증가",
+      "description": "약점 공격 피해량이 n% 증가합니다.",
+      "effectType": "buff",
+      "hasVariable": true,
+      "fulltime": false,
+      "icon": "/content/effects/Bufficon_2043_reverse-8c4d40f323.png"
+    },
+    {
+      "id": "effect-48",
+      "name": "약점 공격 확률 감소",
+      "description": "약점 공격 확률이 n% 감소합니다.",
+      "effectType": "debuff",
+      "hasVariable": true,
+      "fulltime": false,
+      "icon": "/content/effects/Bufficon_10007-36e4831321.png"
+    },
+    {
+      "id": "effect-49",
+      "name": "약점 공격 확률 증가",
+      "description": "약점 공격 확률이 n% 증가합니다.",
+      "effectType": "buff",
+      "hasVariable": true,
+      "fulltime": true,
+      "icon": "/content/effects/BuffIcon_01007_reverse-1a5b44c02f.png"
+    },
+    {
+      "id": "effect-50",
+      "name": "약점 공격 확률 증가",
+      "description": "약점 공격 확률이 n% 증가합니다.",
+      "effectType": "buff",
+      "hasVariable": true,
+      "fulltime": false,
+      "icon": "/content/effects/BuffIcon_01007-1e31275f18.png"
+    },
+    {
+      "id": "effect-51",
+      "name": "위장",
+      "description": "1인 공격의 대상이 되지 않습니다. 위장 상태에서 맞는 공격 및 디버프는 확정적으로 빗나갑니다.\n적이 공격할 대상이 위장한 영웅 외에 없을 경우 위장 효과가 해제됩니다.",
+      "effectType": "buff",
+      "hasVariable": false,
+      "fulltime": false,
+      "icon": "/content/effects/BuffIcon_02031-8a3e8f3dff.png"
+    },
+    {
+      "id": "effect-52",
+      "name": "인고 (중첩)",
+      "description": "방어력이 n% 증가합니다.",
+      "effectType": "buff",
+      "hasVariable": true,
+      "fulltime": false,
+      "icon": "/content/effects/BuffIcon_01004_reverse-526528a053.png"
+    },
+    {
+      "id": "effect-53",
+      "name": "즉사",
+      "description": "매 턴마다 대상 현재 생명력에 20%의 피해를 입으며, 마지막 턴에는 즉시 사망합니다.\n즉사 2회 중첩 시 즉시 사망합니다.",
+      "effectType": "debuff",
+      "hasVariable": false,
+      "fulltime": false,
+      "icon": "/content/effects/BuffIcon_15001-4c607864f4.png"
+    },
+    {
+      "id": "effect-54",
+      "name": "즉사 턴 감소",
+      "description": "즉사 디버프의 턴을 감소 시킵니다.",
+      "effectType": "debuff",
+      "hasVariable": false,
+      "fulltime": false,
+      "icon": "/content/effects/Bufficon_14006-ddfedeebcb.png"
+    },
+    {
+      "id": "effect-55",
+      "name": "처형",
+      "description": "일정 생명력 비율 이하의 대상을 즉시 사망시킵니다. (현재 생명력이 시전자 공격력의 120%를 초과하는 대상에게는 효과가 없습니다.)",
+      "effectType": "debuff",
+      "hasVariable": false,
+      "fulltime": false,
+      "icon": "/content/effects/Bufficon_13002-1d2454a8c4.png"
+    },
+    {
+      "id": "effect-56",
+      "name": "최대 생명력 비례 공격력 증가",
+      "description": "자신의 최대 생명력 수치 1,000마다 공격력이 120만큼 증가합니다.\n최대 증가 수치 : 1,080",
+      "effectType": "buff",
+      "hasVariable": false,
+      "fulltime": false,
+      "icon": "/content/effects/BuffIcon_02033_reverse-ee414e0673.png"
+    },
+    {
+      "id": "effect-57",
+      "name": "축복",
+      "description": "한번에 입는 피해가 최대 생명력의 40%를 넘을 수 없습니다.",
+      "effectType": "buff",
+      "hasVariable": false,
+      "fulltime": false,
+      "icon": "/content/effects/BuffIcon_02007_reverse-b643d2fc9f.png"
+    },
+    {
+      "id": "effect-58",
+      "name": "치명타 피해 증가",
+      "description": "치명타 피해가 n% 증가합니다.",
+      "effectType": "buff",
+      "hasVariable": true,
+      "fulltime": false,
+      "icon": "/content/effects/BuffIcon_01009_reverse-3c4276ac2b.png"
+    },
+    {
+      "id": "effect-59",
+      "name": "치명타 확률 증가",
+      "description": "치명타 확륭이 n% 증가합니다.",
+      "effectType": "buff",
+      "hasVariable": true,
+      "fulltime": false,
+      "icon": "/content/effects/BuffIcon_01008_reverse-c816d99429.png"
+    },
+    {
+      "id": "effect-60",
+      "name": "침묵",
+      "description": "지속시간 동안 액티브 스킬을 사용할 수 없습니다.",
+      "effectType": "debuff",
+      "hasVariable": false,
+      "fulltime": false,
+      "icon": "/content/effects/Bufficon_11005-492aa4b29a.png"
+    },
+    {
+      "id": "effect-61",
+      "name": "쿨타임 초기화",
+      "description": "스킬 쿨타임을 초기화합니다.",
+      "effectType": "buff",
+      "hasVariable": false,
+      "fulltime": false,
+      "icon": "/content/effects/BuffIcon_03005-ea4bfa8457.png"
+    },
+    {
+      "id": "effect-62",
+      "name": "턴제 버프 감소",
+      "description": "턴제 버프의 턴을 감소 시킵니다.",
+      "effectType": "debuff",
+      "hasVariable": false,
+      "fulltime": false,
+      "icon": "/content/effects/Bufficon_14002-a7c2870144.png"
+    },
+    {
+      "id": "effect-63",
+      "name": "폭탄",
+      "description": "지속시간이 만료되면 폭탄이 터지며 시전자 공격력의 120% 방어 무시 피해와 100% 확률로 턴제 버프 감소 1턴, 60% 확률로 마비 2턴을 부여합니다. 최대 3개까지 적용됩니다.\n(방어 무시 피해는 대상의 방어력을 40%(고정) 무시합니다.)",
+      "effectType": "debuff",
+      "hasVariable": false,
+      "fulltime": false,
+      "icon": "/content/effects/Bufficon_12005-fbd4444ee4.png"
+    },
+    {
+      "id": "effect-64",
+      "name": "폭탄 폭파",
+      "description": "대상에게 적용된 폭탄을 폭파시켜 피해를 입힙니다.\n폭탄의 개수에 비례하여 피해를 입히며 효과는 소모됩니다.",
+      "effectType": "debuff",
+      "hasVariable": false,
+      "fulltime": false,
+      "icon": "/content/effects/BuffIcon_03006-0d83a427c5.png"
+    },
+    {
+      "id": "effect-65",
+      "name": "피해량 감소",
+      "description": "주는 피해량이 n% 감소합니다.",
+      "effectType": "debuff",
+      "hasVariable": true,
+      "fulltime": false,
+      "icon": "/content/effects/Bufficon_10005-7d808b8435.png"
+    },
+    {
+      "id": "effect-66",
+      "name": "피해량 증가 (중첩)",
+      "description": "주는 피해량이 n% 증가합니다.",
+      "effectType": "debuff",
+      "hasVariable": true,
+      "fulltime": false,
+      "icon": "/content/effects/BuffIcon_01005_reverse-be55becf6c.png"
+    },
+    {
+      "id": "effect-67",
+      "name": "행동 제어 면역",
+      "description": "행동 제어에 대해 면역 상태가 됩니다.",
+      "effectType": "buff",
+      "hasVariable": false,
+      "fulltime": false,
+      "icon": "/content/effects/Bufficon_2021-85e7b0149d.png"
+    },
+    {
+      "id": "effect-68",
+      "name": "혼란",
+      "description": "지정한 횟수동안 공격이 빗나갈 확률이 100% 증가합니다. 효과가 1회라도 남아있는 상태에서는 타격 횟수와 무관하게 모든 타격에 혼란 효과가 적용됩니다.",
+      "effectType": "debuff",
+      "hasVariable": false,
+      "fulltime": false,
+      "icon": "/content/effects/Bufficon_10017_Rin-e11a5b34d4.png"
+    },
+    {
+      "id": "effect-69",
+      "name": "화상",
+      "description": "매 턴마다 시전자 공격력의 80% 피해를 입힙니다.",
+      "effectType": "debuff",
+      "hasVariable": false,
+      "fulltime": false,
+      "icon": "/content/effects/BuffIcon_15003-c1bd3f9416.png"
+    },
+    {
+      "id": "effect-70",
+      "name": "효과 저항 감소",
+      "description": "효과 저항이 n% 감소합니다.",
+      "effectType": "debuff",
+      "hasVariable": true,
+      "fulltime": false,
+      "icon": "/content/effects/Bufficon_10011_reverse-f61ed45d42.png"
+    },
+    {
+      "id": "effect-71",
+      "name": "효과 저항 증가",
+      "description": "효과 저항이 n% 증가합니다.",
+      "effectType": "buff",
+      "hasVariable": true,
+      "fulltime": false,
+      "icon": "/content/effects/BuffIcon_01011_reverse-c03a305be7.png"
+    },
+    {
+      "id": "effect-72",
+      "name": "효과 적중 증가",
+      "description": "효과 적중이 n% 증가합니다.",
+      "effectType": "buff",
+      "hasVariable": true,
+      "fulltime": false,
+      "icon": "/content/effects/BuffIcon_01010_reverse-218297c7b8.png"
+    },
+    {
+      "id": "effect-73",
+      "name": "흡혈",
+      "description": "피해량의 n%만큼 생명력을 회복합니다.",
+      "effectType": "buff",
+      "hasVariable": true,
+      "fulltime": false,
+      "icon": "/content/effects/BuffIcon_02032-e0f74e001e.png"
+    }
+  ],
+  "integrity": {
+    "fullyLinkedHeroes": 27,
+    "partiallyLinkedHeroes": 28
+  }
+}

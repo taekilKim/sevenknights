@@ -6,7 +6,10 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "migrate:assets": "node scripts/migrate-airtable-assets.mjs",
+    "migrate:csv-assets": "node scripts/migrate-airtable-csv-assets.mjs",
+    "build:catalog": "node scripts/build-static-catalog.mjs"
   },
   "dependencies": {
     "next": "^16.0.0",

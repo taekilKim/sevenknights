@@ -200,6 +200,86 @@ select {
   align-items: stretch;
 }
 
+.home-hero {
+  min-height: 420px;
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(280px, 0.75fr);
+  gap: 28px;
+  align-items: end;
+  padding: clamp(32px, 6vw, 64px);
+  border-radius: 32px;
+  overflow: hidden;
+  border: 1px solid rgba(228, 228, 231, 0.9);
+  background:
+    linear-gradient(135deg, rgba(8, 13, 24, 0.68), rgba(15, 23, 42, 0.1)),
+    url("/content/heroes/델론즈-4f266886f7.png") right 10% bottom 0 / min(420px, 42vw) auto no-repeat,
+    linear-gradient(135deg, #0b1220, #edf4ff 72%, #ffffff);
+  box-shadow: 0 24px 70px -34px rgba(15, 23, 42, 0.45);
+}
+
+.home-hero-copy {
+  max-width: 720px;
+  color: #fff;
+}
+
+.home-hero-copy h1 {
+  margin: 8px 0 16px;
+  font-size: clamp(2.3rem, 5vw, 4.7rem);
+  line-height: 1.08;
+}
+
+.home-hero-copy .muted {
+  max-width: 660px;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 1.05rem;
+}
+
+.eyebrow {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.72);
+  font-weight: 700;
+}
+
+.home-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.home-snapshot {
+  display: grid;
+  gap: 12px;
+  padding: 18px;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.82);
+  border: 1px solid rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(16px);
+}
+
+.home-snapshot > div {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(203, 213, 225, 0.8);
+}
+
+.home-snapshot > div:last-child {
+  border-bottom: 0;
+}
+
+.metric-value {
+  font-size: 2rem;
+  font-weight: 800;
+}
+
+.metric-label {
+  color: var(--text-tertiary);
+  font-weight: 700;
+}
+
 .quick-links,
 .home-feed-grid,
 .detail-sections,
@@ -257,6 +337,41 @@ select {
 .feed-card {
   border-radius: 22px;
   padding: 22px;
+}
+
+.compact-hero-list {
+  display: grid;
+  gap: 12px;
+}
+
+.compact-hero {
+  display: grid;
+  grid-template-columns: 56px 1fr;
+  gap: 12px;
+  align-items: center;
+  padding: 10px;
+  border-radius: 18px;
+  background: rgba(248, 250, 252, 0.9);
+  border: 1px solid rgba(228, 228, 231, 0.9);
+}
+
+.compact-hero span:last-child {
+  display: grid;
+  gap: 3px;
+}
+
+.compact-portrait {
+  width: 56px;
+  height: 56px;
+  overflow: hidden;
+  border-radius: 16px;
+  background: #eef4ff;
+}
+
+.compact-portrait img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .badge-row,
@@ -455,6 +570,7 @@ select {
 
 @media (max-width: 980px) {
   .page-hero,
+  .home-hero,
   .home-feed-grid,
   .detail-header,
   .skills-grid,
@@ -463,6 +579,15 @@ select {
   .quick-links,
   .article-grid {
     grid-template-columns: 1fr;
+  }
+
+  .home-hero {
+    min-height: 560px;
+    align-items: start;
+    background:
+      linear-gradient(180deg, rgba(8, 13, 24, 0.72), rgba(15, 23, 42, 0.12)),
+      url("/content/heroes/델론즈-4f266886f7.png") center bottom / 300px auto no-repeat,
+      linear-gradient(135deg, #0b1220, #edf4ff 72%, #ffffff);
   }
 
   .top-nav {

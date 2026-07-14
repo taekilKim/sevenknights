@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 
-import { getEffects } from "@/lib/airtable";
+import { getEffects } from "@/lib/catalog";
 
 export async function GET() {
   try {

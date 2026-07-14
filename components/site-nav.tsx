@@ -18,7 +18,7 @@ export function SiteNav() {
   return (
     <nav className="top-nav" aria-label="주요 메뉴">
       {items.map((item) => {
-        const active = pathname === item.href || pathname.startsWith(`${item.href}/`);
+        const active = item.href === "/" ? pathname === "/" || pathname === "/index.html" : pathname === item.href || pathname.startsWith(`${item.href}/`);
         return (
           <Link key={item.href} href={item.href} data-active={active ? "true" : "false"}>
             {item.label}

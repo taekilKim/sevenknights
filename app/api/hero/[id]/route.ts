@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 
-import { getHeroById } from "@/lib/airtable";
+import { getHeroById } from "@/lib/catalog";
 
 type Props = {
   params: Promise<{ id: string }>;

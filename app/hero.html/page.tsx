@@ -1,6 +1,6 @@
 import { redirect } from "next/navigation";
 
-import { getHeroByName } from "@/lib/airtable";
+import { getHeroByName } from "@/lib/catalog";
 
 type Props = {
   searchParams: Promise<{ name?: string }>;

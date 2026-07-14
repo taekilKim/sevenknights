@@ -17,18 +17,13 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       {
-        source: "/index.html",
-        destination: "/",
-        permanent: true,
-      },
-      {
         source: "/heroes.html",
         destination: "/heroes",
         permanent: true,
       },
       {
         source: "/deck.html",
-        destination: "/deck-builder",
+        destination: "/guides/arena-decks",
         permanent: true,
       },
       {
@@ -45,6 +40,14 @@ const nextConfig: NextConfig = {
         source: "/tier-list.html",
         destination: "/tier-list",
         permanent: true,
+      },
+    ];
+  },
+  async rewrites() {
+    return [
+      {
+        source: "/index.html",
+        destination: "/",
       },
     ];
   },

@@ -1,0 +1,1955 @@
+{
+  "heroes": {
+    "노호:노호.png": {
+      "path": "/content/heroes/노호-714b7eb515.png",
+      "originalFilename": "노호.png"
+    },
+    "녹스:녹스.png": {
+      "path": "/content/heroes/녹스-0e58a4be92.png",
+      "originalFilename": "녹스.png"
+    },
+    "니아:니아.png": {
+      "path": "/content/heroes/니아-b7368ea239.png",
+      "originalFilename": "니아.png"
+    },
+    "데이지:데이지.png": {
+      "path": "/content/heroes/데이지-1059634e74.png",
+      "originalFilename": "데이지.png"
+    },
+    "델론즈:델론즈.png": {
+      "path": "/content/heroes/델론즈-4f266886f7.png",
+      "originalFilename": "델론즈.png"
+    },
+    "라니아:라니아.png": {
+      "path": "/content/heroes/라니아-7536251425.png",
+      "originalFilename": "라니아.png"
+    },
+    "라쿤:라쿤.png": {
+      "path": "/content/heroes/라쿤-82a64f31f7.png",
+      "originalFilename": "라쿤.png"
+    },
+    "레오:레오.png": {
+      "path": "/content/heroes/레오-4c33561d41.png",
+      "originalFilename": "레오.png"
+    },
+    "레이:레이.png": {
+      "path": "/content/heroes/레이-0053cf25c0.png",
+      "originalFilename": "레이.png"
+    },
+    "레이첼:레이첼.png": {
+      "path": "/content/heroes/레이첼-1075dc79dc.png",
+      "originalFilename": "레이첼.png"
+    },
+    "로지:로지.png": {
+      "path": "/content/heroes/로지-3a9f9ad2ce.png",
+      "originalFilename": "로지.png"
+    },
+    "루디:루디.png": {
+      "path": "/content/heroes/루디-7c739c4950.png",
+      "originalFilename": "루디.png"
+    },
+    "루리:루리.png": {
+      "path": "/content/heroes/루리-c92fcb1aa5.png",
+      "originalFilename": "루리.png"
+    },
+    "루시:루시.png": {
+      "path": "/content/heroes/루시-212d9f1fda.png",
+      "originalFilename": "루시.png"
+    },
+    "룩:룩.png": {
+      "path": "/content/heroes/룩-85e6bc380c.png",
+      "originalFilename": "룩.png"
+    },
+    "리:리.png": {
+      "path": "/content/heroes/리-b269e6f4cb.png",
+      "originalFilename": "리.png"
+    },
+    "리나:리나.png": {
+      "path": "/content/heroes/리나-d8638711fa.png",
+      "originalFilename": "리나.png"
+    },
+    "린:린.png": {
+      "path": "/content/heroes/린-c5b497f334.png",
+      "originalFilename": "린.png"
+    },
+    "메이:메이.png": {
+      "path": "/content/heroes/메이-3611b4f7c4.png",
+      "originalFilename": "메이.png"
+    },
+    "멜키르:멜키르.png": {
+      "path": "/content/heroes/멜키르-80129f595a.png",
+      "originalFilename": "멜키르.png"
+    },
+    "미호:미호.png": {
+      "path": "/content/heroes/미호-c1d8d01d8c.png",
+      "originalFilename": "미호.png"
+    },
+    "바네사:바네사.png": {
+      "path": "/content/heroes/바네사-9391dfab71.png",
+      "originalFilename": "바네사.png"
+    },
+    "발리스타:발리스타.png": {
+      "path": "/content/heroes/발리스타-dac3c23969.png",
+      "originalFilename": "발리스타.png"
+    },
+    "베인:베인.png": {
+      "path": "/content/heroes/베인-1b2cd256d2.png",
+      "originalFilename": "베인.png"
+    },
+    "벨리카:벨리카.png": {
+      "path": "/content/heroes/벨리카-8f1b69c7b6.png",
+      "originalFilename": "벨리카.png"
+    },
+    "블랙로즈:블랙로즈.png": {
+      "path": "/content/heroes/블랙로즈-48e457c2ad.png",
+      "originalFilename": "블랙로즈.png"
+    },
+    "비담:비담.png": {
+      "path": "/content/heroes/비담-cdac305fe0.png",
+      "originalFilename": "비담.png"
+    },
+    "비스킷:비스킷.png": {
+      "path": "/content/heroes/비스킷-04af98cf8b.png",
+      "originalFilename": "비스킷.png"
+    },
+    "빅토리아:빅토리아.png": {
+      "path": "/content/heroes/빅토리아-0d15f1a445.png",
+      "originalFilename": "빅토리아.png"
+    },
+    "사라:사라.png": {
+      "path": "/content/heroes/사라-199a606873.png",
+      "originalFilename": "사라.png"
+    },
+    "세라:세라.png": {
+      "path": "/content/heroes/세라-fa28e6c4dc.png",
+      "originalFilename": "세라.png"
+    },
+    "세인:세인.png": {
+      "path": "/content/heroes/세인-df49f5f275.png",
+      "originalFilename": "세인.png"
+    },
+    "소이:소이.png": {
+      "path": "/content/heroes/소이-8ffce6073c.png",
+      "originalFilename": "소이.png"
+    },
+    "스니퍼:스니퍼.png": {
+      "path": "/content/heroes/스니퍼-3a53e382ad.png",
+      "originalFilename": "스니퍼.png"
+    },
+    "스파이크:스파이크.png": {
+      "path": "/content/heroes/스파이크-d0893022cd.png",
+      "originalFilename": "스파이크.png"
+    },
+    "실베스타:실베스타.png": {
+      "path": "/content/heroes/실베스타-9b9871f6c7.png",
+      "originalFilename": "실베스타.png"
+    },
+    "실비아:실비아.png": {
+      "path": "/content/heroes/실비아-7cc300972a.png",
+      "originalFilename": "실비아.png"
+    },
+    "아라곤:아라곤.png": {
+      "path": "/content/heroes/아라곤-f26cd96283.png",
+      "originalFilename": "아라곤.png"
+    },
+    "아리엘:아리엘.png": {
+      "path": "/content/heroes/아리엘-60bbd8f2fe.png",
+      "originalFilename": "아리엘.png"
+    },
+    "아멜리아:아멜리아.png": {
+      "path": "/content/heroes/아멜리아-4c0312083a.png",
+      "originalFilename": "아멜리아.png"
+    },
+    "아수라:아수라.png": {
+      "path": "/content/heroes/아수라-1a6d2e7574.png",
+      "originalFilename": "아수라.png"
+    },
+    "아일린:아일린.png": {
+      "path": "/content/heroes/아일린-1c17593225.png",
+      "originalFilename": "아일린.png"
+    },
+    "아킬라:아킬라.png": {
+      "path": "/content/heroes/아킬라-8b0a41761d.png",
+      "originalFilename": "아킬라.png"
+    },
+    "앨리스:앨리스.png": {
+      "path": "/content/heroes/앨리스-323ae7d43d.png",
+      "originalFilename": "앨리스.png"
+    },
+    "에반:에반.png": {
+      "path": "/content/heroes/에반-d5553eba3b.png",
+      "originalFilename": "에반.png"
+    },
+    "에스파다:에스파다.png": {
+      "path": "/content/heroes/에스파다-541f862790.png",
+      "originalFilename": "에스파다.png"
+    },
+    "에이스:에이스.png": {
+      "path": "/content/heroes/에이스-82f8b5751e.png",
+      "originalFilename": "에이스.png"
+    },
+    "엘리시아:Tex_HeroIcon_101276Card.png": {
+      "path": "/content/heroes/Tex_HeroIcon_101276Card-ed3bdcedd0.png",
+      "originalFilename": "Tex_HeroIcon_101276Card.png"
+    },
+    "연희:연희.png": {
+      "path": "/content/heroes/연희-3050fc7ebe.png",
+      "originalFilename": "연희.png"
+    },
+    "오를리:오를리.png": {
+      "path": "/content/heroes/오를리-d05dae4cc2.png",
+      "originalFilename": "오를리.png"
+    },
+    "유리:유리.png": {
+      "path": "/content/heroes/유리-ee55e228f6.png",
+      "originalFilename": "유리.png"
+    },
+    "유신:유신.png": {
+      "path": "/content/heroes/유신-245d3e2f07.png",
+      "originalFilename": "유신.png"
+    },
+    "유이:유이.png": {
+      "path": "/content/heroes/유이-dbbd98e135.png",
+      "originalFilename": "유이.png"
+    },
+    "제이브:제이브.png": {
+      "path": "/content/heroes/제이브-90cf0e477d.png",
+      "originalFilename": "제이브.png"
+    },
+    "제인:제인.png": {
+      "path": "/content/heroes/제인-cec7fe75af.png",
+      "originalFilename": "제인.png"
+    },
+    "조커:조커.png": {
+      "path": "/content/heroes/조커-7b2655ff82.png",
+      "originalFilename": "조커.png"
+    },
+    "쥬리:쥬리.png": {
+      "path": "/content/heroes/쥬리-f148e7f6e5.png",
+      "originalFilename": "쥬리.png"
+    },
+    "쥬피:쥬피.png": {
+      "path": "/content/heroes/쥬피-69af063ac6.png",
+      "originalFilename": "쥬피.png"
+    },
+    "지크:지크.png": {
+      "path": "/content/heroes/지크-2754d05bcb.png",
+      "originalFilename": "지크.png"
+    },
+    "진:진.png": {
+      "path": "/content/heroes/진-3afe0fb32c.png",
+      "originalFilename": "진.png"
+    },
+    "챈슬러:챈슬러.png": {
+      "path": "/content/heroes/챈슬러-e8a4c51d5a.png",
+      "originalFilename": "챈슬러.png"
+    },
+    "카구라:카구라.png": {
+      "path": "/content/heroes/카구라-791752ace0.png",
+      "originalFilename": "카구라.png"
+    },
+    "카론:카론.png": {
+      "path": "/content/heroes/카론-bc82c4151c.png",
+      "originalFilename": "카론.png"
+    },
+    "카르마:카르마.png": {
+      "path": "/content/heroes/카르마-50edeb2faf.png",
+      "originalFilename": "카르마.png"
+    },
+    "카린:카린.png": {
+      "path": "/content/heroes/카린-6a2d63a46e.png",
+      "originalFilename": "카린.png"
+    },
+    "카일:카일.png": {
+      "path": "/content/heroes/카일-f42d5c31f5.png",
+      "originalFilename": "카일.png"
+    },
+    "캐티:캐티.png": {
+      "path": "/content/heroes/캐티-7ac5fe2e03.png",
+      "originalFilename": "캐티.png"
+    },
+    "콜트:콜트.png": {
+      "path": "/content/heroes/콜트-7180bb73f5.png",
+      "originalFilename": "콜트.png"
+    },
+    "크리스:크리스.png": {
+      "path": "/content/heroes/크리스-ce9e242760.png",
+      "originalFilename": "크리스.png"
+    },
+    "클라한:클라한.png": {
+      "path": "/content/heroes/클라한-2ae9714f89.png",
+      "originalFilename": "클라한.png"
+    },
+    "클레오:클레오.png": {
+      "path": "/content/heroes/클레오-1a52d975da.png",
+      "originalFilename": "클레오.png"
+    },
+    "클로에:클로에.png": {
+      "path": "/content/heroes/클로에-a5c4bc0668.png",
+      "originalFilename": "클로에.png"
+    },
+    "키리엘:Frame 1.png": {
+      "path": "/content/heroes/Frame-1-83a1d2e0c0.png",
+      "originalFilename": "Frame 1.png"
+    },
+    "타카:타카.png": {
+      "path": "/content/heroes/타카-bcc2c45445.png",
+      "originalFilename": "타카.png"
+    },
+    "태오:태오.png": {
+      "path": "/content/heroes/태오-6a1c63d70b.png",
+      "originalFilename": "태오.png"
+    },
+    "파스칼:파스칼.png": {
+      "path": "/content/heroes/파스칼-91dfd194f3.png",
+      "originalFilename": "파스칼.png"
+    },
+    "파이:파이.png": {
+      "path": "/content/heroes/파이-c3822cc1be.png",
+      "originalFilename": "파이.png"
+    },
+    "풍연:풍연.png": {
+      "path": "/content/heroes/풍연-24843356aa.png",
+      "originalFilename": "풍연.png"
+    },
+    "플라튼:플라튼.png": {
+      "path": "/content/heroes/플라튼-7e3de4ea3d.png",
+      "originalFilename": "플라튼.png"
+    },
+    "헤브니아:헤브니아.png": {
+      "path": "/content/heroes/헤브니아-b6d97a18af.png",
+      "originalFilename": "헤브니아.png"
+    },
+    "헬레니아:헬레니아.png": {
+      "path": "/content/heroes/헬레니아-4872e90c73.png",
+      "originalFilename": "헬레니아.png"
+    },
+    "호킨:호킨.png": {
+      "path": "/content/heroes/호킨-0fd9710f68.png",
+      "originalFilename": "호킨.png"
+    }
+  },
+  "skills": {
+    "Attack:기본 공격:default_yellow.webp": {
+      "path": "/content/skills/default_yellow-90bb6683bb.webp",
+      "originalFilename": "default_yellow.webp"
+    },
+    "Active:돌격:Tex_Skill_1005602.png": {
+      "path": "/content/skills/Tex_Skill_1005602-ce35cb338b.png",
+      "originalFilename": "Tex_Skill_1005602.png"
+    },
+    "Active:방어 준비:Tex_Skill_1005603.png": {
+      "path": "/content/skills/Tex_Skill_1005603-5307c78130.png",
+      "originalFilename": "Tex_Skill_1005603.png"
+    },
+    "Passive:견고한 방패:Tex_Skill_1005604.png": {
+      "path": "/content/skills/Tex_Skill_1005604-21d3497848.png",
+      "originalFilename": "Tex_Skill_1005604.png"
+    },
+    "Attack:기본 공격:lbdCz2lJC477AGAxRCKin9JN2UjhDqRKKI_bjNAxBq8cFb9FjPWC_pom477Ei-NLBwU_dbp1hqyTsWX0m4YxcQ.webp": {
+      "path": "/content/skills/lbdCz2lJC477AGAxRCKin9JN2UjhDqRKKI_bjNAxBq8cFb9FjPWC_pom477Ei-NLBwU_dbp1hqyTsWX0m4YxcQ-c7807aac55.webp",
+      "originalFilename": "lbdCz2lJC477AGAxRCKin9JN2UjhDqRKKI_bjNAxBq8cFb9FjPWC_pom477Ei-NLBwU_dbp1hqyTsWX0m4YxcQ.webp"
+    },
+    "Active:뇌제의 분노:ae5kdpBGL0aDzLEr0h3HIPzpz-eHZ3AHNVqcouoMK_arkkw4xK94nObO26h9TzCY8EeNN1-eG_jSdDrk9MmUpQ.webp": {
+      "path": "/content/skills/ae5kdpBGL0aDzLEr0h3HIPzpz-eHZ3AHNVqcouoMK_arkkw4xK94nObO26h9TzCY8EeNN1-eG_jSdDrk9MmUpQ-b2341f582d.webp",
+      "originalFilename": "ae5kdpBGL0aDzLEr0h3HIPzpz-eHZ3AHNVqcouoMK_arkkw4xK94nObO26h9TzCY8EeNN1-eG_jSdDrk9MmUpQ.webp"
+    },
+    "Active:청천벽력:Jf6e7uYF5NVeosVqdPMorI00El-mOH_Ie9nnIE9VzvmzGVlEoBzSlDJERAyOcwgN-0NswHQv8EHPy8PU93fMLQ.webp": {
+      "path": "/content/skills/Jf6e7uYF5NVeosVqdPMorI00El-mOH_Ie9nnIE9VzvmzGVlEoBzSlDJERAyOcwgN-0NswHQv8EHPy8PU93fMLQ-1349d9bb54.webp",
+      "originalFilename": "Jf6e7uYF5NVeosVqdPMorI00El-mOH_Ie9nnIE9VzvmzGVlEoBzSlDJERAyOcwgN-0NswHQv8EHPy8PU93fMLQ.webp"
+    },
+    "Passive:포디나의 분노:K3grBNxNLT8SkgoykALD-_etrDkTrAI9H29yZ2sQ5v_GmEzC_pceCSJLPdIGynIotGzT6fLOE16Ag4Eq_EJ1PA.webp": {
+      "path": "/content/skills/K3grBNxNLT8SkgoykALD-_etrDkTrAI9H29yZ2sQ5v_GmEzC_pceCSJLPdIGynIotGzT6fLOE16Ag4Eq_EJ1PA-51ad454a69.webp",
+      "originalFilename": "K3grBNxNLT8SkgoykALD-_etrDkTrAI9H29yZ2sQ5v_GmEzC_pceCSJLPdIGynIotGzT6fLOE16Ag4Eq_EJ1PA.webp"
+    },
+    "Attack:기본 공격:_5wylIAKOy1epRrBsIgnA-OmDvWcVCS_I-EloJguuTTLULW2I5FqUGDcIqr0H0Ic78CUHvM7BXsQOKQ-Qv43UA.webp": {
+      "path": "/content/skills/_5wylIAKOy1epRrBsIgnA-OmDvWcVCS_I-EloJguuTTLULW2I5FqUGDcIqr0H0Ic78CUHvM7BXsQOKQ-Qv43UA-cd3b1d7805.webp",
+      "originalFilename": "_5wylIAKOy1epRrBsIgnA-OmDvWcVCS_I-EloJguuTTLULW2I5FqUGDcIqr0H0Ic78CUHvM7BXsQOKQ-Qv43UA.webp"
+    },
+    "Active:염화:q3Q-dZePVtN_0IWu6fJgVcEO42EcYI90KOogUp217TqLMm7G2G1DYB-0lmEHhW5ZLGeRqKGJGeYqdNiEd-XPqQ.webp": {
+      "path": "/content/skills/q3Q-dZePVtN_0IWu6fJgVcEO42EcYI90KOogUp217TqLMm7G2G1DYB-0lmEHhW5ZLGeRqKGJGeYqdNiEd-XPqQ-025efebe91.webp",
+      "originalFilename": "q3Q-dZePVtN_0IWu6fJgVcEO42EcYI90KOogUp217TqLMm7G2G1DYB-0lmEHhW5ZLGeRqKGJGeYqdNiEd-XPqQ.webp"
+    },
+    "Active:불새:NI_I0qFbC5emARXrIAtHONQe094zl2XHpPWwEMFaFFjWhDOz9vAHdLKxMXer4lRa22Ozn3oj2XUWH7NwozmL9w.webp": {
+      "path": "/content/skills/NI_I0qFbC5emARXrIAtHONQe094zl2XHpPWwEMFaFFjWhDOz9vAHdLKxMXer4lRa22Ozn3oj2XUWH7NwozmL9w-37db91fb00.webp",
+      "originalFilename": "NI_I0qFbC5emARXrIAtHONQe094zl2XHpPWwEMFaFFjWhDOz9vAHdLKxMXer4lRa22Ozn3oj2XUWH7NwozmL9w.webp"
+    },
+    "Passive:화염의 힘:IPGNG435w0l2Y81fz3GBQOEMO6CRnFcTrPtHOu9qtDKFgHSoB5EdpbH_wbkCAu-jVVuFK-Psp72hXKveILrKdA.webp": {
+      "path": "/content/skills/IPGNG435w0l2Y81fz3GBQOEMO6CRnFcTrPtHOu9qtDKFgHSoB5EdpbH_wbkCAu-jVVuFK-Psp72hXKveILrKdA-1295712c3d.webp",
+      "originalFilename": "IPGNG435w0l2Y81fz3GBQOEMO6CRnFcTrPtHOu9qtDKFgHSoB5EdpbH_wbkCAu-jVVuFK-Psp72hXKveILrKdA.webp"
+    },
+    "Attack:기본 공격:default_purple.webp": {
+      "path": "/content/skills/default_purple-f1e2ebbe81.webp",
+      "originalFilename": "default_purple.webp"
+    },
+    "Active:사신강림:B98NEBjQdC5ZjZV3m-VDgiMSkv-S1BQ5lj3LZN1kmqWGhF4XjhpnhwYi6Lq7lfalGJi-m18eOpbmS821umX4vw.webp": {
+      "path": "/content/skills/B98NEBjQdC5ZjZV3m-VDgiMSkv-S1BQ5lj3LZN1kmqWGhF4XjhpnhwYi6Lq7lfalGJi-m18eOpbmS821umX4vw-a8024a6712.webp",
+      "originalFilename": "B98NEBjQdC5ZjZV3m-VDgiMSkv-S1BQ5lj3LZN1kmqWGhF4XjhpnhwYi6Lq7lfalGJi-m18eOpbmS821umX4vw.webp"
+    },
+    "Active:죽음의 일격:YCU7RLoiI_b5epSsbW7ge7w_bpUN7r1uSqFcdpI7PWEFEbNo7eUe6a8PMVW-Cts5ZjU4m16cx-NLKeWN17ADCQ.webp": {
+      "path": "/content/skills/YCU7RLoiI_b5epSsbW7ge7w_bpUN7r1uSqFcdpI7PWEFEbNo7eUe6a8PMVW-Cts5ZjU4m16cx-NLKeWN17ADCQ-27e2393c7b.webp",
+      "originalFilename": "YCU7RLoiI_b5epSsbW7ge7w_bpUN7r1uSqFcdpI7PWEFEbNo7eUe6a8PMVW-Cts5ZjU4m16cx-NLKeWN17ADCQ.webp"
+    },
+    "Passive:죽음의 경계:h3buctaLZkCxoGcMC0AWkLCbuUQoX0w2zn1BU7mo5NRU3tlGZwisVOTY4oBCzsl6oS_hGHqM95MRZNqgkN4A_Q.webp": {
+      "path": "/content/skills/h3buctaLZkCxoGcMC0AWkLCbuUQoX0w2zn1BU7mo5NRU3tlGZwisVOTY4oBCzsl6oS_hGHqM95MRZNqgkN4A_Q-21ba5a8147.webp",
+      "originalFilename": "h3buctaLZkCxoGcMC0AWkLCbuUQoX0w2zn1BU7mo5NRU3tlGZwisVOTY4oBCzsl6oS_hGHqM95MRZNqgkN4A_Q.webp"
+    },
+    "Attack:기본 공격:uJHJeaMcm6Q8Csd7lsFoN6Lq1dC8MULlCUj1nxvE9a7GZAQ1d1YqjuZUgvy6oMiAgJqXMeC_m4vaWFO5wKlY9g.webp": {
+      "path": "/content/skills/uJHJeaMcm6Q8Csd7lsFoN6Lq1dC8MULlCUj1nxvE9a7GZAQ1d1YqjuZUgvy6oMiAgJqXMeC_m4vaWFO5wKlY9g-57ba805eea.webp",
+      "originalFilename": "uJHJeaMcm6Q8Csd7lsFoN6Lq1dC8MULlCUj1nxvE9a7GZAQ1d1YqjuZUgvy6oMiAgJqXMeC_m4vaWFO5wKlY9g.webp"
+    },
+    "Active:혹한의 일격:yQh3jsAjv0E_wIN7E9EZYDgH8WkAyhr1GPdlDMXkz4SEv9oOIPN-j7n_QtpMTuavpahZnixkmDARIUBacrUBeg.webp": {
+      "path": "/content/skills/yQh3jsAjv0E_wIN7E9EZYDgH8WkAyhr1GPdlDMXkz4SEv9oOIPN-j7n_QtpMTuavpahZnixkmDARIUBacrUBeg-5044b1140a.webp",
+      "originalFilename": "yQh3jsAjv0E_wIN7E9EZYDgH8WkAyhr1GPdlDMXkz4SEv9oOIPN-j7n_QtpMTuavpahZnixkmDARIUBacrUBeg.webp"
+    },
+    "Active:혹한의 지진:5ZKuzkwmPHw3NosT0hgqDfiJj9Op3JS7Mr_LWkxxtNl4idfen7xtGj4GvY_dW2ylRB_3EE6t9NTntVud0RL1PA.webp": {
+      "path": "/content/skills/5ZKuzkwmPHw3NosT0hgqDfiJj9Op3JS7Mr_LWkxxtNl4idfen7xtGj4GvY_dW2ylRB_3EE6t9NTntVud0RL1PA-022d884482.webp",
+      "originalFilename": "5ZKuzkwmPHw3NosT0hgqDfiJj9Op3JS7Mr_LWkxxtNl4idfen7xtGj4GvY_dW2ylRB_3EE6t9NTntVud0RL1PA.webp"
+    },
+    "Passive:혹한의 심장:Lnp0uBHFvpls7RUT0DZG3KC9oecuGvmkpNGpyhsQDEtOSofVOC7XxENJR2RWl1tK7erms8LrwzeNmeKl18-REw.webp": {
+      "path": "/content/skills/Lnp0uBHFvpls7RUT0DZG3KC9oecuGvmkpNGpyhsQDEtOSofVOC7XxENJR2RWl1tK7erms8LrwzeNmeKl18-REw-b5a22f4481.webp",
+      "originalFilename": "Lnp0uBHFvpls7RUT0DZG3KC9oecuGvmkpNGpyhsQDEtOSofVOC7XxENJR2RWl1tK7erms8LrwzeNmeKl18-REw.webp"
+    },
+    "Attack:기본 공격:_VYyRSJDkCuVxpPRpWUYt1oVZOx3F_NoFFhE5_MAh9YXjGCZUizfpiXw6omLzrU22nZk_W0wtBwBc7DKXeXyWg.webp": {
+      "path": "/content/skills/_VYyRSJDkCuVxpPRpWUYt1oVZOx3F_NoFFhE5_MAh9YXjGCZUizfpiXw6omLzrU22nZk_W0wtBwBc7DKXeXyWg-d0a80472e3.webp",
+      "originalFilename": "_VYyRSJDkCuVxpPRpWUYt1oVZOx3F_NoFFhE5_MAh9YXjGCZUizfpiXw6omLzrU22nZk_W0wtBwBc7DKXeXyWg.webp"
+    },
+    "Active:분노의 일격:3sE0uD5lYoRdLhsI33H98-zDTcNqk3hiMfJbfP5gRfs-ucQ_5s0u__CxuXyNbfzVg0CrTFX1XAs89E4TIn-Ysw.webp": {
+      "path": "/content/skills/3sE0uD5lYoRdLhsI33H98-zDTcNqk3hiMfJbfP5gRfs-ucQ_5s0u__CxuXyNbfzVg0CrTFX1XAs89E4TIn-Ysw-344e41af00.webp",
+      "originalFilename": "3sE0uD5lYoRdLhsI33H98-zDTcNqk3hiMfJbfP5gRfs-ucQ_5s0u__CxuXyNbfzVg0CrTFX1XAs89E4TIn-Ysw.webp"
+    },
+    "Active:용의 분노:Qm8a0spaUIvPb7MeTBgmYd4ljJKawS-pQU72i2KUMkgUfeaRqQE0CbUFVwDiPvRFrPRjyfaRoR0nllrOnpiVog.webp": {
+      "path": "/content/skills/Qm8a0spaUIvPb7MeTBgmYd4ljJKawS-pQU72i2KUMkgUfeaRqQE0CbUFVwDiPvRFrPRjyfaRoR0nllrOnpiVog-276d2dc816.webp",
+      "originalFilename": "Qm8a0spaUIvPb7MeTBgmYd4ljJKawS-pQU72i2KUMkgUfeaRqQE0CbUFVwDiPvRFrPRjyfaRoR0nllrOnpiVog.webp"
+    },
+    "Passive:복수의 갑옷:kENdRedzcvwEtYDPWwTg4JluY4GvWy4XS5bTN-mV7O-yziUjh_3HzFECPHjoNqf-s6xag8dlMDkSkB5XRRgR9w.webp": {
+      "path": "/content/skills/kENdRedzcvwEtYDPWwTg4JluY4GvWy4XS5bTN-mV7O-yziUjh_3HzFECPHjoNqf-s6xag8dlMDkSkB5XRRgR9w-c10259aaa1.webp",
+      "originalFilename": "kENdRedzcvwEtYDPWwTg4JluY4GvWy4XS5bTN-mV7O-yziUjh_3HzFECPHjoNqf-s6xag8dlMDkSkB5XRRgR9w.webp"
+    },
+    "Attack:기본 공격:ELcbQ-f2wLeOAlIHyYffAT0wc2lu5E6cyrky7ZD96DjIP33evtduunk7Hy_wkz7f8QAydnnv-X0AGsJBMJoS4Q.webp": {
+      "path": "/content/skills/ELcbQ-f2wLeOAlIHyYffAT0wc2lu5E6cyrky7ZD96DjIP33evtduunk7Hy_wkz7f8QAydnnv-X0AGsJBMJoS4Q-f1b58f8a03.webp",
+      "originalFilename": "ELcbQ-f2wLeOAlIHyYffAT0wc2lu5E6cyrky7ZD96DjIP33evtduunk7Hy_wkz7f8QAydnnv-X0AGsJBMJoS4Q.webp"
+    },
+    "Active:어둠의 일격:5T6gWva8hIFLZXGic5oN-DpzIMMzcQiRHI_RjSkId_G39mp3D4weMNjSne_aWkAz6gT0QEmIvAXDMcw8oTvcwA.webp": {
+      "path": "/content/skills/5T6gWva8hIFLZXGic5oN-DpzIMMzcQiRHI_RjSkId_G39mp3D4weMNjSne_aWkAz6gT0QEmIvAXDMcw8oTvcwA-78ae817583.webp",
+      "originalFilename": "5T6gWva8hIFLZXGic5oN-DpzIMMzcQiRHI_RjSkId_G39mp3D4weMNjSne_aWkAz6gT0QEmIvAXDMcw8oTvcwA.webp"
+    },
+    "Active:어둠의 속삭임:0Ya-ZVGy-o4KLv0yTeVVfOcRdgkucAWFHfQukg201y73mSDnSRDVqDwNuL-pvO_pWw3JemXLm7h1GAnGP1AzBg.webp": {
+      "path": "/content/skills/0Ya-ZVGy-o4KLv0yTeVVfOcRdgkucAWFHfQukg201y73mSDnSRDVqDwNuL-pvO_pWw3JemXLm7h1GAnGP1AzBg-74c5d8f968.webp",
+      "originalFilename": "0Ya-ZVGy-o4KLv0yTeVVfOcRdgkucAWFHfQukg201y73mSDnSRDVqDwNuL-pvO_pWw3JemXLm7h1GAnGP1AzBg.webp"
+    },
+    "Passive:영혼 흡수:6Fr5ZnMi052U3Uk1fgQHoKQcCFGY7b-o03kYQIkRHeZ-L06mIuvTGIY-FqrmY3NO2zpWZ10Hboextk2bb_24hw.webp": {
+      "path": "/content/skills/6Fr5ZnMi052U3Uk1fgQHoKQcCFGY7b-o03kYQIkRHeZ-L06mIuvTGIY-FqrmY3NO2zpWZ10Hboextk2bb_24hw-51750258b0.webp",
+      "originalFilename": "6Fr5ZnMi052U3Uk1fgQHoKQcCFGY7b-o03kYQIkRHeZ-L06mIuvTGIY-FqrmY3NO2zpWZ10Hboextk2bb_24hw.webp"
+    },
+    "Attack:기본 공격:ZTgMOS0leHtJdrW3V-XgCkqIYwZv7r0ctijjjAU5wI8s9By9AxbRWJTQBoVK9qjPAE5xb8Z2JInHWsFiNqNjlw.webp": {
+      "path": "/content/skills/ZTgMOS0leHtJdrW3V-XgCkqIYwZv7r0ctijjjAU5wI8s9By9AxbRWJTQBoVK9qjPAE5xb8Z2JInHWsFiNqNjlw-e3f67354b7.webp",
+      "originalFilename": "ZTgMOS0leHtJdrW3V-XgCkqIYwZv7r0ctijjjAU5wI8s9By9AxbRWJTQBoVK9qjPAE5xb8Z2JInHWsFiNqNjlw.webp"
+    },
+    "Active:모래열풍:pXoLv3xwXDdUw3hEJDayPPbspZt-_V-4NxBJ3LvMzP3XvdO3y9qpOYPxmYwZ5hsoI0eJKmX3-0NuLDRO9ZQmgA.webp": {
+      "path": "/content/skills/pXoLv3xwXDdUw3hEJDayPPbspZt-_V-4NxBJ3LvMzP3XvdO3y9qpOYPxmYwZ5hsoI0eJKmX3-0NuLDRO9ZQmgA-5c86b1ef9a.webp",
+      "originalFilename": "pXoLv3xwXDdUw3hEJDayPPbspZt-_V-4NxBJ3LvMzP3XvdO3y9qpOYPxmYwZ5hsoI0eJKmX3-0NuLDRO9ZQmgA.webp"
+    },
+    "Active:메마른 해일:rYpZ8KKDtOSnZJtfMsK1w7YiVAdk97gsTxkNRUoFvZJkb_IUzZVdY30376nniTiPi0lb3CrbI8yyzSBUztqBEw.webp": {
+      "path": "/content/skills/rYpZ8KKDtOSnZJtfMsK1w7YiVAdk97gsTxkNRUoFvZJkb_IUzZVdY30376nniTiPi0lb3CrbI8yyzSBUztqBEw-47437988d7.webp",
+      "originalFilename": "rYpZ8KKDtOSnZJtfMsK1w7YiVAdk97gsTxkNRUoFvZJkb_IUzZVdY30376nniTiPi0lb3CrbI8yyzSBUztqBEw.webp"
+    },
+    "Passive:사막의 마법사:au1pQU4jeUWKqrg0stmEL4x1i0NwaReSemvgVYurE8s12TqwFuVBF4zImoSTuBjNNTmG8dmuTPtVQOzEPB3X9A.webp": {
+      "path": "/content/skills/au1pQU4jeUWKqrg0stmEL4x1i0NwaReSemvgVYurE8s12TqwFuVBF4zImoSTuBjNNTmG8dmuTPtVQOzEPB3X9A-e34380f562.webp",
+      "originalFilename": "au1pQU4jeUWKqrg0stmEL4x1i0NwaReSemvgVYurE8s12TqwFuVBF4zImoSTuBjNNTmG8dmuTPtVQOzEPB3X9A.webp"
+    },
+    "Attack:기본 공격:jieiIl3EJftVs60cT8Q6mWqxuDLZvR0p7AnXfeocX7cAtpLnyxNGUIXGEZeLqyfVgNf0I7iY-zwbvposRC6Edw.webp": {
+      "path": "/content/skills/jieiIl3EJftVs60cT8Q6mWqxuDLZvR0p7AnXfeocX7cAtpLnyxNGUIXGEZeLqyfVgNf0I7iY-zwbvposRC6Edw-9322776d5e.webp",
+      "originalFilename": "jieiIl3EJftVs60cT8Q6mWqxuDLZvR0p7AnXfeocX7cAtpLnyxNGUIXGEZeLqyfVgNf0I7iY-zwbvposRC6Edw.webp"
+    },
+    "Active:아그니아의 창:1rQP-mc5wK2lxeDP4jNB6TRgTWfxJ8t8MlYZM24D8kKZnmv2bof9xipn6xIf0pR6v7TaVFjaOzx-ewwge7ZsZg.webp": {
+      "path": "/content/skills/1rQP-mc5wK2lxeDP4jNB6TRgTWfxJ8t8MlYZM24D8kKZnmv2bof9xipn6xIf0pR6v7TaVFjaOzx-ewwge7ZsZg-8173c51816.webp",
+      "originalFilename": "1rQP-mc5wK2lxeDP4jNB6TRgTWfxJ8t8MlYZM24D8kKZnmv2bof9xipn6xIf0pR6v7TaVFjaOzx-ewwge7ZsZg.webp"
+    },
+    "Active:염룡의 연주:'-8DRgKGPCsT9-qpe9OJfX37cI7VLZEG05wdyqa6usbymePUArEWFa3J5g-LBD1vk7SFURxGsJbD9y0wAyz7XVg.webp": {
+      "path": "/content/skills/-8DRgKGPCsT9-qpe9OJfX37cI7VLZEG05wdyqa6usbymePUArEWFa3J5g-LBD1vk7SFURxGsJbD9y0wAyz7XVg-4805b0907c.webp",
+      "originalFilename": "'-8DRgKGPCsT9-qpe9OJfX37cI7VLZEG05wdyqa6usbymePUArEWFa3J5g-LBD1vk7SFURxGsJbD9y0wAyz7XVg.webp"
+    },
+    "Passive:솟구치는 불꽃:SQIJI78wEdDM7Xe3HuxQv691ZcvaMPZ2i71KC_-d-e6bYhdQ1gLOd6MJn_HEastWbBUEkTCIH4eSz4jC0Mdyrg.webp": {
+      "path": "/content/skills/SQIJI78wEdDM7Xe3HuxQv691ZcvaMPZ2i71KC_-d-e6bYhdQ1gLOd6MJn_HEastWbBUEkTCIH4eSz4jC0Mdyrg-57ac8c5758.webp",
+      "originalFilename": "SQIJI78wEdDM7Xe3HuxQv691ZcvaMPZ2i71KC_-d-e6bYhdQ1gLOd6MJn_HEastWbBUEkTCIH4eSz4jC0Mdyrg.webp"
+    },
+    "Attack:기본 공격:uJHJeaMcm6Q8Csd7lsFoN6Lq1dC8MULlCUj1nxvE9a7GZAQ1d1YqjuZUgvy6oMiAgJqXMeC_m4vaWFO5wKlY9g-1.webp": {
+      "path": "/content/skills/uJHJeaMcm6Q8Csd7lsFoN6Lq1dC8MULlCUj1nxvE9a7GZAQ1d1YqjuZUgvy6oMiAgJqXMeC_m4vaWFO5wKlY9g-1-0296d91677.webp",
+      "originalFilename": "uJHJeaMcm6Q8Csd7lsFoN6Lq1dC8MULlCUj1nxvE9a7GZAQ1d1YqjuZUgvy6oMiAgJqXMeC_m4vaWFO5wKlY9g-1.webp"
+    },
+    "Active:달빛의 심판:ABFZ4PjrcZUVuRwKy02yREpXdWUX1Me12HB2LqYIk-mGMucaCqHTC22b24dF9DnzD1mT4HkTy1Sb6FzixwwKcg.webp": {
+      "path": "/content/skills/ABFZ4PjrcZUVuRwKy02yREpXdWUX1Me12HB2LqYIk-mGMucaCqHTC22b24dF9DnzD1mT4HkTy1Sb6FzixwwKcg-c26d387128.webp",
+      "originalFilename": "ABFZ4PjrcZUVuRwKy02yREpXdWUX1Me12HB2LqYIk-mGMucaCqHTC22b24dF9DnzD1mT4HkTy1Sb6FzixwwKcg.webp"
+    },
+    "Active:성령의 기도:Pcz8HyiEnwCQOROELbNc0N6MgddgGM9Z10Cx85kSZnhxoxnHO-MTRz5iSruvc24HOr5GGwWFTsaGZnM3Wie9Dg.webp": {
+      "path": "/content/skills/Pcz8HyiEnwCQOROELbNc0N6MgddgGM9Z10Cx85kSZnhxoxnHO-MTRz5iSruvc24HOr5GGwWFTsaGZnM3Wie9Dg-cae0bef618.webp",
+      "originalFilename": "Pcz8HyiEnwCQOROELbNc0N6MgddgGM9Z10Cx85kSZnhxoxnHO-MTRz5iSruvc24HOr5GGwWFTsaGZnM3Wie9Dg.webp"
+    },
+    "Passive:망자의 축복:RpxUrHdE94QyxCPx0PW2OwQFO_OBuz9pXIwz_iJIUfMdvamdirCblIw1XZlmJv42kgFyjyYNhiBWaycv-VMeig.webp": {
+      "path": "/content/skills/RpxUrHdE94QyxCPx0PW2OwQFO_OBuz9pXIwz_iJIUfMdvamdirCblIw1XZlmJv42kgFyjyYNhiBWaycv-VMeig-fe5b0da620.webp",
+      "originalFilename": "RpxUrHdE94QyxCPx0PW2OwQFO_OBuz9pXIwz_iJIUfMdvamdirCblIw1XZlmJv42kgFyjyYNhiBWaycv-VMeig.webp"
+    },
+    "Attack:기본 공격:uJHJeaMcm6Q8Csd7lsFoN6Lq1dC8MULlCUj1nxvE9a7GZAQ1d1YqjuZUgvy6oMiAgJqXMeC_m4vaWFO5wKlY9g-2.webp": {
+      "path": "/content/skills/uJHJeaMcm6Q8Csd7lsFoN6Lq1dC8MULlCUj1nxvE9a7GZAQ1d1YqjuZUgvy6oMiAgJqXMeC_m4vaWFO5wKlY9g-2-baebea80ed.webp",
+      "originalFilename": "uJHJeaMcm6Q8Csd7lsFoN6Lq1dC8MULlCUj1nxvE9a7GZAQ1d1YqjuZUgvy6oMiAgJqXMeC_m4vaWFO5wKlY9g-2.webp"
+    },
+    "Active:천상의 심판:5rhpjIaUspYaa2CFdlZt-7oFKfG7EV5uPmeqgo3mphWXjILK5W4C0j843Gbl_YAwQqjmw8QqiykCqAikeHDi0w.webp": {
+      "path": "/content/skills/5rhpjIaUspYaa2CFdlZt-7oFKfG7EV5uPmeqgo3mphWXjILK5W4C0j843Gbl_YAwQqjmw8QqiykCqAikeHDi0w-9826db3230.webp",
+      "originalFilename": "5rhpjIaUspYaa2CFdlZt-7oFKfG7EV5uPmeqgo3mphWXjILK5W4C0j843Gbl_YAwQqjmw8QqiykCqAikeHDi0w.webp"
+    },
+    "Active:최고 판결:Eks6L35jkBA6T64pChMPwqrQ6XP5teDb8w6FNnbsuB7KAUsrA4lgA3b7ltWJp_ZFrnIYhaDLgBwQjR6S7b8MLA.webp": {
+      "path": "/content/skills/Eks6L35jkBA6T64pChMPwqrQ6XP5teDb8w6FNnbsuB7KAUsrA4lgA3b7ltWJp_ZFrnIYhaDLgBwQjR6S7b8MLA-4b217b31d8.webp",
+      "originalFilename": "Eks6L35jkBA6T64pChMPwqrQ6XP5teDb8w6FNnbsuB7KAUsrA4lgA3b7ltWJp_ZFrnIYhaDLgBwQjR6S7b8MLA.webp"
+    },
+    "Passive:신의 저울:i3XJoIFPBngKpmnjr3zLrC5cLElMXizynwIXxUYebWCJbdKKTtTn3FUZOlk-IjdCMuOA22mF6nrvexHEo4K1DA.webp": {
+      "path": "/content/skills/i3XJoIFPBngKpmnjr3zLrC5cLElMXizynwIXxUYebWCJbdKKTtTn3FUZOlk-IjdCMuOA22mF6nrvexHEo4K1DA-5fe212f0c5.webp",
+      "originalFilename": "i3XJoIFPBngKpmnjr3zLrC5cLElMXizynwIXxUYebWCJbdKKTtTn3FUZOlk-IjdCMuOA22mF6nrvexHEo4K1DA.webp"
+    },
+    "Attack:기본 공격:lbdCz2lJC477AGAxRCKin9JN2UjhDqRKKI_bjNAxBq8cFb9FjPWC_pom477Ei-NLBwU_dbp1hqyTsWX0m4YxcQ-1.webp": {
+      "path": "/content/skills/lbdCz2lJC477AGAxRCKin9JN2UjhDqRKKI_bjNAxBq8cFb9FjPWC_pom477Ei-NLBwU_dbp1hqyTsWX0m4YxcQ-1-cd4f122b02.webp",
+      "originalFilename": "lbdCz2lJC477AGAxRCKin9JN2UjhDqRKKI_bjNAxBq8cFb9FjPWC_pom477Ei-NLBwU_dbp1hqyTsWX0m4YxcQ-1.webp"
+    },
+    "Active:어둠 강탈:iUrhchSZWmP7TC_m-Xjs-OPH7mT-QE9rwsqU1rjtx7W4FtzeblyqmGvj_pnzqiAfPoTZ1kUm8XckSCabVwxZfg.webp": {
+      "path": "/content/skills/iUrhchSZWmP7TC_m-Xjs-OPH7mT-QE9rwsqU1rjtx7W4FtzeblyqmGvj_pnzqiAfPoTZ1kUm8XckSCabVwxZfg-7566d6ec6b.webp",
+      "originalFilename": "iUrhchSZWmP7TC_m-Xjs-OPH7mT-QE9rwsqU1rjtx7W4FtzeblyqmGvj_pnzqiAfPoTZ1kUm8XckSCabVwxZfg.webp"
+    },
+    "Active:금지된 실험:fS5qthWwTtpNaXuJtfaCnHkxs_NrfVfAfHP6BmpNLZSTW3wOJMi5gjahMAVUG0c3bhnggE1P03NLjycJVw2i2w.webp": {
+      "path": "/content/skills/fS5qthWwTtpNaXuJtfaCnHkxs_NrfVfAfHP6BmpNLZSTW3wOJMi5gjahMAVUG0c3bhnggE1P03NLjycJVw2i2w-fda13e74c6.webp",
+      "originalFilename": "fS5qthWwTtpNaXuJtfaCnHkxs_NrfVfAfHP6BmpNLZSTW3wOJMi5gjahMAVUG0c3bhnggE1P03NLjycJVw2i2w.webp"
+    },
+    "Passive:타락한 마법사:ZCtUBQ33L0469CvaQCS-IJYfCPn2HVc_fyyir_RyVarWrFRm9H7ASwNRuKnvhL7Oq2DTGGo5FwSNCunfOz8kww.webp": {
+      "path": "/content/skills/ZCtUBQ33L0469CvaQCS-IJYfCPn2HVc_fyyir_RyVarWrFRm9H7ASwNRuKnvhL7Oq2DTGGo5FwSNCunfOz8kww-12ce2a1b27.webp",
+      "originalFilename": "ZCtUBQ33L0469CvaQCS-IJYfCPn2HVc_fyyir_RyVarWrFRm9H7ASwNRuKnvhL7Oq2DTGGo5FwSNCunfOz8kww.webp"
+    },
+    "Attack:기본 공격:_VYyRSJDkCuVxpPRpWUYt1oVZOx3F_NoFFhE5_MAh9YXjGCZUizfpiXw6omLzrU22nZk_W0wtBwBc7DKXeXyWg-1.webp": {
+      "path": "/content/skills/_VYyRSJDkCuVxpPRpWUYt1oVZOx3F_NoFFhE5_MAh9YXjGCZUizfpiXw6omLzrU22nZk_W0wtBwBc7DKXeXyWg-1-d76cfd2b33.webp",
+      "originalFilename": "_VYyRSJDkCuVxpPRpWUYt1oVZOx3F_NoFFhE5_MAh9YXjGCZUizfpiXw6omLzrU22nZk_W0wtBwBc7DKXeXyWg-1.webp"
+    },
+    "Active:빠르고, 멋있게.:NZr-jHIjFEB48USNVXtoZy5WVWTVAc1N5l0lTKHJqeeribRrYGgvKHsqYGHE24qZb1m2bNvrpLcgyyjFe-hDYg.webp": {
+      "path": "/content/skills/NZr-jHIjFEB48USNVXtoZy5WVWTVAc1N5l0lTKHJqeeribRrYGgvKHsqYGHE24qZb1m2bNvrpLcgyyjFe-hDYg-86127a7d20.webp",
+      "originalFilename": "NZr-jHIjFEB48USNVXtoZy5WVWTVAc1N5l0lTKHJqeeribRrYGgvKHsqYGHE24qZb1m2bNvrpLcgyyjFe-hDYg.webp"
+    },
+    "Active:어때, 화려하지?:uvjRdizFKydTuYitfJbbvvPmq3nG53jDtOEoSF_WyfhmT8S3yWf5-z26v8_dR7eawFNtbLvVRd-JrJdu6IUnHg.webp": {
+      "path": "/content/skills/uvjRdizFKydTuYitfJbbvvPmq3nG53jDtOEoSF_WyfhmT8S3yWf5-z26v8_dR7eawFNtbLvVRd-JrJdu6IUnHg-fad66762d2.webp",
+      "originalFilename": "uvjRdizFKydTuYitfJbbvvPmq3nG53jDtOEoSF_WyfhmT8S3yWf5-z26v8_dR7eawFNtbLvVRd-JrJdu6IUnHg.webp"
+    },
+    "Passive:방랑의 사냥꾼:VVB3ce5od-2oKiDvLb_HRKsN9NHKVtvaotVST8_mcqbsh6uqj2nSqLQvOG2Mot54WI5U3z1R0ElcjFsDjm6Rhw.webp": {
+      "path": "/content/skills/VVB3ce5od-2oKiDvLb_HRKsN9NHKVtvaotVST8_mcqbsh6uqj2nSqLQvOG2Mot54WI5U3z1R0ElcjFsDjm6Rhw-e4e7a78d3c.webp",
+      "originalFilename": "VVB3ce5od-2oKiDvLb_HRKsN9NHKVtvaotVST8_mcqbsh6uqj2nSqLQvOG2Mot54WI5U3z1R0ElcjFsDjm6Rhw.webp"
+    },
+    "Attack:기본 공격:uJHJeaMcm6Q8Csd7lsFoN6Lq1dC8MULlCUj1nxvE9a7GZAQ1d1YqjuZUgvy6oMiAgJqXMeC_m4vaWFO5wKlY9g-3.webp": {
+      "path": "/content/skills/uJHJeaMcm6Q8Csd7lsFoN6Lq1dC8MULlCUj1nxvE9a7GZAQ1d1YqjuZUgvy6oMiAgJqXMeC_m4vaWFO5wKlY9g-3-cbf16724b7.webp",
+      "originalFilename": "uJHJeaMcm6Q8Csd7lsFoN6Lq1dC8MULlCUj1nxvE9a7GZAQ1d1YqjuZUgvy6oMiAgJqXMeC_m4vaWFO5wKlY9g-3.webp"
+    },
+    "Active:심판대행:ysfxBVsR2B8xxgaiRCfNSiJrKkMYLsaQhfDpOyE7e08dva7WqOdbFlUpm_agw_PDV3wijf-_tIJUFlBWX27HcQ.webp": {
+      "path": "/content/skills/ysfxBVsR2B8xxgaiRCfNSiJrKkMYLsaQhfDpOyE7e08dva7WqOdbFlUpm_agw_PDV3wijf-_tIJUFlBWX27HcQ-87b3e55f36.webp",
+      "originalFilename": "ysfxBVsR2B8xxgaiRCfNSiJrKkMYLsaQhfDpOyE7e08dva7WqOdbFlUpm_agw_PDV3wijf-_tIJUFlBWX27HcQ.webp"
+    },
+    "Active:이계의 빛:QLKBo6y-nufPXRN7sggw-GOt2xWAMyDnjGc5YDsemQdCET2ibtt6oGCSMvybqmvw2AmKvoOTT0Ez2uOFszfg7g.webp": {
+      "path": "/content/skills/QLKBo6y-nufPXRN7sggw-GOt2xWAMyDnjGc5YDsemQdCET2ibtt6oGCSMvybqmvw2AmKvoOTT0Ez2uOFszfg7g-d51c0c57e2.webp",
+      "originalFilename": "QLKBo6y-nufPXRN7sggw-GOt2xWAMyDnjGc5YDsemQdCET2ibtt6oGCSMvybqmvw2AmKvoOTT0Ez2uOFszfg7g.webp"
+    },
+    "Passive:네스트라의 가호:gxtuBc20ZQrCDkTWRc80gzM_Kgh_kb0EVsrav8iJTA0ajiX1opD4fLDUWP-iVtL6cq6zZ0oiXLIxk8Z-aSYywA.webp": {
+      "path": "/content/skills/gxtuBc20ZQrCDkTWRc80gzM_Kgh_kb0EVsrav8iJTA0ajiX1opD4fLDUWP-iVtL6cq6zZ0oiXLIxk8Z-aSYywA-c66c2777ba.webp",
+      "originalFilename": "gxtuBc20ZQrCDkTWRc80gzM_Kgh_kb0EVsrav8iJTA0ajiX1opD4fLDUWP-iVtL6cq6zZ0oiXLIxk8Z-aSYywA.webp"
+    },
+    "Attack:기본 공격:uJHJeaMcm6Q8Csd7lsFoN6Lq1dC8MULlCUj1nxvE9a7GZAQ1d1YqjuZUgvy6oMiAgJqXMeC_m4vaWFO5wKlY9g-4.webp": {
+      "path": "/content/skills/uJHJeaMcm6Q8Csd7lsFoN6Lq1dC8MULlCUj1nxvE9a7GZAQ1d1YqjuZUgvy6oMiAgJqXMeC_m4vaWFO5wKlY9g-4-55aba534e6.webp",
+      "originalFilename": "uJHJeaMcm6Q8Csd7lsFoN6Lq1dC8MULlCUj1nxvE9a7GZAQ1d1YqjuZUgvy6oMiAgJqXMeC_m4vaWFO5wKlY9g-4.webp"
+    },
+    "Active:달빛 베기:jDJR61BgJCAyIJ7ZecNVelWvhDGUfgKVntFR7QovHxb9XaauB9pIwYq2LVYz65umNztyBWpEuoODlOXEuKPRjA.webp": {
+      "path": "/content/skills/jDJR61BgJCAyIJ7ZecNVelWvhDGUfgKVntFR7QovHxb9XaauB9pIwYq2LVYz65umNztyBWpEuoODlOXEuKPRjA-01e1ea0360.webp",
+      "originalFilename": "jDJR61BgJCAyIJ7ZecNVelWvhDGUfgKVntFR7QovHxb9XaauB9pIwYq2LVYz65umNztyBWpEuoODlOXEuKPRjA.webp"
+    },
+    "Active:일도천화엽:Jtkaap_y0EKBsWF7qnEUZZ35hwBEddSWydNCkuueYKbl56kG8gNmOudYQTtKit91VeSoeOrJxmdndNeF7-YH9Q.webp": {
+      "path": "/content/skills/Jtkaap_y0EKBsWF7qnEUZZ35hwBEddSWydNCkuueYKbl56kG8gNmOudYQTtKit91VeSoeOrJxmdndNeF7-YH9Q-32eff6e096.webp",
+      "originalFilename": "Jtkaap_y0EKBsWF7qnEUZZ35hwBEddSWydNCkuueYKbl56kG8gNmOudYQTtKit91VeSoeOrJxmdndNeF7-YH9Q.webp"
+    },
+    "Passive:불굴의 지휘:4Pc_QV26VS7l4JhQS6Y31OkuMx3h59CA0-9_qrmCKeHeOgCR_V2YSmc3qqYLBI-eFQxmWZT_3VneIz-7gUH7iA.webp": {
+      "path": "/content/skills/4Pc_QV26VS7l4JhQS6Y31OkuMx3h59CA0-9_qrmCKeHeOgCR_V2YSmc3qqYLBI-eFQxmWZT_3VneIz-7gUH7iA-61f3d68b3b.webp",
+      "originalFilename": "4Pc_QV26VS7l4JhQS6Y31OkuMx3h59CA0-9_qrmCKeHeOgCR_V2YSmc3qqYLBI-eFQxmWZT_3VneIz-7gUH7iA.webp"
+    },
+    "Attack:기본 공격:uJHJeaMcm6Q8Csd7lsFoN6Lq1dC8MULlCUj1nxvE9a7GZAQ1d1YqjuZUgvy6oMiAgJqXMeC_m4vaWFO5wKlY9g-5.webp": {
+      "path": "/content/skills/uJHJeaMcm6Q8Csd7lsFoN6Lq1dC8MULlCUj1nxvE9a7GZAQ1d1YqjuZUgvy6oMiAgJqXMeC_m4vaWFO5wKlY9g-5-b7a15819a4.webp",
+      "originalFilename": "uJHJeaMcm6Q8Csd7lsFoN6Lq1dC8MULlCUj1nxvE9a7GZAQ1d1YqjuZUgvy6oMiAgJqXMeC_m4vaWFO5wKlY9g-5.webp"
+    },
+    "Active:용린성하:ghE04jyMFElHd0IkkRcDVajCTpVL7lyjpBGIP98dRri2JoXe3IvSksoXhcK5zBO8RW5wX2k42xP6Jk-NNvCfXA.webp": {
+      "path": "/content/skills/ghE04jyMFElHd0IkkRcDVajCTpVL7lyjpBGIP98dRri2JoXe3IvSksoXhcK5zBO8RW5wX2k42xP6Jk-NNvCfXA-6052951e48.webp",
+      "originalFilename": "ghE04jyMFElHd0IkkRcDVajCTpVL7lyjpBGIP98dRri2JoXe3IvSksoXhcK5zBO8RW5wX2k42xP6Jk-NNvCfXA.webp"
+    },
+    "Active:용제의 진노:nwgnNKemRWbbj7coRlUvBrNoSnrmTzzKVQUhO1i0N-ab8F2UpAwz5hgL0J0asvp5QG64X4LcaZN5jC-58k20Kg.webp": {
+      "path": "/content/skills/nwgnNKemRWbbj7coRlUvBrNoSnrmTzzKVQUhO1i0N-ab8F2UpAwz5hgL0J0asvp5QG64X4LcaZN5jC-58k20Kg-495a7bbf9e.webp",
+      "originalFilename": "nwgnNKemRWbbj7coRlUvBrNoSnrmTzzKVQUhO1i0N-ab8F2UpAwz5hgL0J0asvp5QG64X4LcaZN5jC-58k20Kg.webp"
+    },
+    "Passive:홍린포:nNYCP5jMsY3ah_5DTuS2C4C1KY-y7CRcZhLZ_Z-30yUEfu18ciHlozKlUgotTtwoaulWwzsm0lrL2DCgrn-3nA.webp": {
+      "path": "/content/skills/nNYCP5jMsY3ah_5DTuS2C4C1KY-y7CRcZhLZ_Z-30yUEfu18ciHlozKlUgotTtwoaulWwzsm0lrL2DCgrn-3nA-85f6f18fa3.webp",
+      "originalFilename": "nNYCP5jMsY3ah_5DTuS2C4C1KY-y7CRcZhLZ_Z-30yUEfu18ciHlozKlUgotTtwoaulWwzsm0lrL2DCgrn-3nA.webp"
+    },
+    "Attack:기본 공격:uJHJeaMcm6Q8Csd7lsFoN6Lq1dC8MULlCUj1nxvE9a7GZAQ1d1YqjuZUgvy6oMiAgJqXMeC_m4vaWFO5wKlY9g-6.webp": {
+      "path": "/content/skills/uJHJeaMcm6Q8Csd7lsFoN6Lq1dC8MULlCUj1nxvE9a7GZAQ1d1YqjuZUgvy6oMiAgJqXMeC_m4vaWFO5wKlY9g-6-d2f9f25fd4.webp",
+      "originalFilename": "uJHJeaMcm6Q8Csd7lsFoN6Lq1dC8MULlCUj1nxvE9a7GZAQ1d1YqjuZUgvy6oMiAgJqXMeC_m4vaWFO5wKlY9g-6.webp"
+    },
+    "Active:흑풍참:FCgL2yeBJVeK28yikdjfM1m3ggj0k-yRz2AEf5YnqBHAsRLm_x901dRvwirnl95R3t44gAWShlRsSN0rYdyBmw.webp": {
+      "path": "/content/skills/FCgL2yeBJVeK28yikdjfM1m3ggj0k-yRz2AEf5YnqBHAsRLm_x901dRvwirnl95R3t44gAWShlRsSN0rYdyBmw-ee4f6f8056.webp",
+      "originalFilename": "FCgL2yeBJVeK28yikdjfM1m3ggj0k-yRz2AEf5YnqBHAsRLm_x901dRvwirnl95R3t44gAWShlRsSN0rYdyBmw.webp"
+    },
+    "Active:흑익만월참:FS69KdTyUuntgAlv58RtughHBdI6n2bTcDgnSX46KptlnblvbxI5xbqVDj8cA44SNJ-zKrtdRlQexvXc0JDLZQ.webp": {
+      "path": "/content/skills/FS69KdTyUuntgAlv58RtughHBdI6n2bTcDgnSX46KptlnblvbxI5xbqVDj8cA44SNJ-zKrtdRlQexvXc0JDLZQ-63fd8cbee7.webp",
+      "originalFilename": "FS69KdTyUuntgAlv58RtughHBdI6n2bTcDgnSX46KptlnblvbxI5xbqVDj8cA44SNJ-zKrtdRlQexvXc0JDLZQ.webp"
+    },
+    "Passive:까마귀 눈동자:vtAUrAWR7_F2QrYw9Y7CagqQ3kn58AT6UmHagHs0hUQ6GDRZ96X2QP9N8-MNH7_pPt-H35DXGCnA_XiGj3VCdA.webp": {
+      "path": "/content/skills/vtAUrAWR7_F2QrYw9Y7CagqQ3kn58AT6UmHagHs0hUQ6GDRZ96X2QP9N8-MNH7_pPt-H35DXGCnA_XiGj3VCdA-0daeb43724.webp",
+      "originalFilename": "vtAUrAWR7_F2QrYw9Y7CagqQ3kn58AT6UmHagHs0hUQ6GDRZ96X2QP9N8-MNH7_pPt-H35DXGCnA_XiGj3VCdA.webp"
+    },
+    "Attack:기본 공격:_5wylIAKOy1epRrBsIgnA-OmDvWcVCS_I-EloJguuTTLULW2I5FqUGDcIqr0H0Ic78CUHvM7BXsQOKQ-Qv43UA-1.webp": {
+      "path": "/content/skills/_5wylIAKOy1epRrBsIgnA-OmDvWcVCS_I-EloJguuTTLULW2I5FqUGDcIqr0H0Ic78CUHvM7BXsQOKQ-Qv43UA-1-9ac4bf434b.webp",
+      "originalFilename": "_5wylIAKOy1epRrBsIgnA-OmDvWcVCS_I-EloJguuTTLULW2I5FqUGDcIqr0H0Ic78CUHvM7BXsQOKQ-Qv43UA-1.webp"
+    },
+    "Active:파괴의 손짓:dwTQfwL5tJ-elaVPiol3rl4ED9D8nq6cNmZlSBCbxe8UjlnLs6h_YY8tXCaP54Rn06N3x3P_pzsuH4O6Y2qrtsre56AcY5EZEun3J_tjH4A5j037ilWSLmCb4eRtYAFNLQEniusgOStiFUBUiBfEWg.webp": {
+      "path": "/content/skills/dwTQfwL5tJ-elaVPiol3rl4ED9D8nq6cNmZlSBCbxe8UjlnLs6h_YY8tXCaP54Rn06N3x3P_pzsuH4O6Y2qrtsre56AcY5EZEun3J_tjH4A5j037ilWSLmCb4eRtYAFNLQEniusgOStiFUBUiBfEWg-c426fe15c0.webp",
+      "originalFilename": "dwTQfwL5tJ-elaVPiol3rl4ED9D8nq6cNmZlSBCbxe8UjlnLs6h_YY8tXCaP54Rn06N3x3P_pzsuH4O6Y2qrtsre56AcY5EZEun3J_tjH4A5j037ilWSLmCb4eRtYAFNLQEniusgOStiFUBUiBfEWg.webp"
+    },
+    "Active:종말의 영면:BR8jX2wr56dZhcUzIH2VMpJl7v0WD6xtOtZqXaJ-Ra91oLo2p04UCCaBOkC7is6gPxDaNRt9e4MQMuxLfi3ErU98W4DTQzJHTmfYn7ryrJxdkVglI3-zlm80fC0W-8Qo0pd_Y1OdgS2md9aTHePHqw.webp": {
+      "path": "/content/skills/BR8jX2wr56dZhcUzIH2VMpJl7v0WD6xtOtZqXaJ-Ra91oLo2p04UCCaBOkC7is6gPxDaNRt9e4MQMuxLfi3ErU98W4DTQzJHTmfYn7ryrJxdkVglI3-zlm80fC0W-8Qo0pd_Y1OdgS2md9aTHePHqw-71de7da7f4.webp",
+      "originalFilename": "BR8jX2wr56dZhcUzIH2VMpJl7v0WD6xtOtZqXaJ-Ra91oLo2p04UCCaBOkC7is6gPxDaNRt9e4MQMuxLfi3ErU98W4DTQzJHTmfYn7ryrJxdkVglI3-zlm80fC0W-8Qo0pd_Y1OdgS2md9aTHePHqw.webp"
+    },
+    "Passive:혜안:XxEyQwrDJqQ22BCAGkAj6j652Hw0qf23x_O3atOCdF0Y3JYnwTqsf3fF06I3TTWxgtogz2aMQAcCTQtCWKYBjEtCSKv35X2P0gElIdz_fq0tWAP4OVvBJrOEk0xxHdUEpbQl0UMDOm10cyLj4Xho7Q.webp": {
+      "path": "/content/skills/XxEyQwrDJqQ22BCAGkAj6j652Hw0qf23x_O3atOCdF0Y3JYnwTqsf3fF06I3TTWxgtogz2aMQAcCTQtCWKYBjEtCSKv35X2P0gElIdz_fq0tWAP4OVvBJrOEk0xxHdUEpbQl0UMDOm10cyLj4Xho7Q-f52ed81957.webp",
+      "originalFilename": "XxEyQwrDJqQ22BCAGkAj6j652Hw0qf23x_O3atOCdF0Y3JYnwTqsf3fF06I3TTWxgtogz2aMQAcCTQtCWKYBjEtCSKv35X2P0gElIdz_fq0tWAP4OVvBJrOEk0xxHdUEpbQl0UMDOm10cyLj4Xho7Q.webp"
+    },
+    "Attack:기본 공격:6adV_7QGtfZJhBXzlzWzkqO3BE2cyeUnQcosNcyktVtpkEkupNv209Af4og599aPh6GaD8nmfKdWtI813AkD2A.webp": {
+      "path": "/content/skills/6adV_7QGtfZJhBXzlzWzkqO3BE2cyeUnQcosNcyktVtpkEkupNv209Af4og599aPh6GaD8nmfKdWtI813AkD2A-c18cb1ba55.webp",
+      "originalFilename": "6adV_7QGtfZJhBXzlzWzkqO3BE2cyeUnQcosNcyktVtpkEkupNv209Af4og599aPh6GaD8nmfKdWtI813AkD2A.webp"
+    },
+    "Active:과오의 화옥:Kk-RmUy5b6CmgYbtH4QaiN4JpbBuhHdpHdZ-t3lwhlZ2XvKUFmmTAMuyobigrrPZ6xclmIVx0tmJcSDTc1Bpfg.webp": {
+      "path": "/content/skills/Kk-RmUy5b6CmgYbtH4QaiN4JpbBuhHdpHdZ-t3lwhlZ2XvKUFmmTAMuyobigrrPZ6xclmIVx0tmJcSDTc1Bpfg-be9f7ecac5.webp",
+      "originalFilename": "Kk-RmUy5b6CmgYbtH4QaiN4JpbBuhHdpHdZ-t3lwhlZ2XvKUFmmTAMuyobigrrPZ6xclmIVx0tmJcSDTc1Bpfg.webp"
+    },
+    "Active:절망의 폭풍:'-FbKAM55WgxFO6_JkDIuLm4MoKpBhtxBV6eZVoKqaEkK82s8emDj3f_WJjbpXG6CIjvDgjI4lN_4AiKr1ClBIw.webp": {
+      "path": "/content/skills/-FbKAM55WgxFO6_JkDIuLm4MoKpBhtxBV6eZVoKqaEkK82s8emDj3f_WJjbpXG6CIjvDgjI4lN_4AiKr1ClBIw-6d04b83f98.webp",
+      "originalFilename": "'-FbKAM55WgxFO6_JkDIuLm4MoKpBhtxBV6eZVoKqaEkK82s8emDj3f_WJjbpXG6CIjvDgjI4lN_4AiKr1ClBIw.webp"
+    },
+    "Passive:타락한 신선:LjEi2bomXcSF1S05gVS-jpqDkNHngR4hzgEuRN0RI54VicSHac8yAv1bjzrPoRnBlqWmQHFSu5Zen08zfp2pug.webp": {
+      "path": "/content/skills/LjEi2bomXcSF1S05gVS-jpqDkNHngR4hzgEuRN0RI54VicSHac8yAv1bjzrPoRnBlqWmQHFSu5Zen08zfp2pug-208ac0fbfa.webp",
+      "originalFilename": "LjEi2bomXcSF1S05gVS-jpqDkNHngR4hzgEuRN0RI54VicSHac8yAv1bjzrPoRnBlqWmQHFSu5Zen08zfp2pug.webp"
+    },
+    "Attack:기본 공격:_5wylIAKOy1epRrBsIgnA-OmDvWcVCS_I-EloJguuTTLULW2I5FqUGDcIqr0H0Ic78CUHvM7BXsQOKQ-Qv43UA-2.webp": {
+      "path": "/content/skills/_5wylIAKOy1epRrBsIgnA-OmDvWcVCS_I-EloJguuTTLULW2I5FqUGDcIqr0H0Ic78CUHvM7BXsQOKQ-Qv43UA-2-370ce90125.webp",
+      "originalFilename": "_5wylIAKOy1epRrBsIgnA-OmDvWcVCS_I-EloJguuTTLULW2I5FqUGDcIqr0H0Ic78CUHvM7BXsQOKQ-Qv43UA-2.webp"
+    },
+    "Active:철쇄폭압:mHBhhm-X3Y2NVnVwihiikrjq2GUgCHpm-QDiC15-Cco7MgEUzYOX3agh1A80oK3KcGvQVCA0Mz4Y3XsqlgVRJg.webp": {
+      "path": "/content/skills/mHBhhm-X3Y2NVnVwihiikrjq2GUgCHpm-QDiC15-Cco7MgEUzYOX3agh1A80oK3KcGvQVCA0Mz4Y3XsqlgVRJg-c4b18a45cd.webp",
+      "originalFilename": "mHBhhm-X3Y2NVnVwihiikrjq2GUgCHpm-QDiC15-Cco7MgEUzYOX3agh1A80oK3KcGvQVCA0Mz4Y3XsqlgVRJg.webp"
+    },
+    "Active:사슬의 무덤:sQQynvdR52SZzs0ihEWA25tWfLEHnQ6KFESWgqhFB5biVMaqxKbiHgKtXFhC6IObIr4QYL9DlT7WIJ0VAXXpSQ.webp": {
+      "path": "/content/skills/sQQynvdR52SZzs0ihEWA25tWfLEHnQ6KFESWgqhFB5biVMaqxKbiHgKtXFhC6IObIr4QYL9DlT7WIJ0VAXXpSQ-c45a79416b.webp",
+      "originalFilename": "sQQynvdR52SZzs0ihEWA25tWfLEHnQ6KFESWgqhFB5biVMaqxKbiHgKtXFhC6IObIr4QYL9DlT7WIJ0VAXXpSQ.webp"
+    },
+    "Passive:소검쌍무:XTYz1Fd7gHyT6UfFhC4gXdC2sLzbQQp88So9UT2FJfrpwM7pcb1GhDdOLwHLpUj0OK3e54AsLcVqjCfVScQ0wg.webp": {
+      "path": "/content/skills/XTYz1Fd7gHyT6UfFhC4gXdC2sLzbQQp88So9UT2FJfrpwM7pcb1GhDdOLwHLpUj0OK3e54AsLcVqjCfVScQ0wg-e51ee9684e.webp",
+      "originalFilename": "XTYz1Fd7gHyT6UfFhC4gXdC2sLzbQQp88So9UT2FJfrpwM7pcb1GhDdOLwHLpUj0OK3e54AsLcVqjCfVScQ0wg.webp"
+    },
+    "Attack:기본 공격:bepA4AdccypVeiXFKSlnNfCQS5N7MeW09loBHm8Yv8l-0wrUk23kQMrfCO3il5DKMORViDpUW3ApbOhc1f75Fg.webp": {
+      "path": "/content/skills/bepA4AdccypVeiXFKSlnNfCQS5N7MeW09loBHm8Yv8l-0wrUk23kQMrfCO3il5DKMORViDpUW3ApbOhc1f75Fg-cf297ba264.webp",
+      "originalFilename": "bepA4AdccypVeiXFKSlnNfCQS5N7MeW09loBHm8Yv8l-0wrUk23kQMrfCO3il5DKMORViDpUW3ApbOhc1f75Fg.webp"
+    },
+    "Active:바람의 칼날:V1NMHfTmkiXwOCwWxDwX6pXeTfUI_QnTA3DqbW-12QU7XCDuDx4xW7HFJei2rzfDesMZXoMYNis0WHnx-0C3Bg.webp": {
+      "path": "/content/skills/V1NMHfTmkiXwOCwWxDwX6pXeTfUI_QnTA3DqbW-12QU7XCDuDx4xW7HFJei2rzfDesMZXoMYNis0WHnx-0C3Bg-dbe494253d.webp",
+      "originalFilename": "V1NMHfTmkiXwOCwWxDwX6pXeTfUI_QnTA3DqbW-12QU7XCDuDx4xW7HFJei2rzfDesMZXoMYNis0WHnx-0C3Bg.webp"
+    },
+    "Active:죽음의 무도:NqveavEUceA8WZPdnELIyoQVtX5wGy7VVI4345eAK_Oumbppj2wWoZ5xnvClTKLXz2nNJcXHVV_bu7UNza8zOA.webp": {
+      "path": "/content/skills/NqveavEUceA8WZPdnELIyoQVtX5wGy7VVI4345eAK_Oumbppj2wWoZ5xnvClTKLXz2nNJcXHVV_bu7UNza8zOA-d17f0897da.webp",
+      "originalFilename": "NqveavEUceA8WZPdnELIyoQVtX5wGy7VVI4345eAK_Oumbppj2wWoZ5xnvClTKLXz2nNJcXHVV_bu7UNza8zOA.webp"
+    },
+    "Passive:매의 발톱:36d-IydrIUKPHbhHsU3707bAgnyRd41QLtDR0X6XiooNBTpIdxEUv36F_mUU0pxoX3fb1PqHrouGK9BclcTG-w.webp": {
+      "path": "/content/skills/36d-IydrIUKPHbhHsU3707bAgnyRd41QLtDR0X6XiooNBTpIdxEUv36F_mUU0pxoX3fb1PqHrouGK9BclcTG-w-d9e9d52919.webp",
+      "originalFilename": "36d-IydrIUKPHbhHsU3707bAgnyRd41QLtDR0X6XiooNBTpIdxEUv36F_mUU0pxoX3fb1PqHrouGK9BclcTG-w.webp"
+    },
+    "Attack:기본 공격:6adV_7QGtfZJhBXzlzWzkqO3BE2cyeUnQcosNcyktVtpkEkupNv209Af4og599aPh6GaD8nmfKdWtI813AkD2A-1.webp": {
+      "path": "/content/skills/6adV_7QGtfZJhBXzlzWzkqO3BE2cyeUnQcosNcyktVtpkEkupNv209Af4og599aPh6GaD8nmfKdWtI813AkD2A-1-6af74bfb09.webp",
+      "originalFilename": "6adV_7QGtfZJhBXzlzWzkqO3BE2cyeUnQcosNcyktVtpkEkupNv209Af4og599aPh6GaD8nmfKdWtI813AkD2A-1.webp"
+    },
+    "Active:고결한 유성:hNS87HrGXFflpb7z-HmuEs8Yw7PkVRJzn6U7R_9ltbOTy4K1eZUupPxultC_-Bffeq9P7WSkxK0U0uvxCqsNtFx6AJC7PV9UwFJ0C9zEh8Qwb4_yb1VuwPFdngEc_F1SazX0yaqXg7mJ4DVxWlZAag.webp": {
+      "path": "/content/skills/hNS87HrGXFflpb7z-HmuEs8Yw7PkVRJzn6U7R_9ltbOTy4K1eZUupPxultC_-Bffeq9P7WSkxK0U0uvxCqsNtFx6AJC7PV9UwFJ0C9zEh8Qwb4_yb1VuwPFdngEc_F1SazX0yaqXg7mJ4DVxWlZAag-06b9a6a9e6.webp",
+      "originalFilename": "hNS87HrGXFflpb7z-HmuEs8Yw7PkVRJzn6U7R_9ltbOTy4K1eZUupPxultC_-Bffeq9P7WSkxK0U0uvxCqsNtFx6AJC7PV9UwFJ0C9zEh8Qwb4_yb1VuwPFdngEc_F1SazX0yaqXg7mJ4DVxWlZAag.webp"
+    },
+    "Active:빛의 일갈:NYV1PDTi0tEJYqeWouDVUzrqff7szHwlI1sKL8kjx5M-wsASwgsqPQuwN1biawnIabVye1bYCPk5sLQKtMyu_fdBRthYqyrWrgQ1lwrWn8yypCgWQEbwl2KgsBtGJpeSE-cmmC96WcMZA4mbY_7qRg.webp": {
+      "path": "/content/skills/NYV1PDTi0tEJYqeWouDVUzrqff7szHwlI1sKL8kjx5M-wsASwgsqPQuwN1biawnIabVye1bYCPk5sLQKtMyu_fdBRthYqyrWrgQ1lwrWn8yypCgWQEbwl2KgsBtGJpeSE-cmmC96WcMZA4mbY_7qRg-da8cadd94b.webp",
+      "originalFilename": "NYV1PDTi0tEJYqeWouDVUzrqff7szHwlI1sKL8kjx5M-wsASwgsqPQuwN1biawnIabVye1bYCPk5sLQKtMyu_fdBRthYqyrWrgQ1lwrWn8yypCgWQEbwl2KgsBtGJpeSE-cmmC96WcMZA4mbY_7qRg.webp"
+    },
+    "Passive:통찰의 빛:FiHbPBG4_qojF7ptBsPlowG2_ZVVyyi_FdaEgvA-gLwfCjyQSH--F8rdPArmfrPoizS2nZeEUCpSWDTgTBryJQ.webp": {
+      "path": "/content/skills/FiHbPBG4_qojF7ptBsPlowG2_ZVVyyi_FdaEgvA-gLwfCjyQSH-F8rdPArmfrPoizS2nZeEUCpSWDTgTBryJQ-9a075c3a25.webp",
+      "originalFilename": "FiHbPBG4_qojF7ptBsPlowG2_ZVVyyi_FdaEgvA-gLwfCjyQSH--F8rdPArmfrPoizS2nZeEUCpSWDTgTBryJQ.webp"
+    },
+    "Attack:기본 공격:xtvvcK_4lw2pntJYMuvykZRhgQwIQguWc5fEqGURKoRLlwCzogjtavGNjsj1NX0wD060SQXOcWiMwaoRoFrBkg.webp": {
+      "path": "/content/skills/xtvvcK_4lw2pntJYMuvykZRhgQwIQguWc5fEqGURKoRLlwCzogjtavGNjsj1NX0wD060SQXOcWiMwaoRoFrBkg-6be626230a.webp",
+      "originalFilename": "xtvvcK_4lw2pntJYMuvykZRhgQwIQguWc5fEqGURKoRLlwCzogjtavGNjsj1NX0wD060SQXOcWiMwaoRoFrBkg.webp"
+    },
+    "Active:잔혹한 폭풍:YwNXfDbqHSHzbHMepvgqwvobbXcVhvKJuklbMHtqgdndq_gQnuQ-mSyVxN95GOsBecypqw80fH1B8tGH04DJuQ.webp": {
+      "path": "/content/skills/YwNXfDbqHSHzbHMepvgqwvobbXcVhvKJuklbMHtqgdndq_gQnuQ-mSyVxN95GOsBecypqw80fH1B8tGH04DJuQ-62899f4649.webp",
+      "originalFilename": "YwNXfDbqHSHzbHMepvgqwvobbXcVhvKJuklbMHtqgdndq_gQnuQ-mSyVxN95GOsBecypqw80fH1B8tGH04DJuQ.webp"
+    },
+    "Active:칠흑의 장막:yxE4fnx7if-w6i4Rodtlwm90E0CRZ8YpzCWsOkAb82yCuGgcIDYZjOGb2A4_MeWavmm2xHh_v_6UDM0YLCv5NQ.webp": {
+      "path": "/content/skills/yxE4fnx7if-w6i4Rodtlwm90E0CRZ8YpzCWsOkAb82yCuGgcIDYZjOGb2A4_MeWavmm2xHh_v_6UDM0YLCv5NQ-c99608c050.webp",
+      "originalFilename": "yxE4fnx7if-w6i4Rodtlwm90E0CRZ8YpzCWsOkAb82yCuGgcIDYZjOGb2A4_MeWavmm2xHh_v_6UDM0YLCv5NQ.webp"
+    },
+    "Passive:어둠의 인도자:20pViACQf3XMF66XAOl9hZ1o7a_COZLXXRS_A1zoT4qOawhW-hZwYAHc2oAjZaOVOh5Z5X0Mx9PW8IOqI0DIAA.webp": {
+      "path": "/content/skills/20pViACQf3XMF66XAOl9hZ1o7a_COZLXXRS_A1zoT4qOawhW-hZwYAHc2oAjZaOVOh5Z5X0Mx9PW8IOqI0DIAA-197aa064c8.webp",
+      "originalFilename": "20pViACQf3XMF66XAOl9hZ1o7a_COZLXXRS_A1zoT4qOawhW-hZwYAHc2oAjZaOVOh5Z5X0Mx9PW8IOqI0DIAA.webp"
+    },
+    "Attack:기본 공격:wT5rGTRx4mWhZDkMUOiHPPrHMCb_KkcjGPB75dxnez6pq6mLvEDA9NJPm_XQN104XdjnOWsaP_g_lXzBBFB9Ew.webp": {
+      "path": "/content/skills/wT5rGTRx4mWhZDkMUOiHPPrHMCb_KkcjGPB75dxnez6pq6mLvEDA9NJPm_XQN104XdjnOWsaP_g_lXzBBFB9Ew-7cde7ff2bd.webp",
+      "originalFilename": "wT5rGTRx4mWhZDkMUOiHPPrHMCb_KkcjGPB75dxnez6pq6mLvEDA9NJPm_XQN104XdjnOWsaP_g_lXzBBFB9Ew.webp"
+    },
+    "Active:레굴루스:cThujbTozdrtbJQIGJRi-_WJ0QPGLKf1QOyLEMWwvBdttKlrkIwl3EDct7Cu5yrh8P2rOmNxTGl5NY68NAQ3IA.webp": {
+      "path": "/content/skills/cThujbTozdrtbJQIGJRi-_WJ0QPGLKf1QOyLEMWwvBdttKlrkIwl3EDct7Cu5yrh8P2rOmNxTGl5NY68NAQ3IA-543a56e42e.webp",
+      "originalFilename": "cThujbTozdrtbJQIGJRi-_WJ0QPGLKf1QOyLEMWwvBdttKlrkIwl3EDct7Cu5yrh8P2rOmNxTGl5NY68NAQ3IA.webp"
+    },
+    "Active:유성우:xo6hTq2ej__gYyWALIr5BqcDxRVheE63GnwiA2UIm_0xWt3UCVSrMml173U-J_xXyfHCMDyjGVZnaqyMMYAZVA.webp": {
+      "path": "/content/skills/xo6hTq2ej__gYyWALIr5BqcDxRVheE63GnwiA2UIm_0xWt3UCVSrMml173U-J_xXyfHCMDyjGVZnaqyMMYAZVA-30027d7304.webp",
+      "originalFilename": "xo6hTq2ej__gYyWALIr5BqcDxRVheE63GnwiA2UIm_0xWt3UCVSrMml173U-J_xXyfHCMDyjGVZnaqyMMYAZVA.webp"
+    },
+    "Passive:별의 축제:m4zFyGXg-5cNq6mWEvQF2aFKzlqiMVuVbDCPJJ-nuhmK2-fp787ePMTMXp4Md0_pSBdDAmAoO3254K9e-vB65w.webp": {
+      "path": "/content/skills/m4zFyGXg-5cNq6mWEvQF2aFKzlqiMVuVbDCPJJ-nuhmK2-fp787ePMTMXp4Md0_pSBdDAmAoO3254K9e-vB65w-904e1c443a.webp",
+      "originalFilename": "m4zFyGXg-5cNq6mWEvQF2aFKzlqiMVuVbDCPJJ-nuhmK2-fp787ePMTMXp4Md0_pSBdDAmAoO3254K9e-vB65w.webp"
+    },
+    "Attack:기본 공격:uJHJeaMcm6Q8Csd7lsFoN6Lq1dC8MULlCUj1nxvE9a7GZAQ1d1YqjuZUgvy6oMiAgJqXMeC_m4vaWFO5wKlY9g-7.webp": {
+      "path": "/content/skills/uJHJeaMcm6Q8Csd7lsFoN6Lq1dC8MULlCUj1nxvE9a7GZAQ1d1YqjuZUgvy6oMiAgJqXMeC_m4vaWFO5wKlY9g-7-caba120838.webp",
+      "originalFilename": "uJHJeaMcm6Q8Csd7lsFoN6Lq1dC8MULlCUj1nxvE9a7GZAQ1d1YqjuZUgvy6oMiAgJqXMeC_m4vaWFO5wKlY9g-7.webp"
+    },
+    "Active:천공의 빛:ViJ9b3i7nZ7KM80g9-6Q3ZuAaarhkIxZIOnA_p0LJYYahLSPdXnM2ebCcwAEuGNL4PQRaAPXAy26Q70r0_qpzA.webp": {
+      "path": "/content/skills/ViJ9b3i7nZ7KM80g9-6Q3ZuAaarhkIxZIOnA_p0LJYYahLSPdXnM2ebCcwAEuGNL4PQRaAPXAy26Q70r0_qpzA-4e28932aff.webp",
+      "originalFilename": "ViJ9b3i7nZ7KM80g9-6Q3ZuAaarhkIxZIOnA_p0LJYYahLSPdXnM2ebCcwAEuGNL4PQRaAPXAy26Q70r0_qpzA.webp"
+    },
+    "Active:별빛 낙하:0tLDihVHh7zAaAarK3Ge_GkLeQhe3C_oSlmYViUfRgSnUyfuxBFVUwimaA-oX4FitT8kdDD-aYt-uUnRgfWxLg.webp": {
+      "path": "/content/skills/0tLDihVHh7zAaAarK3Ge_GkLeQhe3C_oSlmYViUfRgSnUyfuxBFVUwimaA-oX4FitT8kdDD-aYt-uUnRgfWxLg-a0300d871f.webp",
+      "originalFilename": "0tLDihVHh7zAaAarK3Ge_GkLeQhe3C_oSlmYViUfRgSnUyfuxBFVUwimaA-oX4FitT8kdDD-aYt-uUnRgfWxLg.webp"
+    },
+    "Passive:혁명단의 인도자:eJJ4xeUHMI95IZ81dTa59nt7LjvBbVWdVwt5D28Bc_Ct6ECPzJqWOKIjha-cf_LZmV82kbLOiYUwjQ_ftC1UVw.webp": {
+      "path": "/content/skills/eJJ4xeUHMI95IZ81dTa59nt7LjvBbVWdVwt5D28Bc_Ct6ECPzJqWOKIjha-cf_LZmV82kbLOiYUwjQ_ftC1UVw-15b0d2cee5.webp",
+      "originalFilename": "eJJ4xeUHMI95IZ81dTa59nt7LjvBbVWdVwt5D28Bc_Ct6ECPzJqWOKIjha-cf_LZmV82kbLOiYUwjQ_ftC1UVw.webp"
+    },
+    "Attack:기본 공격:ZTgMOS0leHtJdrW3V-XgCkqIYwZv7r0ctijjjAU5wI8s9By9AxbRWJTQBoVK9qjPAE5xb8Z2JInHWsFiNqNjlw-1.webp": {
+      "path": "/content/skills/ZTgMOS0leHtJdrW3V-XgCkqIYwZv7r0ctijjjAU5wI8s9By9AxbRWJTQBoVK9qjPAE5xb8Z2JInHWsFiNqNjlw-1-0f7fb6f0fe.webp",
+      "originalFilename": "ZTgMOS0leHtJdrW3V-XgCkqIYwZv7r0ctijjjAU5wI8s9By9AxbRWJTQBoVK9qjPAE5xb8Z2JInHWsFiNqNjlw-1.webp"
+    },
+    "Active:비호선풍:N056bcV8RjRi4qgJO25VCfbU47QRT7N3V7glREvF_zs9DTL_MU5C-XYzKe98EGBWEFek2zS6bx4SV3AOc1SzJQ.webp": {
+      "path": "/content/skills/N056bcV8RjRi4qgJO25VCfbU47QRT7N3V7glREvF_zs9DTL_MU5C-XYzKe98EGBWEFek2zS6bx4SV3AOc1SzJQ-4736eb6475.webp",
+      "originalFilename": "N056bcV8RjRi4qgJO25VCfbU47QRT7N3V7glREvF_zs9DTL_MU5C-XYzKe98EGBWEFek2zS6bx4SV3AOc1SzJQ.webp"
+    },
+    "Active:질풍 몰아치기:KjP7a1k836rWGdDphuwFpO2PEqNVWp_ZiFvb6158fJDGpxGmD4CxZUMjltc_4wBo1WfHT2rISzjXn4e_N2Dz3A.webp": {
+      "path": "/content/skills/KjP7a1k836rWGdDphuwFpO2PEqNVWp_ZiFvb6158fJDGpxGmD4CxZUMjltc_4wBo1WfHT2rISzjXn4e_N2Dz3A-31002fc811.webp",
+      "originalFilename": "KjP7a1k836rWGdDphuwFpO2PEqNVWp_ZiFvb6158fJDGpxGmD4CxZUMjltc_4wBo1WfHT2rISzjXn4e_N2Dz3A.webp"
+    },
+    "Passive:호랑이의 용맹:RzxF5C9pF0MK3wtkRXivl1B7BeQp1lYMZw-xCgSacmmO9ia-92295jL0euWoqdY-ovTucF5f5sYgA0PSM582_w.webp": {
+      "path": "/content/skills/RzxF5C9pF0MK3wtkRXivl1B7BeQp1lYMZw-xCgSacmmO9ia-92295jL0euWoqdY-ovTucF5f5sYgA0PSM582_w-14d26e2d72.webp",
+      "originalFilename": "RzxF5C9pF0MK3wtkRXivl1B7BeQp1lYMZw-xCgSacmmO9ia-92295jL0euWoqdY-ovTucF5f5sYgA0PSM582_w.webp"
+    },
+    "Attack:기본 공격:lbdCz2lJC477AGAxRCKin9JN2UjhDqRKKI_bjNAxBq8cFb9FjPWC_pom477Ei-NLBwU_dbp1hqyTsWX0m4YxcQ-2.webp": {
+      "path": "/content/skills/lbdCz2lJC477AGAxRCKin9JN2UjhDqRKKI_bjNAxBq8cFb9FjPWC_pom477Ei-NLBwU_dbp1hqyTsWX0m4YxcQ-2-952af6f9ba.webp",
+      "originalFilename": "lbdCz2lJC477AGAxRCKin9JN2UjhDqRKKI_bjNAxBq8cFb9FjPWC_pom477Ei-NLBwU_dbp1hqyTsWX0m4YxcQ-2.webp"
+    },
+    "Active:해방-팔사검:QZ0LJd0-Nytw_eVbIO5kx6jP-gCvkhuOkOAcafjC21_IueGWCNDUNdYZzoozaksIXDhFiSqo0HmVk4zPcP1OZQ.webp": {
+      "path": "/content/skills/QZ0LJd0-Nytw_eVbIO5kx6jP-gCvkhuOkOAcafjC21_IueGWCNDUNdYZzoozaksIXDhFiSqo0HmVk4zPcP1OZQ-e6a575284d.webp",
+      "originalFilename": "QZ0LJd0-Nytw_eVbIO5kx6jP-gCvkhuOkOAcafjC21_IueGWCNDUNdYZzoozaksIXDhFiSqo0HmVk4zPcP1OZQ.webp"
+    },
+    "Active:해방-뱀 사냥:rBgJpiHkpUKG7L0QH4zCyPf9Bk94m4W3V269kmIJFzA8OyMOTD_ONvvpPyhMVHbRDx3moBZP7n-dkkB-_vLX0A.webp": {
+      "path": "/content/skills/rBgJpiHkpUKG7L0QH4zCyPf9Bk94m4W3V269kmIJFzA8OyMOTD_ONvvpPyhMVHbRDx3moBZP7n-dkkB-_vLX0A-be4b5865b7.webp",
+      "originalFilename": "rBgJpiHkpUKG7L0QH4zCyPf9Bk94m4W3V269kmIJFzA8OyMOTD_ONvvpPyhMVHbRDx3moBZP7n-dkkB-_vLX0A.webp"
+    },
+    "Passive:팔사의 저주:hSwAaEUr-DZRqHLjvuiC2PDqdzJf3F7_-RrpkEnoCCDyxu_7mDWEpWPzt81KltomBKaVt2L2vfrjQqc7JpUG7w.webp": {
+      "path": "/content/skills/hSwAaEUr-DZRqHLjvuiC2PDqdzJf3F7_-RrpkEnoCCDyxu_7mDWEpWPzt81KltomBKaVt2L2vfrjQqc7JpUG7w-e55dd18d21.webp",
+      "originalFilename": "hSwAaEUr-DZRqHLjvuiC2PDqdzJf3F7_-RrpkEnoCCDyxu_7mDWEpWPzt81KltomBKaVt2L2vfrjQqc7JpUG7w.webp"
+    },
+    "Attack:기본 공격:bepA4AdccypVeiXFKSlnNfCQS5N7MeW09loBHm8Yv8l-0wrUk23kQMrfCO3il5DKMORViDpUW3ApbOhc1f75Fg-1.webp": {
+      "path": "/content/skills/bepA4AdccypVeiXFKSlnNfCQS5N7MeW09loBHm8Yv8l-0wrUk23kQMrfCO3il5DKMORViDpUW3ApbOhc1f75Fg-1-d917b6501f.webp",
+      "originalFilename": "bepA4AdccypVeiXFKSlnNfCQS5N7MeW09loBHm8Yv8l-0wrUk23kQMrfCO3il5DKMORViDpUW3ApbOhc1f75Fg-1.webp"
+    },
+    "Active:살육의 춤:fgTlJc1JEYav3Ta0ePfXpiChgrS8OwGh97GqAyx7xYvC5Ee39QExufHQsnmFHQR6w-VYzklYChn1FzlrRPmjiA.webp": {
+      "path": "/content/skills/fgTlJc1JEYav3Ta0ePfXpiChgrS8OwGh97GqAyx7xYvC5Ee39QExufHQsnmFHQR6w-VYzklYChn1FzlrRPmjiA-f0fb1a3d23.webp",
+      "originalFilename": "fgTlJc1JEYav3Ta0ePfXpiChgrS8OwGh97GqAyx7xYvC5Ee39QExufHQsnmFHQR6w-VYzklYChn1FzlrRPmjiA.webp"
+    },
+    "Active:교만의 일격:ZR1sPJcCrN18wIUvsLUJDAhrGC-1UK-zCe8R-9vqKr6YkVARUzbDg-zTly-0INxjXqePBUZ6LMpd0CnHp0zSxA.webp": {
+      "path": "/content/skills/ZR1sPJcCrN18wIUvsLUJDAhrGC-1UK-zCe8R-9vqKr6YkVARUzbDg-zTly-0INxjXqePBUZ6LMpd0CnHp0zSxA-19f758ef53.webp",
+      "originalFilename": "ZR1sPJcCrN18wIUvsLUJDAhrGC-1UK-zCe8R-9vqKr6YkVARUzbDg-zTly-0INxjXqePBUZ6LMpd0CnHp0zSxA.webp"
+    },
+    "Passive:호시탐탐:hh5SIIQIIqDPkwber-JA0-PFaOlSCn5P32XyVKthoMgK6uxb_ihtlqltZLbmx7l2tjdoAPrbl7zZM2ooVELblw.webp": {
+      "path": "/content/skills/hh5SIIQIIqDPkwber-JA0-PFaOlSCn5P32XyVKthoMgK6uxb_ihtlqltZLbmx7l2tjdoAPrbl7zZM2ooVELblw-b5fc18c799.webp",
+      "originalFilename": "hh5SIIQIIqDPkwber-JA0-PFaOlSCn5P32XyVKthoMgK6uxb_ihtlqltZLbmx7l2tjdoAPrbl7zZM2ooVELblw.webp"
+    },
+    "Attack:기본 공격:uJHJeaMcm6Q8Csd7lsFoN6Lq1dC8MULlCUj1nxvE9a7GZAQ1d1YqjuZUgvy6oMiAgJqXMeC_m4vaWFO5wKlY9g-8.webp": {
+      "path": "/content/skills/uJHJeaMcm6Q8Csd7lsFoN6Lq1dC8MULlCUj1nxvE9a7GZAQ1d1YqjuZUgvy6oMiAgJqXMeC_m4vaWFO5wKlY9g-8-b21eaaf3d1.webp",
+      "originalFilename": "uJHJeaMcm6Q8Csd7lsFoN6Lq1dC8MULlCUj1nxvE9a7GZAQ1d1YqjuZUgvy6oMiAgJqXMeC_m4vaWFO5wKlY9g-8.webp"
+    },
+    "Active:통행금지:_YRUE2EsXOUuHyW097ju6xHSci1gthkmwC8GpmcDyFCDfDuW66Yz8JywhrYCmFw4Fs4xQsanUbRuX7dzJgml9g.webp": {
+      "path": "/content/skills/_YRUE2EsXOUuHyW097ju6xHSci1gthkmwC8GpmcDyFCDfDuW66Yz8JywhrYCmFw4Fs4xQsanUbRuX7dzJgml9g-fb204ead19.webp",
+      "originalFilename": "_YRUE2EsXOUuHyW097ju6xHSci1gthkmwC8GpmcDyFCDfDuW66Yz8JywhrYCmFw4Fs4xQsanUbRuX7dzJgml9g.webp"
+    },
+    "Active:위기대응:kJtzw8Ibq4tWpej1r2DZhAyGRi3QV-xgAlZ_P0xaOAX_3ez74Vm_Gkx7bkpqhRldHu2mv9-WaKV6lVtAp-l6hA.webp": {
+      "path": "/content/skills/kJtzw8Ibq4tWpej1r2DZhAyGRi3QV-xgAlZ_P0xaOAX_3ez74Vm_Gkx7bkpqhRldHu2mv9-WaKV6lVtAp-l6hA-40f24e863b.webp",
+      "originalFilename": "kJtzw8Ibq4tWpej1r2DZhAyGRi3QV-xgAlZ_P0xaOAX_3ez74Vm_Gkx7bkpqhRldHu2mv9-WaKV6lVtAp-l6hA.webp"
+    },
+    "Passive:첨단 나노 수트:fPobsJLlohbgXNoGEjexkfmDXZBvBoniKh-P7etsMhBQUUpp8lx-7-bPcaKcLK27fFlTXpyW351gDWS39zPo1w.webp": {
+      "path": "/content/skills/fPobsJLlohbgXNoGEjexkfmDXZBvBoniKh-P7etsMhBQUUpp8lx-7-bPcaKcLK27fFlTXpyW351gDWS39zPo1w-640e60355a.webp",
+      "originalFilename": "fPobsJLlohbgXNoGEjexkfmDXZBvBoniKh-P7etsMhBQUUpp8lx-7-bPcaKcLK27fFlTXpyW351gDWS39zPo1w.webp"
+    },
+    "Attack:기본 공격:ELcbQ-f2wLeOAlIHyYffAT0wc2lu5E6cyrky7ZD96DjIP33evtduunk7Hy_wkz7f8QAydnnv-X0AGsJBMJoS4Q-1.webp": {
+      "path": "/content/skills/ELcbQ-f2wLeOAlIHyYffAT0wc2lu5E6cyrky7ZD96DjIP33evtduunk7Hy_wkz7f8QAydnnv-X0AGsJBMJoS4Q-1-7972e4fa9d.webp",
+      "originalFilename": "ELcbQ-f2wLeOAlIHyYffAT0wc2lu5E6cyrky7ZD96DjIP33evtduunk7Hy_wkz7f8QAydnnv-X0AGsJBMJoS4Q-1.webp"
+    },
+    "Active:정의의 단죄:UuEqYEK5MZfJ9ZBxSrjoPp2W5kbdfYeRh3HoGEm53CfUt1yU2xGBsK64NyczpJgymCOkIYGD8ssLjg750vpIUQ.webp": {
+      "path": "/content/skills/UuEqYEK5MZfJ9ZBxSrjoPp2W5kbdfYeRh3HoGEm53CfUt1yU2xGBsK64NyczpJgymCOkIYGD8ssLjg750vpIUQ-47974914c4.webp",
+      "originalFilename": "UuEqYEK5MZfJ9ZBxSrjoPp2W5kbdfYeRh3HoGEm53CfUt1yU2xGBsK64NyczpJgymCOkIYGD8ssLjg750vpIUQ.webp"
+    },
+    "Active:정화의 일격:R3-z50g_CK3ZzSbuMXuXkRrO3EczDsBlgSyJ2vIVjJbh4mAdtQs6_nhtikvcsY6V18DIQGsyF7D8eLrr_iNeiQ.webp": {
+      "path": "/content/skills/R3-z50g_CK3ZzSbuMXuXkRrO3EczDsBlgSyJ2vIVjJbh4mAdtQs6_nhtikvcsY6V18DIQGsyF7D8eLrr_iNeiQ-7933a2e0ff.webp",
+      "originalFilename": "R3-z50g_CK3ZzSbuMXuXkRrO3EczDsBlgSyJ2vIVjJbh4mAdtQs6_nhtikvcsY6V18DIQGsyF7D8eLrr_iNeiQ.webp"
+    },
+    "Passive:기사의 의지:H4f3o85PbJ3tRIG7pmVlxIAmCLH71zSCxMVn-cqhaAuy1QudQBO8RCI7gTagX8lvkeOjrlIPHBKWCT_kpgHp_Q.webp": {
+      "path": "/content/skills/H4f3o85PbJ3tRIG7pmVlxIAmCLH71zSCxMVn-cqhaAuy1QudQBO8RCI7gTagX8lvkeOjrlIPHBKWCT_kpgHp_Q-ed04ac2b06.webp",
+      "originalFilename": "H4f3o85PbJ3tRIG7pmVlxIAmCLH71zSCxMVn-cqhaAuy1QudQBO8RCI7gTagX8lvkeOjrlIPHBKWCT_kpgHp_Q.webp"
+    },
+    "Attack:기본 공격:Tex_Skill_1007501.png": {
+      "path": "/content/skills/Tex_Skill_1007501-a151ebb303.png",
+      "originalFilename": "Tex_Skill_1007501.png"
+    },
+    "Active:연속 공격:Tex_Skill_1007502.png": {
+      "path": "/content/skills/Tex_Skill_1007502-24a320aad5.png",
+      "originalFilename": "Tex_Skill_1007502.png"
+    },
+    "Active:균형의 방패:Tex_Skill_1007503.png": {
+      "path": "/content/skills/Tex_Skill_1007503-f0419f6135.png",
+      "originalFilename": "Tex_Skill_1007503.png"
+    },
+    "Passive:의지:Tex_Skill_1007504.png": {
+      "path": "/content/skills/Tex_Skill_1007504-bddbb51623.png",
+      "originalFilename": "Tex_Skill_1007504.png"
+    },
+    "Attack:기본 공격:Tex_Skill_1007601.png": {
+      "path": "/content/skills/Tex_Skill_1007601-3270318bca.png",
+      "originalFilename": "Tex_Skill_1007601.png"
+    },
+    "Active:회복:Tex_Skill_1007602.png": {
+      "path": "/content/skills/Tex_Skill_1007602-ef510b33ff.png",
+      "originalFilename": "Tex_Skill_1007602.png"
+    },
+    "Active:소생:Tex_Skill_1007603.png": {
+      "path": "/content/skills/Tex_Skill_1007603-feffdef8b1.png",
+      "originalFilename": "Tex_Skill_1007603.png"
+    },
+    "Passive:축복의 소생:Tex_Skill_1007604.png": {
+      "path": "/content/skills/Tex_Skill_1007604-a81c741491.png",
+      "originalFilename": "Tex_Skill_1007604.png"
+    },
+    "Attack:기본 공격:Tex_Skill_1001801.png": {
+      "path": "/content/skills/Tex_Skill_1001801-763d7fefe4.png",
+      "originalFilename": "Tex_Skill_1001801.png"
+    },
+    "Active:Tex_Skill_1001802.png:Tex_Skill_1001802.png": {
+      "path": "/content/skills/Tex_Skill_1001802-ee8fe9aef1.png",
+      "originalFilename": "Tex_Skill_1001802.png"
+    },
+    "Active:Tex_Skill_1001803.png:Tex_Skill_1001803.png": {
+      "path": "/content/skills/Tex_Skill_1001803-478a492ed6.png",
+      "originalFilename": "Tex_Skill_1001803.png"
+    },
+    "Passive:여우의 매력:Tex_Skill_1001804.png": {
+      "path": "/content/skills/Tex_Skill_1001804-0f36e4a1b7.png",
+      "originalFilename": "Tex_Skill_1001804.png"
+    },
+    "Attack:기본 공격:Tex_Skill_1006401.png": {
+      "path": "/content/skills/Tex_Skill_1006401-7432b07dc8.png",
+      "originalFilename": "Tex_Skill_1006401.png"
+    },
+    "Active:Tex_Skill_1006402.png:Tex_Skill_1006402.png": {
+      "path": "/content/skills/Tex_Skill_1006402-92f08af73c.png",
+      "originalFilename": "Tex_Skill_1006402.png"
+    },
+    "Active:Tex_Skill_1006403.png:Tex_Skill_1006403.png": {
+      "path": "/content/skills/Tex_Skill_1006403-5f72f54be2.png",
+      "originalFilename": "Tex_Skill_1006403.png"
+    },
+    "Passive:응보의 진언:Tex_Skill_1006404.png": {
+      "path": "/content/skills/Tex_Skill_1006404-5af7fb709f.png",
+      "originalFilename": "Tex_Skill_1006404.png"
+    },
+    "Attack:기본 공격:Tex_Skill_1008301.png": {
+      "path": "/content/skills/Tex_Skill_1008301-eaf2da433b.png",
+      "originalFilename": "Tex_Skill_1008301.png"
+    },
+    "Active:Tex_Skill_1008302.png:Tex_Skill_1008302.png": {
+      "path": "/content/skills/Tex_Skill_1008302-7bbe561f02.png",
+      "originalFilename": "Tex_Skill_1008302.png"
+    },
+    "Active:Tex_Skill_1008303.png:Tex_Skill_1008303.png": {
+      "path": "/content/skills/Tex_Skill_1008303-b8ffe32d1c.png",
+      "originalFilename": "Tex_Skill_1008303.png"
+    },
+    "Passive:전장의 마에스트로:Tex_Skill_1008304.png": {
+      "path": "/content/skills/Tex_Skill_1008304-92bdff8ae0.png",
+      "originalFilename": "Tex_Skill_1008304.png"
+    },
+    "Attack:기본 공격:Tex_Skill_1006501.png": {
+      "path": "/content/skills/Tex_Skill_1006501-70ceee300c.png",
+      "originalFilename": "Tex_Skill_1006501.png"
+    },
+    "Active:Tex_Skill_1006502.png:Tex_Skill_1006502.png": {
+      "path": "/content/skills/Tex_Skill_1006502-6ce030447f.png",
+      "originalFilename": "Tex_Skill_1006502.png"
+    },
+    "Active:Tex_Skill_1006503.png:Tex_Skill_1006503.png": {
+      "path": "/content/skills/Tex_Skill_1006503-9130bb9b92.png",
+      "originalFilename": "Tex_Skill_1006503.png"
+    },
+    "Passive:신의 은총:Tex_Skill_1006504.png": {
+      "path": "/content/skills/Tex_Skill_1006504-e4c121c385.png",
+      "originalFilename": "Tex_Skill_1006504.png"
+    },
+    "Attack:기본 공격:Tex_Skill_1007401.png": {
+      "path": "/content/skills/Tex_Skill_1007401-2ca79db7ce.png",
+      "originalFilename": "Tex_Skill_1007401.png"
+    },
+    "Active:Tex_Skill_1007403.png:Tex_Skill_1007403.png": {
+      "path": "/content/skills/Tex_Skill_1007403-247c3172a6.png",
+      "originalFilename": "Tex_Skill_1007403.png"
+    },
+    "Active:Tex_Skill_1007402.png:Tex_Skill_1007402.png": {
+      "path": "/content/skills/Tex_Skill_1007402-abfc8ce1ce.png",
+      "originalFilename": "Tex_Skill_1007402.png"
+    },
+    "Active:Tex_Skill_1007405.png:Tex_Skill_1007405.png": {
+      "path": "/content/skills/Tex_Skill_1007405-5c9efc63fb.png",
+      "originalFilename": "Tex_Skill_1007405.png"
+    },
+    "Passive:매의 눈:Tex_Skill_1007404.png": {
+      "path": "/content/skills/Tex_Skill_1007404-e67374e82a.png",
+      "originalFilename": "Tex_Skill_1007404.png"
+    },
+    "Attack:기본 공격:Tex_Skill_1007301.png": {
+      "path": "/content/skills/Tex_Skill_1007301-8793e92d70.png",
+      "originalFilename": "Tex_Skill_1007301.png"
+    },
+    "Active:Tex_Skill_1007302.png:Tex_Skill_1007302.png": {
+      "path": "/content/skills/Tex_Skill_1007302-f2582cb956.png",
+      "originalFilename": "Tex_Skill_1007302.png"
+    },
+    "Active:Tex_Skill_1007303.png:Tex_Skill_1007303.png": {
+      "path": "/content/skills/Tex_Skill_1007303-d440fb5d34.png",
+      "originalFilename": "Tex_Skill_1007303.png"
+    },
+    "Passive:사냥술:Tex_Skill_1007304.png": {
+      "path": "/content/skills/Tex_Skill_1007304-c922695c8c.png",
+      "originalFilename": "Tex_Skill_1007304.png"
+    },
+    "Attack:기본 공격:Tex_Skill_1006601.png": {
+      "path": "/content/skills/Tex_Skill_1006601-5065f0e20a.png",
+      "originalFilename": "Tex_Skill_1006601.png"
+    },
+    "Active:Tex_Skill_1006602.png:Tex_Skill_1006602.png": {
+      "path": "/content/skills/Tex_Skill_1006602-f735e0d02d.png",
+      "originalFilename": "Tex_Skill_1006602.png"
+    },
+    "Active:Tex_Skill_1006603.png:Tex_Skill_1006603.png": {
+      "path": "/content/skills/Tex_Skill_1006603-215f0b47e4.png",
+      "originalFilename": "Tex_Skill_1006603.png"
+    },
+    "Passive:발키리의 저력:Tex_Skill_1006604.png": {
+      "path": "/content/skills/Tex_Skill_1006604-6f388de9bb.png",
+      "originalFilename": "Tex_Skill_1006604.png"
+    },
+    "Attack:기본 공격:Tex_Skill_1006701.png": {
+      "path": "/content/skills/Tex_Skill_1006701-ccf3fe17c1.png",
+      "originalFilename": "Tex_Skill_1006701.png"
+    },
+    "Active:Tex_Skill_1006702.png:Tex_Skill_1006702.png": {
+      "path": "/content/skills/Tex_Skill_1006702-110aa54f13.png",
+      "originalFilename": "Tex_Skill_1006702.png"
+    },
+    "Active:Tex_Skill_1006703.png:Tex_Skill_1006703.png": {
+      "path": "/content/skills/Tex_Skill_1006703-effc1d1250.png",
+      "originalFilename": "Tex_Skill_1006703.png"
+    },
+    "Passive:마법 포착:Tex_Skill_1006704.png": {
+      "path": "/content/skills/Tex_Skill_1006704-cc9a141214.png",
+      "originalFilename": "Tex_Skill_1006704.png"
+    },
+    "Attack:기본 공격:Tex_Skill_1007801.png": {
+      "path": "/content/skills/Tex_Skill_1007801-4bcd9cc349.png",
+      "originalFilename": "Tex_Skill_1007801.png"
+    },
+    "Active:Tex_Skill_1007802.png:Tex_Skill_1007802.png": {
+      "path": "/content/skills/Tex_Skill_1007802-d8f4c8b362.png",
+      "originalFilename": "Tex_Skill_1007802.png"
+    },
+    "Active:Tex_Skill_1007803.png:Tex_Skill_1007803.png": {
+      "path": "/content/skills/Tex_Skill_1007803-64c84ee6f0.png",
+      "originalFilename": "Tex_Skill_1007803.png"
+    },
+    "Passive:자연의 보호:Tex_Skill_1007804.png": {
+      "path": "/content/skills/Tex_Skill_1007804-2180125d77.png",
+      "originalFilename": "Tex_Skill_1007804.png"
+    },
+    "Attack:기본 공격:Tex_Skill_1007901.png": {
+      "path": "/content/skills/Tex_Skill_1007901-7d9231c993.png",
+      "originalFilename": "Tex_Skill_1007901.png"
+    },
+    "Active:Tex_Skill_1007902.png:Tex_Skill_1007902.png": {
+      "path": "/content/skills/Tex_Skill_1007902-abbe0249a1.png",
+      "originalFilename": "Tex_Skill_1007902.png"
+    },
+    "Active:Tex_Skill_1007903.png:Tex_Skill_1007903.png": {
+      "path": "/content/skills/Tex_Skill_1007903-a3cf022970.png",
+      "originalFilename": "Tex_Skill_1007903.png"
+    },
+    "Passive:해적왕의 위엄:Tex_Skill_1007904.png": {
+      "path": "/content/skills/Tex_Skill_1007904-10df06d942.png",
+      "originalFilename": "Tex_Skill_1007904.png"
+    },
+    "Attack:기본 공격:Tex_Skill_1008001.png": {
+      "path": "/content/skills/Tex_Skill_1008001-d5324db662.png",
+      "originalFilename": "Tex_Skill_1008001.png"
+    },
+    "Active:Tex_Skill_1008002.png:Tex_Skill_1008002.png": {
+      "path": "/content/skills/Tex_Skill_1008002-423aea8113.png",
+      "originalFilename": "Tex_Skill_1008002.png"
+    },
+    "Active:Tex_Skill_1008003.png:Tex_Skill_1008003.png": {
+      "path": "/content/skills/Tex_Skill_1008003-80177c9159.png",
+      "originalFilename": "Tex_Skill_1008003.png"
+    },
+    "Passive:영적능력:Tex_Skill_1008004.png": {
+      "path": "/content/skills/Tex_Skill_1008004-88a35f7304.png",
+      "originalFilename": "Tex_Skill_1008004.png"
+    },
+    "Attack:기본 공격:Tex_Skill_1008101.png": {
+      "path": "/content/skills/Tex_Skill_1008101-08103894fe.png",
+      "originalFilename": "Tex_Skill_1008101.png"
+    },
+    "Active:Tex_Skill_1008102.png:Tex_Skill_1008102.png": {
+      "path": "/content/skills/Tex_Skill_1008102-a18fd3e4ed.png",
+      "originalFilename": "Tex_Skill_1008102.png"
+    },
+    "Active:Tex_Skill_1008103.png:Tex_Skill_1008103.png": {
+      "path": "/content/skills/Tex_Skill_1008103-b040461971.png",
+      "originalFilename": "Tex_Skill_1008103.png"
+    },
+    "Passive:흑월의 축복:Tex_Skill_1008104.png": {
+      "path": "/content/skills/Tex_Skill_1008104-2102c2f94a.png",
+      "originalFilename": "Tex_Skill_1008104.png"
+    },
+    "Attack:기본 공격:Tex_Skill_1008201.png": {
+      "path": "/content/skills/Tex_Skill_1008201-cedc729647.png",
+      "originalFilename": "Tex_Skill_1008201.png"
+    },
+    "Active:Tex_Skill_1008202.png:Tex_Skill_1008202.png": {
+      "path": "/content/skills/Tex_Skill_1008202-737b3274a9.png",
+      "originalFilename": "Tex_Skill_1008202.png"
+    },
+    "Active:Tex_Skill_1008203.png:Tex_Skill_1008203.png": {
+      "path": "/content/skills/Tex_Skill_1008203-912e291b69.png",
+      "originalFilename": "Tex_Skill_1008203.png"
+    },
+    "Passive:빛나는 악령:Tex_Skill_1008204.png": {
+      "path": "/content/skills/Tex_Skill_1008204-92c9939575.png",
+      "originalFilename": "Tex_Skill_1008204.png"
+    },
+    "Attack:기본 공격:Tex_Skill_1007701.png": {
+      "path": "/content/skills/Tex_Skill_1007701-300305022e.png",
+      "originalFilename": "Tex_Skill_1007701.png"
+    },
+    "Active:Tex_Skill_1007702.png:Tex_Skill_1007702.png": {
+      "path": "/content/skills/Tex_Skill_1007702-433772a0ce.png",
+      "originalFilename": "Tex_Skill_1007702.png"
+    },
+    "Active:Tex_Skill_1007703.png:Tex_Skill_1007703.png": {
+      "path": "/content/skills/Tex_Skill_1007703-ff235dda5a.png",
+      "originalFilename": "Tex_Skill_1007703.png"
+    },
+    "Passive:행운의 동전:Tex_Skill_1007704.png": {
+      "path": "/content/skills/Tex_Skill_1007704-9643962598.png",
+      "originalFilename": "Tex_Skill_1007704.png"
+    },
+    "Attack:기본 공격:Tex_Skill_1008901.png": {
+      "path": "/content/skills/Tex_Skill_1008901-79c2deb312.png",
+      "originalFilename": "Tex_Skill_1008901.png"
+    },
+    "Active:Tex_Skill_1008902.png:Tex_Skill_1008902.png": {
+      "path": "/content/skills/Tex_Skill_1008902-70a0de064f.png",
+      "originalFilename": "Tex_Skill_1008902.png"
+    },
+    "Active:Tex_Skill_1008903.png:Tex_Skill_1008903.png": {
+      "path": "/content/skills/Tex_Skill_1008903-287bb173c9.png",
+      "originalFilename": "Tex_Skill_1008903.png"
+    },
+    "Passive:공성 방패:Tex_Skill_1008904.png": {
+      "path": "/content/skills/Tex_Skill_1008904-a9d77e729f.png",
+      "originalFilename": "Tex_Skill_1008904.png"
+    },
+    "Attack:기본 공격:Tex_Skill_1009001.png": {
+      "path": "/content/skills/Tex_Skill_1009001-56aed6a241.png",
+      "originalFilename": "Tex_Skill_1009001.png"
+    },
+    "Active:Tex_Skill_1009002.png:Tex_Skill_1009002.png": {
+      "path": "/content/skills/Tex_Skill_1009002-2ba208bb4d.png",
+      "originalFilename": "Tex_Skill_1009002.png"
+    },
+    "Active:Tex_Skill_1009003.png:Tex_Skill_1009003.png": {
+      "path": "/content/skills/Tex_Skill_1009003-a3cc64ec5c.png",
+      "originalFilename": "Tex_Skill_1009003.png"
+    },
+    "Passive:위압감:Tex_Skill_1009004.png": {
+      "path": "/content/skills/Tex_Skill_1009004-0a0ed6c1b7.png",
+      "originalFilename": "Tex_Skill_1009004.png"
+    },
+    "Attack:기본 공격:Tex_Skill_1009401.png": {
+      "path": "/content/skills/Tex_Skill_1009401-10bf758220.png",
+      "originalFilename": "Tex_Skill_1009401.png"
+    },
+    "Active:Tex_Skill_1009402.png:Tex_Skill_1009402.png": {
+      "path": "/content/skills/Tex_Skill_1009402-9cd7064cef.png",
+      "originalFilename": "Tex_Skill_1009402.png"
+    },
+    "Active:Tex_Skill_1009403.png:Tex_Skill_1009403.png": {
+      "path": "/content/skills/Tex_Skill_1009403-acd871e18d.png",
+      "originalFilename": "Tex_Skill_1009403.png"
+    },
+    "Passive:허세:Tex_Skill_1009404.png": {
+      "path": "/content/skills/Tex_Skill_1009404-bc7300bf77.png",
+      "originalFilename": "Tex_Skill_1009404.png"
+    },
+    "Attack:기본 공격:Tex_Skill_1009501.png": {
+      "path": "/content/skills/Tex_Skill_1009501-d214a054de.png",
+      "originalFilename": "Tex_Skill_1009501.png"
+    },
+    "Active:Tex_Skill_1009502.png:Tex_Skill_1009502.png": {
+      "path": "/content/skills/Tex_Skill_1009502-ef6f6ac7ea.png",
+      "originalFilename": "Tex_Skill_1009502.png"
+    },
+    "Active:Tex_Skill_1009503.png:Tex_Skill_1009503.png": {
+      "path": "/content/skills/Tex_Skill_1009503-cf0204d803.png",
+      "originalFilename": "Tex_Skill_1009503.png"
+    },
+    "Passive:나. 너. 로맨틱:Tex_Skill_1009504.png": {
+      "path": "/content/skills/Tex_Skill_1009504-66525038e7.png",
+      "originalFilename": "Tex_Skill_1009504.png"
+    },
+    "Attack:기본 공격:Tex_Skill_1009601.png": {
+      "path": "/content/skills/Tex_Skill_1009601-b912070159.png",
+      "originalFilename": "Tex_Skill_1009601.png"
+    },
+    "Active:Tex_Skill_1009603.png:Tex_Skill_1009603.png": {
+      "path": "/content/skills/Tex_Skill_1009603-411265686b.png",
+      "originalFilename": "Tex_Skill_1009603.png"
+    },
+    "Passive:노장의 위엄:Tex_Skill_1009604.png": {
+      "path": "/content/skills/Tex_Skill_1009604-ab9dfed826.png",
+      "originalFilename": "Tex_Skill_1009604.png"
+    },
+    "Attack:기본 공격:Tex_Skill_1009801.png": {
+      "path": "/content/skills/Tex_Skill_1009801-b159f387f2.png",
+      "originalFilename": "Tex_Skill_1009801.png"
+    },
+    "Active:Tex_Skill_1009802.png:Tex_Skill_1009802.png": {
+      "path": "/content/skills/Tex_Skill_1009802-b146cbb84e.png",
+      "originalFilename": "Tex_Skill_1009802.png"
+    },
+    "Active:Tex_Skill_1009803.png:Tex_Skill_1009803.png": {
+      "path": "/content/skills/Tex_Skill_1009803-ce59a34790.png",
+      "originalFilename": "Tex_Skill_1009803.png"
+    },
+    "Passive:칼보다 강한 펜:Tex_Skill_1009804.png": {
+      "path": "/content/skills/Tex_Skill_1009804-2b8899de65.png",
+      "originalFilename": "Tex_Skill_1009804.png"
+    },
+    "Attack:기본 공격:Tex_Skill_1009701.png": {
+      "path": "/content/skills/Tex_Skill_1009701-7a2161987f.png",
+      "originalFilename": "Tex_Skill_1009701.png"
+    },
+    "Active:Tex_Skill_1009702.png:Tex_Skill_1009702.png": {
+      "path": "/content/skills/Tex_Skill_1009702-cf1a470793.png",
+      "originalFilename": "Tex_Skill_1009702.png"
+    },
+    "Active:Tex_Skill_1009703.png:Tex_Skill_1009703.png": {
+      "path": "/content/skills/Tex_Skill_1009703-16b28868ac.png",
+      "originalFilename": "Tex_Skill_1009703.png"
+    },
+    "Passive:고양이 춤:Tex_Skill_1009704.png": {
+      "path": "/content/skills/Tex_Skill_1009704-690d3a4e00.png",
+      "originalFilename": "Tex_Skill_1009704.png"
+    },
+    "Attack:기본 공격:Tex_Skill_1011001.png": {
+      "path": "/content/skills/Tex_Skill_1011001-720e4aa347.png",
+      "originalFilename": "Tex_Skill_1011001.png"
+    },
+    "Active:Tex_Skill_1011002.png:Tex_Skill_1011002.png": {
+      "path": "/content/skills/Tex_Skill_1011002-d22d94943f.png",
+      "originalFilename": "Tex_Skill_1011002.png"
+    },
+    "Active:Tex_Skill_1011003.png:Tex_Skill_1011003.png": {
+      "path": "/content/skills/Tex_Skill_1011003-f680fdd936.png",
+      "originalFilename": "Tex_Skill_1011003.png"
+    },
+    "Passive:대장장이의 강화:Tex_Skill_1011004.png": {
+      "path": "/content/skills/Tex_Skill_1011004-057d0b3683.png",
+      "originalFilename": "Tex_Skill_1011004.png"
+    },
+    "Attack:기본 공격:Tex_Skill_1008401.png": {
+      "path": "/content/skills/Tex_Skill_1008401-ef23cfd19f.png",
+      "originalFilename": "Tex_Skill_1008401.png"
+    },
+    "Active:Tex_Skill_1008402.png:Tex_Skill_1008402.png": {
+      "path": "/content/skills/Tex_Skill_1008402-75afac4ed2.png",
+      "originalFilename": "Tex_Skill_1008402.png"
+    },
+    "Active:Tex_Skill_1008403.png:Tex_Skill_1008403.png": {
+      "path": "/content/skills/Tex_Skill_1008403-1dbda51e8c.png",
+      "originalFilename": "Tex_Skill_1008403.png"
+    },
+    "Passive:뒷거래:Tex_Skill_1008404.png": {
+      "path": "/content/skills/Tex_Skill_1008404-95e25bd146.png",
+      "originalFilename": "Tex_Skill_1008404.png"
+    },
+    "Attack:기본 공격:Tex_Skill_1008501.png": {
+      "path": "/content/skills/Tex_Skill_1008501-b14fa3757d.png",
+      "originalFilename": "Tex_Skill_1008501.png"
+    },
+    "Active:Tex_Skill_1008502.png:Tex_Skill_1008502.png": {
+      "path": "/content/skills/Tex_Skill_1008502-a8b03f9448.png",
+      "originalFilename": "Tex_Skill_1008502.png"
+    },
+    "Active:Tex_Skill_1008503.png:Tex_Skill_1008503.png": {
+      "path": "/content/skills/Tex_Skill_1008503-8b5faae388.png",
+      "originalFilename": "Tex_Skill_1008503.png"
+    },
+    "Passive:예비 전력:Tex_Skill_1008504.png": {
+      "path": "/content/skills/Tex_Skill_1008504-ecda165171.png",
+      "originalFilename": "Tex_Skill_1008504.png"
+    },
+    "Attack:기본 공격:Tex_Skill_1008601.png": {
+      "path": "/content/skills/Tex_Skill_1008601-4297d4bbe2.png",
+      "originalFilename": "Tex_Skill_1008601.png"
+    },
+    "Active:Tex_Skill_1008602.png:Tex_Skill_1008602.png": {
+      "path": "/content/skills/Tex_Skill_1008602-0e58ea6844.png",
+      "originalFilename": "Tex_Skill_1008602.png"
+    },
+    "Active:Tex_Skill_1008603.png:Tex_Skill_1008603.png": {
+      "path": "/content/skills/Tex_Skill_1008603-62aa48eb8d.png",
+      "originalFilename": "Tex_Skill_1008603.png"
+    },
+    "Passive:마력 정화:Tex_Skill_1008604.png": {
+      "path": "/content/skills/Tex_Skill_1008604-19da0b5794.png",
+      "originalFilename": "Tex_Skill_1008604.png"
+    },
+    "Attack:기본 공격:Tex_Skill_1008701.png": {
+      "path": "/content/skills/Tex_Skill_1008701-50a9148328.png",
+      "originalFilename": "Tex_Skill_1008701.png"
+    },
+    "Active:Tex_Skill_1008703.png:Tex_Skill_1008703.png": {
+      "path": "/content/skills/Tex_Skill_1008703-af75bc1543.png",
+      "originalFilename": "Tex_Skill_1008703.png"
+    },
+    "Passive:악마의 힘:Tex_Skill_1008704.png": {
+      "path": "/content/skills/Tex_Skill_1008704-02cac8a779.png",
+      "originalFilename": "Tex_Skill_1008704.png"
+    },
+    "Attack:기본 공격:Tex_Skill_1008801.png": {
+      "path": "/content/skills/Tex_Skill_1008801-d8b95af744.png",
+      "originalFilename": "Tex_Skill_1008801.png"
+    },
+    "Active:Tex_Skill_1008802.png:Tex_Skill_1008802.png": {
+      "path": "/content/skills/Tex_Skill_1008802-6bc8a0d30a.png",
+      "originalFilename": "Tex_Skill_1008802.png"
+    },
+    "Active:Tex_Skill_1008803.png:Tex_Skill_1008803.png": {
+      "path": "/content/skills/Tex_Skill_1008803-6fa2f0418b.png",
+      "originalFilename": "Tex_Skill_1008803.png"
+    },
+    "Passive:나만 믿어:Tex_Skill_1008804.png": {
+      "path": "/content/skills/Tex_Skill_1008804-0296e73879.png",
+      "originalFilename": "Tex_Skill_1008804.png"
+    },
+    "Attack:기본 공격:Tex_Skill_1009201.png": {
+      "path": "/content/skills/Tex_Skill_1009201-74debd00d0.png",
+      "originalFilename": "Tex_Skill_1009201.png"
+    },
+    "Active:Tex_Skill_1009202.png:Tex_Skill_1009202.png": {
+      "path": "/content/skills/Tex_Skill_1009202-a87725aca9.png",
+      "originalFilename": "Tex_Skill_1009202.png"
+    },
+    "Active:Tex_Skill_1009203.png:Tex_Skill_1009203.png": {
+      "path": "/content/skills/Tex_Skill_1009203-ce720cae70.png",
+      "originalFilename": "Tex_Skill_1009203.png"
+    },
+    "Passive:은신:Tex_Skill_1009204.png": {
+      "path": "/content/skills/Tex_Skill_1009204-ba880c778e.png",
+      "originalFilename": "Tex_Skill_1009204.png"
+    },
+    "Attack:기본 공격:Tex_Skill_1011101.png": {
+      "path": "/content/skills/Tex_Skill_1011101-d549b0e780.png",
+      "originalFilename": "Tex_Skill_1011101.png"
+    },
+    "Active:Tex_Skill_1011102.png:Tex_Skill_1011102.png": {
+      "path": "/content/skills/Tex_Skill_1011102-8de9f42ea9.png",
+      "originalFilename": "Tex_Skill_1011102.png"
+    },
+    "Active:Tex_Skill_1011103.png:Tex_Skill_1011103.png": {
+      "path": "/content/skills/Tex_Skill_1011103-0b944d0718.png",
+      "originalFilename": "Tex_Skill_1011103.png"
+    },
+    "Passive:뛰어난 적응력:Tex_Skill_1011104.png": {
+      "path": "/content/skills/Tex_Skill_1011104-10efc24a65.png",
+      "originalFilename": "Tex_Skill_1011104.png"
+    },
+    "Attack:기본 공격:Tex_Skill_1009301.png": {
+      "path": "/content/skills/Tex_Skill_1009301-420b7de986.png",
+      "originalFilename": "Tex_Skill_1009301.png"
+    },
+    "Active:Tex_Skill_1009302.png:Tex_Skill_1009302.png": {
+      "path": "/content/skills/Tex_Skill_1009302-880a8b154d.png",
+      "originalFilename": "Tex_Skill_1009302.png"
+    },
+    "Active:Tex_Skill_1009303.png:Tex_Skill_1009303.png": {
+      "path": "/content/skills/Tex_Skill_1009303-638a91ebb8.png",
+      "originalFilename": "Tex_Skill_1009303.png"
+    },
+    "Passive:천둥의 그림자:Tex_Skill_1009304.png": {
+      "path": "/content/skills/Tex_Skill_1009304-d5b47bab6d.png",
+      "originalFilename": "Tex_Skill_1009304.png"
+    },
+    "Attack:기본 공격:Tex_Skill_1009101.png": {
+      "path": "/content/skills/Tex_Skill_1009101-0c1fbb3df6.png",
+      "originalFilename": "Tex_Skill_1009101.png"
+    },
+    "Active:Tex_Skill_1009103.png:Tex_Skill_1009103.png": {
+      "path": "/content/skills/Tex_Skill_1009103-85a0cd78df.png",
+      "originalFilename": "Tex_Skill_1009103.png"
+    },
+    "Passive:사신의 딸:Tex_Skill_1009104.png": {
+      "path": "/content/skills/Tex_Skill_1009104-62361b027c.png",
+      "originalFilename": "Tex_Skill_1009104.png"
+    },
+    "Attack:기본 공격:Tex_Skill_1000701.png": {
+      "path": "/content/skills/Tex_Skill_1000701-773e6e3c62.png",
+      "originalFilename": "Tex_Skill_1000701.png"
+    },
+    "Active:Tex_Skill_1000702.png:Tex_Skill_1000702.png": {
+      "path": "/content/skills/Tex_Skill_1000702-846657f5e2.png",
+      "originalFilename": "Tex_Skill_1000702.png"
+    },
+    "Active:Tex_Skill_1000703.png:Tex_Skill_1000703.png": {
+      "path": "/content/skills/Tex_Skill_1000703-26d155d539.png",
+      "originalFilename": "Tex_Skill_1000703.png"
+    },
+    "Passive:투쟁심:Tex_Skill_1000704.png": {
+      "path": "/content/skills/Tex_Skill_1000704-1180b25693.png",
+      "originalFilename": "Tex_Skill_1000704.png"
+    },
+    "Attack:기본 공격:Tex_Skill_1001401.png": {
+      "path": "/content/skills/Tex_Skill_1001401-ebe2c6bb99.png",
+      "originalFilename": "Tex_Skill_1001401.png"
+    },
+    "Active:Tex_Skill_1001402.png:Tex_Skill_1001402.png": {
+      "path": "/content/skills/Tex_Skill_1001402-0648b5644d.png",
+      "originalFilename": "Tex_Skill_1001402.png"
+    },
+    "Active:Tex_Skill_1001403.png:Tex_Skill_1001403.png": {
+      "path": "/content/skills/Tex_Skill_1001403-f1ab5a195e.png",
+      "originalFilename": "Tex_Skill_1001403.png"
+    },
+    "Passive:불굴의 오크:Tex_Skill_1001404.png": {
+      "path": "/content/skills/Tex_Skill_1001404-e5d0fb6d3e.png",
+      "originalFilename": "Tex_Skill_1001404.png"
+    },
+    "Attack:기본 공격:Tex_Skill_1002101.png": {
+      "path": "/content/skills/Tex_Skill_1002101-09ba14fb1d.png",
+      "originalFilename": "Tex_Skill_1002101.png"
+    },
+    "Active:Tex_Skill_1002102.png:Tex_Skill_1002102.png": {
+      "path": "/content/skills/Tex_Skill_1002102-7a5f342482.png",
+      "originalFilename": "Tex_Skill_1002102.png"
+    },
+    "Active:Tex_Skill_1002103.png:Tex_Skill_1002103.png": {
+      "path": "/content/skills/Tex_Skill_1002103-f932cf172a.png",
+      "originalFilename": "Tex_Skill_1002103.png"
+    },
+    "Passive:야수의 근성:Tex_Skill_1002104.png": {
+      "path": "/content/skills/Tex_Skill_1002104-43a48211af.png",
+      "originalFilename": "Tex_Skill_1002104.png"
+    },
+    "Attack:기본 공격:Tex_Skill_1002801.png": {
+      "path": "/content/skills/Tex_Skill_1002801-c4dcb8855a.png",
+      "originalFilename": "Tex_Skill_1002801.png"
+    },
+    "Active:Tex_Skill_1002802.png:Tex_Skill_1002802.png": {
+      "path": "/content/skills/Tex_Skill_1002802-627358af5f.png",
+      "originalFilename": "Tex_Skill_1002802.png"
+    },
+    "Active:Tex_Skill_1002803.png:Tex_Skill_1002803.png": {
+      "path": "/content/skills/Tex_Skill_1002803-445463a31b.png",
+      "originalFilename": "Tex_Skill_1002803.png"
+    },
+    "Passive:죽음 극복:Tex_Skill_1002804.png": {
+      "path": "/content/skills/Tex_Skill_1002804-bc40ba01dc.png",
+      "originalFilename": "Tex_Skill_1002804.png"
+    },
+    "Attack:기본 공격:Tex_Skill_1003501.png": {
+      "path": "/content/skills/Tex_Skill_1003501-1205f82308.png",
+      "originalFilename": "Tex_Skill_1003501.png"
+    },
+    "Active:Tex_Skill_1003502.png:Tex_Skill_1003502.png": {
+      "path": "/content/skills/Tex_Skill_1003502-968e316222.png",
+      "originalFilename": "Tex_Skill_1003502.png"
+    },
+    "Active:Tex_Skill_1003503.png:Tex_Skill_1003503.png": {
+      "path": "/content/skills/Tex_Skill_1003503-dc19579138.png",
+      "originalFilename": "Tex_Skill_1003503.png"
+    },
+    "Passive:아테나의 저주:Tex_Skill_1003504.png": {
+      "path": "/content/skills/Tex_Skill_1003504-5af75f4872.png",
+      "originalFilename": "Tex_Skill_1003504.png"
+    },
+    "Attack:기본 공격:Tex_Skill_1004201.png": {
+      "path": "/content/skills/Tex_Skill_1004201-4697ed80e4.png",
+      "originalFilename": "Tex_Skill_1004201.png"
+    },
+    "Active:Tex_Skill_1004202.png:Tex_Skill_1004202.png": {
+      "path": "/content/skills/Tex_Skill_1004202-d5cee28f29.png",
+      "originalFilename": "Tex_Skill_1004202.png"
+    },
+    "Active:Tex_Skill_1004203.png:Tex_Skill_1004203.png": {
+      "path": "/content/skills/Tex_Skill_1004203-016948c6af.png",
+      "originalFilename": "Tex_Skill_1004203.png"
+    },
+    "Passive:설원의 지배자:Tex_Skill_1004204.png": {
+      "path": "/content/skills/Tex_Skill_1004204-3a5bb34d41.png",
+      "originalFilename": "Tex_Skill_1004204.png"
+    },
+    "Attack:기본 공격:Tex_Skill_1004801.png": {
+      "path": "/content/skills/Tex_Skill_1004801-4c96d1d692.png",
+      "originalFilename": "Tex_Skill_1004801.png"
+    },
+    "Active:Tex_Skill_1004802.png:Tex_Skill_1004802.png": {
+      "path": "/content/skills/Tex_Skill_1004802-6894910b53.png",
+      "originalFilename": "Tex_Skill_1004802.png"
+    },
+    "Active:Tex_Skill_1004803.png:Tex_Skill_1004803.png": {
+      "path": "/content/skills/Tex_Skill_1004803-56cc3e8fc8.png",
+      "originalFilename": "Tex_Skill_1004803.png"
+    },
+    "Passive:악마의 계약:Tex_Skill_1004804.png": {
+      "path": "/content/skills/Tex_Skill_1004804-7b729aad75.png",
+      "originalFilename": "Tex_Skill_1004804.png"
+    },
+    "Attack:기본 공격:Tex_Skill_1004901.png": {
+      "path": "/content/skills/Tex_Skill_1004901-12ea311c8e.png",
+      "originalFilename": "Tex_Skill_1004901.png"
+    },
+    "Active:Tex_Skill_1004902.png:Tex_Skill_1004902.png": {
+      "path": "/content/skills/Tex_Skill_1004902-9fe7d0f0be.png",
+      "originalFilename": "Tex_Skill_1004902.png"
+    },
+    "Active:Tex_Skill_1004903.png:Tex_Skill_1004903.png": {
+      "path": "/content/skills/Tex_Skill_1004903-fa6dafe6fd.png",
+      "originalFilename": "Tex_Skill_1004903.png"
+    },
+    "Passive:지옥의 기사:Tex_Skill_1004904.png": {
+      "path": "/content/skills/Tex_Skill_1004904-b378e995c7.png",
+      "originalFilename": "Tex_Skill_1004904.png"
+    },
+    "Attack:기본 공격:Tex_Skill_1007201.png": {
+      "path": "/content/skills/Tex_Skill_1007201-823cdb9676.png",
+      "originalFilename": "Tex_Skill_1007201.png"
+    },
+    "Active:Tex_Skill_1007202.png:Tex_Skill_1007202.png": {
+      "path": "/content/skills/Tex_Skill_1007202-284053e6b8.png",
+      "originalFilename": "Tex_Skill_1007202.png"
+    },
+    "Active:Tex_Skill_1007203.png:Tex_Skill_1007203.png": {
+      "path": "/content/skills/Tex_Skill_1007203-4fe1510880.png",
+      "originalFilename": "Tex_Skill_1007203.png"
+    },
+    "Passive:불협화음:Tex_Skill_1007204.png": {
+      "path": "/content/skills/Tex_Skill_1007204-bfe7e4459d.png",
+      "originalFilename": "Tex_Skill_1007204.png"
+    },
+    "Attack:기본 공격:Tex_Skill_1011501.png": {
+      "path": "/content/skills/Tex_Skill_1011501-8aea1d38f4.png",
+      "originalFilename": "Tex_Skill_1011501.png"
+    },
+    "Active:Tex_Skill_1011502.png:Tex_Skill_1011502.png": {
+      "path": "/content/skills/Tex_Skill_1011502-39b2144b1d.png",
+      "originalFilename": "Tex_Skill_1011502.png"
+    },
+    "Active:Tex_Skill_1011503.png:Tex_Skill_1011503.png": {
+      "path": "/content/skills/Tex_Skill_1011503-0d4299b568.png",
+      "originalFilename": "Tex_Skill_1011503.png"
+    },
+    "Passive:날카로운 손톱:Tex_Skill_1011504.png": {
+      "path": "/content/skills/Tex_Skill_1011504-abe2f17049.png",
+      "originalFilename": "Tex_Skill_1011504.png"
+    },
+    "Attack:기본 공격:Tex_Skill_1011601.png": {
+      "path": "/content/skills/Tex_Skill_1011601-29d192a90c.png",
+      "originalFilename": "Tex_Skill_1011601.png"
+    },
+    "Active:Tex_Skill_1011602.png:Tex_Skill_1011602.png": {
+      "path": "/content/skills/Tex_Skill_1011602-6620edc772.png",
+      "originalFilename": "Tex_Skill_1011602.png"
+    },
+    "Active:Tex_Skill_1011603.png:Tex_Skill_1011603.png": {
+      "path": "/content/skills/Tex_Skill_1011603-3401bf6ca6.png",
+      "originalFilename": "Tex_Skill_1011603.png"
+    },
+    "Passive:수련의 성과:Tex_Skill_1011604.png": {
+      "path": "/content/skills/Tex_Skill_1011604-4698a07427.png",
+      "originalFilename": "Tex_Skill_1011604.png"
+    },
+    "Attack:기본 공격:Tex_Skill_1011801.png": {
+      "path": "/content/skills/Tex_Skill_1011801-e371210652.png",
+      "originalFilename": "Tex_Skill_1011801.png"
+    },
+    "Active:Tex_Skill_1011802.png:Tex_Skill_1011802.png": {
+      "path": "/content/skills/Tex_Skill_1011802-d247f9da90.png",
+      "originalFilename": "Tex_Skill_1011802.png"
+    },
+    "Active:Tex_Skill_1011803.png:Tex_Skill_1011803.png": {
+      "path": "/content/skills/Tex_Skill_1011803-af65d3d27f.png",
+      "originalFilename": "Tex_Skill_1011803.png"
+    },
+    "Passive:은신:Tex_Skill_1011804.png": {
+      "path": "/content/skills/Tex_Skill_1011804-f03d41fe26.png",
+      "originalFilename": "Tex_Skill_1011804.png"
+    },
+    "Attack:기본 공격:Tex_Skill_1011701.png": {
+      "path": "/content/skills/Tex_Skill_1011701-72c2fbcef6.png",
+      "originalFilename": "Tex_Skill_1011701.png"
+    },
+    "Active:Tex_Skill_1011702.png:Tex_Skill_1011702.png": {
+      "path": "/content/skills/Tex_Skill_1011702-0336d865ea.png",
+      "originalFilename": "Tex_Skill_1011702.png"
+    },
+    "Active:Tex_Skill_1011703.png:Tex_Skill_1011703.png": {
+      "path": "/content/skills/Tex_Skill_1011703-e2ab4501bb.png",
+      "originalFilename": "Tex_Skill_1011703.png"
+    },
+    "Passive:기민한 움직임:Tex_Skill_1011704.png": {
+      "path": "/content/skills/Tex_Skill_1011704-3fb26cdc67.png",
+      "originalFilename": "Tex_Skill_1011704.png"
+    },
+    "Attack:기본 공격:Tex_Skill_1007101.png": {
+      "path": "/content/skills/Tex_Skill_1007101-489d1223db.png",
+      "originalFilename": "Tex_Skill_1007101.png"
+    },
+    "Active:Tex_Skill_1007102.png:Tex_Skill_1007102.png": {
+      "path": "/content/skills/Tex_Skill_1007102-114e2eb8b6.png",
+      "originalFilename": "Tex_Skill_1007102.png"
+    },
+    "Active:Tex_Skill_1007103.png:Tex_Skill_1007103.png": {
+      "path": "/content/skills/Tex_Skill_1007103-2ab6e32e16.png",
+      "originalFilename": "Tex_Skill_1007103.png"
+    },
+    "Passive:정찰:Tex_Skill_1007104.png": {
+      "path": "/content/skills/Tex_Skill_1007104-d497e546f5.png",
+      "originalFilename": "Tex_Skill_1007104.png"
+    },
+    "Attack:기본 공격:Tex_Skill_1006801.png": {
+      "path": "/content/skills/Tex_Skill_1006801-4a7cb10c3c.png",
+      "originalFilename": "Tex_Skill_1006801.png"
+    },
+    "Active:Tex_Skill_1006802.png:Tex_Skill_1006802.png": {
+      "path": "/content/skills/Tex_Skill_1006802-c1b2092c69.png",
+      "originalFilename": "Tex_Skill_1006802.png"
+    },
+    "Active:Tex_Skill_1006803.png:Tex_Skill_1006803.png": {
+      "path": "/content/skills/Tex_Skill_1006803-d305252dc2.png",
+      "originalFilename": "Tex_Skill_1006803.png"
+    },
+    "Passive:검의 결계:Tex_Skill_1006804.png": {
+      "path": "/content/skills/Tex_Skill_1006804-950f81d089.png",
+      "originalFilename": "Tex_Skill_1006804.png"
+    },
+    "Attack:기본 공격:Tex_Skill_1006901.png": {
+      "path": "/content/skills/Tex_Skill_1006901-9bec5a4580.png",
+      "originalFilename": "Tex_Skill_1006901.png"
+    },
+    "Active:Tex_Skill_1006902.png:Tex_Skill_1006902.png": {
+      "path": "/content/skills/Tex_Skill_1006902-aeeb94c4eb.png",
+      "originalFilename": "Tex_Skill_1006902.png"
+    },
+    "Active:Tex_Skill_1006903.png:Tex_Skill_1006903.png": {
+      "path": "/content/skills/Tex_Skill_1006903-e6ff93ad35.png",
+      "originalFilename": "Tex_Skill_1006903.png"
+    },
+    "Passive:신선의 가르침:Tex_Skill_1006904.png": {
+      "path": "/content/skills/Tex_Skill_1006904-f09d47ddad.png",
+      "originalFilename": "Tex_Skill_1006904.png"
+    },
+    "Attack:기본 공격:Tex_Skill_1007001.png": {
+      "path": "/content/skills/Tex_Skill_1007001-9953ffc5c8.png",
+      "originalFilename": "Tex_Skill_1007001.png"
+    },
+    "Active:Tex_Skill_1007002.png:Tex_Skill_1007002.png": {
+      "path": "/content/skills/Tex_Skill_1007002-9e84653c04.png",
+      "originalFilename": "Tex_Skill_1007002.png"
+    },
+    "Active:Tex_Skill_1007003.png:Tex_Skill_1007003.png": {
+      "path": "/content/skills/Tex_Skill_1007003-3d5916b676.png",
+      "originalFilename": "Tex_Skill_1007003.png"
+    },
+    "Passive:화랑의 후예:Tex_Skill_1007004.png": {
+      "path": "/content/skills/Tex_Skill_1007004-7e9ed44210.png",
+      "originalFilename": "Tex_Skill_1007004.png"
+    },
+    "Attack:기본 공격:Tex_Skill_1009901.png": {
+      "path": "/content/skills/Tex_Skill_1009901-b11f029746.png",
+      "originalFilename": "Tex_Skill_1009901.png"
+    },
+    "Active:Tex_Skill_1009902.png:Tex_Skill_1009902.png": {
+      "path": "/content/skills/Tex_Skill_1009902-a0fa4c2e55.png",
+      "originalFilename": "Tex_Skill_1009902.png"
+    },
+    "Active:Tex_Skill_1009903.png:Tex_Skill_1009903.png": {
+      "path": "/content/skills/Tex_Skill_1009903-f90205f113.png",
+      "originalFilename": "Tex_Skill_1009903.png"
+    },
+    "Passive:지혜의 눈동자:Tex_Skill_1009904.png": {
+      "path": "/content/skills/Tex_Skill_1009904-5624b4267e.png",
+      "originalFilename": "Tex_Skill_1009904.png"
+    },
+    "Attack:기본 공격:Tex_Skill_1010001.png": {
+      "path": "/content/skills/Tex_Skill_1010001-15143ee4eb.png",
+      "originalFilename": "Tex_Skill_1010001.png"
+    },
+    "Active:Tex_Skill_1010004.png:Tex_Skill_1010004.png": {
+      "path": "/content/skills/Tex_Skill_1010004-5e1ea844bb.png",
+      "originalFilename": "Tex_Skill_1010004.png"
+    },
+    "Active:Tex_Skill_1010003.png:Tex_Skill_1010003.png": {
+      "path": "/content/skills/Tex_Skill_1010003-9e954c4435.png",
+      "originalFilename": "Tex_Skill_1010003.png"
+    },
+    "Passive:천자의 권능:Tex_Skill_1010002.png": {
+      "path": "/content/skills/Tex_Skill_1010002-367c850a83.png",
+      "originalFilename": "Tex_Skill_1010002.png"
+    }
+  },
+  "effects": {
+    "5인 공격기 감쇄:BuffIcon_01024_reverse.png": {
+      "path": "/content/effects/BuffIcon_01024_reverse-819a6e9dad.png",
+      "originalFilename": "BuffIcon_01024_reverse.png"
+    },
+    "감쇄:BuffIcon_01006_reverse.png": {
+      "path": "/content/effects/BuffIcon_01006_reverse-ff9a90fb33.png",
+      "originalFilename": "BuffIcon_01006_reverse.png"
+    },
+    "감쇄:BuffIcon_01006.png": {
+      "path": "/content/effects/BuffIcon_01006-06660fb8ca.png",
+      "originalFilename": "BuffIcon_01006.png"
+    },
+    "감전:Bufficon_11003.png": {
+      "path": "/content/effects/Bufficon_11003-6dd17bd73b.png",
+      "originalFilename": "Bufficon_11003.png"
+    },
+    "강자 주시:Bufficon_18901_reverse.png": {
+      "path": "/content/effects/Bufficon_18901_reverse-8b2c5c1dc7.png",
+      "originalFilename": "Bufficon_18901_reverse.png"
+    },
+    "공격력 비례 방어력 증가:BuffIcon_02033_reverse.png": {
+      "path": "/content/effects/BuffIcon_02033_reverse-ee414e0673.png",
+      "originalFilename": "BuffIcon_02033_reverse.png"
+    },
+    "공격력 비례 치명타 확률 증가:BuffIcon_02033_reverse.png": {
+      "path": "/content/effects/BuffIcon_02033_reverse-ee414e0673.png",
+      "originalFilename": "BuffIcon_02033_reverse.png"
+    },
+    "관통:Bufficon_21001.png": {
+      "path": "/content/effects/Bufficon_21001-dd2948b21a.png",
+      "originalFilename": "Bufficon_21001.png"
+    },
+    "권능:BuffIcon_02012_reverse.png": {
+      "path": "/content/effects/BuffIcon_02012_reverse-a1a8b468ed.png",
+      "originalFilename": "BuffIcon_02012_reverse.png"
+    },
+    "기절:Bufficon_11001.png": {
+      "path": "/content/effects/Bufficon_11001-72514c06bf.png",
+      "originalFilename": "Bufficon_11001.png"
+    },
+    "기절 면역:BuffIcon_02010.png": {
+      "path": "/content/effects/BuffIcon_02010-962dd6e80c.png",
+      "originalFilename": "BuffIcon_02010.png"
+    },
+    "디버프 해제:BuffIcon_03001.png": {
+      "path": "/content/effects/BuffIcon_03001-5c0840cef4.png",
+      "originalFilename": "BuffIcon_03001.png"
+    },
+    "링크:BuffIcon_02034.png": {
+      "path": "/content/effects/BuffIcon_02034-58e2549454.png",
+      "originalFilename": "BuffIcon_02034.png"
+    },
+    "마력 역류:Bufficon_15005.png": {
+      "path": "/content/effects/Bufficon_15005-7a4ae5caeb.png",
+      "originalFilename": "Bufficon_15005.png"
+    },
+    "마법 감쇄:BuffIcon_01015_reverse.png": {
+      "path": "/content/effects/BuffIcon_01015_reverse-3412630f6f.png",
+      "originalFilename": "BuffIcon_01015_reverse.png"
+    },
+    "마법 공격력 증가:BuffIcon_01002_reverse.png": {
+      "path": "/content/effects/BuffIcon_01002_reverse-362338543d.png",
+      "originalFilename": "BuffIcon_01002_reverse.png"
+    },
+    "마법 취약:BuffIcon_10013.png": {
+      "path": "/content/effects/BuffIcon_10013-969ff956c0.png",
+      "originalFilename": "BuffIcon_10013.png"
+    },
+    "마법 피해량 증가:BuffIcon_01013_reverse.png": {
+      "path": "/content/effects/BuffIcon_01013_reverse-5073b07193.png",
+      "originalFilename": "BuffIcon_01013_reverse.png"
+    },
+    "마비:Bufficon_11002.png": {
+      "path": "/content/effects/Bufficon_11002-83340d7440.png",
+      "originalFilename": "Bufficon_11002.png"
+    },
+    "모든 공격력 감소:Bufficon_10003.png": {
+      "path": "/content/effects/Bufficon_10003-d378f6b120.png",
+      "originalFilename": "Bufficon_10003.png"
+    },
+    "모든 피해 면역:BuffIcon_02004_3_reverse.png": {
+      "path": "/content/effects/BuffIcon_02004_3_reverse-8b0f2c3605.png",
+      "originalFilename": "BuffIcon_02004_3_reverse.png"
+    },
+    "모든 피해 무효화:BuffIcon_02005_reverse.png": {
+      "path": "/content/effects/BuffIcon_02005_reverse-a754f1195b.png",
+      "originalFilename": "BuffIcon_02005_reverse.png"
+    },
+    "물리 공격력 증가:2025-11-16 14.49.15.png": {
+      "path": "/content/effects/2025-11-16-14.49.15-82fb7df711.png",
+      "originalFilename": "2025-11-16 14.49.15.png"
+    },
+    "물리 공격력 증가:BuffIcon_01001.png": {
+      "path": "/content/effects/BuffIcon_01001-24fe7e7036.png",
+      "originalFilename": "BuffIcon_01001.png"
+    },
+    "물리 취약:BuffIcon_10012_reverse.png": {
+      "path": "/content/effects/BuffIcon_10012_reverse-7c08e74988.png",
+      "originalFilename": "BuffIcon_10012_reverse.png"
+    },
+    "물리 취약:BuffIcon_10012.png": {
+      "path": "/content/effects/BuffIcon_10012-30370eaa09.png",
+      "originalFilename": "BuffIcon_10012.png"
+    },
+    "물리 피해량 증가:BuffIcon_01012_reverse.png": {
+      "path": "/content/effects/BuffIcon_01012_reverse-e62988403e.png",
+      "originalFilename": "BuffIcon_01012_reverse.png"
+    },
+    "물리 피해량 증가:BuffIcon_01012.png": {
+      "path": "/content/effects/BuffIcon_01012-9fcc6f49f4.png",
+      "originalFilename": "BuffIcon_01012.png"
+    },
+    "반격:Bufficon_20003_reverse.png": {
+      "path": "/content/effects/Bufficon_20003_reverse-16c2b1e2ca.png",
+      "originalFilename": "Bufficon_20003_reverse.png"
+    },
+    "받는 회복량 감소:Bufficon_10018.png": {
+      "path": "/content/effects/Bufficon_10018-828b8084ec.png",
+      "originalFilename": "Bufficon_10018.png"
+    },
+    "방어 무시:Bufficon_21002.png": {
+      "path": "/content/effects/Bufficon_21002-996fd9eea4.png",
+      "originalFilename": "Bufficon_21002.png"
+    },
+    "방어력 감소:Bufficon_10004_reverse.png": {
+      "path": "/content/effects/Bufficon_10004_reverse-208b3ca449.png",
+      "originalFilename": "Bufficon_10004_reverse.png"
+    },
+    "방어력 감소:Bufficon_10004.png": {
+      "path": "/content/effects/Bufficon_10004-25f5805ef7.png",
+      "originalFilename": "Bufficon_10004.png"
+    },
+    "방어력 증가:BuffIcon_01004_reverse.png": {
+      "path": "/content/effects/BuffIcon_01004_reverse-526528a053.png",
+      "originalFilename": "BuffIcon_01004_reverse.png"
+    },
+    "버프 해제:Bufficon_14003.png": {
+      "path": "/content/effects/Bufficon_14003-11010384c6.png",
+      "originalFilename": "Bufficon_14003.png"
+    },
+    "보스 대상 피해량 증가:Bufficon_2045.png": {
+      "path": "/content/effects/Bufficon_2045-146f3794eb.png",
+      "originalFilename": "Bufficon_2045.png"
+    },
+    "보호막:BuffIcon_02001.png": {
+      "path": "/content/effects/BuffIcon_02001-7269688103.png",
+      "originalFilename": "BuffIcon_02001.png"
+    },
+    "부활:2025-11-16 14.49.58.png": {
+      "path": "/content/effects/2025-11-16-14.49.58-1aadcf7012.png",
+      "originalFilename": "2025-11-16 14.49.58.png"
+    },
+    "불굴:Bufficon_2053_reverse.png": {
+      "path": "/content/effects/Bufficon_2053_reverse-24a81588aa.png",
+      "originalFilename": "Bufficon_2053_reverse.png"
+    },
+    "불사:BuffIcon_02006.png": {
+      "path": "/content/effects/BuffIcon_02006-7881b7e1e4.png",
+      "originalFilename": "BuffIcon_02006.png"
+    },
+    "빗나감 확률 증가:Bufficon_10017.png": {
+      "path": "/content/effects/Bufficon_10017-0f6b8bbc3e.png",
+      "originalFilename": "Bufficon_10017.png"
+    },
+    "빙결:Bufficon_11004.png": {
+      "path": "/content/effects/Bufficon_11004-c459b18e5b.png",
+      "originalFilename": "Bufficon_11004.png"
+    },
+    "생명력 전환:Bufficon_13001.png": {
+      "path": "/content/effects/Bufficon_13001-a4b07a8d6c.png",
+      "originalFilename": "Bufficon_13001.png"
+    },
+    "석화:Bufficon_11007.png": {
+      "path": "/content/effects/Bufficon_11007-2ff1610620.png",
+      "originalFilename": "Bufficon_11007.png"
+    },
+    "속공 비례 공격력 증가:BuffIcon_02033_reverse.png": {
+      "path": "/content/effects/BuffIcon_02033_reverse-ee414e0673.png",
+      "originalFilename": "BuffIcon_02033_reverse.png"
+    },
+    "스킬 쿨타임 증가:Bufficon_14001.png": {
+      "path": "/content/effects/Bufficon_14001-e64533f195.png",
+      "originalFilename": "Bufficon_14001.png"
+    },
+    "약점 공격 피해량 증가:Bufficon_2043_reverse.png": {
+      "path": "/content/effects/Bufficon_2043_reverse-8c4d40f323.png",
+      "originalFilename": "Bufficon_2043_reverse.png"
+    },
+    "약점 공격 확률 감소:Bufficon_10007.png": {
+      "path": "/content/effects/Bufficon_10007-36e4831321.png",
+      "originalFilename": "Bufficon_10007.png"
+    },
+    "약점 공격 확률 증가:BuffIcon_01007_reverse.png": {
+      "path": "/content/effects/BuffIcon_01007_reverse-1a5b44c02f.png",
+      "originalFilename": "BuffIcon_01007_reverse.png"
+    },
+    "약점 공격 확률 증가:BuffIcon_01007.png": {
+      "path": "/content/effects/BuffIcon_01007-1e31275f18.png",
+      "originalFilename": "BuffIcon_01007.png"
+    },
+    "위장:BuffIcon_02031.png": {
+      "path": "/content/effects/BuffIcon_02031-8a3e8f3dff.png",
+      "originalFilename": "BuffIcon_02031.png"
+    },
+    "인고 (중첩):BuffIcon_01004_reverse.png": {
+      "path": "/content/effects/BuffIcon_01004_reverse-526528a053.png",
+      "originalFilename": "BuffIcon_01004_reverse.png"
+    },
+    "즉사:BuffIcon_15001.png": {
+      "path": "/content/effects/BuffIcon_15001-4c607864f4.png",
+      "originalFilename": "BuffIcon_15001.png"
+    },
+    "즉사 턴 감소:Bufficon_14006.png": {
+      "path": "/content/effects/Bufficon_14006-ddfedeebcb.png",
+      "originalFilename": "Bufficon_14006.png"
+    },
+    "처형:Bufficon_13002.png": {
+      "path": "/content/effects/Bufficon_13002-1d2454a8c4.png",
+      "originalFilename": "Bufficon_13002.png"
+    },
+    "최대 생명력 비례 공격력 증가:BuffIcon_02033_reverse.png": {
+      "path": "/content/effects/BuffIcon_02033_reverse-ee414e0673.png",
+      "originalFilename": "BuffIcon_02033_reverse.png"
+    },
+    "축복:BuffIcon_02007_reverse.png": {
+      "path": "/content/effects/BuffIcon_02007_reverse-b643d2fc9f.png",
+      "originalFilename": "BuffIcon_02007_reverse.png"
+    },
+    "치명타 피해 증가:BuffIcon_01009_reverse.png": {
+      "path": "/content/effects/BuffIcon_01009_reverse-3c4276ac2b.png",
+      "originalFilename": "BuffIcon_01009_reverse.png"
+    },
+    "치명타 확률 증가:BuffIcon_01008_reverse.png": {
+      "path": "/content/effects/BuffIcon_01008_reverse-c816d99429.png",
+      "originalFilename": "BuffIcon_01008_reverse.png"
+    },
+    "침묵:Bufficon_11005.png": {
+      "path": "/content/effects/Bufficon_11005-492aa4b29a.png",
+      "originalFilename": "Bufficon_11005.png"
+    },
+    "쿨타임 초기화:BuffIcon_03005.png": {
+      "path": "/content/effects/BuffIcon_03005-ea4bfa8457.png",
+      "originalFilename": "BuffIcon_03005.png"
+    },
+    "턴제 버프 감소:Bufficon_14002.png": {
+      "path": "/content/effects/Bufficon_14002-a7c2870144.png",
+      "originalFilename": "Bufficon_14002.png"
+    },
+    "폭탄:Bufficon_12005.png": {
+      "path": "/content/effects/Bufficon_12005-fbd4444ee4.png",
+      "originalFilename": "Bufficon_12005.png"
+    },
+    "폭탄 폭파:BuffIcon_03006.png": {
+      "path": "/content/effects/BuffIcon_03006-0d83a427c5.png",
+      "originalFilename": "BuffIcon_03006.png"
+    },
+    "피해량 감소:Bufficon_10005.png": {
+      "path": "/content/effects/Bufficon_10005-7d808b8435.png",
+      "originalFilename": "Bufficon_10005.png"
+    },
+    "피해량 증가 (중첩):BuffIcon_01005_reverse.png": {
+      "path": "/content/effects/BuffIcon_01005_reverse-be55becf6c.png",
+      "originalFilename": "BuffIcon_01005_reverse.png"
+    },
+    "행동 제어 면역:Bufficon_2021.png": {
+      "path": "/content/effects/Bufficon_2021-85e7b0149d.png",
+      "originalFilename": "Bufficon_2021.png"
+    },
+    "혼란:Bufficon_10017_Rin.png": {
+      "path": "/content/effects/Bufficon_10017_Rin-e11a5b34d4.png",
+      "originalFilename": "Bufficon_10017_Rin.png"
+    },
+    "화상:BuffIcon_15003.png": {
+      "path": "/content/effects/BuffIcon_15003-c1bd3f9416.png",
+      "originalFilename": "BuffIcon_15003.png"
+    },
+    "효과 저항 감소:Bufficon_10011_reverse.png": {
+      "path": "/content/effects/Bufficon_10011_reverse-f61ed45d42.png",
+      "originalFilename": "Bufficon_10011_reverse.png"
+    },
+    "효과 저항 증가:BuffIcon_01011_reverse.png": {
+      "path": "/content/effects/BuffIcon_01011_reverse-c03a305be7.png",
+      "originalFilename": "BuffIcon_01011_reverse.png"
+    },
+    "효과 적중 증가:BuffIcon_01010_reverse.png": {
+      "path": "/content/effects/BuffIcon_01010_reverse-218297c7b8.png",
+      "originalFilename": "BuffIcon_01010_reverse.png"
+    },
+    "흡혈:BuffIcon_02032.png": {
+      "path": "/content/effects/BuffIcon_02032-e0f74e001e.png",
+      "originalFilename": "BuffIcon_02032.png"
+    }
+  },
+  "types": {
+    "공격형:RoleIcon_01.png": {
+      "path": "/content/types/RoleIcon_01-1e0c023e6e.png",
+      "originalFilename": "RoleIcon_01.png"
+    },
+    "마법형:RoleIcon_02.png": {
+      "path": "/content/types/RoleIcon_02-3bdba832b0.png",
+      "originalFilename": "RoleIcon_02.png"
+    },
+    "지원형:RoleIcon_04.png": {
+      "path": "/content/types/RoleIcon_04-3c4c7a32e8.png",
+      "originalFilename": "RoleIcon_04.png"
+    },
+    "만능형:RoleIcon_05.png": {
+      "path": "/content/types/RoleIcon_05-f7672beb62.png",
+      "originalFilename": "RoleIcon_05.png"
+    },
+    "방어형:RoleIcon_03.png": {
+      "path": "/content/types/RoleIcon_03-c8af05f852.png",
+      "originalFilename": "RoleIcon_03.png"
+    }
+  },
+  "failures": []
+}

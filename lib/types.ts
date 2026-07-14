@@ -51,10 +51,3 @@ export type HeroDetail = HeroSummary & {
   history: Array<{ date: string; content: string }>;
   transLevel: string | number | null;
 };
-
-export type CommentRecord = {
-  id: string;
-  nickname: string;
-  content: string;
-  timestamp: string;
-};

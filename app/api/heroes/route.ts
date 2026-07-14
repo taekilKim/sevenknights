@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 
-import { getHeroes } from "@/lib/airtable";
+import { getHeroes } from "@/lib/catalog";
 
 export async function GET(request: Request) {
   try {

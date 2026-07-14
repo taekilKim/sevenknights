@@ -2,8 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
-import { CommentForm } from "@/components/comment-form";
-import { getComments, getHeroBySlug } from "@/lib/airtable";
+import { getHeroBySlug } from "@/lib/catalog";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -47,7 +46,6 @@ export default async function HeroDetailPage({ params }: Props) {
     notFound();
   }
 
-  const comments = await getComments(hero.name);
   const skills = [hero.attack, hero.active_1, hero.active_2, hero.passive].filter(Boolean);
 
   return (
@@ -149,36 +147,6 @@ export default async function HeroDetailPage({ params }: Props) {
         )}
       </section>
 
-      <section className="detail-sections" style={{ gridTemplateColumns: "1fr 1fr" }}>
-        <div className="section-card">
-          <div className="section-heading">
-            <h2>의견</h2>
-            <span className="muted">{comments.length}개</span>
-          </div>
-          {comments.length > 0 ? (
-            <div className="comments-list">
-              {comments.map((comment) => (
-                <article key={comment.id} className="comment-card">
-                  <div className="section-heading" style={{ marginBottom: "10px" }}>
-                    <strong>{comment.nickname}</strong>
-                    <span className="muted">{comment.timestamp ? new Date(comment.timestamp).toLocaleString("ko-KR") : ""}</span>
-                  </div>
-                  <p style={{ marginBottom: 0 }}>{comment.content}</p>
-                </article>
-              ))}
-            </div>
-          ) : (
-            <div className="empty-state">첫 의견을 남겨보세요.</div>
-          )}
-        </div>
-
-        <div className="section-card">
-          <div className="section-heading">
-            <h2>의견 남기기</h2>
-          </div>
-          <CommentForm heroId={hero.name} />
-        </div>
-      </section>
     </div>
   );
 }
