@@ -102,7 +102,7 @@
 ```bash
 # Vercel 배포 로그 확인
 vercel logs --follow
-# server.js가 정상적으로 배포되었는지 확인
+# Next.js App Router 빌드가 정상적으로 배포되었는지 확인
 ```
 
 ### 페이지 404 오류
