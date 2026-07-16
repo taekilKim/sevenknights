@@ -282,8 +282,7 @@
         .then(data => {
           const heroes = data.records || data || [];
 
-          // Placeholder tier assignments (you'll need to add tier data to your Airtable)
-          // For now, we'll just display all heroes
+          // Tier-specific assignments can be applied when ranking data is available.
           renderTierList(heroes, 'pvp');
           renderTierList(heroes, 'pve');
           renderTierList(heroes, 'raid');

@@ -66,10 +66,10 @@ export default function FaqPage() {
           <div>
             <h1 style={{ margin: 0, fontSize: "clamp(2rem, 3vw, 3rem)" }}>자주 묻는 질문</h1>
             <p className="muted" style={{ marginBottom: 0 }}>
-              검색 유입이 많은 질문을 중심으로 초보자, 육성, 장비, 덱 구성 핵심만 빠르게 정리했습니다.
+              초보자, 육성, 장비, 덱 구성에서 자주 막히는 내용을 빠르게 확인하세요.
             </p>
           </div>
-          <span className="pill">SEO FAQ</span>
+          <span className="pill">FAQ</span>
         </div>
       </section>
 
@@ -89,7 +89,7 @@ export default function FaqPage() {
       <section className="callout">
         <h2 style={{ marginTop: 0 }}>더 깊게 보고 싶다면</h2>
         <p style={{ marginBottom: "14px" }}>
-          질문형 검색은 FAQ에서, 비교형 검색은 티어표에서, 개별 영웅 검색은 도감과 상세 페이지에서 받는 구조가 광고 수익화에도 유리합니다.
+          기본 질문을 확인한 뒤에는 티어표로 육성 우선순위를 잡고, 영웅 도감에서 개별 스킬과 타입을 비교해 보세요.
         </p>
         <p style={{ marginBottom: 0 }}>
           <Link href="/heroes">영웅 도감</Link>과 <Link href="/guides/beginner">초보자 가이드</Link>를 함께 보세요.

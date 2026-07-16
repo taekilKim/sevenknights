@@ -4,7 +4,7 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "세나 리버스 초보자 가이드",
   description:
-    "세븐나이츠 리버스를 처음 시작하는 유저를 위한 1주차~1개월차 성장 로드맵. 리세마라, 초반 육성, 자원 관리까지 정리했습니다.",
+    "세븐나이츠 리버스를 처음 시작하는 유저를 위한 1주차~1개월차 성장 로드맵. 리세마라, 초반 육성, 자원 관리까지 확인하세요.",
 };
 
 const starterConcepts = [
@@ -41,7 +41,7 @@ export default function BeginnerGuidePage() {
           <div>
             <h1 style={{ margin: 0, fontSize: "clamp(2rem, 3vw, 3rem)" }}>초보자 완벽 가이드</h1>
             <p className="muted" style={{ marginBottom: 0 }}>
-              검색 유입을 가장 많이 받는 초심자 질문을 기준으로, 시작 직후부터 1개월차까지의 성장 흐름을 압축했습니다.
+              시작 직후부터 1개월차까지 필요한 리세마라, 육성, 장비, 자원 관리 흐름을 순서대로 살펴보세요.
             </p>
           </div>
           <span className="pill">Guide</span>
@@ -149,8 +149,8 @@ export default function BeginnerGuidePage() {
       <section className="callout">
         <h2 style={{ marginTop: 0 }}>다음 추천 동선</h2>
         <p>
-          초보자 검색 유입은 이 가이드에서 받고, 세부 클릭은 <Link href="/heroes">영웅 도감</Link>과{" "}
-          <Link href="/faq">FAQ</Link>로 흘려보내는 구조가 체류 시간과 페이지뷰를 늘리기 좋습니다.
+          기본 흐름을 익혔다면 <Link href="/heroes">영웅 도감</Link>에서 주력 영웅을 확인하고, 자주 막히는
+          내용은 <Link href="/faq">FAQ</Link>에서 이어서 확인해 보세요.
         </p>
       </section>
     </div>

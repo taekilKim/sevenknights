@@ -30,10 +30,10 @@ export default function ArenaDeckGuidePage() {
           <div>
             <h1 style={{ margin: 0, fontSize: "clamp(2rem, 3vw, 3rem)" }}>세븐나이츠 리버스 결투장 덱 추천</h1>
             <p className="muted" style={{ marginBottom: 0 }}>
-              네이버 상위 검색어에서 가장 직접적인 수요가 보이는 키워드라, 별도 랜딩으로 분리했습니다.
+              속공, 생존, 지원 효과를 기준으로 결투장에서 활용하기 좋은 조합 방향을 확인하세요.
             </p>
           </div>
-          <span className="pill">상위 검색어 대응</span>
+          <span className="pill">결투장 가이드</span>
         </div>
         <div className="badge-row">
           <span className="pill">결투장 덱</span>
@@ -66,8 +66,8 @@ export default function ArenaDeckGuidePage() {
       <section className="callout">
         <h2 style={{ marginTop: 0 }}>연결 동선</h2>
         <p>
-          덱 추천 검색 유입은 <Link href="/heroes">영웅 도감</Link>과 <Link href="/tier-list">티어표</Link>로 분기시키는
-          편이 가장 자연스럽습니다. 이후 실제 덱 DB가 생기면 이 페이지를 허브로 두고 덱 상세 페이지로 확장하면 됩니다.
+          조합에 필요한 영웅은 <Link href="/heroes">영웅 도감</Link>에서 스킬과 타입을 확인하고, 투자 우선순위는{" "}
+          <Link href="/tier-list">티어표</Link>를 함께 참고하세요.
         </p>
       </section>
     </div>

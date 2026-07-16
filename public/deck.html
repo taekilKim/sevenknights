@@ -988,7 +988,7 @@
             updateDeckDisplay();
           } else {
             // TODO: 펫 선택 모달 열기 (펫 데이터 준비 후)
-            alert('펫 에어테이블 준비 후 추가 예정');
+            alert('펫 선택 기능은 준비 중입니다.');
           }
         });
 
@@ -1012,9 +1012,6 @@
         const allyEffectsList = document.getElementById('ally-effects-list');
         const enemyEffectsList = document.getElementById('enemy-effects-list');
         const allSelected = [...selectedHeroes.front, ...selectedHeroes.back].filter(h => h);
-
-        console.log('🔄 updateDeckPassives 호출됨');
-        console.log('  선택된 영웅 수:', allSelected.length);
 
         if (allSelected.length === 0) {
           allyEffectsList.innerHTML = '<div class="effects-empty">영웅을 선택하면 효과가 표시됩니다</div>';

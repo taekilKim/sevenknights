@@ -30,10 +30,10 @@ export default function TierListPage() {
           <div>
             <h1 style={{ margin: 0, fontSize: "clamp(2rem, 3vw, 3rem)" }}>세나 리버스 티어표</h1>
             <p className="muted" style={{ marginBottom: 0 }}>
-              노출은 높은데 CTR이 낮은 대표 키워드라, 페이지 목적을 더 분명하게 보이도록 구조를 바꿨습니다.
+              결투장, 초보자 육성, 범용성을 기준으로 영웅 투자 우선순위를 확인하세요.
             </p>
           </div>
-          <span className="pill">CTR 개선 우선</span>
+          <span className="pill">영웅 우선순위</span>
         </div>
         <div className="badge-row">
           <span className="pill">결투장 기준</span>
@@ -66,8 +66,7 @@ export default function TierListPage() {
         <h2 style={{ marginTop: 0 }}>같이 보면 좋은 페이지</h2>
         <p>
           티어표에서 끝나지 않도록 <Link href="/guides/arena-decks">결투장 덱 추천</Link>,{" "}
-          <Link href="/guides/beginner">초보자 가이드</Link>, <Link href="/heroes">영웅 도감</Link>으로 바로 이어지게
-          구성하는 게 검색성과 수익화 모두에 좋습니다.
+          <Link href="/guides/beginner">초보자 가이드</Link>, <Link href="/heroes">영웅 도감</Link>도 함께 확인해 보세요.
         </p>
       </section>
     </div>
