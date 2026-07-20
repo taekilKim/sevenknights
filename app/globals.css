@@ -940,11 +940,25 @@ select {
 }
 
 .admin-sidebar,
+.admin-login-card,
 .admin-editor-card {
   border-radius: 24px;
   border: 1px solid rgba(226, 232, 240, 0.94);
   background: rgba(255, 255, 255, 0.9);
   box-shadow: 0 22px 58px -44px rgba(15, 23, 42, 0.55);
+}
+
+.admin-login-card {
+  display: grid;
+  gap: 14px;
+  max-width: 560px;
+  padding: 24px;
+}
+
+.admin-login-card h2 {
+  margin: 4px 0 8px;
+  font-size: clamp(1.6rem, 3vw, 2.3rem);
+  letter-spacing: -0.05em;
 }
 
 .admin-sidebar {
@@ -955,6 +969,8 @@ select {
 }
 
 .admin-sidebar label,
+.admin-login-card label,
+.admin-form-section label,
 .admin-editor-card span {
   color: var(--text-secondary);
   font-size: 0.82rem;
@@ -963,6 +979,8 @@ select {
 
 .admin-sidebar input,
 .admin-sidebar select,
+.admin-login-card input,
+.admin-form-section input,
 .admin-editor-card textarea {
   width: 100%;
   border: 1px solid rgba(203, 213, 225, 0.95);
@@ -973,18 +991,22 @@ select {
 }
 
 .admin-sidebar input,
-.admin-sidebar select {
+.admin-sidebar select,
+.admin-login-card input,
+.admin-form-section input {
   padding: 11px 12px;
 }
 
-.admin-sidebar p {
+.admin-sidebar p,
+.admin-login-card p {
   margin: 4px 0;
   color: var(--text-tertiary);
   font-size: 0.86rem;
   line-height: 1.5;
 }
 
-.admin-sidebar button {
+.admin-sidebar button,
+.admin-login-card button {
   cursor: pointer;
   border: 0;
   border-radius: 14px;
@@ -996,7 +1018,7 @@ select {
 
 .admin-editor-card {
   display: grid;
-  gap: 12px;
+  gap: 18px;
   padding: 18px;
 }
 
@@ -1006,8 +1028,52 @@ select {
   font-size: 1.2rem;
 }
 
-.admin-editor-card textarea {
-  min-height: 70vh;
+.admin-form-section {
+  display: grid;
+  gap: 14px;
+  padding: 18px;
+  border-radius: 20px;
+  background: rgba(248, 250, 252, 0.84);
+  border: 1px solid rgba(226, 232, 240, 0.8);
+}
+
+.admin-form-section h2,
+.admin-skill-card h3 {
+  margin: 0;
+  letter-spacing: -0.04em;
+}
+
+.admin-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.admin-stat-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.admin-form-section label {
+  display: grid;
+  gap: 7px;
+}
+
+.admin-skill-stack {
+  display: grid;
+  gap: 14px;
+}
+
+.admin-skill-card {
+  display: grid;
+  gap: 12px;
+  padding: 16px;
+  border-radius: 18px;
+  background: #fff;
+  border: 1px solid rgba(226, 232, 240, 0.9);
+}
+
+.admin-compact-textarea {
+  min-height: 132px;
   padding: 16px;
   font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
   font-size: 0.84rem;
@@ -1507,6 +1573,11 @@ select {
   }
 
   .admin-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .admin-form-grid,
+  .admin-stat-grid {
     grid-template-columns: 1fr;
   }
 }
