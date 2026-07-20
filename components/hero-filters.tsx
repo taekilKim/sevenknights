@@ -9,6 +9,12 @@ type Props = {
   heroes: HeroSummary[];
 };
 
+const rarityClassMap: Record<string, string> = {
+  "전설+": "rarity-legendary-plus",
+  전설: "rarity-legendary",
+  희귀: "rarity-rare",
+};
+
 export function HeroFilters({ heroes }: Props) {
   const [search, setSearch] = useState("");
   const [rarity, setRarity] = useState("전체");
@@ -109,43 +115,51 @@ export function HeroFilters({ heroes }: Props) {
 
       {filtered.length > 0 ? (
         <div className="catalog-grid">
-          {filtered.map((hero) => (
-            <Link key={hero.id} href={`/heroes/${hero.slug}`} className="catalog-card">
-              <div className="catalog-card-art">
-                {hero.portrait ? (
-                  // eslint-disable-next-line @next/next/no-img-element
-                  <img src={hero.portrait} alt={hero.name} />
-                ) : null}
-                <div className="catalog-card-shine" />
-                {hero.rarity ? <span className="rarity-badge">{hero.rarity}</span> : null}
-              </div>
+          {filtered.map((hero) => {
+            const rarityClass = hero.rarity ? rarityClassMap[hero.rarity] : undefined;
 
-              <div className="catalog-card-body">
-                <div className="catalog-card-title">
-                  <div>
-                    <h3>{hero.name}</h3>
-                    {hero.nickname ? <p>{hero.nickname}</p> : null}
-                  </div>
-                  {hero.typeImage ? (
-                    <span className="type-icon">
-                      {/* eslint-disable-next-line @next/next/no-img-element */}
-                      <img src={hero.typeImage} alt={hero.type} />
-                    </span>
+            return (
+              <Link
+                key={hero.id}
+                href={`/heroes/${hero.slug}`}
+                className={["catalog-card", rarityClass].filter(Boolean).join(" ")}
+              >
+                <div className="catalog-card-art">
+                  {hero.portrait ? (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img src={hero.portrait} alt={hero.name} />
                   ) : null}
+                  <div className="catalog-card-shine" />
+                  {hero.rarity ? <span className="rarity-badge">{hero.rarity}</span> : null}
                 </div>
 
-                <div className="catalog-card-meta">
-                  {hero.type ? <span>{hero.type}</span> : null}
-                  {hero.group ? <span>{hero.group}</span> : null}
-                </div>
+                <div className="catalog-card-body">
+                  <div className="catalog-card-title">
+                    <div>
+                      <h3>{hero.name}</h3>
+                      {hero.nickname ? <p>{hero.nickname}</p> : null}
+                    </div>
+                    {hero.typeImage ? (
+                      <span className="type-icon">
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                        <img src={hero.typeImage} alt={hero.type} />
+                      </span>
+                    ) : null}
+                  </div>
 
-                <div className="catalog-card-footer">
-                  <span>{hero.skills.length > 0 ? `${hero.skills.length}개 스킬` : "스킬 준비 중"}</span>
-                  <strong>상세 보기</strong>
+                  <div className="catalog-card-meta">
+                    {hero.type ? <span>{hero.type}</span> : null}
+                    {hero.group ? <span>{hero.group}</span> : null}
+                  </div>
+
+                  <div className="catalog-card-footer">
+                    <span>{hero.skills.length > 0 ? `${hero.skills.length}개 스킬` : "스킬 준비 중"}</span>
+                    <strong>상세 보기</strong>
+                  </div>
                 </div>
-              </div>
-            </Link>
-          ))}
+              </Link>
+            );
+          })}
         </div>
       ) : (
         <div className="empty-state">

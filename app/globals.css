@@ -658,6 +658,17 @@ select {
   transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 }
 
+.catalog-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  border-radius: inherit;
+  border-top: 4px solid transparent;
+  opacity: 0.9;
+}
+
 .catalog-card:hover {
   transform: translateY(-5px);
   border-color: rgba(37, 99, 235, 0.36);
@@ -671,6 +682,77 @@ select {
   background:
     radial-gradient(circle at 50% 12%, rgba(255, 255, 255, 0.72), transparent 34%),
     linear-gradient(145deg, #dbeafe, #eff6ff 48%, #f8fafc);
+}
+
+.catalog-card.rarity-legendary-plus {
+  border-color: rgba(159, 18, 57, 0.32);
+  box-shadow: 0 20px 52px -36px rgba(136, 19, 55, 0.62);
+}
+
+.catalog-card.rarity-legendary-plus::before {
+  border-top-color: #be123c;
+  box-shadow: inset 0 1px 0 rgba(255, 237, 213, 0.72);
+}
+
+.catalog-card.rarity-legendary-plus:hover {
+  border-color: rgba(190, 18, 60, 0.52);
+  box-shadow: 0 28px 64px -36px rgba(190, 18, 60, 0.78);
+}
+
+.catalog-card.rarity-legendary-plus .catalog-card-art {
+  background:
+    radial-gradient(circle at 28% 12%, rgba(255, 236, 179, 0.92), transparent 22%),
+    radial-gradient(circle at 78% 18%, rgba(168, 85, 247, 0.42), transparent 30%),
+    linear-gradient(145deg, #4c0519, #881337 44%, #f59e0b);
+}
+
+.catalog-card.rarity-legendary-plus .rarity-badge {
+  background: linear-gradient(135deg, #7f1d1d, #be123c 54%, #f59e0b);
+  border-color: rgba(254, 243, 199, 0.78);
+  box-shadow: 0 12px 24px -14px rgba(190, 18, 60, 0.9);
+}
+
+.catalog-card.rarity-legendary {
+  border-color: rgba(180, 83, 9, 0.32);
+}
+
+.catalog-card.rarity-legendary::before {
+  border-top-color: #f59e0b;
+}
+
+.catalog-card.rarity-legendary:hover {
+  border-color: rgba(217, 119, 6, 0.48);
+  box-shadow: 0 28px 60px -38px rgba(217, 119, 6, 0.72);
+}
+
+.catalog-card.rarity-legendary .catalog-card-art {
+  background:
+    radial-gradient(circle at 35% 10%, rgba(255, 251, 235, 0.92), transparent 28%),
+    linear-gradient(145deg, #78350f, #d97706 48%, #fef3c7);
+}
+
+.catalog-card.rarity-legendary .rarity-badge {
+  background: linear-gradient(135deg, #92400e, #d97706);
+  border-color: rgba(254, 243, 199, 0.78);
+}
+
+.catalog-card.rarity-rare {
+  border-color: rgba(37, 99, 235, 0.26);
+}
+
+.catalog-card.rarity-rare::before {
+  border-top-color: #60a5fa;
+}
+
+.catalog-card.rarity-rare .catalog-card-art {
+  background:
+    radial-gradient(circle at 42% 10%, rgba(255, 255, 255, 0.84), transparent 30%),
+    linear-gradient(145deg, #1e3a8a, #60a5fa 52%, #dbeafe);
+}
+
+.catalog-card.rarity-rare .rarity-badge {
+  background: linear-gradient(135deg, #1d4ed8, #60a5fa);
+  border-color: rgba(219, 234, 254, 0.84);
 }
 
 .catalog-card-art img {
@@ -834,6 +916,78 @@ select {
   border: 1px solid rgba(228, 228, 231, 0.9);
   background: rgba(255, 255, 255, 0.86);
   padding: 18px;
+}
+
+.skill-description {
+  display: grid;
+  gap: 8px;
+  margin: 14px 0;
+  color: var(--text-secondary);
+  font-size: 0.94rem;
+  line-height: 1.62;
+}
+
+.skill-line {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+}
+
+.skill-line-target,
+.skill-line-heading,
+.skill-line-transcend {
+  display: inline-flex;
+  width: fit-content;
+  border-radius: 999px;
+  padding: 5px 10px;
+  font-size: 0.78rem;
+  font-weight: 900;
+  line-height: 1.2;
+}
+
+.skill-line-target {
+  color: #1d4ed8;
+  background: rgba(219, 234, 254, 0.82);
+}
+
+.skill-line-heading {
+  margin-top: 6px;
+  color: #92400e;
+  background: rgba(254, 243, 199, 0.9);
+}
+
+.skill-line-transcend {
+  margin-top: 6px;
+  color: #be123c;
+  background: rgba(255, 228, 230, 0.92);
+}
+
+.skill-line-bullet span:first-child {
+  color: var(--accent-secondary);
+  font-weight: 900;
+}
+
+.skill-line-effect {
+  width: fit-content;
+  border-radius: 12px;
+  padding: 7px 10px;
+  color: #0f766e;
+  background: rgba(204, 251, 241, 0.72);
+  font-size: 0.84rem;
+  font-weight: 800;
+}
+
+.skill-line-body {
+  color: var(--text-secondary);
+}
+
+.skill-effects {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(226, 232, 240, 0.86);
 }
 
 .history-item,
