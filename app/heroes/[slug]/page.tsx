@@ -300,6 +300,19 @@ function SkillDescription({ skill }: { skill: Skill }) {
   );
 }
 
+function HeroStats({ hero }: { hero: NonNullable<Awaited<ReturnType<typeof getHeroBySlug>>> }) {
+  return (
+    <div className="profile-stats-grid" aria-label="영웅 기본 스탯">
+      {statEntries.map((entry) => (
+        <div key={entry.key} className="profile-stat-card">
+          <span>{entry.label}</span>
+          <strong>{String(hero[entry.key] ?? "-")}</strong>
+        </div>
+      ))}
+    </div>
+  );
+}
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const hero = await getHeroBySlug(slug);
@@ -353,23 +366,8 @@ export default async function HeroDetailPage({ params }: Props) {
               {hero.description || "상세 설명은 아직 정리 중입니다. 이후 가이드 문서와 함께 확장할 수 있습니다."}
             </p>
             {hero.transLevel ? <div className="pill">초월 정보: {String(hero.transLevel)}</div> : null}
+            <HeroStats hero={hero} />
           </div>
-        </div>
-      </section>
-
-      <section className="section-card">
-        <div className="section-heading">
-          <h2>기본 스탯</h2>
-        </div>
-        <div className="stats-grid">
-          {statEntries.map((entry) => (
-            <div key={entry.key} className="stat-card">
-              <div className="muted" style={{ marginBottom: "8px" }}>
-                {entry.label}
-              </div>
-              <strong style={{ fontSize: "1.25rem" }}>{String(hero[entry.key] ?? "-")}</strong>
-            </div>
-          ))}
         </div>
       </section>
 
@@ -382,11 +380,21 @@ export default async function HeroDetailPage({ params }: Props) {
           <div className="skills-grid">
             {skills.map((skill) => (
               <article key={`${skill.type}-${skill.name}`} className="skill-card">
-                <div className="badge-row" style={{ marginBottom: "12px" }}>
-                  <span className="pill">{skill.type || "스킬"}</span>
-                  {skill.cooltime ? <span className="pill">쿨타임 {String(skill.cooltime)}</span> : null}
+                <div className="skill-card-header">
+                  {skill.image ? (
+                    <span className="skill-image-frame">
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img src={skill.image} alt={`${skill.name} 아이콘`} />
+                    </span>
+                  ) : null}
+                  <div>
+                    <div className="badge-row">
+                      <span className="pill">{skill.type || "스킬"}</span>
+                      {skill.cooltime ? <span className="pill">쿨타임 {String(skill.cooltime)}</span> : null}
+                    </div>
+                    <h3>{skill.name}</h3>
+                  </div>
                 </div>
-                <h3 style={{ marginTop: 0 }}>{skill.name}</h3>
                 <SkillDescription skill={skill} />
               </article>
             ))}
