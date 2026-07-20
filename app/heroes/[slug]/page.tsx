@@ -340,7 +340,7 @@ export default async function HeroDetailPage({ params }: Props) {
   const skills = [hero.attack, hero.active_1, hero.active_2, hero.passive].filter(Boolean) as Skill[];
 
   return (
-    <div style={{ display: "grid", gap: "24px" }}>
+    <div className="hero-detail-page">
       <Link href="/heroes" className="detail-back-link">
         ← 도감으로 돌아가기
       </Link>
