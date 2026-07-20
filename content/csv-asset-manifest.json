@@ -1,191 +1,191 @@
 {
   "heroes": {
     "노호:노호.png": {
-      "path": "/content/heroes/노호-714b7eb515.png",
+      "path": "/content/heroes/hero-001-714b7eb515.png",
       "originalFilename": "노호.png"
     },
     "녹스:녹스.png": {
-      "path": "/content/heroes/녹스-0e58a4be92.png",
+      "path": "/content/heroes/hero-002-0e58a4be92.png",
       "originalFilename": "녹스.png"
     },
     "니아:니아.png": {
-      "path": "/content/heroes/니아-b7368ea239.png",
+      "path": "/content/heroes/hero-003-b7368ea239.png",
       "originalFilename": "니아.png"
     },
     "데이지:데이지.png": {
-      "path": "/content/heroes/데이지-1059634e74.png",
+      "path": "/content/heroes/hero-004-1059634e74.png",
       "originalFilename": "데이지.png"
     },
     "델론즈:델론즈.png": {
-      "path": "/content/heroes/델론즈-4f266886f7.png",
+      "path": "/content/heroes/hero-005-4f266886f7.png",
       "originalFilename": "델론즈.png"
     },
     "라니아:라니아.png": {
-      "path": "/content/heroes/라니아-7536251425.png",
+      "path": "/content/heroes/hero-006-7536251425.png",
       "originalFilename": "라니아.png"
     },
     "라쿤:라쿤.png": {
-      "path": "/content/heroes/라쿤-82a64f31f7.png",
+      "path": "/content/heroes/hero-007-82a64f31f7.png",
       "originalFilename": "라쿤.png"
     },
     "레오:레오.png": {
-      "path": "/content/heroes/레오-4c33561d41.png",
+      "path": "/content/heroes/hero-008-4c33561d41.png",
       "originalFilename": "레오.png"
     },
     "레이:레이.png": {
-      "path": "/content/heroes/레이-0053cf25c0.png",
+      "path": "/content/heroes/hero-009-0053cf25c0.png",
       "originalFilename": "레이.png"
     },
     "레이첼:레이첼.png": {
-      "path": "/content/heroes/레이첼-1075dc79dc.png",
+      "path": "/content/heroes/hero-010-1075dc79dc.png",
       "originalFilename": "레이첼.png"
     },
     "로지:로지.png": {
-      "path": "/content/heroes/로지-3a9f9ad2ce.png",
+      "path": "/content/heroes/hero-011-3a9f9ad2ce.png",
       "originalFilename": "로지.png"
     },
     "루디:루디.png": {
-      "path": "/content/heroes/루디-7c739c4950.png",
+      "path": "/content/heroes/hero-012-7c739c4950.png",
       "originalFilename": "루디.png"
     },
     "루리:루리.png": {
-      "path": "/content/heroes/루리-c92fcb1aa5.png",
+      "path": "/content/heroes/hero-013-c92fcb1aa5.png",
       "originalFilename": "루리.png"
     },
     "루시:루시.png": {
-      "path": "/content/heroes/루시-212d9f1fda.png",
+      "path": "/content/heroes/hero-014-212d9f1fda.png",
       "originalFilename": "루시.png"
     },
     "룩:룩.png": {
-      "path": "/content/heroes/룩-85e6bc380c.png",
+      "path": "/content/heroes/hero-015-85e6bc380c.png",
       "originalFilename": "룩.png"
     },
     "리:리.png": {
-      "path": "/content/heroes/리-b269e6f4cb.png",
+      "path": "/content/heroes/hero-016-b269e6f4cb.png",
       "originalFilename": "리.png"
     },
     "리나:리나.png": {
-      "path": "/content/heroes/리나-d8638711fa.png",
+      "path": "/content/heroes/hero-017-d8638711fa.png",
       "originalFilename": "리나.png"
     },
     "린:린.png": {
-      "path": "/content/heroes/린-c5b497f334.png",
+      "path": "/content/heroes/hero-018-c5b497f334.png",
       "originalFilename": "린.png"
     },
     "메이:메이.png": {
-      "path": "/content/heroes/메이-3611b4f7c4.png",
+      "path": "/content/heroes/hero-019-3611b4f7c4.png",
       "originalFilename": "메이.png"
     },
     "멜키르:멜키르.png": {
-      "path": "/content/heroes/멜키르-80129f595a.png",
+      "path": "/content/heroes/hero-020-80129f595a.png",
       "originalFilename": "멜키르.png"
     },
     "미호:미호.png": {
-      "path": "/content/heroes/미호-c1d8d01d8c.png",
+      "path": "/content/heroes/hero-021-c1d8d01d8c.png",
       "originalFilename": "미호.png"
     },
     "바네사:바네사.png": {
-      "path": "/content/heroes/바네사-9391dfab71.png",
+      "path": "/content/heroes/hero-022-9391dfab71.png",
       "originalFilename": "바네사.png"
     },
     "발리스타:발리스타.png": {
-      "path": "/content/heroes/발리스타-dac3c23969.png",
+      "path": "/content/heroes/hero-023-dac3c23969.png",
       "originalFilename": "발리스타.png"
     },
     "베인:베인.png": {
-      "path": "/content/heroes/베인-1b2cd256d2.png",
+      "path": "/content/heroes/hero-024-1b2cd256d2.png",
       "originalFilename": "베인.png"
     },
     "벨리카:벨리카.png": {
-      "path": "/content/heroes/벨리카-8f1b69c7b6.png",
+      "path": "/content/heroes/hero-025-8f1b69c7b6.png",
       "originalFilename": "벨리카.png"
     },
     "블랙로즈:블랙로즈.png": {
-      "path": "/content/heroes/블랙로즈-48e457c2ad.png",
+      "path": "/content/heroes/hero-026-48e457c2ad.png",
       "originalFilename": "블랙로즈.png"
     },
     "비담:비담.png": {
-      "path": "/content/heroes/비담-cdac305fe0.png",
+      "path": "/content/heroes/hero-027-cdac305fe0.png",
       "originalFilename": "비담.png"
     },
     "비스킷:비스킷.png": {
-      "path": "/content/heroes/비스킷-04af98cf8b.png",
+      "path": "/content/heroes/hero-028-04af98cf8b.png",
       "originalFilename": "비스킷.png"
     },
     "빅토리아:빅토리아.png": {
-      "path": "/content/heroes/빅토리아-0d15f1a445.png",
+      "path": "/content/heroes/hero-029-0d15f1a445.png",
       "originalFilename": "빅토리아.png"
     },
     "사라:사라.png": {
-      "path": "/content/heroes/사라-199a606873.png",
+      "path": "/content/heroes/hero-030-199a606873.png",
       "originalFilename": "사라.png"
     },
     "세라:세라.png": {
-      "path": "/content/heroes/세라-fa28e6c4dc.png",
+      "path": "/content/heroes/hero-031-fa28e6c4dc.png",
       "originalFilename": "세라.png"
     },
     "세인:세인.png": {
-      "path": "/content/heroes/세인-df49f5f275.png",
+      "path": "/content/heroes/hero-032-df49f5f275.png",
       "originalFilename": "세인.png"
     },
     "소이:소이.png": {
-      "path": "/content/heroes/소이-8ffce6073c.png",
+      "path": "/content/heroes/hero-033-8ffce6073c.png",
       "originalFilename": "소이.png"
     },
     "스니퍼:스니퍼.png": {
-      "path": "/content/heroes/스니퍼-3a53e382ad.png",
+      "path": "/content/heroes/hero-034-3a53e382ad.png",
       "originalFilename": "스니퍼.png"
     },
     "스파이크:스파이크.png": {
-      "path": "/content/heroes/스파이크-d0893022cd.png",
+      "path": "/content/heroes/hero-035-d0893022cd.png",
       "originalFilename": "스파이크.png"
     },
     "실베스타:실베스타.png": {
-      "path": "/content/heroes/실베스타-9b9871f6c7.png",
+      "path": "/content/heroes/hero-036-9b9871f6c7.png",
       "originalFilename": "실베스타.png"
     },
     "실비아:실비아.png": {
-      "path": "/content/heroes/실비아-7cc300972a.png",
+      "path": "/content/heroes/hero-037-7cc300972a.png",
       "originalFilename": "실비아.png"
     },
     "아라곤:아라곤.png": {
-      "path": "/content/heroes/아라곤-f26cd96283.png",
+      "path": "/content/heroes/hero-038-f26cd96283.png",
       "originalFilename": "아라곤.png"
     },
     "아리엘:아리엘.png": {
-      "path": "/content/heroes/아리엘-60bbd8f2fe.png",
+      "path": "/content/heroes/hero-039-60bbd8f2fe.png",
       "originalFilename": "아리엘.png"
     },
     "아멜리아:아멜리아.png": {
-      "path": "/content/heroes/아멜리아-4c0312083a.png",
+      "path": "/content/heroes/hero-040-4c0312083a.png",
       "originalFilename": "아멜리아.png"
     },
     "아수라:아수라.png": {
-      "path": "/content/heroes/아수라-1a6d2e7574.png",
+      "path": "/content/heroes/hero-041-1a6d2e7574.png",
       "originalFilename": "아수라.png"
     },
     "아일린:아일린.png": {
-      "path": "/content/heroes/아일린-1c17593225.png",
+      "path": "/content/heroes/hero-042-1c17593225.png",
       "originalFilename": "아일린.png"
     },
     "아킬라:아킬라.png": {
-      "path": "/content/heroes/아킬라-8b0a41761d.png",
+      "path": "/content/heroes/hero-043-8b0a41761d.png",
       "originalFilename": "아킬라.png"
     },
     "앨리스:앨리스.png": {
-      "path": "/content/heroes/앨리스-323ae7d43d.png",
+      "path": "/content/heroes/hero-044-323ae7d43d.png",
       "originalFilename": "앨리스.png"
     },
     "에반:에반.png": {
-      "path": "/content/heroes/에반-d5553eba3b.png",
+      "path": "/content/heroes/hero-045-d5553eba3b.png",
       "originalFilename": "에반.png"
     },
     "에스파다:에스파다.png": {
-      "path": "/content/heroes/에스파다-541f862790.png",
+      "path": "/content/heroes/hero-046-541f862790.png",
       "originalFilename": "에스파다.png"
     },
     "에이스:에이스.png": {
-      "path": "/content/heroes/에이스-82f8b5751e.png",
+      "path": "/content/heroes/hero-047-82f8b5751e.png",
       "originalFilename": "에이스.png"
     },
     "엘리시아:Tex_HeroIcon_101276Card.png": {
@@ -193,99 +193,99 @@
       "originalFilename": "Tex_HeroIcon_101276Card.png"
     },
     "연희:연희.png": {
-      "path": "/content/heroes/연희-3050fc7ebe.png",
+      "path": "/content/heroes/hero-048-3050fc7ebe.png",
       "originalFilename": "연희.png"
     },
     "오를리:오를리.png": {
-      "path": "/content/heroes/오를리-d05dae4cc2.png",
+      "path": "/content/heroes/hero-049-d05dae4cc2.png",
       "originalFilename": "오를리.png"
     },
     "유리:유리.png": {
-      "path": "/content/heroes/유리-ee55e228f6.png",
+      "path": "/content/heroes/hero-050-ee55e228f6.png",
       "originalFilename": "유리.png"
     },
     "유신:유신.png": {
-      "path": "/content/heroes/유신-245d3e2f07.png",
+      "path": "/content/heroes/hero-051-245d3e2f07.png",
       "originalFilename": "유신.png"
     },
     "유이:유이.png": {
-      "path": "/content/heroes/유이-dbbd98e135.png",
+      "path": "/content/heroes/hero-052-dbbd98e135.png",
       "originalFilename": "유이.png"
     },
     "제이브:제이브.png": {
-      "path": "/content/heroes/제이브-90cf0e477d.png",
+      "path": "/content/heroes/hero-053-90cf0e477d.png",
       "originalFilename": "제이브.png"
     },
     "제인:제인.png": {
-      "path": "/content/heroes/제인-cec7fe75af.png",
+      "path": "/content/heroes/hero-054-cec7fe75af.png",
       "originalFilename": "제인.png"
     },
     "조커:조커.png": {
-      "path": "/content/heroes/조커-7b2655ff82.png",
+      "path": "/content/heroes/hero-055-7b2655ff82.png",
       "originalFilename": "조커.png"
     },
     "쥬리:쥬리.png": {
-      "path": "/content/heroes/쥬리-f148e7f6e5.png",
+      "path": "/content/heroes/hero-056-f148e7f6e5.png",
       "originalFilename": "쥬리.png"
     },
     "쥬피:쥬피.png": {
-      "path": "/content/heroes/쥬피-69af063ac6.png",
+      "path": "/content/heroes/hero-057-69af063ac6.png",
       "originalFilename": "쥬피.png"
     },
     "지크:지크.png": {
-      "path": "/content/heroes/지크-2754d05bcb.png",
+      "path": "/content/heroes/hero-058-2754d05bcb.png",
       "originalFilename": "지크.png"
     },
     "진:진.png": {
-      "path": "/content/heroes/진-3afe0fb32c.png",
+      "path": "/content/heroes/hero-059-3afe0fb32c.png",
       "originalFilename": "진.png"
     },
     "챈슬러:챈슬러.png": {
-      "path": "/content/heroes/챈슬러-e8a4c51d5a.png",
+      "path": "/content/heroes/hero-060-e8a4c51d5a.png",
       "originalFilename": "챈슬러.png"
     },
     "카구라:카구라.png": {
-      "path": "/content/heroes/카구라-791752ace0.png",
+      "path": "/content/heroes/hero-061-791752ace0.png",
       "originalFilename": "카구라.png"
     },
     "카론:카론.png": {
-      "path": "/content/heroes/카론-bc82c4151c.png",
+      "path": "/content/heroes/hero-062-bc82c4151c.png",
       "originalFilename": "카론.png"
     },
     "카르마:카르마.png": {
-      "path": "/content/heroes/카르마-50edeb2faf.png",
+      "path": "/content/heroes/hero-063-50edeb2faf.png",
       "originalFilename": "카르마.png"
     },
     "카린:카린.png": {
-      "path": "/content/heroes/카린-6a2d63a46e.png",
+      "path": "/content/heroes/hero-064-6a2d63a46e.png",
       "originalFilename": "카린.png"
     },
     "카일:카일.png": {
-      "path": "/content/heroes/카일-f42d5c31f5.png",
+      "path": "/content/heroes/hero-065-f42d5c31f5.png",
       "originalFilename": "카일.png"
     },
     "캐티:캐티.png": {
-      "path": "/content/heroes/캐티-7ac5fe2e03.png",
+      "path": "/content/heroes/hero-066-7ac5fe2e03.png",
       "originalFilename": "캐티.png"
     },
     "콜트:콜트.png": {
-      "path": "/content/heroes/콜트-7180bb73f5.png",
+      "path": "/content/heroes/hero-067-7180bb73f5.png",
       "originalFilename": "콜트.png"
     },
     "크리스:크리스.png": {
-      "path": "/content/heroes/크리스-ce9e242760.png",
+      "path": "/content/heroes/hero-068-ce9e242760.png",
       "originalFilename": "크리스.png"
     },
     "클라한:클라한.png": {
-      "path": "/content/heroes/클라한-2ae9714f89.png",
+      "path": "/content/heroes/hero-069-2ae9714f89.png",
       "originalFilename": "클라한.png"
     },
     "클레오:클레오.png": {
-      "path": "/content/heroes/클레오-1a52d975da.png",
+      "path": "/content/heroes/hero-070-1a52d975da.png",
       "originalFilename": "클레오.png"
     },
     "클로에:클로에.png": {
-      "path": "/content/heroes/클로에-a5c4bc0668.png",
+      "path": "/content/heroes/hero-071-a5c4bc0668.png",
       "originalFilename": "클로에.png"
     },
     "키리엘:Frame 1.png": {
@@ -293,39 +293,39 @@
       "originalFilename": "Frame 1.png"
     },
     "타카:타카.png": {
-      "path": "/content/heroes/타카-bcc2c45445.png",
+      "path": "/content/heroes/hero-072-bcc2c45445.png",
       "originalFilename": "타카.png"
     },
     "태오:태오.png": {
-      "path": "/content/heroes/태오-6a1c63d70b.png",
+      "path": "/content/heroes/hero-073-6a1c63d70b.png",
       "originalFilename": "태오.png"
     },
     "파스칼:파스칼.png": {
-      "path": "/content/heroes/파스칼-91dfd194f3.png",
+      "path": "/content/heroes/hero-074-91dfd194f3.png",
       "originalFilename": "파스칼.png"
     },
     "파이:파이.png": {
-      "path": "/content/heroes/파이-c3822cc1be.png",
+      "path": "/content/heroes/hero-075-c3822cc1be.png",
       "originalFilename": "파이.png"
     },
     "풍연:풍연.png": {
-      "path": "/content/heroes/풍연-24843356aa.png",
+      "path": "/content/heroes/hero-076-24843356aa.png",
       "originalFilename": "풍연.png"
     },
     "플라튼:플라튼.png": {
-      "path": "/content/heroes/플라튼-7e3de4ea3d.png",
+      "path": "/content/heroes/hero-077-7e3de4ea3d.png",
       "originalFilename": "플라튼.png"
     },
     "헤브니아:헤브니아.png": {
-      "path": "/content/heroes/헤브니아-b6d97a18af.png",
+      "path": "/content/heroes/hero-078-b6d97a18af.png",
       "originalFilename": "헤브니아.png"
     },
     "헬레니아:헬레니아.png": {
-      "path": "/content/heroes/헬레니아-4872e90c73.png",
+      "path": "/content/heroes/hero-079-4872e90c73.png",
       "originalFilename": "헬레니아.png"
     },
     "호킨:호킨.png": {
-      "path": "/content/heroes/호킨-0fd9710f68.png",
+      "path": "/content/heroes/hero-080-0fd9710f68.png",
       "originalFilename": "호킨.png"
     }
   },

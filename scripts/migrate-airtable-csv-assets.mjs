@@ -76,7 +76,11 @@ function attachmentFromCell(value) {
 }
 
 function safeFilename(value) {
-  return value.replace(/[^a-zA-Z0-9._-가-힣]/g, "-").replace(/-+/g, "-");
+  return value
+    .normalize("NFKD")
+    .replace(/[^a-zA-Z0-9._-]/g, "-")
+    .replace(/-+/g, "-")
+    .replace(/^-|-$/g, "");
 }
 
 function assetName(attachment) {
