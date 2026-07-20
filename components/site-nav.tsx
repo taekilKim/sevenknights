@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 
 const items = [
   { href: "/", label: "홈" },
-  { href: "/heroes", label: "영웅 도감" },
+  { href: "/heroes", label: "도감" },
   { href: "/deck-builder", label: "덱 빌더" },
   { href: "/tier-list", label: "티어표" },
   { href: "/guides/beginner", label: "초보자 가이드" },

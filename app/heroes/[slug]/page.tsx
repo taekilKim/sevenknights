@@ -341,6 +341,9 @@ export default async function HeroDetailPage({ params }: Props) {
 
   return (
     <div style={{ display: "grid", gap: "24px" }}>
+      <Link href="/heroes" className="detail-back-link">
+        ← 도감으로 돌아가기
+      </Link>
       <section className="hero-panel">
         <div className="detail-header">
           <div className="portrait-frame">
@@ -356,9 +359,6 @@ export default async function HeroDetailPage({ params }: Props) {
               {hero.group ? <span className="pill">{hero.group}</span> : null}
             </div>
             <div>
-              <Link href="/heroes" className="muted">
-                ← 영웅 도감으로
-              </Link>
               <h1 style={{ margin: "10px 0 8px", fontSize: "clamp(2.2rem, 4vw, 3.4rem)" }}>{hero.name}</h1>
               {hero.nickname ? <p className="muted" style={{ margin: 0 }}>{hero.nickname}</p> : null}
             </div>

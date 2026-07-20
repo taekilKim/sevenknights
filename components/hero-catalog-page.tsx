@@ -1,4 +1,4 @@
-import { HeroFilters } from "@/components/hero-filters";
+import { CatalogTabs } from "@/components/catalog-tabs";
 import { getHeroes } from "@/lib/catalog";
 
 export async function HeroCatalogPage() {
@@ -11,10 +11,10 @@ export async function HeroCatalogPage() {
     <div className="catalog-page">
       <section className="catalog-hero">
         <div className="catalog-hero-copy">
-          <p className="catalog-eyebrow">Hero Encyclopedia</p>
-          <h1>세븐나이츠 리버스 영웅 도감</h1>
+          <p className="catalog-eyebrow">SenaDB Encyclopedia</p>
+          <h1>세븐나이츠 리버스 도감</h1>
           <p>
-            이름, 별명, 희귀도, 타입으로 영웅을 빠르게 찾고 스킬 보유 상태와 핵심 정보를 한눈에 비교하세요.
+            영웅 정보를 먼저 제공하고, 펫과 장비 도감은 업데이트 준비 중입니다.
           </p>
         </div>
 
@@ -39,7 +39,7 @@ export async function HeroCatalogPage() {
       </section>
 
       <section className="catalog-board">
-        <HeroFilters heroes={heroes} />
+        <CatalogTabs heroes={heroes} />
       </section>
     </div>
   );

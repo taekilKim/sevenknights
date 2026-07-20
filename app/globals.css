@@ -530,6 +530,64 @@ select {
   box-shadow: 0 22px 62px -38px rgba(15, 23, 42, 0.36);
 }
 
+.catalog-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 18px;
+  padding: 6px;
+  border-radius: 18px;
+  background: rgba(241, 245, 249, 0.88);
+}
+
+.catalog-tabs button {
+  cursor: pointer;
+  border: 0;
+  border-radius: 14px;
+  padding: 10px 16px;
+  background: transparent;
+  color: var(--text-secondary);
+  font-weight: 900;
+}
+
+.catalog-tabs button[data-active="true"] {
+  background: #fff;
+  color: var(--accent-secondary);
+  box-shadow: 0 14px 28px -22px rgba(15, 23, 42, 0.5);
+}
+
+.catalog-coming-soon {
+  display: grid;
+  gap: 10px;
+  min-height: 260px;
+  align-content: center;
+  justify-items: center;
+  border-radius: 24px;
+  border: 1px dashed rgba(148, 163, 184, 0.75);
+  background:
+    radial-gradient(circle at 50% 0%, rgba(219, 234, 254, 0.74), transparent 34%),
+    rgba(248, 250, 252, 0.88);
+  text-align: center;
+}
+
+.catalog-coming-soon span {
+  color: var(--accent-secondary);
+  font-size: 0.78rem;
+  font-weight: 950;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.catalog-coming-soon strong {
+  font-size: clamp(1.35rem, 3vw, 2rem);
+  letter-spacing: -0.04em;
+}
+
+.catalog-coming-soon p {
+  margin: 0;
+  color: var(--text-tertiary);
+}
+
 .catalog-toolbar {
   display: grid;
   gap: 18px;
@@ -865,6 +923,98 @@ select {
   resize: vertical;
 }
 
+.admin-page {
+  display: grid;
+  gap: 22px;
+}
+
+.admin-hero h1 {
+  margin: 6px 0 10px;
+  font-size: clamp(2rem, 4vw, 3rem);
+}
+
+.admin-shell {
+  display: grid;
+  grid-template-columns: minmax(220px, 280px) 1fr;
+  gap: 18px;
+}
+
+.admin-sidebar,
+.admin-editor-card {
+  border-radius: 24px;
+  border: 1px solid rgba(226, 232, 240, 0.94);
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 22px 58px -44px rgba(15, 23, 42, 0.55);
+}
+
+.admin-sidebar {
+  display: grid;
+  align-content: start;
+  gap: 12px;
+  padding: 18px;
+}
+
+.admin-sidebar label,
+.admin-editor-card span {
+  color: var(--text-secondary);
+  font-size: 0.82rem;
+  font-weight: 900;
+}
+
+.admin-sidebar input,
+.admin-sidebar select,
+.admin-editor-card textarea {
+  width: 100%;
+  border: 1px solid rgba(203, 213, 225, 0.95);
+  border-radius: 14px;
+  background: #fff;
+  color: var(--text-primary);
+  font: inherit;
+}
+
+.admin-sidebar input,
+.admin-sidebar select {
+  padding: 11px 12px;
+}
+
+.admin-sidebar p {
+  margin: 4px 0;
+  color: var(--text-tertiary);
+  font-size: 0.86rem;
+  line-height: 1.5;
+}
+
+.admin-sidebar button {
+  cursor: pointer;
+  border: 0;
+  border-radius: 14px;
+  padding: 12px 14px;
+  background: linear-gradient(135deg, #1d4ed8, #60a5fa);
+  color: #fff;
+  font-weight: 950;
+}
+
+.admin-editor-card {
+  display: grid;
+  gap: 12px;
+  padding: 18px;
+}
+
+.admin-editor-card strong {
+  display: block;
+  margin-top: 4px;
+  font-size: 1.2rem;
+}
+
+.admin-editor-card textarea {
+  min-height: 70vh;
+  padding: 16px;
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  font-size: 0.84rem;
+  line-height: 1.55;
+  resize: vertical;
+}
+
 .button {
   display: inline-flex;
   align-items: center;
@@ -887,15 +1037,31 @@ select {
 
 .detail-header {
   display: grid;
-  grid-template-columns: minmax(240px, 320px) 1fr;
-  gap: 24px;
+  grid-template-columns: minmax(180px, 240px) 1fr;
+  gap: 22px;
 }
 
 .portrait-frame {
   overflow: hidden;
-  border-radius: 28px;
+  border-radius: 24px;
   background: linear-gradient(180deg, #eff6ff, #e2e8f0);
   aspect-ratio: 4 / 5;
+}
+
+.detail-back-link {
+  width: fit-content;
+  border-radius: 999px;
+  padding: 9px 13px;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  color: var(--text-secondary);
+  font-weight: 900;
+  box-shadow: 0 14px 30px -24px rgba(15, 23, 42, 0.55);
+}
+
+.detail-back-link:hover {
+  color: var(--accent-secondary);
+  border-color: rgba(37, 99, 235, 0.25);
 }
 
 .stats-grid {
@@ -1338,6 +1504,10 @@ select {
 
   .profile-stats-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .admin-shell {
+    grid-template-columns: 1fr;
   }
 }
 
