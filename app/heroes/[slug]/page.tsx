@@ -3,7 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 
 import { getHeroBySlug } from "@/lib/catalog";
-import type { Skill } from "@/lib/types";
+import type { Effect, Skill } from "@/lib/types";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -23,69 +23,280 @@ const statEntries = [
   { key: "eff_res", label: "효과 저항" },
 ] as const;
 
-function formatSkillDescription(description: string | null | undefined) {
-  if (!description) {
-    return [];
+type SkillTargetType = "enemy-single" | "enemy-multi" | "ally-single" | "ally-multi" | "neutral";
+type SkillSectionType = "enhancement" | "awakening-2" | "awakening-6";
+
+type SkillBlock =
+  | { type: "target"; text: string; targetType: SkillTargetType }
+  | { type: "line"; text: string; isBullet: boolean }
+  | { type: "section"; sectionType: SkillSectionType; title: string; icon: string; lines: string[] }
+  | { type: "effect"; effect: ParsedEffect };
+
+type ParsedEffect = {
+  id: string;
+  name: string;
+  description: string;
+  icon: string | null;
+  effectType: string | null;
+  missing?: boolean;
+};
+
+function getSkillTargetType(text: string): SkillTargetType {
+  if (/^(모든 적군|전체 적군|적군 \d+명)/.test(text)) {
+    return "enemy-multi";
   }
 
-  return description
+  if (/^(단일 적군|대상 적군|적군 1명|무작위 적군 1명|(?:공격력|방어력|생명력|체력|속공)이 가장 (?:높은|낮은) 적군)/.test(text)) {
+    return "enemy-single";
+  }
+
+  if (/^(모든 아군|전체 아군|아군 \d+명|(?:공격력|방어력|생명력|체력|속공)이 가장 (?:높은|낮은) 아군 \d+명)/.test(text)) {
+    return "ally-multi";
+  }
+
+  if (/^(자신|단일 아군|대상 아군|아군 1명|(?:공격력|방어력|생명력|체력|속공)이 가장 (?:높은|낮은) 아군)/.test(text)) {
+    return "ally-single";
+  }
+
+  return "neutral";
+}
+
+function renderInlineSkillText(text: string) {
+  const normalized = text.replace(/^-\s*/, "");
+  const parts = normalized.split(/(\[[^\]]+\]|(?:물리|마법|모든)?\s*공격력의\s*\d+%|방어력의\s*\d+%|최대 생명력의\s*\d+%|\d+(?:\.\d+)?%|\d+(?:\.\d+)?(?:초|턴|회|명|중첩)|상시|전투당\s*\d+회|피격\s*\d+회)/g);
+
+  return parts.map((part, index) => {
+    if (!part) {
+      return null;
+    }
+
+    if (/^\[[^\]]+\]$/.test(part)) {
+      return (
+        <span key={`${part}-${index}`} className="skill-token skill-token-effect">
+          {part}
+        </span>
+      );
+    }
+
+    if (/(?:공격력의|방어력의|최대 생명력의|\d+(?:\.\d+)?%|\d+(?:\.\d+)?(?:초|턴|회|명|중첩)|상시|전투당|피격)/.test(part)) {
+      return (
+        <span key={`${part}-${index}`} className="skill-token skill-token-value">
+          {part}
+        </span>
+      );
+    }
+
+    return part;
+  });
+}
+
+function parseEffectMarker(line: string, effects: Effect[] = []): ParsedEffect | null {
+  const match = line.match(/^<<([^,>]+)(?:,\s*([^,>]+))?(?:,\s*([^>]+))?>>$/);
+
+  if (!match) {
+    return null;
+  }
+
+  const name = match[1].trim();
+  let isFulltime = false;
+  let variableValue: string | null = null;
+
+  if (match[2]) {
+    const second = match[2].trim();
+    if (second === "상시") {
+      isFulltime = true;
+      variableValue = match[3]?.trim() || null;
+    } else {
+      variableValue = second;
+    }
+  }
+
+  const candidates = effects.filter((effect) => effect.name === name);
+  const effect = candidates.find((candidate) => (isFulltime ? candidate.fulltime === true : !candidate.fulltime)) || candidates[0];
+
+  if (!effect) {
+    return {
+      id: `missing-${name}`,
+      name,
+      description: "효과 설명이 아직 연결되지 않았습니다.",
+      icon: null,
+      effectType: null,
+      missing: true,
+    };
+  }
+
+  const description = effect.hasVariable && variableValue
+    ? effect.description.replace(/n/g, variableValue)
+    : effect.description;
+
+  return {
+    id: effect.id,
+    name: effect.name,
+    description,
+    icon: effect.icon,
+    effectType: effect.effectType,
+  };
+}
+
+function parseSkillDescription(skill: Skill): SkillBlock[] {
+  const lines = (skill.description || "")
     .replace(/\u00a0/g, " ")
     .split("\n")
     .map((line) => line.trim())
-    .filter(Boolean)
-    .map((line) => {
-      if (line.startsWith("<<") && line.endsWith(">>")) {
-        return { type: "effect", text: line.replace(/^<<|>>$/g, "") };
+    .filter(Boolean);
+  const blocks: SkillBlock[] = [];
+
+  for (let index = 0; index < lines.length; index += 1) {
+    const line = lines[index];
+
+    if (line.startsWith("@@") || line === "6초월 효과") {
+      const collected: string[] = [];
+      index += 1;
+
+      while (index < lines.length && !/^(@@|@|#|<<|!)/.test(lines[index])) {
+        collected.push(lines[index]);
+        index += 1;
       }
 
-      if (line.startsWith("@@")) {
-        return { type: "transcend transcend-6", text: line.replace(/^@@/, "") };
+      index -= 1;
+      blocks.push({ type: "section", sectionType: "awakening-6", title: "6초월 효과", icon: "/images/trans-6.png", lines: collected });
+      continue;
+    }
+
+    if (line.startsWith("@") || line === "2초월 효과") {
+      const collected: string[] = [];
+      index += 1;
+
+      while (index < lines.length && !/^(@@|@|#|<<|!)/.test(lines[index])) {
+        collected.push(lines[index]);
+        index += 1;
       }
 
-      if (line.startsWith("@")) {
-        return { type: "transcend transcend-2", text: line.replace(/^@/, "") };
+      index -= 1;
+      blocks.push({ type: "section", sectionType: "awakening-2", title: "2초월 효과", icon: "/images/trans-2.png", lines: collected });
+      continue;
+    }
+
+    if (line.startsWith("#") || line === "스킬 강화 효과") {
+      const collected: string[] = [];
+      index += 1;
+
+      while (index < lines.length && !/^(@@|@|#|<<|!)/.test(lines[index])) {
+        collected.push(lines[index]);
+        index += 1;
       }
 
-      if (line.startsWith("#")) {
-        return { type: "heading", text: line.replace(/^#/, "") };
-      }
+      index -= 1;
+      blocks.push({ type: "section", sectionType: "enhancement", title: "스킬 강화 효과", icon: "/images/enhance.png", lines: collected });
+      continue;
+    }
 
-      if (line.startsWith("!")) {
-        return { type: "target", text: line.replace(/^!/, "") };
+    if (line.startsWith("<<")) {
+      const effect = parseEffectMarker(line, skill.effects);
+      if (effect) {
+        blocks.push({ type: "effect", effect });
       }
+      continue;
+    }
 
-      if (/^\[[^\]]+\]$/.test(line)) {
-        return { type: "target", text: line.replace(/^\[|\]$/g, "") };
-      }
+    if (line.startsWith("!")) {
+      const text = line.replace(/^!/, "");
+      blocks.push({ type: "target", text, targetType: getSkillTargetType(text) });
+      continue;
+    }
 
-      if (line.startsWith("-")) {
-        return { type: "bullet", text: line.replace(/^-\s*/, "") };
-      }
+    if (/^\[[^\]]+\]$/.test(line)) {
+      const text = line.replace(/^\[|\]$/g, "");
+      blocks.push({ type: "target", text, targetType: getSkillTargetType(text) });
+      continue;
+    }
 
-      if (/^(스킬 강화 효과|2초월 효과|6초월 효과)$/.test(line)) {
-        return { type: "heading", text: line };
-      }
+    blocks.push({ type: "line", text: line, isBullet: line.startsWith("-") });
+  }
 
-      return { type: "body", text: line };
-    });
+  return blocks;
+}
+
+function SkillEffectBox({ effect, inline = false }: { effect: ParsedEffect; inline?: boolean }) {
+  return (
+    <div
+      className={[
+        "skill-effect-box",
+        "skill-effect-custom",
+        effect.effectType ? `skill-effect-${effect.effectType}` : "",
+        effect.missing ? "skill-effect-unknown" : "",
+        inline ? "inline-effect" : "sidebar-effect",
+      ].filter(Boolean).join(" ")}
+    >
+      <div className="effect-title">
+        {effect.icon ? (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img src={effect.icon} alt="" className="effect-icon" />
+        ) : null}
+        <span>{effect.name}</span>
+      </div>
+      <div className="effect-desc">{renderInlineSkillText(effect.description)}</div>
+    </div>
+  );
 }
 
 function SkillDescription({ skill }: { skill: Skill }) {
-  const lines = formatSkillDescription(skill.description);
+  const blocks = parseSkillDescription(skill);
+  const effectBlocks = blocks.filter((block): block is Extract<SkillBlock, { type: "effect" }> => block.type === "effect");
 
-  if (lines.length === 0) {
+  if (blocks.length === 0) {
     return <p className="muted">설명이 없습니다.</p>;
   }
 
   return (
-    <div className="skill-description">
-      {lines.map((line, index) => (
-        <div key={`${line.text}-${index}`} className={`skill-line skill-line-${line.type}`}>
-          {line.type === "bullet" ? <span aria-hidden="true">•</span> : null}
-          <span>{line.text}</span>
+    <>
+      <div className="skill-description">
+        {blocks.map((block, index) => {
+          if (block.type === "target") {
+            return (
+              <div key={`${block.text}-${index}`} className={`skill-target-box target-${block.targetType}`}>
+                {renderInlineSkillText(block.text)}
+              </div>
+            );
+          }
+
+          if (block.type === "section") {
+            return (
+              <div key={`${block.sectionType}-${index}`} className={`skill-effect-box ${block.sectionType}`}>
+                <div className="effect-title">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={block.icon} alt="" className="effect-icon-img" />
+                  <span>{block.title}</span>
+                </div>
+                <div className="effect-desc">
+                  {block.lines.map((line, lineIndex) => (
+                    <p key={`${line}-${lineIndex}`}>{renderInlineSkillText(line)}</p>
+                  ))}
+                </div>
+              </div>
+            );
+          }
+
+          if (block.type === "effect") {
+            return <SkillEffectBox key={`${block.effect.id}-${index}`} effect={block.effect} inline />;
+          }
+
+          return (
+            <p key={`${block.text}-${index}`} className={`skill-description-line${block.isBullet ? " is-bullet" : ""}`}>
+              {block.isBullet ? <span aria-hidden="true" className="skill-bullet">•</span> : null}
+              <span>{renderInlineSkillText(block.text)}</span>
+            </p>
+          );
+        })}
+      </div>
+      {effectBlocks.length > 0 ? (
+        <div className="skill-effects">
+          {effectBlocks.map((block, index) => (
+            <SkillEffectBox key={`${block.effect.id}-side-${index}`} effect={block.effect} />
+          ))}
         </div>
-      ))}
-    </div>
+      ) : null}
+    </>
   );
 }
 
@@ -177,15 +388,6 @@ export default async function HeroDetailPage({ params }: Props) {
                 </div>
                 <h3 style={{ marginTop: 0 }}>{skill.name}</h3>
                 <SkillDescription skill={skill} />
-                {skill.effects && skill.effects.length > 0 ? (
-                  <div className="skill-effects">
-                    {skill.effects.map((effect) => (
-                      <span key={effect.id} className="pill">
-                        {effect.name}
-                      </span>
-                    ))}
-                  </div>
-                ) : null}
               </article>
             ))}
           </div>
