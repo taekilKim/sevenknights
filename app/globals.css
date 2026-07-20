@@ -985,6 +985,7 @@ select {
 .admin-sidebar select,
 .admin-login-card input,
 .admin-form-section input,
+.admin-form-section select,
 .admin-editor-card textarea {
   width: 100%;
   border: 1px solid rgba(203, 213, 225, 0.95);
@@ -997,7 +998,8 @@ select {
 .admin-sidebar input,
 .admin-sidebar select,
 .admin-login-card input,
-.admin-form-section input {
+.admin-form-section input,
+.admin-form-section select {
   padding: 11px 12px;
 }
 
@@ -1047,6 +1049,37 @@ select {
   letter-spacing: -0.04em;
 }
 
+.admin-section-title {
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  align-items: flex-start;
+}
+
+.admin-section-title p {
+  margin: 6px 0 0;
+  color: var(--text-tertiary);
+  font-size: 0.9rem;
+}
+
+.admin-section-title button,
+.admin-skill-card-top button,
+.admin-effect-picker button {
+  cursor: pointer;
+  border: 1px solid rgba(203, 213, 225, 0.95);
+  border-radius: 12px;
+  padding: 9px 12px;
+  background: #fff;
+  color: var(--text-secondary);
+  font-weight: 900;
+}
+
+.admin-section-title button {
+  border-color: rgba(37, 99, 235, 0.28);
+  background: rgba(37, 99, 235, 0.08);
+  color: var(--accent-secondary);
+}
+
 .admin-form-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1074,6 +1107,79 @@ select {
   border-radius: 18px;
   background: #fff;
   border: 1px solid rgba(226, 232, 240, 0.9);
+}
+
+.admin-skill-card[draggable="true"] {
+  cursor: grab;
+}
+
+.admin-skill-card-top,
+.admin-effect-picker > div:first-child {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: center;
+}
+
+.admin-drag-handle {
+  display: inline-flex;
+  margin-bottom: 6px;
+  border-radius: 999px;
+  padding: 4px 8px;
+  background: rgba(15, 23, 42, 0.06);
+  color: var(--text-tertiary);
+  font-size: 0.72rem;
+  font-weight: 950;
+}
+
+.admin-help-card,
+.admin-effect-picker {
+  display: grid;
+  gap: 10px;
+  border-radius: 18px;
+  padding: 14px;
+  background: rgba(239, 246, 255, 0.75);
+  border: 1px solid rgba(147, 197, 253, 0.55);
+}
+
+.admin-help-card p {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 0.88rem;
+  line-height: 1.65;
+}
+
+.admin-help-card code {
+  border-radius: 7px;
+  padding: 2px 5px;
+  background: rgba(255, 255, 255, 0.86);
+  color: #1d4ed8;
+  font-weight: 900;
+}
+
+.admin-effect-picker {
+  background: rgba(248, 250, 252, 0.95);
+  border-color: rgba(226, 232, 240, 0.9);
+}
+
+.admin-effect-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 8px;
+  max-height: 260px;
+  overflow: auto;
+}
+
+.admin-effect-list button {
+  display: grid;
+  gap: 3px;
+  justify-items: start;
+  text-align: left;
+}
+
+.admin-effect-list small {
+  color: var(--text-tertiary);
+  font-size: 0.74rem;
 }
 
 .admin-compact-textarea {

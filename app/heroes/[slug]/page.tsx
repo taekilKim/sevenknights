@@ -337,7 +337,7 @@ export default async function HeroDetailPage({ params }: Props) {
     notFound();
   }
 
-  const skills = [hero.attack, hero.active_1, hero.active_2, hero.passive].filter(Boolean) as Skill[];
+  const skills = hero.skills;
 
   return (
     <div className="hero-detail-page">

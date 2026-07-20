@@ -8,6 +8,14 @@ type Params = {
 };
 
 const catalogPath = path.join(process.cwd(), "content", "hero-catalog.json");
+const skillTypeMap: Record<string, "attack" | "passive" | "active"> = {
+  Attack: "attack",
+  "기본공격": "attack",
+  Passive: "passive",
+  "패시브": "passive",
+  Active: "active",
+  "액티브": "active",
+};
 
 function isAuthorized(request: Request) {
   const adminToken = process.env.ADMIN_TOKEN;
@@ -49,6 +57,17 @@ export async function PUT(request: Request, { params }: Params) {
         { error: "해당 영웅을 찾을 수 없습니다." },
         { status: 404 },
       );
+    }
+
+    if (Array.isArray(nextHero.skillList)) {
+      const attack = nextHero.skillList.find((skill: { type?: string }) => skillTypeMap[skill.type || ""] === "attack") || null;
+      const passive = nextHero.skillList.find((skill: { type?: string }) => skillTypeMap[skill.type || ""] === "passive") || null;
+      const activeSkills = nextHero.skillList.filter((skill: { type?: string }) => skillTypeMap[skill.type || ""] === "active");
+
+      nextHero.attack = attack;
+      nextHero.passive = passive;
+      nextHero.active_1 = activeSkills[0] || null;
+      nextHero.active_2 = activeSkills[1] || null;
     }
 
     catalog.heroes[heroIndex] = nextHero;

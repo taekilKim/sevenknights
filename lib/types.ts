@@ -9,12 +9,14 @@ export type Effect = {
 };
 
 export type Skill = {
+  id?: string;
   type: string;
   name: string;
   description: string;
   image: string | null;
   cooltime?: string | number | null;
   effects?: Effect[];
+  linkedHeroes?: unknown;
 };
 
 export type HeroSummary = {
@@ -47,6 +49,7 @@ export type HeroDetail = HeroSummary & {
   passive: Skill | null;
   active_1: Skill | null;
   active_2: Skill | null;
+  skillList?: Skill[];
   description: string | null;
   history: Array<{ date: string; content: string }>;
   transLevel: string | number | null;

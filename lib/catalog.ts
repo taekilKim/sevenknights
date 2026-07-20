@@ -13,6 +13,10 @@ const catalog = catalogData as unknown as {
 };
 
 function heroSkills(hero: CatalogHero): Skill[] {
+  if (Array.isArray(hero.skillList) && hero.skillList.length > 0) {
+    return hero.skillList.filter((skill): skill is Skill => Boolean(skill));
+  }
+
   return [hero.attack, hero.active_1, hero.active_2, hero.passive].filter((skill): skill is Skill => Boolean(skill));
 }
 
