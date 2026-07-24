@@ -18,8 +18,6 @@ const basicFields = [
   { key: "group", label: "소속" },
   { key: "rarity", label: "등급" },
   { key: "type", label: "타입" },
-  { key: "portrait", label: "프로필 이미지 경로" },
-  { key: "typeImage", label: "타입 아이콘 경로" },
 ] as const;
 
 const statFields = [
@@ -100,6 +98,11 @@ function createEmptySkill(heroId: string, index: number): Skill {
 
 function effectToken(effect: Effect) {
   return effect.hasVariable ? `<<${effect.name}, 상시, >>` : `<<${effect.name}>>`;
+}
+
+function isValidImagePath(value: string | null | undefined) {
+  if (!value) return true;
+  return value.startsWith("https://") || value.startsWith("http://") || value.startsWith("/content/") || value.startsWith("/images/");
 }
 
 export function AdminHeroEditor({ heroes, effects }: Props) {
@@ -302,6 +305,18 @@ export function AdminHeroEditor({ heroes, effects }: Props) {
               </label>
             ))}
           </div>
+          <div className="admin-form-grid">
+            <ImageUrlField
+              label="프로필 이미지"
+              value={draft.portrait || ""}
+              onChange={(value) => updateField("portrait", value)}
+            />
+            <ImageUrlField
+              label="타입 아이콘"
+              value={draft.typeImage || ""}
+              onChange={(value) => updateField("typeImage", value)}
+            />
+          </div>
           <label>
             <span>설명</span>
             <textarea
@@ -387,13 +402,11 @@ export function AdminHeroEditor({ heroes, effects }: Props) {
                       onChange={(event) => updateSkill(skill.id || "", { cooltime: event.target.value || null })}
                     />
                   </label>
-                  <label>
-                    <span>스킬 이미지 경로</span>
-                    <input
-                      value={skill.image || ""}
-                      onChange={(event) => updateSkill(skill.id || "", { image: event.target.value || null })}
-                    />
-                  </label>
+                  <ImageUrlField
+                    label="스킬 이미지"
+                    value={skill.image || ""}
+                    onChange={(value) => updateSkill(skill.id || "", { image: value || null })}
+                  />
                 </div>
 
                 <label>
@@ -431,5 +444,36 @@ export function AdminHeroEditor({ heroes, effects }: Props) {
         </div>
       </section>
     </div>
+  );
+}
+
+function ImageUrlField({ label, value, onChange }: { label: string; value: string; onChange: (value: string) => void }) {
+  const valid = isValidImagePath(value);
+
+  return (
+    <label className="admin-image-field">
+      <span>{label}</span>
+      <div className="admin-image-input-row">
+        <input
+          value={value}
+          placeholder="https://cdn... 또는 /content/..."
+          onChange={(event) => onChange(event.target.value)}
+        />
+        {value ? (
+          <a href={value} target="_blank" rel="noreferrer">
+            열기
+          </a>
+        ) : null}
+      </div>
+      <div className="admin-image-preview" data-empty={!value} data-invalid={!valid}>
+        {value && valid ? (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img src={value} alt={`${label} 미리보기`} />
+        ) : (
+          <span>{value ? "이미지 경로를 확인해 주세요." : "이미지 미리보기"}</span>
+        )}
+      </div>
+      <small>CDN URL 또는 사이트 내부 경로를 붙여넣으세요. 예: /content/heroes/hero-005.png</small>
+    </label>
   );
 }
