@@ -1191,6 +1191,390 @@ select {
   resize: vertical;
 }
 
+.deck-builder-page {
+  display: grid;
+  gap: 22px;
+  min-width: 0;
+}
+
+.deck-hero-panel {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  align-items: end;
+  border-radius: 30px;
+  padding: 34px;
+  color: #fff;
+  background:
+    radial-gradient(circle at 74% 18%, rgba(248, 113, 113, 0.42), transparent 26%),
+    radial-gradient(circle at 18% 0%, rgba(96, 165, 250, 0.36), transparent 30%),
+    linear-gradient(135deg, #111827, #1e293b 46%, #3f1f2d);
+  box-shadow: 0 34px 80px -44px rgba(15, 23, 42, 0.78);
+}
+
+.deck-hero-panel h1 {
+  margin: 6px 0 10px;
+  font-size: clamp(2.25rem, 5vw, 4.4rem);
+  line-height: 0.95;
+  letter-spacing: -0.07em;
+}
+
+.deck-hero-panel p {
+  max-width: 680px;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.78);
+  font-weight: 700;
+}
+
+.deck-hero-summary {
+  display: grid;
+  min-width: 150px;
+  border-radius: 24px;
+  padding: 18px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  text-align: right;
+}
+
+.deck-hero-summary strong {
+  font-size: 2.4rem;
+  line-height: 1;
+}
+
+.deck-hero-summary span {
+  color: rgba(255, 255, 255, 0.72);
+  font-weight: 900;
+}
+
+.deck-builder-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.45fr) minmax(300px, 0.75fr);
+  gap: 18px;
+}
+
+.deck-board-panel,
+.deck-insight-panel,
+.deck-picker-panel {
+  min-width: 0;
+  border-radius: 28px;
+  border: 1px solid rgba(226, 232, 240, 0.92);
+  background: rgba(255, 255, 255, 0.86);
+  box-shadow: 0 22px 58px -42px rgba(15, 23, 42, 0.5);
+}
+
+.deck-board-panel,
+.deck-insight-panel,
+.deck-picker-panel {
+  padding: 20px;
+}
+
+.deck-formation-tabs {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.deck-formation-tabs button,
+.deck-effect-tabs button,
+.deck-actions-panel button,
+.deck-actions-panel a {
+  cursor: pointer;
+  border: 1px solid rgba(203, 213, 225, 0.9);
+  border-radius: 16px;
+  padding: 11px 12px;
+  background: #fff;
+  color: var(--text-secondary);
+  font-weight: 950;
+}
+
+.deck-formation-tabs button {
+  display: grid;
+  gap: 3px;
+  text-align: left;
+}
+
+.deck-formation-tabs button span {
+  color: var(--text-tertiary);
+  font-size: 0.8rem;
+}
+
+.deck-formation-tabs button[data-active="true"],
+.deck-effect-tabs button[data-active="true"] {
+  border-color: rgba(37, 99, 235, 0.28);
+  background: linear-gradient(135deg, rgba(239, 246, 255, 0.96), rgba(219, 234, 254, 0.72));
+  color: var(--accent-secondary);
+}
+
+.deck-arena-card {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  overflow: hidden;
+  border-radius: 26px;
+  padding: 18px;
+  background:
+    linear-gradient(90deg, rgba(15, 23, 42, 0.05) 1px, transparent 1px),
+    linear-gradient(0deg, rgba(15, 23, 42, 0.05) 1px, transparent 1px),
+    radial-gradient(circle at 50% 50%, rgba(59, 130, 246, 0.14), transparent 34%),
+    linear-gradient(135deg, #f8fafc, #eef2ff);
+  background-size: 32px 32px, 32px 32px, auto, auto;
+}
+
+.deck-line {
+  display: grid;
+  align-content: start;
+  gap: 12px;
+}
+
+.deck-line-label {
+  width: fit-content;
+  border-radius: 999px;
+  padding: 6px 10px;
+  background: rgba(15, 23, 42, 0.78);
+  color: #fff;
+  font-size: 0.78rem;
+  font-weight: 950;
+}
+
+.deck-slot-row {
+  display: grid;
+  gap: 12px;
+}
+
+.deck-slot-card {
+  position: relative;
+  display: grid;
+  justify-items: center;
+  align-content: center;
+  min-height: 164px;
+  border: 1px dashed rgba(148, 163, 184, 0.72);
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.7);
+  color: var(--text-secondary);
+  text-align: center;
+  transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
+}
+
+.deck-slot-card:hover,
+.deck-slot-card[data-active="true"] {
+  transform: translateY(-2px);
+  border-color: rgba(37, 99, 235, 0.48);
+  box-shadow: 0 18px 40px -30px rgba(37, 99, 235, 0.75);
+}
+
+.deck-slot-card[data-filled="true"] {
+  border-style: solid;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(248, 250, 252, 0.84));
+}
+
+.deck-slot-position {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  border-radius: 999px;
+  padding: 4px 8px;
+  background: rgba(15, 23, 42, 0.08);
+  color: var(--text-tertiary);
+  font-size: 0.72rem;
+  font-weight: 950;
+}
+
+.deck-slot-portrait {
+  overflow: hidden;
+  width: 78px;
+  height: 94px;
+  border-radius: 18px;
+  background: #e2e8f0;
+  box-shadow: 0 18px 36px -24px rgba(15, 23, 42, 0.65);
+}
+
+.deck-slot-portrait img,
+.deck-pick-portrait img,
+.deck-effect-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.deck-slot-card strong {
+  margin-top: 8px;
+  color: var(--text-primary);
+}
+
+.deck-slot-meta {
+  color: var(--text-tertiary);
+  font-size: 0.8rem;
+  font-weight: 800;
+}
+
+.deck-slot-empty {
+  color: rgba(148, 163, 184, 0.95);
+  font-size: 2.6rem;
+  font-weight: 200;
+}
+
+.deck-transcendence {
+  margin-top: 7px;
+  border-radius: 999px;
+  padding: 4px 9px;
+  background: rgba(250, 204, 21, 0.18);
+  color: #a16207;
+  font-size: 0.78rem;
+  font-weight: 950;
+}
+
+.deck-actions-panel {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.deck-actions-panel a {
+  display: inline-flex;
+  align-items: center;
+}
+
+.deck-insight-panel {
+  display: grid;
+  align-content: start;
+  gap: 16px;
+}
+
+.deck-insight-panel h2 {
+  margin: 0 0 6px;
+}
+
+.deck-insight-panel p {
+  margin: 0;
+  color: var(--text-tertiary);
+}
+
+.deck-role-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.deck-role-grid span {
+  display: grid;
+  gap: 2px;
+  border-radius: 16px;
+  padding: 12px;
+  background: rgba(248, 250, 252, 0.9);
+  border: 1px solid rgba(226, 232, 240, 0.85);
+  color: var(--text-tertiary);
+  font-weight: 800;
+}
+
+.deck-role-grid strong {
+  color: var(--text-primary);
+}
+
+.deck-effect-tabs {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.deck-effect-list {
+  display: grid;
+  gap: 10px;
+  max-height: 470px;
+  overflow: auto;
+  padding-right: 4px;
+}
+
+.deck-effect-item {
+  display: grid;
+  grid-template-columns: 42px 1fr;
+  gap: 10px;
+  border-radius: 16px;
+  padding: 12px;
+  background: rgba(248, 250, 252, 0.92);
+  border: 1px solid rgba(226, 232, 240, 0.86);
+}
+
+.deck-effect-item img {
+  overflow: hidden;
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: #e2e8f0;
+}
+
+.deck-effect-item strong,
+.deck-effect-item span {
+  display: block;
+}
+
+.deck-effect-item span {
+  color: var(--text-tertiary);
+  font-size: 0.78rem;
+  font-weight: 800;
+}
+
+.deck-effect-item p {
+  margin-top: 6px;
+  color: var(--text-secondary);
+  font-size: 0.86rem;
+  line-height: 1.5;
+}
+
+.deck-picker-panel {
+  display: grid;
+  gap: 16px;
+}
+
+.deck-hero-picker-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 10px;
+}
+
+.deck-hero-pick {
+  cursor: pointer;
+  display: grid;
+  grid-template-columns: 52px 1fr;
+  gap: 10px;
+  align-items: center;
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  border-radius: 18px;
+  padding: 10px;
+  background: #fff;
+  color: var(--text-primary);
+  text-align: left;
+}
+
+.deck-hero-pick[data-selected="true"] {
+  border-color: rgba(37, 99, 235, 0.35);
+  background: rgba(239, 246, 255, 0.82);
+}
+
+.deck-pick-portrait {
+  overflow: hidden;
+  width: 52px;
+  height: 62px;
+  border-radius: 14px;
+  background: #e2e8f0;
+}
+
+.deck-hero-pick strong,
+.deck-hero-pick small {
+  display: block;
+}
+
+.deck-hero-pick small {
+  margin-top: 3px;
+  color: var(--text-tertiary);
+  font-size: 0.78rem;
+  font-weight: 800;
+}
+
 .button {
   display: inline-flex;
   align-items: center;
@@ -1717,6 +2101,19 @@ select {
   .admin-stat-grid {
     grid-template-columns: 1fr;
   }
+
+  .deck-builder-layout,
+  .deck-arena-card {
+    grid-template-columns: 1fr;
+  }
+
+  .deck-hero-panel {
+    display: grid;
+  }
+
+  .deck-hero-summary {
+    text-align: left;
+  }
 }
 
 @media (max-width: 560px) {
@@ -1754,5 +2151,20 @@ select {
   .type-icon {
     width: 30px;
     height: 30px;
+  }
+
+  .deck-formation-tabs,
+  .deck-role-grid,
+  .deck-effect-tabs,
+  .deck-hero-picker-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .deck-hero-panel,
+  .deck-board-panel,
+  .deck-insight-panel,
+  .deck-picker-panel {
+    padding: 18px;
+    border-radius: 22px;
   }
 }
