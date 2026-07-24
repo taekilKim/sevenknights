@@ -509,7 +509,7 @@ function ImageUrlField({
       <div className="admin-image-input-row">
         <input
           value={value}
-          placeholder="https://cdn... 또는 /content/..."
+          placeholder="Cloudinary CDN URL 또는 기존 이미지 경로"
           onChange={(event) => onChange(event.target.value)}
         />
         {value ? (
@@ -545,7 +545,7 @@ function ImageUrlField({
           <span>{value ? "이미지 경로를 확인해 주세요." : "이미지 미리보기"}</span>
         )}
       </div>
-      <small>CDN URL 또는 사이트 내부 경로를 붙여넣으세요. 예: /content/heroes/hero-005.png</small>
+      <small>파일을 업로드하면 Cloudinary CDN URL이 자동으로 입력됩니다. 기존 /content 경로도 그대로 사용할 수 있습니다.</small>
     </label>
   );
 }

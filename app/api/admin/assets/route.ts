@@ -1,4 +1,4 @@
-import { promises as fs } from "fs";
+import crypto from "crypto";
 import path from "path";
 
 import { NextResponse } from "next/server";
@@ -20,8 +20,7 @@ function extensionFor(file: File) {
   return "";
 }
 
-function safeFilename(file: File) {
-  const extension = extensionFor(file);
+function safePublicId(file: File) {
   const basename = path
     .basename(file.name, path.extname(file.name))
     .normalize("NFKD")
@@ -30,37 +29,63 @@ function safeFilename(file: File) {
     .replace(/^-|-$/g, "")
     .toLowerCase();
 
-  return `${basename || "image"}-${Date.now()}${extension}`;
+  return `${basename || "image"}-${Date.now()}`;
 }
 
-async function commitToGithub(repoPath: string, content: string) {
-  const token = process.env.GITHUB_TOKEN;
-  const repo = process.env.GITHUB_REPO || process.env.GITHUB_REPOSITORY || "taekilKim/sevenknights";
-  const branch = process.env.GITHUB_BRANCH || "main";
+function signCloudinaryParams(params: Record<string, string>, apiSecret: string) {
+  const payload = Object.entries(params)
+    .filter(([, value]) => value !== "")
+    .sort(([left], [right]) => left.localeCompare(right))
+    .map(([key, value]) => `${key}=${value}`)
+    .join("&");
 
-  if (!token) {
-    throw new Error("운영 업로드에는 GITHUB_TOKEN 환경변수가 필요합니다.");
+  return crypto.createHash("sha1").update(`${payload}${apiSecret}`).digest("hex");
+}
+
+async function uploadToCloudinary(file: File, folder: string) {
+  const cloudName = process.env.CLOUDINARY_CLOUD_NAME;
+  const apiKey = process.env.CLOUDINARY_API_KEY;
+  const apiSecret = process.env.CLOUDINARY_API_SECRET;
+
+  if (!cloudName || !apiKey || !apiSecret) {
+    throw new Error("Cloudinary 환경변수(CLOUDINARY_CLOUD_NAME, CLOUDINARY_API_KEY, CLOUDINARY_API_SECRET)가 필요합니다.");
   }
 
-  const response = await fetch(`https://api.github.com/repos/${repo}/contents/${repoPath}`, {
-    method: "PUT",
-    headers: {
-      Accept: "application/vnd.github+json",
-      Authorization: `Bearer ${token}`,
-      "Content-Type": "application/json",
-      "X-GitHub-Api-Version": "2022-11-28",
-    },
-    body: JSON.stringify({
-      branch,
-      message: `Upload admin asset ${path.basename(repoPath)}`,
-      content,
-    }),
+  const timestamp = Math.floor(Date.now() / 1000).toString();
+  const uploadFolder = `senadb/${folder}`;
+  const publicId = safePublicId(file);
+  const params = {
+    folder: uploadFolder,
+    public_id: publicId,
+    timestamp,
+  };
+  const signature = signCloudinaryParams(params, apiSecret);
+  const uploadForm = new FormData();
+  uploadForm.append("file", file);
+  uploadForm.append("api_key", apiKey);
+  uploadForm.append("folder", uploadFolder);
+  uploadForm.append("public_id", publicId);
+  uploadForm.append("timestamp", timestamp);
+  uploadForm.append("signature", signature);
+
+  const response = await fetch(`https://api.cloudinary.com/v1_1/${cloudName}/image/upload`, {
+    method: "POST",
+    body: uploadForm,
   });
+  const payload = await response.json().catch(() => null);
 
   if (!response.ok) {
-    const payload = await response.json().catch(() => null);
-    throw new Error(payload?.message || "GitHub에 이미지를 업로드하지 못했습니다.");
+    throw new Error(payload?.error?.message || "Cloudinary에 이미지를 업로드하지 못했습니다.");
   }
+
+  if (!payload?.secure_url) {
+    throw new Error("Cloudinary 업로드 응답에 이미지 URL이 없습니다.");
+  }
+
+  return {
+    url: String(payload.secure_url),
+    publicId: String(payload.public_id || `${uploadFolder}/${publicId}`),
+  };
 }
 
 export async function POST(request: Request) {
@@ -88,26 +113,17 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: "이미지 파일만 업로드할 수 있습니다." }, { status: 400 });
     }
 
+    if (!extensionFor(file)) {
+      return NextResponse.json({ error: "png, jpg, webp, gif, svg 이미지만 업로드할 수 있습니다." }, { status: 400 });
+    }
+
     if (file.size > maxFileSize) {
       return NextResponse.json({ error: "이미지는 2MB 이하만 업로드할 수 있습니다." }, { status: 400 });
     }
 
-    const filename = safeFilename(file);
-    const repoPath = `public/content/${folder}/${filename}`;
-    const publicPath = `/content/${folder}/${filename}`;
-    const buffer = Buffer.from(await file.arrayBuffer());
+    const result = await uploadToCloudinary(file, folder);
 
-    if (process.env.GITHUB_TOKEN) {
-      await commitToGithub(repoPath, buffer.toString("base64"));
-    } else if (process.env.NODE_ENV !== "production") {
-      const targetPath = path.join(process.cwd(), repoPath);
-      await fs.mkdir(path.dirname(targetPath), { recursive: true });
-      await fs.writeFile(targetPath, buffer);
-    } else {
-      throw new Error("운영 업로드에는 GITHUB_TOKEN 환경변수가 필요합니다.");
-    }
-
-    return NextResponse.json({ ok: true, url: publicPath });
+    return NextResponse.json({ ok: true, ...result });
   } catch (error) {
     return NextResponse.json(
       { error: error instanceof Error ? error.message : "이미지 업로드에 실패했습니다." },
