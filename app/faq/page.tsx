@@ -65,11 +65,7 @@ export default function FaqPage() {
         <div className="section-heading">
           <div>
             <h1 style={{ margin: 0, fontSize: "clamp(2rem, 3vw, 3rem)" }}>자주 묻는 질문</h1>
-            <p className="muted" style={{ marginBottom: 0 }}>
-              초보자, 육성, 장비, 덱 구성에서 자주 막히는 내용을 빠르게 확인하세요.
-            </p>
           </div>
-          <span className="pill">FAQ</span>
         </div>
       </section>
 

@@ -29,16 +29,7 @@ export default function ArenaDeckGuidePage() {
         <div className="section-heading">
           <div>
             <h1 style={{ margin: 0, fontSize: "clamp(2rem, 3vw, 3rem)" }}>세븐나이츠 리버스 결투장 덱 추천</h1>
-            <p className="muted" style={{ marginBottom: 0 }}>
-              속공, 생존, 지원 효과를 기준으로 결투장에서 활용하기 좋은 조합 방향을 확인하세요.
-            </p>
           </div>
-          <span className="pill">결투장 가이드</span>
-        </div>
-        <div className="badge-row">
-          <span className="pill">결투장 덱</span>
-          <span className="pill">세나 리버스 덱 추천</span>
-          <span className="pill">초보자용 조합</span>
         </div>
       </section>
 

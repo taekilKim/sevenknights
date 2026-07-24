@@ -40,17 +40,7 @@ export default function BeginnerGuidePage() {
         <div className="section-heading">
           <div>
             <h1 style={{ margin: 0, fontSize: "clamp(2rem, 3vw, 3rem)" }}>초보자 완벽 가이드</h1>
-            <p className="muted" style={{ marginBottom: 0 }}>
-              시작 직후부터 1개월차까지 필요한 리세마라, 육성, 장비, 자원 관리 흐름을 순서대로 살펴보세요.
-            </p>
           </div>
-          <span className="pill">Guide</span>
-        </div>
-        <div className="badge-row">
-          <span className="pill">리세마라</span>
-          <span className="pill">초반 육성</span>
-          <span className="pill">자원 관리</span>
-          <span className="pill">1개월 로드맵</span>
         </div>
       </section>
 

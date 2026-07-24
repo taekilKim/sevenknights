@@ -34,35 +34,7 @@ export async function HomePage() {
     <div className="content-stack">
       <section className="home-hero">
         <div className="home-hero-copy">
-          <p className="eyebrow">Seven Knights Re:Birth Guide Hub</p>
           <h1>세나 리버스 영웅·덱·티어 정보를 한곳에서 확인하세요</h1>
-          <p className="muted">
-            결투장 덱 추천부터 티어표, 초보자 가이드, 영웅 도감까지 필요한 공략 정보를 빠르게 찾아볼 수
-            있습니다.
-          </p>
-          <div className="home-actions">
-            <Link href="/guides/arena-decks" className="button">
-              결투장 덱 보기
-            </Link>
-            <Link href="/heroes" className="button secondary">
-              영웅 도감 열기
-            </Link>
-          </div>
-        </div>
-
-        <div className="home-snapshot" aria-label="도감 연결 상태">
-          <div>
-            <span className="metric-value">{heroes.length}</span>
-            <span className="metric-label">등록 영웅</span>
-          </div>
-          <div>
-            <span className="metric-value">{linkedHeroes.length}</span>
-            <span className="metric-label">스킬 정보</span>
-          </div>
-          <div>
-            <span className="metric-value">4</span>
-            <span className="metric-label">핵심 공략</span>
-          </div>
         </div>
       </section>
 

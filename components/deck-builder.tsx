@@ -193,13 +193,7 @@ export function DeckBuilder({ heroes }: Props) {
     <div className="deck-builder-page">
       <section className="deck-hero-panel">
         <div>
-          <p className="catalog-eyebrow">Arena Deck Builder</p>
           <h1>결투장 덱 빌더</h1>
-          <p>영웅을 전열과 후열에 배치하고, 타입 균형과 패시브 효과를 바로 확인하세요.</p>
-        </div>
-        <div className="deck-hero-summary">
-          <strong>{selectedHeroes.length}/5</strong>
-          <span>선택된 영웅</span>
         </div>
       </section>
 

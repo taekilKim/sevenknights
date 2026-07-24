@@ -29,16 +29,7 @@ export default function TierListPage() {
         <div className="section-heading">
           <div>
             <h1 style={{ margin: 0, fontSize: "clamp(2rem, 3vw, 3rem)" }}>세나 리버스 티어표</h1>
-            <p className="muted" style={{ marginBottom: 0 }}>
-              결투장, 초보자 육성, 범용성을 기준으로 영웅 투자 우선순위를 확인하세요.
-            </p>
           </div>
-          <span className="pill">영웅 우선순위</span>
-        </div>
-        <div className="badge-row">
-          <span className="pill">결투장 기준</span>
-          <span className="pill">초보자 추천</span>
-          <span className="pill">범용성 평가</span>
         </div>
       </section>
 
