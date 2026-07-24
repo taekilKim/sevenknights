@@ -111,6 +111,7 @@ export function AdminHeroEditor({ heroes, effects }: Props) {
   const [token, setToken] = useState("");
   const [isUnlocked, setIsUnlocked] = useState(false);
   const [draft, setDraft] = useState<AdminHero>(() => cloneHero(selectedHero));
+  const [effectDrafts, setEffectDrafts] = useState<Effect[]>(() => JSON.parse(JSON.stringify(effects)) as Effect[]);
   const [draggedSkillId, setDraggedSkillId] = useState<string | null>(null);
   const [effectMenuSkillId, setEffectMenuSkillId] = useState<string | null>(null);
   const [status, setStatus] = useState("저장할 영웅을 선택하세요.");
@@ -238,6 +239,27 @@ export function AdminHeroEditor({ heroes, effects }: Props) {
     setStatus(`${payload?.hero?.name || draft.name} 저장 완료. 배포 반영은 커밋/푸시가 필요합니다.`);
   };
 
+  const uploadImage = async (file: File, folder: "heroes" | "skills" | "types" | "effects") => {
+    const formData = new FormData();
+    formData.append("file", file);
+    formData.append("folder", folder);
+
+    const response = await fetch("/api/admin/assets", {
+      method: "POST",
+      headers: {
+        ...(token ? { Authorization: `Bearer ${token}` } : {}),
+      },
+      body: formData,
+    });
+    const payload = await response.json().catch(() => null);
+
+    if (!response.ok) {
+      throw new Error(payload?.error || "이미지 업로드에 실패했습니다.");
+    }
+
+    return String(payload.url);
+  };
+
   if (!isUnlocked) {
     return (
       <section className="admin-login-card">
@@ -310,11 +332,17 @@ export function AdminHeroEditor({ heroes, effects }: Props) {
               label="프로필 이미지"
               value={draft.portrait || ""}
               onChange={(value) => updateField("portrait", value)}
+              folder="heroes"
+              onUpload={uploadImage}
+              onStatus={setStatus}
             />
             <ImageUrlField
               label="타입 아이콘"
               value={draft.typeImage || ""}
               onChange={(value) => updateField("typeImage", value)}
+              folder="types"
+              onUpload={uploadImage}
+              onStatus={setStatus}
             />
           </div>
           <label>
@@ -406,6 +434,9 @@ export function AdminHeroEditor({ heroes, effects }: Props) {
                     label="스킬 이미지"
                     value={skill.image || ""}
                     onChange={(value) => updateSkill(skill.id || "", { image: value || null })}
+                    folder="skills"
+                    onUpload={uploadImage}
+                    onStatus={setStatus}
                   />
                 </div>
 
@@ -429,7 +460,7 @@ export function AdminHeroEditor({ heroes, effects }: Props) {
                       <button type="button" onClick={() => setEffectMenuSkillId(null)}>닫기</button>
                     </div>
                     <div className="admin-effect-list">
-                      {effects.map((effect) => (
+                      {effectDrafts.map((effect) => (
                         <button key={effect.id} type="button" onClick={() => insertEffectToken(skill.id || "", effect)}>
                           <span>{effect.name}</span>
                           <small>{effect.hasVariable ? "수치 필요" : effect.effectType || "효과"}</small>
@@ -442,12 +473,34 @@ export function AdminHeroEditor({ heroes, effects }: Props) {
             ))}
           </div>
         </div>
+
+        <EffectAdminPanel
+          effects={effectDrafts}
+          token={token}
+          onChange={setEffectDrafts}
+          onUpload={uploadImage}
+          onStatus={setStatus}
+        />
       </section>
     </div>
   );
 }
 
-function ImageUrlField({ label, value, onChange }: { label: string; value: string; onChange: (value: string) => void }) {
+function ImageUrlField({
+  label,
+  value,
+  folder,
+  onChange,
+  onUpload,
+  onStatus,
+}: {
+  label: string;
+  value: string;
+  folder: "heroes" | "skills" | "types" | "effects";
+  onChange: (value: string) => void;
+  onUpload: (file: File, folder: "heroes" | "skills" | "types" | "effects") => Promise<string>;
+  onStatus: (status: string) => void;
+}) {
   const valid = isValidImagePath(value);
 
   return (
@@ -465,6 +518,25 @@ function ImageUrlField({ label, value, onChange }: { label: string; value: strin
           </a>
         ) : null}
       </div>
+      <input
+        type="file"
+        accept="image/*"
+        onChange={async (event) => {
+          const file = event.target.files?.[0];
+          if (!file) return;
+
+          try {
+            onStatus(`${label} 업로드 중입니다...`);
+            const url = await onUpload(file, folder);
+            onChange(url);
+            onStatus(`${label} 업로드 완료. 저장 버튼을 눌러 데이터에 반영하세요.`);
+          } catch (error) {
+            onStatus(error instanceof Error ? error.message : "이미지 업로드에 실패했습니다.");
+          } finally {
+            event.target.value = "";
+          }
+        }}
+      />
       <div className="admin-image-preview" data-empty={!value} data-invalid={!valid}>
         {value && valid ? (
           // eslint-disable-next-line @next/next/no-img-element
@@ -475,5 +547,178 @@ function ImageUrlField({ label, value, onChange }: { label: string; value: strin
       </div>
       <small>CDN URL 또는 사이트 내부 경로를 붙여넣으세요. 예: /content/heroes/hero-005.png</small>
     </label>
+  );
+}
+
+function emptyEffect(index: number): Effect {
+  return {
+    id: `effect-${Date.now()}-${index}`,
+    name: "",
+    description: "",
+    effectType: "buff",
+    hasVariable: false,
+    fulltime: false,
+    icon: null,
+  };
+}
+
+function EffectAdminPanel({
+  effects,
+  token,
+  onChange,
+  onUpload,
+  onStatus,
+}: {
+  effects: Effect[];
+  token: string;
+  onChange: (effects: Effect[]) => void;
+  onUpload: (file: File, folder: "heroes" | "skills" | "types" | "effects") => Promise<string>;
+  onStatus: (status: string) => void;
+}) {
+  const [selectedId, setSelectedId] = useState(effects[0]?.id || "");
+  const [query, setQuery] = useState("");
+  const selectedEffect = effects.find((effect) => effect.id === selectedId) || effects[0];
+  const filteredEffects = effects.filter((effect) => effect.name.includes(query) || effect.id.includes(query));
+
+  const updateEffect = (patch: Partial<Effect>) => {
+    if (!selectedEffect) return;
+    onChange(effects.map((effect) => (effect.id === selectedEffect.id ? { ...effect, ...patch } : effect)));
+  };
+
+  const saveEffect = async () => {
+    if (!selectedEffect?.id || !selectedEffect.name) {
+      onStatus("효과 id와 이름을 입력해 주세요.");
+      return;
+    }
+
+    const response = await fetch(`/api/admin/effects/${encodeURIComponent(selectedEffect.id)}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        ...(token ? { Authorization: `Bearer ${token}` } : {}),
+      },
+      body: JSON.stringify(selectedEffect),
+    });
+
+    if (!response.ok && response.status === 404) {
+      const createResponse = await fetch("/api/admin/effects", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          ...(token ? { Authorization: `Bearer ${token}` } : {}),
+        },
+        body: JSON.stringify(selectedEffect),
+      });
+      const createPayload = await createResponse.json().catch(() => null);
+      onStatus(createResponse.ok ? `${selectedEffect.name} 효과를 추가했습니다.` : createPayload?.error || "효과 추가에 실패했습니다.");
+      return;
+    }
+
+    const payload = await response.json().catch(() => null);
+    onStatus(response.ok ? `${selectedEffect.name} 효과를 저장했습니다.` : payload?.error || "효과 저장에 실패했습니다.");
+  };
+
+  const addEffect = () => {
+    const nextEffect = emptyEffect(effects.length + 1);
+    onChange([nextEffect, ...effects]);
+    setSelectedId(nextEffect.id);
+    onStatus("새 효과를 추가했습니다. 내용을 입력한 뒤 저장하세요.");
+  };
+
+  const deleteEffect = async () => {
+    if (!selectedEffect) return;
+    const response = await fetch(`/api/admin/effects/${encodeURIComponent(selectedEffect.id)}`, {
+      method: "DELETE",
+      headers: {
+        ...(token ? { Authorization: `Bearer ${token}` } : {}),
+      },
+    });
+    const payload = await response.json().catch(() => null);
+
+    if (!response.ok && response.status !== 404) {
+      onStatus(payload?.error || "효과 삭제에 실패했습니다.");
+      return;
+    }
+
+    const nextEffects = effects.filter((effect) => effect.id !== selectedEffect.id);
+    onChange(nextEffects);
+    setSelectedId(nextEffects[0]?.id || "");
+    onStatus(`${selectedEffect.name || selectedEffect.id} 효과를 삭제했습니다.`);
+  };
+
+  return (
+    <div className="admin-form-section">
+      <div className="admin-section-title">
+        <div>
+          <h2>스킬 효과 관리</h2>
+          <p>스킬 설명에서 <code>&lt;&lt;효과명&gt;&gt;</code>으로 연결되는 효과 사전을 관리합니다.</p>
+        </div>
+        <button type="button" onClick={addEffect}>효과 추가</button>
+      </div>
+
+      <div className="admin-effect-admin">
+        <aside>
+          <input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="효과 검색" />
+          <div className="admin-effect-admin-list">
+            {filteredEffects.map((effect) => (
+              <button key={effect.id} type="button" data-active={effect.id === selectedEffect?.id} onClick={() => setSelectedId(effect.id)}>
+                {effect.name || effect.id}
+              </button>
+            ))}
+          </div>
+        </aside>
+
+        {selectedEffect ? (
+          <div className="admin-effect-editor">
+            <div className="admin-form-grid">
+              <label>
+                <span>ID</span>
+                <input value={selectedEffect.id} readOnly />
+              </label>
+              <label>
+                <span>효과명</span>
+                <input value={selectedEffect.name} onChange={(event) => updateEffect({ name: event.target.value })} />
+              </label>
+              <label>
+                <span>효과 타입</span>
+                <select value={selectedEffect.effectType || "neutral"} onChange={(event) => updateEffect({ effectType: event.target.value })}>
+                  <option value="buff">buff</option>
+                  <option value="debuff">debuff</option>
+                  <option value="mixed">mixed</option>
+                  <option value="neutral">neutral</option>
+                </select>
+              </label>
+              <label>
+                <span>수치 변수 사용</span>
+                <select value={selectedEffect.hasVariable ? "true" : "false"} onChange={(event) => updateEffect({ hasVariable: event.target.value === "true" })}>
+                  <option value="false">아니오</option>
+                  <option value="true">예</option>
+                </select>
+              </label>
+            </div>
+            <ImageUrlField
+              label="효과 아이콘"
+              value={selectedEffect.icon || ""}
+              folder="effects"
+              onChange={(value) => updateEffect({ icon: value || null })}
+              onUpload={onUpload}
+              onStatus={onStatus}
+            />
+            <label>
+              <span>효과 설명</span>
+              <textarea
+                className="admin-compact-textarea"
+                value={selectedEffect.description}
+                onChange={(event) => updateEffect({ description: event.target.value })}
+              />
+            </label>
+            <div className="deck-actions-panel">
+              <button type="button" onClick={saveEffect}>효과 저장</button>
+              <button type="button" onClick={deleteEffect}>효과 삭제</button>
+            </div>
+          </div>
+        ) : null}
+      </div>
+    </div>
   );
 }

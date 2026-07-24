@@ -1,13 +1,12 @@
-import { promises as fs } from "fs";
-import path from "path";
-
 import { NextResponse } from "next/server";
+
+import { isAdminAuthorized } from "@/lib/admin-auth";
+import { readCatalogFile, writeCatalogFile } from "@/lib/admin-catalog";
 
 type Params = {
   params: Promise<{ id: string }>;
 };
 
-const catalogPath = path.join(process.cwd(), "content", "hero-catalog.json");
 const skillTypeMap: Record<string, "attack" | "passive" | "active"> = {
   Attack: "attack",
   "기본공격": "attack",
@@ -17,19 +16,8 @@ const skillTypeMap: Record<string, "attack" | "passive" | "active"> = {
   "액티브": "active",
 };
 
-function isAuthorized(request: Request) {
-  const adminToken = process.env.ADMIN_TOKEN;
-
-  if (!adminToken && process.env.NODE_ENV !== "production") {
-    return true;
-  }
-
-  const header = request.headers.get("authorization") || "";
-  return Boolean(adminToken) && header === `Bearer ${adminToken}`;
-}
-
 export async function PUT(request: Request, { params }: Params) {
-  if (!isAuthorized(request)) {
+  if (!isAdminAuthorized(request)) {
     return NextResponse.json(
       { error: "ADMIN_TOKEN이 없거나 일치하지 않습니다." },
       { status: 401 },
@@ -48,8 +36,7 @@ export async function PUT(request: Request, { params }: Params) {
       );
     }
 
-    const raw = await fs.readFile(catalogPath, "utf8");
-    const catalog = JSON.parse(raw) as { heroes: Array<{ id: string; name?: string }>; effects: unknown[] };
+    const catalog = await readCatalogFile<{ heroes: Array<{ id: string; name?: string }>; effects: unknown[] }>();
     const heroIndex = catalog.heroes.findIndex((hero) => hero.id === heroId);
 
     if (heroIndex < 0) {
@@ -71,7 +58,7 @@ export async function PUT(request: Request, { params }: Params) {
     }
 
     catalog.heroes[heroIndex] = nextHero;
-    await fs.writeFile(catalogPath, `${JSON.stringify(catalog, null, 2)}\n`);
+    await writeCatalogFile(catalog, `Update hero ${nextHero.name || heroId}`);
 
     return NextResponse.json({ ok: true, hero: nextHero });
   } catch (error) {
