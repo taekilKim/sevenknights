@@ -21,7 +21,8 @@
   --radius-lg: 1rem;
   --header-height: 64px;
   --sidebar-width: 220px;
-  --content-width: 1240px;
+  --content-width: 1280px;
+  --page-gutter: 40px;
 }
 
 * {
@@ -76,10 +77,9 @@ select {
 }
 
 .site-header-inner {
-  max-width: var(--content-width);
-  margin: 0 auto;
+  width: 100%;
   height: 100%;
-  padding: 0 20px;
+  padding: 0 var(--page-gutter);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -136,10 +136,13 @@ select {
 
 .page-wrap {
   width: 100%;
-  max-width: var(--content-width);
-  margin: 0 auto;
-  padding: 32px 20px 64px;
+  padding: 32px var(--page-gutter) 64px;
   min-width: 0;
+}
+
+.content-frame {
+  width: min(100%, var(--content-width));
+  margin-inline: auto;
 }
 
 .hero-panel,
@@ -449,6 +452,7 @@ select {
   background: rgba(255, 255, 255, 0.86);
   border: 1px solid rgba(226, 232, 240, 0.95);
   box-shadow: 0 22px 62px -38px rgba(15, 23, 42, 0.36);
+  width: 100%;
 }
 
 .catalog-tabs {
@@ -515,6 +519,32 @@ select {
   margin-bottom: 22px;
 }
 
+.catalog-layout {
+  display: grid;
+  grid-template-columns: 280px minmax(0, 1fr);
+  align-items: start;
+  gap: 24px;
+}
+
+.catalog-sidebar {
+  position: sticky;
+  top: calc(var(--header-height) + 24px);
+  display: grid;
+  gap: 18px;
+  min-width: 0;
+  padding: 18px;
+  border-radius: 24px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(248, 250, 252, 0.9)),
+    #fff;
+  border: 1px solid rgba(226, 232, 240, 0.95);
+  box-shadow: 0 18px 48px -34px rgba(15, 23, 42, 0.36);
+}
+
+.catalog-results {
+  min-width: 0;
+}
+
 .catalog-search {
   display: grid;
   gap: 9px;
@@ -557,7 +587,7 @@ select {
 
 .catalog-filter-groups {
   display: grid;
-  gap: 14px;
+  gap: 18px;
 }
 
 .catalog-filter-group {
@@ -596,10 +626,11 @@ select {
 
 .catalog-result-bar {
   display: flex;
-  align-items: center;
+  align-items: stretch;
   justify-content: space-between;
-  gap: 12px;
-  padding-top: 4px;
+  flex-direction: column;
+  gap: 10px;
+  padding-top: 2px;
 }
 
 .catalog-result-bar p {
@@ -623,14 +654,14 @@ select {
 
 .catalog-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
-  gap: 18px;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 16px;
 }
 
 .catalog-card {
   position: relative;
   overflow: hidden;
-  border-radius: 26px;
+  border-radius: 22px;
   background: linear-gradient(180deg, #ffffff, #f8fafc);
   border: 1px solid rgba(226, 232, 240, 0.95);
   box-shadow: 0 18px 46px -34px rgba(15, 23, 42, 0.48);
@@ -769,8 +800,8 @@ select {
 
 .catalog-card-body {
   display: grid;
-  gap: 12px;
-  padding: 15px;
+  gap: 10px;
+  padding: 13px;
 }
 
 .catalog-card-title {
@@ -781,30 +812,30 @@ select {
 
 .catalog-card-title h3 {
   margin: 0;
-  font-size: 1.08rem;
+  font-size: 1rem;
   letter-spacing: -0.03em;
 }
 
 .catalog-card-title p {
   margin: 3px 0 0;
   color: var(--text-tertiary);
-  font-size: 0.88rem;
+  font-size: 0.8rem;
 }
 
 .type-icon {
   flex: 0 0 auto;
   display: inline-grid;
   place-items: center;
-  width: 34px;
-  height: 34px;
-  border-radius: 12px;
+  width: 30px;
+  height: 30px;
+  border-radius: 10px;
   background: rgba(37, 99, 235, 0.08);
   border: 1px solid rgba(191, 219, 254, 0.9);
 }
 
 .type-icon img {
-  width: 23px;
-  height: 23px;
+  width: 21px;
+  height: 21px;
   object-fit: contain;
 }
 
@@ -831,7 +862,7 @@ select {
   padding-top: 11px;
   border-top: 1px solid rgba(226, 232, 240, 0.9);
   color: var(--text-tertiary);
-  font-size: 0.82rem;
+  font-size: 0.76rem;
   font-weight: 800;
 }
 
@@ -2126,7 +2157,17 @@ select {
   background: rgba(248, 250, 252, 0.85);
 }
 
+@media (max-width: 1180px) {
+  .catalog-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
 @media (max-width: 980px) {
+  :root {
+    --page-gutter: 24px;
+  }
+
   .page-hero,
   .home-hero,
   .home-feed-grid,
@@ -2152,9 +2193,21 @@ select {
     grid-template-columns: 1fr;
   }
 
+  .catalog-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .catalog-sidebar {
+    position: static;
+  }
+
   .catalog-result-bar {
     align-items: flex-start;
     flex-direction: column;
+  }
+
+  .catalog-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 
   .profile-stats-grid {
@@ -2184,6 +2237,10 @@ select {
 }
 
 @media (max-width: 560px) {
+  :root {
+    --page-gutter: 16px;
+  }
+
   .catalog-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 12px;

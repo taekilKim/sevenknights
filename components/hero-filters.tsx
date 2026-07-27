@@ -52,8 +52,8 @@ export function HeroFilters({ heroes }: Props) {
   };
 
   return (
-    <>
-      <div className="catalog-toolbar">
+    <div className="catalog-layout">
+      <aside className="catalog-sidebar" aria-label="영웅 필터">
         <div className="catalog-search">
           <label htmlFor="hero-search">영웅 검색</label>
           <div className="catalog-search-box">
@@ -111,62 +111,64 @@ export function HeroFilters({ heroes }: Props) {
             필터 초기화
           </button>
         </div>
-      </div>
+      </aside>
 
-      {filtered.length > 0 ? (
-        <div className="catalog-grid">
-          {filtered.map((hero) => {
-            const rarityClass = hero.rarity ? rarityClassMap[hero.rarity] : undefined;
+      <section className="catalog-results" aria-label="영웅 목록">
+        {filtered.length > 0 ? (
+          <div className="catalog-grid">
+            {filtered.map((hero) => {
+              const rarityClass = hero.rarity ? rarityClassMap[hero.rarity] : undefined;
 
-            return (
-              <Link
-                key={hero.id}
-                href={`/heroes/${hero.slug}`}
-                className={["catalog-card", rarityClass].filter(Boolean).join(" ")}
-              >
-                <div className="catalog-card-art">
-                  {hero.portrait ? (
-                    // eslint-disable-next-line @next/next/no-img-element
-                    <img src={hero.portrait} alt={hero.name} />
-                  ) : null}
-                  <div className="catalog-card-shine" />
-                  {hero.rarity ? <span className="rarity-badge">{hero.rarity}</span> : null}
-                </div>
-
-                <div className="catalog-card-body">
-                  <div className="catalog-card-title">
-                    <div>
-                      <h3>{hero.name}</h3>
-                      {hero.nickname ? <p>{hero.nickname}</p> : null}
-                    </div>
-                    {hero.typeImage ? (
-                      <span className="type-icon">
-                        {/* eslint-disable-next-line @next/next/no-img-element */}
-                        <img src={hero.typeImage} alt={hero.type} />
-                      </span>
+              return (
+                <Link
+                  key={hero.id}
+                  href={`/heroes/${hero.slug}`}
+                  className={["catalog-card", rarityClass].filter(Boolean).join(" ")}
+                >
+                  <div className="catalog-card-art">
+                    {hero.portrait ? (
+                      // eslint-disable-next-line @next/next/no-img-element
+                      <img src={hero.portrait} alt={hero.name} />
                     ) : null}
+                    <div className="catalog-card-shine" />
+                    {hero.rarity ? <span className="rarity-badge">{hero.rarity}</span> : null}
                   </div>
 
-                  <div className="catalog-card-meta">
-                    {hero.type ? <span>{hero.type}</span> : null}
-                    {hero.group ? <span>{hero.group}</span> : null}
-                  </div>
+                  <div className="catalog-card-body">
+                    <div className="catalog-card-title">
+                      <div>
+                        <h3>{hero.name}</h3>
+                        {hero.nickname ? <p>{hero.nickname}</p> : null}
+                      </div>
+                      {hero.typeImage ? (
+                        <span className="type-icon">
+                          {/* eslint-disable-next-line @next/next/no-img-element */}
+                          <img src={hero.typeImage} alt={hero.type} />
+                        </span>
+                      ) : null}
+                    </div>
 
-                  <div className="catalog-card-footer">
-                    <span>{hero.skills.length > 0 ? `${hero.skills.length}개 스킬` : "스킬 준비 중"}</span>
-                    <strong>상세 보기</strong>
+                    <div className="catalog-card-meta">
+                      {hero.type ? <span>{hero.type}</span> : null}
+                      {hero.group ? <span>{hero.group}</span> : null}
+                    </div>
+
+                    <div className="catalog-card-footer">
+                      <span>{hero.skills.length > 0 ? `${hero.skills.length}개 스킬` : "스킬 준비 중"}</span>
+                      <strong>상세 보기</strong>
+                    </div>
                   </div>
-                </div>
-              </Link>
-            );
-          })}
-        </div>
-      ) : (
-        <div className="empty-state">
-          <strong>조건에 맞는 영웅이 없습니다.</strong>
-          <span>검색어를 줄이거나 필터를 초기화해 보세요.</span>
-        </div>
-      )}
-    </>
+                </Link>
+              );
+            })}
+          </div>
+        ) : (
+          <div className="empty-state">
+            <strong>조건에 맞는 영웅이 없습니다.</strong>
+            <span>검색어를 줄이거나 필터를 초기화해 보세요.</span>
+          </div>
+        )}
+      </section>
+    </div>
   );
 }
