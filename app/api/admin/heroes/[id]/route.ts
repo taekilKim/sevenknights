@@ -68,3 +68,33 @@ export async function PUT(request: Request, { params }: Params) {
     );
   }
 }
+
+export async function DELETE(request: Request, { params }: Params) {
+  if (!isAdminAuthorized(request)) {
+    return NextResponse.json(
+      { error: "ADMIN_TOKEN이 없거나 일치하지 않습니다." },
+      { status: 401 },
+    );
+  }
+
+  try {
+    const { id } = await params;
+    const heroId = decodeURIComponent(id);
+    const catalog = await readCatalogFile<{ heroes: Array<{ id: string; name?: string }>; effects: unknown[] }>();
+    const nextHeroes = catalog.heroes.filter((hero) => hero.id !== heroId);
+
+    if (nextHeroes.length === catalog.heroes.length) {
+      return NextResponse.json({ error: "해당 영웅을 찾을 수 없습니다." }, { status: 404 });
+    }
+
+    catalog.heroes = nextHeroes;
+    await writeCatalogFile(catalog, `Delete hero ${heroId}`);
+
+    return NextResponse.json({ ok: true, id: heroId });
+  } catch (error) {
+    return NextResponse.json(
+      { error: error instanceof Error ? error.message : "영웅 삭제에 실패했습니다." },
+      { status: 500 },
+    );
+  }
+}

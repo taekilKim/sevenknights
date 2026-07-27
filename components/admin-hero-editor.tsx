@@ -6,6 +6,27 @@ import type { Effect, HeroDetail, Skill } from "@/lib/types";
 
 type AdminHero = Omit<HeroDetail, "skills">;
 type SkillType = "기본공격" | "패시브" | "액티브" | "각성";
+type AdminSection = "heroes" | "effects" | "analytics";
+type AnalyticsPayload = {
+  setupRequired?: boolean;
+  missing?: string[];
+  range?: string;
+  overview?: {
+    activeUsers: number;
+    sessions: number;
+    pageViews: number;
+  };
+  pages?: Array<{
+    path: string;
+    pageViews: number;
+    activeUsers: number;
+  }>;
+  sources?: Array<{
+    source: string;
+    sessions: number;
+    activeUsers: number;
+  }>;
+};
 
 type Props = {
   heroes: AdminHero[];
@@ -100,25 +121,71 @@ function effectToken(effect: Effect) {
   return effect.hasVariable ? `<<${effect.name}, 상시, >>` : `<<${effect.name}>>`;
 }
 
+function slugFromName(name: string) {
+  const normalized = name.trim() || `새 영웅 ${Date.now()}`;
+  return encodeURIComponent(normalized);
+}
+
+function createEmptyHero(index: number): AdminHero {
+  const name = `새 영웅 ${index}`;
+  const slug = slugFromName(name);
+
+  return {
+    id: `hero-${slug}`,
+    slug,
+    name,
+    nickname: null,
+    group: "",
+    rarity: "희귀",
+    type: "공격형",
+    portrait: "",
+    typeImage: null,
+    hasEffect: false,
+    transLevel: null,
+    history: [],
+    description: null,
+    atk: null,
+    def: null,
+    hp: null,
+    spd: null,
+    crit_rate: null,
+    crit_dmg: null,
+    weak_rate: null,
+    block_rate: null,
+    dmg_reduce: null,
+    eff_hit: null,
+    eff_res: null,
+    attack: null,
+    active_1: null,
+    active_2: null,
+    passive: null,
+    skillList: [],
+  };
+}
+
 function isValidImagePath(value: string | null | undefined) {
   if (!value) return true;
   return value.startsWith("https://") || value.startsWith("http://") || value.startsWith("/content/") || value.startsWith("/images/");
 }
 
 export function AdminHeroEditor({ heroes, effects }: Props) {
+  const [heroDrafts, setHeroDrafts] = useState<AdminHero[]>(() => [...heroes]);
   const [selectedId, setSelectedId] = useState(heroes[0]?.id || "");
-  const selectedHero = heroes.find((hero) => hero.id === selectedId) || heroes[0];
+  const selectedHero = heroDrafts.find((hero) => hero.id === selectedId) || heroDrafts[0];
   const [token, setToken] = useState("");
   const [isUnlocked, setIsUnlocked] = useState(false);
+  const [activeSection, setActiveSection] = useState<AdminSection>("heroes");
   const [draft, setDraft] = useState<AdminHero>(() => cloneHero(selectedHero));
   const [effectDrafts, setEffectDrafts] = useState<Effect[]>(() => JSON.parse(JSON.stringify(effects)) as Effect[]);
   const [draggedSkillId, setDraggedSkillId] = useState<string | null>(null);
   const [effectMenuSkillId, setEffectMenuSkillId] = useState<string | null>(null);
+  const [analytics, setAnalytics] = useState<AnalyticsPayload | null>(null);
+  const [analyticsStatus, setAnalyticsStatus] = useState("GA 데이터를 불러오려면 새로고침을 눌러주세요.");
   const [status, setStatus] = useState("저장할 영웅을 선택하세요.");
   const [authStatus, setAuthStatus] = useState("어드민 토큰을 입력하면 편집 화면이 열립니다.");
 
   const selectHero = (id: string) => {
-    const hero = heroes.find((entry) => entry.id === id);
+    const hero = heroDrafts.find((entry) => entry.id === id);
     setSelectedId(id);
     setDraft(cloneHero(hero));
     setEffectMenuSkillId(null);
@@ -236,7 +303,86 @@ export function AdminHeroEditor({ heroes, effects }: Props) {
     }
 
     setDraft(cloneHero(payload?.hero || nextDraft));
+    setHeroDrafts((current) => current.map((hero) => (hero.id === draft.id ? cloneHero(payload?.hero || nextDraft) : hero)));
     setStatus(`${payload?.hero?.name || draft.name} 저장 완료. 배포 반영은 커밋/푸시가 필요합니다.`);
+  };
+
+  const createHero = async () => {
+    const nextHero = createEmptyHero(heroDrafts.length + 1);
+    setStatus("새 영웅을 추가하는 중입니다...");
+
+    const response = await fetch("/api/admin/heroes", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        ...(token ? { Authorization: `Bearer ${token}` } : {}),
+      },
+      body: JSON.stringify(nextHero),
+    });
+    const payload = await response.json().catch(() => null);
+
+    if (!response.ok) {
+      setStatus(payload?.error || "영웅 추가에 실패했습니다.");
+      return;
+    }
+
+    const createdHero = cloneHero(payload?.hero || nextHero);
+    setHeroDrafts((current) => [...current, createdHero].sort((left, right) => left.name.localeCompare(right.name, "ko")));
+    setSelectedId(createdHero.id);
+    setDraft(createdHero);
+    setActiveSection("heroes");
+    setStatus("새 영웅을 추가했습니다. 내용을 수정한 뒤 저장하세요.");
+  };
+
+  const deleteHero = async () => {
+    if (!draft.id) {
+      setStatus("삭제할 영웅을 선택해 주세요.");
+      return;
+    }
+
+    const confirmed = window.confirm(`${draft.name || draft.id} 영웅을 삭제할까요? 이 작업은 되돌릴 수 없습니다.`);
+    if (!confirmed) return;
+
+    setStatus("영웅을 삭제하는 중입니다...");
+    const response = await fetch(`/api/admin/heroes/${encodeURIComponent(draft.id)}`, {
+      method: "DELETE",
+      headers: {
+        ...(token ? { Authorization: `Bearer ${token}` } : {}),
+      },
+    });
+    const payload = await response.json().catch(() => null);
+
+    if (!response.ok) {
+      setStatus(payload?.error || "영웅 삭제에 실패했습니다.");
+      return;
+    }
+
+    setHeroDrafts((current) => {
+      const nextHeroes = current.filter((hero) => hero.id !== draft.id);
+      const nextSelected = nextHeroes[0] || createEmptyHero(1);
+      setSelectedId(nextSelected.id);
+      setDraft(cloneHero(nextSelected));
+      return nextHeroes;
+    });
+    setStatus(`${draft.name || draft.id} 영웅을 삭제했습니다.`);
+  };
+
+  const fetchAnalytics = async () => {
+    setAnalyticsStatus("GA 데이터를 불러오는 중입니다...");
+    const response = await fetch("/api/admin/analytics", {
+      headers: {
+        ...(token ? { Authorization: `Bearer ${token}` } : {}),
+      },
+    });
+    const payload = await response.json().catch(() => null);
+
+    if (!response.ok) {
+      setAnalyticsStatus(payload?.error || "GA 데이터를 불러오지 못했습니다.");
+      return;
+    }
+
+    setAnalytics(payload);
+    setAnalyticsStatus(payload?.setupRequired ? "GA Data API 연결 설정이 더 필요합니다." : "GA 데이터를 불러왔습니다.");
   };
 
   const uploadImage = async (file: File, folder: "heroes" | "skills" | "types" | "effects") => {
@@ -293,21 +439,49 @@ export function AdminHeroEditor({ heroes, effects }: Props) {
   return (
     <div className="admin-shell">
       <aside className="admin-sidebar">
-        <label htmlFor="hero-select">영웅 선택</label>
-        <select id="hero-select" value={selectedId} onChange={(event) => selectHero(event.target.value)}>
-          {heroes.map((hero) => (
-            <option key={hero.id} value={hero.id}>
-              {hero.name}
-            </option>
-          ))}
-        </select>
+        <div className="admin-menu">
+          <button type="button" data-active={activeSection === "heroes"} onClick={() => setActiveSection("heroes")}>
+            영웅 데이터
+          </button>
+          <button type="button" data-active={activeSection === "effects"} onClick={() => setActiveSection("effects")}>
+            스킬 효과
+          </button>
+          <button type="button" data-active={activeSection === "analytics"} onClick={() => setActiveSection("analytics")}>
+            유입 분석
+          </button>
+        </div>
 
+        {activeSection === "heroes" ? (
+          <>
+            <label htmlFor="hero-select">영웅 선택</label>
+            <select id="hero-select" value={selectedId} onChange={(event) => selectHero(event.target.value)}>
+              {heroDrafts.map((hero) => (
+                <option key={hero.id} value={hero.id}>
+                  {hero.name}
+                </option>
+              ))}
+            </select>
+            <button type="button" onClick={createHero}>
+              새 영웅 추가
+            </button>
+            <button type="button" className="danger" onClick={deleteHero}>
+              선택 영웅 삭제
+            </button>
+            <button type="button" onClick={saveHero}>
+              변경사항 저장
+            </button>
+          </>
+        ) : null}
+
+        {activeSection === "analytics" ? (
+          <button type="button" onClick={fetchAnalytics}>
+            GA 데이터 새로고침
+          </button>
+        ) : null}
         <p>{status}</p>
-        <button type="button" onClick={saveHero}>
-          변경사항 저장
-        </button>
       </aside>
 
+      {activeSection === "heroes" ? (
       <section className="admin-editor-card">
         <div>
           <span>Hero Editor</span>
@@ -474,14 +648,118 @@ export function AdminHeroEditor({ heroes, effects }: Props) {
           </div>
         </div>
 
-        <EffectAdminPanel
-          effects={effectDrafts}
-          token={token}
-          onChange={setEffectDrafts}
-          onUpload={uploadImage}
-          onStatus={setStatus}
-        />
       </section>
+      ) : null}
+
+      {activeSection === "effects" ? (
+        <section className="admin-editor-card">
+          <div>
+            <span>Effect Editor</span>
+            <strong>스킬 효과 관리</strong>
+          </div>
+          <EffectAdminPanel
+            effects={effectDrafts}
+            token={token}
+            onChange={setEffectDrafts}
+            onUpload={uploadImage}
+            onStatus={setStatus}
+          />
+        </section>
+      ) : null}
+
+      {activeSection === "analytics" ? (
+        <AnalyticsPanel analytics={analytics} status={analyticsStatus} />
+      ) : null}
+    </div>
+  );
+}
+
+function AnalyticsPanel({ analytics, status }: { analytics: AnalyticsPayload | null; status: string }) {
+  return (
+    <section className="admin-editor-card">
+      <div>
+        <span>Traffic Analytics</span>
+        <strong>유입 분석</strong>
+      </div>
+
+      <div className="admin-form-section">
+        <div className="admin-section-title">
+          <div>
+            <h2>Google Analytics</h2>
+            <p>{status}</p>
+          </div>
+        </div>
+
+        {analytics?.setupRequired ? (
+          <div className="admin-help-card">
+            <strong>GA Data API 연결 설정 필요</strong>
+            <p>수집 태그는 복구했지만, 어드민에서 데이터를 읽으려면 GA4 속성 ID와 서비스 계정 키가 필요합니다.</p>
+            <p>Vercel 환경변수에 <code>GA_PROPERTY_ID</code>, <code>GA_CLIENT_EMAIL</code>, <code>GA_PRIVATE_KEY</code>를 추가해 주세요.</p>
+            <p>현재 누락: {analytics.missing?.join(", ") || "확인 필요"}</p>
+          </div>
+        ) : null}
+
+        {analytics?.overview ? (
+          <>
+            <div className="admin-analytics-grid">
+              <div>
+                <span>{analytics.range || "최근 28일"}</span>
+                <strong>{analytics.overview.activeUsers.toLocaleString()}</strong>
+                <small>활성 사용자</small>
+              </div>
+              <div>
+                <span>{analytics.range || "최근 28일"}</span>
+                <strong>{analytics.overview.sessions.toLocaleString()}</strong>
+                <small>세션</small>
+              </div>
+              <div>
+                <span>{analytics.range || "최근 28일"}</span>
+                <strong>{analytics.overview.pageViews.toLocaleString()}</strong>
+                <small>페이지뷰</small>
+              </div>
+            </div>
+
+            <div className="admin-analytics-tables">
+              <AnalyticsTable
+                title="상위 페이지"
+                rows={(analytics.pages || []).map((row) => [row.path, row.pageViews.toLocaleString(), row.activeUsers.toLocaleString()])}
+                headers={["페이지", "조회", "사용자"]}
+              />
+              <AnalyticsTable
+                title="유입 소스"
+                rows={(analytics.sources || []).map((row) => [row.source, row.sessions.toLocaleString(), row.activeUsers.toLocaleString()])}
+                headers={["소스 / 매체", "세션", "사용자"]}
+              />
+            </div>
+          </>
+        ) : null}
+      </div>
+    </section>
+  );
+}
+
+function AnalyticsTable({ title, headers, rows }: { title: string; headers: string[]; rows: string[][] }) {
+  return (
+    <div className="admin-analytics-table">
+      <h3>{title}</h3>
+      <table>
+        <thead>
+          <tr>
+            {headers.map((header) => <th key={header}>{header}</th>)}
+          </tr>
+        </thead>
+        <tbody>
+          {rows.length > 0 ? rows.map((row) => (
+            <tr key={row.join("-")}>
+              {row.map((cell, index) => <td key={`${cell}-${index}`}>{cell}</td>)}
+            </tr>
+          )) : (
+            <tr>
+              <td colSpan={headers.length}>표시할 데이터가 없습니다.</td>
+            </tr>
+          )}
+        </tbody>
+      </table>
     </div>
   );
 }

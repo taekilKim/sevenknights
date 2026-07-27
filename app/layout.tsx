@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 import { GoogleAdSense } from "@/components/google-adsense";
+import { GoogleAnalytics } from "@/components/google-analytics";
 import { SiteNav } from "@/components/site-nav";
 
 import "./globals.css";
@@ -21,6 +22,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     <html lang="ko">
       <body>
         <GoogleAdSense />
+        <GoogleAnalytics />
         <div className="site-shell">
           <header className="site-header">
             <div className="site-header-inner">

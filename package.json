@@ -9,6 +9,7 @@
     "start": "next start",
     "migrate:assets": "node scripts/migrate-airtable-assets.mjs",
     "migrate:csv-assets": "node scripts/migrate-airtable-csv-assets.mjs",
+    "migrate:cloudinary-assets": "node scripts/migrate-cloudinary-assets.mjs",
     "build:catalog": "node scripts/build-static-catalog.mjs"
   },
   "dependencies": {

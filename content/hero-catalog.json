@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-14T13:56:24.955Z",
+  "generatedAt": "2026-07-27T14:38:51.001Z",
   "heroes": [
     {
       "id": "hero-%EB%85%B8%ED%98%B8",
@@ -9,8 +9,8 @@
       "group": "테라영지",
       "rarity": "희귀",
       "type": "마법형",
-      "portrait": "/content/heroes/hero-001-714b7eb515.png",
-      "typeImage": "/content/types/RoleIcon_02-3bdba832b0.png",
+      "portrait": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162758/senadb/heroes/hero-001-714b7eb515.png",
+      "typeImage": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785163128/senadb/types/roleicon_02-3bdba832b0.png",
       "hasEffect": false,
       "transLevel": null,
       "history": [],
@@ -39,8 +39,8 @@
       "group": "복수자의 지옥",
       "rarity": "전설",
       "type": "방어형",
-      "portrait": "/content/heroes/hero-002-0e58a4be92.png",
-      "typeImage": "/content/types/RoleIcon_03-c8af05f852.png",
+      "portrait": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162759/senadb/heroes/hero-002-0e58a4be92.png",
+      "typeImage": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785163129/senadb/types/roleicon_03-c8af05f852.png",
       "hasEffect": false,
       "transLevel": null,
       "history": [],
@@ -69,8 +69,8 @@
       "group": "성십자단",
       "rarity": "전설",
       "type": "만능형",
-      "portrait": "/content/heroes/hero-003-b7368ea239.png",
-      "typeImage": "/content/types/RoleIcon_05-f7672beb62.png",
+      "portrait": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162760/senadb/heroes/hero-003-b7368ea239.png",
+      "typeImage": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785163130/senadb/types/roleicon_05-f7672beb62.png",
       "hasEffect": false,
       "transLevel": null,
       "history": [],
@@ -99,8 +99,8 @@
       "group": "달빛의 섬",
       "rarity": "전설",
       "type": "마법형",
-      "portrait": "/content/heroes/hero-004-1059634e74.png",
-      "typeImage": "/content/types/RoleIcon_02-3bdba832b0.png",
+      "portrait": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162761/senadb/heroes/hero-004-1059634e74.png",
+      "typeImage": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785163128/senadb/types/roleicon_02-3bdba832b0.png",
       "hasEffect": false,
       "transLevel": null,
       "history": [],
@@ -129,8 +129,8 @@
       "group": "세븐나이츠",
       "rarity": "전설+",
       "type": "공격형",
-      "portrait": "/content/heroes/hero-005-4f266886f7.png",
-      "typeImage": "/content/types/RoleIcon_01-1e0c023e6e.png",
+      "portrait": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162762/senadb/heroes/hero-005-4f266886f7.png",
+      "typeImage": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785163127/senadb/types/roleicon_01-1e0c023e6e.png",
       "hasEffect": true,
       "transLevel": null,
       "history": [],
@@ -152,7 +152,7 @@
         "type": "Attack",
         "description": "!단일 적군\n- 물리 공격력의 100%만큼 1회 피해\n#스킬 강화 효과\n- 피해량 상승 : 물리 공격력의 120%\n- 효과 추가 : 침묵 [45% 확률] [1턴 지속]\n<<침묵>>",
         "cooltime": null,
-        "image": "/content/skills/default_purple-f1e2ebbe81.webp",
+        "image": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162903/senadb/skills/default_purple-f1e2ebbe81.webp",
         "effects": [
           {
             "id": "effect-60",
@@ -161,7 +161,7 @@
             "effectType": "debuff",
             "hasVariable": false,
             "fulltime": false,
-            "icon": "/content/effects/Bufficon_11005-492aa4b29a.png"
+            "icon": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162743/senadb/effects/bufficon_11005-492aa4b29a.png"
           }
         ],
         "linkedHeroes": {
@@ -179,7 +179,7 @@
         "type": "Active",
         "description": "!모든 적군\n- 물리 공격력의 115%만큼 1회 피해\n- 침묵 [50% 확률] [2턴 지속]\n<<침묵>>\n#스킬 강화 효과\n- 피해량 상승 : 물리 공격력의 135%\n- 침묵 확률 60%",
         "cooltime": "80",
-        "image": "/content/skills/B98NEBjQdC5ZjZV3m-VDgiMSkv-S1BQ5lj3LZN1kmqWGhF4XjhpnhwYi6Lq7lfalGJi-m18eOpbmS821umX4vw-a8024a6712.webp",
+        "image": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162900/senadb/skills/b98nebjqdc5zjzv3m-vdgimskv-s1bq5lj3lzn1kmqwghf4xjhpnhwyi6lq7lfalgji-m18eopbms821umx4vw-a8024a6712.webp",
         "effects": [
           {
             "id": "effect-60",
@@ -188,7 +188,7 @@
             "effectType": "debuff",
             "hasVariable": false,
             "fulltime": false,
-            "icon": "/content/effects/Bufficon_11005-492aa4b29a.png"
+            "icon": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162743/senadb/effects/bufficon_11005-492aa4b29a.png"
           }
         ],
         "linkedHeroes": {
@@ -206,7 +206,7 @@
         "type": "Active",
         "description": "!단일 적군\n- 물리 공격력의 119%만큼 5회 피해\n#스킬 강화 효과\n- 피해량 상승 : 물리 공격력의 158%\n@2초월 효과\n- 효과 추가 : 해당 스킬의 적접 피해로 적군 처치 시 100% 위력으로 연속 발동",
         "cooltime": "108",
-        "image": "/content/skills/YCU7RLoiI_b5epSsbW7ge7w_bpUN7r1uSqFcdpI7PWEFEbNo7eUe6a8PMVW-Cts5ZjU4m16cx-NLKeWN17ADCQ-27e2393c7b.webp",
+        "image": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785163120/senadb/skills/ycu7rloii_b5epssbw7ge7w_bpun7r1usqfcdpi7pwefebno7eue6a8pmvw-cts5zju4m16cx-nlkewn17adcq-27e2393c7b.webp",
         "effects": [],
         "linkedHeroes": {
           "attack": [],
@@ -223,7 +223,7 @@
         "type": "Passive",
         "description": "!모든 아군\n- 물리 피해량 증가 [상시]\n<<물리 피해량 증가, 상시, 17>>\n!자신\n- 모든 피해 무효화 [피격 3회]\n<<모든 피해 무효화>>\n#스킬 강화 효과\n- 효과 상승 : 물리 피해량 증가 20%\n- 횟수 상승 : 모든 피해 무효화 횟수 4회\n@@6초월 효과\n- 효과 추가 : 아군 사망 시 모든 피해 무효화 [피격 1회]\n- 효과 추가 : 아군 사망 시 물리 공격력 증가 39% [2턴 지속]",
         "cooltime": null,
-        "image": "/content/skills/h3buctaLZkCxoGcMC0AWkLCbuUQoX0w2zn1BU7mo5NRU3tlGZwisVOTY4oBCzsl6oS_hGHqM95MRZNqgkN4A_Q-21ba5a8147.webp",
+        "image": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162916/senadb/skills/h3buctalzkcxogcmc0awklcbuuqox0w2zn1bu7mo5nru3tlgzwisvoty4obczsl6os_hghqm95mrznqgkn4a_q-21ba5a8147.webp",
         "effects": [
           {
             "id": "effect-27",
@@ -232,7 +232,7 @@
             "effectType": "buff",
             "hasVariable": true,
             "fulltime": true,
-            "icon": "/content/effects/BuffIcon_01012_reverse-e62988403e.png"
+            "icon": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162711/senadb/effects/bufficon_01012_reverse-e62988403e.png"
           },
           {
             "id": "effect-22",
@@ -241,7 +241,7 @@
             "effectType": "buff",
             "hasVariable": false,
             "fulltime": false,
-            "icon": "/content/effects/BuffIcon_02005_reverse-a754f1195b.png"
+            "icon": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162717/senadb/effects/bufficon_02005_reverse-a754f1195b.png"
           }
         ],
         "linkedHeroes": {
@@ -262,8 +262,8 @@
       "group": "눈보라의 대지",
       "rarity": "희귀",
       "type": "만능형",
-      "portrait": "/content/heroes/hero-006-7536251425.png",
-      "typeImage": "/content/types/RoleIcon_05-f7672beb62.png",
+      "portrait": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162762/senadb/heroes/hero-006-7536251425.png",
+      "typeImage": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785163130/senadb/types/roleicon_05-f7672beb62.png",
       "hasEffect": false,
       "transLevel": null,
       "history": [],
@@ -292,8 +292,8 @@
       "group": "침묵의 광산",
       "rarity": "희귀",
       "type": "방어형",
-      "portrait": "/content/heroes/hero-007-82a64f31f7.png",
-      "typeImage": "/content/types/RoleIcon_03-c8af05f852.png",
+      "portrait": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162763/senadb/heroes/hero-007-82a64f31f7.png",
+      "typeImage": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785163129/senadb/types/roleicon_03-c8af05f852.png",
       "hasEffect": false,
       "transLevel": null,
       "history": [],
@@ -322,8 +322,8 @@
       "group": "화염의 사막",
       "rarity": "희귀",
       "type": "공격형",
-      "portrait": "/content/heroes/hero-008-4c33561d41.png",
-      "typeImage": "/content/types/RoleIcon_01-1e0c023e6e.png",
+      "portrait": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162763/senadb/heroes/hero-008-4c33561d41.png",
+      "typeImage": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785163127/senadb/types/roleicon_01-1e0c023e6e.png",
       "hasEffect": false,
       "transLevel": null,
       "history": [],
@@ -352,8 +352,8 @@
       "group": "달빛의 섬",
       "rarity": "희귀",
       "type": "공격형",
-      "portrait": "/content/heroes/hero-009-0053cf25c0.png",
-      "typeImage": "/content/types/RoleIcon_01-1e0c023e6e.png",
+      "portrait": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162764/senadb/heroes/hero-009-0053cf25c0.png",
+      "typeImage": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785163127/senadb/types/roleicon_01-1e0c023e6e.png",
       "hasEffect": false,
       "transLevel": null,
       "history": [],
@@ -382,8 +382,8 @@
       "group": "세븐나이츠",
       "rarity": "전설+",
       "type": "만능형",
-      "portrait": "/content/heroes/hero-010-1075dc79dc.png",
-      "typeImage": "/content/types/RoleIcon_05-f7672beb62.png",
+      "portrait": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162765/senadb/heroes/hero-010-1075dc79dc.png",
+      "typeImage": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785163130/senadb/types/roleicon_05-f7672beb62.png",
       "hasEffect": true,
       "transLevel": null,
       "history": [],
@@ -405,7 +405,7 @@
         "type": "Attack",
         "description": "!단일 적군\n- 물리 공격력의 100%만큼 1회 피해\n- 화상 [40% 확률] [2턴 지속]\n<<화상>>\n#스킬 강화 효과\n- 피해량 상승 : 물리 공격력의 120%\n- 확률 상승 : 화상 확률 50%",
         "cooltime": null,
-        "image": "/content/skills/_5wylIAKOy1epRrBsIgnA-OmDvWcVCS_I-EloJguuTTLULW2I5FqUGDcIqr0H0Ic78CUHvM7BXsQOKQ-Qv43UA-cd3b1d7805.webp",
+        "image": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162883/senadb/skills/_5wyliakoy1eprrbsigna-omdvwcvcs_i-elojguuttlulw2i5fqugdciqr0h0ic78cuhvm7bxsqokq-qv43ua-cd3b1d7805.webp",
         "effects": [
           {
             "id": "effect-69",
@@ -414,7 +414,7 @@
             "effectType": "debuff",
             "hasVariable": false,
             "fulltime": false,
-            "icon": "/content/effects/BuffIcon_15003-c1bd3f9416.png"
+            "icon": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162750/senadb/effects/bufficon_15003-c1bd3f9416.png"
           }
         ],
         "linkedHeroes": {
@@ -432,7 +432,7 @@
         "type": "Active",
         "description": "!단일 적군\n- 모든 공격력의 102%만큼 2회 피해\n- 모든 공격력 감소 [100% 확률] [5턴 지속]\n- 피해량 감소 [100% 확률] [5턴 지속]\n- 화상 [100% 확률] [3턴 지속]\n<<모든 공격력 감소, 22>>\n<<피해량 감소, 17>>\n<<화상>>\n#스킬 강화 효과\n- 피해량 상승 : 물리 공격력의 122%\n@@6초월 효과\n- 대상 수 변경 : 적군 3명",
         "cooltime": "84",
-        "image": "/content/skills/q3Q-dZePVtN_0IWu6fJgVcEO42EcYI90KOogUp217TqLMm7G2G1DYB-0lmEHhW5ZLGeRqKGJGeYqdNiEd-XPqQ-025efebe91.webp",
+        "image": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162940/senadb/skills/q3q-dzepvtn_0iwu6fjgvceo42ecyi90koogup217tqlmm7g2g1dyb-0lmehhw5zlgerqkgjgeyqdnied-xpqq-025efebe91.webp",
         "effects": [
           {
             "id": "effect-20",
@@ -441,7 +441,7 @@
             "effectType": "debuff",
             "hasVariable": true,
             "fulltime": false,
-            "icon": "/content/effects/Bufficon_10003-d378f6b120.png"
+            "icon": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162726/senadb/effects/bufficon_10003-d378f6b120.png"
           },
           {
             "id": "effect-65",
@@ -450,7 +450,7 @@
             "effectType": "debuff",
             "hasVariable": true,
             "fulltime": false,
-            "icon": "/content/effects/Bufficon_10005-7d808b8435.png"
+            "icon": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162728/senadb/effects/bufficon_10005-7d808b8435.png"
           },
           {
             "id": "effect-69",
@@ -459,7 +459,7 @@
             "effectType": "debuff",
             "hasVariable": false,
             "fulltime": false,
-            "icon": "/content/effects/BuffIcon_15003-c1bd3f9416.png"
+            "icon": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162750/senadb/effects/bufficon_15003-c1bd3f9416.png"
           }
         ],
         "linkedHeroes": {
@@ -477,7 +477,7 @@
         "type": "Active",
         "description": "!적군 3명\n- 방어력 감소 [100% 확률] [3턴 지속]\n- 물리 취약 [100% 확률] [3턴 지속]\n- 물리 공격력의 160%만큼 1회 피해\n<<방어력 감소, 29>>\n<<물리 취약, 22>>\n#스킬 강화 효과\n- 효과 상승 : 방어력 감소 36%\n- 효과 상승 : 물리 취약 28%\n@2초월 효과\n- 턴 상승 : 방어력 감소 지속 4턴 \n- 턴 상승 : 물리 취약 지속 4턴",
         "cooltime": "84",
-        "image": "/content/skills/NI_I0qFbC5emARXrIAtHONQe094zl2XHpPWwEMFaFFjWhDOz9vAHdLKxMXer4lRa22Ozn3oj2XUWH7NwozmL9w-37db91fb00.webp",
+        "image": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162934/senadb/skills/ni_i0qfbc5emarxriathonqe094zl2xhppwwemfaffjwhdoz9vahdlkxmxer4lra22ozn3oj2xuwh7nwozml9w-37db91fb00.webp",
         "effects": [
           {
             "id": "effect-33",
@@ -486,7 +486,7 @@
             "effectType": "debuff",
             "hasVariable": true,
             "fulltime": false,
-            "icon": "/content/effects/Bufficon_10004-25f5805ef7.png"
+            "icon": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162728/senadb/effects/bufficon_10004-25f5805ef7.png"
           },
           {
             "id": "effect-26",
@@ -495,7 +495,7 @@
             "effectType": "debuff",
             "hasVariable": true,
             "fulltime": false,
-            "icon": "/content/effects/BuffIcon_10012-30370eaa09.png"
+            "icon": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162734/senadb/effects/bufficon_10012-30370eaa09.png"
           }
         ],
         "linkedHeroes": {
@@ -513,7 +513,7 @@
         "type": "Passive",
         "description": "!모든 아군\n- 약점 공격 확률 증가 [상시]\n<<약점 공격 확률 증가, 22>>\n!자신\n- 사망시 생명력 80%로 부활 (전투당 1회 발동)\n<<부활>>\n#스킬 강화 효과\n- 효과 상승 : 부활 시 생명력 100%\n- 효과 상승 : 약점 공격 확률 증가 27%",
         "cooltime": null,
-        "image": "/content/skills/IPGNG435w0l2Y81fz3GBQOEMO6CRnFcTrPtHOu9qtDKFgHSoB5EdpbH_wbkCAu-jVVuFK-Psp72hXKveILrKdA-1295712c3d.webp",
+        "image": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162920/senadb/skills/ipgng435w0l2y81fz3gbqoemo6crnfctrpthou9qtdkfghsob5edpbh_wbkcau-jvvufk-psp72hxkveilrkda-1295712c3d.webp",
         "effects": [
           {
             "id": "effect-49",
@@ -522,7 +522,7 @@
             "effectType": "buff",
             "hasVariable": true,
             "fulltime": true,
-            "icon": "/content/effects/BuffIcon_01007_reverse-1a5b44c02f.png"
+            "icon": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162707/senadb/effects/bufficon_01007_reverse-1a5b44c02f.png"
           },
           {
             "id": "effect-38",
@@ -531,7 +531,7 @@
             "effectType": "buff",
             "hasVariable": false,
             "fulltime": false,
-            "icon": "/content/effects/2025-11-16-14.49.58-1aadcf7012.png"
+            "icon": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162702/senadb/effects/2025-11-16-14.49.58-1aadcf7012.png"
           }
         ],
         "linkedHeroes": {
@@ -552,8 +552,8 @@
       "group": "(구)세븐나이츠",
       "rarity": "전설+",
       "type": "지원형",
-      "portrait": "/content/heroes/hero-011-3a9f9ad2ce.png",
-      "typeImage": "/content/types/RoleIcon_04-3c4c7a32e8.png",
+      "portrait": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162766/senadb/heroes/hero-011-3a9f9ad2ce.png",
+      "typeImage": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785163129/senadb/types/roleicon_04-3c4c7a32e8.png",
       "hasEffect": true,
       "transLevel": null,
       "history": [],
@@ -575,7 +575,7 @@
         "type": "Attack",
         "description": "적군 2명\n- 마법 공격력의 30%, 시전자 최대 생명력의 7%만큼 추가 피해\n스킬 강화 효과\n- 효과 추가 : 효과 저항 감소 16% [100% 확률] [2턴 지속]",
         "cooltime": null,
-        "image": "/content/skills/uJHJeaMcm6Q8Csd7lsFoN6Lq1dC8MULlCUj1nxvE9a7GZAQ1d1YqjuZUgvy6oMiAgJqXMeC_m4vaWFO5wKlY9g-1-0296d91677.webp",
+        "image": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785163103/senadb/skills/ujhjeamcm6q8csd7lsfon6lq1dc8mullcuj1nxve9a7gzaq1d1yqjuzugvy6omiagjqxmec_m4vawfo5wkly9g-1-0296d91677.webp",
         "effects": [],
         "linkedHeroes": {
           "attack": [
@@ -592,7 +592,7 @@
         "type": "Active",
         "description": "모든 적군\n- 마법 공격력의 30%, 시전자 최대 생명력의 7%만큼 2회 피해\n- 즉사 [25% 확률] [3턴 지속]\n스킬 강화 효과\n피해량 상승 : 마법 공격력의 37%, 시전자 최대 생명력의 10%\n확률 상승 : 즉사 확률 35%",
         "cooltime": "80",
-        "image": "/content/skills/ABFZ4PjrcZUVuRwKy02yREpXdWUX1Me12HB2LqYIk-mGMucaCqHTC22b24dF9DnzD1mT4HkTy1Sb6FzixwwKcg-c26d387128.webp",
+        "image": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162897/senadb/skills/abfz4pjrczuvurwky02yrepxdwux1me12hb2lqyik-mgmucacqhtc22b24df9dnzd1mt4hkty1sb6fzixwwkcg-c26d387128.webp",
         "effects": [],
         "linkedHeroes": {
           "attack": [],
@@ -609,7 +609,7 @@
         "type": "Active",
         "description": "아군 2명\n- 사망한 대상을 생명력 40%로 부활\n모든 적군\n- 대상의 턴제 버프 감소 2턴 [100% 확률]\n스킬 강화 효과\n- 효과 상승 : 부활 시 생명력 55%\n[아군 2명]\n- 효과 추가 : 부활 시 권능 [2턴 지속]\n6초월 효과\n- 대상 수 변경 : 아군 전체",
         "cooltime": "112",
-        "image": "/content/skills/Pcz8HyiEnwCQOROELbNc0N6MgddgGM9Z10Cx85kSZnhxoxnHO-MTRz5iSruvc24HOr5GGwWFTsaGZnM3Wie9Dg-cae0bef618.webp",
+        "image": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162938/senadb/skills/pcz8hyienwcqoroelbnc0n6mgddggm9z10cx85ksznhxoxnho-mtrz5isruvc24hor5ggwwftsagznm3wie9dg-cae0bef618.webp",
         "effects": [],
         "linkedHeroes": {
           "attack": [],
@@ -626,7 +626,7 @@
         "type": "Passive",
         "description": "자신\n- 최대 생명력 비례 방어력 증가 [상시]\n- 자신의 생명력이 50% 이하가 되면 모든 피해 면역 [2턴 지속]\n아군 (방어형, 만능형)\n- 효과 적용 확률 20% 증가 [상시]\n스킬 강화 효과\n- 턴 상승 : 모든 피해 면역 지속 3턴\n2초월 효과\n- 효과 상승 : 효과 적용 확률 증가 26%",
         "cooltime": null,
-        "image": "/content/skills/RpxUrHdE94QyxCPx0PW2OwQFO_OBuz9pXIwz_iJIUfMdvamdirCblIw1XZlmJv42kgFyjyYNhiBWaycv-VMeig-fe5b0da620.webp",
+        "image": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162944/senadb/skills/rpxurhde94qyxcpx0pw2owqfo_obuz9pxiwz_ijiufmdvamdircbliw1xzlmjv42kgfyjyynhibwaycv-vmeig-fe5b0da620.webp",
         "effects": [],
         "linkedHeroes": {
           "attack": [],
@@ -646,8 +646,8 @@
       "group": "세븐나이츠",
       "rarity": "전설+",
       "type": "방어형",
-      "portrait": "/content/heroes/hero-012-7c739c4950.png",
-      "typeImage": "/content/types/RoleIcon_03-c8af05f852.png",
+      "portrait": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162766/senadb/heroes/hero-012-7c739c4950.png",
+      "typeImage": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785163129/senadb/types/roleicon_03-c8af05f852.png",
       "hasEffect": true,
       "transLevel": "방어력이 12% 상승합니다.\n\n방어력이 6% 상승합니다.\n\n생명력이 18% 상승합니다.\n\n막기 확률이 18% 상승합니다.\n\n방어력이 12% 상승합니다.\n\n방어력이 6% 상승합니다.",
       "history": [],
@@ -669,7 +669,7 @@
         "type": "Attack",
         "description": "!단일 적군\n- 물리 공격력의 50%, 방어력의 60%만큼 1회 피해\n#스킬 강화 효과\n- 물리 공격력의 65%, 방어력의 75%",
         "cooltime": null,
-        "image": "/content/skills/default_yellow-90bb6683bb.webp",
+        "image": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162904/senadb/skills/default_yellow-90bb6683bb.webp",
         "effects": [],
         "linkedHeroes": {
           "attack": [
@@ -686,7 +686,7 @@
         "type": "Active",
         "description": "!단일 적군(버프가 많은 순)\n- 대상의 턴제 버프 감소 3턴 [100% 확률]\n- 물리 공격력의 170%, 방어력의 195%만큼 1회 피해\n- 기절 [85% 확률] [3턴 지속]\n<<턴제 버프 감소>>\n<<기절>>\n#스킬 강화 효과\n- 피해량 상승 : 물리 공격력의 205%, 방어력 235%\n- 확률 상승 : 기절 확률 100%\n",
         "cooltime": "78",
-        "image": "/content/skills/Tex_Skill_1005602-ce35cb338b.png",
+        "image": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162974/senadb/skills/tex_skill_1005602-ce35cb338b.png",
         "effects": [
           {
             "id": "effect-62",
@@ -695,7 +695,7 @@
             "effectType": "debuff",
             "hasVariable": false,
             "fulltime": false,
-            "icon": "/content/effects/Bufficon_14002-a7c2870144.png"
+            "icon": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162747/senadb/effects/bufficon_14002-a7c2870144.png"
           },
           {
             "id": "effect-10",
@@ -704,7 +704,7 @@
             "effectType": "debuff",
             "hasVariable": false,
             "fulltime": false,
-            "icon": "/content/effects/Bufficon_11001-72514c06bf.png"
+            "icon": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162738/senadb/effects/bufficon_11001-72514c06bf.png"
           }
         ],
         "linkedHeroes": {
@@ -722,7 +722,7 @@
         "type": "Active",
         "description": "!모든 아군\n- 링크 [2턴 지속]\n- 디버프 해제 1개\n<<링크>>\n<<디버프 해제>>\n#스킬 강화 효과\n- 효과 추가 : 링크 시 피해 감소율 10%\n@2초월 효과\n- 턴 상승 : 링크 지속 3턴\n@@6초월 효과\n- 효과 추가 : 행동 제어 면역 [2턴 지속]\n<<행동 제어 면역>>",
         "cooltime": "96",
-        "image": "/content/skills/Tex_Skill_1005603-5307c78130.png",
+        "image": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162975/senadb/skills/tex_skill_1005603-5307c78130.png",
         "effects": [
           {
             "id": "effect-13",
@@ -731,7 +731,7 @@
             "effectType": "buff",
             "hasVariable": false,
             "fulltime": false,
-            "icon": "/content/effects/BuffIcon_02034-58e2549454.png"
+            "icon": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162723/senadb/effects/bufficon_02034-58e2549454.png"
           },
           {
             "id": "effect-12",
@@ -740,7 +740,7 @@
             "effectType": "buff",
             "hasVariable": false,
             "fulltime": false,
-            "icon": "/content/effects/BuffIcon_03001-5c0840cef4.png"
+            "icon": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162723/senadb/effects/bufficon_03001-5c0840cef4.png"
           },
           {
             "id": "effect-67",
@@ -749,7 +749,7 @@
             "effectType": "buff",
             "hasVariable": false,
             "fulltime": false,
-            "icon": "/content/effects/Bufficon_2021-85e7b0149d.png"
+            "icon": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162753/senadb/effects/bufficon_2021-85e7b0149d.png"
           }
         ],
         "linkedHeroes": {
@@ -767,7 +767,7 @@
         "type": "Passive",
         "description": "!모든 아군\n- 방어력 증가 [상시]\n<<방어력 증가, 20>>\n!자신\n- 감쇄 [상시]\n<<감쇄, 상시, 16>>\n#스킬 강화 효과\n- 효과 상승 : 방어력 증가 24%\n- 효과 상승 : 감쇄 효과 20%",
         "cooltime": null,
-        "image": "/content/skills/Tex_Skill_1005604-21d3497848.png",
+        "image": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162976/senadb/skills/tex_skill_1005604-21d3497848.png",
         "effects": [
           {
             "id": "effect-34",
@@ -776,7 +776,7 @@
             "effectType": "buff",
             "hasVariable": true,
             "fulltime": false,
-            "icon": "/content/effects/BuffIcon_01004_reverse-526528a053.png"
+            "icon": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162704/senadb/effects/bufficon_01004_reverse-526528a053.png"
           },
           {
             "id": "effect-2",
@@ -785,7 +785,7 @@
             "effectType": "buff",
             "hasVariable": true,
             "fulltime": true,
-            "icon": "/content/effects/BuffIcon_01006_reverse-ff9a90fb33.png"
+            "icon": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162705/senadb/effects/bufficon_01006_reverse-ff9a90fb33.png"
           }
         ],
         "linkedHeroes": {
@@ -806,8 +806,8 @@
       "group": "성십자단",
       "rarity": "전설",
       "type": "마법형",
-      "portrait": "/content/heroes/hero-013-c92fcb1aa5.png",
-      "typeImage": "/content/types/RoleIcon_02-3bdba832b0.png",
+      "portrait": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162767/senadb/heroes/hero-013-c92fcb1aa5.png",
+      "typeImage": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785163128/senadb/types/roleicon_02-3bdba832b0.png",
       "hasEffect": false,
       "transLevel": null,
       "history": [],
@@ -836,8 +836,8 @@
       "group": "모험가",
       "rarity": "희귀",
       "type": "지원형",
-      "portrait": "/content/heroes/hero-014-212d9f1fda.png",
-      "typeImage": "/content/types/RoleIcon_04-3c4c7a32e8.png",
+      "portrait": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162768/senadb/heroes/hero-014-212d9f1fda.png",
+      "typeImage": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785163129/senadb/types/roleicon_04-3c4c7a32e8.png",
       "hasEffect": false,
       "transLevel": null,
       "history": [],
@@ -866,8 +866,8 @@
       "group": "테라영지",
       "rarity": "전설",
       "type": "방어형",
-      "portrait": "/content/heroes/hero-015-85e6bc380c.png",
-      "typeImage": "/content/types/RoleIcon_03-c8af05f852.png",
+      "portrait": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162769/senadb/heroes/hero-015-85e6bc380c.png",
+      "typeImage": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785163129/senadb/types/roleicon_03-c8af05f852.png",
       "hasEffect": false,
       "transLevel": null,
       "history": [],
@@ -896,8 +896,8 @@
       "group": "에반원정대",
       "rarity": "희귀",
       "type": "방어형",
-      "portrait": "/content/heroes/hero-016-b269e6f4cb.png",
-      "typeImage": "/content/types/RoleIcon_03-c8af05f852.png",
+      "portrait": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162770/senadb/heroes/hero-016-b269e6f4cb.png",
+      "typeImage": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785163129/senadb/types/roleicon_03-c8af05f852.png",
       "hasEffect": false,
       "transLevel": null,
       "history": [],
@@ -926,8 +926,8 @@
       "group": "달빛의 섬",
       "rarity": "전설",
       "type": "지원형",
-      "portrait": "/content/heroes/hero-017-d8638711fa.png",
-      "typeImage": "/content/types/RoleIcon_04-3c4c7a32e8.png",
+      "portrait": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162770/senadb/heroes/hero-017-d8638711fa.png",
+      "typeImage": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785163129/senadb/types/roleicon_04-3c4c7a32e8.png",
       "hasEffect": false,
       "transLevel": null,
       "history": [],
@@ -956,8 +956,8 @@
       "group": "사황",
       "rarity": "전설+",
       "type": "마법형",
-      "portrait": "/content/heroes/hero-018-c5b497f334.png",
-      "typeImage": "/content/types/RoleIcon_02-3bdba832b0.png",
+      "portrait": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162771/senadb/heroes/hero-018-c5b497f334.png",
+      "typeImage": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785163128/senadb/types/roleicon_02-3bdba832b0.png",
       "hasEffect": true,
       "transLevel": null,
       "history": [],
@@ -979,7 +979,7 @@
         "type": "Attack",
         "description": "단일 적군\n- 마법 공격력의 100%만큼 1회 피해\n- 혼란 [45% 확률] [타격 1회]\n스킬 강화 효과\n- 피해량 상승 : 마법 공격력의 120%\n- 효과 상승 : 혼란 확률 증가 50%",
         "cooltime": null,
-        "image": "/content/skills/uJHJeaMcm6Q8Csd7lsFoN6Lq1dC8MULlCUj1nxvE9a7GZAQ1d1YqjuZUgvy6oMiAgJqXMeC_m4vaWFO5wKlY9g-5-b7a15819a4.webp",
+        "image": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785163106/senadb/skills/ujhjeamcm6q8csd7lsfon6lq1dc8mullcuj1nxve9a7gzaq1d1yqjuzugvy6omiagjqxmec_m4vawfo5wkly9g-5-b7a15819a4.webp",
         "effects": [],
         "linkedHeroes": {
           "attack": [
@@ -996,7 +996,7 @@
         "type": "Active",
         "description": "적군 4명\n- 마법 공격력의 62%만큼 2회 피해\n- 대상의 턴제 버프 감소 2턴 [100% 확률]\n스킬 강화 효과\n- 피해량 추가 : 치명타 발생 시 각 공격마다 마법 공격력의 37%만큼 추가 피해\n6초월 효과\n- 효과 추가 : 해당 스킬의 직접 피해로 적군 처치 시 [용린성하] 쿨타임 초기화",
         "cooltime": "80",
-        "image": "/content/skills/ghE04jyMFElHd0IkkRcDVajCTpVL7lyjpBGIP98dRri2JoXe3IvSksoXhcK5zBO8RW5wX2k42xP6Jk-NNvCfXA-6052951e48.webp",
+        "image": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162914/senadb/skills/ghe04jymfelhd0ikkrcdvajctpvl7lyjpbgip98drri2joxe3ivsksoxhck5zbo8rw5wx2k42xp6jk-nnvcfxa-6052951e48.webp",
         "effects": [],
         "linkedHeroes": {
           "attack": [],
@@ -1013,7 +1013,7 @@
         "type": "Active",
         "description": "적군 4명\n- 마법 공격력의 70%만큼 2회 피해\n- 대상의 현재 생명력이 50% 이상일 경우 각 공격마다 마법 공격력의 30%만큼 추가 피해\n- 혼란 [100% 확률] [타격 2회]\n스킬 강화 효과\n- 피해량 상승 : 마법 공격력의 90%\n- 피해량 상승 : 대상의 현재 생명력이 50% 이상일 경우 각 공격마다 마법 공격력의 42%",
         "cooltime": "96",
-        "image": "/content/skills/nwgnNKemRWbbj7coRlUvBrNoSnrmTzzKVQUhO1i0N-ab8F2UpAwz5hgL0J0asvp5QG64X4LcaZN5jC-58k20Kg-495a7bbf9e.webp",
+        "image": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162936/senadb/skills/nwgnnkemrwbbj7corluvbrnosnrmtzzkvquho1i0n-ab8f2upawz5hgl0j0asvp5qg64x4lcazn5jc-58k20kg-495a7bbf9e.webp",
         "effects": [],
         "linkedHeroes": {
           "attack": [],
@@ -1030,7 +1030,7 @@
         "type": "Passive",
         "description": "자신\n- 사망 시 생명력 80%로 부활 (전투당 1회 발동)\n- 자신의 스킬 1회 발동 시 시전자 마법 공격력의 67% 만큼 보호막 [3턴 지속]\n- 공격력 비례 치명타 확률 증가 [상시]\n스킬 강화 효과\n- 효과 상승 : 공격력 비례 치명타 확률 최대 증가 수치 33%\n2초월 효과\n- 효과 상승 : 부활 시 생명력 100%\n- 효과 추가 : 자신 부활 시 모든 피해 무효화 [피격 2회]",
         "cooltime": null,
-        "image": "/content/skills/nNYCP5jMsY3ah_5DTuS2C4C1KY-y7CRcZhLZ_Z-30yUEfu18ciHlozKlUgotTtwoaulWwzsm0lrL2DCgrn-3nA-85f6f18fa3.webp",
+        "image": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162934/senadb/skills/nnycp5jmsy3ah_5dtus2c4c1ky-y7crczhlz_z-30yuefu18cihlozklugotttwoaulwwzsm0lrl2dcgrn-3na-85f6f18fa3.webp",
         "effects": [],
         "linkedHeroes": {
           "attack": [],
@@ -1050,8 +1050,8 @@
       "group": "테라영지",
       "rarity": "희귀",
       "type": "공격형",
-      "portrait": "/content/heroes/hero-019-3611b4f7c4.png",
-      "typeImage": "/content/types/RoleIcon_01-1e0c023e6e.png",
+      "portrait": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162771/senadb/heroes/hero-019-3611b4f7c4.png",
+      "typeImage": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785163127/senadb/types/roleicon_01-1e0c023e6e.png",
       "hasEffect": false,
       "transLevel": null,
       "history": [],
@@ -1080,8 +1080,8 @@
       "group": "다크나이츠",
       "rarity": "전설+",
       "type": "마법형",
-      "portrait": "/content/heroes/hero-020-80129f595a.png",
-      "typeImage": "/content/types/RoleIcon_02-3bdba832b0.png",
+      "portrait": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162772/senadb/heroes/hero-020-80129f595a.png",
+      "typeImage": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785163128/senadb/types/roleicon_02-3bdba832b0.png",
       "hasEffect": true,
       "transLevel": null,
       "history": [],
@@ -1103,7 +1103,7 @@
         "type": "Attack",
         "description": "단일 적군\n- 마법 공격력의 100%만큼 1회 피해\n- 전투 시작 시 아군에 마법형 영웅이 3명 이상 있을 경우, 마력 역류 [45% 확률] [2턴 지속]\n스킬 강화 효과\n- 피해량 상승: 마법 공격력의 120%\n- 확률 상승: 마력 역류 50%\n6초월 효과\n- 효과 변경 : 마력 역류 피해량 15%로 변경, 마력 역류 전이 대상 4명으로 변경",
         "cooltime": null,
-        "image": "/content/skills/lbdCz2lJC477AGAxRCKin9JN2UjhDqRKKI_bjNAxBq8cFb9FjPWC_pom477Ei-NLBwU_dbp1hqyTsWX0m4YxcQ-1-cd4f122b02.webp",
+        "image": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162928/senadb/skills/lbdcz2ljc477agaxrckin9jn2ujhdqrkki_bjnaxbq8cfb9fjpwc_pom477ei-nlbwu_dbp1hqytswx0m4yxcq-1-cd4f122b02.webp",
         "effects": [],
         "linkedHeroes": {
           "attack": [
@@ -1120,7 +1120,7 @@
         "type": "Active",
         "description": "모든 마법형 아군\n- 시전자 마법 공격력의 40%만큼 보호막 [2턴 지속]\n모든 적군\n- 마법 공격력의 60%만큼 1회 피해\n- 기절 [45% 확률] [2턴 지속]\n스킬 강화 효과\n- 피해량 상승 : 마법 공격력의 70%\n- 확률 상승 : 기절 확률 55%",
         "cooltime": "96",
-        "image": "/content/skills/iUrhchSZWmP7TC_m-Xjs-OPH7mT-QE9rwsqU1rjtx7W4FtzeblyqmGvj_pnzqiAfPoTZ1kUm8XckSCabVwxZfg-7566d6ec6b.webp",
+        "image": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162920/senadb/skills/iurhchszwmp7tc_m-xjs-oph7mt-qe9rwsqu1rjtx7w4ftzeblyqmgvj_pnzqiafpotz1kum8xckscabvwxzfg-7566d6ec6b.webp",
         "effects": [],
         "linkedHeroes": {
           "attack": [],
@@ -1137,7 +1137,7 @@
         "type": "Active",
         "description": "모든 적군\n- 마법 공격력의 52%만큼 2회 피해\n- 전투 시작 시 아군에 마법형 영웅이 3명 이상 있을 경우, 각 공격마다 마력 역류 [40% 확률] [2턴 지속]\n- 받는 회복량 감소 [100% 확률] [3턴 지속]\n스킬 강화 효과\n- 피해량 상승 : 마법 공격력의 60%\n- 확률 상승 : 마력 역류 50%\n6초월 효과\n- 효과 변경 : 마력 역류 피해량 15%로 변경, 마력 역류 전이 대상 4명으로 변경",
         "cooltime": "88",
-        "image": "/content/skills/fS5qthWwTtpNaXuJtfaCnHkxs_NrfVfAfHP6BmpNLZSTW3wOJMi5gjahMAVUG0c3bhnggE1P03NLjycJVw2i2w-fda13e74c6.webp",
+        "image": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162912/senadb/skills/fs5qthwwttpnaxujtfacnhkxs_nrfvfafhp6bmpnlzstw3wojmi5gjahmavug0c3bhngge1p03nljycjvw2i2w-fda13e74c6.webp",
         "effects": [],
         "linkedHeroes": {
           "attack": [],
@@ -1154,7 +1154,7 @@
         "type": "Passive",
         "description": "자신\n- 축복 [상시]\n모든 적군\n- 효과 저항 감소 [상시]\n스킬 강화 효과\n- 효과 상승 : 축복의 피격 제한 수치가 최대 생명력의 25%를 넘을 수 없습니다. \n2초월 효과\n[적군 3명] \n- 효과 추가 : 전투 시작 시 아군에 마법형 영웅이 3명 이상 있을 경우, 자신의 모든 공격 3회 발동 시 마력 역류 [100% 확률] [1턴 지속]\n6초월 효과\n- 효과 변경 : 마력 역류 피해량 15%로 변경, 마력 역류 전이 대상 4명으로 변경",
         "cooltime": null,
-        "image": "/content/skills/ZCtUBQ33L0469CvaQCS-IJYfCPn2HVc_fyyir_RyVarWrFRm9H7ASwNRuKnvhL7Oq2DTGGo5FwSNCunfOz8kww-12ce2a1b27.webp",
+        "image": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785163125/senadb/skills/zctubq33l0469cvaqcs-ijyfcpn2hvc_fyyir_ryvarwrfrm9h7aswnruknvhl7oq2dtggo5fwsncunfoz8kww-12ce2a1b27.webp",
         "effects": [],
         "linkedHeroes": {
           "attack": [],
@@ -1174,8 +1174,8 @@
       "group": "숨은 강자들",
       "rarity": "전설",
       "type": "마법형",
-      "portrait": "/content/heroes/hero-021-c1d8d01d8c.png",
-      "typeImage": "/content/types/RoleIcon_02-3bdba832b0.png",
+      "portrait": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162773/senadb/heroes/hero-021-c1d8d01d8c.png",
+      "typeImage": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785163128/senadb/types/roleicon_02-3bdba832b0.png",
       "hasEffect": false,
       "transLevel": null,
       "history": [],
@@ -1204,8 +1204,8 @@
       "group": "세븐나이츠",
       "rarity": "전설+",
       "type": "마법형",
-      "portrait": "/content/heroes/hero-022-9391dfab71.png",
-      "typeImage": "/content/types/RoleIcon_02-3bdba832b0.png",
+      "portrait": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162773/senadb/heroes/hero-022-9391dfab71.png",
+      "typeImage": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785163128/senadb/types/roleicon_02-3bdba832b0.png",
       "hasEffect": true,
       "transLevel": null,
       "history": [],
@@ -1227,7 +1227,7 @@
         "type": "Attack",
         "description": "!단일 적군\n- 마법 공격력의 100% 만큼 1회 피해\n#스킬 강화 효과\n- 피해량 상승 : 마법 공격력의 130%",
         "cooltime": null,
-        "image": "/content/skills/ZTgMOS0leHtJdrW3V-XgCkqIYwZv7r0ctijjjAU5wI8s9By9AxbRWJTQBoVK9qjPAE5xb8Z2JInHWsFiNqNjlw-e3f67354b7.webp",
+        "image": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785163126/senadb/skills/ztgmos0lehtjdrw3v-xgckqiywzv7r0ctijjjau5wi8s9by9axbrwjtqbovk9qjpae5xb8z2jinhwsfinqnjlw-e3f67354b7.webp",
         "effects": [],
         "linkedHeroes": {
           "attack": [
@@ -1244,7 +1244,7 @@
         "type": "Active",
         "description": "!적군 3명\n- 마법 공격력의 95% 만큼 2회 관통 피해\n- 스킬 쿨타임 증가 19초 [70% 확률]\n#스킬 강화 효과\n- 피해량 상승 : 마법 공격력의 110%\n- 효과 상승 : 스킬 쿨타임 증가 23초\n@2초월 효과\n- 효과 추가 : 버프 해제 2개 [100% 확률]",
         "cooltime": "84",
-        "image": "/content/skills/pXoLv3xwXDdUw3hEJDayPPbspZt-_V-4NxBJ3LvMzP3XvdO3y9qpOYPxmYwZ5hsoI0eJKmX3-0NuLDRO9ZQmgA-5c86b1ef9a.webp",
+        "image": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162940/senadb/skills/pxolv3xwxdduw3hejdayppbspzt-_v-4nxbj3lvmzp3xvdo3y9qpoypxmywz5hsoi0ejkmx3-0nuldro9zqmga-5c86b1ef9a.webp",
         "effects": [],
         "linkedHeroes": {
           "attack": [],
@@ -1261,7 +1261,7 @@
         "type": "Active",
         "description": "!적군 4명\n- 마법 공격력의 70% 만큼 2회 피해\n- 석화 [40% 확률] [2턴 지속]\n#스킬 강화 효과\n- 피해량 상승 : 마법 공격력의 82%\n- 확률 상승 : 석화 확률 50%",
         "cooltime": "96",
-        "image": "/content/skills/rYpZ8KKDtOSnZJtfMsK1w7YiVAdk97gsTxkNRUoFvZJkb_IUzZVdY30376nniTiPi0lb3CrbI8yyzSBUztqBEw-47437988d7.webp",
+        "image": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162945/senadb/skills/rypz8kkdtosnzjtfmsk1w7yivadk97gstxknruofvzjkb_iuzzvdy30376nnitipi0lb3crbi8yyzsbuztqbew-47437988d7.webp",
         "effects": [],
         "linkedHeroes": {
           "attack": [],
@@ -1278,7 +1278,7 @@
         "type": "Passive",
         "description": "!자신\n- 모든 피해 면역 [2턴 지속]\n!모든 적군\n- 방어력 20% 감소 [상시]\n#스킬 강화 효과\n- 턴 상승 : 모든 피해 면역 지속 3턴\n- 효과 상승 : 방어력 감소 24%\n@@6초월 효과\n모든 적군\n- 효과 추가 : 자신의 스킬 1회 발동 시 마법 취약 24% [100% 확률] [2턴 지속]",
         "cooltime": null,
-        "image": "/content/skills/au1pQU4jeUWKqrg0stmEL4x1i0NwaReSemvgVYurE8s12TqwFuVBF4zImoSTuBjNNTmG8dmuTPtVQOzEPB3X9A-e34380f562.webp",
+        "image": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162899/senadb/skills/au1pqu4jeuwkqrg0stmel4x1i0nwaresemvgvyure8s12tqwfuvbf4zimostubjnntmg8dmutptvqozepb3x9a-e34380f562.webp",
         "effects": [],
         "linkedHeroes": {
           "attack": [],
@@ -1298,8 +1298,8 @@
       "group": "그림자단",
       "rarity": "전설",
       "type": "공격형",
-      "portrait": "/content/heroes/hero-023-dac3c23969.png",
-      "typeImage": "/content/types/RoleIcon_01-1e0c023e6e.png",
+      "portrait": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162774/senadb/heroes/hero-023-dac3c23969.png",
+      "typeImage": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785163127/senadb/types/roleicon_01-1e0c023e6e.png",
       "hasEffect": false,
       "transLevel": null,
       "history": [],
@@ -1328,8 +1328,8 @@
       "group": "암흑의 무덤",
       "rarity": "희귀",
       "type": "마법형",
-      "portrait": "/content/heroes/hero-024-1b2cd256d2.png",
-      "typeImage": "/content/types/RoleIcon_02-3bdba832b0.png",
+      "portrait": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162775/senadb/heroes/hero-024-1b2cd256d2.png",
+      "typeImage": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785163128/senadb/types/roleicon_02-3bdba832b0.png",
       "hasEffect": false,
       "transLevel": null,
       "history": [],
@@ -1358,8 +1358,8 @@
       "group": "모험가",
       "rarity": "전설",
       "type": "마법형",
-      "portrait": "/content/heroes/hero-025-8f1b69c7b6.png",
-      "typeImage": "/content/types/RoleIcon_02-3bdba832b0.png",
+      "portrait": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162775/senadb/heroes/hero-025-8f1b69c7b6.png",
+      "typeImage": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785163128/senadb/types/roleicon_02-3bdba832b0.png",
       "hasEffect": false,
       "transLevel": null,
       "history": [],
@@ -1388,8 +1388,8 @@
       "group": "그림자단",
       "rarity": "희귀",
       "type": "공격형",
-      "portrait": "/content/heroes/hero-026-48e457c2ad.png",
-      "typeImage": "/content/types/RoleIcon_01-1e0c023e6e.png",
+      "portrait": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162776/senadb/heroes/hero-026-48e457c2ad.png",
+      "typeImage": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785163127/senadb/types/roleicon_01-1e0c023e6e.png",
       "hasEffect": false,
       "transLevel": null,
       "history": [],
@@ -1418,8 +1418,8 @@
       "group": "천자의 땅 동쪽",
       "rarity": "전설",
       "type": "공격형",
-      "portrait": "/content/heroes/hero-027-cdac305fe0.png",
-      "typeImage": "/content/types/RoleIcon_01-1e0c023e6e.png",
+      "portrait": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162777/senadb/heroes/hero-027-cdac305fe0.png",
+      "typeImage": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785163127/senadb/types/roleicon_01-1e0c023e6e.png",
       "hasEffect": false,
       "transLevel": null,
       "history": [],
@@ -1448,8 +1448,8 @@
       "group": "테라영지",
       "rarity": "전설+",
       "type": "지원형",
-      "portrait": "/content/heroes/hero-028-04af98cf8b.png",
-      "typeImage": "/content/types/RoleIcon_04-3c4c7a32e8.png",
+      "portrait": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162778/senadb/heroes/hero-028-04af98cf8b.png",
+      "typeImage": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785163129/senadb/types/roleicon_04-3c4c7a32e8.png",
       "hasEffect": true,
       "transLevel": null,
       "history": [],
@@ -1478,8 +1478,8 @@
       "group": "모험가",
       "rarity": "희귀",
       "type": "만능형",
-      "portrait": "/content/heroes/hero-029-0d15f1a445.png",
-      "typeImage": "/content/types/RoleIcon_05-f7672beb62.png",
+      "portrait": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162778/senadb/heroes/hero-029-0d15f1a445.png",
+      "typeImage": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785163130/senadb/types/roleicon_05-f7672beb62.png",
       "hasEffect": false,
       "transLevel": null,
       "history": [],
@@ -1508,8 +1508,8 @@
       "group": "복수자의 지옥",
       "rarity": "희귀",
       "type": "지원형",
-      "portrait": "/content/heroes/hero-030-199a606873.png",
-      "typeImage": "/content/types/RoleIcon_04-3c4c7a32e8.png",
+      "portrait": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162779/senadb/heroes/hero-030-199a606873.png",
+      "typeImage": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785163129/senadb/types/roleicon_04-3c4c7a32e8.png",
       "hasEffect": false,
       "transLevel": null,
       "history": [],
@@ -1538,8 +1538,8 @@
       "group": "그림자단",
       "rarity": "희귀",
       "type": "마법형",
-      "portrait": "/content/heroes/hero-031-fa28e6c4dc.png",
-      "typeImage": "/content/types/RoleIcon_02-3bdba832b0.png",
+      "portrait": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162780/senadb/heroes/hero-031-fa28e6c4dc.png",
+      "typeImage": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785163128/senadb/types/roleicon_02-3bdba832b0.png",
       "hasEffect": false,
       "transLevel": null,
       "history": [],
@@ -1568,8 +1568,8 @@
       "group": "성십자단",
       "rarity": "전설",
       "type": "공격형",
-      "portrait": "/content/heroes/hero-032-df49f5f275.png",
-      "typeImage": "/content/types/RoleIcon_01-1e0c023e6e.png",
+      "portrait": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162780/senadb/heroes/hero-032-df49f5f275.png",
+      "typeImage": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785163127/senadb/types/roleicon_01-1e0c023e6e.png",
       "hasEffect": false,
       "transLevel": null,
       "history": [],
@@ -1598,8 +1598,8 @@
       "group": "천자의 땅 서쪽",
       "rarity": "희귀",
       "type": "공격형",
-      "portrait": "/content/heroes/hero-033-8ffce6073c.png",
-      "typeImage": "/content/types/RoleIcon_01-1e0c023e6e.png",
+      "portrait": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162781/senadb/heroes/hero-033-8ffce6073c.png",
+      "typeImage": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785163127/senadb/types/roleicon_01-1e0c023e6e.png",
       "hasEffect": false,
       "transLevel": null,
       "history": [],
@@ -1628,8 +1628,8 @@
       "group": "에반원정대",
       "rarity": "희귀",
       "type": "공격형",
-      "portrait": "/content/heroes/hero-034-3a53e382ad.png",
-      "typeImage": "/content/types/RoleIcon_01-1e0c023e6e.png",
+      "portrait": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162782/senadb/heroes/hero-034-3a53e382ad.png",
+      "typeImage": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785163127/senadb/types/roleicon_01-1e0c023e6e.png",
       "hasEffect": false,
       "transLevel": null,
       "history": [],
@@ -1658,8 +1658,8 @@
       "group": "세븐나이츠",
       "rarity": "전설+",
       "type": "만능형",
-      "portrait": "/content/heroes/hero-035-d0893022cd.png",
-      "typeImage": "/content/types/RoleIcon_05-f7672beb62.png",
+      "portrait": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162782/senadb/heroes/hero-035-d0893022cd.png",
+      "typeImage": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785163130/senadb/types/roleicon_05-f7672beb62.png",
       "hasEffect": true,
       "transLevel": null,
       "history": [],
@@ -1681,7 +1681,7 @@
         "type": "Attack",
         "description": "!단일 아군\n- 자신의 기본 공격 2회 발동 후 디버프 해제 1개\n!단일 적군\n- 물리 공격력의 50%, 시전자 최대 생명력의 12%만큼 1회 피해\n#스킬 강화 효과\n- 피해량 상승 : 물리 공격력의 65%, 시전자 최대 생명력의 15%",
         "cooltime": null,
-        "image": "/content/skills/uJHJeaMcm6Q8Csd7lsFoN6Lq1dC8MULlCUj1nxvE9a7GZAQ1d1YqjuZUgvy6oMiAgJqXMeC_m4vaWFO5wKlY9g-57ba805eea.webp",
+        "image": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785163106/senadb/skills/ujhjeamcm6q8csd7lsfon6lq1dc8mullcuj1nxve9a7gzaq1d1yqjuzugvy6omiagjqxmec_m4vawfo5wkly9g-57ba805eea.webp",
         "effects": [
           {
             "id": "effect-12",
@@ -1690,7 +1690,7 @@
             "effectType": "buff",
             "hasVariable": false,
             "fulltime": false,
-            "icon": "/content/effects/BuffIcon_03001-5c0840cef4.png"
+            "icon": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162723/senadb/effects/bufficon_03001-5c0840cef4.png"
           }
         ],
         "linkedHeroes": {
@@ -1708,7 +1708,7 @@
         "type": "Active",
         "description": "!단일 적군\n- 물리 공격력의 195%, 시전자 최대 생명력의 47%만큼 1회 피해\n- 빙결 [100% 확률] [3턴 지속]\n<<빙결>>\n!주 스킬 대상과 동일 열 적군\n- 물리 공격력의 65%, 시전자 최대 생명력의 15%만큼 1회 피해\n- 빙결 [60%확률] [3턴 지속]\n#스킬 강화 효과\n주 스킬 대상과 동일 열 적군\n- 피해량 상승 : 물리 공격력의 75%, 시전자 최대 생명력의 18%\n- 확률 상승 : 빙결 확률 70%\n@@6초월 효과\n자신\n- 회복 추가 : 최대 생명력의 30%만큼 생명력 회복",
         "cooltime": "72",
-        "image": "/content/skills/yQh3jsAjv0E_wIN7E9EZYDgH8WkAyhr1GPdlDMXkz4SEv9oOIPN-j7n_QtpMTuavpahZnixkmDARIUBacrUBeg-5044b1140a.webp",
+        "image": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785163121/senadb/skills/yqh3jsajv0e_win7e9ezydgh8wkayhr1gpdldmxkz4sev9ooipn-j7n_qtpmtuavpahznixkmdariubacrubeg-5044b1140a.webp",
         "effects": [
           {
             "id": "effect-42",
@@ -1717,7 +1717,7 @@
             "effectType": "debuff",
             "hasVariable": false,
             "fulltime": false,
-            "icon": "/content/effects/Bufficon_11004-c459b18e5b.png"
+            "icon": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162742/senadb/effects/bufficon_11004-c459b18e5b.png"
           }
         ],
         "linkedHeroes": {
@@ -1735,7 +1735,7 @@
         "type": "Active",
         "description": "!모든 적군\n- 물리 공격력의 32%, 시전자 최대 생명력의 8%만큼 2회 피해\n- 각 공격마다 빙결 [40% 확률] [2턴 지속]\n<<빙결>>\n#스킬 강화 효과\n- 피해량 상승 : 물리 공격력의 40%, 시전자 최대 생명력의 9%\n- 확률 상승 : 빙결 확률 50%\n@@6초월 효과\n자신\n- 회복 추가 : 최대 생명력의 30%만큼 생명력 회복",
         "cooltime": "80",
-        "image": "/content/skills/5ZKuzkwmPHw3NosT0hgqDfiJj9Op3JS7Mr_LWkxxtNl4idfen7xtGj4GvY_dW2ylRB_3EE6t9NTntVud0RL1PA-022d884482.webp",
+        "image": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162895/senadb/skills/5zkuzkwmphw3nost0hgqdfijj9op3js7mr_lwkxxtnl4idfen7xtgj4gvy_dw2ylrb_3ee6t9ntntvud0rl1pa-022d884482.webp",
         "effects": [
           {
             "id": "effect-42",
@@ -1744,7 +1744,7 @@
             "effectType": "debuff",
             "hasVariable": false,
             "fulltime": false,
-            "icon": "/content/effects/Bufficon_11004-c459b18e5b.png"
+            "icon": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162742/senadb/effects/bufficon_11004-c459b18e5b.png"
           }
         ],
         "linkedHeroes": {
@@ -1762,7 +1762,7 @@
         "type": "Passive",
         "description": "!자신\n- 최대 생명력 비례 공격력 증가 : 자신의 최대 생명력 수치 1,000마다 공격력이 120만큼 증가합니다.\n최대 증가 수치 : 1,080 [상시]\n- 효과 적중 40% 증가 [상시]\n<<최대 생명력 비례 공격력 증가>>\n<<효과 적중 증가, 40>>\n!모든 아군\n- 효과 저항 28% 증가 [상시]\n<<효과 저항 증가, 28>>\n#스킬 강화 효과\n- 효과 상승 : 최대 생명력 비례 공격력 최대 증가 수치 1320 \n- 효과 상승 : 효과 적중 증가 49%\n@2초월 효과\n자신\n- 효과 추가 : 권능 (전투당 1회 발동)\n<<권능>>\n- 회복 추가 : 권능 발동 시 최대 생명력의 30% 만큼 생명력 회복",
         "cooltime": null,
-        "image": "/content/skills/Lnp0uBHFvpls7RUT0DZG3KC9oecuGvmkpNGpyhsQDEtOSofVOC7XxENJR2RWl1tK7erms8LrwzeNmeKl18-REw-b5a22f4481.webp",
+        "image": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162931/senadb/skills/lnp0ubhfvpls7rut0dzg3kc9oecugvmkpngpyhsqdetosofvoc7xxenjr2rwl1tk7erms8lrwzenmekl18-rew-b5a22f4481.webp",
         "effects": [
           {
             "id": "effect-56",
@@ -1771,7 +1771,7 @@
             "effectType": "buff",
             "hasVariable": false,
             "fulltime": false,
-            "icon": "/content/effects/BuffIcon_02033_reverse-ee414e0673.png"
+            "icon": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162722/senadb/effects/bufficon_02033_reverse-ee414e0673.png"
           },
           {
             "id": "effect-72",
@@ -1780,7 +1780,7 @@
             "effectType": "buff",
             "hasVariable": true,
             "fulltime": false,
-            "icon": "/content/effects/BuffIcon_01010_reverse-218297c7b8.png"
+            "icon": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162709/senadb/effects/bufficon_01010_reverse-218297c7b8.png"
           },
           {
             "id": "effect-71",
@@ -1789,7 +1789,7 @@
             "effectType": "buff",
             "hasVariable": true,
             "fulltime": false,
-            "icon": "/content/effects/BuffIcon_01011_reverse-c03a305be7.png"
+            "icon": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162710/senadb/effects/bufficon_01011_reverse-c03a305be7.png"
           },
           {
             "id": "effect-9",
@@ -1798,7 +1798,7 @@
             "effectType": "buff",
             "hasVariable": false,
             "fulltime": false,
-            "icon": "/content/effects/BuffIcon_02012_reverse-a1a8b468ed.png"
+            "icon": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162720/senadb/effects/bufficon_02012_reverse-a1a8b468ed.png"
           }
         ],
         "linkedHeroes": {
@@ -1819,8 +1819,8 @@
       "group": "???",
       "rarity": "전설+",
       "type": "마법형",
-      "portrait": "/content/heroes/hero-036-9b9871f6c7.png",
-      "typeImage": "/content/types/RoleIcon_02-3bdba832b0.png",
+      "portrait": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162783/senadb/heroes/hero-036-9b9871f6c7.png",
+      "typeImage": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785163128/senadb/types/roleicon_02-3bdba832b0.png",
       "hasEffect": true,
       "transLevel": null,
       "history": [],
@@ -1849,8 +1849,8 @@
       "group": "모험가",
       "rarity": "희귀",
       "type": "마법형",
-      "portrait": "/content/heroes/hero-037-7cc300972a.png",
-      "typeImage": "/content/types/RoleIcon_02-3bdba832b0.png",
+      "portrait": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162784/senadb/heroes/hero-037-7cc300972a.png",
+      "typeImage": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785163128/senadb/types/roleicon_02-3bdba832b0.png",
       "hasEffect": false,
       "transLevel": null,
       "history": [],
@@ -1879,8 +1879,8 @@
       "group": "테라영지",
       "rarity": "전설",
       "type": "방어형",
-      "portrait": "/content/heroes/hero-038-f26cd96283.png",
-      "typeImage": "/content/types/RoleIcon_03-c8af05f852.png",
+      "portrait": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162785/senadb/heroes/hero-038-f26cd96283.png",
+      "typeImage": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785163129/senadb/types/roleicon_03-c8af05f852.png",
       "hasEffect": false,
       "transLevel": null,
       "history": [],
@@ -1909,8 +1909,8 @@
       "group": "에반원정대",
       "rarity": "희귀",
       "type": "마법형",
-      "portrait": "/content/heroes/hero-039-60bbd8f2fe.png",
-      "typeImage": "/content/types/RoleIcon_02-3bdba832b0.png",
+      "portrait": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162786/senadb/heroes/hero-039-60bbd8f2fe.png",
+      "typeImage": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785163128/senadb/types/roleicon_02-3bdba832b0.png",
       "hasEffect": false,
       "transLevel": null,
       "history": [],
@@ -1939,8 +1939,8 @@
       "group": "숨은 강자들",
       "rarity": "전설",
       "type": "공격형",
-      "portrait": "/content/heroes/hero-040-4c0312083a.png",
-      "typeImage": "/content/types/RoleIcon_01-1e0c023e6e.png",
+      "portrait": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162786/senadb/heroes/hero-040-4c0312083a.png",
+      "typeImage": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785163127/senadb/types/roleicon_01-1e0c023e6e.png",
       "hasEffect": false,
       "transLevel": null,
       "history": [],
@@ -1969,8 +1969,8 @@
       "group": "어둠의 안식처",
       "rarity": "희귀",
       "type": "만능형",
-      "portrait": "/content/heroes/hero-041-1a6d2e7574.png",
-      "typeImage": "/content/types/RoleIcon_05-f7672beb62.png",
+      "portrait": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162787/senadb/heroes/hero-041-1a6d2e7574.png",
+      "typeImage": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785163130/senadb/types/roleicon_05-f7672beb62.png",
       "hasEffect": false,
       "transLevel": null,
       "history": [],
@@ -1999,8 +1999,8 @@
       "group": "세븐나이츠",
       "rarity": "전설+",
       "type": "만능형",
-      "portrait": "/content/heroes/hero-042-1c17593225.png",
-      "typeImage": "/content/types/RoleIcon_05-f7672beb62.png",
+      "portrait": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162788/senadb/heroes/hero-042-1c17593225.png",
+      "typeImage": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785163130/senadb/types/roleicon_05-f7672beb62.png",
       "hasEffect": true,
       "transLevel": null,
       "history": [],
@@ -2022,7 +2022,7 @@
         "type": "Attack",
         "description": "!단일 적군\n- 물리 공격력의 100%만큼 1회 피해\n- 대상이 [감전] 상태일 경우 물리 공격력의 45%만큼 추가 피해\n#스킬 강화 효과\n- 피해량 상승 : 물리 공격력의 130%\n- 피해량 상승 : 대상이 [감전] 상태일 경우 물리 공격력의 55%",
         "cooltime": null,
-        "image": "/content/skills/lbdCz2lJC477AGAxRCKin9JN2UjhDqRKKI_bjNAxBq8cFb9FjPWC_pom477Ei-NLBwU_dbp1hqyTsWX0m4YxcQ-c7807aac55.webp",
+        "image": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162929/senadb/skills/lbdcz2ljc477agaxrckin9jn2ujhdqrkki_bjnaxbq8cfb9fjpwc_pom477ei-nlbwu_dbp1hqytswx0m4yxcq-c7807aac55.webp",
         "effects": [],
         "linkedHeroes": {
           "attack": [
@@ -2039,7 +2039,7 @@
         "type": "Active",
         "description": "!단일 적군\n- 물리 공격력의 113%만큼 3회 피해\n- 각 공격마다 감전 [35% 확률] [3턴 지속]\n<<감전>>\n#스킬 강화 효과\n- 피해량 상승 : 물리 공격력의 136%\n- 확률 상승 : 감전 확률 45%\n@2초월 효과\n- 효과 추가 : 관통\n<<관통>>",
         "cooltime": "60",
-        "image": "/content/skills/ae5kdpBGL0aDzLEr0h3HIPzpz-eHZ3AHNVqcouoMK_arkkw4xK94nObO26h9TzCY8EeNN1-eG_jSdDrk9MmUpQ-b2341f582d.webp",
+        "image": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162898/senadb/skills/ae5kdpbgl0adzler0h3hipzpz-ehz3ahnvqcouomk_arkkw4xk94nobo26h9tzcy8eenn1-eg_jsddrk9mmupq-b2341f582d.webp",
         "effects": [
           {
             "id": "effect-4",
@@ -2048,7 +2048,7 @@
             "effectType": "debuff",
             "hasVariable": false,
             "fulltime": false,
-            "icon": "/content/effects/Bufficon_11003-6dd17bd73b.png"
+            "icon": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162742/senadb/effects/bufficon_11003-6dd17bd73b.png"
           }
         ],
         "linkedHeroes": {
@@ -2066,7 +2066,7 @@
         "type": "Active",
         "description": "!모든 적군\n- 물리 공격력의 62%만큼 2회 피해\n- 각 공격마다 감전[30% 확률] [2턴 지속]\n<<감전>>\n#스킬 강화 효과\n- 피해량 상승 : 물리 공격력의 75%\n@2초월 효과\n- 효과 추가 : 관통\n<<관통>>\n@@6초월 효과\n- 확률 상승 : 감전 확률 40%",
         "cooltime": "80",
-        "image": "/content/skills/Jf6e7uYF5NVeosVqdPMorI00El-mOH_Ie9nnIE9VzvmzGVlEoBzSlDJERAyOcwgN-0NswHQv8EHPy8PU93fMLQ-1349d9bb54.webp",
+        "image": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162922/senadb/skills/jf6e7uyf5nveosvqdpmori00el-moh_ie9nnie9vzvmzgvleobzsldjerayocwgn-0nswhqv8ehpy8pu93fmlq-1349d9bb54.webp",
         "effects": [
           {
             "id": "effect-4",
@@ -2075,7 +2075,7 @@
             "effectType": "debuff",
             "hasVariable": false,
             "fulltime": false,
-            "icon": "/content/effects/Bufficon_11003-6dd17bd73b.png"
+            "icon": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162742/senadb/effects/bufficon_11003-6dd17bd73b.png"
           }
         ],
         "linkedHeroes": {
@@ -2093,7 +2093,7 @@
         "type": "Passive",
         "description": "!모든 아군\n- 물리 공격력 증가 [상시]\n<<물리 공격력 증가, 19>>\n!자신\n- 사망 시 생명력 80%로 부활 (전투당 1회 발동)\n<<부활>>\n#스킬 강화 효과\n- 효과 상승 : 물리 공격력 증가 효과 25%\n- 효과 상승 : 부활 시 생명력 100%",
         "cooltime": null,
-        "image": "/content/skills/K3grBNxNLT8SkgoykALD-_etrDkTrAI9H29yZ2sQ5v_GmEzC_pceCSJLPdIGynIotGzT6fLOE16Ag4Eq_EJ1PA-51ad454a69.webp",
+        "image": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162924/senadb/skills/k3grbnxnlt8skgoykald-_etrdktrai9h29yz2sq5v_gmezc_pcecsjlpdigyniotgzt6floe16ag4eq_ej1pa-51ad454a69.webp",
         "effects": [
           {
             "id": "effect-23",
@@ -2102,7 +2102,7 @@
             "effectType": "buff",
             "hasVariable": true,
             "fulltime": true,
-            "icon": "/content/effects/2025-11-16-14.49.15-82fb7df711.png"
+            "icon": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162701/senadb/effects/2025-11-16-14.49.15-82fb7df711.png"
           },
           {
             "id": "effect-38",
@@ -2111,7 +2111,7 @@
             "effectType": "buff",
             "hasVariable": false,
             "fulltime": false,
-            "icon": "/content/effects/2025-11-16-14.49.58-1aadcf7012.png"
+            "icon": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162702/senadb/effects/2025-11-16-14.49.58-1aadcf7012.png"
           }
         ],
         "linkedHeroes": {
@@ -2132,8 +2132,8 @@
       "group": "나이트크로우",
       "rarity": "전설+",
       "type": "방어형",
-      "portrait": "/content/heroes/hero-043-8b0a41761d.png",
-      "typeImage": "/content/types/RoleIcon_03-c8af05f852.png",
+      "portrait": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162789/senadb/heroes/hero-043-8b0a41761d.png",
+      "typeImage": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785163129/senadb/types/roleicon_03-c8af05f852.png",
       "hasEffect": true,
       "transLevel": null,
       "history": [],
@@ -2155,7 +2155,7 @@
         "type": "Attack",
         "description": "단일 적군\n- 물리 공격력의 50%, 시전자 최대 생명력의 12%만큼 1회 피해\n스킬 강화 효과\n- 피해량 상승: 물리 공격력의 60%, 시전자 최대 생명력의 14%\n[현재 생명력이 가장 낮은 아군(자신 제외)]\n- 효과 추가: 시전자 최대 생명력의 8% 만큼 보호막 지속 2턴",
         "cooltime": null,
-        "image": "/content/skills/xtvvcK_4lw2pntJYMuvykZRhgQwIQguWc5fEqGURKoRLlwCzogjtavGNjsj1NX0wD060SQXOcWiMwaoRoFrBkg-6be626230a.webp",
+        "image": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785163118/senadb/skills/xtvvck_4lw2pntjymuvykzrhgqwiqguwc5feqgurkorllwczogjtavgnjsj1nx0wd060sqxocwimwaorofrbkg-6be626230a.webp",
         "effects": [],
         "linkedHeroes": {
           "attack": [
@@ -2172,7 +2172,7 @@
         "type": "Active",
         "description": "모든 적군\n- 물리 공격력의 15%, 시전자 최대 생명력의 4%만큼 2회 피해\n- 각 공격마다 대상의 즉사 턴 감소 1턴 [60% 확률]\n- 약점 공격 확률 감소 [100% 확률] [3턴 지속]\n스킬 강화 효과\n- 확률 상승: 즉사 턴 감소 확률 70%\n- 효과 상승: 약점 공격 확률 감소 30%",
         "cooltime": "104",
-        "image": "/content/skills/YwNXfDbqHSHzbHMepvgqwvobbXcVhvKJuklbMHtqgdndq_gQnuQ-mSyVxN95GOsBecypqw80fH1B8tGH04DJuQ-62899f4649.webp",
+        "image": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785163123/senadb/skills/ywnxfdbqhshzbhmepvgqwvobbxcvhvkjuklbmhtqgdndq_gqnuq-msyvxn95gosbecypqw80fh1b8tgh04djuq-62899f4649.webp",
         "effects": [],
         "linkedHeroes": {
           "attack": [],
@@ -2189,7 +2189,7 @@
         "type": "Active",
         "description": "모든 아군\n- 링크 [2턴 지속]\n적군 3명\n- 물리 공격력의 35%, 시전자 최대 생명력의 9%만큼 1회 피해\n- 즉사 [35% 확률] [3턴 지속]\n스킬 강화 효과\n- 확률 상승: 즉사 확률 40%\n- 효과 추가: 링크 감소율 10%",
         "cooltime": "91",
-        "image": "/content/skills/yxE4fnx7if-w6i4Rodtlwm90E0CRZ8YpzCWsOkAb82yCuGgcIDYZjOGb2A4_MeWavmm2xHh_v_6UDM0YLCv5NQ-c99608c050.webp",
+        "image": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785163124/senadb/skills/yxe4fnx7if-w6i4rodtlwm90e0crz8ypzcwsokab82ycuggcidyzjogb2a4_mewavmm2xhh_v_6udm0ylcv5nq-c99608c050.webp",
         "effects": [],
         "linkedHeroes": {
           "attack": [],
@@ -2206,7 +2206,7 @@
         "type": "Passive",
         "description": "자신\n- 자신의 생명력이 50%이하가 되면 시전자 최대 생명력의 34%만큼 생명력 회복 (전투당 1회 발동)\n모든 적군\n- 효과 저항 감소 [상시]\n스킬 강화 효과\n- 효과 상승: 효과 저항 감소 34%\n2초월 효과\n- 횟수 상승: 생명력 회복 (전투당 2회 발동)\n6초월 효과\n[자신]\n- 효과 추가 : 적군 사망 시 스킬 쿨타임 감소 10초",
         "cooltime": null,
-        "image": "/content/skills/20pViACQf3XMF66XAOl9hZ1o7a_COZLXXRS_A1zoT4qOawhW-hZwYAHc2oAjZaOVOh5Z5X0Mx9PW8IOqI0DIAA-197aa064c8.webp",
+        "image": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162890/senadb/skills/20pviacqf3xmf66xaol9hz1o7a_cozlxxrs_a1zot4qoawhw-hzwyahc2oajzaovoh5z5x0mx9pw8ioqi0diaa-197aa064c8.webp",
         "effects": [],
         "linkedHeroes": {
           "attack": [],
@@ -2226,8 +2226,8 @@
       "group": "테라영지",
       "rarity": "전설",
       "type": "지원형",
-      "portrait": "/content/heroes/hero-044-323ae7d43d.png",
-      "typeImage": "/content/types/RoleIcon_04-3c4c7a32e8.png",
+      "portrait": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162789/senadb/heroes/hero-044-323ae7d43d.png",
+      "typeImage": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785163129/senadb/types/roleicon_04-3c4c7a32e8.png",
       "hasEffect": false,
       "transLevel": null,
       "history": [],
@@ -2256,8 +2256,8 @@
       "group": "에반원정대",
       "rarity": "희귀",
       "type": "방어형",
-      "portrait": "/content/heroes/hero-045-d5553eba3b.png",
-      "typeImage": "/content/types/RoleIcon_03-c8af05f852.png",
+      "portrait": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162790/senadb/heroes/hero-045-d5553eba3b.png",
+      "typeImage": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785163129/senadb/types/roleicon_03-c8af05f852.png",
       "hasEffect": false,
       "transLevel": null,
       "history": [],
@@ -2279,7 +2279,7 @@
         "type": "Attack",
         "description": "단일 적군\n- 물리 공격력의 50%, 방어력의 60%만큼 1회 피해\n스킬 강화 효과\n- 피해량 상승 : 물리 공격력 60%, 방어력의 70%",
         "cooltime": null,
-        "image": "/content/skills/Tex_Skill_1007501-a151ebb303.png",
+        "image": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785163009/senadb/skills/tex_skill_1007501-a151ebb303.png",
         "effects": [],
         "linkedHeroes": {
           "attack": [
@@ -2302,8 +2302,8 @@
       "group": "성십자단",
       "rarity": "전설",
       "type": "마법형",
-      "portrait": "/content/heroes/hero-046-541f862790.png",
-      "typeImage": "/content/types/RoleIcon_02-3bdba832b0.png",
+      "portrait": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162791/senadb/heroes/hero-046-541f862790.png",
+      "typeImage": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785163128/senadb/types/roleicon_02-3bdba832b0.png",
       "hasEffect": false,
       "transLevel": null,
       "history": [],
@@ -2332,8 +2332,8 @@
       "group": "사황",
       "rarity": "전설+",
       "type": "만능형",
-      "portrait": "/content/heroes/hero-047-82f8b5751e.png",
-      "typeImage": "/content/types/RoleIcon_05-f7672beb62.png",
+      "portrait": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162792/senadb/heroes/hero-047-82f8b5751e.png",
+      "typeImage": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785163130/senadb/types/roleicon_05-f7672beb62.png",
       "hasEffect": true,
       "transLevel": null,
       "history": [],
@@ -2355,7 +2355,7 @@
         "type": "Attack",
         "description": "단일 적군\n- 물리 공격력의 100%만큼 1회 피해\n스킬 강화 효과\n- 피해량 상승 : 물리 공격력의 130%",
         "cooltime": null,
-        "image": "/content/skills/uJHJeaMcm6Q8Csd7lsFoN6Lq1dC8MULlCUj1nxvE9a7GZAQ1d1YqjuZUgvy6oMiAgJqXMeC_m4vaWFO5wKlY9g-4-55aba534e6.webp",
+        "image": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785163105/senadb/skills/ujhjeamcm6q8csd7lsfon6lq1dc8mullcuj1nxve9a7gzaq1d1yqjuzugvy6omiagjqxmec_m4vawfo5wkly9g-4-55aba534e6.webp",
         "effects": [],
         "linkedHeroes": {
           "attack": [
@@ -2372,7 +2372,7 @@
         "type": "Active",
         "description": "단일 적군\n- 대상의 턴제 버프 감소 3턴 [100% 확률]\n- 물리 공격력의 177%만큼 2회 피해\n스킬 강화 효과\n- 피해량 상승 : 물리 공격력의 237%",
         "cooltime": "60",
-        "image": "/content/skills/jDJR61BgJCAyIJ7ZecNVelWvhDGUfgKVntFR7QovHxb9XaauB9pIwYq2LVYz65umNztyBWpEuoODlOXEuKPRjA-01e1ea0360.webp",
+        "image": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162921/senadb/skills/jdjr61bgjcayij7zecnvelwvhdgufgkvntfr7qovhxb9xaaub9piwyq2lvyz65umnztybwpeuoodloxeukprja-01e1ea0360.webp",
         "effects": [],
         "linkedHeroes": {
           "attack": [],
@@ -2389,7 +2389,7 @@
         "type": "Active",
         "description": "모든 적군\n- 물리 공격력의 140%만큼 1회 피해\n- 물리 취약 17% [100% 확률] [3턴 지속]\n- 받는 회복량 감소 44% [100% 확률] [3턴 지속]\n스킬 강화 효과\n- 효과 상승 : 물리 취약 22%\n- 효과 상승 : 받는 회복량 감소 56%\n2초월 효과\n[아군 3명]\n- 효과 추가 : 디버프 해제 2개",
         "cooltime": "104",
-        "image": "/content/skills/Jtkaap_y0EKBsWF7qnEUZZ35hwBEddSWydNCkuueYKbl56kG8gNmOudYQTtKit91VeSoeOrJxmdndNeF7-YH9Q-32eff6e096.webp",
+        "image": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162924/senadb/skills/jtkaap_y0ekbswf7qneuzz35hwbeddswydnckuueykbl56kg8gnmoudyqttkit91vesoeorjxmdndnef7-yh9q-32eff6e096.webp",
         "effects": [],
         "linkedHeroes": {
           "attack": [],
@@ -2406,7 +2406,7 @@
         "type": "Passive",
         "description": "모든 적군\n- 방어력 감소 20% [상시]\n자신\n- 권능 [전투당 1회 발동]\n- 권능 발동 시 시전자 물리 공격력의 135%만큼 보호막 [3턴 지속]\n스킬 강화 효과\n- 효과 상승 : 방어력 감소 24%\n- 효과 상승 : 보호막 흡수량이 물리 공격력의 155%\n6초월 효과\n[자신]\n- 효과 추가 : 자신의 기본 공격 1회 발동 시 물리 공격력 증가 13% 1중첩 [최대 6중첩]",
         "cooltime": null,
-        "image": "/content/skills/4Pc_QV26VS7l4JhQS6Y31OkuMx3h59CA0-9_qrmCKeHeOgCR_V2YSmc3qqYLBI-eFQxmWZT_3VneIz-7gUH7iA-61f3d68b3b.webp",
+        "image": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162892/senadb/skills/4pc_qv26vs7l4jhqs6y31okumx3h59ca0-9_qrmckeheogcr_v2ysmc3qqylbi-efqxmwzt_3vneiz-7guh7ia-61f3d68b3b.webp",
         "effects": [],
         "linkedHeroes": {
           "attack": [],
@@ -2426,8 +2426,8 @@
       "group": "루미너스 혁명단",
       "rarity": "전설+",
       "type": "만능형",
-      "portrait": "/content/heroes/Tex_HeroIcon_101276Card-ed3bdcedd0.png",
-      "typeImage": "/content/types/RoleIcon_05-f7672beb62.png",
+      "portrait": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162817/senadb/heroes/tex_heroicon_101276card-ed3bdcedd0.png",
+      "typeImage": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785163130/senadb/types/roleicon_05-f7672beb62.png",
       "hasEffect": true,
       "transLevel": null,
       "history": [
@@ -2454,7 +2454,7 @@
         "type": "Attack",
         "description": "단일 적군\n- 물리 공격력의 100% 만큼 1회 피해\n스킬 강화 효과\n- 피해량 상승: 물리 공격력의 130%",
         "cooltime": null,
-        "image": "/content/skills/uJHJeaMcm6Q8Csd7lsFoN6Lq1dC8MULlCUj1nxvE9a7GZAQ1d1YqjuZUgvy6oMiAgJqXMeC_m4vaWFO5wKlY9g-7-caba120838.webp",
+        "image": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785163109/senadb/skills/ujhjeamcm6q8csd7lsfon6lq1dc8mullcuj1nxve9a7gzaq1d1yqjuzugvy6omiagjqxmec_m4vawfo5wkly9g-7-caba120838.webp",
         "effects": [],
         "linkedHeroes": {
           "attack": [
@@ -2471,7 +2471,7 @@
         "type": "Active",
         "description": "모든 적군\n- 물리 공격력의 80%만큼 1회 피해\n- 775만큼 1회 고정 피해\n- 침묵 [50% 확률] [2턴 지속]\n스킬 강화 효과\n- 피해량 상승 : 고정 피해 1,285\n- 확률 상승 : 침묵 확률 60%",
         "cooltime": "104",
-        "image": "/content/skills/ViJ9b3i7nZ7KM80g9-6Q3ZuAaarhkIxZIOnA_p0LJYYahLSPdXnM2ebCcwAEuGNL4PQRaAPXAy26Q70r0_qpzA-4e28932aff.webp",
+        "image": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785163114/senadb/skills/vij9b3i7nz7km80g9-6q3zuaaarhkixziona_p0ljyyahlspdxnm2ebccwaeugnl4pqraapxay26q70r0_qpza-4e28932aff.webp",
         "effects": [],
         "linkedHeroes": {
           "attack": [],
@@ -2488,7 +2488,7 @@
         "type": "Active",
         "description": "모든 적군\n- 물리 공격력의 100%만큼 1회 피해\n- 대상의 턴제 버프 감소 2턴 [100% 확률]\n- 빗나감 확률 증가 [100% 확률] [3턴 지속]\n스킬 강화 효과\n- 피해량 상승 : 물리 공격력의 115%\n- 효과 상승 : 빗나감 확률 증가 48%\n6초월 효과\n- 효과 상승 : 턴제 버프 감소 3턴",
         "cooltime": "104",
-        "image": "/content/skills/0tLDihVHh7zAaAarK3Ge_GkLeQhe3C_oSlmYViUfRgSnUyfuxBFVUwimaA-oX4FitT8kdDD-aYt-uUnRgfWxLg-a0300d871f.webp",
+        "image": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162888/senadb/skills/0tldihvhh7zaaaark3ge_gkleqhe3c_oslmyviufrgsnuyfuxbfvuwimaa-ox4fitt8kddd-ayt-uunrgfwxlg-a0300d871f.webp",
         "effects": [],
         "linkedHeroes": {
           "attack": [],
@@ -2505,7 +2505,7 @@
         "type": "Passive",
         "description": "자신\n- 시전자 물리 공격력의 160%만큼 보호막 [3턴 지속] (라운드당 1회 발동)\n- 자신의 생명력이 50% 이하가 되면 모든 피해 면역 [2턴 지속] (전투당 1회 발동)\n모든 아군\n- 자신의 스킬 1회 발동 시 디버프 해제 2개\n모든 적군\n- 방어력 감소 [상시]\n스킬 강화 효과\n- 효과 상승: 방어력 감소 24%\n2초월 효과\n[자신]\n- 회복 추가 : 자신의 생명력이 50% 이하가 되면 시전자 물리 공격력의 165%만큼 생명력 회복 (전투당 1회 발동)",
         "cooltime": null,
-        "image": "/content/skills/eJJ4xeUHMI95IZ81dTa59nt7LjvBbVWdVwt5D28Bc_Ct6ECPzJqWOKIjha-cf_LZmV82kbLOiYUwjQ_ftC1UVw-15b0d2cee5.webp",
+        "image": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162905/senadb/skills/ejj4xeuhmi95iz81dta59nt7ljvbbvwdvwt5d28bc_ct6ecpzjqwokijha-cf_lzmv82kbloiyuwjq_ftc1uvw-15b0d2cee5.webp",
         "effects": [],
         "linkedHeroes": {
           "attack": [],
@@ -2525,8 +2525,8 @@
       "group": "(구)사황",
       "rarity": "전설+",
       "type": "마법형",
-      "portrait": "/content/heroes/hero-048-3050fc7ebe.png",
-      "typeImage": "/content/types/RoleIcon_02-3bdba832b0.png",
+      "portrait": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162792/senadb/heroes/hero-048-3050fc7ebe.png",
+      "typeImage": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785163128/senadb/types/roleicon_02-3bdba832b0.png",
       "hasEffect": true,
       "transLevel": null,
       "history": [],
@@ -2548,7 +2548,7 @@
         "type": "Attack",
         "description": "적군 1명\n- 마법 공격력의 100%만큼 1회 피해\n- 수면 40% 확률 [1턴 지속]\n스킬 강화 효과\n- 피해량 상승 : 마법 공격력의 130%만큼 1회 피해\n2초월 효과\n- 대상 수 변경 : 적군 2명",
         "cooltime": null,
-        "image": "/content/skills/_5wylIAKOy1epRrBsIgnA-OmDvWcVCS_I-EloJguuTTLULW2I5FqUGDcIqr0H0Ic78CUHvM7BXsQOKQ-Qv43UA-1-9ac4bf434b.webp",
+        "image": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162882/senadb/skills/_5wyliakoy1eprrbsigna-omdvwcvcs_i-elojguuttlulw2i5fqugdciqr0h0ic78cuhvm7bxsqokq-qv43ua-1-9ac4bf434b.webp",
         "effects": [],
         "linkedHeroes": {
           "attack": [
@@ -2565,7 +2565,7 @@
         "type": "Active",
         "description": "적군 3명\n- 마법 공격력의 43%, 대상 최대 생명력의 6% 만큼 3회 피해\n- (생명력 비례 피해는 시전자 공격력의 100% 제한)\n스킬 강화 효과\n- 피해량 상승 : 마법 공격력의 51%, 대상 최대 생명력의 7%만큼 3회 피해",
         "cooltime": "91",
-        "image": "/content/skills/dwTQfwL5tJ-elaVPiol3rl4ED9D8nq6cNmZlSBCbxe8UjlnLs6h_YY8tXCaP54Rn06N3x3P_pzsuH4O6Y2qrtsre56AcY5EZEun3J_tjH4A5j037ilWSLmCb4eRtYAFNLQEniusgOStiFUBUiBfEWg-c426fe15c0.webp",
+        "image": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162905/senadb/skills/dwtqfwl5tj-elavpiol3rl4ed9d8nq6cnmzlsbcbxe8ujlnls6h_yy8txcap54rn06n3x3p_pzsuh4o6y2qrtsre56acy5ezeun3j_tjh4a5j037ilwslmcb4ertyafnlqeniusgostifubuibfewg-c426fe15c0.webp",
         "effects": [],
         "linkedHeroes": {
           "attack": [],
@@ -2582,7 +2582,7 @@
         "type": "Active",
         "description": "모든 적군\n- 마법 공격력의 41%만큼 3회 방어 무시 피해\n- 수면 [50% 확률] [2턴 지속]\n스킬 강화 효과\n- 피해량 상승 : 마법 공격력의 55%만큼 3회 방어 무시 피해",
         "cooltime": "120",
-        "image": "/content/skills/BR8jX2wr56dZhcUzIH2VMpJl7v0WD6xtOtZqXaJ-Ra91oLo2p04UCCaBOkC7is6gPxDaNRt9e4MQMuxLfi3ErU98W4DTQzJHTmfYn7ryrJxdkVglI3-zlm80fC0W-8Qo0pd_Y1OdgS2md9aTHePHqw-71de7da7f4.webp",
+        "image": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162902/senadb/skills/br8jx2wr56dzhcuzih2vmpjl7v0wd6xtotzqxaj-ra91olo2p04uccabokc7is6gpxdanrt9e4mqmuxlfi3eru98w4dtqzjhtmfyn7ryrjxdkvgli3-zlm80fc0w-8qo0pd_y1odgs2md9athephqw-71de7da7f4.webp",
         "effects": [],
         "linkedHeroes": {
           "attack": [],
@@ -2599,7 +2599,7 @@
         "type": "Passive",
         "description": "모든 아군\n- 마법 공격력 증가 [상시]\n자신\n- 모든 피해 무효화 [피격 3회]\n스킬 강화 효과\n- 효과 상승 : 마법 공격력 증가 25%\n- 횟수 상승 : 모든 피해 무효화 횟수 4회\n6초월 효과\n- (자신) \n- 효과 추가 : 마법 피해량 증가 35% [3턴 지속]",
         "cooltime": null,
-        "image": "/content/skills/XxEyQwrDJqQ22BCAGkAj6j652Hw0qf23x_O3atOCdF0Y3JYnwTqsf3fF06I3TTWxgtogz2aMQAcCTQtCWKYBjEtCSKv35X2P0gElIdz_fq0tWAP4OVvBJrOEk0xxHdUEpbQl0UMDOm10cyLj4Xho7Q-f52ed81957.webp",
+        "image": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785163119/senadb/skills/xxeyqwrdjqq22bcagkaj6j652hw0qf23x_o3atocdf0y3jynwtqsf3ff06i3ttwxgtogz2amqacctqtcwkybjetcskv35x2p0gelidz_fq0twap4ovvbjroek0xxhduepbql0umdom10cylj4xho7q-f52ed81957.webp",
         "effects": [],
         "linkedHeroes": {
           "attack": [],
@@ -2619,8 +2619,8 @@
       "group": "나이트크로우",
       "rarity": "전설+",
       "type": "지원형",
-      "portrait": "/content/heroes/hero-049-d05dae4cc2.png",
-      "typeImage": "/content/types/RoleIcon_04-3c4c7a32e8.png",
+      "portrait": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162793/senadb/heroes/hero-049-d05dae4cc2.png",
+      "typeImage": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785163129/senadb/types/roleicon_04-3c4c7a32e8.png",
       "hasEffect": true,
       "transLevel": null,
       "history": [],
@@ -2642,7 +2642,7 @@
         "type": "Attack",
         "description": "적군 1명\n- 마법 공격력의 100%만큼 1회 피해\n스킬 강화 효과\n- 피해량 상승: 마법 공격력의 120%\n[현재 생명력이 가장 낮은 아군(자신 제외)]\n- 효과 추가: 마법 공격력 비례 지속 회복 27% [1턴 지속]",
         "cooltime": null,
-        "image": "/content/skills/6adV_7QGtfZJhBXzlzWzkqO3BE2cyeUnQcosNcyktVtpkEkupNv209Af4og599aPh6GaD8nmfKdWtI813AkD2A-1-6af74bfb09.webp",
+        "image": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162895/senadb/skills/6adv_7qgtfzjhbxzlzwzkqo3be2cyeunqcosncyktvtpkekupnv209af4og599aph6gad8nmfkdwti813akd2a-1-6af74bfb09.webp",
         "effects": [],
         "linkedHeroes": {
           "attack": [
@@ -2659,7 +2659,7 @@
         "type": "Active",
         "description": "적군 3명\n- 마법 공격력의 145%만큼 1회 피해\n- 버프 해제 2개 [100% 확률]\n스킬 강화 효과\n- 효과 추가: 방어력 감소 36% [100% 확률] [3턴 지속]",
         "cooltime": "70",
-        "image": "/content/skills/hNS87HrGXFflpb7z-HmuEs8Yw7PkVRJzn6U7R_9ltbOTy4K1eZUupPxultC_-Bffeq9P7WSkxK0U0uvxCqsNtFx6AJC7PV9UwFJ0C9zEh8Qwb4_yb1VuwPFdngEc_F1SazX0yaqXg7mJ4DVxWlZAag-06b9a6a9e6.webp",
+        "image": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162918/senadb/skills/hns87hrgxfflpb7z-hmues8yw7pkvrjzn6u7r_9ltboty4k1ezuuppxultc_-bffeq9p7wskxk0u0uvxcqsntfx6ajc7pv9uwfj0c9zeh8qwb4_yb1vuwpfdngec_f1sazx0yaqxg7mj4dvxwlzaag-06b9a6a9e6.webp",
         "effects": [],
         "linkedHeroes": {
           "attack": [],
@@ -2676,7 +2676,7 @@
         "type": "Active",
         "description": "자신\n- 시전자 마법 공격력의 55%만큼 보호막 [2턴 지속]\n모든 마법형 아군\n- 대상의 마법 공격력의 55%만큼 보호막 [2턴 지속]\n모든 적군\n- 마법 공격력의 50%만큼 2회 피해\n스킬 강화 효과\n- 피해량 상승: 마법 공격력의 57%\n2초월 효과\n[자신, 아군 마법형]\n- 효과 추가: 디버프 해제 2개",
         "cooltime": "112",
-        "image": "/content/skills/NYV1PDTi0tEJYqeWouDVUzrqff7szHwlI1sKL8kjx5M-wsASwgsqPQuwN1biawnIabVye1bYCPk5sLQKtMyu_fdBRthYqyrWrgQ1lwrWn8yypCgWQEbwl2KgsBtGJpeSE-cmmC96WcMZA4mbY_7qRg-da8cadd94b.webp",
+        "image": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162937/senadb/skills/nyv1pdti0tejyqewoudvuzrqff7szhwli1skl8kjx5m-wsaswgsqpquwn1biawniabvye1bycpk5slqktmyu_fdbrthyqyrwrgq1lwrwn8yypcgwqebwl2kgsbtgjpese-cmmc96wcmza4mby_7qrg-da8cadd94b.webp",
         "effects": [],
         "linkedHeroes": {
           "attack": [],
@@ -2693,7 +2693,7 @@
         "type": "Passive",
         "description": "자신\n- 시전자 마법 공격력의 160%만큼 보호막 [3턴 지속]\n아군 전열(마법형)\n- 치명타 확률 증가 [상시]\n- 치명타 피해 증가 [상시]\n스킬 강화 효과\n- 효과 상승: 보호막 흡수량이 마법 공격력의 185%\n6초월 효과\n[아군 마법형]\n- 효과 추가: 자신의 스킬 1회 발동 시 모든 피해 무효화 [피격 1회]",
         "cooltime": null,
-        "image": "/content/skills/FiHbPBG4_qojF7ptBsPlowG2_ZVVyyi_FdaEgvA-gLwfCjyQSH-F8rdPArmfrPoizS2nZeEUCpSWDTgTBryJQ-9a075c3a25.webp",
+        "image": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162911/senadb/skills/fihbpbg4_qojf7ptbsplowg2_zvvyyi_fdaegva-glwfcjyqsh-f8rdparmfrpoizs2nzeeucpswdtgtbryjq-9a075c3a25.webp",
         "effects": [],
         "linkedHeroes": {
           "attack": [],
@@ -2713,8 +2713,8 @@
       "group": "에반원정대",
       "rarity": "희귀",
       "type": "마법형",
-      "portrait": "/content/heroes/hero-050-ee55e228f6.png",
-      "typeImage": "/content/types/RoleIcon_02-3bdba832b0.png",
+      "portrait": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162794/senadb/heroes/hero-050-ee55e228f6.png",
+      "typeImage": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785163128/senadb/types/roleicon_02-3bdba832b0.png",
       "hasEffect": false,
       "transLevel": null,
       "history": [],
@@ -2743,8 +2743,8 @@
       "group": "천자의 땅 동쪽",
       "rarity": "전설",
       "type": "마법형",
-      "portrait": "/content/heroes/hero-051-245d3e2f07.png",
-      "typeImage": "/content/types/RoleIcon_02-3bdba832b0.png",
+      "portrait": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162794/senadb/heroes/hero-051-245d3e2f07.png",
+      "typeImage": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785163128/senadb/types/roleicon_02-3bdba832b0.png",
       "hasEffect": false,
       "transLevel": null,
       "history": [],
@@ -2773,8 +2773,8 @@
       "group": "에반원정대",
       "rarity": "희귀",
       "type": "지원형",
-      "portrait": "/content/heroes/hero-052-dbbd98e135.png",
-      "typeImage": "/content/types/RoleIcon_04-3c4c7a32e8.png",
+      "portrait": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162795/senadb/heroes/hero-052-dbbd98e135.png",
+      "typeImage": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785163129/senadb/types/roleicon_04-3c4c7a32e8.png",
       "hasEffect": false,
       "transLevel": null,
       "history": [],
@@ -2803,8 +2803,8 @@
       "group": "세븐나이츠",
       "rarity": "전설+",
       "type": "만능형",
-      "portrait": "/content/heroes/hero-053-90cf0e477d.png",
-      "typeImage": "/content/types/RoleIcon_05-f7672beb62.png",
+      "portrait": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162796/senadb/heroes/hero-053-90cf0e477d.png",
+      "typeImage": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785163130/senadb/types/roleicon_05-f7672beb62.png",
       "hasEffect": true,
       "transLevel": null,
       "history": [],
@@ -2826,7 +2826,7 @@
         "type": "Attack",
         "description": "!단일 적군\n- 물리 공격력의 100%만큼 1회 피해\n- 화상 [40% 확률] [2턴 지속]\n<<화상>>\n#스킬 강화 효과\n- 피해량 상승 : 물리 공격력의 120%\n- 확률 상승 : 화상 확률 50%",
         "cooltime": null,
-        "image": "/content/skills/_VYyRSJDkCuVxpPRpWUYt1oVZOx3F_NoFFhE5_MAh9YXjGCZUizfpiXw6omLzrU22nZk_W0wtBwBc7DKXeXyWg-d0a80472e3.webp",
+        "image": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162885/senadb/skills/_vyyrsjdkcuvxpprpwuyt1ovzox3f_noffhe5_mah9yxjgczuizfpixw6omlzru22nzk_w0wtbwbc7dkxexywg-d0a80472e3.webp",
         "effects": [
           {
             "id": "effect-69",
@@ -2835,7 +2835,7 @@
             "effectType": "debuff",
             "hasVariable": false,
             "fulltime": false,
-            "icon": "/content/effects/BuffIcon_15003-c1bd3f9416.png"
+            "icon": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162750/senadb/effects/bufficon_15003-c1bd3f9416.png"
           }
         ],
         "linkedHeroes": {
@@ -2853,7 +2853,7 @@
         "type": "Active",
         "description": "!모든 적군\n- 물리 공격력의 115%만큼 1회 피해\n- 피해 대상이 1명 줄어들 때마다 15%만큼 피해량 증가\n- 기절 [45% 확률] [2턴 지속]\n<<기절>>\n#스킬 강화 효과\n- 피해량 상승 : 물리 공격력의 150%",
         "cooltime": "104",
-        "image": "/content/skills/3sE0uD5lYoRdLhsI33H98-zDTcNqk3hiMfJbfP5gRfs-ucQ_5s0u__CxuXyNbfzVg0CrTFX1XAs89E4TIn-Ysw-344e41af00.webp",
+        "image": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162891/senadb/skills/3se0ud5lyordlhsi33h98-zdtcnqk3himfjbfp5grfs-ucq_5s0u__cxuxynbfzvg0crtfx1xas89e4tin-ysw-344e41af00.webp",
         "effects": [
           {
             "id": "effect-10",
@@ -2862,7 +2862,7 @@
             "effectType": "debuff",
             "hasVariable": false,
             "fulltime": false,
-            "icon": "/content/effects/Bufficon_11001-72514c06bf.png"
+            "icon": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162738/senadb/effects/bufficon_11001-72514c06bf.png"
           }
         ],
         "linkedHeroes": {
@@ -2880,7 +2880,7 @@
         "type": "Active",
         "description": "!모든 적군\n- 물리 공격력의 70%만큼 2회 관통 피해\n- 피해 대상이 1명 줄어들 때마다 8%만큼 피해량 증가\n- 각 공격마다 화상 [40% 확률] [2턴 지속]\n<<화상>>\n#스킬 강화 효과\n- 피해량 상승 : 물리 공격력의 80%\n- 확률 상승 : 화상 확률 55%",
         "cooltime": "104",
-        "image": "/content/skills/Qm8a0spaUIvPb7MeTBgmYd4ljJKawS-pQU72i2KUMkgUfeaRqQE0CbUFVwDiPvRFrPRjyfaRoR0nllrOnpiVog-276d2dc816.webp",
+        "image": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162942/senadb/skills/qm8a0spauivpb7metbgmyd4ljjkaws-pqu72i2kumkgufearqqe0cbufvwdipvrfrprjyfaror0nllronpivog-276d2dc816.webp",
         "effects": [
           {
             "id": "effect-8",
@@ -2889,7 +2889,7 @@
             "effectType": "buff",
             "hasVariable": false,
             "fulltime": false,
-            "icon": "/content/effects/Bufficon_21001-dd2948b21a.png"
+            "icon": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162756/senadb/effects/bufficon_21001-dd2948b21a.png"
           },
           {
             "id": "effect-69",
@@ -2898,7 +2898,7 @@
             "effectType": "debuff",
             "hasVariable": false,
             "fulltime": false,
-            "icon": "/content/effects/BuffIcon_15003-c1bd3f9416.png"
+            "icon": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162750/senadb/effects/bufficon_15003-c1bd3f9416.png"
           }
         ],
         "linkedHeroes": {
@@ -2916,7 +2916,7 @@
         "type": "Passive",
         "description": "!자신\n- 공격력 비례 방어력 증가 [상시]\n<<공격력 비례 방어력 증가>>\n- 반격 [38% 확률] [상시]\n<<반격>>\n!반격 발동 시 적군 3명\n- 물리 공격력의 40%만큼 1회 피해\n- 화상 [35% 확률] [2턴 지속]\n<<화상>>\n#스킬 강화 효과\n- 효과 상승 : 공격력 비례 방어력 최대 증가 수치 1375\n- 반격 피해량 상승 : 물리 공격력의 50%\n- 확률 상승 : 화상 확률 40%\n@2초월 효과\n자신\n- 효과 추가 : 행동 제어 면역 [3턴 지속]\n<<행동 제어 면역>>\n@@6초월 효과\n- 효과 변경 : 화상이 턴마다 공격력 120% 만큼 피해를 주는 [용염]으로 변경",
         "cooltime": null,
-        "image": "/content/skills/kENdRedzcvwEtYDPWwTg4JluY4GvWy4XS5bTN-mV7O-yziUjh_3HzFECPHjoNqf-s6xag8dlMDkSkB5XRRgR9w-c10259aaa1.webp",
+        "image": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162925/senadb/skills/kendredzcvwetydpwwtg4jluy4gvwy4xs5btn-mv7o-yziujh_3hzfecphjonqf-s6xag8dlmdkskb5xrrgr9w-c10259aaa1.webp",
         "effects": [
           {
             "id": "effect-6",
@@ -2925,7 +2925,7 @@
             "effectType": "buff",
             "hasVariable": false,
             "fulltime": false,
-            "icon": "/content/effects/BuffIcon_02033_reverse-ee414e0673.png"
+            "icon": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162722/senadb/effects/bufficon_02033_reverse-ee414e0673.png"
           },
           {
             "id": "effect-29",
@@ -2934,7 +2934,7 @@
             "effectType": "neutral",
             "hasVariable": false,
             "fulltime": false,
-            "icon": "/content/effects/Bufficon_20003_reverse-16c2b1e2ca.png"
+            "icon": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162752/senadb/effects/bufficon_20003_reverse-16c2b1e2ca.png"
           },
           {
             "id": "effect-69",
@@ -2943,7 +2943,7 @@
             "effectType": "debuff",
             "hasVariable": false,
             "fulltime": false,
-            "icon": "/content/effects/BuffIcon_15003-c1bd3f9416.png"
+            "icon": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162750/senadb/effects/bufficon_15003-c1bd3f9416.png"
           }
         ],
         "linkedHeroes": {
@@ -2964,8 +2964,8 @@
       "group": "그림자단",
       "rarity": "희귀",
       "type": "공격형",
-      "portrait": "/content/heroes/hero-054-cec7fe75af.png",
-      "typeImage": "/content/types/RoleIcon_01-1e0c023e6e.png",
+      "portrait": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162797/senadb/heroes/hero-054-cec7fe75af.png",
+      "typeImage": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785163127/senadb/types/roleicon_01-1e0c023e6e.png",
       "hasEffect": false,
       "transLevel": null,
       "history": [],
@@ -2994,8 +2994,8 @@
       "group": "모험가",
       "rarity": "희귀",
       "type": "마법형",
-      "portrait": "/content/heroes/hero-055-7b2655ff82.png",
-      "typeImage": "/content/types/RoleIcon_02-3bdba832b0.png",
+      "portrait": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162797/senadb/heroes/hero-055-7b2655ff82.png",
+      "typeImage": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785163128/senadb/types/roleicon_02-3bdba832b0.png",
       "hasEffect": false,
       "transLevel": null,
       "history": [],
@@ -3024,8 +3024,8 @@
       "group": "(구)세븐나이츠",
       "rarity": "전설+",
       "type": "마법형",
-      "portrait": "/content/heroes/hero-056-f148e7f6e5.png",
-      "typeImage": "/content/types/RoleIcon_02-3bdba832b0.png",
+      "portrait": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162798/senadb/heroes/hero-056-f148e7f6e5.png",
+      "typeImage": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785163128/senadb/types/roleicon_02-3bdba832b0.png",
       "hasEffect": true,
       "transLevel": null,
       "history": [],
@@ -3047,7 +3047,7 @@
         "type": "Attack",
         "description": "적군 2명\n- 마법 공격력의 55%만큼 1회 피해\n스킬 강화 효과\n- 피해량 상승 : 마법 공격력의 70%만큼 1회 피해",
         "cooltime": null,
-        "image": "/content/skills/uJHJeaMcm6Q8Csd7lsFoN6Lq1dC8MULlCUj1nxvE9a7GZAQ1d1YqjuZUgvy6oMiAgJqXMeC_m4vaWFO5wKlY9g-2-baebea80ed.webp",
+        "image": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785163104/senadb/skills/ujhjeamcm6q8csd7lsfon6lq1dc8mullcuj1nxve9a7gzaq1d1yqjuzugvy6omiagjqxmec_m4vawfo5wkly9g-2-baebea80ed.webp",
         "effects": [],
         "linkedHeroes": {
           "attack": [
@@ -3064,7 +3064,7 @@
         "type": "Active",
         "description": "모든 적군\n- 마법 공격력의 65%만큼 2회 피해\n- 방어력 감소 [100% 확률] [3턴 지속]\n스킬 강화 효과\n- 피해량 상승 : 마법 공격력의 77%\n- 효과 상승 : 방어력 감소 효과 29%",
         "cooltime": "84",
-        "image": "/content/skills/5rhpjIaUspYaa2CFdlZt-7oFKfG7EV5uPmeqgo3mphWXjILK5W4C0j843Gbl_YAwQqjmw8QqiykCqAikeHDi0w-9826db3230.webp",
+        "image": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162894/senadb/skills/5rhpjiauspyaa2cfdlzt-7ofkfg7ev5upmeqgo3mphwxjilk5w4c0j843gbl_yawqqjmw8qqiykcqaikehdi0w-9826db3230.webp",
         "effects": [],
         "linkedHeroes": {
           "attack": [],
@@ -3081,7 +3081,7 @@
         "type": "Active",
         "description": "모든 적군\n- 영멸 [60% 확률] [2턴 지속]\n- 마법 공격력의 70%만큼 2회 피해\n스킬 강화 효과\n- 피해량 상승 : 마법 공격력의 80%\n- 확률 상승 : 영멸 확률 70%",
         "cooltime": "96",
-        "image": "/content/skills/Eks6L35jkBA6T64pChMPwqrQ6XP5teDb8w6FNnbsuB7KAUsrA4lgA3b7ltWJp_ZFrnIYhaDLgBwQjR6S7b8MLA-4b217b31d8.webp",
+        "image": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162907/senadb/skills/eks6l35jkba6t64pchmpwqrq6xp5tedb8w6fnnbsub7kausra4lga3b7ltwjp_zfrniyhadlgbwqjr6s7b8mla-4b217b31d8.webp",
         "effects": [],
         "linkedHeroes": {
           "attack": [],
@@ -3098,7 +3098,7 @@
         "type": "Passive",
         "description": "자신\n- 협공 [25% 확률] [상시]\n- 모든 피해 무효화 [피격 2회]\n- 사망 시 불사 상태로 부활 [2턴 지속] (전투 당 1회 발동)\n협공 발동 시 적군 3명\n- 마법 공격력의 40%, 대상 최대 생명력의 7%만큼 1회 피해 (생명력 비례 피해는 시전자 공격력의 300% 제한)\n스킬 강화 효과\n- 턴 상승 : 불사 지속 3턴\n- 협공 피해량 상승 : 마법 공격력의 50%, 대상 최대 생명력의 9%\n2초월 효과\n- 확률 상승 : 협공 확률 35%\n6초월 효과\n[자신]\n- 효과 추가 : 불사 발동 시 행동 제어 면역 [3턴 지속]",
         "cooltime": null,
-        "image": "/content/skills/i3XJoIFPBngKpmnjr3zLrC5cLElMXizynwIXxUYebWCJbdKKTtTn3FUZOlk-IjdCMuOA22mF6nrvexHEo4K1DA-5fe212f0c5.webp",
+        "image": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162919/senadb/skills/i3xjoifpbngkpmnjr3zlrc5clelmxizynwixxuyebwcjbdkktttn3fuzolk-ijdcmuoa22mf6nrvexheo4k1da-5fe212f0c5.webp",
         "effects": [],
         "linkedHeroes": {
           "attack": [],
@@ -3118,8 +3118,8 @@
       "group": "에반원정대",
       "rarity": "희귀",
       "type": "공격형",
-      "portrait": "/content/heroes/hero-057-69af063ac6.png",
-      "typeImage": "/content/types/RoleIcon_01-1e0c023e6e.png",
+      "portrait": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162799/senadb/heroes/hero-057-69af063ac6.png",
+      "typeImage": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785163127/senadb/types/roleicon_01-1e0c023e6e.png",
       "hasEffect": false,
       "transLevel": null,
       "history": [],
@@ -3148,8 +3148,8 @@
       "group": "성십자단",
       "rarity": "전설",
       "type": "만능형",
-      "portrait": "/content/heroes/hero-058-2754d05bcb.png",
-      "typeImage": "/content/types/RoleIcon_05-f7672beb62.png",
+      "portrait": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162799/senadb/heroes/hero-058-2754d05bcb.png",
+      "typeImage": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785163130/senadb/types/roleicon_05-f7672beb62.png",
       "hasEffect": false,
       "transLevel": null,
       "history": [],
@@ -3178,8 +3178,8 @@
       "group": "달빛의 섬",
       "rarity": "희귀",
       "type": "공격형",
-      "portrait": "/content/heroes/hero-059-3afe0fb32c.png",
-      "typeImage": "/content/types/RoleIcon_01-1e0c023e6e.png",
+      "portrait": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162800/senadb/heroes/hero-059-3afe0fb32c.png",
+      "typeImage": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785163127/senadb/types/roleicon_01-1e0c023e6e.png",
       "hasEffect": false,
       "transLevel": null,
       "history": [],
@@ -3208,8 +3208,8 @@
       "group": "테라영지",
       "rarity": "전설",
       "type": "만능형",
-      "portrait": "/content/heroes/hero-060-e8a4c51d5a.png",
-      "typeImage": "/content/types/RoleIcon_05-f7672beb62.png",
+      "portrait": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162801/senadb/heroes/hero-060-e8a4c51d5a.png",
+      "typeImage": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785163130/senadb/types/roleicon_05-f7672beb62.png",
       "hasEffect": false,
       "transLevel": null,
       "history": [],
@@ -3238,8 +3238,8 @@
       "group": "숨은 강자들",
       "rarity": "전설+",
       "type": "공격형",
-      "portrait": "/content/heroes/hero-061-791752ace0.png",
-      "typeImage": "/content/types/RoleIcon_01-1e0c023e6e.png",
+      "portrait": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162801/senadb/heroes/hero-061-791752ace0.png",
+      "typeImage": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785163127/senadb/types/roleicon_01-1e0c023e6e.png",
       "hasEffect": true,
       "transLevel": null,
       "history": [],
@@ -3261,7 +3261,7 @@
         "type": "Attack",
         "description": "단일 적군\n- 물리 공격력의 100%만큼 1회 피해\n스킬 강화 효과\n- 피해량 상승 : 물리 공격력의 130%",
         "cooltime": null,
-        "image": "/content/skills/lbdCz2lJC477AGAxRCKin9JN2UjhDqRKKI_bjNAxBq8cFb9FjPWC_pom477Ei-NLBwU_dbp1hqyTsWX0m4YxcQ-2-952af6f9ba.webp",
+        "image": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162928/senadb/skills/lbdcz2ljc477agaxrckin9jn2ujhdqrkki_bjnaxbq8cfb9fjpwc_pom477ei-nlbwu_dbp1hqytswx0m4yxcq-2-952af6f9ba.webp",
         "effects": [],
         "linkedHeroes": {
           "attack": [
@@ -3278,7 +3278,7 @@
         "type": "Active",
         "description": "적군 4명 (전열 우선)\n- 물리 공격력의 62%만큼 2회 피해 \n- 받는 회복량 감소 [100% 확률] [3턴 지속]\n스킬 강화 효과\n- 효과 상승 : 받는 회복량 감소 68%",
         "cooltime": "88",
-        "image": "/content/skills/QZ0LJd0-Nytw_eVbIO5kx6jP-gCvkhuOkOAcafjC21_IueGWCNDUNdYZzoozaksIXDhFiSqo0HmVk4zPcP1OZQ-e6a575284d.webp",
+        "image": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162942/senadb/skills/qz0ljd0-nytw_evbio5kx6jp-gcvkhuokoacafjc21_iuegwcndundyzzoozaksixdhfisqo0hmvk4zpcp1ozq-e6a575284d.webp",
         "effects": [],
         "linkedHeroes": {
           "attack": [],
@@ -3295,7 +3295,7 @@
         "type": "Active",
         "description": "모든 적군\n- 물리 공격력의 57%만큼 2회 피해\n- 석화 [45% 확률] [2턴 지속]\n스킬 강화 효과\n- 확률 상승 : 석화 확률 55%",
         "cooltime": "80",
-        "image": "/content/skills/rBgJpiHkpUKG7L0QH4zCyPf9Bk94m4W3V269kmIJFzA8OyMOTD_ONvvpPyhMVHbRDx3moBZP7n-dkkB-_vLX0A-be4b5865b7.webp",
+        "image": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162944/senadb/skills/rbgjpihkpukg7l0qh4zcypf9bk94m4w3v269kmijfza8oymotd_onvvppyhmvhbrdx3mobzp7n-dkkb-_vlx0a-be4b5865b7.webp",
         "effects": [],
         "linkedHeroes": {
           "attack": [],
@@ -3312,7 +3312,7 @@
         "type": "Passive",
         "description": "자신\n- 사망 시 불굴 상태로 부활 [피격 8회] (전투당 1회 발동)\n아군 (공격형, 만능형)\n- 치명타 피해 증가 [상시]\n- 불굴 발동 시 디버프 해제 2개\n- 불굴 발동 시 물리 피해량 증가 [3턴 지속]\n스킬 강화 효과\n- 효과 상승 : 치명타 피해 증가 34%\n2초월 효과\n[아군 공격형, 만능형]\n- 효과 추가 : 불굴 발동 시 시전자 물리 공격력의 65%만큼 생명력 회복\n6초월 효과\n[모든 적군]\n- 효과 추가 : 자신의 스킬 1회 발동 시 물리 취약 24% [100% 확률] [2턴 지속]",
         "cooltime": null,
-        "image": "/content/skills/hSwAaEUr-DZRqHLjvuiC2PDqdzJf3F7_-RrpkEnoCCDyxu_7mDWEpWPzt81KltomBKaVt2L2vfrjQqc7JpUG7w-e55dd18d21.webp",
+        "image": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162918/senadb/skills/hswaaeur-dzrqhljvuic2pdqdzjf3f7_-rrpkenoccdyxu_7mdwepwpzt81kltombkavt2l2vfrjqqc7jpug7w-e55dd18d21.webp",
         "effects": [],
         "linkedHeroes": {
           "attack": [],
@@ -3332,8 +3332,8 @@
       "group": "모험가",
       "rarity": "희귀",
       "type": "지원형",
-      "portrait": "/content/heroes/hero-062-bc82c4151c.png",
-      "typeImage": "/content/types/RoleIcon_04-3c4c7a32e8.png",
+      "portrait": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162802/senadb/heroes/hero-062-bc82c4151c.png",
+      "typeImage": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785163129/senadb/types/roleicon_04-3c4c7a32e8.png",
       "hasEffect": false,
       "transLevel": null,
       "history": [],
@@ -3362,8 +3362,8 @@
       "group": "(구)사황",
       "rarity": "전설+",
       "type": "만능형",
-      "portrait": "/content/heroes/hero-063-50edeb2faf.png",
-      "typeImage": "/content/types/RoleIcon_05-f7672beb62.png",
+      "portrait": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162803/senadb/heroes/hero-063-50edeb2faf.png",
+      "typeImage": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785163130/senadb/types/roleicon_05-f7672beb62.png",
       "hasEffect": true,
       "transLevel": null,
       "history": [],
@@ -3385,7 +3385,7 @@
         "type": "Attack",
         "description": "단일 적군\n- 마법 공격력의 50%, 방어력의 60%만큼 1회 피해\n스킬 강화 효과\n- 효과 추가 : (적군 3명) 피해량 감소 6% [100% 확률] [2턴 지속]",
         "cooltime": null,
-        "image": "/content/skills/6adV_7QGtfZJhBXzlzWzkqO3BE2cyeUnQcosNcyktVtpkEkupNv209Af4og599aPh6GaD8nmfKdWtI813AkD2A-c18cb1ba55.webp",
+        "image": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162896/senadb/skills/6adv_7qgtfzjhbxzlzwzkqo3be2cyeunqcosncyktvtpkekupnv209af4og599aph6gad8nmfkdwti813akd2a-c18cb1ba55.webp",
         "effects": [],
         "linkedHeroes": {
           "attack": [
@@ -3402,7 +3402,7 @@
         "type": "Active",
         "description": "적군 3명\n- 마법 공격력의 25%, 방어력의 28%만큼 3회 방어 무시 피해\n스킬 강화 효과\n- 피해량 상승 : 마법 공격력의 28%, 방어력의 33%)",
         "cooltime": "105",
-        "image": "/content/skills/Kk-RmUy5b6CmgYbtH4QaiN4JpbBuhHdpHdZ-t3lwhlZ2XvKUFmmTAMuyobigrrPZ6xclmIVx0tmJcSDTc1Bpfg-be9f7ecac5.webp",
+        "image": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162927/senadb/skills/kk-rmuy5b6cmgybth4qain4jpbbuhhdphdz-t3lwhlz2xvkufmmtamuyobigrrpz6xclmivx0tmjcsdtc1bpfg-be9f7ecac5.webp",
         "effects": [],
         "linkedHeroes": {
           "attack": [],
@@ -3419,7 +3419,7 @@
         "type": "Active",
         "description": "모든 아군\n- 피해량의 31%만큼 생명력 회복\n적군 3명\n- 마법 공격력의 20%, 방어력의 23%만큼 3회 관통 피해\n- [인고]를 4개 소모하여 각 공격마다 마법 공격력의 39%, 방어력의 45% 관통 추가 피해\n스킬 강화 효과\n- 피해량 상승 : 마법 공격력의 23%, 방어력의 26%\n- 효과 상승 : 생명력 회복량이 피해량의 37%",
         "cooltime": "105",
-        "image": "/content/skills/-FbKAM55WgxFO6_JkDIuLm4MoKpBhtxBV6eZVoKqaEkK82s8emDj3f_WJjbpXG6CIjvDgjI4lN_4AiKr1ClBIw-6d04b83f98.webp",
+        "image": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162887/senadb/skills/fbkam55wgxfo6_jkdiulm4mokpbhtxbv6ezvokqaekk82s8emdj3f_wjjbpxg6cijvdgji4ln_4aikr1clbiw-6d04b83f98.webp",
         "effects": [],
         "linkedHeroes": {
           "attack": [],
@@ -3436,7 +3436,7 @@
         "type": "Passive",
         "description": "아군 - 만능형\n- 피해량 증가 [상시]\n자신\n- 자신이 피격 1회 시 인고 1중첩 [최대 4중첩]\n모든 아군\n- 감쇄 [피격 3회]\n- 자신의 모든 공격 2회 발동 시 감쇄 [피격 3회]\n스킬 강화 효과\n- 효과 상승 : 피해량 증가 15%\n2초월 효과\n[자신] \n- 효과 추가 : 막기 확률 증가 33% [상시]",
         "cooltime": null,
-        "image": "/content/skills/LjEi2bomXcSF1S05gVS-jpqDkNHngR4hzgEuRN0RI54VicSHac8yAv1bjzrPoRnBlqWmQHFSu5Zen08zfp2pug-208ac0fbfa.webp",
+        "image": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162930/senadb/skills/ljei2bomxcsf1s05gvs-jpqdknhngr4hzgeurn0ri54vicshac8yav1bjzrpornblqwmqhfsu5zen08zfp2pug-208ac0fbfa.webp",
         "effects": [],
         "linkedHeroes": {
           "attack": [],
@@ -3456,8 +3456,8 @@
       "group": "에반원정대",
       "rarity": "희귀",
       "type": "지원형",
-      "portrait": "/content/heroes/hero-064-6a2d63a46e.png",
-      "typeImage": "/content/types/RoleIcon_04-3c4c7a32e8.png",
+      "portrait": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162804/senadb/heroes/hero-064-6a2d63a46e.png",
+      "typeImage": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785163129/senadb/types/roleicon_04-3c4c7a32e8.png",
       "hasEffect": false,
       "transLevel": null,
       "history": [],
@@ -3486,8 +3486,8 @@
       "group": "(구)사황",
       "rarity": "전설+",
       "type": "공격형",
-      "portrait": "/content/heroes/hero-065-f42d5c31f5.png",
-      "typeImage": "/content/types/RoleIcon_01-1e0c023e6e.png",
+      "portrait": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162804/senadb/heroes/hero-065-f42d5c31f5.png",
+      "typeImage": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785163127/senadb/types/roleicon_01-1e0c023e6e.png",
       "hasEffect": true,
       "transLevel": null,
       "history": [],
@@ -3509,7 +3509,7 @@
         "type": "Attack",
         "description": "단일 적군\n- 물리 공격력의 100%만큼 1회 피해\n- 자신의 기본 공격 2회 발동 시 물리 공격력의 130%만큼 1회 피해의 추가 공격\n단일 적군 (강자 주시)\n- 추가 공격 시, 버프 해제 1개 [30% 확률]\n스킬 강화 효과\n- 피해량 상승 : 물리 공격력의 130%",
         "cooltime": null,
-        "image": "/content/skills/_5wylIAKOy1epRrBsIgnA-OmDvWcVCS_I-EloJguuTTLULW2I5FqUGDcIqr0H0Ic78CUHvM7BXsQOKQ-Qv43UA-2-370ce90125.webp",
+        "image": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162882/senadb/skills/_5wyliakoy1eprrbsigna-omdvwcvcs_i-elojguuttlulw2i5fqugdciqr0h0ic78cuhvm7bxsqokq-qv43ua-2-370ce90125.webp",
         "effects": [],
         "linkedHeroes": {
           "attack": [
@@ -3526,7 +3526,7 @@
         "type": "Active",
         "description": "적군 4명\n- 물리 공격력의 60%, 대상 최대 생명력의 8%만큼 2회 피해\n(대상이 잃은 생명력에 비례해 최대 50%만큼 피해량 증가)\n(생명력 비례 피해는 시전자 공격력의 75% 제한)\n단일 적군 (강자 주시)\n- 물리 공격력의 65%만큼 추가 피해\n스킬 강화 효과\n- 피해량 상승 : 물리 공격력의 72%, 대상 최대 생명력의 10%\n6초월 효과\n- 효과 추가: 방어 무시",
         "cooltime": "90",
-        "image": "/content/skills/mHBhhm-X3Y2NVnVwihiikrjq2GUgCHpm-QDiC15-Cco7MgEUzYOX3agh1A80oK3KcGvQVCA0Mz4Y3XsqlgVRJg-c4b18a45cd.webp",
+        "image": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162932/senadb/skills/mhbhhm-x3y2nvnvwihiikrjq2gugchpm-qdic15-cco7mgeuzyox3agh1a80ok3kcgvqvca0mz4y3xsqlgvrjg-c4b18a45cd.webp",
         "effects": [],
         "linkedHeroes": {
           "attack": [],
@@ -3543,7 +3543,7 @@
         "type": "Active",
         "description": "적군 4명\n- 버프 해제 2개 [100% 확률]\n- 물리 공격력의 70%만큼 2회 관통 피해\n단일 적군 (강자 주시)\n- 물리 공격력의 65%만큼 추가 피해\n스킬 강화 효과\n- 피해량 상승 : 물리 공격력의 90%\n6초월 효과\n- 효과 추가: 방어 무시",
         "cooltime": "94",
-        "image": "/content/skills/sQQynvdR52SZzs0ihEWA25tWfLEHnQ6KFESWgqhFB5biVMaqxKbiHgKtXFhC6IObIr4QYL9DlT7WIJ0VAXXpSQ-c45a79416b.webp",
+        "image": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162947/senadb/skills/sqqynvdr52szzs0ihewa25twflehnq6kfeswgqhfb5bivmaqxkbihgktxfhc6iobir4qyl9dlt7wij0vaxxpsq-c45a79416b.webp",
         "effects": [],
         "linkedHeroes": {
           "attack": [],
@@ -3560,7 +3560,7 @@
         "type": "Passive",
         "description": "자신\n- 치명타 확률 증가 [상시]\n- 전투 시작 시 아군에 공격형 영웅이 3명 이상 있을 시, 모든 피해 무효화 [피격 3회]\n공격력이 가장 높은 적군\n- 강자 주시 [상시]\n모든 적군\n- 자신의 모든 공격 2회 발동 시 대상 최대 생명력의 23%만큼 1회 방어 무시 피해 (생명력 비례 피해는 시전자 공격력의 100% 제한)\n스킬 강화 효과\n- 횟수 상승 : 모든 피해 무효화 횟수 4회\n- 피해량 상승: 대상 최대 생명력의 32%\n2초월 효과\n- 효과 추가: 자신의 생명력이 70% 이하가 되면 모든 피해 무효화 [피격 3회] (전투당 1회 발동) (공격형 3명 이상 편성 시)",
         "cooltime": null,
-        "image": "/content/skills/XTYz1Fd7gHyT6UfFhC4gXdC2sLzbQQp88So9UT2FJfrpwM7pcb1GhDdOLwHLpUj0OK3e54AsLcVqjCfVScQ0wg-e51ee9684e.webp",
+        "image": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785163118/senadb/skills/xtyz1fd7ghyt6uffhc4gxdc2slzbqqp88so9ut2fjfrpwm7pcb1ghddolwhlpuj0ok3e54aslcvqjcfvscq0wg-e51ee9684e.webp",
         "effects": [],
         "linkedHeroes": {
           "attack": [],
@@ -3580,8 +3580,8 @@
       "group": "달빛의 섬",
       "rarity": "희귀",
       "type": "공격형",
-      "portrait": "/content/heroes/hero-066-7ac5fe2e03.png",
-      "typeImage": "/content/types/RoleIcon_01-1e0c023e6e.png",
+      "portrait": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162805/senadb/heroes/hero-066-7ac5fe2e03.png",
+      "typeImage": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785163127/senadb/types/roleicon_01-1e0c023e6e.png",
       "hasEffect": false,
       "transLevel": null,
       "history": [],
@@ -3610,8 +3610,8 @@
       "group": "다크나이츠",
       "rarity": "전설+",
       "type": "공격형",
-      "portrait": "/content/heroes/hero-067-7180bb73f5.png",
-      "typeImage": "/content/types/RoleIcon_01-1e0c023e6e.png",
+      "portrait": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162806/senadb/heroes/hero-067-7180bb73f5.png",
+      "typeImage": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785163127/senadb/types/roleicon_01-1e0c023e6e.png",
       "hasEffect": true,
       "transLevel": null,
       "history": [],
@@ -3633,7 +3633,7 @@
         "type": "Attack",
         "description": "적군 2명\n- 물리 공격력의 55%만큼 1회 피해\n스킬 강화 효과\n- 피해량 상승: 물리 공격력의 70%",
         "cooltime": null,
-        "image": "/content/skills/_VYyRSJDkCuVxpPRpWUYt1oVZOx3F_NoFFhE5_MAh9YXjGCZUizfpiXw6omLzrU22nZk_W0wtBwBc7DKXeXyWg-1-d76cfd2b33.webp",
+        "image": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162884/senadb/skills/_vyyrsjdkcuvxpprpwuyt1ovzox3f_noffhe5_mah9yxjgczuizfpixw6omlzru22nzk_w0wtbwbc7dkxexywg-1-d76cfd2b33.webp",
         "effects": [],
         "linkedHeroes": {
           "attack": [
@@ -3650,7 +3650,7 @@
         "type": "Active",
         "description": "적군 4명\n- 물리 공격력의 40%만큼 2회 피해\n- 각 공격마다 폭탄 [35% 확률] [3턴 지속]\n스킬 강화 효과\n- 피해량 상승: 물리 공격력의 50%\n- 확률 상승: 폭탄 확률 45%",
         "cooltime": "72",
-        "image": "/content/skills/NZr-jHIjFEB48USNVXtoZy5WVWTVAc1N5l0lTKHJqeeribRrYGgvKHsqYGHE24qZb1m2bNvrpLcgyyjFe-hDYg-86127a7d20.webp",
+        "image": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162938/senadb/skills/nzr-jhijfeb48usnvxtozy5wvwtvac1n5l0ltkhjqeeribrryggvkhsqyghe24qzb1m2bnvrplcgyyjfe-hdyg-86127a7d20.webp",
         "effects": [],
         "linkedHeroes": {
           "attack": [],
@@ -3667,7 +3667,7 @@
         "type": "Active",
         "description": "모든 적군\n- 물리 공격력의 125% 만큼 1회 피해\n- 폭탄 [50% 확률] [3턴 지속]\n- 150% 위력으로 폭탄 폭파 [최대 3개]\n- 모든 공격력 감소 [100% 확률] [3턴 지속]\n스킬 강화 효과\n- 피해량 상승: 물리 공격력의 150%\n- 효과 상승: 모든 공격력 감소 18%",
         "cooltime": "104",
-        "image": "/content/skills/uvjRdizFKydTuYitfJbbvvPmq3nG53jDtOEoSF_WyfhmT8S3yWf5-z26v8_dR7eawFNtbLvVRd-JrJdu6IUnHg-fad66762d2.webp",
+        "image": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785163111/senadb/skills/uvjrdizfkydtuyitfjbbvvpmq3ng53jdtoeosf_wyfhmt8s3ywf5-z26v8_dr7eawfntblvvrd-jrjdu6iunhg-fad66762d2.webp",
         "effects": [],
         "linkedHeroes": {
           "attack": [],
@@ -3684,7 +3684,7 @@
         "type": "Passive",
         "description": "자신\n- 위장 [2턴 지속]\n- 속공 비례 공격력 증가 [상시]\n모든 아군\n- 효과 적중 증가 [상시]\n스킬 강화 효과\n- 효과 상승: 속공 비례 공격력 최대 증가 수치 1,320\n- 효과 상승: 효과 적중 증가 34%\n2초월 효과\n(자신)\n- 효과 추가: 권능 (전투당 1회 발동)\n- 효과 추가: 권능 발동 시 시전자 물리 공격력의 155%만큼 보호막 [3턴 지속]\n6초월 효과\n(자신)\n- 효과 추가: 적군 사망 후 스킬 쿨타임 감소 23초",
         "cooltime": null,
-        "image": "/content/skills/VVB3ce5od-2oKiDvLb_HRKsN9NHKVtvaotVST8_mcqbsh6uqj2nSqLQvOG2Mot54WI5U3z1R0ElcjFsDjm6Rhw-e4e7a78d3c.webp",
+        "image": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785163115/senadb/skills/vvb3ce5od-2okidvlb_hrksn9nhkvtvaotvst8_mcqbsh6uqj2nsqlqvog2mot54wi5u3z1r0elcjfsdjm6rhw-e4e7a78d3c.webp",
         "effects": [],
         "linkedHeroes": {
           "attack": [],
@@ -3704,8 +3704,8 @@
       "group": "세븐나이츠",
       "rarity": "전설+",
       "type": "만능형",
-      "portrait": "/content/heroes/hero-068-ce9e242760.png",
-      "typeImage": "/content/types/RoleIcon_05-f7672beb62.png",
+      "portrait": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162807/senadb/heroes/hero-068-ce9e242760.png",
+      "typeImage": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785163130/senadb/types/roleicon_05-f7672beb62.png",
       "hasEffect": true,
       "transLevel": null,
       "history": [],
@@ -3727,7 +3727,7 @@
         "type": "Attack",
         "description": "!단일 적군\n- 물리 공격력의 100% 만큼 1회 피해\n#스킬 강화 효과\n- 피해량 상승 : 물리 공격력의 120%\n- 효과 추가 : 즉사 [20% 확률] [3턴 지속]",
         "cooltime": null,
-        "image": "/content/skills/ELcbQ-f2wLeOAlIHyYffAT0wc2lu5E6cyrky7ZD96DjIP33evtduunk7Hy_wkz7f8QAydnnv-X0AGsJBMJoS4Q-f1b58f8a03.webp",
+        "image": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162909/senadb/skills/elcbq-f2wleoalihyyffat0wc2lu5e6cyrky7zd96djip33evtduunk7hy_wkz7f8qaydnnv-x0agsjbmjos4q-f1b58f8a03.webp",
         "effects": [
           {
             "id": "effect-53",
@@ -3736,7 +3736,7 @@
             "effectType": "debuff",
             "hasVariable": false,
             "fulltime": false,
-            "icon": "/content/effects/BuffIcon_15001-4c607864f4.png"
+            "icon": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162749/senadb/effects/bufficon_15001-4c607864f4.png"
           }
         ],
         "linkedHeroes": {
@@ -3754,7 +3754,7 @@
         "type": "Active",
         "description": "!단일 적군\n- 물리 공격력의 305%만큼 1회 피해\n- 즉사 [50% 확률] [3턴 지속]\n!자신\n- 해당 스킬로 적군 처치 시 물리 공격력의 135%만큼 보호막 [3턴 지속]\n#스킬 강화 효과\n- 피해량 상승 : 물리 공격력의 370%\n- 확률 상승 : 즉사 확률 60%\n@@6초월 효과\n- 효과 추가 : 즉사 [30% 확률] [3턴 지속]",
         "cooltime": "60",
-        "image": "/content/skills/5T6gWva8hIFLZXGic5oN-DpzIMMzcQiRHI_RjSkId_G39mp3D4weMNjSne_aWkAz6gT0QEmIvAXDMcw8oTvcwA-78ae817583.webp",
+        "image": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162894/senadb/skills/5t6gwva8hiflzxgic5on-dpzimmzcqirhi_rjskid_g39mp3d4wemnjsne_awkaz6gt0qemivaxdmcw8otvcwa-78ae817583.webp",
         "effects": [
           {
             "id": "effect-53",
@@ -3763,7 +3763,7 @@
             "effectType": "debuff",
             "hasVariable": false,
             "fulltime": false,
-            "icon": "/content/effects/BuffIcon_15001-4c607864f4.png"
+            "icon": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162749/senadb/effects/bufficon_15001-4c607864f4.png"
           },
           {
             "id": "effect-37",
@@ -3772,7 +3772,7 @@
             "effectType": "buff",
             "hasVariable": false,
             "fulltime": false,
-            "icon": "/content/effects/BuffIcon_02001-7269688103.png"
+            "icon": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162715/senadb/effects/bufficon_02001-7269688103.png"
           }
         ],
         "linkedHeroes": {
@@ -3790,7 +3790,7 @@
         "type": "Active",
         "description": "!모든 적군\n- 물리 공격력의 100%만큼 1회 피해\n- 즉사 [25% 확률] [3턴 지속]\n!자신\n- 해당 스킬로 적군 처치 시 물리 공격력의 135%만큼 보호막 [3턴 지속]\n#스킬 강화 효과\n- 피해량 상승 : 물리 공격력의 115%",
         "cooltime": "80",
-        "image": "/content/skills/0Ya-ZVGy-o4KLv0yTeVVfOcRdgkucAWFHfQukg201y73mSDnSRDVqDwNuL-pvO_pWw3JemXLm7h1GAnGP1AzBg-74c5d8f968.webp",
+        "image": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162888/senadb/skills/0ya-zvgy-o4klv0ytevvfocrdgkucawfhfqukg201y73msdnsrdvqdwnul-pvo_pww3jemxlm7h1gangp1azbg-74c5d8f968.webp",
         "effects": [
           {
             "id": "effect-53",
@@ -3799,7 +3799,7 @@
             "effectType": "debuff",
             "hasVariable": false,
             "fulltime": false,
-            "icon": "/content/effects/BuffIcon_15001-4c607864f4.png"
+            "icon": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162749/senadb/effects/bufficon_15001-4c607864f4.png"
           },
           {
             "id": "effect-37",
@@ -3808,7 +3808,7 @@
             "effectType": "buff",
             "hasVariable": false,
             "fulltime": false,
-            "icon": "/content/effects/BuffIcon_02001-7269688103.png"
+            "icon": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162715/senadb/effects/bufficon_02001-7269688103.png"
           }
         ],
         "linkedHeroes": {
@@ -3826,7 +3826,7 @@
         "type": "Passive",
         "description": "!자신\n- 시전자 물리 공격력의 160%만큼 보호막 [3턴 지속]\n- 사망 시 불사 상태로 부활 [2턴 지속] (전투당 1회 발동)\n!모든 아군\n- 적 사망 후 시전자 물리 공격력의 20% 만큼 생명력 회복\n#스킬 강화 효과\n- 턴 상승 : 불사 지속 3턴\n@2초월 효과\n- [자신]\n효과 추가 : 불사 발동 시 스킬 쿨타임 초기화",
         "cooltime": null,
-        "image": "/content/skills/6Fr5ZnMi052U3Uk1fgQHoKQcCFGY7b-o03kYQIkRHeZ-L06mIuvTGIY-FqrmY3NO2zpWZ10Hboextk2bb_24hw-51750258b0.webp",
+        "image": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162897/senadb/skills/6fr5znmi052u3uk1fgqhokqccfgy7b-o03kyqikrhez-l06miuvtgiy-fqrmy3no2zpwz10hboextk2bb_24hw-51750258b0.webp",
         "effects": [
           {
             "id": "effect-37",
@@ -3835,7 +3835,7 @@
             "effectType": "buff",
             "hasVariable": false,
             "fulltime": false,
-            "icon": "/content/effects/BuffIcon_02001-7269688103.png"
+            "icon": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162715/senadb/effects/bufficon_02001-7269688103.png"
           },
           {
             "id": "effect-40",
@@ -3844,7 +3844,7 @@
             "effectType": "buff",
             "hasVariable": false,
             "fulltime": false,
-            "icon": "/content/effects/BuffIcon_02006-7881b7e1e4.png"
+            "icon": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162717/senadb/effects/bufficon_02006-7881b7e1e4.png"
           }
         ],
         "linkedHeroes": {
@@ -3865,8 +3865,8 @@
       "group": "숨은 강자들",
       "rarity": "전설+",
       "type": "공격형",
-      "portrait": "/content/heroes/hero-069-2ae9714f89.png",
-      "typeImage": "/content/types/RoleIcon_01-1e0c023e6e.png",
+      "portrait": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162808/senadb/heroes/hero-069-2ae9714f89.png",
+      "typeImage": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785163127/senadb/types/roleicon_01-1e0c023e6e.png",
       "hasEffect": true,
       "transLevel": null,
       "history": [],
@@ -3888,7 +3888,7 @@
         "type": "Attack",
         "description": "단일 적군\n- 물리 공격력의 100%만큼 1회 피해\n스킬 강화 효과\n- 피해량 상승: 물리 공격력의 130%",
         "cooltime": null,
-        "image": "/content/skills/ZTgMOS0leHtJdrW3V-XgCkqIYwZv7r0ctijjjAU5wI8s9By9AxbRWJTQBoVK9qjPAE5xb8Z2JInHWsFiNqNjlw-1-0f7fb6f0fe.webp",
+        "image": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785163126/senadb/skills/ztgmos0lehtjdrw3v-xgckqiywzv7r0ctijjjau5wi8s9by9axbrwjtqbovk9qjpae5xb8z2jinhwsfinqnjlw-1-0f7fb6f0fe.webp",
         "effects": [],
         "linkedHeroes": {
           "attack": [
@@ -3905,7 +3905,7 @@
         "type": "Active",
         "description": "모든 적군\n- 대상의 현재 생명력이 50% 이하일 경우 물리 공격력의 100%만큼 추가 관통 피해\n- 물리 공격력의 115%만큼 1회 관통 피해\n스킬 강화 효과\n- 피해량 상승: 물리 공격력의 150%",
         "cooltime": "76",
-        "image": "/content/skills/N056bcV8RjRi4qgJO25VCfbU47QRT7N3V7glREvF_zs9DTL_MU5C-XYzKe98EGBWEFek2zS6bx4SV3AOc1SzJQ-4736eb6475.webp",
+        "image": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162933/senadb/skills/n056bcv8rjri4qgjo25vcfbu47qrt7n3v7glrevf_zs9dtl_mu5c-xyzke98egbwefek2zs6bx4sv3aoc1szjq-4736eb6475.webp",
         "effects": [],
         "linkedHeroes": {
           "attack": [],
@@ -3922,7 +3922,7 @@
         "type": "Active",
         "description": "모든 적군\n- 대상의 현재 생명력이 50% 이상일 경우 물리 공격력의 100%만큼 추가 피해\n- 물리 공격력의 115%만큼 1회 피해\n- 피해량 감소 [100% 확률] [3턴 지속]\n스킬 강화 효과\n- 피해량 상승: 물리 공격력의 135%\n- 효과 상승: 피해량 감소 15%",
         "cooltime": "96",
-        "image": "/content/skills/KjP7a1k836rWGdDphuwFpO2PEqNVWp_ZiFvb6158fJDGpxGmD4CxZUMjltc_4wBo1WfHT2rISzjXn4e_N2Dz3A-31002fc811.webp",
+        "image": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162926/senadb/skills/kjp7a1k836rwgddphuwfpo2peqnvwp_zifvb6158fjdgpxgmd4cxzumjltc_4wbo1wfht2riszjxn4e_n2dz3a-31002fc811.webp",
         "effects": [],
         "linkedHeroes": {
           "attack": [],
@@ -3939,7 +3939,7 @@
         "type": "Passive",
         "description": "자신\n- 물리 공격력 증가 [상시]\n- 적 사망 시 시전자 물리 공격력의 30% 만큼 생명력 회복\n스킬 강화 효과\n- 효과 상승: 물리 공격력 증가 33%\n2초월 효과\n[자신]\n- 효과 추가: 모든 피해 면역 [2턴 지속]\n6초월 효과\n[자신]\n- 효과 추가: 물리 피해량 증가 33% [3턴 지속]",
         "cooltime": null,
-        "image": "/content/skills/RzxF5C9pF0MK3wtkRXivl1B7BeQp1lYMZw-xCgSacmmO9ia-92295jL0euWoqdY-ovTucF5f5sYgA0PSM582_w-14d26e2d72.webp",
+        "image": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162946/senadb/skills/rzxf5c9pf0mk3wtkrxivl1b7beqp1lymzw-xcgsacmmo9ia-92295jl0euwoqdy-ovtucf5f5syga0psm582_w-14d26e2d72.webp",
         "effects": [],
         "linkedHeroes": {
           "attack": [],
@@ -3959,8 +3959,8 @@
       "group": "용의 유적지",
       "rarity": "희귀",
       "type": "마법형",
-      "portrait": "/content/heroes/hero-070-1a52d975da.png",
-      "typeImage": "/content/types/RoleIcon_02-3bdba832b0.png",
+      "portrait": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162808/senadb/heroes/hero-070-1a52d975da.png",
+      "typeImage": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785163128/senadb/types/roleicon_02-3bdba832b0.png",
       "hasEffect": false,
       "transLevel": null,
       "history": [],
@@ -3989,8 +3989,8 @@
       "group": "테라영지",
       "rarity": "희귀",
       "type": "지원형",
-      "portrait": "/content/heroes/hero-071-a5c4bc0668.png",
-      "typeImage": "/content/types/RoleIcon_04-3c4c7a32e8.png",
+      "portrait": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162809/senadb/heroes/hero-071-a5c4bc0668.png",
+      "typeImage": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785163129/senadb/types/roleicon_04-3c4c7a32e8.png",
       "hasEffect": false,
       "transLevel": null,
       "history": [],
@@ -4019,8 +4019,8 @@
       "group": "루미너스 혁명단",
       "rarity": "전설+",
       "type": "마법형",
-      "portrait": "/content/heroes/Frame-1-83a1d2e0c0.png",
-      "typeImage": "/content/types/RoleIcon_02-3bdba832b0.png",
+      "portrait": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162758/senadb/heroes/frame-1-83a1d2e0c0.png",
+      "typeImage": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785163128/senadb/types/roleicon_02-3bdba832b0.png",
       "hasEffect": true,
       "transLevel": null,
       "history": [],
@@ -4042,7 +4042,7 @@
         "type": "Attack",
         "description": "자신\n- 시전자 마법 공격력의 160%만큼 보호막 [3턴 지속]\n아군 전열(마법형)\n- 치명타 확률 증가 [상시]\n- 치명타 피해 증가 [상시]\n스킬 강화 효과\n- 효과 상승: 보호막 흡수량이 마법 공격력의 185%\n6초월 효과\n[아군 마법형]\n- 효과 추가: 자신의 스킬 1회 발동 시 모든 피해 무효화 [피격 1회]",
         "cooltime": null,
-        "image": "/content/skills/wT5rGTRx4mWhZDkMUOiHPPrHMCb_KkcjGPB75dxnez6pq6mLvEDA9NJPm_XQN104XdjnOWsaP_g_lXzBBFB9Ew-7cde7ff2bd.webp",
+        "image": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785163116/senadb/skills/wt5rgtrx4mwhzdkmuoihpprhmcb_kkcjgpb75dxnez6pq6mlveda9njpm_xqn104xdjnowsap_g_lxzbbfb9ew-7cde7ff2bd.webp",
         "effects": [],
         "linkedHeroes": {
           "attack": [
@@ -4059,7 +4059,7 @@
         "type": "Active",
         "description": "자신\n- 모든 디버프 해제\n- 해제한 디버프 개수만큼 피해량 증가 1중첩 [최대 4중첩]\n단일 적군\n- 마법 공격력의 220%만큼 2회 피해\n스킬 강화 효과\n- 피해량 상승: 마법 공격력의 267%\n2초월 효과\n[단일 적군]\n- 효과 추가: 해당 스킬의 직접 피해로 적군 처치 시 100% 위력으로 연속 발동",
         "cooltime": "75",
-        "image": "/content/skills/cThujbTozdrtbJQIGJRi-_WJ0QPGLKf1QOyLEMWwvBdttKlrkIwl3EDct7Cu5yrh8P2rOmNxTGl5NY68NAQ3IA-543a56e42e.webp",
+        "image": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162902/senadb/skills/cthujbtozdrtbjqigjri-_wj0qpglkf1qoylemwwvbdttklrkiwl3edct7cu5yrh8p2romnxtgl5ny68naq3ia-543a56e42e.webp",
         "effects": [],
         "linkedHeroes": {
           "attack": [],
@@ -4076,7 +4076,7 @@
         "type": "Active",
         "description": "모든 적군\n- 마법 공격력의 57% 만큼 2회 관통 피해\n- 각 공격마다 마비 [30% 확률] [2턴 지속]\n스킬 강화 효과\n- 피해량 상승: 마법 공격력의 67%\n- 확률 상승: 마비 확률 35%",
         "cooltime": "92",
-        "image": "/content/skills/xo6hTq2ej__gYyWALIr5BqcDxRVheE63GnwiA2UIm_0xWt3UCVSrMml173U-J_xXyfHCMDyjGVZnaqyMMYAZVA-30027d7304.webp",
+        "image": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785163117/senadb/skills/xo6htq2ej__gyywalir5bqcdxrvhee63gnwia2uim_0xwt3ucvsrmml173u-j_xxyfhcmdyjgvznaqymmyazva-30027d7304.webp",
         "effects": [],
         "linkedHeroes": {
           "attack": [],
@@ -4093,7 +4093,7 @@
         "type": "Passive",
         "description": "자신\n- 모든 피해 무효화 [피격 3회]\n- 권능(전투당 1회 발동)\n- 권능 발동 시 시전자 마법 공격력의 135% 만큼 보호막 [3턴 지속]\n- 속공 비례 공격력 증가 [상시]\n모든 아군\n- 마법 피해량 증가 [상시]\n스킬 강화 효과\n- 효과 상승: 속공 비례 공격력 최대 증가 수치 1,320\n- 효과 상승: 마법 피해량 증가 20%\n6초월 효과\n[자신]\n- 효과 상승: 보호막 흡수량이 마법 공격력의 155%\n- 효과 추가: 행동 제어 면역 [3턴 지속]",
         "cooltime": null,
-        "image": "/content/skills/m4zFyGXg-5cNq6mWEvQF2aFKzlqiMVuVbDCPJJ-nuhmK2-fp787ePMTMXp4Md0_pSBdDAmAoO3254K9e-vB65w-904e1c443a.webp",
+        "image": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162931/senadb/skills/m4zfygxg-5cnq6mwevqf2afkzlqimvuvbdcpjj-nuhmk2-fp787epmtmxp4md0_psbddamaoo3254k9e-vb65w-904e1c443a.webp",
         "effects": [],
         "linkedHeroes": {
           "attack": [],
@@ -4113,8 +4113,8 @@
       "group": "나이트크로우",
       "rarity": "전설",
       "type": "공격형",
-      "portrait": "/content/heroes/hero-072-bcc2c45445.png",
-      "typeImage": "/content/types/RoleIcon_01-1e0c023e6e.png",
+      "portrait": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162810/senadb/heroes/hero-072-bcc2c45445.png",
+      "typeImage": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785163127/senadb/types/roleicon_01-1e0c023e6e.png",
       "hasEffect": false,
       "transLevel": null,
       "history": [],
@@ -4136,7 +4136,7 @@
         "type": "Attack",
         "description": "단일적군\n- 물리 공격력의 100%만큼 1회 피해\n- 대상의 현재 생명력이 30% 이하일 경우 물리 공격력의 45%만큼 추가 피해\n스킬 강화 효과\n- 피해량 상승 : 물리 공격력의 120%\n- 피해량 상승 : 대상의 현재 생명력이 30% 이하일 경우 피해량이 물리 공격력의 55%",
         "cooltime": null,
-        "image": "/content/skills/bepA4AdccypVeiXFKSlnNfCQS5N7MeW09loBHm8Yv8l-0wrUk23kQMrfCO3il5DKMORViDpUW3ApbOhc1f75Fg-cf297ba264.webp",
+        "image": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162901/senadb/skills/bepa4adccypveixfkslnnfcqs5n7mew09lobhm8yv8l-0wruk23kqmrfco3il5dkmorvidpuw3apbohc1f75fg-cf297ba264.webp",
         "effects": [],
         "linkedHeroes": {
           "attack": [
@@ -4153,7 +4153,7 @@
         "type": "Active",
         "description": "적군 3명\n- 물리 공격력의 145%만큼 1회 피해 [치명타 피해 37% 추가 적용]\n스킬 강화 효과\n- 효과 상승 : 치명타 피해 46% 추가 적용\n- 피해량 상승 : 물리 공격력의 170%",
         "cooltime": "84",
-        "image": "/content/skills/V1NMHfTmkiXwOCwWxDwX6pXeTfUI_QnTA3DqbW-12QU7XCDuDx4xW7HFJei2rzfDesMZXoMYNis0WHnx-0C3Bg-dbe494253d.webp",
+        "image": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785163113/senadb/skills/v1nmhftmkixwocwwxdwx6pxetfui_qnta3dqbw-12qu7xcdudx4xw7hfjei2rzfdesmzxomynis0whnx-0c3bg-dbe494253d.webp",
         "effects": [],
         "linkedHeroes": {
           "attack": [],
@@ -4170,7 +4170,7 @@
         "type": "Active",
         "description": "적군 3명\n- 물리 공격력의 145%만큼 1회 피해\n- 대상의 현재 생명력이 30% 이하일 경우 물리 공격력의 260%만큼 추가피해\n스킬 강화 효과\n- 피해량 상승 : 물리 공격력의 170%",
         "cooltime": "70",
-        "image": "/content/skills/NqveavEUceA8WZPdnELIyoQVtX5wGy7VVI4345eAK_Oumbppj2wWoZ5xnvClTKLXz2nNJcXHVV_bu7UNza8zOA-d17f0897da.webp",
+        "image": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162935/senadb/skills/nqveaveucea8wzpdneliyoqvtx5wgy7vvi4345eak_oumbppj2wwoz5xnvcltklxz2nnjcxhvv_bu7unza8zoa-d17f0897da.webp",
         "effects": [],
         "linkedHeroes": {
           "attack": [],
@@ -4187,7 +4187,7 @@
         "type": "Passive",
         "description": "적군 3명(공격력이 높은 순)\n- 자신의 모든 공격 2회 발동 시 [매의 발톱] [100% 확률] 2중첩 [최대 8중첩]\n스킬 강화 효과\n- 효과 추가 : 자신의 스킬 1회 발동 시 모든 피해 무효화 [피격 1회]\n2초월 효과\n- 효과 상승 : [매의 발톱] 물리 취약 4%",
         "cooltime": null,
-        "image": "/content/skills/36d-IydrIUKPHbhHsU3707bAgnyRd41QLtDR0X6XiooNBTpIdxEUv36F_mUU0pxoX3fb1PqHrouGK9BclcTG-w-d9e9d52919.webp",
+        "image": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162891/senadb/skills/36d-iydriukphbhhsu3707bagnyrd41qltdr0x6xioonbtpidxeuv36f_muu0pxox3fb1pqhrougk9bclctg-w-d9e9d52919.webp",
         "effects": [],
         "linkedHeroes": {
           "attack": [],
@@ -4207,8 +4207,8 @@
       "group": "(구)사황,나이트크로우",
       "rarity": "전설+",
       "type": "공격형",
-      "portrait": "/content/heroes/hero-073-6a1c63d70b.png",
-      "typeImage": "/content/types/RoleIcon_01-1e0c023e6e.png",
+      "portrait": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162810/senadb/heroes/hero-073-6a1c63d70b.png",
+      "typeImage": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785163127/senadb/types/roleicon_01-1e0c023e6e.png",
       "hasEffect": true,
       "transLevel": null,
       "history": [],
@@ -4230,7 +4230,7 @@
         "type": "Attack",
         "description": "단일 적군\n- 물리 공격력의 100%만큼 1회 피해\n스킬 강화 효과\n- 피해량 상승 : 물리 공격력의 130%",
         "cooltime": null,
-        "image": "/content/skills/uJHJeaMcm6Q8Csd7lsFoN6Lq1dC8MULlCUj1nxvE9a7GZAQ1d1YqjuZUgvy6oMiAgJqXMeC_m4vaWFO5wKlY9g-6-d2f9f25fd4.webp",
+        "image": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785163107/senadb/skills/ujhjeamcm6q8csd7lsfon6lq1dc8mullcuj1nxve9a7gzaq1d1yqjuzugvy6omiagjqxmec_m4vawfo5wkly9g-6-d2f9f25fd4.webp",
         "effects": [],
         "linkedHeroes": {
           "attack": [
@@ -4247,7 +4247,7 @@
         "type": "Active",
         "description": "모든 적군\n- 물리 공격력의 130%만큼 1회 관통 피해 [치명타 확률 30% 추가 적용]\n스킬 강화 효과\n- 피해량 상승 : 물리 공격력의 170%\n6초월 효과\n- 효과 상승 : 치명타 확률 100% 추가 적용",
         "cooltime": "88",
-        "image": "/content/skills/FCgL2yeBJVeK28yikdjfM1m3ggj0k-yRz2AEf5YnqBHAsRLm_x901dRvwirnl95R3t44gAWShlRsSN0rYdyBmw-ee4f6f8056.webp",
+        "image": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162909/senadb/skills/fcgl2yebjvek28yikdjfm1m3ggj0k-yrz2aef5ynqbhasrlm_x901drvwirnl95r3t44gawshlrssn0rydybmw-ee4f6f8056.webp",
         "effects": [],
         "linkedHeroes": {
           "attack": [],
@@ -4264,7 +4264,7 @@
         "type": "Active",
         "description": "모든 적군\n- 물리 공격력의 65%만큼 2회 피해 [치명타 확률 30% 추가 적용] \n- 대상의 턴제 버프 감소 2턴 [100% 확률]\n스킬 강화 효과\n- 피해량 상승 : 물리 공격력의 85%\n6초월 효과\n- 효과 상승 : 치명타 확률 100% 추가 적용",
         "cooltime": "88",
-        "image": "/content/skills/FS69KdTyUuntgAlv58RtughHBdI6n2bTcDgnSX46KptlnblvbxI5xbqVDj8cA44SNJ-zKrtdRlQexvXc0JDLZQ-63fd8cbee7.webp",
+        "image": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162913/senadb/skills/fs69kdtyuuntgalv58rtughhbdi6n2btcdgnsx46kptlnblvbxi5xbqvdj8ca44snj-zkrtdrlqexvxc0jdlzq-63fd8cbee7.webp",
         "effects": [],
         "linkedHeroes": {
           "attack": [],
@@ -4281,7 +4281,7 @@
         "type": "Passive",
         "description": "자신\n- 모든 피해 무효화 [피격 3회]\n- 사망 시 불사 상태로 부활 [2턴 지속] (전투당 1회 발동)\n스킬 강화 효과\n- 효과 추가 : 불사 발동 시 물리 공격력 증가 39% [2턴 지속]\n2초월 효과\n- 효과 추가 : 불사 발동 시 스킬 쿨타임 초기화",
         "cooltime": null,
-        "image": "/content/skills/vtAUrAWR7_F2QrYw9Y7CagqQ3kn58AT6UmHagHs0hUQ6GDRZ96X2QP9N8-MNH7_pPt-H35DXGCnA_XiGj3VCdA-0daeb43724.webp",
+        "image": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785163115/senadb/skills/vtaurawr7_f2qryw9y7cagqq3kn58at6umhaghs0huq6gdrz96x2qp9n8-mnh7_ppt-h35dxgcna_xigj3vcda-0daeb43724.webp",
         "effects": [],
         "linkedHeroes": {
           "attack": [],
@@ -4301,8 +4301,8 @@
       "group": "어둠의 안식처",
       "rarity": "전설",
       "type": "마법형",
-      "portrait": "/content/heroes/hero-074-91dfd194f3.png",
-      "typeImage": "/content/types/RoleIcon_02-3bdba832b0.png",
+      "portrait": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162811/senadb/heroes/hero-074-91dfd194f3.png",
+      "typeImage": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785163128/senadb/types/roleicon_02-3bdba832b0.png",
       "hasEffect": false,
       "transLevel": null,
       "history": [],
@@ -4331,8 +4331,8 @@
       "group": "(구)세븐나이츠",
       "rarity": "전설+",
       "type": "공격형",
-      "portrait": "/content/heroes/hero-075-c3822cc1be.png",
-      "typeImage": "/content/types/RoleIcon_01-1e0c023e6e.png",
+      "portrait": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162812/senadb/heroes/hero-075-c3822cc1be.png",
+      "typeImage": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785163127/senadb/types/roleicon_01-1e0c023e6e.png",
       "hasEffect": true,
       "transLevel": null,
       "history": [],
@@ -4354,7 +4354,7 @@
         "type": "Attack",
         "description": "!단일 적군\n- 물리 공격력의 100%만큼 1회 피해\n!적군 3명\n- 화상 [35% 확률] [2턴 지속]",
         "cooltime": null,
-        "image": "/content/skills/jieiIl3EJftVs60cT8Q6mWqxuDLZvR0p7AnXfeocX7cAtpLnyxNGUIXGEZeLqyfVgNf0I7iY-zwbvposRC6Edw-9322776d5e.webp",
+        "image": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162923/senadb/skills/jieiil3ejftvs60ct8q6mwqxudlzvr0p7anxfeocx7catplnyxnguixgezelqyfvgnf0i7iy-zwbvposrc6edw-9322776d5e.webp",
         "effects": [
           {
             "id": "effect-69",
@@ -4363,7 +4363,7 @@
             "effectType": "debuff",
             "hasVariable": false,
             "fulltime": false,
-            "icon": "/content/effects/BuffIcon_15003-c1bd3f9416.png"
+            "icon": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162750/senadb/effects/bufficon_15003-c1bd3f9416.png"
           }
         ],
         "linkedHeroes": {
@@ -4381,7 +4381,7 @@
         "type": "Active",
         "description": "!모든 적군\n- 각 공격마다 화상 [60% 확률] [2턴 지속]\n- 물리 공격력의 57%만큼 2회 피해",
         "cooltime": "104",
-        "image": "/content/skills/1rQP-mc5wK2lxeDP4jNB6TRgTWfxJ8t8MlYZM24D8kKZnmv2bof9xipn6xIf0pR6v7TaVFjaOzx-ewwge7ZsZg-8173c51816.webp",
+        "image": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162889/senadb/skills/1rqp-mc5wk2lxedp4jnb6trgtwfxj8t8mlyzm24d8kkznmv2bof9xipn6xif0pr6v7tavfjaozx-ewwge7zszg-8173c51816.webp",
         "effects": [
           {
             "id": "effect-69",
@@ -4390,7 +4390,7 @@
             "effectType": "debuff",
             "hasVariable": false,
             "fulltime": false,
-            "icon": "/content/effects/BuffIcon_15003-c1bd3f9416.png"
+            "icon": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162750/senadb/effects/bufficon_15003-c1bd3f9416.png"
           }
         ],
         "linkedHeroes": {
@@ -4408,7 +4408,7 @@
         "type": "Active",
         "description": "!단일 적군\n- 버프 해제 3개 [100% 확률]\n- 화상 [100% 확률] [3턴 지속]\n- 물리 공격력의 340%, 대상 최대 생명력의 20%만큼 1회 피해 (생명력 비례 피해는 시전자 공격력의 300% 제한)\n- 생명력 24% 이하의 적을 즉시 처형\n!주 스킬 대상과 동일 열 적군\n- 화상 [60% 확률] [2턴 지속]\n- 물리 공격력의 125%, 대상 최대 생명력의 14%만큼 1회 피해 (생명력 비례 피해는 시전자 공격력의 150% 제한)\n#스킬 강화 효과\n- 피해량 상승 : 물리 공격력의 410%, 대상 최대 생명력의 26%\n@2초월 효과\n- 효과 상승 : 처형 조건 생명력 30%\n@@6초월 효과\n- 효과 추가 : 처형 대상 동일 열 전체로 확장",
         "cooltime": "90",
-        "image": "/content/skills/-8DRgKGPCsT9-qpe9OJfX37cI7VLZEG05wdyqa6usbymePUArEWFa3J5g-LBD1vk7SFURxGsJbD9y0wAyz7XVg-4805b0907c.webp",
+        "image": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162886/senadb/skills/8drgkgpcst9-qpe9ojfx37ci7vlzeg05wdyqa6usbymepuarewfa3j5g-lbd1vk7sfurxgsjbd9y0wayz7xvg-4805b0907c.webp",
         "effects": [
           {
             "id": "effect-35",
@@ -4417,7 +4417,7 @@
             "effectType": "debuff",
             "hasVariable": false,
             "fulltime": false,
-            "icon": "/content/effects/Bufficon_14003-11010384c6.png"
+            "icon": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162748/senadb/effects/bufficon_14003-11010384c6.png"
           },
           {
             "id": "effect-69",
@@ -4426,7 +4426,7 @@
             "effectType": "debuff",
             "hasVariable": false,
             "fulltime": false,
-            "icon": "/content/effects/BuffIcon_15003-c1bd3f9416.png"
+            "icon": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162750/senadb/effects/bufficon_15003-c1bd3f9416.png"
           },
           {
             "id": "effect-55",
@@ -4435,7 +4435,7 @@
             "effectType": "debuff",
             "hasVariable": false,
             "fulltime": false,
-            "icon": "/content/effects/Bufficon_13002-1d2454a8c4.png"
+            "icon": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162745/senadb/effects/bufficon_13002-1d2454a8c4.png"
           }
         ],
         "linkedHeroes": {
@@ -4453,7 +4453,7 @@
         "type": "Passive",
         "description": "모든 적군\n- 물리 취약 17% [상시]\n자신\n- 사망 시 생명력 80%로 부활 (전투당 1회 발동)\n- 부활 시 물리 공격력의 135%만큼 보호막 [3턴 지속] (전투당 1회 발동)\n- [화상] 상태인 대상 공격 시 물리 공격력의 70% 만큼 추가 피해",
         "cooltime": null,
-        "image": "/content/skills/SQIJI78wEdDM7Xe3HuxQv691ZcvaMPZ2i71KC_-d-e6bYhdQ1gLOd6MJn_HEastWbBUEkTCIH4eSz4jC0Mdyrg-57ac8c5758.webp",
+        "image": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162946/senadb/skills/sqiji78weddm7xe3huxqv691zcvampz2i71kc_-d-e6byhdq1glod6mjn_heastwbbuektcih4esz4jc0mdyrg-57ac8c5758.webp",
         "effects": [],
         "linkedHeroes": {
           "attack": [],
@@ -4473,8 +4473,8 @@
       "group": "천자의 땅 서쪽",
       "rarity": "희귀",
       "type": "공격형",
-      "portrait": "/content/heroes/hero-076-24843356aa.png",
-      "typeImage": "/content/types/RoleIcon_01-1e0c023e6e.png",
+      "portrait": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162813/senadb/heroes/hero-076-24843356aa.png",
+      "typeImage": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785163127/senadb/types/roleicon_01-1e0c023e6e.png",
       "hasEffect": false,
       "transLevel": null,
       "history": [],
@@ -4503,8 +4503,8 @@
       "group": "다크나이츠",
       "rarity": "전설+",
       "type": "지원형",
-      "portrait": "/content/heroes/hero-077-7e3de4ea3d.png",
-      "typeImage": "/content/types/RoleIcon_04-3c4c7a32e8.png",
+      "portrait": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162814/senadb/heroes/hero-077-7e3de4ea3d.png",
+      "typeImage": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785163129/senadb/types/roleicon_04-3c4c7a32e8.png",
       "hasEffect": true,
       "transLevel": null,
       "history": [],
@@ -4526,7 +4526,7 @@
         "type": "Attack",
         "description": "단일 적군\n- 마법 공격력의 50%, 방어력의 60%만큼 1회 피해\n- 모든 공격력 감소 [100% 확률] [2턴 지속]\n스킬 강화 효과\n- 피해량 상승 : 마법 공격력의 60%, 방어력의 75%\n- 효과 상승 모든 공격력 감소 9%",
         "cooltime": null,
-        "image": "/content/skills/uJHJeaMcm6Q8Csd7lsFoN6Lq1dC8MULlCUj1nxvE9a7GZAQ1d1YqjuZUgvy6oMiAgJqXMeC_m4vaWFO5wKlY9g-3-cbf16724b7.webp",
+        "image": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785163104/senadb/skills/ujhjeamcm6q8csd7lsfon6lq1dc8mullcuj1nxve9a7gzaq1d1yqjuzugvy6omiagjqxmec_m4vawfo5wkly9g-3-cbf16724b7.webp",
         "effects": [],
         "linkedHeroes": {
           "attack": [
@@ -4543,7 +4543,7 @@
         "type": "Active",
         "description": "자신\n- 피해량의 32%만큼 생명력 회복\n모든 적군\n- 마법 공격력의 42%, 방어력의 47%만큼 2회 피해\n스킬 강화 효과\n- 피해량 상승 : 마법 공격력의 50%, 방어력의 55%\n- 효과 상승 : 생명력 회복량이 피해량의 43%",
         "cooltime": "96",
-        "image": "/content/skills/ysfxBVsR2B8xxgaiRCfNSiJrKkMYLsaQhfDpOyE7e08dva7WqOdbFlUpm_agw_PDV3wijf-_tIJUFlBWX27HcQ-87b3e55f36.webp",
+        "image": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785163121/senadb/skills/ysfxbvsr2b8xxgaircfnsijrkkmylsaqhfdpoye7e08dva7wqodbflupm_agw_pdv3wijf-_tijuflbwx27hcq-87b3e55f36.webp",
         "effects": [],
         "linkedHeroes": {
           "attack": [],
@@ -4560,7 +4560,7 @@
         "type": "Active",
         "description": "적군 2명 (버프가 많은 순)\n- 버프 해제 2개 [100% 확률]\n- 생명력 전환 32%\n스킬 강화 효과\n- 효과 상승 : 생명력 전환 25%",
         "cooltime": "91",
-        "image": "/content/skills/QLKBo6y-nufPXRN7sggw-GOt2xWAMyDnjGc5YDsemQdCET2ibtt6oGCSMvybqmvw2AmKvoOTT0Ez2uOFszfg7g-d51c0c57e2.webp",
+        "image": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162941/senadb/skills/qlkbo6y-nufpxrn7sggw-got2xwamydnjgc5ydsemqdcet2ibtt6ogcsmvybqmvw2amkvoott0ez2uofszfg7g-d51c0c57e2.webp",
         "effects": [],
         "linkedHeroes": {
           "attack": [],
@@ -4577,7 +4577,7 @@
         "type": "Passive",
         "description": "자신\n- 자신의 생명력이 50% 이하가 되면 시전자 방어력의 165%만큼 생명력 회복 (전투당 2회 발동)\n모든 적군\n- 자신이 적의 공격 4회 적중당할 시 1,100만큼 1회 고정 피해\n스킬 강화 효과\n- 피해량 상승 : 생명력 회복량이 방어력의 190%\n2초월 효과\n- 횟수 상승 : 생명력 회복 (전투당 3회 발동)\n6초월 효과\n- 피해량 상승 : 고정 피해 1,485",
         "cooltime": null,
-        "image": "/content/skills/gxtuBc20ZQrCDkTWRc80gzM_Kgh_kb0EVsrav8iJTA0ajiX1opD4fLDUWP-iVtL6cq6zZ0oiXLIxk8Z-aSYywA-c66c2777ba.webp",
+        "image": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162915/senadb/skills/gxtubc20zqrcdktwrc80gzm_kgh_kb0evsrav8ijta0ajix1opd4flduwp-ivtl6cq6zz0oixlixk8z-asyywa-c66c2777ba.webp",
         "effects": [],
         "linkedHeroes": {
           "attack": [],
@@ -4597,8 +4597,8 @@
       "group": "에반원정대",
       "rarity": "희귀",
       "type": "공격형",
-      "portrait": "/content/heroes/hero-078-b6d97a18af.png",
-      "typeImage": "/content/types/RoleIcon_01-1e0c023e6e.png",
+      "portrait": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162815/senadb/heroes/hero-078-b6d97a18af.png",
+      "typeImage": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785163127/senadb/types/roleicon_01-1e0c023e6e.png",
       "hasEffect": false,
       "transLevel": null,
       "history": [],
@@ -4627,8 +4627,8 @@
       "group": "에반원정대",
       "rarity": "희귀",
       "type": "방어형",
-      "portrait": "/content/heroes/hero-079-4872e90c73.png",
-      "typeImage": "/content/types/RoleIcon_03-c8af05f852.png",
+      "portrait": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162815/senadb/heroes/hero-079-4872e90c73.png",
+      "typeImage": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785163129/senadb/types/roleicon_03-c8af05f852.png",
       "hasEffect": false,
       "transLevel": null,
       "history": [],
@@ -4657,8 +4657,8 @@
       "group": "신비의 숲",
       "rarity": "희귀",
       "type": "공격형",
-      "portrait": "/content/heroes/hero-080-0fd9710f68.png",
-      "typeImage": "/content/types/RoleIcon_01-1e0c023e6e.png",
+      "portrait": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162816/senadb/heroes/hero-080-0fd9710f68.png",
+      "typeImage": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785163127/senadb/types/roleicon_01-1e0c023e6e.png",
       "hasEffect": false,
       "transLevel": null,
       "history": [],
@@ -4688,7 +4688,7 @@
       "effectType": "buff",
       "hasVariable": true,
       "fulltime": false,
-      "icon": "/content/effects/BuffIcon_01024_reverse-819a6e9dad.png"
+      "icon": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162715/senadb/effects/bufficon_01024_reverse-819a6e9dad.png"
     },
     {
       "id": "effect-2",
@@ -4697,7 +4697,7 @@
       "effectType": "buff",
       "hasVariable": true,
       "fulltime": true,
-      "icon": "/content/effects/BuffIcon_01006_reverse-ff9a90fb33.png"
+      "icon": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162705/senadb/effects/bufficon_01006_reverse-ff9a90fb33.png"
     },
     {
       "id": "effect-3",
@@ -4706,7 +4706,7 @@
       "effectType": "buff",
       "hasVariable": false,
       "fulltime": false,
-      "icon": "/content/effects/BuffIcon_01006-06660fb8ca.png"
+      "icon": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162706/senadb/effects/bufficon_01006-06660fb8ca.png"
     },
     {
       "id": "effect-4",
@@ -4715,7 +4715,7 @@
       "effectType": "debuff",
       "hasVariable": false,
       "fulltime": false,
-      "icon": "/content/effects/Bufficon_11003-6dd17bd73b.png"
+      "icon": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162742/senadb/effects/bufficon_11003-6dd17bd73b.png"
     },
     {
       "id": "effect-5",
@@ -4724,7 +4724,7 @@
       "effectType": "debuff",
       "hasVariable": false,
       "fulltime": false,
-      "icon": "/content/effects/Bufficon_18901_reverse-8b2c5c1dc7.png"
+      "icon": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162752/senadb/effects/bufficon_18901_reverse-8b2c5c1dc7.png"
     },
     {
       "id": "effect-6",
@@ -4733,7 +4733,7 @@
       "effectType": "buff",
       "hasVariable": false,
       "fulltime": false,
-      "icon": "/content/effects/BuffIcon_02033_reverse-ee414e0673.png"
+      "icon": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162722/senadb/effects/bufficon_02033_reverse-ee414e0673.png"
     },
     {
       "id": "effect-7",
@@ -4742,7 +4742,7 @@
       "effectType": "buff",
       "hasVariable": false,
       "fulltime": false,
-      "icon": "/content/effects/BuffIcon_02033_reverse-ee414e0673.png"
+      "icon": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162722/senadb/effects/bufficon_02033_reverse-ee414e0673.png"
     },
     {
       "id": "effect-8",
@@ -4751,7 +4751,7 @@
       "effectType": "buff",
       "hasVariable": false,
       "fulltime": false,
-      "icon": "/content/effects/Bufficon_21001-dd2948b21a.png"
+      "icon": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162756/senadb/effects/bufficon_21001-dd2948b21a.png"
     },
     {
       "id": "effect-9",
@@ -4760,7 +4760,7 @@
       "effectType": "buff",
       "hasVariable": false,
       "fulltime": false,
-      "icon": "/content/effects/BuffIcon_02012_reverse-a1a8b468ed.png"
+      "icon": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162720/senadb/effects/bufficon_02012_reverse-a1a8b468ed.png"
     },
     {
       "id": "effect-10",
@@ -4769,7 +4769,7 @@
       "effectType": "debuff",
       "hasVariable": false,
       "fulltime": false,
-      "icon": "/content/effects/Bufficon_11001-72514c06bf.png"
+      "icon": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162738/senadb/effects/bufficon_11001-72514c06bf.png"
     },
     {
       "id": "effect-11",
@@ -4778,7 +4778,7 @@
       "effectType": "buff",
       "hasVariable": false,
       "fulltime": false,
-      "icon": "/content/effects/BuffIcon_02010-962dd6e80c.png"
+      "icon": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162719/senadb/effects/bufficon_02010-962dd6e80c.png"
     },
     {
       "id": "effect-12",
@@ -4787,7 +4787,7 @@
       "effectType": "buff",
       "hasVariable": false,
       "fulltime": false,
-      "icon": "/content/effects/BuffIcon_03001-5c0840cef4.png"
+      "icon": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162723/senadb/effects/bufficon_03001-5c0840cef4.png"
     },
     {
       "id": "effect-13",
@@ -4796,7 +4796,7 @@
       "effectType": "buff",
       "hasVariable": false,
       "fulltime": false,
-      "icon": "/content/effects/BuffIcon_02034-58e2549454.png"
+      "icon": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162723/senadb/effects/bufficon_02034-58e2549454.png"
     },
     {
       "id": "effect-14",
@@ -4805,7 +4805,7 @@
       "effectType": "debuff",
       "hasVariable": false,
       "fulltime": false,
-      "icon": "/content/effects/Bufficon_15005-7a4ae5caeb.png"
+      "icon": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162751/senadb/effects/bufficon_15005-7a4ae5caeb.png"
     },
     {
       "id": "effect-15",
@@ -4814,7 +4814,7 @@
       "effectType": "buff",
       "hasVariable": true,
       "fulltime": false,
-      "icon": "/content/effects/BuffIcon_01015_reverse-3412630f6f.png"
+      "icon": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162713/senadb/effects/bufficon_01015_reverse-3412630f6f.png"
     },
     {
       "id": "effect-16",
@@ -4823,7 +4823,7 @@
       "effectType": "buff",
       "hasVariable": true,
       "fulltime": false,
-      "icon": "/content/effects/BuffIcon_01002_reverse-362338543d.png"
+      "icon": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162703/senadb/effects/bufficon_01002_reverse-362338543d.png"
     },
     {
       "id": "effect-17",
@@ -4832,7 +4832,7 @@
       "effectType": "debuff",
       "hasVariable": true,
       "fulltime": false,
-      "icon": "/content/effects/BuffIcon_10013-969ff956c0.png"
+      "icon": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162735/senadb/effects/bufficon_10013-969ff956c0.png"
     },
     {
       "id": "effect-18",
@@ -4841,7 +4841,7 @@
       "effectType": "buff",
       "hasVariable": true,
       "fulltime": false,
-      "icon": "/content/effects/BuffIcon_01013_reverse-5073b07193.png"
+      "icon": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162712/senadb/effects/bufficon_01013_reverse-5073b07193.png"
     },
     {
       "id": "effect-19",
@@ -4850,7 +4850,7 @@
       "effectType": "buff",
       "hasVariable": false,
       "fulltime": false,
-      "icon": "/content/effects/Bufficon_11002-83340d7440.png"
+      "icon": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162741/senadb/effects/bufficon_11002-83340d7440.png"
     },
     {
       "id": "effect-20",
@@ -4859,7 +4859,7 @@
       "effectType": "debuff",
       "hasVariable": true,
       "fulltime": false,
-      "icon": "/content/effects/Bufficon_10003-d378f6b120.png"
+      "icon": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162726/senadb/effects/bufficon_10003-d378f6b120.png"
     },
     {
       "id": "effect-21",
@@ -4868,7 +4868,7 @@
       "effectType": "buff",
       "hasVariable": false,
       "fulltime": false,
-      "icon": "/content/effects/BuffIcon_02004_3_reverse-8b0f2c3605.png"
+      "icon": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162716/senadb/effects/bufficon_02004_3_reverse-8b0f2c3605.png"
     },
     {
       "id": "effect-22",
@@ -4877,7 +4877,7 @@
       "effectType": "buff",
       "hasVariable": false,
       "fulltime": false,
-      "icon": "/content/effects/BuffIcon_02005_reverse-a754f1195b.png"
+      "icon": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162717/senadb/effects/bufficon_02005_reverse-a754f1195b.png"
     },
     {
       "id": "effect-23",
@@ -4886,7 +4886,7 @@
       "effectType": "buff",
       "hasVariable": true,
       "fulltime": true,
-      "icon": "/content/effects/2025-11-16-14.49.15-82fb7df711.png"
+      "icon": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162701/senadb/effects/2025-11-16-14.49.15-82fb7df711.png"
     },
     {
       "id": "effect-24",
@@ -4895,7 +4895,7 @@
       "effectType": "buff",
       "hasVariable": true,
       "fulltime": false,
-      "icon": "/content/effects/BuffIcon_01001-24fe7e7036.png"
+      "icon": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162702/senadb/effects/bufficon_01001-24fe7e7036.png"
     },
     {
       "id": "effect-25",
@@ -4904,7 +4904,7 @@
       "effectType": "debuff",
       "hasVariable": true,
       "fulltime": false,
-      "icon": "/content/effects/BuffIcon_10012_reverse-7c08e74988.png"
+      "icon": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162733/senadb/effects/bufficon_10012_reverse-7c08e74988.png"
     },
     {
       "id": "effect-26",
@@ -4913,7 +4913,7 @@
       "effectType": "debuff",
       "hasVariable": true,
       "fulltime": false,
-      "icon": "/content/effects/BuffIcon_10012-30370eaa09.png"
+      "icon": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162734/senadb/effects/bufficon_10012-30370eaa09.png"
     },
     {
       "id": "effect-27",
@@ -4922,7 +4922,7 @@
       "effectType": "buff",
       "hasVariable": true,
       "fulltime": true,
-      "icon": "/content/effects/BuffIcon_01012_reverse-e62988403e.png"
+      "icon": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162711/senadb/effects/bufficon_01012_reverse-e62988403e.png"
     },
     {
       "id": "effect-28",
@@ -4931,7 +4931,7 @@
       "effectType": "buff",
       "hasVariable": true,
       "fulltime": false,
-      "icon": "/content/effects/BuffIcon_01012-9fcc6f49f4.png"
+      "icon": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162711/senadb/effects/bufficon_01012-9fcc6f49f4.png"
     },
     {
       "id": "effect-29",
@@ -4940,7 +4940,7 @@
       "effectType": "neutral",
       "hasVariable": false,
       "fulltime": false,
-      "icon": "/content/effects/Bufficon_20003_reverse-16c2b1e2ca.png"
+      "icon": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162752/senadb/effects/bufficon_20003_reverse-16c2b1e2ca.png"
     },
     {
       "id": "effect-30",
@@ -4949,7 +4949,7 @@
       "effectType": "debuff",
       "hasVariable": true,
       "fulltime": false,
-      "icon": "/content/effects/Bufficon_10018-828b8084ec.png"
+      "icon": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162737/senadb/effects/bufficon_10018-828b8084ec.png"
     },
     {
       "id": "effect-31",
@@ -4958,7 +4958,7 @@
       "effectType": "buff",
       "hasVariable": false,
       "fulltime": false,
-      "icon": "/content/effects/Bufficon_21002-996fd9eea4.png"
+      "icon": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162757/senadb/effects/bufficon_21002-996fd9eea4.png"
     },
     {
       "id": "effect-32",
@@ -4967,7 +4967,7 @@
       "effectType": "debuff",
       "hasVariable": true,
       "fulltime": true,
-      "icon": "/content/effects/Bufficon_10004_reverse-208b3ca449.png"
+      "icon": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162727/senadb/effects/bufficon_10004_reverse-208b3ca449.png"
     },
     {
       "id": "effect-33",
@@ -4976,7 +4976,7 @@
       "effectType": "debuff",
       "hasVariable": true,
       "fulltime": false,
-      "icon": "/content/effects/Bufficon_10004-25f5805ef7.png"
+      "icon": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162728/senadb/effects/bufficon_10004-25f5805ef7.png"
     },
     {
       "id": "effect-34",
@@ -4985,7 +4985,7 @@
       "effectType": "buff",
       "hasVariable": true,
       "fulltime": false,
-      "icon": "/content/effects/BuffIcon_01004_reverse-526528a053.png"
+      "icon": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162704/senadb/effects/bufficon_01004_reverse-526528a053.png"
     },
     {
       "id": "effect-35",
@@ -4994,7 +4994,7 @@
       "effectType": "debuff",
       "hasVariable": false,
       "fulltime": false,
-      "icon": "/content/effects/Bufficon_14003-11010384c6.png"
+      "icon": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162748/senadb/effects/bufficon_14003-11010384c6.png"
     },
     {
       "id": "effect-36",
@@ -5003,7 +5003,7 @@
       "effectType": "buff",
       "hasVariable": true,
       "fulltime": false,
-      "icon": "/content/effects/Bufficon_2045-146f3794eb.png"
+      "icon": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162754/senadb/effects/bufficon_2045-146f3794eb.png"
     },
     {
       "id": "effect-37",
@@ -5012,7 +5012,7 @@
       "effectType": "buff",
       "hasVariable": false,
       "fulltime": false,
-      "icon": "/content/effects/BuffIcon_02001-7269688103.png"
+      "icon": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162715/senadb/effects/bufficon_02001-7269688103.png"
     },
     {
       "id": "effect-38",
@@ -5021,7 +5021,7 @@
       "effectType": "buff",
       "hasVariable": false,
       "fulltime": false,
-      "icon": "/content/effects/2025-11-16-14.49.58-1aadcf7012.png"
+      "icon": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162702/senadb/effects/2025-11-16-14.49.58-1aadcf7012.png"
     },
     {
       "id": "effect-39",
@@ -5030,7 +5030,7 @@
       "effectType": "buff",
       "hasVariable": false,
       "fulltime": false,
-      "icon": "/content/effects/Bufficon_2053_reverse-24a81588aa.png"
+      "icon": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162755/senadb/effects/bufficon_2053_reverse-24a81588aa.png"
     },
     {
       "id": "effect-40",
@@ -5039,7 +5039,7 @@
       "effectType": "buff",
       "hasVariable": false,
       "fulltime": false,
-      "icon": "/content/effects/BuffIcon_02006-7881b7e1e4.png"
+      "icon": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162717/senadb/effects/bufficon_02006-7881b7e1e4.png"
     },
     {
       "id": "effect-41",
@@ -5048,7 +5048,7 @@
       "effectType": "debuff",
       "hasVariable": true,
       "fulltime": false,
-      "icon": "/content/effects/Bufficon_10017-0f6b8bbc3e.png"
+      "icon": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162736/senadb/effects/bufficon_10017-0f6b8bbc3e.png"
     },
     {
       "id": "effect-42",
@@ -5057,7 +5057,7 @@
       "effectType": "debuff",
       "hasVariable": false,
       "fulltime": false,
-      "icon": "/content/effects/Bufficon_11004-c459b18e5b.png"
+      "icon": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162742/senadb/effects/bufficon_11004-c459b18e5b.png"
     },
     {
       "id": "effect-43",
@@ -5066,7 +5066,7 @@
       "effectType": "debuff",
       "hasVariable": false,
       "fulltime": false,
-      "icon": "/content/effects/Bufficon_13001-a4b07a8d6c.png"
+      "icon": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162745/senadb/effects/bufficon_13001-a4b07a8d6c.png"
     },
     {
       "id": "effect-44",
@@ -5075,7 +5075,7 @@
       "effectType": "debuff",
       "hasVariable": false,
       "fulltime": false,
-      "icon": "/content/effects/Bufficon_11007-2ff1610620.png"
+      "icon": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162743/senadb/effects/bufficon_11007-2ff1610620.png"
     },
     {
       "id": "effect-45",
@@ -5084,7 +5084,7 @@
       "effectType": "buff",
       "hasVariable": false,
       "fulltime": false,
-      "icon": "/content/effects/BuffIcon_02033_reverse-ee414e0673.png"
+      "icon": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162722/senadb/effects/bufficon_02033_reverse-ee414e0673.png"
     },
     {
       "id": "effect-46",
@@ -5093,7 +5093,7 @@
       "effectType": "debuff",
       "hasVariable": false,
       "fulltime": false,
-      "icon": "/content/effects/Bufficon_14001-e64533f195.png"
+      "icon": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162746/senadb/effects/bufficon_14001-e64533f195.png"
     },
     {
       "id": "effect-47",
@@ -5102,7 +5102,7 @@
       "effectType": "buff",
       "hasVariable": true,
       "fulltime": false,
-      "icon": "/content/effects/Bufficon_2043_reverse-8c4d40f323.png"
+      "icon": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162754/senadb/effects/bufficon_2043_reverse-8c4d40f323.png"
     },
     {
       "id": "effect-48",
@@ -5111,7 +5111,7 @@
       "effectType": "debuff",
       "hasVariable": true,
       "fulltime": false,
-      "icon": "/content/effects/Bufficon_10007-36e4831321.png"
+      "icon": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162730/senadb/effects/bufficon_10007-36e4831321.png"
     },
     {
       "id": "effect-49",
@@ -5120,7 +5120,7 @@
       "effectType": "buff",
       "hasVariable": true,
       "fulltime": true,
-      "icon": "/content/effects/BuffIcon_01007_reverse-1a5b44c02f.png"
+      "icon": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162707/senadb/effects/bufficon_01007_reverse-1a5b44c02f.png"
     },
     {
       "id": "effect-50",
@@ -5129,7 +5129,7 @@
       "effectType": "buff",
       "hasVariable": true,
       "fulltime": false,
-      "icon": "/content/effects/BuffIcon_01007-1e31275f18.png"
+      "icon": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162707/senadb/effects/bufficon_01007-1e31275f18.png"
     },
     {
       "id": "effect-51",
@@ -5138,7 +5138,7 @@
       "effectType": "buff",
       "hasVariable": false,
       "fulltime": false,
-      "icon": "/content/effects/BuffIcon_02031-8a3e8f3dff.png"
+      "icon": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162720/senadb/effects/bufficon_02031-8a3e8f3dff.png"
     },
     {
       "id": "effect-52",
@@ -5147,7 +5147,7 @@
       "effectType": "buff",
       "hasVariable": true,
       "fulltime": false,
-      "icon": "/content/effects/BuffIcon_01004_reverse-526528a053.png"
+      "icon": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162704/senadb/effects/bufficon_01004_reverse-526528a053.png"
     },
     {
       "id": "effect-53",
@@ -5156,7 +5156,7 @@
       "effectType": "debuff",
       "hasVariable": false,
       "fulltime": false,
-      "icon": "/content/effects/BuffIcon_15001-4c607864f4.png"
+      "icon": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162749/senadb/effects/bufficon_15001-4c607864f4.png"
     },
     {
       "id": "effect-54",
@@ -5165,7 +5165,7 @@
       "effectType": "debuff",
       "hasVariable": false,
       "fulltime": false,
-      "icon": "/content/effects/Bufficon_14006-ddfedeebcb.png"
+      "icon": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162748/senadb/effects/bufficon_14006-ddfedeebcb.png"
     },
     {
       "id": "effect-55",
@@ -5174,7 +5174,7 @@
       "effectType": "debuff",
       "hasVariable": false,
       "fulltime": false,
-      "icon": "/content/effects/Bufficon_13002-1d2454a8c4.png"
+      "icon": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162745/senadb/effects/bufficon_13002-1d2454a8c4.png"
     },
     {
       "id": "effect-56",
@@ -5183,7 +5183,7 @@
       "effectType": "buff",
       "hasVariable": false,
       "fulltime": false,
-      "icon": "/content/effects/BuffIcon_02033_reverse-ee414e0673.png"
+      "icon": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162722/senadb/effects/bufficon_02033_reverse-ee414e0673.png"
     },
     {
       "id": "effect-57",
@@ -5192,7 +5192,7 @@
       "effectType": "buff",
       "hasVariable": false,
       "fulltime": false,
-      "icon": "/content/effects/BuffIcon_02007_reverse-b643d2fc9f.png"
+      "icon": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162718/senadb/effects/bufficon_02007_reverse-b643d2fc9f.png"
     },
     {
       "id": "effect-58",
@@ -5201,7 +5201,7 @@
       "effectType": "buff",
       "hasVariable": true,
       "fulltime": false,
-      "icon": "/content/effects/BuffIcon_01009_reverse-3c4276ac2b.png"
+      "icon": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162709/senadb/effects/bufficon_01009_reverse-3c4276ac2b.png"
     },
     {
       "id": "effect-59",
@@ -5210,7 +5210,7 @@
       "effectType": "buff",
       "hasVariable": true,
       "fulltime": false,
-      "icon": "/content/effects/BuffIcon_01008_reverse-c816d99429.png"
+      "icon": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162708/senadb/effects/bufficon_01008_reverse-c816d99429.png"
     },
     {
       "id": "effect-60",
@@ -5219,7 +5219,7 @@
       "effectType": "debuff",
       "hasVariable": false,
       "fulltime": false,
-      "icon": "/content/effects/Bufficon_11005-492aa4b29a.png"
+      "icon": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162743/senadb/effects/bufficon_11005-492aa4b29a.png"
     },
     {
       "id": "effect-61",
@@ -5228,7 +5228,7 @@
       "effectType": "buff",
       "hasVariable": false,
       "fulltime": false,
-      "icon": "/content/effects/BuffIcon_03005-ea4bfa8457.png"
+      "icon": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162724/senadb/effects/bufficon_03005-ea4bfa8457.png"
     },
     {
       "id": "effect-62",
@@ -5237,7 +5237,7 @@
       "effectType": "debuff",
       "hasVariable": false,
       "fulltime": false,
-      "icon": "/content/effects/Bufficon_14002-a7c2870144.png"
+      "icon": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162747/senadb/effects/bufficon_14002-a7c2870144.png"
     },
     {
       "id": "effect-63",
@@ -5246,7 +5246,7 @@
       "effectType": "debuff",
       "hasVariable": false,
       "fulltime": false,
-      "icon": "/content/effects/Bufficon_12005-fbd4444ee4.png"
+      "icon": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162744/senadb/effects/bufficon_12005-fbd4444ee4.png"
     },
     {
       "id": "effect-64",
@@ -5255,7 +5255,7 @@
       "effectType": "debuff",
       "hasVariable": false,
       "fulltime": false,
-      "icon": "/content/effects/BuffIcon_03006-0d83a427c5.png"
+      "icon": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162725/senadb/effects/bufficon_03006-0d83a427c5.png"
     },
     {
       "id": "effect-65",
@@ -5264,7 +5264,7 @@
       "effectType": "debuff",
       "hasVariable": true,
       "fulltime": false,
-      "icon": "/content/effects/Bufficon_10005-7d808b8435.png"
+      "icon": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162728/senadb/effects/bufficon_10005-7d808b8435.png"
     },
     {
       "id": "effect-66",
@@ -5273,7 +5273,7 @@
       "effectType": "debuff",
       "hasVariable": true,
       "fulltime": false,
-      "icon": "/content/effects/BuffIcon_01005_reverse-be55becf6c.png"
+      "icon": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162705/senadb/effects/bufficon_01005_reverse-be55becf6c.png"
     },
     {
       "id": "effect-67",
@@ -5282,7 +5282,7 @@
       "effectType": "buff",
       "hasVariable": false,
       "fulltime": false,
-      "icon": "/content/effects/Bufficon_2021-85e7b0149d.png"
+      "icon": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162753/senadb/effects/bufficon_2021-85e7b0149d.png"
     },
     {
       "id": "effect-68",
@@ -5291,7 +5291,7 @@
       "effectType": "debuff",
       "hasVariable": false,
       "fulltime": false,
-      "icon": "/content/effects/Bufficon_10017_Rin-e11a5b34d4.png"
+      "icon": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162736/senadb/effects/bufficon_10017_rin-e11a5b34d4.png"
     },
     {
       "id": "effect-69",
@@ -5300,7 +5300,7 @@
       "effectType": "debuff",
       "hasVariable": false,
       "fulltime": false,
-      "icon": "/content/effects/BuffIcon_15003-c1bd3f9416.png"
+      "icon": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162750/senadb/effects/bufficon_15003-c1bd3f9416.png"
     },
     {
       "id": "effect-70",
@@ -5309,7 +5309,7 @@
       "effectType": "debuff",
       "hasVariable": true,
       "fulltime": false,
-      "icon": "/content/effects/Bufficon_10011_reverse-f61ed45d42.png"
+      "icon": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162732/senadb/effects/bufficon_10011_reverse-f61ed45d42.png"
     },
     {
       "id": "effect-71",
@@ -5318,7 +5318,7 @@
       "effectType": "buff",
       "hasVariable": true,
       "fulltime": false,
-      "icon": "/content/effects/BuffIcon_01011_reverse-c03a305be7.png"
+      "icon": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162710/senadb/effects/bufficon_01011_reverse-c03a305be7.png"
     },
     {
       "id": "effect-72",
@@ -5327,7 +5327,7 @@
       "effectType": "buff",
       "hasVariable": true,
       "fulltime": false,
-      "icon": "/content/effects/BuffIcon_01010_reverse-218297c7b8.png"
+      "icon": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162709/senadb/effects/bufficon_01010_reverse-218297c7b8.png"
     },
     {
       "id": "effect-73",
@@ -5336,7 +5336,7 @@
       "effectType": "buff",
       "hasVariable": true,
       "fulltime": false,
-      "icon": "/content/effects/BuffIcon_02032-e0f74e001e.png"
+      "icon": "https://res.cloudinary.com/dkmgbrer8/image/upload/v1785162721/senadb/effects/bufficon_02032-e0f74e001e.png"
     }
   ],
   "integrity": {
