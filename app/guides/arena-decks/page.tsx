@@ -5,6 +5,9 @@ export const metadata: Metadata = {
   title: "세븐나이츠 리버스 결투장 덱 추천",
   description:
     "세븐나이츠 리버스 결투장 덱 추천과 구성 원리 정리. 공덱, 방덱, 속공 중심 조합과 초보자용 안정 조합을 확인하세요.",
+  alternates: {
+    canonical: "/guides/arena-decks",
+  },
 };
 
 const deckSections = [

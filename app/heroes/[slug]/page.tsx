@@ -326,6 +326,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: `${hero.name} 상세`,
     description: hero.description || `${hero.name}의 스탯, 스킬, 히스토리를 확인하세요.`,
+    alternates: {
+      canonical: `/heroes/${hero.slug}`,
+    },
   };
 }
 

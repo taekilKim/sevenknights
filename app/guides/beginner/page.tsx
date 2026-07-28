@@ -5,6 +5,9 @@ export const metadata: Metadata = {
   title: "세나 리버스 초보자 가이드",
   description:
     "세븐나이츠 리버스를 처음 시작하는 유저를 위한 1주차~1개월차 성장 로드맵. 리세마라, 초반 육성, 자원 관리까지 확인하세요.",
+  alternates: {
+    canonical: "/guides/beginner",
+  },
 };
 
 const starterConcepts = [

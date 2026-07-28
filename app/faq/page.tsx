@@ -5,6 +5,9 @@ export const metadata: Metadata = {
   title: "세나 리버스 FAQ",
   description:
     "세븐나이츠 리버스 자주 묻는 질문 정리. 리세마라, 무과금, 영웅 육성, 장비, 결투장 덱까지 한 번에 확인하세요.",
+  alternates: {
+    canonical: "/faq",
+  },
 };
 
 const faqItems = [

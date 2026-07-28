@@ -5,6 +5,9 @@ export const metadata: Metadata = {
   title: "세나 리버스 티어표",
   description:
     "세븐나이츠 리버스 티어표와 등급별 평가 기준 정리. 결투장, 초보자 추천, 범용성 높은 영웅을 빠르게 확인하세요.",
+  alternates: {
+    canonical: "/tier-list",
+  },
 };
 
 const tierHighlights = [
